@@ -7,14 +7,18 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 04/18/2023
 ---
 
-# Get started with change data capture in the analytical store for Azure Cosmos DB
+# Get started with change data capture in the analytical store for Azure Cosmos DB (Preview)
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 Use Change data capture (CDC) in Azure Cosmos DB analytical store as a source to [Azure Data Factory](../data-factory/index.yml) or [Azure Synapse Analytics](../synapse-analytics/index.yml) to capture specific changes to your data.
+
+
+> [!NOTE]
+> Please note that the linked service interface for Azure Cosmos DB for MongoDB API is not available on Dataflow yet. However, you would be able to use your account’s document endpoint with the “Azure Cosmos DB for NoSQL” linked service interface as a work around until the Mongo linked service is supported. On a NoSQL linked service, choose “Enter Manually” to provide the Cosmos DB account info and use account’s document endpoint (eg: `https://[your-database-account-uri].documents.azure.com:443/`) instead of the MongoDB endpoint (eg: `mongodb://[your-database-account-uri].mongo.cosmos.azure.com:10255/`)  
 
 ## Prerequisites
 
@@ -27,9 +31,9 @@ Use Change data capture (CDC) in Azure Cosmos DB analytical store as a source to
 
 First, enable Azure Synapse Link at the account level and then enable analytical store for the containers that's appropriate for your workload.
 
-1. Enable Azure Synapse Link: [Enable Azure Synapse Link for an Azure Cosmos DB account](configure-synapse-link.md#enable-synapse-link) |
+1. Enable Azure Synapse Link: [Enable Azure Synapse Link for an Azure Cosmos DB account](configure-synapse-link.md#enable-synapse-link) 
 
-1. Enable analytical store for your container\[s\]:
+1. Enable analytical store for your containers:
 
     | Option | Guide |
     | --- | --- |
@@ -104,6 +108,23 @@ Now create and configure a source to flow data from the Azure Cosmos DB account'
 | Batchsize in bytes | Specify the size in bytes if you would like to batch the change data capture feeds |
 | Extra Configs | Extra Azure Cosmos DB analytical store configs and their values. (ex: `spark.cosmos.allowWhiteSpaceInFieldNames -> true`) |
 
+### Working with source options
+  
+When you check any of the `Capture intermediate updates`, `Capture Deltes`, and `Capture Transactional store TTLs` options, your CDC process will create and populate the `__usr_opType` field in sink with the following values:
+
+| Value | Description | Option
+| --- | --- | --- |
+| 1 | UPDATE | Capture Intermediate updates |
+| 2 | INSERT | There isn't an option for inserts, it's on by default |
+| 3 | USER_DELETE | Capture Deletes |
+| 4 | TTL_DELETE |  Capture Transactional store TTLs|
+  
+If you have to differentiate the TTL deleted records from documents deleted by users or applications, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. Then you have to adapt your CDC processes or applications or queries to use `__usr_opType` according to what is necessary for your business needs.
+
+>[!TIP]
+> If there is a need for the downstream consumers to restore the order of updates with the “capture intermediate updates” option checked,  the system timestamp `_ts` field can be used as the ordering field.
+  
+  
 ## Create and configure sink settings for update and delete operations
 
 First, create a straightforward [Azure Blob Storage](../storage/blobs/index.yml) sink and then configure the sink to filter data to only specific operations.

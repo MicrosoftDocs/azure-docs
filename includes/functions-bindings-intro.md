@@ -20,7 +20,7 @@ This is reference information for Azure Functions developers. If you're new to A
 ::: zone pivot="programming-language-javascript"  
 * [Create your first function](../articles/azure-functions/create-first-function-vs-code-node.md). 
 
-* [JavaScript developer reference](../articles/azure-functions/functions-reference-node.md).
+* [JavaScript developer reference](../articles/azure-functions/functions-reference-node.md?tabs=javascript).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 * [Create your first function](../articles/azure-functions/create-first-function-cli-java.md).

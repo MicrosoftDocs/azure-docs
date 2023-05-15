@@ -39,7 +39,7 @@ You can identify a workspace in one of several ways:
 
     `workspace("00000000-0000-0000-0000-000000000000").Update | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
 
     For example:
 
@@ -50,7 +50,7 @@ You can identify a workspace in one of several ways:
 ### Identify an application
 The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
 
-You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following names or IDs:
+You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following IDs:
 
 * **ID**: This ID is the app GUID of the application.
 

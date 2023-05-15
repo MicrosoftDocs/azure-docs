@@ -50,17 +50,17 @@ in the Azure Key Vault. You'll also need to know how to handle role assignments 
 
 ## Interactive Data Wrangling with Apache Spark
 
-Azure Machine Learning offers Managed (Automatic) Spark compute, and [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md), for interactive data wrangling with Apache Spark, in Azure Machine Learning Notebooks. The Managed (Automatic) Spark compute doesn't require creation of resources in the Azure Synapse workspace. Instead, a fully managed automatic Spark compute becomes directly available in the Azure Machine Learning Notebooks. Using a Managed (Automatic) Spark compute is the easiest approach to access a Spark cluster in Azure Machine Learning.
+Azure Machine Learning offers serverless Spark compute (preview), and [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md), for interactive data wrangling with Apache Spark, in Azure Machine Learning Notebooks. The serverless Spark compute doesn't require creation of resources in the Azure Synapse workspace. Instead, a fully managed automatic Spark compute becomes directly available in the Azure Machine Learning Notebooks. Using a serverless Spark compute is the easiest approach to access a Spark cluster in Azure Machine Learning.
 
-### Managed (Automatic) Spark compute in Azure Machine Learning Notebooks
+### serverless Spark compute in Azure Machine Learning Notebooks
 
-A Managed (Automatic) Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, select **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu.
+A serverless Spark compute is available in Azure Machine Learning Notebooks by default. To access it in a notebook, select **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu.
 
 :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-ml-spark-compute.png" alt-text="Screenshot highlighting the selected Azure Machine Learning Spark option at the Compute selection menu.":::
 
-The Notebooks UI also provides options for Spark session configuration, for the Managed (Automatic) Spark compute. To configure a Spark session:
+The Notebooks UI also provides options for Spark session configuration, for the serverless Spark compute. To configure a Spark session:
 
-1. Select **Configure session** at the bottom of the screen.
+1. Select **Configure session** at the top of the screen.
 1. Select a version of **Apache Spark** from the dropdown menu.
    > [!IMPORTANT]
    >
@@ -85,7 +85,7 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 
     :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/stop-current-session.png" alt-text="Screenshot showing the stop current session dialog box.":::
 
-The session configuration changes will persist and will become available to another notebook session that is started using the Managed (Automatic) Spark compute.
+The session configuration changes will persist and will become available to another notebook session that is started using the serverless Spark compute.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
@@ -95,15 +95,15 @@ You can access and wrangle data stored in Azure Data Lake Storage (ADLS) Gen 2 s
 - Service principal-based data access
 
 > [!TIP]
-> Data wrangling with a Managed (Automatic) Spark compute, and user identity passthrough to access data in Azure Data Lake Storage (ADLS) Gen 2 storage account requires the least number of configuration steps.
+> Data wrangling with a serverless Spark compute, and user identity passthrough to access data in Azure Data Lake Storage (ADLS) Gen 2 storage account requires the least number of configuration steps.
 
 To start interactive data wrangling with the user identity passthrough:
 
 - Verify that the user identity has **Contributor** and **Storage Blob Data Contributor** [role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account.
 
-- To use the Managed (Automatic) Spark compute, select **Azure Machine Learning Spark Compute**, under **Azure Machine Learning Spark**, from the **Compute** selection menu.
+- To use the serverless Spark compute, select **Azure Machine Learning Spark Compute**, under **Azure Machine Learning Spark**, from the **Compute** selection menu.
 
-    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-machine-learning-spark.png" alt-text="Screenshot showing use of a Managed (Automatic) Spark compute.":::
+    :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/select-azure-machine-learning-spark.png" alt-text="Screenshot showing use of a serverless Spark compute.":::
 
 - To use an attached Synapse Spark pool, select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu.
 
@@ -139,7 +139,7 @@ To wrangle data by access through a service principal:
 
 1. Verify that the service principal has **Contributor** and **Storage Blob Data Contributor** [role assignments](./apache-spark-environment-configuration.md#add-role-assignments-in-azure-storage-accounts) in the Azure Data Lake Storage (ADLS) Gen 2 storage account.
 1. [Create Azure Key Vault secrets](./apache-spark-environment-configuration.md#store-azure-storage-account-credentials-as-secrets-in-azure-key-vault) for the service principal tenant ID, client ID and client secret values.
-1. Select Managed (Automatic) Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu
+1. Select serverless Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu
 1. To set the service principal tenant ID, client ID and client secret in the configuration, execute the following code sample.
      - The `get_secret()` call in the code depends on name of the Azure Key Vault, and the names of the Azure Key Vault secrets created for the service principal tenant ID, client ID and client secret. The corresponding property name/values to set in the configuration are as follows:
        - Client ID property: `fs.azure.account.oauth2.client.id.<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net`
@@ -188,7 +188,7 @@ You can access Azure Blob storage data with either the storage account access ke
 
 To start interactive data wrangling:
 1. At the Azure Machine Learning studio left panel, select **Notebooks**.
-1. At the **Compute** selection menu, select the Managed (Automatic) Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark**, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu.
+1. At the **Compute** selection menu, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu.
 1. To configure the storage account access key or a shared access signature (SAS) token for data access in Azure Machine Learning Notebooks:
 
      - For the access key, set property `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net` as shown in this code snippet:
@@ -249,7 +249,7 @@ To start interactive data wrangling:
 
 To access data from [Azure Machine Learning Datastore](how-to-datastore.md), define a path to data on the datastore with [URI format](how-to-create-data-assets.md?tabs=cli#supported-paths) `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>`. To wrangle data from an Azure Machine Learning Datastore in a Notebooks session interactively:
 
-1. Select the Managed (Automatic) Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu.
+1. Select the serverless Spark compute **Azure Machine Learning Spark Compute** under **Azure Machine Learning Spark** from the **Compute** selection menu, or select an attached Synapse Spark pool under **Synapse Spark pool (Preview)** from the **Compute** selection menu.
 2. This code sample shows how to read and wrangle Titanic data from an Azure Machine Learning Datastore, using `azureml://` datastore URI, `pyspark.pandas` and `pyspark.ml.feature.Imputer`.
 
     ```python
@@ -295,7 +295,7 @@ or provide credential-less data access. Depending on the datastore type and the 
 
 ## Accessing data on the default file share
 
-The default file share is mounted to both Managed (Automatic) Spark compute and attached Synapse Spark pools.
+The default file share is mounted to both serverless Spark compute and attached Synapse Spark pools.
 
 :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/default-file-share.png" alt-text="Screenshot showing use of a file share.":::
 

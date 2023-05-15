@@ -8,7 +8,7 @@ author: shreyaaithal
 ms.author: shaithal 
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, mode-other
-ms.date: 01/16/2021
+ms.date: 05/03/2023
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL - Flexible Server
@@ -21,7 +21,7 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL by us
 
 For this quickstart you need:
 
-- An Azure account with an active subscription. 
+- An Azure account with an active subscription.
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Create an Azure Database for MySQL - Flexible Server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
@@ -32,9 +32,10 @@ For this quickstart you need:
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Create a C# project
+
 At a command prompt, run:
 
-```
+```bash
 mkdir AzureMySqlExample
 cd AzureMySqlExample
 dotnet new console
@@ -42,6 +43,7 @@ dotnet add package MySqlConnector
 ```
 
 ## Get connection information
+
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
@@ -51,7 +53,9 @@ Get the connection information needed to connect to the Azure Database for MySQL
  :::image type="content" source="./media/connect-csharp/server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
 ## Step 1: Connect and insert data
+
 Use the following code to connect and load the data by using `CREATE TABLE` and  `INSERT INTO` SQL statements. The code uses the methods of the `MySqlConnection` class:
+
 - [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
 - [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand), sets the CommandText property
 - [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands.
@@ -122,11 +126,11 @@ namespace AzureMySqlExample
 ## Step 2: Read data
 
 Use the following code to connect and read the data by using a `SELECT` SQL statement. The code uses the `MySqlConnection` class with methods:
+
 - [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
 - [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) to set the CommandText property.
 - [ExecuteReaderAsync()](/dotnet/api/system.data.common.dbcommand.executereaderasync) to run the database commands.
 - [ReadAsync()](/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) to advance to the records in the results. Then the code uses GetInt32 and GetString to parse the values in the record.
-
 
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database.
 
@@ -185,11 +189,12 @@ namespace AzureMySqlExample
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Step 3: Update data
+
 Use the following code to connect and read the data by using an `UPDATE` SQL statement. The code uses the `MySqlConnection` class with method:
+
 - [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
 - [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) to set the CommandText property
 - [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands.
-
 
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database.
 
@@ -239,13 +244,14 @@ namespace AzureMySqlExample
 ```
 
 ## Step 4: Delete data
+
 Use the following code to connect and delete the data by using a `DELETE` SQL statement.
 
 The code uses the `MySqlConnection` class with method
+
 - [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
 - [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) to set the CommandText property.
 - [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands.
-
 
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database.
 
@@ -297,13 +303,14 @@ namespace AzureMySqlExample
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using Portal](./how-to-manage-server-portal.md)<br/>
 

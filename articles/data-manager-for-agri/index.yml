@@ -67,7 +67,21 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Set up Private Links
+          - text: Set up private links
             url: how-to-set-up-private-links.md
-          - text: Set up Audit Logs
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Using events
+            url: how-to-use-events.md
+      - linkListType: concept
+        links:
+          - text: Understanding throttling
+            url: concepts-understanding-throttling.md  
+  - title: Monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up audit logs
             url: how-to-set-up-audit-logs.md

@@ -2,13 +2,56 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 05/03/2023
 ms.author: edbaynash
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
+
+## April 2023
+
+|Subservice| Article | Description |
+|---|---|---|
+Agents|[Azure Monitor Agent Performance Benchmark](agents/azure-monitor-agent-performance.md)|Added performance benchmark data for the scenario of using Azure Monitor Agent to forward data to a gateway.|
+Agents|[Troubleshoot issues with the Log Analytics agent for Windows](agents/agent-windows-troubleshoot.md)|Log Analytics will no longer accept connections from MMA versions that use old root CAs (MMA versions prior to the Winter 2020 release for Log Analytics agent, and prior to SCOM 2019 UR3 for SCOM). |
+Agents|[Azure Monitor Agent overview](agents/agents-overview.md)|Log Analytics agent supports Windows Server 2022. |
+Alerts|[Common alert schema](alerts/alerts-common-schema.md)|Updated alert payload common schema to include custom properties.|
+Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Clarified use of basic auth in webhook.|
+Application-Insights|[Application Insights logging with .NET](app/ilogger.md)|We've made it easier to understand where to find iLogger telemetry.|
+Application-Insights|[Set up Azure Monitor for your Python application](app/opencensus-python.md)|Updated telemetry type mappings code sample.|
+Application-Insights|[Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](app/javascript-feature-extensions.md)|Code samples updated to use connection strings.|
+Application-Insights|[Connection strings](app/sdk-connection-string.md)|Code samples updated for .NET 6/7.|
+Application-Insights|[Live Metrics: Monitor and diagnose with 1-second latency](app/live-stream.md)|Code samples updated for .NET 6/7.|
+Application-Insights|[Geolocation and IP address handling](app/ip-collection.md)|The PowerShell 'Update-AzApplicationInsights' code sample to disable IP masking has been updated.|
+Application-Insights|[Application Insights for Worker Service applications (non-HTTP applications)](app/worker-service.md)|The .NET Core app scenario chart has been updated.|
+Application-Insights|[Azure AD authentication for Application Insights](app/azure-ad-authentication.md)|Linked information on how to query Application Insights using Azure AD Authentication.|
+Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](app/opentelemetry-enable.md)|Java guidance and code samples have been updated.|
+Autoscale|[Configure autoscale with PowerShell](autoscale/autoscale-using-powershell.md)|New Article:  Configure autoscale using PowerShell|
+Autoscale|[Get started with autoscale in Azure](autoscale/autoscale-get-started.md)|Refreshed article|
+Containers|[Monitor an Azure Kubernetes Service cluster using Container insights in Azure Monitor](/training/modules/aks-monitor/)|New Learn module: Monitor an Azure Kubernetes Service cluster using Container insights in Azure Monitor.|
+Containers|[Manage the Container insights agent](containers/container-insights-manage-agent.md)|Semantic version update of container insights agent version|
+Essentials|[Azure Monitor Metrics overview](essentials/data-platform-metrics.md)|New Batch Metrics API that allows multiple resource requests and reducing throttling found in the non-batch version. |
+General|[Cost optimization in Azure Monitor](best-practices-cost.md)|Rewritten to match organization of Well Architected Framework service guides|
+General|[Best practices for Azure Monitor Logs](best-practices-logs.md)|New article with consolidated list of best practices for Logs organized by WAF pillar.|
+General|[Migrate from System Center Operations Manager (SCOM) to Azure Monitor](azure-monitor-operations-manager.md)|Migrate from SCOM to Azure Monitor|
+Logs|[Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication](logs/api/app-insights-azure-ad-api.md)|New article that explains how to authenticate and access the Azure Monitor Application Insights APIs using Azure AD.|
+Logs|[Tutorial: Replace custom fields in Log Analytics workspace with KQL-based custom columns](logs/custom-fields-migrate.md)|Guidance for migrate legacy custom fields to KQL-based custom columns using transformations.|
+Logs|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|View Log Analytics workspace health metrics, including query success metrics, directly from the Log Analytics workspace screen in the Azure portal.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Dedicated SQL Pool tables and Kubernetes services tables now support Basic logs.|
+Logs|[Set daily cap on Log Analytics workspace](logs/daily-cap.md)|Updated daily cap functionality for workspace-based Application Insights.|
+Profiler|[View Application Insights Profiler data](profiler/profiler-data.md)|Clarified this section based on user feedback.|
+Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger/snapshot-collector-release-notes.md)|Removed "how to view" sections and move into its own doc.|
+Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger/snapshot-debugger-app-service.md)|Updated link for release notes to the "Release notes" section in the Snapshot Debugger overview.|
+Snapshot-Debugger|[View Application Insights Snapshot Debugger data](snapshot-debugger/snapshot-debugger-data.md)|Created this new doc for viewing snapshots from content taken from the overview.|
+Snapshot-Debugger|[Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](snapshot-debugger/snapshot-debugger-function-app.md)|Updated link for release notes to the "Release notes" section in the Snapshot Debugger overview.|
+Snapshot-Debugger|[Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](snapshot-debugger/snapshot-debugger-troubleshoot.md)|Updated link for release notes to the "Release notes" section in the Snapshot Debugger overview.|
+Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines](snapshot-debugger/snapshot-debugger-vm.md)|Updated link for release notes to the "Release notes" section in the Snapshot Debugger overview.|
+Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger/snapshot-debugger.md)|Moved the release notes to the end of the Snapshot Debugger overview doc to improve page metrics.|
+Snapshot-Debugger|[What's new in Azure Monitor documentation](whats-new.md)|Updated link for release notes to the "Release notes" section in the Snapshot Debugger overview.|
+Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger/snapshot-debugger.md)|Updated .NET availability for Snapshot Debugger to avoid ".NET Core" and "LTS" language.|
+Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger/snapshot-debugger.md)|Added release notes for the 1.4.4 point release addressing user-reported bugs.|
 
 ## March 2023  
   
@@ -23,7 +66,7 @@ Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Updated
 Alerts|[Understanding Azure Active Directory Application Proxy Complex application scenario (preview)](../active-directory/app-proxy/application-proxy-configure-complex-application.md)| Updated the documentation for the common schema used in the alerts payload to contain the detailed information about the fields in the payload of each alert type.  |
 Alerts|[Supported resources for metric alerts in Azure Monitor](alerts/alerts-metric-near-real-time.md)|Updated list of metrics supported by metric alert rules.|
 Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Updated the documentation explaining the retry logic used in action groups that use webhooks.|
-Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Added list of countries supported by voice notifications.|
+Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Added list of countries/regions supported by voice notifications.|
 Alerts|[Connect ServiceNow to Azure Monitor](alerts/itsmc-secure-webhook-connections-servicenow.md)|Added Tokyo to list of supported ServiceNow webhook integrations.|
 Application-Insights|[Application Insights SDK support guidance](app/sdk-support-guidance.md)|Release notes are now available for each SDK.|
 Application-Insights|[What is distributed tracing and telemetry correlation?](app/distributed-tracing-telemetry-correlation.md)|Merged our documents related to distributed tracing and telemetry correlation.|

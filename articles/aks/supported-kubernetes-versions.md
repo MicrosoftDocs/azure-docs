@@ -45,23 +45,31 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | Dec 2022 |
-| 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | Apr 2023 |
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | Jul 2023
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | May 2023 | Jun 2023 | Jun 2024
 
+## AKS Components Breaking Changes by Version
+
+Note important changes to make, before you upgrade to any of the available minor versions per below. 
+
+|AKS Component/Add on | v1.24  | v1.25 | v1.26 |
+|--------------|-------------------|-----------------------------------------------------------|---------------------------------------------------------------------------|
+| Overlay VPA | 0.11.0, no breaking changes |0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)|0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)
+|OS Images (Ubuntu)| Ubuntu 18.04 by default with cgroupv1 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br> If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br>If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
+
+
 ## Alias minor version
 
 > [!NOTE]
-> Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220201 or above. Use `az upgrade` to install the latest version of the CLI.
+> Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220401 or above. Use `az upgrade` to install the latest version of the CLI.
 
-With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
+AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#using-cluster-auto-upgrade).
+When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` doesn't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` triggers an upgrade to the latest GA `1.15` patch.
 
-To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
+To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
 
 ```
 {
@@ -96,9 +104,7 @@ New minor version    |    Supported Version List
 -----------------    |    ----------------------
 1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
 
-Where ".letter" is representative of patch versions.
-
-When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and removed. For example, if the current supported version list is:
+When a new minor version is introduced, the oldest supported minor version and patch releases are deprecated and removed. For example, the current supported version list is:
 
 ```
 1.17.a

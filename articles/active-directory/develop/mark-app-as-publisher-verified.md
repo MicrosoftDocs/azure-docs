@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 03/16/2023
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: xurobert, brianokoyo, ardhanap
+ms.reviewer: xurobert
 ---
 
 # Mark your app as publisher verified
