@@ -153,8 +153,6 @@ Use the following client libraries for role-based access control:
 
 ### [**.NET SDK**](#tab/aad-dotnet)
 
-Use [Azure.Search.Documents version 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) for Azure AD authentication.
-
 The following instructions reference an existing C# sample to demonstrate the code changes.
 
 1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the [C# quickstart](search-get-started-dotnet.md).
