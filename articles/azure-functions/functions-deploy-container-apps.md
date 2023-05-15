@@ -76,82 +76,82 @@ Use the following commands to create these items.
 
 A function app on Azure manages the execution of your functions in your Azure Container Apps environment. In this section, you use the Azure resources from the previous section to create a function app from an image in a container registry in a Container Apps environment. You also configure the new environment with a connection string to the required Azure Storage account.
 
-1. Use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app in the new managed environment backed by Azure Container Apps:
+Use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app in the new managed environment backed by Azure Container Apps:
 
-    # [Azure Container Registry](#tab/acr)
-    ::: zone pivot="programming-language-csharp"  
-    ```azurecli
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript" 
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-java" 
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end 
-    ::: zone pivot="programming-language-powershell"  
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end
+# [Azure Container Registry](#tab/acr)
+::: zone pivot="programming-language-csharp"  
+```azurecli
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end  
+::: zone pivot="programming-language-java" 
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end 
+::: zone pivot="programming-language-powershell"  
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end  
+::: zone pivot="programming-language-python"  
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end
 
-    In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, `<LOGIN_SERVER>` with your fully qualified Container Registry server, `<REGISTRY_NAME>` with your registry name for the login, and `<ADMIN_PASSWORD>` with the password to your admin account. 
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, `<LOGIN_SERVER>` with your fully qualified Container Registry server, `<REGISTRY_NAME>` with your registry name for the login, and `<ADMIN_PASSWORD>` with the password to your admin account. 
 
-    > [!IMPORTANT]
-    > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository.
+> [!IMPORTANT]
+> The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository.
 
-    # [Docker Hub](#tab/docker)
-    ::: zone pivot="programming-language-csharp"  
-    ```azurecli
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript" 
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-java" 
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
-    ```
-    ::: zone-end 
-    ::: zone pivot="programming-language-powershell"  
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
-    ```console
-    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
-    ```
-    ::: zone-end
+# [Docker Hub](#tab/docker)
+::: zone pivot="programming-language-csharp"  
+```azurecli
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime dotnet-isolated --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+```
+::: zone-end  
+::: zone pivot="programming-language-java" 
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+```
+::: zone-end 
+::: zone pivot="programming-language-powershell"  
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+```
+::: zone-end  
+::: zone pivot="programming-language-python"  
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime python --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```console
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+```
+::: zone-end
 
-    In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. 
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. 
 
-    ---
+---
 
-    When you first create the function app, it pulls the initial image from your registry. 
+When you first create the function app, it pulls the initial image from your registry. 
   
 <!--- CI/CD isn't yet supported: 
 You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.-->

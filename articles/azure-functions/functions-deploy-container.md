@@ -14,7 +14,7 @@ Deploying your function code to Azure Functions in a container requires [Premium
 
 Other options for deploying your function app container to Azure include:
 
-+ Azure Container Apps: to learn more, see [Deploy a container to Azure Container apps](./functions-deploy-container-aca.md).
++ Azure Container Apps: to learn more, see [Deploy a container to Azure Container apps](./functions-deploy-container-apps.md).
 
 + Azure Arc (currently in preview): to learn more, see [Deploy a container to Azure Arc](./create-first-function-arc-custom-container.md).
 

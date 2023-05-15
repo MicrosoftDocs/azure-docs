@@ -15,7 +15,7 @@ In this article, you create a function app running in a Linux container and depl
 > [!NOTE]
 > Support for deploying a custom container to an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 
-You can also publish you functions to an Azure Arc-enabled Kubernetes cluster without first creating a container. To learn more, see [Create your first function on Azure Arc (preview)](create-first-function-arc-cli.md)     
+You can also publish your functions to an Azure Arc-enabled Kubernetes cluster without first creating a container. To learn more, see [Create your first function on Azure Arc (preview)](create-first-function-arc-cli.md)     
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
