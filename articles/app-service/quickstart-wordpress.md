@@ -4,7 +4,7 @@ description: Create your first WordPress site on Azure App Service in minutes.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
 ms.topic: quickstart
-ms.date: 06/27/2022
+ms.date: 05/15/2023
 ms.devlang: wordpress
 ms.author: msangapu
 ms.custom: mvc
@@ -29,19 +29,19 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
     :::image type="content" source="./media/quickstart-wordpress/01-portal-create-wordpress-on-app-service.png?text=WordPress from Azure Marketplace" alt-text="Screenshot of Create a WordPress site.":::
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type **`myResourceGroup`** for the name and select a **Region** you want to serve your app from.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected. Select **Create new** resource group and type **`myResourceGroup`** for the name.
 
      :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details.":::
 
-1. Under **Hosting details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. Select **Compare plans** to view features and price comparisons.
+1. Under **Hosting details**,  select a **Region** you want to serve your app from, then type a globally unique name for your web app. Under **Hosting plans**, select **Standard**. Select **Change plan** to view features and price comparisons.
 
      :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details.":::
 
-1. <a name="wordpress-settings"></a>Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for WordPress administrative sign-in only.
+1. <a name="wordpress-setup"></a>Under **WordPress setup**, choose your preferred **Site Language**, then type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** is used for WordPress administrative sign-in only. Clear the **Enable multisite** checkbox.
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings.":::
 
-1. Select the **Advanced** tab. Under **Additional Settings** choose your preferred **Site Language** and  **Content Distribution**. If you're unfamiliar with a [Content Delivery Network](../cdn/cdn-overview.md) or [Blob Storage](../storage/blobs/storage-blobs-overview.md), select **Disabled**. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
+1. Select the **Advanced** tab. If you're unfamiliar with a [Azure CDN](../cdn/cdn-overview.md), [Azure Front Door](), or [Blob Storage](../storage/blobs/storage-blobs-overview.md), then clear the checkboxes . For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
 
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings.":::
 
