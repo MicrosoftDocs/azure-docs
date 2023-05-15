@@ -22,7 +22,7 @@ SMS offers pay-as-you-go pricing. The price is a per-message segment charge base
 
 The following prices are exclusive of the required communications taxes and fees:
 
-|Country| Send Message |
+|Country/Region| Send Message |
 |-----------|---------|
 |Australia| $0.049 | 
 |Austria| $0.0932 | 

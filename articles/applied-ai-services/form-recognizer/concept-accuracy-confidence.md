@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 10/14/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Accuracy and confidence scores for custom models

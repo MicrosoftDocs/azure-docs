@@ -379,6 +379,7 @@ For more detailed instructions on how to enable logs, see [@azure/logger package
 
 Use **Live Trace** from the Web PubSub service portal to view the live traffic.
 
+[aad_doc]: howto-authorize-from-application.md
 [azure_sub]: https://azure.microsoft.com/free/
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/
 

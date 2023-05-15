@@ -174,17 +174,17 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
-1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
 1. Sign in to Azure.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
 1. Install the [latest version of PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Install-Module -Name PowerShellGet -AllowPrerelease
     ```
 
@@ -192,7 +192,7 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
 1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
     ```
 
@@ -330,7 +330,7 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 1. If you're running locally, sign in to Azure through the Azure CLI.
 
-    ```
+    ```azurecli-interactive
     az login
     ```
 

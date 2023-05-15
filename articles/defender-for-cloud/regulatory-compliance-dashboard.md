@@ -2,7 +2,7 @@
 title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 ms.topic: tutorial
-ms.date: 01/24/2023
+ms.date: 05/09/2023
 ---
 
 # Tutorial: Improve your regulatory compliance
@@ -29,8 +29,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To step through the features covered in this tutorial:
 
-- [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- [Enable enhanced security features](enable-enhanced-security.md). You can enable these for free for 30 days.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Reader** role for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -278,7 +278,8 @@ To customize the regulatory compliance dashboard, and focus only on the standard
 After you take action to resolve recommendations, wait 12 hours to see the changes to your compliance data. Assessments are run approximately every 12 hours, so you'll see the effect on your compliance data only after the assessments run.
 
 ### What permissions do I need to access the compliance dashboard?
-To view compliance data, you need to have at least **Reader** access to the policy compliance data as well; so Security Reader alone won’t suffice. If you're a global reader on the subscription, that will be enough too.
+
+To access all compliance data in your tenant, you need to have at least a **Reader** level of permissions on the applicable scope of your tenant, or all relevant subscriptions.
 
 The minimum set of roles for accessing the dashboard and managing standards is **Resource Policy Contributor** and **Security Admin**.
 
