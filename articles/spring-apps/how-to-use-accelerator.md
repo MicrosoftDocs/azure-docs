@@ -308,14 +308,14 @@ Use the following steps to configure accelerators with self-signed certificate:
 1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 2. Configure the certificate for accelerator from portal and CLI.
 
-##### [Azure portal](#tab/Portal)
+#### [Azure portal](#tab/Portal)
 
 To configure certificate for an accelerator, open the **Accelerators** section and then select **Add Accelerator** under the Customized Accelerators section and select the certificate from dropdown list.
 
 :::image type="content" source="media/how-to-use-accelerator/config-cert.png" alt-text="Screenshot configure the certificate." lightbox="media/how-to-use-accelerator/config-cert.png":::
 
 ---
-##### [Azure CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to configure certificate for accelerator in Azure CLI.
 
@@ -330,7 +330,7 @@ az spring application-accelerator customized-accelerator add \
 
 ---
 
-#### Rotate certificates
+### Rotate certificates
 
 As certificates expire, you need to rotate certificates in Spring Cloud Apps by using the following steps:
 
@@ -340,7 +340,7 @@ As certificates expire, you need to rotate certificates in Spring Cloud Apps by 
 
 The accelerators will not automatically use the latest certificate. User should sync single or all certificates from portal and CLI.
 
-##### [Azure portal](#tab/Portal)
+#### [Azure portal](#tab/Portal)
 
 To sync certificate for all accelerators, open the **Accelerators** section and then select **Sync certificate** button.
 
@@ -351,7 +351,7 @@ To sync certificate for an accelerator, open the **Accelerators** section and th
 :::image type="content" source="media/how-to-use-accelerator/sync-all-cert.png" alt-text="Screenshot sync all certificates." lightbox="media/how-to-use-accelerator/sync-all-cert.png":::
 
 ---
-##### [Azure CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to sync certificate for an accelerator in Azure CLI.
 
