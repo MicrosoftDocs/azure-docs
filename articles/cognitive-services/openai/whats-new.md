@@ -27,7 +27,7 @@ keywords:
 If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
 
 > [!IMPORTANT]
-> Using GPT-35-Turbo models with the completion endpoint remains in preview. We are providing this level of access for experimental purposes only and strongly recommend using the Chat Completion API/endpoint. Due to the potential for changes to the underlying ChatML syntax there are currently no plans to provide GA level support for this capability.
+> Using the current versions of the GPT-35-Turbo models with the completion endpoint remains in preview.
   
 ### France Central
 
