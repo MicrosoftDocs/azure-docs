@@ -1,52 +1,175 @@
 ---
-title: Data, privacy, and security for AI Content Safety
+title: "Use limited access tokens - Face"
 titleSuffix: Azure Cognitive Services
-description: This document details issues for data, privacy, and security for Azure AI Content Safety.
+description: Learn how ISVs can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated.
+services: cognitive-services
 author: PatrickFarley
-ms.author: pafarley
 manager: nitinme
+
 ms.service: cognitive-services
-ms.subservice: content-safety
-ms.date: 05/15/2023
-ms.topic: article
+ms.subservice: face-api
+ms.topic: how-to
+ms.date: 05/11/2023
+ms.author: pafarley
 ---
 
+# Use limited access tokens for Face
 
-# Data, privacy, and security for Azure AI Content Safety
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process.
 
-This article provides details regarding how data provided by you to Azure AI Content Safety is processed, used, and stored. Azure AI Content Safety stores and processes data to provide the service and to monitor for uses that violate the applicable product terms. Please also see the [Microsoft Products and Services Data Protection Addendum](https://aka.ms/DPA), which governs data processing by Azure AI Content Safety except as otherwise provided in the applicable preview terms.
+This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-Azure AI Content Safety was designed with privacy and security in mind; however, the customer is responsible for its use and the implementation of this technology.
+The LimitedAccessToken feature is a part of the existing [Cognitive Services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature. Tokens expire after one hour.
 
-## Data provided to us to improve your use of the service
+## Example use case
 
-You may (but are not required to) provide us with real examples of your content with which you're using the Azure AI Content Safety and/or examples of content and associated predictive severity levels ("Sample Content"). If you choose to provide us with this data, we may manually review it to (1) improve your experience with Azure AI Content Safety and (2) improve the quality of Azure AI Content Safety.
+A company sells software that uses the Azure Face service to operate door access security systems. Their clients, individual manufacturers of door devices, subscribe to the software and run it on their devices. These client companies want to make Face API calls from their devices to perform Limited Access operations like face identification. By relying on access tokens from the ISV, they can bypass the formal approval process for face identification. The ISV, which has already been approved, can grant the client just-in-time access tokens.
 
-### If you provide Sample Content to us:
+## Expectation of responsibility
 
-- You agree that you will not include any personal, confidential, or commercially sensitive information in the Sample Content you send us.
-- You consent to permit authorized engineers, data scientists, and project teams (collectively, "Reviewers") from Microsoft to manually review the Sample Content to build, improve, and validate the machine learning models for Azure AI Content Safety ("Improvements"). We will review the Sample Content to improve the customer experience with better machine learning implementations. Manual review of the Sample Content is needed to achieve that outcome. You may revoke your consent to our human review of your Sample Content at any time by giving the project manager working with you written notice, and we will delete the Sample Content from our systems promptly upon receipt of such notice. Deletion of Sample Content will not impact prior Improvements, which may not be deleted.
-- The project manager working with you will provide instructions for sending any Sample Content you choose to provide to us. Only Reviewers with permissions will be able to access and view your sample content, solely for the purposes described here, and such Reviewers will only use secure workstations to do so.
-- As between you and Microsoft: (a) all Sample Content remains yours and (b) all Improvements, and any work product or developments (such as coding or documentation) resulting from Microsoft's use of Sample Content, will be owned by Microsoft. In addition, all Sample Content will remain your Confidential Information and all Improvements will remain Microsoft's Confidential Information.
+The issuing ISV  is responsible for ensuring that the tokens are used only for the approved purpose.
 
-## How is data retained and what customer controls are available?
+If the ISV learns that a client is using the LimitedAccessToken for non-approved purposes, the ISV should stop generating tokens for that customer. Microsoft can track the issuance and usage of LimitedAccessTokens, and we reserve the right to revoke an ISV's access to the **issueLimitedAccessToken** API if abuse is not addressed.
 
-Azure AI Content Safety works to filter harmful content. This system works by running the input through an ensemble of classification models. Once your Azure AI Content Safety resource is created, you can submit text and images to the model through the REST API, client libraries, or the Azure AI Content Safety Studio; the model generates outputs that are returned through the API.
+## Prerequisites
 
-No input texts or images are stored in the model during detection (except for customer-supplied blocklists, as discussed below), and user inputs are not used to train, retrain, or improve the Azure AI Content Safety models.
+* [cURL](https://curl.haxx.se/) installed (or another tool that can make HTTP requests).
+* The ISV needs to have either an [Azure Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or a [Cognitive Services multi-service](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
+* The client needs to have an [Azure Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
 
-- **Blocklist data**. The Blocklist API allows customers to upload their block items for the purpose of supplementing the Azure AI Content Safety model.  **Block Item data is stored in Azure Storage, encrypted at rest by Microsoft Managed keys, within the same region as the resource and logically isolated with the customer's Azure subscription and API Credentials**. Uploaded items can be deleted by the user via the DELETE API operation. Block Items are not used to improve the Azure AI Content Safety models.
+## Step 1: ISV obtains client's Face resource ID
 
-To learn more about Microsoft's privacy and security commitments visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx).
+The ISV should set up a communication channel between their own secure cloud service (which will generate the access token) and their application running on the client's device. The client's Face resource ID must be known prior to generating the LimitedAccessToken.
 
-## Is customer data processed by Azure Content Safety transmitted outside of the**  **Azure AI Content Safety service or the selected region?
+The Face resource ID has the following format:
 
-No. Microsoft hosts the Azure AI Content Safety models within our Azure infrastructure. All customer data sent to Azure AI Content Safety remains within Azure AI Content Safety and in the region you chose and will not be transmitted to other regions.
+`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.CognitiveServices/accounts/<face-resource-name>`
 
-## Is customer data used to train the Azure Content Safety models?
+For example:
 
-No. We do not use customer data to train, retrain or improve the models in Azure AI Content Safety.
+`/subscriptions/dc4d27d9-ea49-4921-938f-7782a774e151/resourceGroups/client-rg/providers/Microsoft.CognitiveServices/accounts/client-face-api`
 
-## Feedback and Reporting**
+## Step 2: ISV generates a token
 
-If you have feedback on Azure AI Content Safety; suspect that Azure AI Content Safety is being used in a manner that is abusive or illegal, infringes on your rights or the rights of other people, or violates these policies; or if the system fails to block harmful content that you believe should have been filtered, please report it to this [email](mailto:acm-team@microsoft.com).
+The ISV's cloud service, running in a secure environment, calls the **issueLimitedAccessToken** API using their end customer's known Face resource ID.
+
+To call the **issueLimitedAccessToken** API, copy the following cURL command to a text editor.
+
+```bash
+curl -X POST 'https://<isv-endpoint>/sts/v1.0/issueLimitedAccessToken' \  
+-H 'Ocp-Apim-Subscription-Key: <client-face-key>' \  
+-H 'Content-Type: application/json' \  
+-d '{  
+    "resourceId": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.CognitiveServices/accounts/<face-resource-name>",  
+    "featureFlags": ["Face.Identification", "Face.Verification"]  
+}' 
+```
+
+Then, make the following changes:
+1. Replace `<isv-endpoint>` with the endpoint of the ISV's resource. For example, **westus.api.cognitive.microsoft.com**.
+1. Replace `<client-face-key>` with the key of the client's Face resource.
+1. Replace `<subscription-id>` with the subscription ID of the client's Azure subscription.
+1. Replace `<resource-group-name>` with the name of the client's resource group.
+1. Replace `<face-resource-name>` with the name of the client's Face resource.
+1. Set `"featureFlags"` to the set of access roles you want to grant. The available flags are `"Face.Identification"`, `"Face.Verification"`, and `"LimitedAccess.HighRisk"`. An ISV can only grant permissions that it has been granted itself by Microsoft. For example, if the ISV has been granted access to face identification, it can create a LimitedAccessToken for **Face.Identification** for the client. All token creations and uses are logged for usage and security purposes.
+
+Then, paste the command into a terminal window and run it.
+
+The API should return a `200` response with the token in the form of a JSON web token (`application/jwt`). If you want to inspect the LimitedAccessToken, you can do so using [JWT](https://jwt.io/).
+
+## Step 3: Client application uses the token
+
+The ISV's application can then pass the LimitedAccessToken as an HTTP request header for future Face API requests on behalf of the client. This works independently of other authentication mechanisms, so no personal information of the client's is ever leaked to the ISV. 
+
+> [!CAUTION]
+> The client doesn't need to be aware of the token value, as it can be passed in the background. If the client were to use a web monitoring tool to intercept the traffic, they'd be able to view the LimitedAccessToken header. However, because the token expires after a short period of time, they are limited in what they can do with it. This risk is known and considered acceptable.
+>
+> It's for each ISV to decide how exactly it passes the token from its cloud service to the client application.
+
+#### [REST API](#tab/rest)
+
+An example Face API request using the access token looks like this:
+
+```bash
+curl -X POST 'https://<client-endpoint>/face/v1.0/identify' \  
+-H 'Ocp-Apim-Subscription-Key: <client-face-key>' \  
+-H 'LimitedAccessToken: Bearer <token>' \  
+-H 'Content-Type: application/json' \  
+-d '{  
+  "largePersonGroupId": "sample_group",  
+  "faceIds": [  
+    "c5c24a82-6845-4031-9d5d-978df9175426",  
+    "65d083d4-9447-47d1-af30-b626144bf0fb"  
+  ],  
+  "maxNumOfCandidatesReturned": 1,  
+  "confidenceThreshold": 0.5  
+}'
+```
+
+> [!NOTE]
+> The endpoint URL and Face key belong to the client's Face resource, not the ISV's resource. The `<token>` is passed as an HTTP request header.
+
+#### [C#](#tab/csharp)
+
+The following code snippets show you how to use an access token with the [Face SDK for C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face).
+
+The following class uses an access token to create a **ServiceClientCredentials** object that can be used to authenticate a Face API client object. It automatically adds the access token as a header in every request that the Face client will make.
+
+```csharp
+public class LimitedAccessTokenWithApiKeyClientCredential : ServiceClientCredentials 
+{
+    /// <summary> 
+    /// Creates a new instance of the LimitedAccessTokenWithApiKeyClientCredential class 
+    /// </summary> 
+    /// <param name="apiKey">API Key for the Face API or CognitiveService endpoint</param> 
+    /// <param name="limitedAccessToken">LimitedAccessToken to bypass the limited access program, requires ISV sponsership.</param> 
+
+    public LimitedAccessTokenWithApiKeyClientCredential(string apiKey, string limitedAccessToken) 
+    { 
+        this.ApiKey = apiKey; 
+        this.LimitedAccessToken = limitedAccessToken; 
+    }
+
+    private readonly string ApiKey; 
+    private readonly string LimitedAccesToken; 
+
+    /// <summary> 
+    /// Add the Basic Authentication Header to each outgoing request 
+    /// </summary> 
+    /// <param name="request">The outgoing request</param>
+    /// <param name="cancellationToken">A token to cancel the operation</param> 
+    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken) 
+    { 
+        if (request == null) 
+            throw new ArgumentNullException("request"); 
+        request.Headers.Add("Ocp-Apim-Subscription-Key", ApiKey); 
+        request.Headers.Add("LimitedAccessToken", $"Bearer {LimitedAccesToken}");
+
+        return Task.FromResult<object>(null); 
+    } 
+} 
+```
+
+In the client-side application, the helper class can be used like in this example:
+
+```csharp
+static void Main(string[] args) 
+{ 
+    // create Face client object
+    var faceClient = new FaceClient(new LimitedAccessTokenWithApiKeyClientCredential(apiKey: "<client-face-key>", limitedAccessToken: "<token>")); 
+
+    faceClient.Endpoint = "https://willtest-eastus2.cognitiveservices.azure.com"; 
+
+    // use Face client in an API call
+    using (var stream = File.OpenRead("photo.jpg")) 
+    {
+        var result = faceClient.Face.DetectWithStreamAsync(stream, detectionModel: "Detection_03", recognitionModel: "Recognition_04", returnFaceId: true).Result; 
+
+        Console.WriteLine(JsonConvert.SerializeObject(result)); 
+    }
+}
+```
+---
+
+## Next steps
+* [LimitedAccessToken API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueLimitedAccessToken)
