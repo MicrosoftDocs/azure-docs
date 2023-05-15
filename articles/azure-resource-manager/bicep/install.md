@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 05/15/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -19,7 +19,7 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 |  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
-## VS Code and Bicep extension
+## Visual Studio Code and Bicep extension
 
 To create Bicep files, you need a good Bicep editor. We recommend:
 
@@ -48,7 +48,7 @@ To see the settings:
 1. Select `Bicep` from the list of extensions.
 1. Select the `FEATURE CONTRIBUTIONS` tab:
 
-    :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Bicep extension settings":::
+    :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Screenshot of Bicep extension settings.":::
 
     The Bicep extension has these settings and default values:
 
