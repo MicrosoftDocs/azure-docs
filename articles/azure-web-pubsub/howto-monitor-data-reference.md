@@ -2,7 +2,7 @@
 title: Monitoring Azure Web PubSub data reference
 description: Important reference material needed when you monitor logs and metrics in Azure Web PubSub.
 author: wanlwanl
-ms.service: signalr
+ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 05/15/2023
 ms.author: wanl
@@ -10,7 +10,7 @@ ms.author: wanl
 
 # Monitoring Azure Web PubSub data reference
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Web PubSub. See the [Use diagnostics logs to monitor SignalR Service](signalr-howto-diagnostic-logs.md) article for details on collecting and analyzing monitoring data for Azure Web PubSub.
+This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Web PubSub. See the [Monitor Azure Web PubSub](howto-azure-monitor.md) article for details on collecting and analyzing monitoring data for Azure Web PubSub.
 
 ## Metrics
 
