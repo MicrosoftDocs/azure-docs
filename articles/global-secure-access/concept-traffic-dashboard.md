@@ -49,7 +49,7 @@ This widget provides a summary of how many users and devices are using the servi
 
 ## Product deployment
 
-There are two product deployment widgets that look at the active an inactive devices that you have deployed.
+There are two product deployment widgets that look at the active and inactive devices that you have deployed.
 
 - **Active devices**: The number of distinct device IDs seen in the last 24 hours and the % change during that time.
 - **Inactive devices**: The number of distinct device IDs that were seen in the last 7 days, but not during the last 24 hours. The % change during the last 24 hours is also displayed.
