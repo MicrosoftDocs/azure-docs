@@ -48,7 +48,7 @@ After you deploy infrastructure and [install SAP software](install-software.md) 
 
 ## Right Size the SAP system you want to deploy
 
-Use [az workloads sap-sizing-recommendation](/cli/azure/workloads?view=azure-cli-latest#az-workloads-sap-sizing-recommendation) to get SAP system sizing recommendations by providing SAPS input for application tier and memory required for database tier
+Use [az workloads sap-sizing-recommendation](/cli/azure/workloads?view=azure-cli-latest#az-workloads-sap-sizing-recommendation&preserve-view=true) to get SAP system sizing recommendations by providing SAPS input for application tier and memory required for database tier
 
 ```azurecli-interactive
 az workloads sap-sizing-recommendation --app-location "eastus" --database-type "HANA" --db-memory 1024 --deployment-type "ThreeTier" --environment "Prod" --high-availability-type "AvailabilitySet" --sap-product "S4HANA" --saps 75000 --location "eastus2" --db-scale-method ScaleUp
@@ -61,7 +61,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
 
 ## Deploy infrastructure for your SAP system
 
-Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create) to deploy infrastructure for your SAP system with Three tier HA architecture
+Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create&preserve-view=true) to deploy infrastructure for your SAP system with Three tier HA architecture
 
 ```azurecli-interactive
 az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> --environment NonProd --sap-product s4hana --configuration <Payload file path> --identity "{type:UserAssigned,userAssignedIdentities:{<Managed_Identity_ResourceID>:{}}}"
