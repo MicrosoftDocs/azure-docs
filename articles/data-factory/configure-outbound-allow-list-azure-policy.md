@@ -51,7 +51,7 @@ To apply policies to an Azure Data Factory instance, complete the following step
 
 1. Navigate to the [Azure Data Factory Studio](https://ms-adf.azure.com) and enable outbound rules functionality by selecting the **Manage** tab on the left, and then **Outbound rules**.
 
-   :::image type="content" source="media/configure-outbound-allow-list-azure-policy/outbound-rules.png" alt-text="Screenshot showing the outbound rules configuration in Azure Data Factory Studio.":::
+   :::image type="content" source="media/configure-outbound-allow-list-azure-policy/outbound-rules.png" lightbox="media/configure-outbound-allow-list-azure-policy/outbound-rules.png" alt-text="Screenshot showing the outbound rules configuration in Azure Data Factory Studio.":::
 
    > [!NOTE]
    > To update the allow-list to add new URLs, edit the policy parameters.
