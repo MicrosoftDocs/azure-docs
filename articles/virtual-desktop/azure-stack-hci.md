@@ -273,7 +273,7 @@ For an overview and pricing information, see [Azure Virtual Desktop for Azure St
 
 To find answers to frequently asked questions, see [FAQ](azure-stack-hci-faq.yml).
 
-# [Automated Session Host](#tab/automated-deployment)
+# [Automated Session Host Deployment](#tab/automated-deployment)
 
 ## Prerequisites
 
