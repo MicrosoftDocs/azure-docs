@@ -6,6 +6,7 @@ ms.custom: Haks-troubleshooting
 ms.topic: troubleshooting
 ms.date: 05/14/2023
 ms.author: v-saambe
+author: v-saambe
 ---
 
 # Troubleshoot Hybrid Aks Cluster provision failures   
@@ -13,14 +14,13 @@ ms.author: v-saambe
 Follow these steps in order to gather the data needed to diagnose Hybrid AKS creation or management issues. These steps require k8s controller access and bare metal linux host access.
 
 :::image type="content" source="media/Haks-connected-status.png" alt-text="Connected status":::
-[!Connected status](../../articles/operator-nexus/media/Haks-connected-status.png)
 
 If Status: is not Connected and Provisioning State: is not Succeeded then the install failed
 
 [How to manage and lifecycle the AKS-Hybrid cluster](../../articles/operator-nexus/howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster)
 
 
-# Prerequisites
+## Prerequisites
 
     - Tenant id
     - Subscription id
@@ -30,7 +30,7 @@ If Status: is not Connected and Provisioning State: is not Succeeded then the in
     - Hybrid AKS cluster name and resource group
     - CLI, Bicep or ARM template used to create or attempt creation
 
-# What does an unhealthy HAKS cluster look like?
+## What does an unhealthy HAKS cluster look like?
 
 There are several different types of failures that end up looking very similar to the end user.
 
@@ -46,7 +46,7 @@ In the CLI, when looking at "az hybridaks show" output, an unhealthy cluster may
 -provisioningState: Succeeded, but null values for fields such as lastConnectivityTime and managedIdentityCertificateExpirationTime, or an errorMessage field that is not null
 
 
-# Basic Network Requirements 
+## Basic Network Requirements 
 
 At a minimum, every HAKS cluster needs a defaultcninetwork and a cloudservicesnetwork.
 
@@ -70,7 +70,7 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
 
 To be used by a hybrid AKS cluster, each Network Cloud networks must be "wrapped" in a hybridaks vnet.
 
-# Standard Issue
+## Common Issues
 
 Any of the following problems can cause the hybrid AKS cluster to fail to provision fully 
 
@@ -96,8 +96,7 @@ The most reliable way to obtain the correct value to use when creating the vnet 
    az networkcloud cloudservices show -g "example-rg" -n "csn-name" -o tsv --query id
    az networkcloud defaultcninetwork show -g "example-rg" -n "dcn-name" -o tsv --query id
    az networkcloud l3network show -g "example-rg" -n "l3n-name" -o tsv --query id
-
-```
+ ```
 
 ### Managed Network Fabric resource (l3isolationdomain or l2isolationdomain) is not enabled
 
@@ -122,7 +121,7 @@ This can be confirmed using show commands, for example:
   az nf l3domain show -g "example-rg" --resource-name "l2domainname" -o table
   az nf l2domain show -g "example-rg" --resource-name "l3domainname" -o table
 ```
-# Network Cloud network status is Failed
+## Network Cloud network status is Failed
 
 Care must be taken when creating Network Cloud networks to ensure that they come up successfully.
 
@@ -135,7 +134,7 @@ If using CLI to create these resources, it is useful to use the --debug option. 
 
 If the resource has already been created, see the section on Surfacing Errors below.
 
-# Known Errors
+## Known Errors
 
 Depending on the mechanism used for creation (portal, cli, ARM), it is sometimes hard to see why resources are Failed.
 
@@ -202,6 +201,7 @@ Symptoms:
 
 There have been incidents where CNF workloads are unable to start due to resource constraints on the haks node that the CNF workload is scheduled on. This has been seen on nodes that have azure-arc pods that are consuming a lot of compute resources. At the moment, this is a topic of discussion on how to properly mitigate this issue.
 
- [!NOTE]  If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+ 
+ If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
  
  
