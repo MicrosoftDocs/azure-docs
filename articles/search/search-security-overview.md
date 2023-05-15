@@ -96,7 +96,7 @@ The private endpoint uses an IP address from the virtual network address space f
 
 :::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="sample architecture diagram for private endpoint access":::
 
-While this solution is the most secure, using additional services is an added cost so be sure you have a clear understanding of the benefits before diving in. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/). For more information about how these components work together, [watch this video](#watch-this-video). Coverage of the private endpoint option starts at 5:48 into the video. For instructions on how to set up the endpoint, see [Create a Private Endpoint for Azure Cognitive Search](service-create-private-endpoint.md).
+While this solution is the most secure, using more services is an added cost so be sure you have a clear understanding of the benefits before diving in. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/). For more information about how these components work together, [watch this video](#watch-this-video). Coverage of the private endpoint option starts at 5:48 into the video. For instructions on how to set up the endpoint, see [Create a Private Endpoint for Azure Cognitive Search](service-create-private-endpoint.md).
 
 ## Authentication
 
@@ -112,7 +112,7 @@ Outbound requests made by an indexer are subject to the authentication protocols
 
 Cognitive Search provides different authorization models for content management and service management. 
 
-### Authorization for content management
+### Authorize access to content
 
 If you're using key-based authentication, authorization on content operations is conferred through the type of [API key](search-security-api-keys.md) on the request:
 
@@ -124,7 +124,7 @@ In application code, you specify the endpoint and an API key to allow access to 
 
 If you're using Azure AD authentication, [use role assignments instead of API keys](search-security-rbac.md) to establish who and what can read and write to your search service.
 
-### Controlling access to indexes
+### Restricting access to indexes
 
 In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. Queries are read-only operations. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
@@ -134,20 +134,18 @@ For key-based authentication scenarios, administrator and developer access to in
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
-### Controlling access to documents
+### Restricting access to documents
 
-If you require granular, per-user control over search results, you can build security filters on your queries, returning documents associated with a given security identity. 
+If you require user permissions over search results, you can build security filters in your queries. User permssions at the document level, also known as "row-level security", isn't natively supported in Cognitive Search. This means that any user permissions on data in external systems, such as Azure Cosmos DB, won't transfer with that data as its being indexed by Cognitive Search.
 
-Conceptually equivalent to "row-level security", authorization to content within the index isn't natively supported using  predefined roles or role assignments that map to entities in Azure Active Directory. Any user permissions on data in external systems, such as Azure Cosmos DB, don't transfer with that data as its being indexed by Cognitive Search.
-
-Workarounds for solutions that require "row-level security" include creating a field in the data source that represents a security group or user identity, and then using filters in Cognitive Search to selectively trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
+Workarounds for "row-level security" include creating a field in the data source that represents a security group or user identity, and then using filters in Cognitive Search to selectively trim search results based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
 | Approach | Description |
 |----------|-------------|
 |[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
 |[Security trimming based on Azure Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (Azure AD), one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
 
-### Authorization for Service Management
+### Authorize service management
 
 Service Management operations are authorized through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
@@ -166,7 +164,7 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, resources, containers, and key vault store.
+Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data appears in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, resources, containers, and key vault store.
 
 Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
