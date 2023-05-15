@@ -84,6 +84,30 @@ The following filters require that the user manually enters the value with which
 |     External ID    |   An identifier provided by a third party.                           |   Typically a numerical value.                                                                                                                             |   `Equals` `Not Equals` `Starts with` `Does not start with` `Matches` `Does not match` `In` `Not In` `Starts with in` `Does not start with in` `Matches in` `Does not match in` `Contains` `Does Not Contain` `Contains In` `Does Not Contain In` `Empty` `Not Empty`  |
 
 
+## Filtering for assets outside of your approved inventory 
+
+By default, the inventory list view only displays assets in the "Approved Inventory" state. However, you can remove this default filter to discover assets that are not a part of your inventory, and can apply additional filters to uncover specific unapproved assets of interest. This feature is useful when you want to add a specific asset to your inventory without using it as a discovery seed, or when you need to unearth assets that have been dismissed or placed in another asset state. 
+
+1. Select **Inventory** on the left-hand navigation bar to view your inventory. 
+
+2. To remove the Approved Inventory filter, select the "X" next to the **State = Approved** filter. This will expand your inventory list to include assets in other states (e.g. Dismissed). 
+
+![Screenshot of Approved Inventory filter highlighted.](media/filters-2.png)
+
+3.  Identify the asset(s) you'd want to find and how to best surface them using the inventory filters. You may wish to review all assets in the "Candidate" state, adding any assets within your organization's purview to "Approved Inventory". 
+
+![Screenshot of query editor showing search for candidate assets.](media/filters-3.png)
+![Screenshot of results returned when filtering for candidate assets.](media/filters-4.png)
+
+4. Instead, you may need to find a single specific asset that you wish to add to Approved Inventory. To discover a specific asset, apply a filter searching for the name. 
+
+![Screenshot of query editor searching for a specific named asset.](media/filters-5.png)
+![Screenshot of results returned when filtering for an asset by name.](media/filters-6.png)
+
+4. Once your inventory list contains the unapproved assets that you were searching for, you can modify the assets. For more information on updating assets, see the [Modifying inventory assets](https://learn.microsoft.com/azure/external-attack-surface-management/labeling-inventory-assets) article. 
+
+
+
 ## Next Steps 
 
 [Understanding asset details](understanding-asset-details.md)
