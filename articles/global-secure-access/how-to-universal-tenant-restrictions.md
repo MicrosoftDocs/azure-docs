@@ -36,7 +36,7 @@ Universal tenant restrictions help to prevent data exfiltration across browsers,
 To allow Global Secure Access to apply tagging for tenant restrictions v2, an administrator must take the following steps.
 
 1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
-1. Browse to **NEED THE ACTUAL PATH** > **Security **> **Tenant Restrictions**.
+1. Browse to **NEED THE ACTUAL PATH** > **Security** > **Tenant Restrictions**.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 
 ## Where can we see Universal Tenant Restrictions? 
