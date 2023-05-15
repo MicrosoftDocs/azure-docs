@@ -17,7 +17,7 @@ ms.date: 01/01/2023
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for Modeling and Simulation Workbench and choose the workbench you want to provision from the resource list.
 1. In the menu for the workbench, select **Activity log** blade on the left of the screen.
-1. Use filters provided here to find logs for your Modeling and Simulation Workbench workbench. On screen, you'll find a link to **Learn more about Azure Activity log** and **Visit Log Analytics** which will provide a [Log Analytics tutorial](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial) for consolidating logs, saving queries, pin results to
+1. Use filters provided here to find logs for your Modeling and Simulation Workbench workbench. On screen, you'll find a link to **Learn more about Azure Activity log** and **Visit Log Analytics** which will provide a [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial) for consolidating logs, saving queries, pin results to
 1. NOTE: the lifetime of these logs is 30 days. If you want to retain logs longer, click on the **Export Activity Logs** option to access options available to you.
 
 ## Remote desktop connection troubleshooting

@@ -33,6 +33,8 @@ items:
       href: ./concept-connector.md
     - name: Data pipeline
       href: ./concept-data-pipeline.md
+    - name: License Service
+      href: ./concept-license-service.md      
 - name: How-to guides
   items: 
     - name: Manage chamber

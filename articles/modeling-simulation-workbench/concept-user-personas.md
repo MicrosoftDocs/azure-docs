@@ -10,7 +10,7 @@ ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the user personas.
 ---
 
-# Azure Modeling and Simulation Workbench chamber
+# Azure Modeling and Simulation Workbench user personas
 
 ## Workbench user personas - an introduction
 

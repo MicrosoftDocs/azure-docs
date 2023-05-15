@@ -37,7 +37,7 @@ landingContent:
           - text: Data Pipeline
             url: ./concept-data-pipeline.md
           - text: License Service
-            url: ./concept-licenses.md
+            url: ./concept-license-service.md
   # Card: Get started
   - title: Get started
     linkLists:

@@ -1,6 +1,6 @@
 ---
 title: How to Set up Networking for a Modeling and Simulation Workbench chamber
-description: In this How-to guide, you learn how to upload a license file to activate a license service for a Modeling and Simulation Workbench chamber.
+description: In this How-to guide, you learn how to setup networking for a Modeling and Simulation Workbench connector.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu

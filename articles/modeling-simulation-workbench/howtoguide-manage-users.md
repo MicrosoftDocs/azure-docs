@@ -1,6 +1,6 @@
 ---
 title: How to Manage Users for a Modeling and Simulation Workbench chamber
-description: In this How-to guide, you learn how to upload a license file to activate a license service for a Modeling and Simulation Workbench chamber.
+description: In this How-to guide, you learn how to manage users access to our Modeling and Simulation Workbench chamber.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
