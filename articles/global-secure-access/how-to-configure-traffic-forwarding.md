@@ -42,7 +42,7 @@ With the M365 profile enabled, Microsoft Entra Internet Access acquires the traf
 
 To view the details of the domain names and IP addresses included in the traffic policy, select the **View** link for **M365 traffic policies**. Expand each section to view the full details.
 
-![Screenshot of the M365 traffic policies](media/how-to-configure-traffic-forwarding/microsoft-365-traffic-profile.png)
+![Screenshot of the M365 traffic policies.](media/how-to-configure-traffic-forwarding/microsoft-365-traffic-profile.png)
 
 ### Conditional Access policies
 
