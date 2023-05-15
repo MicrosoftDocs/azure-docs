@@ -47,7 +47,7 @@ Ignore this setup if you use the npm setup.
     },
   };
   // Application Insights SDK Loader Script code
-  !function(T,l,y){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
+  !function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
     crossOrigin: "anonymous",
     cfg: configObj
