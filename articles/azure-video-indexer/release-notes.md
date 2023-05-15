@@ -20,6 +20,10 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 ## May 2023
 
+### Support for HTTP/2
+
+Added support for HTTP/2 for our [Data Plane API](https://api-portal.videoindexer.ai/). [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) offers several benefits over HTTP/1.1, which continues to be supported for backwards compatibility. One of the main benefits of HTTP/2 is increased performance, better reliability and reduced system resource requirements over HTTP/1.1. With this change we now support HTTP/2 for both the Video Indexer [Portal](https://videoindexer.ai/) and our Data Plane API. We advise to update your code to take advantage of this change.
+
 ### Topics insight improvements 
 
 We now support all five levels of IPTC ontology. 
