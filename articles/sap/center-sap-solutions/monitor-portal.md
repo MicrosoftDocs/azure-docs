@@ -237,7 +237,7 @@ To remove the link between your Azure Monitor for SAP solutions resource and you
 1. Wait for the confirmation message, **Azure Monitor for SAP solutions has been unregistered successfully**.
 
 ## Troubleshooting issues with Health and Status on VIS
-If an error appears on a succesfully registered or deployed Virtual Instance for SAP solutions resource indicating that service is unable to fetch health and status data, then use the guidance provided here to fix problem.
+If an error appears on a successfully registered or deployed Virtual Instance for SAP solutions resource indicating that service is unable to fetch health and status data, then use the guidance provided here to fix problem.
 
 ### Error - Unable to fetch health and status data from primary SAP Central services VM
 **Possible causes:** 
