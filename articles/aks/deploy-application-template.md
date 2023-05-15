@@ -20,7 +20,7 @@ First, you need to select the Kubernetes application that you want to deploy in 
 1. Select the required plan.
 1. Select the **Usage Information + Support** tab. Copy the values for `publisherID`, `productID`, and `planID`. You'll need these values later.
 
-   :::image type="content" source="media/deploy-application-arm/usage-information.png" alt-text="Screenshot showing the Usage Information + Support tab for a Kubernetes application.":::
+   :::image type="content" source="media/deploy-application-template/usage-information.png" alt-text="Screenshot showing the Usage Information + Support tab for a Kubernetes application.":::
 
 ## Generate ARM template
 
@@ -30,11 +30,11 @@ Continue on to generate the ARM template for your deployment.
 1. Fill out all the application (extension) details.
 1. At the bottom of the **Review + Create** tab, select **Download a template for automation**. 
 
-   :::image type="content" source="media/deploy-application-arm/download-template.png" alt-text="Screenshot showing the option to download a template for a Kubernetes application.":::
+   :::image type="content" source="media/deploy-application-template/download-template.png" alt-text="Screenshot showing the option to download a template for a Kubernetes application.":::
 
    If all the validations are passed, you'll see the ARM template in the editor.
 
-   :::image type="content" source="media/deploy-application-arm/download-arm-template.png" alt-text="Screenshot showing an ARM template for a Kubernetes application.":::
+   :::image type="content" source="media/deploy-application-template/download-arm-template.png" alt-text="Screenshot showing an ARM template for a Kubernetes application.":::
 
 1. Download the ARM template and save it to a file on your computer.
 
