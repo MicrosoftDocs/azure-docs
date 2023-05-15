@@ -31,6 +31,9 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Send and receive events
       items:
+        - name: Azure Event Hubs Data Generator
+          href: sendandreceiveeventsusingdatagenerator.md
+          displayName: No Code, Sample data
         - name: Event Hubs SDKs (AMQP)
           items: 
           - name: .NET
