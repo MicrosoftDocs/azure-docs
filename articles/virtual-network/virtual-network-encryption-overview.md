@@ -38,7 +38,6 @@ Virtual network encryption has the following requirements:
     - Dv4
     - Ev4
     - Mv2
-    - Fv2
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
