@@ -4,7 +4,7 @@ description: Learn the features and benefits of Azure Spring Apps to deploy and 
 author: karlerickson
 ms.service: spring-apps
 ms.topic: overview
-ms.date: 05/10/2023
+ms.date: 05/23/2023
 ms.author: karler
 ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
@@ -39,7 +39,7 @@ Azure Spring Apps supports both Java [Spring Boot](https://spring.io/projects/sp
 
 ## Service overview
 
-As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more, as shown in the following image:
+As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other Azure services including storage, databases, monitoring, and more, as shown in the following diagram:
 
 :::image type="content" source="media/overview/overview.png" alt-text="Diagram showing an overview of how Azure Spring Apps interacts with other services and tools." lightbox="media/overview/overview.png" border="false":::
 
@@ -49,7 +49,7 @@ Azure Spring Apps provides you with the following capabilities:
 
 * Automatic wiring of your apps with the Spring service runtime and built-in app lifecycle support when you deploy your JARs or code for your Spring Boot app, or zip file for your Steeltoe app.
 
-* Ease of monitoring. After deployment you can monitor app performance, fix errors, and rapidly improve applications.
+* Ease of monitoring. After deployment, you can monitor app performance, fix errors, and rapidly improve applications.
 
 * Full integration to Azure's ecosystems and services.
 
@@ -85,7 +85,7 @@ You can run your apps in any combination of consumption or dedicated workload pr
 
 The Standard consumption and dedicated plan simplifies the virtual network experience for running polyglot applications. In the Standard consumption and dedicated plan, when you deploy frontend applications as containers in Azure Container Apps, all your applications share the same virtual network in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
-The following image shows the architecture of using a virtual network in Azure Spring Apps:
+The following diagram shows the architecture of a virtual network in Azure Spring Apps:
 
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
@@ -158,7 +158,7 @@ VMware Tanzu components deliver increased value so you can accomplish the follow
 
 The Azure Spring Apps Enterprise plan includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem to develop and deploy applications faster.
 
-Typically, open-source Spring project minor releases receive support for a minimum of 12 months from the date of initial release. In the Azure Spring Apps Enterprise plan, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release. This extended support is through the VMware Spring Runtime Support entitlement and ensures the security and stability of your Spring application portfolio, even after the open source end of life dates. For more information, see [Spring Boot](https://spring.io/projects/spring-boot#support).
+Typically, open-source Spring project minor releases receive support for a minimum of 12 months from the date of initial release. In the Azure Spring Apps Enterprise plan, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release. This extended support is available through the VMware Spring Runtime Support entitlement and ensures the security and stability of your Spring application portfolio, even after the open source end of life dates. For more information, see [Spring Boot](https://spring.io/projects/spring-boot#support).
 
 ### Fully integrate into the Azure and Java ecosystems
 
