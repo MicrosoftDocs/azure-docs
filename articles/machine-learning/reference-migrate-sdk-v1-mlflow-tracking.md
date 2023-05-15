@@ -162,8 +162,6 @@ mlflow.log_figure(fig, "sample_pyplot.png")
 ```
 
 * The image is logged as an artifact and will appear in the __Images__ tab in Azure Machine Learning Studio.
-* The `mlflow.log_figure` method is __experimental__.
-
 
 ### Log a list of metrics
 
@@ -344,7 +342,10 @@ mlflow.log_dict(RESIDUALS, 'mlflow_residuals.json')
 
 ## View run info and data
 
-You can access run information using the MLflow run object's `data` and `info` properties. For more information, see [mlflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) reference.
+You can access run information using the properties `data` and `info` of the MLflow [run (mlflow.entities.Run)](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object.
+
+> [!TIP]
+> Experiments and runs tracking information in Azure Machine Learning can be queried using MLflow, which provides a comprehensive search API to query and search for experiments and runs easily, and quickly compare results. For more information about all the capabilities in MLflow in this dimension see [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md)
 
 The following example shows how to retrieve a finished run:
 
@@ -353,7 +354,7 @@ from mlflow.tracking import MlflowClient
 
 # Use MlFlow to retrieve the run that was just completed
 client = MlflowClient()
-finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+finished_mlflow_run = MlflowClient().get_run("<RUN_ID>")
 ```
 
 The following example shows how to view the `metrics`, `tags`, and `params`:
@@ -396,12 +397,16 @@ To view the artifacts of a run, use [MlFlowClient.list_artifacts](https://mlflow
 client.list_artifacts(finished_mlflow_run.info.run_id)
 ```
 
-To download an artifact, use [MlFlowClient.download_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts):
+To download an artifact, use [mlflow.artifacts.download_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts):
 
 ```python
-client.download_artifacts(finished_mlflow_run.info.run_id, "Azure.png")
+mlflow.artifacts.download_artifacts(run_id=finished_mlflow_run.info.run_id, artifact_path="Azure.png")
 ```
+
 ## Next steps
 
-* [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md)
-* [Log and view metrics](how-to-log-view-metrics.md)
+* [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
+* [Log metrics, parameters and files with MLflow](how-to-log-view-metrics).
+* [Logging MLflow models](how-to-log-mlflow-models.md).
+* [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
+* [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md).
