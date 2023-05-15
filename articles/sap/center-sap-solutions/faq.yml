@@ -76,10 +76,6 @@ sections:
 
                 - *Architecture Visualization* - The feature helps customers visualize the architecture of the SAP S/4/HANA system being deployed and can be downloaded for documentation purposes.  
 
-      - question:  Which regions support Azure Virtual Instance for SAP solutions as part of Azure Center for SAP solutions? 
-        answer: | 
-                Azure Virtual Instance for SAP solutions is available in West Europe, North Europe, East US, East US 2, West US 2, West US 3, Central US, South Central US, India Central, East Asia, Southeast Asia, Australia East, and Australia Central. 
-
   - name: Registering Existing SAP System Questions 
     questions: 
       - question:  What existing SAP systems can be registered as a VIS?
@@ -93,7 +89,8 @@ sections:
                 
                 Refer to the [product documentation](https://learn.microsoft.com/azure/sap/center-sap-solutions/register-existing-system#prerequisites) to review the complete list of supported and unsupported scenarios.   
 
-                *Note:* If you are registering a system based on Oracle Linux OS and/or Oracle Database, there will be limited support for quality checks, health and status and start-stop offerings.  
+                > [!NOTE]
+                > If you are registering a system based on Oracle Linux OS and/or Oracle Database, there will be limited support for quality checks, health and status and start-stop offerings. 
 
       - question:  What are the prerequisites to register an existing SAP system as an Azure Virtual Instance for SAP solutions? 
         answer: |
@@ -161,7 +158,7 @@ sections:
 
       - question:  What resources are available to learn more? 
         answer: | 
-                Customers and partners can find more information at Microsoft Learn: https://learn.microsoft.com and  aka.ms/SAPonAzureCTA. 
+                Customers and partners can find more information at Microsoft Learn: https://learn.microsoft.com and [SAP on Azure Resources page](aka.ms/SAPonAzureCTA)
 
 
       - question:  What is the SLA for this service?
