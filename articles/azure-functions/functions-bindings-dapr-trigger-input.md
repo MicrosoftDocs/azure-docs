@@ -205,14 +205,6 @@ The parameter type supported by the Dapr Input Binding trigger depends on the Fu
 
 <!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
-
-## host.json properties
-
-The _host.json_ file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
-
-::: zone-end
- 
 ::: zone pivot="programming-language-java,programming-language-powershell"
 
 > [!NOTE]
