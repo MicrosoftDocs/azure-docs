@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
-This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview) manually or through an automated process.
+This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview), deploying Session Hosts manually or through an automated process.
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
@@ -20,9 +20,9 @@ With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virt
 
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
-You can set up Azure Virtual Desktop for Azure Stack HCI either manually or automatically using the Azure Resource Manager template (ARM template) in the Azure portal. Both these methods deploy a pooled host pool.
+The following guides offer two approaches to deploy a complete Azure Virtual Desktop solution with Session Hosts on Azure Stack HCI. Both options deploy the Azure Virtual Desktop infrastructure in Azure. The **Manual Session Host Deployment** option then adds pre-deployed Virtual Machines in your Azure Stack HCI cluster to the Host Pool. The **Automated Session Host Deployment** option instead uses the Arc VM Management Resource Bridge to deploy new Azure Stack HCI Virtual Machines from an existing image and add them to new Host Pool. 
 
-# [Manual deployment](#tab/manual-deployment)
+# [Manual Session Host Deployment](#tab/manual-deployment)
 
 ## Prerequisites
 
@@ -87,21 +87,21 @@ After you satisfy the [prerequisites](#prerequisites) and complete [Step 1](#ste
 
     1. In **Domain**, enter the domain name to join your session hosts to the required domain.
     
-    1. In **O U Path**, enter the OU Path value for domain join. For example: `OU=unit1,DC=contoso,DC=com`.
+    1. In **OU Path**, enter the target organizational unit distinguished name for domain join. For example: `OU=unit1,DC=contoso,DC=com`.
    
     1. In **Domain Administrator Username** and **Domain Administrator Password**, enter the domain administrator credentials to join your session hosts to the domain.
 
         :::image type="content" source="./media/azure-virtual-desktop-hci/project-details-2.png" alt-text="Screenshot of the second part of the Project details section." lightbox="./media/azure-virtual-desktop-hci/project-details-2.png" :::
 
-    1. In **Vm Resource Ids**, enter full ARM resource IDs of the VMs to add to the host pool as session hosts. You can add multiple VMs. For example:
+    1. In **VM Resource Ids**, enter full ARM resource IDs of the VMs to add to the host pool as session hosts. You can add multiple VMs. For example:
 
-        `“/subscriptions/<subscriptionID>/resourceGroups/Contoso-        rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1”,”/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2”`
+        `"/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM1","/subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.HybridCompute/machines/Contoso-VM2"`
     
     1. In **Token Expiration Time**, enter the host pool token expiration. If left blank, the template automatically takes the current UTC time as the default value.
     
     1. In **Tags**, enter values for tags in the following format:
     
-        {"CreatedBy": "name", "Test": "Test2”}
+        {"CreatedBy": "name", "Test": "Test2"}
     
     1. In **Deployment Id**, enter the Deployment ID. A new GUID is created by default.
     
@@ -217,7 +217,7 @@ To create an Azure managed disk:
 1. Run the following commands in an Azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
     ```console
-    $urn = <URN of the Marketplace image> #Example:    “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
+    $urn = <URN of the Marketplace image> #Example:    "MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest"
     $diskName = <disk name> #Name for new disk to be created
     $diskRG = <resource group> #Resource group that contains the new disk
     ```
@@ -244,7 +244,7 @@ To export the VHD:
 >If you're running azcopy, you may need to skip the md5check by running this command:
 >
 > ```azurecli
-> azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
+> azcopy copy "$sas" "destination_path_on_cluster" --check-md5 NoCheck
 > ```
 
 ### Clean up the managed disk
@@ -273,7 +273,7 @@ For an overview and pricing information, see [Azure Virtual Desktop for Azure St
 
 To find answers to frequently asked questions, see [FAQ](azure-stack-hci-faq.yml).
 
-# [Automated deployment](#tab/automated-deployment)
+# [Automated Session Host](#tab/automated-deployment)
 
 ## Prerequisites
 
@@ -337,17 +337,17 @@ Follow these steps for the automated deployment process:
 
 1. Enter a unique name for **Workspace Name**.
 
-1. Enter local administrator credentials for **Vm Administrator Account Username** and **Vm Administrator Account Password**.
+1. Enter local administrator credentials for **VM Administrator Account Username** and **VM Administrator Account Password**.
 
-1. Enter the **OU Path** value for domain join. *Example: OU=unit1,DC=contoso,DC=com*.
+1. Enter the **OU Path**, enter the target organizational unit distinguished name for domain join. *Example: OU=unit1,DC=contoso,DC=com*.
 
 1. Enter the **Domain** name to join your session hosts to the required domain.
 
 1. Enter domain administrator credentials for **Domain Administrator Username** and **Domain Administrator Password** to join your session hosts to the domain. These are mandatory fields.
 
-1. Enter the number of VMs to be created for **Vm Number of Instances**. Default is 1.
+1. Enter the number of VMs to be created for **VM Number of Instances**. Default is 1.
 
-1. Enter a prefix for the VMs for **Vm Name Prefix**.
+1. Enter a prefix for the VMs for **VM Name Prefix**.
 
 1. Enter the **Image Id** of the image to be used. This can be a custom image or an Azure Marketplace image.  *Example:  /subscriptions/My_subscriptionID/resourceGroups/Contoso-rg/providers/microsoft.azurestackhci/marketplacegalleryimages/Contoso-Win11image*.
 
@@ -355,7 +355,7 @@ Follow these steps for the automated deployment process:
 
 1. Enter the **Token Expiration Time**. If left blank, the default will be the current UTC time. 
 
-1. Enter values for **Tags**. *Example format: { "CreatedBy": "name",  "Test": "Test2”  }*
+1. Enter values for **Tags**. *Example format: { "CreatedBy": "name",  "Test": "Test2"  }*
 
 1. Enter the **Deployment Id**. A new GUID will be created by default.
 
