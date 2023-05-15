@@ -89,6 +89,11 @@ A function app on Azure manages the execution of your functions in your Azure Co
     az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
     ```
     ::: zone-end  
+    ::: zone pivot="programming-language-java" 
+    ```console
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
+    ```
+    ::: zone-end 
     ::: zone pivot="programming-language-powershell"  
     ```console
     az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.0  --registry-username <REGISTRY_NAME> --registry-password <ADMIN_PASSWORD>
@@ -105,7 +110,7 @@ A function app on Azure manages the execution of your functions in your Azure Co
     ```
     ::: zone-end
 
-    In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, `<LOGIN_SERVER>` with your fully-qualified Container Registry server, `<REGISTRY_NAME>` with your registry name for the login, and `<ADMIN_PASSWORD>` with the password to your admin account. 
+    In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, `<LOGIN_SERVER>` with your fully qualified Container Registry server, `<REGISTRY_NAME>` with your registry name for the login, and `<ADMIN_PASSWORD>` with the password to your admin account. 
 
     > [!IMPORTANT]
     > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository.
@@ -121,6 +126,11 @@ A function app on Azure manages the execution of your functions in your Azure Co
     az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime node --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
     ::: zone-end  
+    ::: zone pivot="programming-language-java" 
+    ```console
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime java --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ::: zone-end 
     ::: zone pivot="programming-language-powershell"  
     ```console
     az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime powershell --image <DOCKER_ID>/azurefunctionsimage:v1.0.0
@@ -146,7 +156,7 @@ A function app on Azure manages the execution of your functions in your Azure Co
 <!--- CI/CD isn't yet supported: 
 You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.-->
 
-At this point, your functions are running in a Container Apps environment. If you had needed to set any additional application settings for your functions app, you can do this in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+At this point, your functions are running in a Container Apps environment, with the required application settings already added. When you need to add other settings in your functions app, you can do this in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
 > When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry)
@@ -166,7 +176,7 @@ The request URL should look something like this:
 
 If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. 
 
-When you are done working with this function app deployment, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
+When you're done working with this function app deployment, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
 
 ```azurecli
 az group delete --name AzureFunctionsContainers-rg
