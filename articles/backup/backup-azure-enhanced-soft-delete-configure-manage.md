@@ -202,6 +202,8 @@ Soft delete of recovery points helps you recover any recovery points that are ac
 
 [Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points), a part of enhanced soft delete is currently available in selected Azure regions. [Learn more](backup-azure-enhanced-soft-delete-about.md#supported-regions) on the region availability.
 
+Follow these steps:
+
 1. Go to your *vault* > **Backup policies**.
 
 2. Select the *backup policy* you want to modify.
