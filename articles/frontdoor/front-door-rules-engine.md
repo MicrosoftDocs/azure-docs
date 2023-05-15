@@ -105,7 +105,7 @@ In Azure Front Door (classic) you can create Rules engine configurations of many
 
 - *Rules engine configuration*: A set of rules that are applied to single route. Each configuration is limited to 25 rules. You can create up to 10 configurations. 
 - *Rules engine rule*: A rule composed of up to 10 match conditions and 5 actions.
-- *Match condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. For a full list of match conditions, see [Rules match conditions](rules-engine-match-conditions.md). 
+- *Match condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. For a full list of match conditions, see [Rules match conditions](rules-match-conditions.md). 
 - *Action*: Actions dictate what happens to your incoming requests - request/response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to five actions; however, a rule may only contain one route configuration override. For a full list of actions, see [Rules actions](front-door-rules-engine-actions.md).
 
 ## Next steps
