@@ -23,7 +23,7 @@ You can query the deployment programmatically using the [Prediction API](https:/
 
 You can use Language Studio to submit the custom Text Analytics for health task and visualize the results. 
 
-[!INCLUDE [Test model](../includes/language-studio/test-model.md)]
+[!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
 :::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing the deployment testing screen in Language Studio for Custom text analytics of health." lightbox="../media/test-model-results.png":::
 
@@ -32,7 +32,8 @@ You can use Language Studio to submit the custom Text Analytics for health task 
 
 # [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Get prediction URL](../../includes/custom/get-prediction-url.md)]
+[!INCLUDE [Get prediction URL](../../includes/custom/language-studio/get-prediction-url.md)]
+
 
 # [REST API](#tab/rest-api)
 
