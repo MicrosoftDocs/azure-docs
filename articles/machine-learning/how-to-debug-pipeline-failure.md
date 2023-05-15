@@ -32,15 +32,15 @@ This article introduces how to use the pipeline job page to debug machine learni
 
 In pipeline job detail page, there's an outline left to the canvas, which shows the overall structure of your pipeline job. Hovering on any row, you can select the "Locate" button to locate that node in the canvas.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/outline.png" alt-text="Screenshot showing outline and locate in the canvas." lightbox= "./media/how-to-use-pipeline-ui/outline.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/outline.png" alt-text="Screenshot showing outline and locate in the canvas." lightbox= "./media/how-to-debug-pipeline-failure/outline.png":::
 
 You can filter failed or completed nodes, and filter by only components or dataset for further search. The left pane shows the matched nodes with more information including status, duration, and created time.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/quick-filter.png" alt-text="Screenshot showing the quick filter by in outline > search." lightbox= "./media/how-to-use-pipeline-ui/quick-filter.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/quick-filter.png" alt-text="Screenshot showing the quick filter by in outline > search." lightbox= "./media/how-to-debug-pipeline-failure/quick-filter.png":::
 
 You can also sort the filtered nodes.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/sort.png" alt-text="Screenshot of sorting search result in outline > search." lightbox= "./media/how-to-use-pipeline-ui/sort.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/sort.png" alt-text="Screenshot of sorting search result in outline > search." lightbox= "./media/how-to-debug-pipeline-failure/sort.png":::
 
 ## Check logs and outputs of component
 
@@ -75,7 +75,7 @@ To enable this feature:
 2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
 3. In **Managed preview feature** panel, toggle on **Compare pipeline jobs to debug failures or unexpected issues** feature.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/enable-preview.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-use-pipeline-ui/enable-preview.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/enable-preview.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-debug-pipeline-failure/enable-preview.png":::
 
 ### How to debug your failed pipeline job by comparing it to a completed one
 
@@ -90,11 +90,11 @@ For example, you may get an error message showing that your pipeline failed due 
 1. Select **Show lineage**.
 1. Select the link under "Cloned From". This will open a new browser tab with the parent pipeline.
 
-      :::image type="content" source="./media/how-to-use-pipeline-ui/cloned-from.png" alt-text="Screenshot showing the cloned from link, with the previous step, the lineage button highlighted." lightbox= "./media/how-to-use-pipeline-ui/cloned-from.png":::
+      :::image type="content" source="./media/how-to-debug-pipeline-failure/cloned-from.png" alt-text="Screenshot showing the cloned from link, with the previous step, the lineage button highlighted." lightbox= "./media/how-to-debug-pipeline-failure/cloned-from.png":::
 
 1. Select **Add to compare** on the failed pipeline and the parent pipeline. This adds them in the comparison candidate list.
 
-      :::image type="content" source="./media/how-to-use-pipeline-ui/comparison-list.png" alt-text="Screenshot showing the comparison list with a parent and child pipeline added." lightbox= "./media/how-to-use-pipeline-ui/comparison-list.png":::
+      :::image type="content" source="./media/how-to-debug-pipeline-failure/comparison-list.png" alt-text="Screenshot showing the comparison list with a parent and child pipeline added." lightbox= "./media/how-to-debug-pipeline-failure/comparison-list.png":::
 
 ### Compare topology
 
@@ -104,7 +104,7 @@ Once the two pipelines are added to the comparison list, you have two options: *
 
 There are three categories of changes with summaries viewable in the detail page, parameter change, input source, pipeline component. When the pipeline component is changed this means that there's a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details. Other changes can be detected by viewing the colored nodes in the compare graph.
 
-   :::image type="content" source="./media/how-to-use-pipeline-ui/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-use-pipeline-ui/parameter-changed.png":::
+   :::image type="content" source="./media/how-to-debug-pipeline-failure/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-debug-pipeline-failure/parameter-changed.png":::
 
 ### Compare pipeline meta info and properties
 
@@ -121,11 +121,11 @@ You'll see *Pipeline properties* and *Run properties*.
 
 The following screenshot shows an example of using the detail comparison, where the default compute setting might have been the reason for failure.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/compute.png" alt-text="Screenshot showing the comparison overview of the default compute." lightbox= "./media/how-to-use-pipeline-ui/compute.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/compute.png" alt-text="Screenshot showing the comparison overview of the default compute." lightbox= "./media/how-to-debug-pipeline-failure/compute.png":::
 
 To quickly check the topology comparison, select the pipeline name and select **Compare graph**.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/compare-graph.png" alt-text="Screenshot of detail comparison with compare graph highlighted." lightbox= "./media/how-to-use-pipeline-ui/compare-graph.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/compare-graph.png" alt-text="Screenshot of detail comparison with compare graph highlighted." lightbox= "./media/how-to-debug-pipeline-failure/compare-graph.png":::
 
 ### How to debug your failed node in a pipeline by comparing to similar completed node
 
@@ -136,7 +136,7 @@ If you only updated node properties and changed nothing in the pipeline, then yo
 1. Find a successful job to compare with by viewing all runs submitted from the same component.
     1. Right select the failed node and select *View Jobs*. This gives you a list of all the jobs.
   
-        :::image type="content" source="./media/how-to-use-pipeline-ui/view-jobs.png" alt-text="Screenshot that shows a failed node with view jobs highlighted." lightbox= "./media/how-to-use-pipeline-ui/view-jobs.png":::
+        :::image type="content" source="./media/how-to-debug-pipeline-failure/view-jobs.png" alt-text="Screenshot that shows a failed node with view jobs highlighted." lightbox= "./media/how-to-debug-pipeline-failure/view-jobs.png":::
 
     1. Choose a completed job as a comparison target.
 1. After you found a failed and completed job to compare with, add the two jobs to the comparison candidate list.
@@ -148,7 +148,7 @@ If you only updated node properties and changed nothing in the pipeline, then yo
 
 To share your comparison results select **Share** and copying the link. For example, you might find out that the dataset difference might of lead to the failure but you aren't a dataset specialist, you can share the comparison result with a data engineer on your team.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/share.png" alt-text="Screenshot showing the share button and the link you should copy." lightbox= "./media/how-to-use-pipeline-ui/share.png":::
+:::image type="content" source="./media/how-to-debug-pipeline-failure/share.png" alt-text="Screenshot showing the share button and the link you should copy." lightbox= "./media/how-to-debug-pipeline-failure/share.png":::
 
 
 

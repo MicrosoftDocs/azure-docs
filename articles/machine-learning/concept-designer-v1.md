@@ -11,7 +11,7 @@ ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 08/03/2022
 ms.custom: designer, training
-monikerRange: 'azureml-api-1'
+#monikerRange: 'azureml-api-1'
 ---
 
 # What is Azure Machine Learning designer? 
