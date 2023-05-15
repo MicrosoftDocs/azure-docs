@@ -63,5 +63,5 @@ Some results contain related documentation.
 
 ## Next steps
 
-* [Monitor Azure Spring Apps resources using alerts and action groups](how-to-alerts-action-groups.md)
+* [Monitor Spring app resources using alerts and action groups](./tutorial-alerts-action-groups.md)
 * [Security controls for Azure Spring Apps Service](./concept-security-controls.md)

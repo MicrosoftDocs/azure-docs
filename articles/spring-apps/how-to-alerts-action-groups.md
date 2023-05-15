@@ -33,13 +33,13 @@ The following procedures initialize both **Action Group** and **Alert** starting
 
 Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the left pane, then select **Manage actions**:
 
-![Screenshot portal resource group page](media/how-to-alerts-action-groups/action-1-a.png)
+![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
 
 ## Set up Action Group
 
 To begin the procedure to initialize a new **Action Group**, select **Add action group**.
 
-![Screenshot portal Add action group](media/how-to-alerts-action-groups/action-1.png)
+![Screenshot portal Add action group](media/alerts-action-groups/action-1.png)
 
 On the **Add action group** page:
 
@@ -57,7 +57,7 @@ On the **Add action group** page:
 
 1. Select **OK** in the **Add action group** dialog.
 
-   ![Screenshot Portal define action](media/how-to-alerts-action-groups/action-2.png)
+   ![Screenshot Portal define action](media/alerts-action-groups/action-2.png)
 
 ## Set up Alert
 
@@ -65,13 +65,13 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Navigate back to the **Alerts** page and then select **Manage Alert Rules**.
 
-   ![Screenshot Portal define alert](media/how-to-alerts-action-groups/alerts-2.png)
+   ![Screenshot Portal define alert](media/alerts-action-groups/alerts-2.png)
 
 1. Select the **Resource** for the alert.
 
 1. Select **New alert rule**.
 
-   ![Screenshot Portal new alert rule](media/how-to-alerts-action-groups/alerts-3.png)
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
 
 1. On the **Create rule** page, specify the **RESOURCE**.
 
@@ -79,11 +79,11 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select a condition. This example uses **System CPU Usage Percentage**.
 
-   ![Screenshot Portal new alert rule 2](media/how-to-alerts-action-groups/alerts-3-1.png)
+   ![Screenshot Portal new alert rule 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
 
-   ![Screenshot Portal new alert rule 3](media/how-to-alerts-action-groups/alerts-3-2.png)
+   ![Screenshot Portal new alert rule 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. Select **Done**.
 
@@ -91,7 +91,7 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Under **ACTIONS**, select **Select action group**. From the **ACTIONS** pane select the previously defined **Action Group**.
 
-   ![Screenshot Portal new alert rule 4](media/how-to-alerts-action-groups/alerts-3-3.png)
+   ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png)
 
 1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
 
@@ -99,15 +99,15 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select **Create alert rule**.
 
-   ![Screenshot Portal new alert rule 5](media/how-to-alerts-action-groups/alerts-3-4.png)
+   ![Screenshot Portal new alert rule 5](media/alerts-action-groups/alerts-3-4.png)
 
 1. Verify that the new alert rule is enabled.
 
-   ![Screenshot Portal new alert rule 6](media/how-to-alerts-action-groups/alerts-4.png)
+   ![Screenshot Portal new alert rule 6](media/alerts-action-groups/alerts-4.png)
 
 A rule can also be created using the **Metrics** page:
 
-![Screenshot Portal new alert rule 7](media/how-to-alerts-action-groups/alerts-5.png)
+![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
 
