@@ -80,11 +80,11 @@ items:
     - name: App segment discovery
       href: how-to-app-segment-discovery.md
     - name: Enriched Office 365 logs
-      href: how-to-enriched-logs.md
+      href: how-to-view-enriched-logs.md
     - name: Network logging
       href: how-to-network-logging.md
     - name: Admin audit logging
-      href: how-to-admin-audit-logging.md
+      href: how-to-access-audit-logs.md
 - name: Reference
   expanded: false
   items:
