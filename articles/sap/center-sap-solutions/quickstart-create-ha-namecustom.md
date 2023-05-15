@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create a Distributed Highly available SAP system with Azure Center for SAP solutions with Azure CLI
-description: Learn how to Create a Distributed Highly available SAP system in Azure Center for SAP solutions through Azure CLI.
+title: Quickstart - Create a distributed highly available SAP system with Azure Center for SAP solutions with Azure CLI
+description: Learn how to create a distributed highly available SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: quickstart
@@ -9,11 +9,11 @@ ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to Create a Distributed Highly available SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
-# Quickstart: Use Azure CLI to Create infrastructure for a Distributed Highly available (HA) SAP system with Azure Center for SAP solutions with customized resource names
+# Quickstart: Use Azure CLI to Create infrastructure for a distributed highly available (HA) SAP system with Azure Center for SAP solutions with customized resource names
 
 The [Azure CLI](/cli/azure/) is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to use Azure CLI to deploy infrastrucure for an SAP system with highly available (HA) Three-tier Distributed architecture. You also see how to customize resource names for the Azure infrastructure that gets deployed. Alternatively, you can deploy SAP systems with customized using the [Azure PowerShell Module](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance)
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to use Azure CLI to deploy infrastructure for an SAP system with highly available (HA) Three-tier Distributed architecture. You also see how to customize resource names for the Azure infrastructure that gets deployed. Alternatively, you can deploy SAP systems with customized using the [Azure PowerShell Module](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance)
 
 After you deploy infrastructure and [install SAP software](install-software.md) with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
@@ -57,7 +57,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
 ## Create *json* configuration file with custom resource names
 
 - Prepare a *json* file with the configuration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload]([https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayloadDistributedNon-HA.json](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
-- In this json file, provide the custom resource names for the insfrastructure that is deployed for your SAP system
+- In this json file, provide the custom resource names for the infrastructure that is deployed for your SAP system
 
 ## Deploy infrastructure for your SAP system
 
