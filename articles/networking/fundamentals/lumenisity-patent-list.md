@@ -128,3 +128,7 @@ ms.author: duau
 |                               | US-2022-0011502-A1                  | United States Of America     |
 |                               | US-2022-0155517-A1                  | United States Of America     |
 |                               | US-2022-0196907-A1                  | United States Of America     |
+
+## Next Steps
+
+Learn more about [Microsoft acquisition of Lumenisity](https://blogs.microsoft.com/blog/2022/12/09/microsoft-acquires-lumenisity-an-innovator-in-hollow-core-fiber-hcf-cable/).
