@@ -29,9 +29,6 @@ To perform the steps described in this article, you'll need:
 
 This step is performed by your deployment and connectivity teams.
 
-> [!NOTE]
-> When configuring a proxy, you may also want to use SSL inspection for your SSL/TLS certificates. To do this, deploy a CA-signed SSL/TLS certificate on your OT sensor. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
-
 ## Connect via an Azure proxy
 
 This section describes how to connect your sensor to Defender for IoT in Azure using an [Azure proxy](architecture-connections.md#proxy-connections-with-an-azure-proxy). Use this procedure in the following situations:
@@ -71,13 +68,14 @@ If you already have a proxy set up in your Azure VNET, start by defining the pro
 If you don't yet have a proxy configured in your Azure VNET, use the following steps to configure your proxy:
 
 1. [Define a storage account for NSG logs](#step-1-define-a-storage-account-for-nsg-logs)
-
 1. [Define virtual networks and subnets](#step-2-define-virtual-networks-and-subnets)
 1. [Define a virtual or local network gateway](#step-3-define-a-virtual-or-local-network-gateway)
 1. [Define network security groups](#step-4-define-network-security-groups)
 1. [Define an Azure virtual machine scale set](#step-5-define-an-azure-virtual-machine-scale-set)
 1. [Create an Azure load balancer](#step-6-create-an-azure-load-balancer)
 1. [Configure a NAT gateway](#step-7-configure-a-nat-gateway)
+
+If your proxy implements SSL inspection, set up SSL inspection through a cloud security platform, such as [ZSCALER](https://www.zscaler.com/capabilities/ssl-inspection), then use the OT sensor console to deploy the intermediate certificate. For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 #### Step 1: Define a storage account for NSG logs
 
