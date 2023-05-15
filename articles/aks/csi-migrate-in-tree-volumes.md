@@ -117,7 +117,7 @@ The following are important considerations to evaluate:
             if [[ $RECLAIM_POLICY == "Retain" ]]; then
               if [[ $STORAGECLASS == $EXISTING_STORAGE_CLASS ]]; then
                 STORAGE_SIZE="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.capacity.storage}')"
-                SKU_NAME="$(kubectl get storageClass $STORAGECLASS -o jsonpath='{.reclaimPolicy}')"
+                SKU_NAME="$(kubectl get storageClass $STORAGE_CLASS_NEW -o jsonpath='{.parameters.skuname}')"
                 DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
                 PERSISTENT_VOLUME_RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
     
@@ -272,7 +272,7 @@ Before proceeding, verify the following:
             RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
             if [[ $STORAGE_CLASS == $EXISTING_STORAGE_CLASS ]]; then
               STORAGE_SIZE="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.capacity.storage}')"
-              SKU_NAME="$(kubectl get storageClass $STORAGE_CLASS -o jsonpath='{.reclaimPolicy}')"
+              SKU_NAME="$(kubectl get storageClass $STORAGE_CLASS_NEW -o jsonpath='{.parameters.skuname}')"
               DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
               TARGET_RESOURCE_GROUP="$(cut -d'/' -f5 <<<"$DISK_URI")"
               echo $DISK_URI
