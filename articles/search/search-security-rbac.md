@@ -48,7 +48,7 @@ Built-in roles include generally available and preview roles. If these roles are
 
 + If you migrate your Azure subscription to a new tenant, the Azure RBAC preview will need to be re-enabled. 
 
-+ Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
++ Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
@@ -169,7 +169,7 @@ Import-Module -Name AzureAD
 Connect-AzAccount
 ```
 
-Scoped to the service, your syntax should look similar to the following example:
+This example creates a role assignment scoped to a search service:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -177,7 +177,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>"
 ```
 
-Scoped to an individual index:
+This example creates a role assignment scoped to a specific index:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -339,6 +339,7 @@ See [Authorize access to a search app using Azure Active Directory](search-howto
     SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
     ```
 
+---
 
 ## Test as current user
 
