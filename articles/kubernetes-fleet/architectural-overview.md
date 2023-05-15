@@ -51,7 +51,9 @@ The following labels are added automatically to all member clusters, which can t
 
 Platform admins managing Kubernetes fleets with large number of clusters often have problems with staging their updates in a safe and predictable way across multiple clusters. To address this pain point, Fleet allows orchestrating updates across multiple clusters using update runs, stages, and groups.
 
-[ ![Diagram that shows updates can be orchestrated across multiple clusters using update runs, stages, and groups.](./media/conceptual-update-orchestration.png) ](./media/conceptual-update-orchestration.png#lightbox)
+:::image type="content" source="./media/conceptual-update-orchestration-inline.png" alt-text="A diagram showing an upgrade run containing two update stages, each containing two update groups. The groups have two member clusters each. A sequence is shown where the first stage is run, with upgrades being performed on the groups in parallel. After a wait, the second stage is then run." lightbox="./media/conceptual-update-orchestration.png":::
+
+:::image type="content" source="{source}" alt-text="{alt-text}":::
 
 * **Update group**: A group of AKS clusters for which updates are done sequentially one after the other. Each member cluster of the fleet can only be a part of one update group.
 * **Update stage**: Update stages allow pooling together update groups for which the updates need to be run in parallel. It can be used to define wait time between two different collections of update groups.
@@ -63,7 +65,6 @@ Currently the only supported update operations on the cluster are upgrades. With
 
 Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. 
 
-:::image type="content" source="./media/conceptual-update-orchestration-inline.png" alt-text="A diagram showing an upgrade run containing two update stages, each containing two update groups. The groups have two member clusters each. A sequence is shown where the first stage is run, with upgrades being performed on the groups in parallel. After a wait, the second stage is then run." lightbox="./media/conceptual-update-orchestration.png":::
 [ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
 
 A `ClusterResourcePlacement` has two parts to it:
