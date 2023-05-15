@@ -44,7 +44,7 @@ You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you s
 
 SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
 
-Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-3-download).
+Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.3.x](https://aka.ms/azure-cosmos-spark-3-3-download).
 
 The getting started guide is based on PySpark/Scala and you can run the following code snippet in an Azure Databricks PySpark/Scala notebook.
 
