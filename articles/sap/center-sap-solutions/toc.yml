@@ -6,11 +6,11 @@ items:
   - name: Quickstarts
     items:
     - name: Deploy S/4 HANA infrastructure - Azure PowerShell
-      href: quickstart-create-distributed-non-ha.md
+      href: quickstart-create-distributed-non-high-availability.md
     - name: Install SAP software - Azure PowerShell
       href: quickstart-install-distributed-non-high-availability.md  
     - name: Deploy S/4 HANA infrastructure - Azure CLI
-      href: quickstart-create-ha-namecustom.md
+      href: quickstart-create-high-availability-namecustom.md
     - name: Install SAP software - Azure CLI
       href: quickstart-install-high-availability-namecustom-cli.md
     - name: Register an existing SAP system - Azure PowerShell
@@ -24,7 +24,7 @@ items:
   - name: Tutorials
     items:
     - name: Deploy infrastructure for an SAP system with customized resource names
-      href: tutorial-create-ha-name-custom.md
+      href: tutorial-create-high-availability-name-custom.md
   - name: Concepts
     items:
     - name: Manage resources with Azure RBAC
