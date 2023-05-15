@@ -92,7 +92,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
 
-To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md#tab/portal-2Ccli).
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
 
 
 ### Create an Azure Compute Gallery
