@@ -81,7 +81,7 @@ You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-
 Azure Machine Learning model monitoring uses `az ml schedule` for model monitoring setup. You can create out-of-box model monitoring setup with the following CLI command and YAML definition:
 
 ```azurecli
-az ml schedule -f ./out-of-box-monitoring.yaml
+az ml schedule create -f ./out-of-box-monitoring.yaml
 ```
 
 The following YAML contains the definition for out-of-box model monitoring.
@@ -188,7 +188,7 @@ You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for adva
 You can create advanced model monitoring setup with the following CLI command and YAML definition:
 
 ```azurecli
-az ml schedule -f ./advanced-model-monitoring.yaml
+az ml schedule create -f ./advanced-model-monitoring.yaml
 ```
 
 The following YAML contains the definition for advanced model monitoring.
@@ -232,8 +232,8 @@ create_monitor:
           metric_name: jensen_shannon_distance
           threshold: 0.01
         - applicable_feature_type: categorical
-          metric_name: chi_squared_test
-          threshhod: 0.02
+          metric_name: pearsons_chi_squared_test
+          threshold: 0.02
     advanced_data_quality:
       type: data_quality
       # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online depoint
@@ -247,9 +247,11 @@ create_monitor:
         - feature_B
         - feature_C
       metric_thresholds:
-        - metric_name: null_value_rate
+        - applicable_feature_type: numerical
+          metric_name: null_value_rate
           # use default threshold from training data baseline
-        - metric_name: out_of_bounds_rate
+        - applicable_feature_type: categorical
+          metric_name: out_of_bounds_rate
           # use default threshold from training data baseline
     feature_attribution_drift_signal:
       type: feature_attribution_drift
@@ -258,7 +260,8 @@ create_monitor:
         input_dataset:
           path: azureml:my_model_training_data:1
           type: mltable
-          target_column_name: fraud_detected
+        dataset_context: model_inputs
+        target_column_name: fraud_detected
       model_type: classification
       # if no metric_thresholds defined, use the default metric_thresholds
       metric_thresholds:
@@ -418,7 +421,7 @@ You can also set up model monitoring for models deployed to Azure Machine Learni
 Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
 
 ```azurecli
-az ml schedule -f ./model-monitoring-with-collected-data.yaml
+az ml schedule create -f ./model-monitoring-with-collected-data.yaml
 ```
 
 The following YAML contains the definition for model monitoring with production inference data that you've collected.
@@ -455,7 +458,7 @@ create_monitor:
           input_dataset:
             path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
             type: uri_folder
-          data_context: model_inputs
+          dataset_context: model_inputs
           pre_processing_component: azureml:production_data_preprocessing:1
       baseline_dataset:
         input_dataset:
@@ -469,8 +472,8 @@ create_monitor:
           metric_name: jensen_shannon_distance
           threshold: 0.01
         - applicable_feature_type: categorical
-          metric_name: chi_squared_test
-          threshhod: 0.02
+          metric_name: pearsons_chi_squared_test
+          threshold: 0.02
     advanced_prediction_drift: # monitoring signal name, any user defined name works
       type: prediction_drift
       # define target dataset with your collected data
@@ -479,7 +482,7 @@ create_monitor:
           input_dataset:
             path: azureml:my_production_inference_data_model_outputs:1  # your collected data is registered as Azure Machine Learning asset
             type: uri_folder
-          data_context: model_outputs
+          dataset_context: model_outputs
           pre_processing_component: azureml:production_data_preprocessing:1
       baseline_dataset:
         input_dataset:
@@ -488,8 +491,8 @@ create_monitor:
         dataset_context: validation
       metric_thresholds:
         - applicable_feature_type: categorical
-          metric_name: chi_squared_test
-          threshhod: 0.02
+          metric_name: pearsons_chi_squared_test
+          threshold: 0.02
     advanced_data_quality:
       type: data_quality
       target_dataset:
@@ -497,7 +500,7 @@ create_monitor:
           input_dataset:
             path: azureml:my_production_inference_data_model_inputs:1  # your collected data is registered as Azure Machine Learning asset
             type: uri_folder
-          data_context: model_inputs
+          dataset_context: model_inputs
           pre_processing_component: azureml:production_data_preprocessing:1
       baseline_dataset:
         input_dataset:
@@ -505,9 +508,11 @@ create_monitor:
           type: mltable
         dataset_context: training
       metric_thresholds:
-        - metric_name: null_value_rate
+        - applicable_feature_type: numerical
+          metric_name: null_value_rate
           # use default threshold from training data baseline
-        - metric_name: out_of_bounds_rate
+        - applicable_feature_type: categorical
+          metric_name: out_of_bounds_rate
           # use default threshold from training data baseline
   
   alert_notification:
