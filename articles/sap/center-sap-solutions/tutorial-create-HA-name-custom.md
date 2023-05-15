@@ -87,7 +87,7 @@ Below is the sample view of the json file:
 
 ## Deploy infrastructure for your SAP system
 
-Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create) to deploy infrastructure for your SAP system with Three tier HA architecture
+Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest#az-workloads-sap-virtual-instance-create) to deploy infrastructure for your SAP system with Three tier HA architecture.
 
 ```azurecli-interactive
 az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> --environment NonProd --sap-product s4hana --configuration <Payload file path> --identity "{type:UserAssigned,userAssignedIdentities:{<Managed_Identity_ResourceID>:{}}}"
