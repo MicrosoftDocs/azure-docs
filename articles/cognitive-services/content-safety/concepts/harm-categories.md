@@ -1,5 +1,5 @@
 ---
-title: "Harm categories in Azure Content Safety"
+title: "Harm categories in Azure AI Content Safety"
 titleSuffix: Azure Cognitive Services
 description: Learn about the different content moderation flags and severity levels that the Content Safety service returns.
 services: cognitive-services
@@ -14,7 +14,7 @@ keywords:
 ---
 
 
-# Harm categories in Azure Content Safety
+# Harm categories in Azure AI Content Safety
 
 This guide describes all of the harm categories and ratings that Content Safety uses to flag content. Both text and image content use the same set of flags.
 

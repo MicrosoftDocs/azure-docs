@@ -28,7 +28,7 @@ The default AI classifiers are sufficient for most content moderation needs. How
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) or * [Python 3.x](https://www.python.org/) installed
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
-  * If you're using the Python SDK, you'll need to install the Azure Content Safety client library for Python. Run the command `pip install azure-ai-contentsafety` in your project directory.
+  * If you're using the Python SDK, you'll need to install the Azure AI Content Safety client library for Python. Run the command `pip install azure-ai-contentsafety` in your project directory.
 
 ## Analyze text with a blocklist
 

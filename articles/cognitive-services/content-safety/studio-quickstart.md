@@ -13,7 +13,7 @@ ms.date: 04/27/2023
 ms.author: pafarley
 ---
 
-# QuickStart: Azure Content Safety Studio
+# QuickStart: Azure AI Content Safety Studio
 
 In this quickstart, get started with the Content Safety service using Content Safety Studio in your browser. 
 
