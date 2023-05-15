@@ -136,6 +136,9 @@ The following dimensions are available on the `Email Service Delivery Status Upd
 | SmtpStatusCode       | Smpt error code from for failed deliveriess. |
 | EnhancedSmtpStatusCode       | The EnhancedSmtpStatusCode status code will be emitted if it is available. This status code provides additional details not available with the SmtpStatusCode. |
 
+:::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Email DElivery Status Update Metric.":::
+:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Email DElivery Status Update Metric.":::
+
 ### Email Service API requests
 
 The follow operations are available for the `Email Service API Requests` metric. These standard dimensions are supported: StatusCode, StatusCodeClass, StatusCodeReason and Operation.
@@ -145,7 +148,7 @@ The follow operations are available for the `Email Service API Requests` metric.
 | SendMail       | Email Send API. |
 | GetMessageStatus       | Get the delivery status of a messageId. |
 
-<!- api requests pic -->
+:::image type="content" source="./media/acs-email-api-resquest-metrics.png" alt-text="Email API Request Metric.":::
 
 ### Email User Engagement
 
@@ -155,7 +158,7 @@ The `Email Service User Engagement` metric is supported with HTML type emails an
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | EngagementType       | Type of interaction performed by the reciever of the email. |
 
-<!- userengagment pic -->
+:::image type="content" source="./media/acs-email-user-engagement-metrics.png" alt-text="Email User Engagement Metric.":::
 
 ## Next steps
 
