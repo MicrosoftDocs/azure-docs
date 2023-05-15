@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 05/15/2023
 ms.custom: template-how-to
 ---
 
@@ -42,7 +42,18 @@ HTTP connector is available in all workflow templates.
 
 1. You will be now presented with the settings for HTTP connector and you can turn secure inputs and outputs OFF.
 
-    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-secure.png" alt-text="Screenshot of how to add HTTP connector secure input and outputs."::: 
+    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-secure.png" alt-text="Screenshot of how to add HTTP connector secure input and outputs.":::
+    
+## Parse JSON action
+
+The parse JSON action in workflows allows you to take an incoming JSON from HTTP (or any other action/connector), and parse the JSON to extract parameters for use in your workflow.
+
+The parse JSON action has two parameters:
+
+- Content - this will be a variable that should contain the JSON you want to parse.
+- Schema - this should be the schema of the incoming JSON, which will allow the workflow to parse the incoming information. You can supply your own, or use the **Generate from sample** button. If you generate from a sample, you'll enter a sample JSON payload and a schema will be automatically generated for you.
+
+Actions and connectors in the workflow after the parse JSON action will be able to use the parameters extracted from the JSON by selecting **Add dynamic content** for any parameters.
 
 ## Next steps
 
