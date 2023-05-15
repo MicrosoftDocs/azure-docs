@@ -101,7 +101,7 @@ To list all extensions installed on a cluster, use `k8s-extension list`, passing
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-### Update extension instance
+## Update extension instance
 
 > [!NOTE]
 > Refer to documentation for the specific extension type to understand the specific settings in `--configuration-settings` and `--configuration-protected-settings` that are able to be updated. For `--configuration-protected-settings`, all settings are expected to be provided, even if only one setting is being updated. If any of these settings are omitted, those settings will be considered obsolete and deleted.
@@ -130,7 +130,7 @@ If updating a Kubernetes application procured through Marketplace, the following
 |`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
 |`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
 
-## Optional parameters for update
+### Optional parameters for update
 
 | Parameter name | Description |
 |--------------|------------|
