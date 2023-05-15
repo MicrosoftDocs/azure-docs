@@ -51,4 +51,3 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 Sign in to a machine with the Global Secure Access client installed, configured, and running.
 
-## Next steps

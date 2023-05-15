@@ -52,4 +52,3 @@ To see source IP restoration in action, administrators can take the following st
 
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 
-## Next steps

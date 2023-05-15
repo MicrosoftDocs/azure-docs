@@ -62,7 +62,7 @@ The PM will provide more detail here
 
 ## Protect Exchange and SharePoint Online behind the compliant network
 
-The follwoing example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network.
+The following example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network.
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -99,4 +99,3 @@ Verify the new named location was automatically created using [Microsoft Graph](
 
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
 
-## Next steps

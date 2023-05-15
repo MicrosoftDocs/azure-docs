@@ -20,7 +20,7 @@ Universal Tenant Restrictions enforces tenant restrictions v2 for all operating 
 
 
 
-In the example depicted in the diagram 
+<!--  In the example depicted in the diagram   -->
 
 
 Universal tenant restrictions help to prevent data exfiltration across browsers, devices, and networks in the following ways:
@@ -73,4 +73,3 @@ Full feature flag URL:
 
 (https://portal.azure.com/?Microsoft_AAD_IAM_isXTAPTenantRestrictionEnabled=true#view/Microsoft_AAD_IAM/CompanyRelationshipsMenuBlade/~/CrossTenantAccessSettings) 
 
-## Next steps
