@@ -18,7 +18,7 @@ This article shows you how to render point data from a data source as a bubble l
 
 ## Add a bubble layer
 
-The following code loads an array of points into a data source. Then, it connects the data points are to a [bubble layer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer). The bubble layer renders each bubble with a radius of six pixels and a stroke width of three pixels.
+The following code loads an array of points into a data source. Then, it connects the data points are to a [bubble layer]. The bubble layer renders each bubble with a radius of six pixels and a stroke width of three pixels.
 
 ```javascript
 /*Ensure that the map is fully loaded*/
@@ -59,21 +59,77 @@ map.events.add("load", function () {
 
 ## Show labels with a bubble layer
 
-This code shows you how to use a bubble layer to render a point on the map. And, how to use a symbol layer to render a label. To hide the icon of the symbol layer, set the `image` property of the icon options to `'none'`.
+This code shows you how to use a bubble layer to render a point on the map and  a symbol layer to render a label. To hide the icon of the symbol layer, set the `image` property of the icon options to `none`.
 
+```javascript
+//Create an instance of the map control and set some options.
+ function InitMap()
+ 
+    var map = new atlas.Map('myMap', {
+    center: [-122.336641, 47.627631],
+    zoom: 16,
+    view: "Auto",
+         authOptions: {
+            authType: 'subscriptionKey',
+           subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+         }
+    });
+
+    /*Ensure that the map is fully loaded*/
+    map.events.add("load", function () {
+
+        /*Create point object*/
+        var point =  new atlas.data.Point([-122.336641,47.627631]);
+
+        /*Create a data source and add it to the map*/
+        var dataSource = new atlas.source.DataSource();
+        map.sources.add(dataSource);
+        dataSource.add(point);
+
+        map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
+            radius: 5,
+            strokeColor: "#4288f7",
+            strokeWidth: 6, 
+            color: "white" 
+        }));
+
+        //Add a layer for rendering point data.
+        map.layers.add(new atlas.layer.SymbolLayer(dataSource, null, {
+           iconOptions: {
+                //Hide the icon image.
+                image: "none"
+           },
+
+           textOptions: {
+                textField: "Museum of History & Industry (MOHAI)",
+                color: "#005995",
+                offset: [0, -2.2]
+           },
+        }));
+    });
+}
+```
+
+:::image type="content" source="./media/map-add-bubble-layer/show-labels-with-a-bubble-layer.png" alt-text="Screenshot showing a map displaying six blue circles, or points in the specified locations.":::
+
+<!---------------------------------------------------------------------
 <br/>
-
 <iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+--------------------------------------------------------------------->
 
 ## Customize a bubble layer
 
-The Bubble layer only has a few styling options. Here is a tool to try them out.
+The Bubble layer only has a few styling options. Use the [Bubble Layer Options] sample to try them out.
 
+:::image type="content" source="./media/map-add-bubble-layer/bubble-layer-options.png" alt-text="Screenshot showing a map displaying six blue circles, or points in the specified locations.":::
+
+<!-------------------------------------------------------------------
 <br/>
 
 <iframe height='700' scrolling='no' title='Bubble Layer Options' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>Bubble Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+--------------------------------------------------------------------->
 
 ## Next steps
 
@@ -98,3 +154,6 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
+
+[Bubble Layer Options]: https://samples.azuremaps.com/?search=bubble&sample=bubble-layer-options
+[bubble layer]: /javascript/api/azure-maps-control/atlas.layer.bubblelayer
