@@ -302,3 +302,33 @@ Test that you can query metrics from the proxy using the following command: <<<<
 
 ## Troubleshooting
 
+1. Proxy container does not start
+Run the following command which shows any errors if in the proxy container.
+
+```shell
+kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>`
+```
+
+1. Proxy does not - configuration errors
+
+Proxy checks for valid identity to fetch a token during start up. If this fails, start up fails. Errors are  logged and can be viewed by running the following command:
+
+```shell
+kubectl --namespace <Namespace> logs <Proxy-Pod-Name>
+```
+
+Example output:
+```
+time="2023-05-15T11:24:06Z" level=info msg="Configuration settings loaded:" AAD_CLIENT_CERTIFICATE_PATH= AAD_CLIENT_ID=abc123de-be75-4141-a1e6-abc123987def AAD_TENANT_ID= AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE=10 AUDIENCE="https://prometheus.monitor.azure.com" IDENTITY_TYPE=userassigned LISTENING_PORT=8082 OTEL_GRPC_ENDPOINT= OTEL_SERVICE_NAME=aad_auth_proxy TARGET_HOST=k8s-03-workspace-orkw.eastus.prometheus.monitor.azure.com
+2023-05-15T11:24:06.414Z [ERROR] TokenCredential creation failed:Failed to get access token: ManagedIdentityCredential authentication failed
+GET http://169.254.169.254/metadata/identity/oauth2/token
+--------------------------------------------------------------------------------
+RESPONSE 400 Bad Request
+--------------------------------------------------------------------------------
+{
+  "error": "invalid_request",
+  "error_description": "Identity not found"
+}
+--------------------------------------------------------------------------------
+```
+
