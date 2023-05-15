@@ -11,9 +11,9 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 10/31/2017
+ms.date: 05/15/2023
 ms.author: danlep
-ms.custom: mvc
+ms.custom: mvc,engagement-fy23
 ---
 
 # API Management policy samples
@@ -27,7 +27,6 @@ ms.custom: mvc
 | [Add capabilities to a backend service and cache the response](./cache-response.md)                                             | Shows how to add capabilities to a backend service. For example, accept a name of the place instead of latitude and longitude in a weather forecast API.                                                                    |
 | [Authorize access based on JWT claims](./authorize-request-based-on-jwt-claims.md)                                              | Shows how to authorize access to specific HTTP methods on an API based on JWT claims.                                                                                                                                       |
 | [Authorize requests using external authorizer](./authorize-request-using-external-authorizer.md)                                                   | Shows how to use external authorizer for securing API access.                                                                                                                                                               |
-| [Authorize access using Google OAuth token](./use-google-as-oauth-token-provider.md)                                            | Shows how to authorize access to your endpoints using Google as an OAuth token provider.                                                                                                                                    |
 | [Filter IP Addresses when using an Application Gateway](./filter-ip-addresses-when-using-appgw.md) | Shows how to IP filter in policies when the API Management instance is accessed via an Application Gateway
 | [Generate Shared Access Signature and forward request to Azure storage](./generate-shared-access-signature.md)                  | Shows how to generate [Shared Access Signature](../../storage/common/storage-sas-overview.md) using expressions and forward the request to Azure storage with rewrite-uri policy. |
 | [Get OAuth2 access token from AAD and forward it to the backend](./use-oauth2-for-authorization.md)                             | Provides and example of using OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend.                                                    |
