@@ -29,7 +29,7 @@ In the support table, **NA** indicates that the feature isn't available.
 [Security recommendations](security-policy-concept.md) | GA | GA | GA
 [Recommendation exemptions](exempt-resource.md) | Preview | NA | NA
 [Secure score](secure-score-security-controls.md) | GA | GA | GA
-[Microsoft Cloud Security Benchmark recommendations](concept-regulatory-compliance.md) | GA | NA | NA
+[Microsoft Cloud Security Benchmark recommendations](concept-regulatory-compliance.md) | GA | GA | GA
 **DEFENDER FOR CLOUD PLANS** | | |
 [Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA
 [Defender for APIs](defender-for-apis-introduction.md). [Review support preview regions](defender-for-apis-prepare.md#cloud-and-region-support). | Preview | NA | NA
