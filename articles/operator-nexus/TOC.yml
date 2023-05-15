@@ -52,8 +52,8 @@
     href: howto-precertification.md
   - name: Tracking asynchronous operations
     href: howto-track-async-operations-cli.md
-  - name: Troubleshoot haks common issues
-    href: Troubleshoot-haks-cluster.md
+  - name: Troubleshoot AKS-Hybrid common issues
+    href: Troubleshoot-AKS-Hybrid-cluster.md
 - name: Sample Deployment
   items:
   - name: VNF Deployment

@@ -1,19 +1,21 @@
 ---
-title: Troubleshoot Hybrid Aks Cluster provision failures | Microsoft Docs
+title: Troubleshoot AKS-Hybrid cluster provision failures for Azure Operator Nexus
 description: Troubleshoot Hybrid Azure Kubernetes Service (AKS) clusters provision failures. Learn how to debug failure codes.
 ms.service: azure-operator-nexus
-ms.custom: Haks-troubleshooting
-ms.topic: troubleshooting
+ms.custom: -troubleshooting
+ms.topic: AKS-Hybrid troubleshooting
 ms.date: 05/14/2023
 ms.author: v-saambe
 author: v-saambe
 ---
 
-# Troubleshoot Hybrid Aks Cluster provision failures   
+# Troubleshoot AKS-Hybrid Cluster provision failures   
 
-Follow these steps in order to gather the data needed to diagnose Hybrid AKS creation or management issues. These steps require k8s controller access and bare metal linux host access.
+Follow these steps in order to gather the data needed to diagnose AKS-Hybrid creation or management issues. 
 
-:::image type="content" source="media/Haks-connected-status.png" alt-text="Connected status":::
+[How to Connect AKS hybrid cluster using Azure CLI](../azure-stack-docs/AkS-Hybrid/create-aks-hybrid-preview-cli.md#connect-to-the-aks-hybrid-cluster)
+
+:::image type="content" source="media/AKS-Hybrid-connected-status.png" alt-text="Connected status":::
 
 If Status: is not Connected and Provisioning State: is not Succeeded then the install failed
 
@@ -27,10 +29,10 @@ If Status: is not Connected and Provisioning State: is not Succeeded then the in
     - Cluster name and resource group (this is the undercloud on premise physical cluster)
     - Network Fabric controller and resource group
     - Network fabric instances and resource group
-    - Hybrid AKS cluster name and resource group
+    - AKS-Hybrid cluster name and resource group
     - CLI, Bicep or ARM template used to create or attempt creation
 
-## What does an unhealthy HAKS cluster look like?
+## What does an unhealthy AKS-Hybrid cluster look like?
 
 There are several different types of failures that end up looking very similar to the end user.
 
@@ -48,9 +50,9 @@ In the CLI, when looking at "az hybridaks show" output, an unhealthy cluster may
 
 ## Basic Network Requirements 
 
-At a minimum, every HAKS cluster needs a defaultcninetwork and a cloudservicesnetwork.
+At a minimum, every AKS-Hybrid cluster needs a defaultcninetwork and a cloudservicesnetwork.
 
-Starting from the bottom up, we can consider Managed Network Fabric resources, Network Cloud resources, and Hybrid AKS resources:
+Starting from the bottom up, we can consider Managed Network Fabric resources, Network Cloud resources, and AKS-Hybrid resources:
 
 ### Managed Network Fabric resources (az nf ...):
 
@@ -66,24 +68,24 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
    - the ipv4prefix used must be unique across all defaultcninetworks (and l3networks)
  - the networks must have Provisioning state: Succeeded
 
-### Hybrid AKS resources (az hybridaks vnet ...):
+### AKS-Hybrid resources (az hybridaks vnet ...):
 
-To be used by a hybrid AKS cluster, each Network Cloud networks must be "wrapped" in a hybridaks vnet.
+To be used by a AKS-Hybrid cluster, each Network Cloud networks must be "wrapped" in a hybridaks vnet.
 
 ## Common Issues
 
-Any of the following problems can cause the hybrid AKS cluster to fail to provision fully 
+Any of the following problems can cause the AKS-Hybrid cluster to fail to provision fully 
 
-### Several Hybrid AKS Clusters Fail or Timeout When Created Close Together
+### Several AKS-Hybrid Clusters Fail or Timeout When Created Close Together
 
-  The Arc Appliance can only handle creating one hybrid AKS cluster at a time within an undercloud cluster. After creating a single hybrid AKS cluster, you must wait for its provisioning status to be "Succeeded" and for the cluster status to show as "connected" or "online" in the Portal. (See the picture at the top of the "Hybrid AKS Cluster Triage" document for an example of a successful cluster.) Only then is it safe to create another hybrid AKS cluster.
+  The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an undercloud cluster. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be "Succeeded" and for the cluster status to show as "connected" or "online" in the Portal. (See the picture at the top of the "AKS-Hybrid Cluster Triage" document for an example of a successful cluster.) Only then is it safe to create another AKS-Hybrid cluster.
 
-  If you have already tried to create several at once and have them in a failed state, delete all failed clusters as well as any partially succeeded clusters. (Anything that is not a fully successful cluster should be deleted.). Additionally, you should check for and delete any leftover artifacts from failed clusters. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile and register the current undercloud cluster state. Then try to create a single new hybrid AKS cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating hybrid AKS clusters, one at a time.
+  If you have already tried to create several at once and have them in a failed state, delete all failed clusters as well as any partially succeeded clusters. (Anything that is not a fully successful cluster should be deleted.). Additionally, you should check for and delete any leftover artifacts from failed clusters. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile and register the current undercloud cluster state. Then try to create a single new AKS-Hybrid cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating AKS-Hybrid clusters, one at a time.
 
 
-### Case-mismatch between hybrid AKS vnet and Network Cloud network
+### Case-mismatch between AKS-Hybrid vnet and Network Cloud network
 
-When creating a hybrid AKS vnet, the provided Network Cloud network resource id must exactly (i.e. case-sensitively) match the actual ARM resource id. (this limitation is intended to be removed in a future release)
+When creating a AKS-Hybrid vnet, the provided Network Cloud network resource id must exactly (i.e. case-sensitively) match the actual ARM resource id. (this limitation is intended to be removed in a future release)
 
 If using CLI, this is the *--aods-vnet-id* parameter. If using ARM, Bicep, or a manual "az rest" API call, this is the value of .properties.infraVnetProfile.networkCloud.networkId
 
@@ -138,7 +140,7 @@ If the resource has already been created, see the section on Surfacing Errors be
 
 Depending on the mechanism used for creation (portal, cli, ARM), it is sometimes hard to see why resources are Failed.
 
-One useful tool to help surface errors is the [az monitor activity-log](https://learn.microsoft.com/cli/azure/monitor/activity-log?view=azure-cli-latest) command, which can be used to show actvitities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
+One useful tool to help surface errors is the [az monitor activity-log](../azure-docs-cli/latest/docs-ref-autogen/monitor/activity-log?view=azure-cli-latest) command, which can be used to show actvitities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
 
 For example, to see why a defaultcninetwork failed:
 
@@ -197,9 +199,9 @@ Symptoms:
   - Can the natterizer pod reach the default gateway (.1, .2, .3) of the DCN?
   - Can the hybridaks vm reach its default gateway?
 
-### OOM on haks node
+### OOM on AKS-Hybrid node
 
-There have been incidents where CNF workloads are unable to start due to resource constraints on the haks node that the CNF workload is scheduled on. This has been seen on nodes that have azure-arc pods that are consuming a lot of compute resources. At the moment, this is a topic of discussion on how to properly mitigate this issue.
+There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. This has been seen on nodes that have azure-arc pods that are consuming a lot of compute resources. At the moment, this is a topic of discussion on how to properly mitigate this issue.
 
  
  If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
