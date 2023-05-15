@@ -60,8 +60,10 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
-1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps).
-2. Next, run the following steps:
+1. Install the [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) or any version higher than 6.2.0.
+2. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
+3. Next, run the following steps:
+
     1. Connect to your Azure account:
 
        ```azurepowershell-interactive
