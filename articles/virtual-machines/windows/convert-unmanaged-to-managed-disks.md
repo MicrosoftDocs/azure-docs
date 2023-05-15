@@ -105,6 +105,6 @@ The VM will be stopped and restarted after migration is complete.
 
 ## Next steps
 
-[Convert standard managed disks to premium](convert-disk-storage.md)
+[Change the disk type of an Azure managed disk](../disks-convert-types.md).
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
