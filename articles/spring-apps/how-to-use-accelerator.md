@@ -202,7 +202,7 @@ Use to following steps to create and maintain your own accelerators:
 First, create a file named *accelerator.yaml* in the root directory of your Git repository.
 
 You can use the *accelerator.yaml* file to declare input options that users fill in using a form in the UI. These option values control processing by the template engine before it returns the zipped output files. If you don't include an *accelerator.yaml* file, the repository still works as an accelerator, but the files are passed unmodified to users. For more information, see [Creating an accelerator.yaml file](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-creating-accelerators-accelerator-yaml.html).
-  
+
 Next, publish the new accelerator.
 
 After you create your *accelerator.yaml* file, you can create your accelerator. You can then view it in the Azure portal or the Application Accelerator page in Dev Tools Portal. You can publish the new accelerator using the Azure portal or Azure CLI.
@@ -305,11 +305,8 @@ When a user sets up a private git repository and enables **https** with self-sig
 
 Use the following steps to configure accelerators with self-signed certificate:
 
-First, import the certificate from Key Vault to Azure Spring Apps referring to [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate#import-a-certificate-from-key-vault);
-
-Next, configure the certificate for accelerator from portal and CLI.
-
-#### Configure the certificate for an accelerator
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+2. Configure the certificate for accelerator from portal and CLI.
 
 ##### [Azure portal](#tab/Portal)
 
@@ -333,7 +330,13 @@ az spring application-accelerator customized-accelerator add \
 
 ---
 
-#### Sync certificate
+#### Rotate certificates
+
+As certificates expire, you need to rotate certificates in Spring Cloud Apps by using the following steps:
+
+1. Generate new certificates from a trusted CA.
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Synchronize the certificates, using the Azure portal or the Azure CLI.
 
 The accelerators will not automatically use the latest certificate. User should sync single or all certificates from portal and CLI.
 
