@@ -46,7 +46,7 @@ az networkcloud baremetalmachine run-data-extract --name "<machine-name>"  \
 
 Specify multiple commands using json format in `--commands` option. Each `command` specifies command and arguments. For a command with multiple arguments, provide as a list to the `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
 
-These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). The `Debug` option or running multiple extracts might take longer that 10 minutes.
+These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). The `Debug` option or running multiple extracts might take longer than 10 minutes.
 
 This example executes the `hardware-support-data-collection` command and get `SysInfo` and `TTYLog` logs from the Dell Server.
 
