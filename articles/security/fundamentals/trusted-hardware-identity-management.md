@@ -21,6 +21,13 @@ THIM defines the Azure security baseline for Azure Confidential computing (ACC) 
 
 ## Frequently asked questions
 
+### How do I use THIM with Intel processors?
+
+To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/verification collateral. All or parts of this collateral must be fetched from THIM. This can be done using the Intel Quote Provider Library (QPL) or Azure DCAP Client Library.
+ - To learn more on how to use Intel QPL with THIM, please see: [How do I use the Intel Quote Provider Library (QPL) with THIM?](#how-do-i-use-the-intel-quote-provider-library-qpl-with-thim)
+ - To learn more on how to use Azure DCAP with THIM, please see: [Azure DCAP library](#what-is-the-azure-dcap-library)
+
+
 ### The "next update" date of the Azure-internal caching service API, used by Microsoft Azure Attestation, seems to be out of date. Is it still in operation and can it be used?
 
 The "tcbinfo" field contains the TCB information. The THIM service by default provides an older tcbinfo--updating to the latest tcbinfo from Intel would cause attestation failures for those customers who haven't migrated to the latest Intel SDK, and could results in outages.
@@ -48,6 +55,74 @@ THIM is also introducing a new feature that will enable customers to select thei
 The certificates are fetched and cached in THIM service using platform manifest and indirect registration. As a result, Key Caching Policy will be set to never store platform root keys for a given platform. Direct calls to the Intel service from inside the VM are expected to fail.
 
 To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) that replaces Intel QPL. This library directs the fetch requests to THIM service running in Azure cloud. For the downloading the latest DCAP packages, see: [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages)
+
+### How do I use the Intel Quote Provider Library (QPL) with THIM? 
+
+Customers may want the flexibility to use the Intel Quote Provider Library (QPL) to interact with THIM without having to download another dependency from Microsoft (i.e., Azure DCAP Client Library). Customers wanting to use Intel QPL with the THIM service must adjust Intel QPL’s configuration file (“sgx_default_qcnl.conf”), which is provided with the Intel QPL. 
+
+The quote generation/verification collateral used to generate the Intel SGX or Intel TDX quotes can be split into the PCK certificate and all other quote generation/verification collateral. The customer has the following options to retrieve the two parts:
+ - Retrieve PCK certificate: the customer must use a THIM endpoint.
+ - Retrieve other quote generation/verification collateral: the customer can either use a THIM or an Intel Provisioning Certification Service (PCS) endpoint.
+
+The Intel QPL configuration file (“sgx_default_qcnl.conf”) contains three keys used to define the collateral endpoint(s). The “pccs_url” key defines the endpoint used to retrieve the PCK certificates. The “collateral_service” key can be used to define the endpoint used to retrieve all other quote generation/verification collateral. If the “collateral_service” key is not defined, all quote verification collateral will be retrieved from the endpoint defined with the “pccs_url” key.
+
+The following table lists how these keys can be set. 
+| Name | Possible Endpoints |
+| -- | -- |
+| "pccs_url" | THIM endpoint: "https://global.acccache.azure.net/sgx/certification/v3" |
+| "collateral_service" | THIM endpoint: "https://global.acccache.azure.net/sgx/certification/v3" or Intel PCS endpoint: The following file will always list the most up-to-date endpoint in the “collateral_service” key: [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) |
+
+The following is a code snipped from an Intel QPL configuration file example: 
+
+```bash
+    { 
+        "pccs_url": "https://global.acccache.azure.net/sgx/certification/v3/", 
+        "use_secure_cert": true, 
+        "collateral_service": "https://global.acccache.azure.net/sgx/certification/v3/",  
+        "pccs_api_version": "3.1", 
+        "retry_times": 6, 
+        "retry_delay": 5, 
+        "local_pck_url": "http://169.254.169.254/metadata/THIM/sgx/certification/v3/",
+        "pck_cache_expire_hours": 24, 
+        "verify_collateral_cache_expire_hours": 24, 
+        "custom_request_options": { 
+            "get_cert": { 
+                "headers": { 
+                    "metadata": "true" 
+                }, 
+                "params": { 
+                    "api-version  ": "2021-07-22-preview" 
+                } 
+            } 
+        } 
+    }   
+```
+    
+In the following, we explain how the Intel QPL configuration file can be changed and how the changes can be activated.
+
+#### On Windows
+ 1. Make desired changes to the configuration file.
+ 2. Ensure that there are read permissions to the file from the following registry location and key/value.
+ ```bash
+ [HKEY_LOCAL_MACHINE\SOFTWARE\Intel\SGX\QCNL]
+ "CONFIG_FILE"="<Full File Path>"
+ ```
+ 3.	Restart AESMD service. For instance, open PowerShell as an administrator and use the following commands:
+ ```bash
+ Restart-Service -Name "AESMService" -ErrorAction Stop
+ Get-Service -Name "AESMService"
+ ```
+
+#### On Linux
+ 1. Make desired changes to the configuration file. For example, vim can be used for the changes using the following command:
+ ```bash
+ sudo vim /etc/sgx_default_qcnl.conf
+ ```
+ 2. Restart AESMD service. Open any terminal and execute the following commands:
+ ```bash
+ sudo systemctl restart aesmd 
+ systemctl status aesmd 
+ ```
 
 ### How do I request collateral in a Confidential Virtual Machine (CVM)?
 
