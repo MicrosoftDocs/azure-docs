@@ -65,7 +65,7 @@ To reset user data from the command line:
    .\msrdcw.exe /reset /f
    ```
 
-## Your administrator may have ended your session
+### Your administrator may have ended your session
 
 You see the error message **Your administrator may have ended your session. Try connecting again. If this does not work, ask your administrator or technical support for help**, when the policy setting **Allow users to connect remotely using Remote Desktop Services** has been set to disabled.
 
