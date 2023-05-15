@@ -23,27 +23,27 @@ The following example creates a cluster named *myNexusAKSCluster* in resource gr
 
 Before you run the commands, you need to set several variables to define the configuration for your cluster. Here are the variables you need to set, along with some default values you can use for certain variables:
 
-* CUSTOM_LOCATION: This argument specifies a custom location for the Kubernetes cluster. Azure Extended Locations allow you to use Azure services directly in your datacenter. Define this variable according to your own datacenter location.
-* CSN_ID: CSN ID is the unique identifier for the cloud services network you want to use. You should replace it with your actual Cloud Services Network ID.
-* CNI_ID: CNI ID the unique identifier for the network interface to be used by the container runtime. You should replace it with your actual CNI Network ID.
-* CLUSTER_NAME: The name you want to give to your Kubernetes cluster. In this example, we're using "myNexusAKSCluster".
-* RESOURCE_GROUP: The name of the Azure resource group where you want to create the cluster. In this example, we're using "myResourceGroup".
-* SUBSCRIPTION_ID: The ID of your Azure subscription. This ID is obtained automatically using the command ```az account show -o tsv --query id```.
-* LOCATION: The Azure region where you want to create your cluster. In this example, we're using "eastus".
-* K8S_VERSION: The version of Kubernetes you want to use. In this example, we're using "v1.24.9".
-* AAD_ADMIN_GROUP_OBJECT_ID: The object ID of the Azure Active Directory group that should have admin privileges on the cluster. You should replace it with your actual Azure AD Group Object ID.
-* ADMIN_USERNAME: The username for the cluster administrator. In this example, we're using ```clouduser```.
-* SSH_PUBLIC_KEY: The SSH public key that is used for secure communication with the cluster. This key is obtained automatically from the file ~/.ssh/id_rsa.pub.
-* CONTROL_PLANE_COUNT: The number of control plane nodes for the cluster. In this example, we're using "1".
-* CONTROL_PLANE_VM_SIZE: The size of the virtual machine for the control plane nodes. In this example, we're using "NC_G2_v1".
-* INITIAL_AGENT_POOL_NAME: The name of the initial agent pool. In this example, we're using "agentpool1".
-* INITIAL_AGENT_POOL_COUNT: The number of nodes in the initial agent pool. In this example, we're using "1".
-* INITIAL_AGENT_POOL_VM_SIZE: The size of the virtual machine for the agent pool nodes. In this example, we're using "NC_G2_v1".
-* POD_CIDR: The network range for the Kubernetes pods in the cluster, in CIDR notation. In this example, we're using "10.244.0.0/16".
-* SERVICE_CIDR: The network range for the Kubernetes services in the cluster, in CIDR notation. In this example, we're using "10.96.0.0/16".
-* DNS_SERVICE_IP: The IP address for the Kubernetes DNS service. In this example, we're using "10.96.0.10".
+* **CUSTOM_LOCATION**: This argument specifies a custom location for the Kubernetes cluster. Azure Extended Locations allow you to use Azure services directly in your datacenter. Define this variable according to your own datacenter location.
+* **CSN_ID**: CSN ID is the unique identifier for the cloud services network you want to use. You should replace it with your actual Cloud Services Network ID.
+* **CNI_ID**: CNI ID the unique identifier for the network interface to be used by the container runtime. You should replace it with your actual CNI Network ID.
+* **CLUSTER_NAME**: The name you want to give to your Kubernetes cluster. In this example, we're using ```myNexusAKSCluster```.
+* **RESOURCE_GROUP**: The name of the Azure resource group where you want to create the cluster. In this example, we're using ```myResourceGroup```.
+* **SUBSCRIPTION_ID**: The ID of your Azure subscription. This ID is obtained automatically using the command ```az account show -o tsv --query id```.
+* **LOCATION**: The Azure region where you want to create your cluster. In this example, we're using ```eastus```.
+* **K8S_VERSION**: The version of Kubernetes you want to use. In this example, we're using ```v1.24.9```.
+* **AAD_ADMIN_GROUP_OBJECT_ID**: The object ID of the Azure Active Directory group that should have admin privileges on the cluster. You should replace it with your actual Azure AD Group Object ID.
+* **ADMIN_USERNAME**: The username for the cluster administrator. In this example, we're using ```clouduser```.
+* **SSH_PUBLIC_KEY**: The SSH public key that is used for secure communication with the cluster. This key is obtained automatically from the file ```~/.ssh/id_rsa.pub```.
+* **CONTROL_PLANE_COUNT**: The number of control plane nodes for the cluster. In this example, we're using ```1```.
+* **CONTROL_PLANE_VM_SIZE**: The size of the virtual machine for the control plane nodes. In this example, we're using ```NC_G2_v1```.
+* **INITIAL_AGENT_POOL_NAME**: The name of the initial agent pool. In this example, we're using ```agentpool1```.
+* **INITIAL_AGENT_POOL_COUNT**: The number of nodes in the initial agent pool. In this example, we're using ```1```.
+* **INITIAL_AGENT_POOL_VM_SIZE**: The size of the virtual machine for the agent pool nodes. In this example, we're using ```NC_G2_v1```.
+* **POD_CIDR**: The network range for the Kubernetes pods in the cluster, in CIDR notation. In this example, we're using ```10.244.0.0/16```.
+* **SERVICE_CIDR**: The network range for the Kubernetes services in the cluster, in CIDR notation. In this example, we're using ```10.96.0.0/16```.
+* **DNS_SERVICE_IP**: The IP address for the Kubernetes DNS service. In this example, we're using ```10.96.0.10```.
 
-Once you've defined these variables, you can run the Azure CLI command to create the cluster. The--debug flag at the end is used to provide more detailed output for troubleshooting purposes.
+Once you've defined these variables, you can run the Azure CLI command to create the cluster. The ```--debug``` flag at the end is used to provide more detailed output for troubleshooting purposes.
 
 Here are the set commands for defining these variables:
 
@@ -114,7 +114,7 @@ az networkcloud kubernetescluster show \
 ```
 
 ## Connect to the cluster
-Now that the Azure Nexus Kubernetes cluster has been successfully created and connected to Azure Arc, you can connect to it using kubectl, the Kubernetes command-line client. To connect, you need to download the cluster's credentials and configure kubectl to use them.
+Now that the Azure Nexus Kubernetes cluster has been successfully created and connected to Azure Arc, you can connect to it using ```kubectl```, the Kubernetes command-line client. To connect, you need to download the cluster's credentials and configure kubectl to use them.
 
 For the specific steps to connect to an Azure Arc-connected Kubernetes cluster, refer [how to connect to an Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/cluster-connect.md).
 
@@ -124,8 +124,7 @@ Remember, whenever you interact with the cluster, you should make sure that you 
 
 ## Clean up resources
 
-When no longer needed, delete the resource group. The resource group and all the resources in the
-resource group are deleted.
+When no longer needed, delete the resource group. The resource group and all the resources in the resource group are deleted.
 
 ### [Azure CLI](#tab/azure-cli)
 
