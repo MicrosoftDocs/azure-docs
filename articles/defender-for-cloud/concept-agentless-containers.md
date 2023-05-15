@@ -16,7 +16,7 @@ You can maximize the coverage of your container posture issues and extend your p
 Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
 
 > [!IMPORTANT]
-> The Agentless Container Posture preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty. Agentless Container Posture previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
+> The Agentless Container Posture preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty.
 
 ## Capabilities
 

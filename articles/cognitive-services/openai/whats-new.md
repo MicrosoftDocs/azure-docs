@@ -8,12 +8,16 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 03/21/2023
+ms.date: 05/11/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## May 2023
+
+- Azure OpenAI is now available in the France Central region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
 
 ## April 2023
 
