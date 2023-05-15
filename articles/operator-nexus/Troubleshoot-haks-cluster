@@ -16,6 +16,8 @@ Follow these steps in order to gather the data needed to diagnose Hybrid AKS cre
 
 If Status: is not Connected and Provisioning State: is not Succeeded then the install failed
 
+[!INCLUDE] [How to manage and lifecycle the AKS-Hybrid cluster](../../articles/operator-nexus/howto-hybrid-aks.md)
+
 # Prerequisites
 
     - Tenant id
