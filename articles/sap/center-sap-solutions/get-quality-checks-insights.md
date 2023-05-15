@@ -47,7 +47,7 @@ There are multiple sections in the workbook:
 The **Quality checks** feature in Azure Center for SAP solutions runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended for SAP on Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
 Azure Center for SAP solutions runs more than 100 quality checks on all VIS resources. These checks span across the following categories: 
 
-- Azure Infrastructre checks
+- Azure Infrastructure checks
 - OS parameter checks.
 - High availability (HA) Load Balancer checks
 - Hana DB file system checks.
