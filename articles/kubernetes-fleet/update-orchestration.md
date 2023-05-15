@@ -194,5 +194,7 @@ You can define an update run by using update stages to pool together update grou
     az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name run-3
     ```
 
+---
+
 [fleet-quickstart]: quickstart-create-fleet-and-members.md
 [azure-cli-install]: /cli/azure/install-azure-cli
