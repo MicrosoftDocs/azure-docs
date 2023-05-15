@@ -17,9 +17,9 @@ items:
       href: quickstart-register-system-powershell.md
     - name: Register an existing SAP system - Azure CLI
       href: quickstart-register-system-cli.md  
-    - name: Start and Stop SAP System - Azure Powershell 
+    - name: Start and stop SAP system - Azure PowerShell 
       href: quick-stop-start-sap-powershell.md
-    - name: Start and Stop SAP System - Azure CLI
+    - name: Start and stop SAP system - Azure CLI
       href: quick-stop-start-sap-cli.md
   - name: Tutorials
     items:
@@ -31,7 +31,7 @@ items:
       href: manage-with-azure-rbac.md
     - name: Reliability
       items:
-      - name: Reliability Overview
+      - name: Reliability overview
         href: compliance-bcdr-reliabilty.md
       - name: Customer enabled disaster recovery
         href: compliance-cedr.md
