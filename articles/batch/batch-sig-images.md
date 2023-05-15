@@ -92,7 +92,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
 
-To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md#tab/portal).
+To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md#tab/portal-2Ccli).
 
 
 ### Create an Azure Compute Gallery
@@ -106,12 +106,15 @@ To create a pool from your Shared Image using the Azure CLI, use the `az batch p
 > [!NOTE]
 > You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
 
+> [!IMPORTANT]
+> The node agent SKU id must align with the publisher/offer/SKU in order for the node to start.
+
 ```azurecli
 az batch pool create \
     --id mypool --vm-size Standard_A1_v2 \
     --target-dedicated-nodes 2 \
     --image "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}" \
-    --node-agent-sku-id "batch.node.ubuntu 20.04"
+    --{node-agent-sku-id}
 ```
 
 ## Create a pool from a Shared Image using C#
@@ -123,7 +126,7 @@ private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(Ima
 {
     return new VirtualMachineConfiguration(
         imageReference: imageReference,
-        nodeAgentSkuId: "batch.node.windows amd64");
+        nodeAgentSkuId: {});
 }
 
 private static ImageReference CreateImageReference()
@@ -197,7 +200,7 @@ ir = batchmodels.ImageReference(
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
     image_reference=ir,
-    node_agent_sku_id="batch.node.ubuntu 20.04"
+    {node_agent_sku_id}
 )
 
 # Create the unbound pool
@@ -223,12 +226,10 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. In the **Image Type** section, select **Azure Compute Gallery**.
 1. Complete the remaining sections with information about your managed image.
 1. Select **OK**.
-1. Once the node is allocated, use **Connect** to generate user and the RDP file to login to the allocated node and verify.
+1. Once the node is allocated, use **Connect** to generate user and the RDP file for Windows OR use SSH to for Linux to login to the allocated node and verify.
 
 ![Create a pool with from a Shared image with the portal.](media/batch-sig-images/create-custom-pool.png)
-
-> [!NOTE]
-> Ensure that the OS SKU is matching the custom image SKU. If the selected option is not matching your custom image, the node will not start.  
+  
 
 ## Considerations for large pools
 
