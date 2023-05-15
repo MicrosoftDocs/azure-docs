@@ -67,7 +67,7 @@ To reset user data from the command line:
 
 ## Your administrator may have ended your session
 
-You see the error message **Your administrator may have ended your session. Try connecting again. If this does not work, ask your administrator or technical support for help**, when the policy **Allow users to connect remotely using Remote Desktop Services** has been set to disabled.
+You see the error message **Your administrator may have ended your session. Try connecting again. If this does not work, ask your administrator or technical support for help**, when the policy setting **Allow users to connect remotely using Remote Desktop Services** has been set to disabled.
 
 To configure the policy to enable users to connect again depending on whether your session hosts are managed with Group Policy or Intune.
 
