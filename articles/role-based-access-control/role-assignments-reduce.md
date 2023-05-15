@@ -14,75 +14,107 @@ ms.author: rolyon
 # Reduce the number of Azure role assignments and Azure custom roles
 
 
+## Prerequisites
+
+To follow these steps, you must have:
+
+- 
+
 ## Reduce the number of Azure role assignments
 
 Azure supports up to 4000 role assignments per subscription. If you get the error message: `No more role assignments can be created (code: RoleAssignmentLimitExceeded)`, you can use these steps to reduce the number of role assignments.
 
-### Assign roles to groups instead of users
+### Replace user role assignments with a group
 
 Follow these steps to identify where multiple role assignments for users can be replaced with a single role assignment for a group.
 
-```kusto
-AuthorizationResources  
-| where type =~ "microsoft.authorization/roleassignments" 
-| where id startswith "/subscriptions" 
- | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0]) 
- | join kind = leftouter ( 
- AuthorizationResources
-  | where type =~ "microsoft.authorization/roledefinitions" 
-  | extend RoleDefinitionName = name
-  | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])  
-  | project RoleDefinitionName, rdId
-) on $left.RoleId == $right.rdId 
-| extend principalId = tostring(properties.principalId) 
-| extend principal_to_ra = pack(principalId, id) 
-| summarize count_ = count(), AllPrincipals = make_set(principal_to_ra) by RoleDefinitionId = tolower(properties.roleDefinitionId), Scope = tolower(properties.scope), RoleDefinitionName
-| order by count_ desc
-```
+1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
-### Assign roles at a higher scope
+1. Run the following query to get role assignments that assign the same role at the same scope, but to different principals. 
+
+    ```kusto
+    AuthorizationResources  
+    | where type =~ "microsoft.authorization/roleassignments" 
+    | where id startswith "/subscriptions" 
+     | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0]) 
+     | join kind = leftouter ( 
+     AuthorizationResources
+      | where type =~ "microsoft.authorization/roledefinitions" 
+      | extend RoleDefinitionName = name
+      | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])  
+      | project RoleDefinitionName, rdId
+    ) on $left.RoleId == $right.rdId 
+    | extend principalId = tostring(properties.principalId) 
+    | extend principal_to_ra = pack(principalId, id) 
+    | summarize count_ = count(), AllPrincipals = make_set(principal_to_ra) by RoleDefinitionId = tolower(properties.roleDefinitionId), Scope = tolower(properties.scope), RoleDefinitionName
+    | order by count_ desc
+    ```
+
+    The following shows an example of the output:
+
+1. Create an Azure AD group and add the principals to the group.
+
+1. Replace the principal role assignments with a single role assignment for the group.
+
+### Replace role assignments at a higher scope
 
 Follow these steps to identify where multiple role assignments can be replaced with a single role assignment at a higher scope.
 
-```kusto
-AuthorizationResources  
-| where type =~ "microsoft.authorization/roleassignments"  
-| where id startswith "/subscriptions"  
-| extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])  
-| extend PrincipalId = tolower(properties.principalId)
-| extend RoleId_PrincipalId = strcat(RoleId, "_", PrincipalId)
-| join kind = leftouter (  
- AuthorizationResources 
-  | where type =~ "microsoft.authorization/roledefinitions"  
-  | extend RoleDefinitionName = name 
-  | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])   
-  | project RoleDefinitionName, rdId 
-) on $left.RoleId == $right.rdId  
- | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleId_PrincipalId, RoleDefinitionName
- | project RoleId = split(RoleId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleId_PrincipalId, "_", 1)[0], count_, Scopes
- | where count_ > 1
- | order by count_ desc
-```
+1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
+
+1. Run the following query to get role assignments that assign the same principal and role definition at different scopes.
+
+    ```kusto
+    AuthorizationResources  
+    | where type =~ "microsoft.authorization/roleassignments"  
+    | where id startswith "/subscriptions"  
+    | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])  
+    | extend PrincipalId = tolower(properties.principalId)
+    | extend RoleId_PrincipalId = strcat(RoleId, "_", PrincipalId)
+    | join kind = leftouter (  
+     AuthorizationResources 
+      | where type =~ "microsoft.authorization/roledefinitions"  
+      | extend RoleDefinitionName = name 
+      | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])   
+      | project RoleDefinitionName, rdId 
+    ) on $left.RoleId == $right.rdId  
+     | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleId_PrincipalId, RoleDefinitionName
+     | project RoleId = split(RoleId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleId_PrincipalId, "_", 1)[0], count_, Scopes
+     | where count_ > 1
+     | order by count_ desc
+    ```
+
+    The following shows an example of the output:
+
+1.  Replace role assignments with a single role assignment at the highest scope.
 
 ## Delete unused Azure custom roles
 
 Azure supports up to 5000 custom roles in a directory. If you get the error message: `Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)`, you can use these steps to find and delete unused custom roles.
 
-```kusto
-AuthorizationResources 
-| where type =~ "microsoft.authorization/roledefinitions" 
-| where tolower(properties.type) == "customrole" 
-| extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0]) 
-| extend Scope = tolower(properties.assignableScopes)
-| join kind = leftouter ( 
-AuthorizationResources 
-  | where type =~ "microsoft.authorization/roleassignments" 
-  | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0]) 
-  | summarize RoleAssignmentCount = count() by RoleId 
-) on $left.rdId == $right.RoleId 
-| where isempty(RoleAssignmentCount) 
- | project RoleDefinitionId = rdId, RoleDefinitionName = name, Scope
-```
+1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
+
+1. Run the following query to get all custom roles that don't have any role assignments:
+
+    ```kusto
+    AuthorizationResources 
+    | where type =~ "microsoft.authorization/roledefinitions" 
+    | where tolower(properties.type) == "customrole" 
+    | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0]) 
+    | extend Scope = tolower(properties.assignableScopes)
+    | join kind = leftouter ( 
+    AuthorizationResources 
+      | where type =~ "microsoft.authorization/roleassignments" 
+      | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0]) 
+      | summarize RoleAssignmentCount = count() by RoleId 
+    ) on $left.rdId == $right.RoleId 
+    | where isempty(RoleAssignmentCount) 
+     | project RoleDefinitionId = rdId, RoleDefinitionName = name, Scope
+    ```
+
+    The following shows an example of the output:
+
+1. Delete the custom roles that you no longer need. For more information, see [Delete a custom role](custom-roles-portal.md#delete-a-custom-role).
 
 ## Next steps
 
