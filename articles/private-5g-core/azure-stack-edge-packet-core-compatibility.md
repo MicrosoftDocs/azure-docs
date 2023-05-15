@@ -12,7 +12,7 @@ ms.date: 03/30/2023
 
 Each site in your deployment contains an Azure Stack Edge (ASE) Pro device that hosts a single packet core instance. This article provides information on version compatibility between ASE and packet core that you can refer to when installing a packet core instance or performing an upgrade.
 
-## Supported Azure Stack Edge Pro Models
+## Supported Azure Stack Edge Pro models
 
 The following Azure Stack Edge Pro models are supported:
 
