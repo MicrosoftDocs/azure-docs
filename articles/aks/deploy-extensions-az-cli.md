@@ -124,6 +124,8 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 
 If updating a Kubernetes application procured through Marketplace, the following parameters are also required:
 
+| Parameter name | Description |
+|----------------|------------|
 |`--plan-name` | **Plan ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
 |`--plan-product` | **Product ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. An example of this is the name of the ISV offering used. |
 |`--plan-publisher` | **Publisher ID** of the extension, found on the Marketplace page in the Azure portal under **Usage Information + Support**. |
