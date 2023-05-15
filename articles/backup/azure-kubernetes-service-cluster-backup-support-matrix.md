@@ -41,9 +41,9 @@ AKS backup is available in all the Azure public cloud regions:
 
 - Azure Backup provides operational (snapshot) tier backup of AKS clusters with support for multiple backups per day. The backups aren't copied to the backup vault.
 
-- Currently, the modification of backup policy and the modification of snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
+- Currently, the modification of a backup policy and the modification of a snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
 
-- AKS clusters and the backup extension pods should be in a running state before you perform any backup and restore operations. This state includes deletion of expired recovery points.
+- AKS clusters and backup extension pods should be in a running state before you perform any backup and restore operations. This state includes deletion of expired recovery points.
 
 - For successful backup and restore operations, the backup vault's managed identity requires role assignments. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 
