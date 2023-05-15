@@ -22,7 +22,7 @@ The following Azure Stack Edge Pro models are supported:
   - Model 128G4T1GPU
   - Model 256G6T2GPU
 
-## Packet core and Azure Stack Edge Version compatibility table
+## Packet core and Azure Stack Edge version compatibility table
 
 The following table provides information on which versions of the ASE device are compatible with each packet core version.
 
