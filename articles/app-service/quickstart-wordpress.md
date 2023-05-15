@@ -20,7 +20,9 @@ To complete this quickstart, you need an Azure account with an active subscripti
 > [!IMPORTANT]
 > After November 28, 2022, [PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74).
 >
-> Additional documentation, including [Migrating to App Service](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_migration_linux_appservices.md), can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice).
+> For migrating WordPress to App Service, visit [Migrating to App Service](migrate-wordpress.md). Additional documentation can be found at [WordPress - App Service on Linux](https://github.com/Azure/wordpress-linux-appservice).
+>
+> To submit feedback on improving the WordPress experience on App Service, visit [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c).
 >
 
 ## Create WordPress site using Azure portal
@@ -57,9 +59,6 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login.":::
     
-> [!NOTE]
-> If you have feedback to improve this WordPress offering on App Service, submit your ideas at [Web Apps Community](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c). 
->
      
 ## Clean up resources
 
