@@ -71,23 +71,17 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 |------------------------------|------|-------------|
 | [Power Query connector preview](/previous-versions/azure/search/search-how-to-index-power-query-data-sources) | Feature | **Retired**. This indexer data source was introduced in May 2021 but won't be moving forward. Migrate your data indexing code by November 2022. See the feature documentation for migration guidance. |
 
-## February 2022
-
-|Item &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Type | Description |
-|------------------------------|------|-------------|
-| [Index aliases](search-how-to-alias.md) | Feature | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. When index names change, for example if you version the index, instead of updating the references to an index name in your application, you can just update the mapping for your alias. |
-
 ## Previous year's announcements
 
-+ [2021 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2021)
-+ [2020 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2020)
-+ [2019 Archive for "What's New in Cognitive Search"](/previous-versions/azure/search/search-whats-new-2019)
++ [2021 announcements](/previous-versions/azure/search/search-whats-new-2021)
++ [2020 announcements](/previous-versions/azure/search/search-whats-new-2020)
++ [2019 announcements](/previous-versions/azure/search/search-whats-new-2019)
 
 <a name="new-service-name"></a>
 
 ## Service re-brand
 
-Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
+Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations.
 
 ## Service updates
 
