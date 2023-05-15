@@ -100,7 +100,18 @@ The quota applies to a lab for each lab user individually, for the entire durati
 
 A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
+## Advanced networking
+
+With lab plans, you have more control over the virtual network for labs by using advanced networking. With advanced networking, you can connect to a virtual network.
+
+Use advanced networking to connect to on premise resources such as licensing servers and use user defined routes (UDRs). Some organizations also have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, and more.
+
+Azure Lab Services advanced networking uses virtual network (VNET) injection to connect a lab plan to your virtual network. VNET injection replaces the [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that was used with lab accounts.
+
+Learn more about how to [connect a lab plan to a virtual network](./how-to-connect-vnet-injection.md).
+
 ## Next steps
 
 - [Create the resources to get started](./quick-create-resources.md)
 - [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab.md)
+- Learn about the [architecture fundamentals of Azure Lab Services](./classroom-labs-fundamentals.md)

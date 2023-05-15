@@ -26,6 +26,8 @@ On 31 March, 2023 as part of our continuing work to increase the resiliency of A
 
 This change will have NO effect on the availability of your API Management service.  However, you **may** have to take steps described below to configure your API Management service beyond 31 March, 2023.
 
+> These changes were completed between April 1, 2023 and April 20, 2023.  You can remove the IP addresses noted in the _Old IP Address_ column from your NSG.
+
 ## Is my service affected by this change?
 
 Your service is impacted by this change if:

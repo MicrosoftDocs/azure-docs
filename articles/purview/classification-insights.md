@@ -61,7 +61,7 @@ Microsoft Purview uses the same sensitive information types as Microsoft 365, al
    |**Overview of sources with classifications**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique classifications found in your data <br>- The number of classified sources found <br>- The number of classified files found <br>- The number of classified tables found         |
    |**Top sources with classified data (last 30 days)**     |Shows the trend, over the past 30 days, of the number of sources found with classified data.            |
    |**Top classification categories by sources**     |Shows the number of sources found by classification category, such as **Financial** or **Government**.      |
-   |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national identification numbers.         |
+   |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national/regional identification numbers.         |
    |**Top classifications for tables**     | Shows the top classifications applied to tables in your data, such as personal identifying information. |   
    |  **Classification activity** <br>(files and tables) |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected timeframe. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |

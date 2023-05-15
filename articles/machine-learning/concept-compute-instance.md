@@ -108,7 +108,7 @@ You can also mount [datastores and datasets](v1/concept-azure-machine-learning-a
 :::moniker-end
 ## Create
 
-Follow the steps in the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) to create a basic compute instance.  
+Follow the steps in [Create resources you need to get started](quickstart-create-resources.md) to create a basic compute instance.  
 
 For more options, see [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 
@@ -145,5 +145,5 @@ You can use compute instance as a local inferencing deployment target for test/d
 
 ## Next steps
 
-* [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md).
+* [Create resources you need to get started](quickstart-create-resources.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

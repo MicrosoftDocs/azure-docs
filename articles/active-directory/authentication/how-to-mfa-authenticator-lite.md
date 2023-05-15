@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 04/25/2023
 
 ms.author: justinha
 author: sabina-smith
@@ -30,6 +30,10 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 ## Prerequisites
 
 - Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API.
+
+  >[!TIP]
+  >We recommend that you also enable [system-preferred multifactor authentication (MFA)](concept-system-preferred-multifactor-authentication.md) when you enable Authenticator Lite. With system-preferred MFA enabled, users try to sign-in with Authenticator Lite before they try less secure telephony methods like SMS or voice call. 
+
 - If your organization is using the Active Directory Federation Services (AD FS) adapter or Network Policy Server (NPS) extensions, upgrade to the latest versions for a consistent experience.
 - Users enabled for shared device mode on Outlook mobile aren't eligible for Authenticator Lite.
 - Users must run a minimum Outlook mobile version.
@@ -40,9 +44,6 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
   |iOS               | 4.2312.1        |
 
 ## Enable Authenticator Lite
-
->[!NOTE]
->Rollout has not yet completed across Outlook applications. If this feature is enabled in your tenant, your users may not yet be prompted for the experience. To minimize user disruption, we recommend enabling this feature when the rollout completes.
 
 By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After general availability, the Microsoft managed state default value will change to enable Authenticator Lite. 
 
@@ -128,7 +129,7 @@ If enabled for Authenticator Lite, users are prompted to register their account 
 :::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/registration.png" alt-text="Screenshot of how to register Authenticator Lite.":::
 
 >[!NOTE]
->Users with no MFA methods registered will be prompted to download the Authenticator App when they begin registration flow. For the most seamless Authenticator Lite registration experience, [provision your users a TAP](https://learn.microsoft.com/azure/active-directory/authentication/howto-authentication-temporary-access-pass) (temporary access pass) which they can use during registration.
+>If they don't have any MFA methods registered, users are prompted to download Authenticator when they begin the registration flow. For the most seamless experience, provision users with a [Temporary Access Pass (TAP)](howto-authentication-temporary-access-pass.md) that they can use during Authenticator Lite registration.
 
 
 ## Monitoring Authenticator Lite usage
@@ -138,7 +139,7 @@ If enabled for Authenticator Lite, users are prompted to register their account 
 GET auditLogs/signIns
 ```
 
-If the sign-in was done by phone app notification, under **authenticationAppDeivceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
+If the sign-in was done by phone app notification, under **authenticationAppDeviceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
 
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 

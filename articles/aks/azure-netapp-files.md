@@ -3,7 +3,7 @@ title: Provision Azure NetApp Files volumes on Azure Kubernetes Service
 description: Learn how to provision Azure NetApp Files volumes on an Azure Kubernetes Service cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/18/2023
+ms.date: 05/07/2023
 ---
 
 # Provision Azure NetApp Files volumes on Azure Kubernetes Service
@@ -32,7 +32,7 @@ The following considerations apply when you use Azure NetApp Files:
 
 1. Register the *Microsoft.NetApp* resource provider by running the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az provider register --namespace Microsoft.NetApp --wait
     ```
 
@@ -42,7 +42,7 @@ The following considerations apply when you use Azure NetApp Files:
 2. When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
 The following command creates an account named *myaccount1* in the *myResourceGroup* resource group and *eastus* region:
 
-    ```azurecli
+    ```azurecli-interactive
     az netappfiles account create \
         --resource-group myResourceGroup \
         --location eastus \
@@ -51,7 +51,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 3. Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. The following example creates a new capacity pool named *mypool1* with 4 TB in size and *Premium* service level:
 
-    ```azurecli
+    ```azurecli-interactive
     az netappfiles pool create \
         --resource-group myResourceGroup \
         --location eastus \
@@ -65,8 +65,9 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
     > [!NOTE]
     > This subnet must be in the same virtual network as your AKS cluster.
+    > Ensure that the `address-prefixes` are set correctly and without any conflicts
 
-    ```azurecli
+    ```azurecli-interactive
     RESOURCE_GROUP=myResourceGroup
     VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -76,7 +77,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
         --vnet-name $VNET_NAME \
         --name $SUBNET_NAME \
         --delegations "Microsoft.NetApp/volumes" \
-        --address-prefixes 10.0.0.0/28
+        --address-prefixes 10.225.0.0/24
     ```
 
    Volumes can either be provisioned statically or dynamically. Both options are covered further in the next sections.
@@ -85,7 +86,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 1. Create a volume using the [az netappfiles volume create][az-netappfiles-volume-create] command. Update  `RESOURCE_GROUP`, `LOCATION`, `ANF_ACCOUNT_NAME` (Azure NetApp account name), `POOL_NAME`, and `SERVICE_LEVEL` with the correct values.  
 
-    ```azurecli
+    ```azurecli-interactive
     RESOURCE_GROUP=myResourceGroup
     LOCATION=eastus
     ANF_ACCOUNT_NAME=myaccount1
@@ -116,7 +117,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
 1. List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
 
-    ```azurecli
+    ```azurecli-interactive
     az netappfiles volume show \
         --resource-group $RESOURCE_GROUP \
         --account-name $ANF_ACCOUNT_NAME \
@@ -126,7 +127,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
 
     The following output resembles the output of the previous command:
 
-    ```console
+    ```output
     {
       ...
       "creationToken": "myfilepath2",
@@ -248,7 +249,7 @@ The following command creates an account named *myaccount1* in the *myResourceGr
     kubectl exec -it nginx-nfs -- sh
     ```
 
-    ```console
+    ```output
     / # df -h
     Filesystem             Size  Used Avail Use% Mounted on
     ...
@@ -278,12 +279,6 @@ This section walks you through the installation of Astra Trident using the opera
     kubectl create ns trident
     ```
 
-   The output of the command resembles the following example:
-
-    ```console
-    namespace/trident created
-    ```
-
 2. Run the [kubectl apply][kubectl-apply] command to deploy the Trident operator using the bundle file:
 
  - For AKS cluster version less than 1.25, run following command:
@@ -297,7 +292,7 @@ This section walks you through the installation of Astra Trident using the opera
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     serviceaccount/trident-operator created
     clusterrole.rbac.authorization.k8s.io/trident-operator created
     clusterrolebinding.rbac.authorization.k8s.io/trident-operator created
@@ -313,7 +308,7 @@ This section walks you through the installation of Astra Trident using the opera
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     tridentorchestrator.trident.netapp.io/trident created 
     ```
 
@@ -327,7 +322,7 @@ This section walks you through the installation of Astra Trident using the opera
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     Name:         trident
     Namespace:
     Labels:       <none>
@@ -370,7 +365,7 @@ This section walks you through the installation of Astra Trident using the opera
 1. Before creating a backend, you need to update [backend-anf.yaml][backend-anf.yaml] to include details about the Azure NetApp Files subscription, such as:
 
     * `subscriptionID` for the Azure subscription where Azure NetApp Files will be enabled.
-    * `tenantID`, `clientID`, and `clientSecret` from an [App Registration][azure-ad-app-registration] in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration include the `Owner` or `Contributor` role that's predefined by Azure.
+    * `tenantID`, `clientID`, and `clientSecret` from an [App Registration][azure-ad-app-registration] in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration includes the `Owner` or `Contributor` role that's predefined by Azure.
     * An Azure location that contains at least one delegated subnet.
 
     In addition, you can choose to provide a different service level. Azure NetApp Files provides three [service levels](../azure-netapp-files/azure-netapp-files-service-levels.md): Standard, Premium, and Ultra.
@@ -383,9 +378,14 @@ This section walks you through the installation of Astra Trident using the opera
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     secret/backend-tbc-anf-secret created
     tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
+    ```
+    
+ 3. To confirm backend was set with correct credentials and sufficient permissions, run the following [kubectl describe][kubectl-describe] command: 
+    ```bash
+    kubectl describe tridentbackendconfig.trident.netapp.io/backend-tbc-anf -n trident
     ```
 
 ### Create a StorageClass
@@ -411,9 +411,9 @@ A storage class is used to define how a unit of storage is dynamically created w
     kubectl apply -f anf-storageclass.yaml
     ```
 
-   The output of the command resembles the following example::
+   The output of the command resembles the following example:
 
-    ```console
+    ```output
     storageclass/azure-netapp-files created
     ```
 
@@ -453,7 +453,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     persistentvolumeclaim/anf-pvc created
     ```
 
@@ -465,7 +465,7 @@ A persistent volume claim (PVC) is a request for storage by a user. Upon the cre
 
    The output of the command resembles the following example:
 
-    ```console
+    ```bash
     kubectl get pvc -n trident
     NAME      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS         AGE
     anf-pvc   Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO            azure-netapp-files   62s
@@ -510,7 +510,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
 
    The output of the command resembles the following example:
 
-    ```console
+    ```output
     pod/nginx-pod created
     ```
 
@@ -522,7 +522,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
 
     The output of the command resembles the following example:
 
-    ```console
+    ```output
     [...]
     Volumes:
       volume:
@@ -543,10 +543,6 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
       Normal  Created                 11s   kubelet                  Created container nginx
       Normal  Started                 10s   kubelet                  Started container nginx
     ```
-
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
