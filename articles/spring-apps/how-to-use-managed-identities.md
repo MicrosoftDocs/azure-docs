@@ -48,8 +48,8 @@ The following table provides links to articles that contain examples:
 
 | Azure service   | tutorial                                                                                                                              |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Key Vault       | [Managed identity to connect Key Vault](how-to-managed-identities-key-vault.md)        |
-| Azure Functions | [Managed identity to invoke Azure Functions](how-to-managed-identities-functions.md) |
+| Key Vault       | [Tutorial: Use a managed identity to connect Key Vault to an Azure Spring Apps app](tutorial-managed-identities-key-vault.md)        |
+| Azure Functions | [Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app](tutorial-managed-identities-functions.md) |
 | Azure SQL       | [Use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](connect-managed-identity-to-azure-sql.md)         |
 
 ## Best practices when using managed identities
