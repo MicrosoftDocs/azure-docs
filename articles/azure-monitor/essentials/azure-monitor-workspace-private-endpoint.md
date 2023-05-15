@@ -10,7 +10,7 @@ ms.date: 05/03/2023
 
 # Use private endpoints for Managed Prometheus and Azure Monitor workspace
 
-Use [private endpoints](../../private-link/private-endpoint-overview.md) for Managed Prometheus and your Azure Monitor workspace to allow clients on a virtual network (VNet) to securely query data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address within the VNet address space of your Azure Monitor workspace resource. Network traffic between the clients on the VNet and the workspace resource traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+Use [private endpoints](../../private-link/private-endpoint-overview.md) for Managed Prometheus and your Azure Monitor workspace to allow clients on a virtual network (VNet) to securely query data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address within the VNet address space of your Azure Monitor workspace resource. Network traffic between the clients on the VNet and the workspace resource traverses the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 > [!NOTE]
 > Configuration of [Private Link for ingestion of data into Managed Prometheus and your Azure Monitor workspace](private-link-data-ingestion.md) is done on the Data Collection Endpoints associated with your workspace.  
@@ -29,9 +29,7 @@ A private endpoint is a special network interface for an Azure service in your [
 
 Applications in the VNet can connect to the workspace over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**.
 
-Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can therefor connect to a workspace using a private endpoint, while using service endpoints to access others.
-
-??? to access others.- other what? 
+Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can therefor connect to a workspace using a private endpoint, while using service endpoints to access other services.
 
 When you create a private endpoint for a workspace in your VNet, a consent request is sent for approval to the workspace account owner. If the user requesting the creation of the private endpoint is also an owner of the workspace, this consent request is automatically approved.
 
@@ -46,8 +44,7 @@ To create a private endpoint by using the Azure portal, PowerShell, or the Azure
 
 When you create a private endpoint, select the **Resource type**  `Microsoft.Monitor/accounts` and specify the Azure Monitor workspace to which it connects. Select `prometheusMetrics` as the Target sub-resource.
 
-
-- [Create a private endpoint using Azure portal](../../private-link/create-private-endpoint-portal.md##create-a-private-endpoint)
+- [Create a private endpoint using Azure portal](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint)
 
 - [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md#create-a-private-endpoint)
 
@@ -69,30 +66,30 @@ When you create a private endpoint, the DNS CNAME resource record for the worksp
 
 When you resolve the query endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the workspace. When resolved from the VNet hosting the private endpoint, the query endpoint URL resolves to the private endpoint's IP address.
 
-For the example below we're using'amwAccountA' located in the East US region. The resource name is not guaranteed to be unique, which requires us to add a few characters after the name to make the URL path unique; for example, 'amwAccountA-<key>'. This unique query endpoint is shown on the Azure Monitor workspace Overview page.
+For the example below we're using `k8s02-workspace` located in the East US region. The resource name is not guaranteed to be unique, which requires us to add a few characters after the name to make the URL path unique; for example, `k8s02-workspace-<key>`. This unique query endpoint is shown on the Azure Monitor workspace Overview page.
 
-:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/amw-overview.jpg" alt-text="A screenshot showing an Azure Monitor workspace overview page." lightbox="./media/azure-monitor-workspace-private-endpoint/amw-overview.jpg":::
+:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/amw-overview.png" alt-text="A screenshot showing an Azure Monitor workspace overview page." lightbox="./media/azure-monitor-workspace-private-endpoint/amw-overview.png":::
 
 The DNS resource records for the Azure Monitor workspace when resolved from outside the VNet hosting the private endpoint, are:
 
 | Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| `amwaccounta-<key>.<region>.prometheus.monitor.azure.com`             | CNAME | `amwaccounta-<key>.privatelink.<region>.prometheus.monitor.azure.com` |
-| `amwaccounta-<key>.privatelink.<region>.prometheus.monitor.azure.com` | CNAME | \<AMW regional service public endpoint\>                   |
+| `k8s02-workspace-<key>.<region>.prometheus.monitor.azure.com`             | CNAME | `k8s02-workspace-<key>.privatelink.<region>.prometheus.monitor.azure.com` |
+| `k8s02-workspace-<key>.privatelink.<region>.prometheus.monitor.azure.com` | CNAME | \<AMW regional service public endpoint\>                   |
 | <AMW regional service public endpoint\> | A | \<AMW regional service public IP address\>                   |
 
 As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the '*Public Access*' tab on the Networking page of your workspace.
 
-The DNS resource records for 'amwAccountA', when resolved by a client in the VNet hosting the private endpoint, are:
+The DNS resource records for 'k8s02-workspace', when resolved by a client in the VNet hosting the private endpoint, are:
 
 | Name  | Type | Value |
 | :--- | :---: | :--- |
-| `amwaccounta-<key>.<region>.prometheus.monitor.azure.com` | CNAME | `amwaccounta-<key>.privatelink.<region>.prometheus.monitor.azure.com` |
-| `amwaccounta-<key>.privatelink.<region>.prometheus.monitor.azure.com` | A | \<Private endpoint IP address\> |
+| `k8s02-workspace-<key>.<region>.prometheus.monitor.azure.com` | CNAME | `k8s02-workspace-<key>.privatelink.<region>.prometheus.monitor.azure.com` |
+| `k8s02-workspace-<key>.privatelink.<region>.prometheus.monitor.azure.com` | A | \<Private endpoint IP address\> |
 
 This approach enables access to the workspace **using the same query endpoint** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
 
-If you're using a custom DNS server on your network, clients must be able to resolve the FQDN for the workspace query endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `amwAccountA` with the private endpoint IP address.
+If you're using a custom DNS server on your network, clients must be able to resolve the FQDN for the workspace query endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `k8s02-workspace` with the private endpoint IP address.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the workspace query endpoint name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet or by configuring the DNS zone on your DNS server and adding the DNS A records.
@@ -124,6 +121,6 @@ This constraint is a result of the DNS changes made when workspace A2 creates a 
 
 ## Next steps
 
-- [Configure Public Access settings](azure-monitor-workspace-network-public-access.md)
+- [Configure Public Access settings](./azure-monitor-workspace-network-public-access.md)
 - [Managed Grafana network settings](../TBD/doc_that_covers_private_link_for_query.md)
 - [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
