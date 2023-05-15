@@ -57,7 +57,7 @@ For SAP workloads, it's recommended to create a flexible virtual machine scale s
 
 ### [Azure CLI](#tab/vmssflexcli)
 
-```bash
+```azurecli-interactive
 # Login to Azure CLI and specify the subscription and variables for the deployment.
 $RGName="my-resource-group"
 $ZonalLocation="westus3"
@@ -77,7 +77,7 @@ az vmss create -n $VMSSName -g $RGName -l $RegionalLocation --orchestration-mode
 
 ### [PowerShell](#tab/vmssflexps)
 
-```powershell
+```azurepowershell-interactive
 # Log into Azure PowerShell and specify the subscription and variables for the deployment. 
 $RGName = "my-resource-group"
 $ZonalLocation = "westus3"
