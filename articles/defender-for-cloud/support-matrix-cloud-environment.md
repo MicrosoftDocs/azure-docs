@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud support across cloud types
+title: Microsoft Defender for Cloud support across Azure clouds
 description: Review Defender for Cloud features and plans supported across different clouds
 ms.topic: limits-and-quotas
 ms.date: 05/01/2023
