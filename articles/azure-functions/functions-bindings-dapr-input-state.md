@@ -48,12 +48,11 @@ public static IActionResult Run(
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows how the custom type is used in both the trigger and a Dapr state output binding.
+More samples for the Dapr input state binding are available in the [GitHub repository](todo).
 
-TODO: current example has in-proc, need to update with out-of-proc
 <!--
 
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/StateInputBinding.cs" range="8-27"::: 
+:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/StateInputBinding.cs" range="8-26"::: 
 -->
 ---
 

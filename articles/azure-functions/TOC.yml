@@ -742,7 +742,7 @@
               displayName: Dapr
             - name: Trigger
               items: 
-              - name: Input
+              - name: Input Binding
                 href: functions-bindings-dapr-trigger-input.md
                 displayName: Dapr
               - name: Service Invocation

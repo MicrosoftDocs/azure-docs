@@ -2,7 +2,7 @@
 title: Dapr trigger and bindings for Azure Functions
 description: Learn to use the Dapr trigger and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 05/03/2023
+ms.date: 05/15/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -29,7 +29,7 @@ Azure Functions integrates with [Dapr](https://docs.dapr.io/) via [triggers and 
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
-The extension NuGet package you install depends on the C# mode you're using in your function app:
+The extension NuGet package you install depends on the C# mode (in-process or isolated) you're using in your function app:
 
 # [In-process](#tab/in-process)
 
@@ -71,18 +71,23 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ## Install bundle
 
-You need to manually install the Dapr extension into your project and opt-out of using default extensions. Before you begin, verify you have .NET Core SDK installed.
 
-1. If the `host.json` file in your project has the `extensionBundle` property and values:
-   1. Open the `host.json` file from the root directory of the project. 
-   1. Remove `extensionBundle` propery and values.
-   1. Save file.
+# [Preview Bundle v4.x](#tab/preview-bundle-v4x)
 
-1. Run the following command:
+You can add the preview extension by adding or replacign the following code in your `host.json` file:
 
-   ```powershell
-   func extensions install -p Dapr.AzureFunctions.Extension -v 0.10.0-preview01
-   ```
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+``` 
+
+---
+
 
 ::: zone-end
 
@@ -140,23 +145,6 @@ The isolated worker process supports parameter types according to the table belo
 [daprInvoke]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#service-invocation-output-binding
 [daprPublish]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 [daprBinding]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript,programming-language-python"
-
-## host.json settings
-
-This section describes the function app configuration settings available for functions that use this binding. These settings only apply when using extension version 5.0.0 and higher. The example host.json file below contains only the version 2.x+ settings for this binding. For more information about function app configuration settings in versions 2.x and later versions, see [host.json reference for Azure Functions](functions-host-json.md).
-
-> [!NOTE]
-> This section doesn't apply to extension versions before 5.0.0. For those earlier versions, there aren't any function app-wide configuration settings for Dapr.
-
-```json
-{
-    "version": "2.0"
-}
-```
 
 ::: zone-end
 
