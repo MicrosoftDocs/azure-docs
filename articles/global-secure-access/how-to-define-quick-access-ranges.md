@@ -1,48 +1,41 @@
 ---
 title: How to define quick access ranges
 description: Learn how to define quick access ranges for Entra Global Secure Access.
-author: kenwith
-ms.author: kenwith
+author: shlipsey3
+ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 05/15/2023
 ms.service: network-access
 ms.custom: 
+
 ---
+# How to define quick access ranges for Global Secure Access
 
+With Microsoft Entra Global Secure Access, you can define specific websites or IP addresses to include in the traffic for Microsoft Entra Private Access. After setting up Quick access ranges, you can specify which Quick access ranges are allowed for a particular branch. You must set up the Quick Access ranges before setting up any traffic forwarding rules.
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
+Your organizations employees can access the apps and sites that you add to a Quick access group from their My Apps page.
 
-# Learn how define quick access ranges for Global Secure Access
+## Prerequisites
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+To define Quick Access ranges, you must have:
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+- An Azure AD Premium P1/P2 license.
+- A role with **Global Administrator** access.
 
-## [Section 1 H2]
-<!-- add your content here -->
+## How to define Quick Access ranges
 
-## [Section 2 H2]
-<!-- add your content here -->
-
-## [Section n H2]
-<!-- add your content here -->
-
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+1. Sign into the Microsoft Entra admin center using one of the defined roles.
+1. Go to **Global secure access** > **Applications** > **Enterprise applications** > **Quick access**.
+1. Provide a name for the Quick Access group.
+1. Select a Connector Group from the list.
+	- Connectors must be set up before creating Quick access groups.
+	- With Connectors, you can isolate apps per network and connector.
+1. Select **+ Add quick access range**.
+1. In the **Create forwarding rule** panel that opens, select a **Destination type**: You can choose an IP address, a fully qualified domain name, an IP address range (CIDR), or an IP address range (IP to IP). Depending on what you select, the subsequent field changes accordingly.
+1. Enter the appropriate detail (fully qualified domain name, IP address, or IP address range).
+1. Enter the port. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [abc](#)
 
+- [Learn about traffic management profiles](how-to-configure-traffic-forwarding.md)
