@@ -97,5 +97,5 @@ This scenario is equivalent to [using a Speech resource that has a custom domain
 * [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Text-to-speech REST API](rest-text-to-speech.md)
+* [Speech to text REST API](rest-speech-to-text.md)
+* [Text to speech REST API](rest-text-to-speech.md)

@@ -31,8 +31,8 @@ Collect all of the following values for the mobile network resource that will re
    |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*). </br></br> Note: We recommend that this resource group is also used when [Collecting the required information for a site](collect-required-information-for-a-site.md).              |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you're deploying the private mobile network.                           |**Instance details: Region**|
-   |The mobile country code for the private mobile network. If you do not already have this, contact your national telecom regulator. <br><br> **Note:** For internal private networks you can configure the MCC to 001 (a test value) or 999.   |**Network configuration: Mobile country code (MCC)**|
-   |The mobile network code for the private mobile network. If you do not already have this, contact your national telecom regulator. <br><br> **Note:** For internal private networks you can configure the MNC to 01 (a test value), 99 or 999.    |**Network configuration: Mobile network code (MNC)**|
+   |The mobile country code for the private mobile network. If you do not already have this, contact your national/regional telecom regulator. <br><br> **Note:** For internal private networks you can configure the MCC to 001 (a test value) or 999.   |**Network configuration: Mobile country code (MCC)**|
+   |The mobile network code for the private mobile network. If you do not already have this, contact your national/regional telecom regulator. <br><br> **Note:** For internal private networks you can configure the MNC to 01 (a test value), 99 or 999.    |**Network configuration: Mobile network code (MNC)**|
 
 ### Collect the required information for a network slice
 

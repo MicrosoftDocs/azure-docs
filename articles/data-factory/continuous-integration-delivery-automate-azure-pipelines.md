@@ -122,7 +122,7 @@ The Azure Key Vault task might fail with an Access Denied error if the correct p
 
 ## Updating active triggers
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 

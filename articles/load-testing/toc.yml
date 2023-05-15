@@ -73,8 +73,10 @@ items:
           href: how-to-configure-customer-managed-keys.md
     - name: Manage resources
       items:
-        - name: Create & manage tests
+        - name: Create & manage tests (Azure portal)
           href: how-to-create-manage-test.md
+        - name: Create & manage test runs (Azure portal)
+          href: how-to-create-manage-test-runs.md
         - name: Move between regions
           href: how-to-move-between-regions.md
         - name: Monitor Azure Load Testing
