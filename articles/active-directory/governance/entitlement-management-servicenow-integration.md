@@ -85,6 +85,8 @@ After setting up custom extensibility in the catalog, administrators can create 
 1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
 
 1. In the menu below **Stage**, select the access package event you wish to use as trigger for this custom extension (Logic App). For our scenario, to trigger the custom extension Logic App workflow when access package has been approved, select **Request is approved**.
+> [!NOTE]
+> To create a ServiceNow ticket for an expired assignment that had permission granted previously, add a new stage for "*Assignment is removed*", and then select the LogicApp.
 
 1. In the menu below Custom Extension, select the custom extension (Logic App) you created in the above steps to add to this access package. The action you select executes when the event selected in the *when* field occurs.
 
