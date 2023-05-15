@@ -1,8 +1,8 @@
 ---
 title: Azure Stack Edge virtual machine sizing
 description: Learn about the VMs that Azure Private 5G Core uses when running on an Azure Stack Edge device.
-author: richardwhiuk
-ms.author: rwhitehouse
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: reference
 ms.date: 01/27/2023
