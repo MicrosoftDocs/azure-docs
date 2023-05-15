@@ -244,7 +244,7 @@ If an error appears on a successfully registered or deployed Virtual Instance fo
 1. The SAP central services VM might not be running.
 2. The monitoring VM extension might not be running or encountered an unexpected failure on the central services VM.
 3. The storage account in the managed resource group isn't reachable from the Central service VM(s) or the storage account or underlying container/blob required by the monitoring service may have been deleted.
-4. The Central Service VM(s) system assigned managed identity does not have ‘Storage Blob Data Owner’ access on the managed RG or this managed identity may have been disabled.
+4. The Central Service VM(s) system assigned managed identity doesn't have ‘Storage Blob Data Owner’ access on the managed RG or this managed identity may have been disabled.
 5. The sapstartsrv process might not be running for the SAP instance or for SAP hostctrl agent on the primary Central service VM.
 6. The monitoring VM extension couldn't execute the script to fetch health and status information due to policies or restrictions in place on the VM.
 
