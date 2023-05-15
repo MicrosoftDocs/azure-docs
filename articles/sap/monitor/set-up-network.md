@@ -112,7 +112,7 @@ You can enable a private endpoint by creating a new subnet in the same virtual n
 
 To create a private endpoint for Azure Monitor for SAP solutions:
 
-1. Create a Azure Private DNS zone which will contain the private endpoint records. You can follow the steps in [Create a private DNS zone](https://learn.microsoft.com/azure/dns/private-dns-getstarted-portal) to create a private DNS zone. Make sure to link the private DNS zone to the virtual networks that contain you SAP System and Azure Monitor for SAP solutions resources.
+1. Create a Azure Private DNS zone which will contain the private endpoint records. You can follow the steps in [Create a private DNS zone](../../dns/private-dns-getstarted-portal.md) to create a private DNS zone. Make sure to link the private DNS zone to the virtual networks that contain you SAP System and Azure Monitor for SAP solutions resources.
 
 [!div class="mx-imgBorder"]
 ![Screenshot of Adding Virtual Network Link to Private DNS Zone ]([../../media/set-up-network/dns-add-private-link.png)
@@ -122,7 +122,7 @@ To create a private endpoint for Azure Monitor for SAP solutions:
 
 #### Create key vault endpoint
 
-You can follow the steps in [Create a private endpoint for Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/private-link-service?tabs=portal) to configure the endpoint and test the connectivity to key vault.
+You can follow the steps in [Create a private endpoint for Azure Key Vault](../../key-vault/general/private-link-service.md) to configure the endpoint and test the connectivity to key vault.
 
 #### Create storage endpoint
 
@@ -222,7 +222,7 @@ Add outbound security rules:
 
 ### DNS Configuration for Private Endpoints
 
-After creating the private endpoints, you need to configure DNS to resolve the private endpoint IP addresses. You can use either Azure Private DNS or custom DNS servers. Refer to [Configure DNS for private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-dns) for more information.
+After creating the private endpoints, you need to configure DNS to resolve the private endpoint IP addresses. You can use either Azure Private DNS or custom DNS servers. Refer to [Configure DNS for private endpoints](../../private-link/private-endpoint-dns.md) for more information.
 
 ## Next steps
 
