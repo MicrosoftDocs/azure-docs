@@ -2349,13 +2349,13 @@ groups:
   title: Authenticate and connect to your Web PubSub resource(s) using one of the methods
   prompt: Choose an option
   pivots: 
+  - id: method-sdk-csharp
+    title: C#
+  - id: method-sdk-javascript
+    title: JavaScript
+  - id: method-sdk-java
+    title: Java
+  - id: method-sdk-python
+    title: Python
   - id: method-rest-apis
     title: REST APIs
-  - id: method-sdk-csharp
-    title: C# SDK
-  - id: method-sdk-javascript
-    title: JavaScript SDK
-  - id: method-sdk-java
-    title: Java SDK
-  - id: method-sdk-python
-    title: Python SDK

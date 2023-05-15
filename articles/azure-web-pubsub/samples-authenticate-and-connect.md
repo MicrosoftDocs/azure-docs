@@ -12,49 +12,55 @@ zone_pivot_groups: azure-web-pubsub-samples-authenticate-and-connect
 ---
 # Azure Web PubSub samples - authenticate and connect
 
-I am a description. I am a description. I am a description. I am a description.
+To make use of your Azure Web PubSub resource, you need to authenticate and connect to the service first. Azure Web PubSub service distinguishes two roles and they are given a different set of capabilities.
+ 
+## Client
+The client can be a browser, an mobile app, an IoT device or even an EV charging point as long as it supports WebSocket. A client is usually limited to publishing and subscribing to messages. 
 
-::: zone pivot="method-rest-apis"
-| Title                                                                    | Description                                                       |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authenticate using Client Access Token](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authorize access using Azure Active Directory](./concept-azure-ad-authorization.md) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-::: zone-end
+## Application server
+While the client's role is often limited, the application server's role goes beyond simply receiving and publishing messages. Before a client tries to connect with your Web PubSub resource, it goes to the applicatin server for an Client Access Token first. The token is used to establish a persistent WebSocket connection with  your Web PubSub resource. 
 
 ::: zone pivot="method-sdk-csharp"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authenticate using Client Access Token](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authorize access using Azure Active Directory](./concept-azure-ad-authorization.md) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
+| [Using connection string](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Applies to application server only. 
+| [Using Client Access Token](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/wwwroot/index.html#L13) | Applies to client only. Client Access Token is generated on the application server. 
+| [Using Azure Active Directory](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp-aad/Startup.cs#L26) | Using Azure AD for authorization offers improved security and ease of use compared to Access Key authorization.
+| [!Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | Applies to client only. A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
 ::: zone pivot="method-sdk-javascript"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authenticate using Client Access Token](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authorize access using Azure Active Directory](./concept-azure-ad-authorization.md) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
+| [Authenticate using connection string](https://github.com/Azure/azure-webpubsub/blob/main/samples/javascript/chatapp/sdk/server.js#L9) | Applies to application server only.
+| [Authenticate using Client Access Token](https://github.com/Azure/azure-webpubsub/blob/main/samples/javascript/chatapp/sdk/src/index.js#L5) | Applies to client only. Client Access Token is generated on the application server.
+| [Authorize access using Azure Active Directory](https://github.com/Azure/azure-webpubsub/blob/main/samples/javascript/chatapp-aad/server.js#L24) | Using Azure AD for authorization offers improved security and ease of use compared to Access Key authorization.
+| [!Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
 ::: zone pivot="method-sdk-java"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authenticate using Client Access Token](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authorize access using Azure Active Directory](./concept-azure-ad-authorization.md) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
+| [Authenticate using connection string](https://github.com/Azure/azure-webpubsub/blob/eb60438ff9e0735d90a6e7e6370b9d38aa6bc730/samples/java/chatapp/src/main/java/com/webpubsub/tutorial/App.java#L21) | Applies to application server only.
+| [Authenticate using Client Access Token](https://github.com/Azure/azure-webpubsub/blob/eb60438ff9e0735d90a6e7e6370b9d38aa6bc730/samples/java/chatapp/src/main/resources/public/index.html#L12) | Applies to client only. Client Access Token is generated on the application server.
+| [Authorize access using Azure Active Directory](https://github.com/Azure/azure-webpubsub/blob/eb60438ff9e0735d90a6e7e6370b9d38aa6bc730/samples/java/chatapp-aad/src/main/java/com/webpubsub/tutorial/App.java#L22) | Using Azure AD for authorization offers improved security and ease of use compared to Access Key authorization.
+| [!Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
 
 ::: zone pivot="method-sdk-python"
 | Title                                                                    | Description                                                       |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authenticate using Client Access Token](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Authorize access using Azure Active Directory](./concept-azure-ad-authorization.md) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
-| [Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
+| [Authenticate using connection string](https://github.com/Azure/azure-webpubsub/blob/eb60438ff9e0735d90a6e7e6370b9d38aa6bc730/samples/python/chatapp/server.py#L19) | Applies to application server only.
+| [Authenticate using Client Access Token](https://github.com/Azure/azure-webpubsub/blob/eb60438ff9e0735d90a6e7e6370b9d38aa6bc730/samples/python/chatapp/public/index.html#L13) | Applies to client only. Client Access Token is generated on the application server.
+| [Authorize access using Azure Active Directory](https://github.com/Azure/azure-webpubsub/blob/eb60438ff9e0735d90a6e7e6370b9d38aa6bc730/samples/python/chatapp-aad/server.py#L21) | Using Azure AD for authorization offers improved security and ease of use compared to Access Key authorization.
+| [!Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
+::: zone-end
+
+::: zone pivot="method-rest-apis"
+| Title                                                                    | Description                                                       |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| [!Authenticate using connection string](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | Applies to application server only.
+| [!Authenticate using Client Access Token](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | Applies to client only. Client Access Token is generated on the application server.
+| [!Authorize access using Azure Active Directory](./concept-azure-ad-authorization.md) | Using Azure AD for authorization offers improved security and ease of use compared to Access Key authorization.
+| [!Annoymous connection](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/connectionStringAuth.js) | A connecetion string is I am a description. I am a description. I am a description. I am a description.
 ::: zone-end
