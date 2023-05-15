@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 05/15/2023
 ms.author: lajanuar
 ---
 
@@ -158,4 +158,4 @@ You receive a `200 (Success)` response with JSON output. The first field, `"stat
 
 #### Supported document fields
 
-The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
+The prebuilt models extract predefined sets of document fields. See [Model data extraction](../../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
