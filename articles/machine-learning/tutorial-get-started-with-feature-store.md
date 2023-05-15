@@ -58,7 +58,7 @@ Note: This tutorial uses Azure Machine Learning spark notebook for development.
       * Select **upload folder**
       * Select the feature store samples folder from the cloned directory path: `azureml-examples/sdk/python/featurestore-sample`
 
-1. You can create a new notebook, and proceed and execute the instructions in this document step by step. You can also open the existing notebook named `hello_world.ipynb` notebook, and execute its individual cells step by step, one at a time. The notebooks are available in the folder `featurestore_sample/notebooks/sdk_only`. Keep this document open and refer to it for detailed explanation of the steps.
+1. You can create a new notebook, and proceed and execute the instructions in this document step by step. You can also open the existing notebook named `1. Develop a feature set and register with managed feature store.ipynb`, and execute its individual cells step by step, one at a time. The notebooks are available in the folder `featurestore_sample/notebooks/sdk_only`. Keep this document open and refer to it for detailed explanation of the steps.
 
 1. Select **AzureML Spark compute** in the top nav "Compute" dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **configure session**.
 
