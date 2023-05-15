@@ -1,9 +1,9 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
 description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 12/10/2019
+author: dubiety
+ms.author: yuchungchen
+ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
 ---
@@ -25,7 +25,7 @@ The Azure Maps Web SDK comes prebuilt with accessibility features such as:
 - Accessible color contrast support in the road map style.
 - High contrast support.
 
-For accessibility conformance details for all Microsoft products, see [Accessibility Conformance Reports](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Search for "Azure Maps web" to find the document specifically for the Azure Maps Web SDK.
+For accessibility conformance details for all Microsoft products, see [Accessibility Conformance Reports]. Search for "Azure Maps web" to find the document specifically for the Azure Maps Web SDK.
 
 ## Navigating the map
 
@@ -112,7 +112,7 @@ The map has keyboard shortcuts built in that make it easier to use the map. Thes
 
 Users can navigate the map using the keyboard. If a screen reader is running, the map notifies the user of changes to its state. For example, users are notified of map changes when the map is panned or zoomed. By default, the map provides simplified descriptions that exclude the zoom level and coordinates of the center of the map. The user can toggle the detail level of these descriptions by using the keyboard short cut `Ctrl` + `Shift` + `D`.
 
-Any additional information that is placed on the base map should have corresponding textual information for screen reader users. Be sure to add [Accessible Rich Internet Applications (ARIA)](https://www.w3.org/WAI/standards-guidelines/aria/), alt, and title attributes where appropriate.
+Any additional information that is placed on the base map should have corresponding textual information for screen reader users. Be sure to add [Accessible Rich Internet Applications (ARIA)], alt, and title attributes where appropriate.
 
 ## Make popups keyboard accessible
 
@@ -179,3 +179,5 @@ Take a look at these useful accessibility tools:
 > [No Coffee Vision Simulator](https://uxpro.cc/toolbox/nocoffee/)
 
 [Accessible popups]: https://samples.azuremaps.com/?search=keyboard&sample=accessible-popups
+[Accessibility Conformance Reports]: https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/
+[Accessible Rich Internet Applications (ARIA)]: https://www.w3.org/WAI/standards-guidelines/aria/
