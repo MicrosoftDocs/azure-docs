@@ -237,6 +237,8 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+      - name: Migration custom text log tables
+        href: agents/azure-monitor-agent-custom-text-log-migration.md
     - name: Performance
       displayName: Performance
       href: agents/azure-monitor-agent-performance.md
