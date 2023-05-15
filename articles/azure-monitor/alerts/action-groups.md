@@ -24,7 +24,7 @@ Global requests from clients can be processed by action group services in any re
 
 ## Create an action group in the Azure portal
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 1. Select **Alerts**, and then select **Action groups**.
 
@@ -76,7 +76,7 @@ Global requests from clients can be processed by action group services in any re
     |Event hubs |An Event Hubs action publishes notifications to Event Hubs. For more information about Event Hubs, see [Azure Event Hubs—A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md). You can subscribe to the alert notification stream from your event receiver.         |
     |Functions |Calls an existing HTTP trigger endpoint in functions. For more information, see [Azure Functions](../../azure-functions/functions-get-started.md).<br>When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you must remove and re-create the function action in the action group.<br>Your endpoint must support the HTTP POST method.<br>The function must have access to the storage account. If it doesn't have access, keys aren't available and the function URI isn't accessible.<br>[Learn about restoring access to the storage account](../../azure-functions/functions-recover-storage-account.md).|
     |ITSM  |An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md). |
-    |Logic apps     |         |
+    |Logic apps     |You can use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) to build and customize workflows for integration and to customize your alert notifications.|
     |Secure webhook|When you use a secure webhook action, you must use Azure AD to secure the connection between your action group and your endpoint, which is a protected web API. See [Configure authentication for Secure webhook](#configure-authentication-for-secure-webhook). Secure webhook doesn't support basic authentication. If you're using basic authentication, use the Webhook action.|
     |Webhook| If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit.<br>You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI.<br>If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the **Logic Apps** action type to manipulate the alert schema to meet the target webhook's expectations.<br> For information about the rules used for retrying webhook actions, see [Webhook](#webhook).|
 
