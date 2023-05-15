@@ -107,7 +107,7 @@ In the following, we explain how the Intel QPL configuration file can be changed
  [HKEY_LOCAL_MACHINE\SOFTWARE\Intel\SGX\QCNL]
  "CONFIG_FILE"="<Full File Path>"
  ```
- 3.	Restart AESMD service. For instance, open Powershell as an administrator and use the following commands:
+ 3.	Restart AESMD service. For instance, open PowerShell as an administrator and use the following commands:
  ```bash
  Restart-Service -Name "AESMService" -ErrorAction Stop
  Get-Service -Name "AESMService"
