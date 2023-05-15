@@ -2,7 +2,7 @@
 title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
-ms.date: 09/02/2021
+ms.date: 05/15/2023
 author: flang-msft
 ms.author: franlanglois
 ms.custom: mode-other
@@ -27,11 +27,12 @@ Use the Azure portal to find the Elastic application.
 
     :::image type="content" source="media/create/marketplace.png" alt-text="Marketplace icon.":::
 
-1. Search for _Elastic_ and select **Elasticsearch (Elastic Cloud)** from the available offerings.
+1.  Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings
 
 1. Select **Set up + subscribe**.
 
    :::image type="content" source="media/create/set-up.png" alt-text="select offer.":::
+  <!-- update screenshot -->
 
 ## Create resource
 

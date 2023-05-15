@@ -2,12 +2,14 @@
 title: Manage an Elastic integration with Azure
 description: This article describes management of Elastic on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
-ms.date: 09/02/2021
+
+ms.date: 05/18/2023
 author: flang-msft
 ms.author: franlanglois
+
 ---
 
-# Manage the Elastic integration with Azure
+# Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 
 This article describes how to manage your integration of Elastic with Azure. It shows how to configure the diagnostic settings and delete the Elastic resource.
 
@@ -32,8 +34,8 @@ The **Logs to Elastic** column indicates whether the resource is sending Logs to
 * Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
 * Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
 * An error is blocking the logs from being sent to Elastic.
-* Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration. 
-* Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic. 
+* Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration.
+* Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.
 
 ## Monitor virtual machines using Elastic agent
 
@@ -62,7 +64,7 @@ To uninstall the Elastic agent on a virtual machine, select the virtual machine 
 
 ## Configure diagnostic settings
 
-To configure the diagnostic settings for a resource, select that resource. In the left pane, select **Diagnostic settings**. 
+To configure the diagnostic settings for a resource, select that resource. In the left pane, select **Diagnostic settings**.
 
 In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. This option is only available after an Elastic resource has been created.
 
