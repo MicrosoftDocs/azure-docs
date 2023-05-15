@@ -1,0 +1,205 @@
+---
+title: Troubleshoot Hybrid Aks Cluster provision failures | Microsoft Docs
+description: Troubleshoot Hybrid Azure Kubernetes Service (AKS) clusters provision failures. Learn how to debug failure codes.
+ms.service: azure-operator-nexus
+ms.custom: Haks-troubleshooting
+ms.topic: troubleshooting
+ms.date: 05/12/2023
+ms.author: v-saambe
+---
+
+# Troubleshoot Hybrid Aks Cluster provision failures   
+
+Follow these steps in order to gather the data needed to diagnose Hybrid AKS creation or management issues. These steps require k8s controller access and bare metal linux host access.
+
+[!Connected status](../../articles/operator-nexus/media/Haks-connected-status.png)
+
+If Status: is not Connected and Provisioning State: is not Succeeded then the install failed
+
+[!INCLUDE] [How to manage and lifecycle the AKS-Hybrid cluster](../../articles/operator-nexus/howto-hybrid-aks.md)
+
+# Prerequisites
+
+    - Tenant id
+    - Subscription id
+    - Cluster name and resource group (this is the undercloud on premise physical cluster)
+    - Network Fabric controller and resource group
+    - Network fabric instances and resource group
+    - Hybrid AKS cluster name and resource group
+    - CLI, Bicep or ARM template used to create or attempt creation
+
+# What does an unhealthy HAKS cluster look like?
+
+There are several different types of failures that end up looking very similar to the end user.
+
+In the Azure Portal, an unhealthy cluster may show:
+
+- Alert showing "This cluster is not connected to Azure."
+- Status: Offline
+- Managed identity certificate expiration time: Could not display date/time, invalid format.
+
+In the CLI, when looking at "az hybridaks show" output, an unhealthy cluster may show:
+
+- provisioningState: Failed
+-provisioningState: Succeeded, but null values for fields such as lastConnectivityTime and managedIdentityCertificateExpirationTime, or an errorMessage field that is not null
+
+
+# Basic Network Requirements 
+
+At a minimum, every HAKS cluster needs a defaultcninetwork and a cloudservicesnetwork.
+
+Starting from the bottom up, we can consider Managed Network Fabric resources, Network Cloud resources, and Hybrid AKS resources:
+
+### Managed Network Fabric resources (az nf ...):
+
+ - the fabric is preconfigured with the vlans that are required for cloudservicesnetworks (in the range 300-349)
+ - the fabric must be configured with an l3isolationdomain and l3 internalnetwork for use with the defaultcninetwork
+   - the vlan must be in the range 500-599 (this limitation is intended to be removed in a future release)
+   - the l3isolationdomain must be successfully enabled
+
+### Network Cloud resources (az networkcloud ...):
+
+ - the cloudservicesnetwork must be created
+ - the defaultcninetwork must be created with an ipv4prefix and vlan that matches an existing l3isolationdomain
+   - the ipv4prefix used must be unique across all defaultcninetworks (and l3networks)
+ - the networks must have Provisioning state: Succeeded
+
+### Hybrid AKS resources (az hybridaks vnet ...):
+
+To be used by a hybrid AKS cluster, each Network Cloud networks must be "wrapped" in a hybridaks vnet.
+
+# Standard Issue
+
+Any of the following problems can cause the hybrid AKS cluster to fail to provision fully 
+
+### Several Hybrid AKS Clusters Fail or Timeout When Created Close Together
+
+  The Arc Appliance can only handle creating one hybrid AKS cluster at a time within an undercloud cluster. After creating a single hybrid AKS cluster, you must wait for its provisioning status to be "Succeeded" and for the cluster status to show as "connected" or "online" in the Portal. (See the picture at the top of the "Hybrid AKS Cluster Triage" document for an example of a successful cluster.) Only then is it safe to create another hybrid AKS cluster.
+
+  If you have already tried to create several at once and have them in a failed state, delete all failed clusters as well as any partially succeeded clusters. (Anything that is not a fully successful cluster should be deleted.). Additionally, you should check for and delete any leftover artifacts from failed clusters. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile and register the current undercloud cluster state. Then try to create a single new hybrid AKS cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating hybrid AKS clusters, one at a time.
+
+
+### Case-mismatch between hybrid AKS vnet and Network Cloud network
+
+When creating a hybrid AKS vnet, the provided Network Cloud network resource id must exactly (i.e. case-sensitively) match the actual ARM resource id. (this limitation is intended to be removed in a future release)
+
+If using CLI, this is the *--aods-vnet-id* parameter. If using ARM, Bicep, or a manual "az rest" API call, this is the value of .properties.infraVnetProfile.networkCloud.networkId
+
+The mixture of upper, lower, and camelCase throughout the ARM id depends on how the Network Cloud network was created.
+
+The most reliable way to obtain the correct value to use when creating the vnet is to query the object object for its id, for example:
+
+
+ ```bash
+   az networkcloud cloudservices show -g "example-rg" -n "csn-name" -o tsv --query id
+   az networkcloud defaultcninetwork show -g "example-rg" -n "dcn-name" -o tsv --query id
+   az networkcloud l3network show -g "example-rg" -n "l3n-name" -o tsv --query id
+
+```
+
+### Managed Network Fabric resource (l3isolationdomain or l2isolationdomain) is not enabled
+
+At a high level, the steps to create an l3isolationdomain are:
+
+- create the l3isolationdomain
+- add one or more internalnetworks
+- add one externalnetwork (optional, if northbound connectivity is required)
+- enable the l3isolationdomain using az nf l3domain update-admin-state --state Enable
+ 
+ #### For an l2isolationdomain:
+
+  - create the l2isolationdomain
+  -  enable the l2isolationdomain using az nf l2domain update-admin-state --state Enable
+
+It is important to check that the fabric resources do achieve an administrativeState of Enabled, and that the provisioningState is Succeeded. If the update-admin-state step is skipped, or fails, then the networks will not work.
+
+This can be confirmed using show commands, for example:
+
+ ```bash
+
+  az nf l3domain show -g "example-rg" --resource-name "l2domainname" -o table
+  az nf l2domain show -g "example-rg" --resource-name "l3domainname" -o table
+```
+# Network Cloud network status is Failed
+
+Care must be taken when creating Network Cloud networks to ensure that they come up successfully.
+
+In particular, pay attention to the following constraints when creating defaultcninetworks:
+
+   - the ipv4prefix and vlan need to match those of internalnetwork in the referenced l3isolationdomain
+  - the ipv4prefix must be unique across defaultcninetworks (and l3networks) in the Network Cloud cluster
+
+If using CLI to create these resources, it is useful to use the --debug option. The output will include an operation status URL, which can be queried using az rest.
+
+If the resource has already been created, see the section on Surfacing Errors below.
+
+# Known Errors
+
+Depending on the mechanism used for creation (portal, cli, ARM), it is sometimes hard to see why resources are Failed.
+
+One useful tool to help surface errors is the [az monitor activity-log](https://learn.microsoft.com/cli/azure/monitor/activity-log?view=azure-cli-latest) command, which can be used to show actvitities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
+
+For example, to see why a defaultcninetwork failed:
+
+
+ ```bash
+RESOURCE_ID="/subscriptions/$subscriptionsid/resourceGroups/example-rg/providers/Microsoft.NetworkCloud/defaultcninetworks/example-duplicate-prefix-dcn"
+az monitor activity-log list --resource-id "${RESOURCE_ID}" -o tsv --query '[].properties.statusMessage' | jq
+```
+
+The result:
+~~~~
+{
+  "status": "Failed",
+  "error": {
+    "code": "ResourceOperationFailure",
+    "message": "The resource operation completed with terminal provisioning state 'Failed'.",
+    "details": [
+      {
+        "code": "Specified IPv4Connected Prefix 10.0.88.0/24 overlaps with existing prefix 10.0.88.0/24 from example-dcn",
+        "message": "admission webhook \"vdefaultcninetwork.kb.io\" denied the request: Specified IPv4Connected Prefix 10.0.88.0/24 overlaps with existing prefix 10.0.88.0/24 from example-dcn"
+      }
+    ]
+  }
+}
+
+~~~~
+
+### Arc appliance is offline
+This may be associated with an L2 connectivity issue on one of the preconfigured infrastructure vlans (specifically, l2infranetwork-200)
+
+
+### L2 connectivity issue on l2infranetwork-201
+
+Symptoms:
+
+ - Arc appliance unable to communicate with hybridaks cluster being configured.
+
+If possible, check:
+
+  - Can the routerizer pod see the natterizer pod(s) in its ip neighbor table?
+
+Based on the location of the routerizer and natterizer pods, and the contents of their ip neighbor tables, try to determine:
+
+  - is the problem host specific? (possible problem cabling, switch port configuration, bonding, bridge configuration)
+  - is the problem rack-specific? (possible issue with fabric configuration out of sync)
+
+### L2 or L3 connectivity issue on defaultcninetwork
+
+Symptoms:
+
+ - Arc appliance unable to communicate with hybridaks cluster being configured.
+ 
+ If possible, check:
+
+  - Can the natterizer pod reach the hybridaks vm?
+  - Can the natterizer pod reach the default gateway (.1, .2, .3) of the DCN?
+  - Can the hybridaks vm reach its default gateway?
+
+### OOM on haks node
+
+There have been incidents where CNF workloads are unable to start due to resource constraints on the haks node that the CNF workload is scheduled on. This has been seen on nodes that have azure-arc pods that are consuming a lot of compute resources. At the moment, this is a topic of discussion on how to properly mitigate this issue.
+
+ [!NOTE]  If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+ 
+ 
