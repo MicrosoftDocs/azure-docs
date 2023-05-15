@@ -2,7 +2,7 @@
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 05/15/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -230,9 +230,9 @@ There are processes where you might need to log, audit, or perform some other op
 
 ## Create reliable message systems 
 
-You can use Functions with Azure messaging services to create event-driven messaging systems. For example, you can use triggers on Azure Storage queues as a way to chain together a series of function executions.
+You can use Functions with Azure messaging services to create advanced event-driven messaging solutions. 
 
-For example, online orders are saved to a ueue, then picked up and processed by Azure unctions and the resulting data is stored in a database.
+For example, you can use triggers on Azure Storage queues as a way to chain together a series of function executions. Or use service bus queues and triggers for an online ordering system.
 
 ![Create reliable message systems](./media/functions-scenarios/create-reliable-message-systems.png)
 
@@ -263,6 +263,28 @@ For example, online orders are saved to a ueue, then picked up and processed by 
 + Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-powershell)
 + Article: [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
 + Training: [Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
+::: zone-end
+
+And these articles show how to trigger from an Azure Service Bus queue or topic.
+
+::: zone pivot="programming-language-csharp" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-csharp)
+::: zone-end
+
+::: zone pivot="programming-language-javascript" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-javascript)
+::: zone-end
+
+::: zone pivot="programming-language-python" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-python)
+::: zone-end
+
+::: zone pivot="programming-language-java" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-java)
+::: zone-end
+
+::: zone pivot="programming-language-powershell" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-powershell)
 ::: zone-end
 
 ## Next steps
