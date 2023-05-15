@@ -26,11 +26,11 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](quickstart-go.md)
 >
 
-This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
+This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x and 3.3.x (v3.3x and higher is required for AAD authentication).
 
 Throughout this quick tutorial, we rely on [Azure Databricks Runtime 12.2 with Spark 3.3.2](/azure/databricks/release-notes/runtime/12.2) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
 
-You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
+You should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
 ## Prerequisites
 
@@ -315,7 +315,7 @@ For more information related to schema inference, see the full [schema inference
 
 ## Configuration reference
 
-The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides additional and advanced settings writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
+The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides more advanced settings for writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details, see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
 
 ---
 
