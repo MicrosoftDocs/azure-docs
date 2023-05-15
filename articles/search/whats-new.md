@@ -30,13 +30,13 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 |-----------------------------|------|--------------|
 | [**ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search (GitHub)**](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | Sample | Python code and a template for combining Cognitive Search with the large language models in OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). <br><br>Key points: <br><br>Use Cognitive Search to consolidate and index searchable content.</br> <br>Query the index for initial search results.</br> <br>Assemble prompts from those results and send to the gpt-35-turbo (preview) model in Azure OpenAI.</br> <br>Return a cross-document answer and provide citations and transparency in your customer-facing app so that users can assess the response.</br>|
 
-## November 2022
+## 2022 announcements
 
-| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
-|-----------------------------|------|--------------|
-| **Add search to websites** <ul><li>[C#](tutorial-csharp-overview.md)</li><li>[Python](tutorial-python-overview.md)</li><li>[JavaScript](tutorial-javascript-overview.md) </li></ul>| Sample | "Add search to websites" is a tutorial series with sample code available in three languages. This series was updated in November to run with current versions of React and the SDK client libraries. If you're integrating client code with a search index, these samples demonstrate an end-to-end approach to integration. |
-| [Visual Studio Code extension for Azure Cognitive Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/master/README.md) | Feature | **Retired**. This preview feature isn't moving forward to general availability and has been removed from Visual Studio Code Marketplace. See the [documentation](search-get-started-vs-code.md) for details. |
-| [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation) | Sample | This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
+| Month | Item |
+|-------|---------|
+| November | **Add search to websites** updated versions of React and Azure SDK client libraries: <ul><li>[C#](tutorial-csharp-overview.md)</li><li>[Python](tutorial-python-overview.md)</li><li>[JavaScript](tutorial-javascript-overview.md) </li></ul> "Add search to websites" is a tutorial series with sample code available in three languages. This series was . If you're integrating client code with a search index, these samples demonstrate an end-to-end approach to integration. |
+| November | **Retired** - [Visual Studio Code extension for Azure Cognitive Search](https://github.com/microsoft/vscode-azurecognitivesearch/blob/master/README.md). |
+| November | [Query performance dashboard](https://github.com/Azure-Samples/azure-samples-search-evaluation). This Application Insights sample demonstrates an approach for deep monitoring of query usage and performance of an Azure Cognitive Search index. It includes a JSON template that creates a workbook and dashboard in Application Insights and a Jupyter Notebook that populates the dashboard with simulated data. |
 
 ## October 2022
 
