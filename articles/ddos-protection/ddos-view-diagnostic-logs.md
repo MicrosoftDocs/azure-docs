@@ -100,22 +100,24 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the notification was created. |
 | **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSMitigationReports`.|
+| **Category** | For mitigation reports, this will be `DDoSMitigationReports`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
 | **Resource** | The name of your public IP address. |
 | **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For notifications, this will be `DDoSMitigationReports`.  |
-| **Message** | Details of the attack. |
-| **AttackVectors_s** | Type of attacks during log period. |
-| **TrafficOverview_s** | Total of packets through network. | 
-| **Protocols**  | Distribution of traffic through Protocols.   |  
-| **DropReasons_s** | Distribution of packet drop reasons. |
-| **TopSourceCountries_s** | Distribution of source countries with highest traffic. |
-| **TopSourceCountriesForDroppedPackets_s** | Distribution of source countries with highest traffic dropped |
-| **TopSourceASNs_s** | List of top source ASNs distribution.  | 
-| **SourceContinents_s** | Distribution of source continents with highest traffic. |
-| **PublicIpAddress** | Your public IP address. |
+| **OperationName** | For mitigation reports, this will be `DDoSMitigationReports`.  |
+| **ReportType** | Possible values are 'Incremental' and 'PostMitigation'. |
+| **MitigationPeriodStart** | The date and time in UTC when the mitigation started. |
+| **MitigationPeriodEnd** | The date and time in UTC when the mitigation ended. |
+| **IPAddress**  | Your public IP Address | 
+| **AttackVectors** | Degradation of attack types.  The keys include 'TCP SYN flood', 'TCP flood', 'UDP flood', 'UDP reflection', and 'Other packet flood'. |
+| **TrafficOverview** | Degradation of attack traffic.  The keys include 'Total packets', 'Total packets dropped', 'Total TCP packets', 'Total TCP packets dropped', 'Total UDP packets', 'Total UDP packets dropped', 'Total Other packets', and 'Total Other packets dropped'.| 
+| **Protocols**  |Breakdown of protocols included. The keys include 'TCP', 'UDP', and 'Other'.   |  
+| **DropReasons** | Analysis of causes of dropped packets. The keys include 'Protocol violation invalid TCP'. 'syn Protocol violation invalid TCP', 'Protocol violation invalid UDP', 'UDP reflection', 'TCP rate limit exceeded', 'UDP rate limit exceeded', 'Destination limit exceeded', 'Other packet flood Rate limit exceeded' , and 'Packet was forwarded to service'. |
+| **TopSourceCountries** | Breakdown of the top 10 source countries into inbound traffic. |
+| **TopSourceCountriesForDroppedPackets** | Analysis of the top 10 source countries for attack traffic that have been throttled. |
+| **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  | 
+| **SourceContinents** | Decomposition of the source continent for inbound traffic. |
 | **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 
 
