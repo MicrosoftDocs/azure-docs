@@ -112,6 +112,27 @@ Continue by updating the relevant setting directly on the OT network sensor. For
 
 Use the following sections to learn more about the individual OT sensor settings available from the Azure portal:
 
+### Active Directory
+
+To configure Active Directory settings from the Azure portal, define values for the following options:
+
+|Name  |Description  |
+|---------|---------|
+|**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.        |
+|**Domain Controller Port**     | The port where your LDAP is configured. For example, use port 636 for LDAPS (SSL) connections.        |
+|**Primary Domain**     | The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
+|**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when adding new sensor users with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
+
+> [!IMPORTANT]
+> When entering LDAP parameters:
+>
+> - Define values exactly as they appear in Active Directory, except for the case.
+> - User lowercase characters only, even if the configuration in Active Directory uses uppercase.
+> - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
+>
+
+To add another Active Directory server, select **+ Add Server** and define those server values.
+
 ### Bandwidth cap
 
 For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
@@ -119,6 +140,10 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 **Default**: 1500 Kbps
 
 **Minimum required for a stable connection to Azure**: 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
+
+### NTP
+
+To configure an NTP server for your sensor from the Azure portal, define an IP/Domain address of a valid IPv4 NTP server using port 123.
 
 ### Subnet
 
