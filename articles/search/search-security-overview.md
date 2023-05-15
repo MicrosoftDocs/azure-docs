@@ -141,9 +141,9 @@ For multitenancy solutions requiring security boundaries at the index level, it'
 
 ### Restricting access to documents
 
-If you require user permissions over search results, you can build security filters in your queries. User permssions at the document level, also known as "row-level security", isn't natively supported in Cognitive Search. This means that any user permissions on data in external systems, such as Azure Cosmos DB, won't transfer with that data as its being indexed by Cognitive Search.
+User permssions at the document level, also known as "row-level security", isn't natively supported in Cognitive Search. If you import data from an external system that provides row-level security, such as Azure Cosmos DB, those permissions won't transfer with the data as its being indexed by Cognitive Search.
 
-Workarounds for "row-level security" include creating a field in the data source that represents a security group or user identity, and then using filters in Cognitive Search to selectively trim search results based on identities. The following table describes two approaches for trimming search results of unauthorized content.
+If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. The following table describes two approaches for trimming search results of unauthorized content.
 
 | Approach | Description |
 |----------|-------------|

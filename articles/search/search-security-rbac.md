@@ -313,9 +313,6 @@ For more information on how to acquire a token for a specific environment, see [
 
 1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
 
-
-See [Authorize access to a search app using Azure Active Directory](search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
-
 1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentiation. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
    + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
@@ -338,6 +335,42 @@ See [Authorize access to a search app using Azure Active Directory](search-howto
     var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
     SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
     ```
+
+### [**Python**](#tab/test-python)
+
+1. Use [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/).
+
+1. Use [Azure.Identity for Python](/python/api/overview/azure/identity-readme) for token authentication.
+
+1. Use [DefaultAzureCredential](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential&preserve-view=true) if the Python client is an application that executes server-side. Enable [interactive authentication](/python/api/overview/azure/identity-readme?view=azure-python#enable-interactive-authentication-with-defaultazurecredential&preserve-view=true) if the app runs in a browser.
+
+1. Here's an example:
+
+    ```python
+    from azure.search.documents import SearchClient
+    from azure.identity import DefaultAzureCredential
+    
+    credential = DefaultAzureCredential()
+    endpoint = "https://<mysearch>.search.windows.net"
+    index_name = "myindex"
+    client = SearchClient(endpoint=endpoint, index_name=index_name, credential=credential)
+    ```
+
+### [**JavaScript**](#tab/test-javascript)
+
+1. Use [@azure/search-documents (Azure SDK for JavaScript), version 11.3](https://www.npmjs.com/package/@azure/search-documents).
+
+1. Use [Azure.Identity for JavaScript](/javascript/api/overview/azure/identity-readme) for token authentication.
+
+1. If you're using React, use `InteractiveBrowserCredential` for Azure AD authentication to Search. See [When to use `@azure/identity`](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#when-to-use&preserve-view=true) for details.
+
+### [**Java**](#tab/test-java)
+
+1. Use [azure-search-documents (Azure SDK for Java) version 11.5.6](https://central.sonatype.com/artifact/com.azure/azure-search-documents/11.5.6).
+
+1. Use [Azure.Identity for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true) for token authentication.
+
+1. Microsoft recommends [DefaultAzureCredential](/java/api/overview/azure/identity-readme?view=azure-java-stable#defaultazurecredential&preserve-view=true) for apps that run on Azure.
 
 ---
 
