@@ -1313,8 +1313,6 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
-        - name: Pipeline component
-          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
@@ -1391,6 +1389,8 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+            - name: Pipeline 
+              href: reference-yaml-component-pipeline.md
         - name: Registry
           items:
             - name: Registry
