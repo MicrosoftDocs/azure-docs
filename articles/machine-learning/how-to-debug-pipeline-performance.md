@@ -14,7 +14,7 @@ ms.custom: designer, pipeline UI
 ---
 # View profiling to debug pipeline performance issues (preview)
 
-Profiling (preview) can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
+Profiling (preview) feature can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
 
 Profiling enables you to:
 

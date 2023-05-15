@@ -10,7 +10,7 @@ ms.author: lagayhar
 ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 04/26/2023
-ms.custom: designer, training
+ms.custom: designer
 monikerRange: 'azureml-api-2'
 ---
 
@@ -42,15 +42,15 @@ The building blocks of pipeline are called assets in Azure Machine Learning, whi
  - Model 
  - [Component](./concept-component.md) 
 
-Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows you the assets you created in your workspace, and the assets shared in [registry](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have permission to use.
+Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows both the assets you created in your workspace, and the assets shared in [registry](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have permission to access.
 
 
-![asset-libarary-screenshot](./media/concept-designer/asset-library.png)
+![asset-library-screenshot](./media/concept-designer/asset-library.png)
 
 
 To see assets from a specific registry, click the Registry name filter above the asset library. The assets you created in your current workspace are in the registry = workspace. The assets provided by Azure Machine Learning are in the registry = azureml.
 
-Designer only shows the assets that you created and named in your workspace. You won't see any unnamed assets in the list. To learn how to create data and component assets, read these articles:
+Designer only shows the assets that you created and named in your workspace. You won't see any unnamed assets in the asset library. To learn how to create data and component assets, read these articles:
 
 - [How to create data asset](./how-to-create-data-assets.md)
 - [How to create component](./how-to-create-component-pipelines-ui.md#register-component-in-your-workspace)
@@ -87,7 +87,7 @@ Each time you run a pipeline, the configuration of the pipeline and its results 
 
 You can create a new pipeline and build from scratch. Remember to select the **Custom component** option when you create the pipeline in designer. 
 
-![screeshot showing to select custom component](./media/how-to-create-component-pipelines-ui/new-pipeline.png)
+![screenshot showing to select custom component](./media/how-to-create-component-pipelines-ui/new-pipeline.png)
 
 
 ### Clone an existing pipeline job 
@@ -103,6 +103,9 @@ After cloning, you can also know which pipeline job it's cloned from by selectin
 
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
 
+## Next step
+
+- [Create pipeline with components (UI)](./how-to-create-component-pipelines-ui.md)
 
 
 
