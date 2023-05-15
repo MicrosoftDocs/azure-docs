@@ -137,17 +137,28 @@
 - name: Samples
   expanded: false
   items: 
-    - name: Authenticate
-      href: samples-authenticate.md
-    - name: Connect
-      href: samples-connect.md
-    - name: Applications
-      href: samples-applications.md
+    - name: Authenticate and Connect
+      href: samples-authenticate-and-connect.md
+    - name: App scenarios
+      href: samples-app-scenarios.md
     - name: Platform and frameworks
       href: samples-platform-and-frameworks.md
-    - name: Deployment
-      href: samples-deployment.md
-    - name: Persist messages
+- name: Intergrate with other Azure services
+  expanded: false
+  items: 
+    - name: App Service
+      href: samples-persist messages.md
+    - name: Azure Functions
+      href: samples-persist messages.md
+    - name: Azure Container Apps
+      href: samples-persist messages.md
+    - name: Static Web Apps
+      href: samples-persist messages.md
+    - name: Azure Cosmos DB
+      href: samples-persist messages.md
+    - name: Application Gateway
+      href: samples-persist messages.md
+    - name: API Management
       href: samples-persist messages.md
 - name: Reference
   items:
