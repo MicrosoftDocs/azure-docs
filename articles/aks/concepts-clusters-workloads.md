@@ -61,7 +61,7 @@ To configure or directly access a control plane, deploy a self-managed Kubernete
 
 For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
-For AKS cost management information, see [AKS cost basics](../../../architecture-center-pr/docs/aws-professional/eks-to-aks/cost-management-content.md#aks-cost-basics) and [Pricing for AKS](https://azure.microsoft.com/pricing/details/kubernetes-service/#pricing).
+For AKS cost management information, see [AKS cost basics](/azure/architecture/aws-professional/eks-to-aks/cost-management#aks-cost-basics) and [Pricing for AKS](https://azure.microsoft.com/pricing/details/kubernetes-service/#pricing).
 
 ## Nodes and node pools
 
