@@ -28,7 +28,7 @@ Encryption is part of a layered approach to security and should be used with oth
 
 Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidential disk encryption.
 
-| &nbsp; | **Azure Disk Storage Server-Side Encryption** | **Encryption at Host**  | **Azure Disk Encryption** | **Confidential disk encryption (For the OS disk only** |
+| &nbsp; | **Azure Disk Storage Server-Side Encryption** | **Encryption at Host**  | **Azure Disk Encryption** | **Confidential disk encryption (For the OS disk only)** |
 |--|--|--|--|--|
 | Encryption at rest (OS and data disks) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | 
 | Temp disk encryption | &#10060; | &#x2705; | &#x2705; | &#10060; |
