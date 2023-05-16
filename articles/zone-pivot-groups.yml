@@ -2372,3 +2372,16 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+# Owner: juliakm
+- id: github-actions-deployment-options
+  title: GitHub Actions deployment options
+  prompt: Choose how you deploy
+  pivots:
+  - id: Manual
+    title: method-manual
+  - id: Azure portal
+    title: method-portal
+  - id: Azure CLI
+    title: method-cli
+  - id: GitHub Actions template
+    title: method-template

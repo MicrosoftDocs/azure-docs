@@ -4,6 +4,7 @@ description: Learn how to use GitHub Actions to define a workflow to build and d
 ms.topic: conceptual
 ms.date: 05/16/2023
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
+zone_pivot_groups: github-actions-deployment-options
 ---
 
 # Continuous delivery by using GitHub Actions
@@ -14,8 +15,8 @@ In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-
 
 There are four options for deploying a function with GitHub Actions: 
 
-1. Use the Deployment option in the Azure portal.
 1. Manually create your GitHub Actions workflow. 
+1. Use the Deployment option in the Azure portal.
 1. Use Azure CLI to generate a workflow file and deploy your app.   
 1. Use an Actions template within GitHub.  
 
@@ -37,33 +38,7 @@ For an Azure Functions workflow, the file has three sections:
     - [Quickstart: Create a function in Azure using Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
 
-## Use the Deployment option in Azure portal
-
-You can get started quickly with GitHub Actions through the Deployment tab when you create a function in Azure portal. You can also add GitHub Actions to an existing function app. This option generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory.
-
-To add a GitHub Actions workflow when you create a new function app:
-
-1. Select **Deployment** in the **Create Function App** flow. 
-
-    :::image type="content" source="media/functions-how-to-github-actions/github-actions-deployment.png" alt-text="Screenshot of Deployment option in Functions menu.":::
-
-1. Enable **Continuous Deployment** if you want each code update to trigger a code push to Azure portal. 
-
-1. Enter your GitHub organization, repository, and branch. 
-
-    :::image type="content" source="media/functions-how-to-github-actions/github-actions-github-account-details.png" alt-text="Screenshot of GitHub user account details.":::
-
-1. Complete configuring your function app. Your GitHub repository now includes a new workflow file in `/.github/workflows/`. 
-
-To add a GitHub Actions workflow to an existing function app:
-
-1. Navigate to your function app in the Azure portal.
-1. Select **Deployment Center**. 
-1. Under Continuous Deployment (CI / CD), select **GitHub**. You'll see a default message, *Building with GitHub Actions*. 
-1. Enter your GitHub organization, repository, and branch. 
-1. Select **Preview file** to see the workflow file that will be added to your GitHub repository in `github/workflows/`.
-1. Select **Save** to add the workflow file to your repository. 
-
+::: zone pivot="method-manual"
 
 ## Manually create your GitHub Actions workflow
 
@@ -569,6 +544,41 @@ jobs:
 
 ---
 
+::: zone-end
+
+::: zone pivot="method-portal"
+
+## Use the Deployment option in Azure portal
+
+You can get started quickly with GitHub Actions through the Deployment tab when you create a function in Azure portal. You can also add GitHub Actions to an existing function app. This option generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory.
+
+To add a GitHub Actions workflow when you create a new function app:
+
+1. Select **Deployment** in the **Create Function App** flow. 
+
+    :::image type="content" source="media/functions-how-to-github-actions/github-actions-deployment.png" alt-text="Screenshot of Deployment option in Functions menu.":::
+
+1. Enable **Continuous Deployment** if you want each code update to trigger a code push to Azure portal. 
+
+1. Enter your GitHub organization, repository, and branch. 
+
+    :::image type="content" source="media/functions-how-to-github-actions/github-actions-github-account-details.png" alt-text="Screenshot of GitHub user account details.":::
+
+1. Complete configuring your function app. Your GitHub repository now includes a new workflow file in `/.github/workflows/`. 
+
+To add a GitHub Actions workflow to an existing function app:
+
+1. Navigate to your function app in the Azure portal.
+1. Select **Deployment Center**. 
+1. Under Continuous Deployment (CI / CD), select **GitHub**. You'll see a default message, *Building with GitHub Actions*. 
+1. Enter your GitHub organization, repository, and branch. 
+1. Select **Preview file** to see the workflow file that will be added to your GitHub repository in `github/workflows/`.
+1. Select **Save** to add the workflow file to your repository. 
+
+::: zone-end
+
+::: zone pivot="method-cli"
+
 ## Use Azure CLI to create a GitHub Actions workflow file 
 
 In your existing repository with a functions app, run the `az functionapp deployment github-actions add` command to create a workflow file and have it get added to your repository.
@@ -613,7 +623,11 @@ To use the interactive method to retrieve a personal access token:
 
 1. Go to your GitHub repository and select **Actions**. Verify that your workflow ran. 
 
-## Use an Actions template
+::: zone-end
+
+::: zone pivot="method-template"
+
+## Use a GitHub Actions template
 
 You can also use functions templates from within GitHub Actions. 
 
@@ -629,6 +643,7 @@ You can also use functions templates from within GitHub Actions.
 
 1. Select **Configure** and use one of the functions app workflows authored by Microsoft Azure. 
 
+::: zone-end
 
 ## Next steps
 
