@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-[Shared device mode](msal-shared-devices.md) allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single sign-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
+[Shared device mode](msal-shared-devices.md) allows you to configure an iOS 14 or higher device to be more easily and securely shared by employees. Employees can sign-in once and get single sign-on (SSO) to all apps that support this feature, giving them faster access to information. When they're finished with their shift or task, they can sign out of the device through any supported app that also signs them out from all apps supporting this feature, and the device is immediately ready for use by the next employee with no access to previous user's data.
 
 To take advantage of shared device mode feature, app developers and cloud device admins work together:
 
@@ -205,7 +205,7 @@ To receive the account change broadcast, you need to register a broadcast receiv
 The following code snippet shows how you could register a broadcast receiver.
 
 ```objectivec
-NSString *const MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
+NSString *const MSAL_SHARED_MODE = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
 
 - (void) registerDarwinNotificationListener 
 
@@ -219,7 +219,7 @@ NSString *const MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SH
 
    sharedModeAccountChangedCallback,
 
-   (CFStringRef)MSID_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY, 
+   (CFStringRef)MSAL_SHARED_MODE, 
 
    nil, CFNotificationSuspensionBehaviorDeliverImmediately); 
 
