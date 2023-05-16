@@ -73,7 +73,9 @@ In some cases, build artifacts have a specific folder structure. You might need 
 The following language-specific pipelines can be used for building apps. 
 # [C\#](#tab/csharp)
 
-You can use the following sample to create a YAML file to build a .NET app:
+You can use the following sample to create a YAML file to build a .NET app. 
+
+If you see errors when building your app, verify that the version of .NET that you use matches your Azure Functions version. For more information, see [Azure Functions runtime versions overview](functions-versions.md). 
 
 ```yaml
 pool:
