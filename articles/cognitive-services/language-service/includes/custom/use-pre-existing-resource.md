@@ -14,8 +14,8 @@ ms.author: aahi
 
 |Requirement  |Description  |
 |---------|---------|
-|Regions     | Make sure your existing resource is provisioned in one of the [supported regions](../service-limits.md#regional-availability). If you don't have a resource, you will need to create a new one in a supported region.        |
-|Pricing tier     | The [pricing tier](../service-limits.md#language-resource-limits) for your resource.       |
+|Regions     |  If you don't have a resource, you will need to create a new one in a supported region.        |
+|Pricing tier     | pricing tier for your resource.       |
 |Managed identity     | Make sure that the resource's managed identity setting is enabled. Otherwise, read the next section. |
 
 To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
@@ -62,4 +62,4 @@ Make sure to enable **Custom text classification / Custom Named Entity Recogniti
 Make sure to allow (**GET, PUT, DELETE**) methods when enabling Cross-Origin Resource Sharing (CORS). 
 Set allowed origins field to `https://language.cognitive.azure.com`. Allow all header by adding `*` to the allowed header values, and set the maximum age to `500`.
 
-:::image type="content" source="../media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../media/cors.png":::
+:::image type="content" source="../../custom-named-entity-recognition/media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../../custom-named-entity-recognition/media/cors.png":::

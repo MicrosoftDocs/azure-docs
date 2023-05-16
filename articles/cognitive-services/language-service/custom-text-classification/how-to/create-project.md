@@ -1,7 +1,7 @@
 ---
-title: How to create Custom text classification projects
+title: How to create custom text classification projects
 titleSuffix: Azure Cognitive Services
-description: Learn about the steps for using Azure resources with Custom text classification.
+description: Learn about the steps for using Azure resources with custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,19 +13,19 @@ ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# How to create Custom text classification projects
+# How to create custom text classification project
 
-Use this article to learn how to set up the requirements for starting with Custom text classification and create a project.
+Use this article to learn how to set up the requirements for starting with custom text classification and create a project.
 
 ## Prerequisites
 
-Before you start using Custom text classification, you will need:
+Before you start using custom text classification, you will need:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 ## Create a Language resource 
 
-Before you start using Custom text classification, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with Custom text classification.
+Before you start using custom text classification, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to classify text.
 
@@ -41,15 +41,15 @@ You also will need an Azure storage account where you will upload your `.txt` do
 
 ### [Using the Azure portal](#tab/azure-portal)
 
-[!INCLUDE [create a new resource from the Azure portal](../../includes/custom/resource-creation-azure-portal.md)]
+[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
 ### [Using Language Studio](#tab/language-studio)
 
-[!INCLUDE [create a new resource from Language Studio](../../includes/custom/language-studio/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
 
 ### [Using Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [create a new resource with Azure PowerShell](../../includes/custom/resource-creation-powershell.md)]
+[!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
 ---
 
@@ -62,9 +62,9 @@ You also will need an Azure storage account where you will upload your `.txt` do
 [!INCLUDE [use an existing resource](../includes/use-pre-existing-resource.md)]
 
 
-## Create a Custom text classification project
+## Create a custom text classification project
 
-Once your resource and storage container are configured, create a new Custom text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can [import it](#import-a-custom-sentiment-analysis-project) to get started.
+Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can [import it](#import-a-custom-text-classification-project) to get started.
 
 ### [Language Studio](#tab/studio)
 
@@ -77,13 +77,13 @@ Once your resource and storage container are configured, create a new Custom tex
 
 ---
 
-## Import a Custom text classification project
+## Import a custom text classification project
 
 If you have already labeled data, you can use it to get started with the service. Make sure that your labeled data follows the [accepted data formats](../concepts/data-formats.md).
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Import project](../../includes/custom/language-studio/import-project.md)]
+[!INCLUDE [Import project](../includes/language-studio/import-project.md)]
 
 ### [REST APIs](#tab/apis)
 

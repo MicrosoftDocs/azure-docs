@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification
 
 # How to prepare data and define a sentiment analysis schema
 
-In order to create a custom text classification model, you will need quality data to train it. This article covers how you should select and prepare your data, along with defining a schema. Defining the schema is the first step in [project development lifecycle](../overview.md#project-development-lifecycle), and it defines the classes that you need your model to classify your text into at runtime.
+In order to create a Custom sentiment analysis model, you will need quality data to train it. This article covers how you should select and prepare your data, along with defining a schema. Defining the schema is the first step in the project development lifecycle, and it defines the classes that you need your model to classify your text into at runtime.
 
 ## Schema design
 
@@ -51,19 +51,19 @@ The quality of data you train your model with affects model performance greatly.
 
 ## Data preparation
 
-As a prerequisite for creating a custom text classification project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training documents from Azure directly, or through using the Azure Storage Explorer tool. Using the Azure Storage Explorer tool allows you to upload more data quickly.  
+As a prerequisite for creating a Custom sentiment analysis project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training documents from Azure directly, or through using the Azure Storage Explorer tool. Using the Azure Storage Explorer tool allows you to upload more data quickly.  
 
-* [Create and upload documents from Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-* [Create and upload documents using Azure Storage Explorer](../../../../vs-azure-tools-storage-explorer-blobs.md)
+* [Create and upload documents from Azure](../../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+* [Create and upload documents using Azure Storage Explorer](../../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 You can only use `.txt`. documents for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
 
- You can upload an annotated dataset, or you can upload an unannotated one and [label your data](../how-to/tag-data.md) in Language studio. 
+<!--You can upload an annotated dataset, or you can upload an unannotated one and [label your data](../how-to/tag-data.md) in Language studio. -->
 
 ## Test set
 
-When defining the testing set, make sure to include example documents that are not present in the training set. Defining the testing set is an important step to calculate the [model performance](view-model-evaluation.md#model-details). Also, make sure that the testing set include documents that represent all classes used in your project.
+When defining the testing set, make sure to include example documents that are not present in the training set. Defining the testing set is an important step to calculate the model performance<!--[model performance](view-model-evaluation.md#model-details)-->. Also, make sure that the testing set include documents that represent all classes used in your project.
 
 ## Next steps
 
-If you haven't already, create a custom text classification project. If it's your first time using custom text classification, consider following the [quickstart](../quickstart.md) to create an example project. You can also see the [project requirements](../how-to/create-project.md) for more details on what you need to create a project.
+If you haven't already, create a Custom sentiment analysis project. If it's your first time using Custom sentiment analysis, consider following the quickstart. <!--[quickstart](../quickstart.md) to create an example project. You can also see the [project requirements](../how-to/create-project.md) for more details on what you need to create a project.-->
