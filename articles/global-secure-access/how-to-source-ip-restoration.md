@@ -38,7 +38,7 @@ To enable the required setting to allow source IP restoration, an administrator 
 
 This functionality allows services like Microsoft Graph, Azure AD, SharePoint Online, and Exchange Online to see the actual source IP address.
 
-<!--Add screenshot of toggle here-->
+:::image type="content" source="media/how-to-source-ip-restoration/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::
 
 > [!CAUTION]
 > If your organization has active Conditional Access policies based on IP location checks, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first delete any corresponding Conditional Access policies. 

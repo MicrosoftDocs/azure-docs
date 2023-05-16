@@ -48,6 +48,8 @@ To allow Global Secure Access to apply tagging for tenant restrictions v2, an ad
 1. Browse to **NEED THE ACTUAL PATH** > **Security** > **Tenant Restrictions**.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 
+:::image type="content" source="media/how-to-universal-tenant-restrictions/toggle-enable-tagging-to-enforce-tenant-restrictions.png" alt-text="Screenshot showing the toggle to enable tagging.":::
+
 ## Where can we see Universal Tenant Restrictions? 
 
 In the ZTNA portal, for tenant-level configuration of Universal Tenant Restrictions. 
