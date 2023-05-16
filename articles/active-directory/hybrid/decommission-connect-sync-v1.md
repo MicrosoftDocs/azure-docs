@@ -42,7 +42,7 @@ If you aren't eligible to move to cloud sync, use the table for more information
 
 |Title|Description|
 |-----|-----|
-|[Information on deprecation](connect/deprecated-azure-ad-connect)|Information on Azure AD Connect V1 deprecation|
+|[Information on deprecation](connect/deprecated-azure-ad-connect.md)|Information on Azure AD Connect V1 deprecation|
 |[What is Azure AD Connect V2?](connect/whatis-azure-ad-connect-v2.md)|Information on the latest version of Azure AD Connect|
 |[Upgrading from a previous version](connect/how-to-upgrade-previous-version.md)|Information on moving from one version of Azure AD Connect to another
 
