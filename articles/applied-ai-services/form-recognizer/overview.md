@@ -76,7 +76,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
-    [**Business card**](#business-card) | Extract business contact information.
+    [**Business card**](#business-card) | Extract business </br>contact information.
    :::column-end:::
 :::row-end:::
 
@@ -94,15 +94,15 @@ Custom models are trained using your labeled datasets to extract distinct data f
 :::row:::
    :::column:::
       :::image type="icon" source="media/overview/icon-custom-template.png" link="#custom-template":::</br>
-    [**Custom template**](#custom-template)
+    [**Custom template**](#custom-template) | Extract data from static layouts.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-neural.png" link="#custom-neural":::</br>
-    [**Custom neural**](#custom-neural)
+    [**Custom neural**](#custom-neural) | Extract data from mixed-type documents.
    :::column-end:::
       :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-composed.png" link="#custom-composed":::</br>
-    [**Custom composed**](#custom-composed)
+    [**Custom composed**](#custom-composed) | Extract data using a collection of models.
    :::column-end:::
 :::row-end:::
 
@@ -116,7 +116,7 @@ Custom models are trained using your labeled datasets to extract distinct data f
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model)
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) prior to invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
@@ -127,25 +127,25 @@ Form Recognizer Studio preview features are currently in gated preview. Features
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model-preview":::</br>
-    [**Contract**](#contract-model-preview) | Extract agreement </br>and party details.
+    [**Contract**](#contract-model-preview) | Extract agreement and party details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-vaccination-card.png" link="#vaccination-card-model-preview":::</br>
-    [**Vaccination card**](#vaccination-card-model-preview) | Extract COVID-19 </br>immunization details.
+    [**Vaccination card**](#vaccination-card-model-preview) | Extract COVID-19 immunization details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form-preview":::</br>
-    [**US Tax 1098 form**](#us-tax-1098-form-preview) | Extract mortgage </br>interest details.
+    [**US Tax 1098 form**](#us-tax-1098-form-preview) | Extract mortgage interest details.
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form-preview":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form-preview) | Extract student loan </br>interest details
+    [**US Tax 1098-E form**](#us-tax-1098-e-form-preview) | Extract student loan interest details
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form-preview":::</br>
-    [**US Tax 1098-T form**](#us-tax-1098-t-form-preview) | Extract qualified </br>tuition details.
+    [**US Tax 1098-T form**](#us-tax-1098-t-form-preview) | Extract qualified tuition details.
    :::column-end:::
 :::column span="":::
    :::column-end:::

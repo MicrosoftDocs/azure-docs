@@ -23,7 +23,7 @@ The following decision chart highlights the features of each **Form Recognizer v
 > [!NOTE]
 > Check the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
 
-## Document analysis models
+## Pretrained document-analysis models
 
 | Document type | Example| Data to extract | Your best solution |
 | -----------------|-----------|--------|-------------------|
@@ -31,7 +31,7 @@ The following decision chart highlights the features of each **Form Recognizer v
 |**A document that includes structural information**. |A report or study.| In addition to written or printed text, you need to extract structural information like tables, selection marks, paragraphs, titles, headings, and subheadings.| [**Layout analysis model**](concept-layout.md)
 |**A structured or semi-structured document that includes content formatted as fields and values**.|A form or document that is a standardized format commonly used in your business or industry like a credit application or survey. | You want to extract fields and values including ones not covered by the scenario-specific prebuilt models **without having to train a custom model**.| [**General document  model**](concept-general-document.md)|
 
-## Pretrained models
+## Pretrained schema-specific models
 
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
@@ -45,7 +45,7 @@ The following decision chart highlights the features of each **Form Recognizer v
 
 >[!Tip]
 >
-> * If you're still unsure which model to use, try the **General Document model** to extract key-value pairs.
+> * If you're still unsure which pretrained model to use, try the **General Document model** to extract key-value pairs.
 > * The General Document model is powered by the Read OCR engine to detect text lines, words, locations, and languages.
 > * General document also extracts the same data as the Layout model (pages, tables, styles).
 
@@ -53,8 +53,8 @@ The following decision chart highlights the features of each **Form Recognizer v
 
 | Training set | Example documents | Your best solution |
 | -----------------|--------------|-------------------|
-|**Structured, consistent documents with a static layout** |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
-|**Structured, semi-structured and unstructured documents**|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
+|**Structured, consistent documents with a static layout**. |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
+|**Structured, semi-structured and unstructured documents**.|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
 |**A collection of several models each trained on similar-type documents.** |&#9679; Supply purchase orders model</br>&#9679; Equipment purchase orders model</br>&#9679; Furniture purchase orders model</br> All composed into a single model.| [**Composed custom model**](concept-composed-models.md)|
 
 ## Next steps
