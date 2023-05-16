@@ -37,7 +37,7 @@ In this release, we've made the following changes:
 
 *Date published: May 9, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW13yd3), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW13yd4), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW13nJY)
 
 In this release, we've made the following changes:
 
