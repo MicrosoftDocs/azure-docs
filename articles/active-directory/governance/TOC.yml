@@ -43,7 +43,7 @@
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
       - name: Ticketed provisioning via ServiceNow
-        href: entitlement-management-servicenow-integration.md  
+        href: entitlement-management-ticketed-provisioning.md  
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
