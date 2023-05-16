@@ -24,7 +24,7 @@ This article helps you keep track of the versions that have been released and un
 
 You can upgrade your Azure AD Connect server from all supported versions with the latest versions:
 
-You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).\
+You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#21200).\
 
 Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/aadconnectrss` into your ![RSS feed reader icon](media/reference-connect-version-history/feed-icon-16x16.png) feed reader.
 
