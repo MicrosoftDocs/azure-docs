@@ -32,11 +32,11 @@ Before you run the commands, you need to set several variables to define the con
 * **LOCATION**: The Azure region where you want to create your cluster. In this example, we're using ```eastus```.
 * **K8S_VERSION**: The version of Kubernetes you want to use. In this example, we're using ```v1.24.9```.
 * **AAD_ADMIN_GROUP_OBJECT_ID**: The object ID of the Azure Active Directory group that should have admin privileges on the cluster. You should replace it with your actual Azure AD Group Object ID.
-* **ADMIN_USERNAME**: The username for the cluster administrator. In this example, we're using ```clouduser```.
+* **ADMIN_USERNAME**: The username for the cluster administrator. In this example, we're using ```azureuser```.
 * **SSH_PUBLIC_KEY**: The SSH public key that is used for secure communication with the cluster. This key is obtained automatically from the file ```~/.ssh/id_rsa.pub```.
 * **CONTROL_PLANE_COUNT**: The number of control plane nodes for the cluster. In this example, we're using ```1```.
 * **CONTROL_PLANE_VM_SIZE**: The size of the virtual machine for the control plane nodes. In this example, we're using ```NC_G2_v1```.
-* **INITIAL_AGENT_POOL_NAME**: The name of the initial agent pool. In this example, we're using ```agentpool1```.
+* **INITIAL_AGENT_POOL_NAME**: The name of the initial agent pool. In this example, we're using ```<cluster-name>-nodepool-1```.
 * **INITIAL_AGENT_POOL_COUNT**: The number of nodes in the initial agent pool. In this example, we're using ```1```.
 * **INITIAL_AGENT_POOL_VM_SIZE**: The size of the virtual machine for the agent pool nodes. In this example, we're using ```NC_M4_v1```.
 * **POD_CIDR**: The network range for the Kubernetes pods in the cluster, in CIDR notation. In this example, we're using ```10.244.0.0/16```.
