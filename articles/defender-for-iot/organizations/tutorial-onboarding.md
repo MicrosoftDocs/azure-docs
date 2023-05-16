@@ -227,7 +227,6 @@ This procedure describes how to install the sensor software on your VM.
 
 **To install the software on the virtual sensor**:
 
-<!--need to add this is continuation of creating vm, or open vm etc?the instructions seem off-->
 
 1. If you had closed your VM, sign into the ESXi again and open your VM settings. 
 
