@@ -344,11 +344,11 @@ The accelerators will not automatically use the latest certificate. User should 
 
 To sync certificate for all accelerators, open the **Accelerators** section and then select **Sync certificate** button.
 
-:::image type="content" source="media/how-to-use-accelerator/sync-cert.png" alt-text="Screenshot sync certificate." lightbox="media/how-to-use-accelerator/sync-cert.png":::
+:::image type="content" source="media/how-to-use-accelerator/sync-all-cert.png" alt-text="Screenshot sync certificate." lightbox="media/how-to-use-accelerator/sync-all-cert.png":::
 
 To sync certificate for an accelerator, open the **Accelerators** section and then select **Sync certificate** button from the context menu of an accelerator.
 
-:::image type="content" source="media/how-to-use-accelerator/sync-all-cert.png" alt-text="Screenshot sync all certificates." lightbox="media/how-to-use-accelerator/sync-all-cert.png":::
+:::image type="content" source="media/how-to-use-accelerator/sync-cert.png" alt-text="Screenshot sync all certificates." lightbox="media/how-to-use-accelerator/sync-cert.png":::
 
 ---
 #### [Azure CLI](#tab/Azure-CLI)
