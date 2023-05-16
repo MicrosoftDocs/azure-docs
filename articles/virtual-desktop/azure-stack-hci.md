@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
-This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview), deploying Session Hosts manually or through an automated process.
+This article describes how to set up Azure Virtual Desktop for Azure Stack HCI (preview), deploying session hosts manually or through an automated process.
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
