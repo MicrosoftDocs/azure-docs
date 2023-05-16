@@ -105,7 +105,7 @@ PostgreSQL database version:
 
 Depending on which version of PostgreSQL is running in a cluster,
 different [versions of PostgreSQL extensions](reference-extensions.md)
-will be installed as well. In particular, PostgreSQL 14 and PostgreSQL 15 come with Citus 11, PostgreSQL versions 12 and 13 come with
+will be installed as well. In particular, PostgreSQL 13, PostgreSQL 14, and PostgreSQL 15 come with Citus 11, PostgreSQL 12 comes with
 Citus 10, and earlier PostgreSQL versions come with Citus 9.5.
 
 ## Next steps
