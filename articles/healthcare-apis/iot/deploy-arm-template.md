@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: quickstart
-ms.date: 05/03/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
