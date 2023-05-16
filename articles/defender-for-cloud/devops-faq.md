@@ -11,7 +11,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 
 ## FAQ
 
-- [Scan specific folders for secrets in ADO repos with CredScan](#scan-specific-folders-for-secrets-in-ado-repos-with-credccan)
+- [Scan specific folders for secrets in ADO repos with CredScan](#scan-specific-folders-for-secrets-in-ado-repos-with-credscan)
 - [I'm getting an error while trying to connect](#im-getting-an-error-while-trying-to-connect)
 - [Why can't I find my repository](#why-cant-i-find-my-repository)
 - [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
