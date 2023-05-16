@@ -25,25 +25,25 @@ Using Azure Functions provides the following benefits:
 
 The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the functionality that's required to run your function app. Various [triggers and bindings](functions-triggers-bindings.md) mean you can easily connect to other services with minimal code. 
 
-![Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings](./media/functions-overview/integrated-programming-model.png)
+![Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings.](./media/functions-overview/integrated-programming-model.png)
 
 ## End-to-end development experience
 
 Azure Functions offers a complete, end-to-end development experience—from developing and debugging in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), and [other languages](./functions-custom-handlers.md), to [deploying](functions-deployment-technologies.md) and [monitoring in the cloud](functions-monitoring.md).
 
-![Diagram of the end-to-end development experience using Azure Functions with developing, debugging locally, and then deploying to Azure](./media/functions-overview/end-to-end-development-experience.png)
+![Diagram of the end-to-end development experience using Azure Functions with developing, debugging locally, and then deploying to Azure.](./media/functions-overview/end-to-end-development-experience.png)
 
 ## Flexible hosting options
 
 Choose the right Functions [hosting plan](functions-scale.md) for your business needs and application workload, from serverless and elastic scale options to plans that offer features for specialized needs, including containerized options.
 
-![Diagram of the Azure Functions flexibility in the various hosting options supported by Functions](./media/functions-overview/hosting-options-flexibility.png)
+![Diagram of the Azure Functions flexibility in the various hosting options supported by Functions.](./media/functions-overview/hosting-options-flexibility.png)
 
 ## Fully managed and cost-effective
 
 You can focus on building your app while Azure Functions takes care of the infrastructure with serverless computing. [Event driven scaling hosting options](./functions-scale.md#scale) mean functions run only when needed. 
 
-![Diagram of how Azure Functions enables fully-managed and cost-effective resources that scale up and down with demand](./media/functions-overview/fully-managed-and-cost-effective.png)
+![Diagram of how Azure Functions enables fully-managed and cost-effective resources that scale up and down with demand.](./media/functions-overview/fully-managed-and-cost-effective.png)
 
 
 ## Next Steps
