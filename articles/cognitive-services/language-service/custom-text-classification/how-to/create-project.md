@@ -107,7 +107,7 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Delete project using Language Studio](../../includes/custom/language-studio/delete-project.md)]
+[!INCLUDE [Delete project using Language Studio](../includes/language-studio/delete-project.md)]
 
 ### [REST APIs](#tab/apis)
 
