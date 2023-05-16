@@ -1,7 +1,7 @@
 ---
 title: Create a user delegation SAS for a blob with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Blob Storage.
+description: Learn how to create a user delegation SAS for a blob with Azure Active Directory credentials by using the .NET client library for Blob Storage.
 services: storage
 author: pauljewellmsft
 
@@ -27,7 +27,7 @@ This article shows how to use Azure Active Directory (Azure AD) credentials to c
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
-[!INCLUDE [storage-dev-guide-user-delegation-sas-dotnet](../../../includes/storage-dev-guide-user-delegation-sas-dotnet.md)]
+[!INCLUDE [storage-dev-guide-user-delegation-sas-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-dotnet.md)]
 
 ## Create a user delegation SAS for a blob
 
