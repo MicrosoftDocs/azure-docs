@@ -15,11 +15,11 @@ ms.date: 10/13/2021
 # Data schemas to train computer vision models with automated machine learning (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-	
+    
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](reference-automl-images-schema-v1.md)
-> * [v2 (current version)](../reference-automl-images-schema.md)
-	
+> * [v2 (current version)](../reference-automl-images-schema.md?view=azureml-api-2&preserve-view=true)
+    
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
 > [!IMPORTANT]
@@ -49,7 +49,7 @@ Azure Machine Learning AutoML for Images requires input image data to be prepare
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in Azure Machine Learning datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type (all the available Image formats in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif","bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
@@ -95,7 +95,7 @@ The following is an example of input data format/schema in each JSON Line for im
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in Azure Machine Learning datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"400px" or 400`|
@@ -160,7 +160,7 @@ Here,
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in Azure Machine Learning datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type (all the Image formats available in [Pillow](https://pillow.readthedocs.io/en/stable/releasenotes/8.0.1.html) library are supported. But for YOLO only image formats allowed by [opencv](https://pypi.org/project/opencv-python/4.3.0.36/) are supported)<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff"}`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
@@ -213,7 +213,7 @@ The following is an example JSONL file for instance segmentation.
 
 | Key       | Description  | Example |
 | -------- |----------|-----|
-| `image_url` | Image location in AzureML datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
+| `image_url` | Image location in Azure Machine Learning datastore<br>`Required, String` | `"AmlDatastore://data_directory/Image_01.jpg"` |
 | `image_details` | Image details<br>`Optional, Dictionary` | `"image_details":{"format": "jpg", "width": "400px", "height": "258px"}` |
 | `format`  | Image type<br>`Optional, String from {"jpg", "jpeg", "png", "jpe", "jfif", "bmp", "tif", "tiff" }`  |  `"jpg" or "jpeg" or "png" or "jpe" or "jfif" or "bmp" or "tif" or "tiff"` |
 | `width` | Width of the image<br>`Optional, String or Positive Integer`  | `"499px" or 499`|
@@ -404,7 +404,7 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 ```
 
 > [!NOTE]
-> The images used in this article are from the Fridge Objects dataset, copyright © Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
+> The images used in this article are from the Fridge Objects dataset, copyright &copy; Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Migrate from MFA Server to Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Migrate from MFA Server to Azure AD Multi-Factor Authentication
 description: Step-by-step guidance to migrate from MFA Server on-premises to Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
@@ -35,7 +35,7 @@ There are multiple possible end states to your migration, depending on your goal
 |User authentication  |Continue to use federation for Azure AD authentication. | Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** Seamless single sign-on (SSO).| Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** SSO. |
 |Application authentication | Continue to use AD FS authentication for your applications. | Continue to use AD FS authentication for your applications. | Move apps to Azure AD before migrating to Azure AD Multi-Factor Authentication. |
 
-If you can, move both your multifactor authentication and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md). 
+If you can, move both your multifactor authentication and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-mfa-user-authentication.md). 
 
 If you can’t move your user authentication, see the step-by-step guidance for [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md).
 
@@ -107,8 +107,9 @@ As part of enrolling users to use Microsoft Authenticator as a second factor, we
 Microsoft Identity Manager (MIM) SSPR can use MFA Server to invoke SMS one-time passcodes as part of the password reset flow. 
 MIM can't be configured to use Azure AD Multi-Factor Authentication. 
 We recommend you evaluate moving your SSPR service to Azure AD SSPR.
-
 You can use the opportunity of users registering for Azure AD Multi-Factor Authentication to use the combined registration experience to register for Azure AD SSPR.
+
+If you can't move your SSPR service, or you leverage MFA Server to invoke MFA requests for Privileged Access Management (PAM) scenarios, we recommend you update to an [alternate 3rd party MFA option](/microsoft-identity-manager/working-with-custommfaserver-for-mim).
 
 ### RADIUS clients and Azure AD Multi-Factor Authentication
 
@@ -157,6 +158,6 @@ Others might include:
 ## Next steps
 
 - [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md)
-- [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md)
+- [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-mfa-user-authentication.md)
 - [How to use the MFA Server Migration Utility](how-to-mfa-server-migration-utility.md)
 

@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml, ignite-2022
 ms.author: xunwan
-author: xunwan
+author: SturgeonMi
 ms.reviewer: franksolomon
 ms.date: 01/23/2023
 ---
@@ -17,12 +17,12 @@ ms.date: 01/23/2023
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-create-register-datasets.md)
+> * [v1](./v1/how-to-create-register-datasets.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-create-data-assets.md)
 
-In this article, you'll learn how to create a data asset in Azure ML. An Azure ML data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
+In this article, you'll learn how to create a data asset in Azure Machine Learning. An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
-Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure ML datastores, Azure Storage, public URLs, and local files.
+Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, and local files.
 
 ## Prerequisites
 
@@ -54,7 +54,12 @@ You can create three data asset types:
 |---------|---------|---------|---------|---------|
 |**File**<br>Reference a single file     |    `uri_file`     |   `FileDataset`      |  A type new to V2 APIs. In V1 APIs, files always mapped to a folder on the compute target filesystem; this mapping required an `os.path.join`. In V2 APIs, the single file is mapped. This way, you can refer to that location in your code.   |       Read/write a single file - the file can have any format. |  
 |**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |      You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder. |
-|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`     | In V1 APIs, the Azure ML back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure ML workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to Azure ML* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. Read [Working with tables in Azure Machine Learning](how-to-mltable.md) for more information. |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables. |
+|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`     | In V1 APIs, the Azure Machine Learning back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure Machine Learning workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to AzureML* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. Read [Working with tables in Azure Machine Learning](how-to-mltable.md) for more information. |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables. |
+
+> [!IMPORTANT]
+> If you are migrating your V1 datasets to V2 data assets. It's required that you rename the V2 data asset to a different name compared with the V1 dataset.
+> 
+
 
 ## Supported paths
 
@@ -67,9 +72,11 @@ When you create an Azure Machine Learning data asset, you must specify a `path` 
 |A path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(ADLS gen1) `adl://<accountname>.azuredatalakestore.net/<path_to_data>/` |
 
+> [!IMPORTANT]
+> When working with folder data, ensure that the correct path structure is used (ex. /<path_to_data>**/**) so the data source is accurately captured.
 
 > [!NOTE]
-> When you create a data asset from a local path, it will automatically upload to the default Azure Machine Learning cloud  datastore.
+> When you create a data asset from a local path, it will automatically upload to the default Azure Machine Learning cloud datastore.
 
 ## Create a File asset
 

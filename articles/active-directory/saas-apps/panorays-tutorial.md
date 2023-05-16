@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Panorays | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Panorays'
 description: Learn how to configure single sign-on between Azure Active Directory and Panorays.
 services: active-directory
 author: jeevansd

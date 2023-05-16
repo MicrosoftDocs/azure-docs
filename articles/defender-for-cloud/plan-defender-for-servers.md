@@ -2,9 +2,9 @@
 title: Plan a Defender for Servers deployment to protect on-premises and multicloud servers
 description: Design a solution to protect on-premises and multicloud servers with Microsoft Defender for Servers. 
 ms.topic: conceptual
-ms.date: 11/06/2022
-author: bmansheim
-ms.author: benmansheim
+ms.date: 05/11/2023
+author: dcurwin
+ms.author: dacurwin
 ---
 # Plan your Defender for Servers deployment
 
@@ -41,6 +41,8 @@ The following diagram shows an overview of the Defender for Servers deployment p
 - Learn more about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 - Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.
 
+When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on an Azure subscription or a connected AWS account, all of the connected machines will be protected by Defender for Servers. You can enable Microsoft Defender for Servers at the Log Analytics workspace level, but only servers reporting to that workspace will be protected and billed and those servers won't receive some benefits, such as Microsoft Defender for Endpoint, vulnerability assessment, and just-in-time VM access.
+
 ## Next steps
 
-You've begun the Defender for Servers planning process. Review the next article in the planning guide to [understand how your data is stored and the Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md).
+After kicking off the planning process, review the [second article in this planning series](plan-defender-for-servers-data-workspace.md) to understand how your data is stored, and Log Analytics workspace requirements.

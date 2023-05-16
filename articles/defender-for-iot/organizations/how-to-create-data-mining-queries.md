@@ -51,7 +51,7 @@ Create your own custom data mining report if you have reporting needs not covere
     |---------|---------|
     | **Name** / **Description** | Enter a meaningful name for your report and an optional description. |
     | **Send to CM** | Select to send your report to the on-premises management console. |
-    | **Choose category** | Select the categories to include in your report. |
+    | **Choose category** | Select the categories to include in your report. <br><br> For example, select **Internet Domain Allowlist** under **DNS** to create a report of the allowed internet domains and their resolved IP addresses. |
     | **Order by** | Select to sort your data by category or by activity. |
     | **Filter by** | Define a filter for your report using any of the following parameters: <br><br> - **Results within the last**: Enter a number and then select **Minutes**, **Hours**, or **Days** <br> - **IP address / MAC address / Port**: Enter one or more IP addresses, MAC addresses, and ports to filter into your report. Enter a value and then select + to add it to the list.<br> - **Device group**: Select one or mode device groups to filter into your report. |
     | **Add filter type** | Select to add any of the following filter types into your report. <br><br> - Transport (GENERIC) <br> - Protocol (GENERIC) <br> - TAG (GENERIC) <br> - Maximum value (GENERIC) <br> - State (GENERIC) <br> - Minimum value (GENERIC) <br><br> Enter a value in the relevant field and then select + to add it to the list. |

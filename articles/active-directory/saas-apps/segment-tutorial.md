@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Segment | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Segment'
 description: Learn how to configure single sign-on between Azure Active Directory and Segment.
 services: active-directory
 author: jeevansd

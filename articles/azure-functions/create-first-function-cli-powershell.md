@@ -27,7 +27,7 @@ Before you begin, you must have the following:
 
 + One of the following tools for creating Azure resources:
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 9.4.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 9.4.0 or later.
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 

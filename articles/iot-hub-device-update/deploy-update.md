@@ -6,6 +6,7 @@ ms.author: vimeht
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy an update by using Device Update for Azure IoT Hub

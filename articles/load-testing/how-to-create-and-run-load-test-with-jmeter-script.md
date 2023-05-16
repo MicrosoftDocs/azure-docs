@@ -22,6 +22,7 @@ Use cases for creating a load test with an existing JMeter script include:
 - You want to reuse existing JMeter scripts to test your application.
 - You want to test multiple endpoints in a single load test.
 - You have a data-driven load test. For example, you want to [read CSV data in a load test](./how-to-read-csv-data.md).
+- You want to test endpoints that are not HTTP-based, such as databases or message queues. Azure Load Testing supports all communication protocols that JMeter supports.
 
 ## Prerequisites
 
@@ -29,84 +30,36 @@ Use cases for creating a load test with an existing JMeter script include:
 
 - An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
+- [Clone or download the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-basic-endpoint)
+
 ## Create an Apache JMeter script
 
 If you already have a script, you can skip to [Create a load test](#create-a-load-test). In this section, you'll create a sample JMeter test script to load test a single web endpoint.
 
 You can also use the [Apache JMeter test script recorder](https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html) to record the requests while navigating the application in a browser. Alternatively, [import cURL commands](https://jmeter.apache.org/usermanual/curl.html) to generate the requests in the JMeter test script.
 
-To create a sample JMeter test script: 
+To get started with a sample JMeter script:
 
-1. Create a *SampleTest.jmx* file on your local machine:
+1. [Clone or download the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-basic-endpoint)
 
-    ```powershell
-    touch SampleTest.jmx
-    ```
-
-1. Open *SampleTest.jmx* in a text editor and paste the following code snippet in the file:
+1. Open the *SampleTest.jmx* file in a text editor.
 
     This script simulates a load test of five virtual users that simultaneously access a web endpoint, and takes 2 minutes to complete.
 
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
-      <hashTree>
-        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Azure Load Testing Quickstart" enabled="true">
-          <stringProp name="TestPlan.comments"></stringProp>
-          <boolProp name="TestPlan.functional_mode">false</boolProp>
-          <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
-          <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
-          <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="TestPlan.user_define_classpath"></stringProp>
-        </TestPlan>
-        <hashTree>
-          <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Web endpoint test" enabled="true">
-            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-            <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-              <boolProp name="LoopController.continue_forever">false</boolProp>
-              <intProp name="LoopController.loops">-1</intProp>
-            </elementProp>
-            <stringProp name="ThreadGroup.num_threads">5</stringProp>
-            <stringProp name="ThreadGroup.ramp_time">10</stringProp>
-            <boolProp name="ThreadGroup.scheduler">true</boolProp>
-            <stringProp name="ThreadGroup.duration">120</stringProp>
-            <stringProp name="ThreadGroup.delay">5</stringProp>
-            <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
-          </ThreadGroup>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP request" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Sample web test" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path"></stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-      </hashTree>
-    </jmeterTestPlan>
-    ```
+1. Set the value of the `HTTPSampler.domain` node to the host name of your endpoint.
 
-1. In the file, set the value of the `HTTPSampler.domain` node to the host name of your endpoint. For example, if you want to test the endpoint `https://www.contoso.com/app/products`, the host name is `www.contoso.com`.
+    For example, if you want to test the endpoint `https://www.contoso.com/app/products`, the host name is `www.contoso.com`.
 
-    > [!IMPORTANT]
+    > [!CAUTION]
     > Don't include `https` or `http` in the endpoint URL.
 
-1. In the file, set the value of the `HTTPSampler.path` node to the path of your endpoint. For example, the path for the URL `https://www.contoso.com/app/products` is `/app/products`.
+    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" range="29-46" highlight="5":::
+
+1. Set the value of the `HTTPSampler.path` node to the path of your endpoint.
+
+    For example, the path for the URL `https://www.contoso.com/app/products` would be `/app/products`.
+
+    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" range="29-46" highlight="9":::
 
 1. Save and close the file.
 

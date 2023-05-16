@@ -1,12 +1,12 @@
 ---
-title: Phone authentication methods - Azure Active Directory
+title: Phone authentication methods
 description: Learn about using phone authentication methods in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 04/17/2023
 
 ms.author: justinha
 author: justinha
@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use phone authentication methods in Azure AD to improve and secure user sign-in events.
 ---
+
 # Authentication methods in Azure Active Directory - phone options
 
 For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
@@ -30,7 +31,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 > [!NOTE]
 > There needs to be a space between the country/region code and the phone number.
 >
-> Password reset and Azure AD Multi-Factor Authentication don't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
+> Password reset and Azure AD Multi-Factor Authentication support phone extensions only in office phone.
 
 ## Mobile phone verification
 
@@ -44,7 +45,11 @@ Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor 
 
 ### Text message verification
 
-With text message verification during SSPR or Azure AD Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface.
+With text message verification during SSPR or Azure AD Multi-Factor Authentication, a Short Message Service (SMS) text is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
+
+Android users can enable Rich Communication Services (RCS) on their devices. RCS offers encryption and other improvements over SMS. For Android, MFA text messages may be sent over RCS rather than SMS. The MFA text message is similar to SMS, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
+
+:::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages.":::
 
 ### Phone call verification
 
@@ -80,6 +85,12 @@ If you have problems with phone authentication for Azure AD, review the followin
    * Have the user attempt to log in using a wi-fi connection by installing the Authenticator app.
    * Or, use SMS authentication instead of phone (voice) authentication.
 
+* Phone number is blocked and unable to be used for Voice MFA 
+
+   - There are a few country codes blocked for voice MFA unless your Azure AD administrator has opted in for those country codes. Have your Azure AD administrator opt-in to receive MFA for those country codes. 
+
+   - Or, use Microsoft Authenticator instead of voice authentication.
+
 ## Next steps
 
 To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
@@ -92,6 +103,11 @@ Learn more about configuring authentication methods using the [Microsoft Graph R
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
+
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
+
 [concept-sspr]: concept-sspr-howitworks.md
+
 [concept-mfa]: concept-mfa-howitworks.md
+
+

@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 02/02/2023
+ms.date: 05/03/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -16,9 +16,13 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
 
+## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
+
+Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
+
 ## Is an Active Directory connection required for SMB access? 
 
-Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](./azure-netapp-files-create-volumes-smb.md) for details. 
+Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection. See [Create an SMB volume](./azure-netapp-files-create-volumes-smb.md) for details. 
 
 ## How many Active Directory connections are supported?
 
@@ -31,6 +35,16 @@ However, you can map multiple NetApp accounts that are under the same subscripti
 Both [Azure Active Directory Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Azure Active Directory (Azure AD)](../active-directory/fundamentals/index.yml) at this time.
 
 If you're using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
+
+## How do the Netlogon protocol changes in the April 2023 Windows Update affect Azure NetApp Files? 
+
+The Windows April 2023 update will include a patch for Netlogon protocol changes, however these changes are not enforced at this time.
+ 
+You should not modify the `RequireSeal` value to 2 at this time. Azure NetApp Files adds support for setting `RequireSeal` to 2 in May 2023.
+
+The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update.
+
+For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
 
@@ -48,18 +62,23 @@ Azure NetApp Files doesn't support using MMC to manage `Sessions` and `Open File
 
 ## How can I obtain the IP address of an SMB volume via the portal?
 
-Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** -> **mountTargets**.
+Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** > **mountTargets**.
 
 ## Can an Azure NetApp Files SMB share act as a DFS Namespace (DFS-N) root?
 
-No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
-To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
+No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target. 
+  
+To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.
+
+Also refer to [Use DFS-N and DFS Root Consolidation with Azure NetApp Files](use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md).
 
 ## Can the SMB share permissions be changed?   
 
 Azure NetApp Files supports modifying `SMB Shares` by using Microsoft Management Console (MMC). However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
 
 See [Modify SMB share permissions](azure-netapp-files-create-volumes-smb.md#modify-smb-share-permissions) for more information on this procedure.
+
+Azure NetApp Files also supports [access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) on SMB and dual-protocol volumes. You can enable these features during or after the creation of an SMB or dual-protocol volume.
 
 ## Can I change the SMB share name after the SMB volume has been created?
 
@@ -74,6 +93,8 @@ Yes.
 Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protocols/ms-smb2/14f9d050-27b2-49df-b009-54e08e8bf7b5). This response is for the client’s request that comes in the form of a [`CHANGE_NOTIFY` request](/openspecs/windows_protocols/ms-smb2/598f395a-e7a2-4cc8-afb3-ccb30dd2df7c).  
 
 Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
+
+Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 
@@ -98,6 +119,11 @@ https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43
 ## Does Azure NetApp Files support Alternate Data Streams (ADS)?
 
 Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
+
+## What are SMB/CIFS `oplocks` and are they enabled on Azure NetApp Files volumes?
+
+SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS client in certain file-sharing scenarios to perform client-side caching of read-ahead, write-behind, and lock information. A client can then work with a file (read or write it) without regularly reminding the server that it needs access to the file. This improves performance by reducing network traffic. SMB/CIFS oplocks are enabled on Azure NetApp Files SMB and dual-protocol volumes.
+
 
 ## Next steps  
 

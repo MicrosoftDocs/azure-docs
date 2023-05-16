@@ -9,6 +9,7 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Tutorial: Step-by-step instructions to create a new Android app using Azure Spatial Anchors

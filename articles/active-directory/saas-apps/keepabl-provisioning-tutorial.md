@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Keepabl for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Keepabl for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Keepabl.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 80b48f18-fbdd-4c35-8aa9-b5f7a8331044
 ms.service: active-directory

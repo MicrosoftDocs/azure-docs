@@ -7,7 +7,7 @@ author: amibp
 ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 05/02/2022
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
@@ -19,7 +19,7 @@ ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-tune-hyperparameters-v1.md)
+> * [v1](v1/how-to-tune-hyperparameters-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-tune-hyperparameters.md)
 
 Automate efficient hyperparameter tuning using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
@@ -238,7 +238,7 @@ mlflow.log_metric("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values for training jobs, see [Enable logging in Azure ML training jobs](how-to-log-view-metrics.md).
+For more information on logging values for training jobs, see [Enable logging in Azure Machine Learning training jobs](how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 

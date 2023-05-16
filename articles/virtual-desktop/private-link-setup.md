@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 05/10/2023
 ms.author: helohr
 manager: femila
 ---
@@ -21,11 +21,11 @@ This article will show you how to set up Private Link for Azure Virtual Desktop 
 In order to use Private Link in your Azure Virtual Desktop deployment, you'll need the following things:
 
 - An Azure account with an active subscription.
-- An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
+- An Azure Virtual Desktop deployment with service objects, such as host pools, application groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
 >[!IMPORTANT]
->There's currently a bug in version 1.2.3918 of the Remote Desktop client for Windows that causes a client regression when you use Private Link. In order to use Private Link in your deployment, you must use [version 1.2.3667](whats-new-client-windows.md#updates-for-version-123667) until we can resolve the bug.
+>There's currently a bug in version 1.2.3918 of the Remote Desktop client for Windows that causes a client regression when you use Private Link. In order to use Private Link in your deployment, you must use a version later than 1.2.3918. Using an earlier version of the Remote Desktop client can potentially cause security issues. We don't recommend using version 1.2.3918 for environments or VMs that you aren't using to preview Private Link.
 
 ### Re-register your resource provider
 
@@ -49,15 +49,21 @@ To re-register your resource provider:
 
 ## Enable preview content on your Azure subscription
 
-In order to use Private Link, you'll need to enable preview features on your Azure subscription first. To enable preview features:
+In order to use Private Link, you'll need to register your Azure subscription to use Private Link. To register your subscription:
 
-1. Go to [Preview features - Microsoft Azure](https://portal.azure.com/#view/Microsoft_Azure_Resources/PreviewFeaturesBlade).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box under **Preview features**, search for **Private**.
+1. In the search box, enter and select **Subscriptions**.
 
-1. Select the **Azure Virtual Desktop Private Link Public Preview** check box.
+1. Select the name of your subscription.
 
-1. In the bottom-right corner of the screen, select **Register**.
+1. In the menu on the left side of the screen, look under **Settings** and select **Preview features**.
+
+1. In the search box that opens, enter **Private**.
+
+1. Select **Azure Virtual Desktop Private Link Public Preview**.
+
+1. Select **Register**.
 
 Once you select **Register**, you'll be able to use Private Link.
 
@@ -104,7 +110,7 @@ To configure Private Link in the Azure portal:
     - Resource: *your host pool*
     - Target sub-resource: connection
 
-1.  Select **Next: Virtual Network >**.
+1. Select **Next: Virtual Network >**.
 
 1. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
 

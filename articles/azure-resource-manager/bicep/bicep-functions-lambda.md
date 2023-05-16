@@ -3,9 +3,9 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.author: jgao
-ms.date: 02/09/2023
-
+ms.date: 03/15/2023
 ---
 # Lambda functions for Bicep
 
@@ -22,7 +22,7 @@ This article describes the lambda functions to use in Bicep. [Lambda expressions
 
 Bicep lambda function has these limitations:
 
-- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toOrder()`](#toobject).
+- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
 - Using lambda variables (the temporary variables used in the lambda expressions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./bicep-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./bicep-functions-resource.md#reference) function isn't currently supported.
@@ -302,7 +302,7 @@ The output from the preceding example sorts the dog objects from the youngest to
 
 `toObject(inputArray, lambda expression, [lambda expression])`
 
-Converts an array to an object with a custom key function and optional custom value function.
+Converts an array to an object with a custom key function and optional custom value function. See [items](bicep-functions-object.md#items) about converting an object to an array.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 

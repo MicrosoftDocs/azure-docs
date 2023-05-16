@@ -10,7 +10,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.custom: cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, cliv1, sdkv1, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Use Managed identities with Azure Machine Learning  CLI v1
@@ -20,7 +20,7 @@ ms.custom: cliv1, sdkv1, event-tier1-build-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-identity-based-service-authentication.md)
+> * [v2 (current version)](../how-to-identity-based-service-authentication.md?view=azureml-api-2&preserve-view=true)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
@@ -60,7 +60,7 @@ You can bring your own ACR with admin user disabled when you create the workspac
 
 If ACR admin user is disallowed by subscription policy, you should first create ACR without admin user, and then associate it with the workspace. Also, if you have existing ACR with admin user disabled, you can attach it to the workspace.
 
-[Create ACR from Azure CLI](../../container-registry/container-registry-get-started-azure-cli.md) without setting ```--admin-enabled``` argument, or from Azure portal without enabling admin user. Then, when creating Azure Machine Learning workspace, specify the Azure resource ID of the ACR. The following example demonstrates creating a new Azure ML workspace that uses an existing ACR:
+[Create ACR from Azure CLI](../../container-registry/container-registry-get-started-azure-cli.md) without setting ```--admin-enabled``` argument, or from Azure portal without enabling admin user. Then, when creating Azure Machine Learning workspace, specify the Azure resource ID of the ACR. The following example demonstrates creating a new Azure Machine Learning workspace that uses an existing ACR:
 
 > [!TIP]
 > To get the value for the `--container-registry` parameter, use the [az acr show](/cli/azure/acr#az-acr-show) command to show information for your ACR. The `id` field contains the resource ID for your ACR.
@@ -124,7 +124,7 @@ az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <r
 
 # [Studio](#tab/azure-studio)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-cluster.md#set-up-managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 ---
 
@@ -169,7 +169,7 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training run, specify the base image location in the [environment definition](../how-to-use-environments.md#use-existing-environments).
+Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md).
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -289,5 +289,5 @@ For a workspace with [customer-managed keys for encryption](../concept-data-encr
 ## Next steps
 
 * Learn more about [enterprise security in Azure Machine Learning](../concept-enterprise-security.md)
-* Learn about [identity-based data access](../how-to-identity-based-data-access.md)
+* Learn about [identity-based data access](how-to-identity-based-data-access.md)
 * Learn about [managed identities on compute cluster](how-to-create-attach-compute-cluster.md).

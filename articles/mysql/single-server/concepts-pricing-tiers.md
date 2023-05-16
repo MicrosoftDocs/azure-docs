@@ -109,7 +109,7 @@ General purpose storage v2 is supported in the following Azure regions:
 | UAE North* | :heavy_check_mark: | 
 | South Africa North* | :heavy_check_mark: |
 
-> [!Note] 
+> [!NOTE] 
 > *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview <br /> 
 > *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, following are the limitations, <br /> 
 > * Geo-Redundant Backup will not be supported<br /> 

@@ -3,9 +3,8 @@ title: Export data from a Log Analytics workspace to a storage account by using 
 description: This article describes a method to use Azure Logic Apps to query data from a Log Analytics workspace and send it to Azure Storage.
 ms.service: azure-monitor
 ms.topic: conceptual
-author: yossi-y
-ms.author: yossiy
-ms.date: 03/01/2022
+ms.reviewer: yossiy
+ms.date: 05/01/2023
 ---
 
 
@@ -16,7 +15,7 @@ This article describes a method to use [Azure Logic Apps](../../logic-apps/index
 The method discussed in this article describes a scheduled export from a log query by using a logic app. Other options to export data for particular scenarios include:
 
 - To export data from your Log Analytics workspace to a storage account or Azure Event Hubs, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor](logs-data-export.md).
-- One-time export by using a logic app. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
+- One-time export by using a logic app. See [Azure Monitor Logs connector for Logic Apps](../../connectors/connectors-azure-monitor-logs.md).
 - One-time export to a local machine by using a PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Overview
@@ -45,7 +44,7 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 
 - Log queries can't return more than 500,000 rows.
 - Log queries can't return more than 64,000,000 bytes.
-- Log queries can't run longer than 10 minutes by default.
+- Log queries can't run longer than 10 minutes.
 - Log Analytics connector is limited to 100 calls per minute.
 
 ## Logic Apps procedure
@@ -56,17 +55,17 @@ The following sections walk you through the procedure.
 
 Use the procedure in [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to add a container to your storage account to hold the exported data. The name used for the container in this article is **loganalytics-data**, but you can use any name.
 
-### Create a logic app
+### Create a logic app workflow
 
-1. Go to **Logic Apps** in the Azure portal and select **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new Logic App. Then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor Logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
+1. Go to **Logic Apps** in the Azure portal and select **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app. Then give it a unique name. You can turn on the **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor Logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-workflows-collect-diagnostic-data.md). This setting isn't required for using the Azure Monitor Logs connector.
 
    [![Screenshot that shows creating a logic app.](media/logs-export-logic-app/create-logic-app.png "Screenshot that shows creating a Logic Apps resource.")](media/logs-export-logic-app/create-logic-app.png#lightbox)
 
 1. Select **Review + create** and then select **Create**. After the deployment is finished, select **Go to resource** to open the **Logic Apps Designer**.
 
-### Create a trigger for the logic app
+### Create a trigger for the workflow
 
-Under **Start with a common trigger**, select **Recurrence**. This setting creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day**. In the **Interval** box, enter **1** to run the workflow once per day.
+Under **Start with a common trigger**, select **Recurrence**. This setting creates a logic app workflow that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day**. In the **Interval** box, enter **1** to run the workflow once per day.
 
 [![Screenshot that shows a Recurrence action.](media/logs-export-logic-app/recurrence-action.png "Screenshot that shows creating a recurrence action.")](media/logs-export-logic-app/recurrence-action.png#lightbox)
 
@@ -188,7 +187,7 @@ The **Create blob** action writes the composed JSON to storage.
 
    [![Screenshot that shows creating a blob expression.](media/logs-export-logic-app/create-blob.png "Screenshot that shows a Blob action output configuration.")](media/logs-export-logic-app/create-blob.png#lightbox)
 
-### Test the logic app
+### Test the workflow
 
 To test the workflow, select **Run**. If the workflow has errors, they're indicated on the step with the problem. You can view the executions and drill in to each step to view the input and output to investigate failures. See [Troubleshoot and diagnose workflow failures in Azure Logic Apps](../../logic-apps/logic-apps-diagnosing-failures.md), if necessary.
 
@@ -199,6 +198,118 @@ To test the workflow, select **Run**. If the workflow has errors, they're indica
 Go to the **Storage accounts** menu in the Azure portal and select your storage account. Select the **Blobs** tile. Then select the container you specified in the **Create blob** action. Select one of the blobs and then select **Edit blob**.
 
 [![Screenshot that shows blob data.](media/logs-export-logic-app/blob-data.png "Screenshot that shows sample data exported to a blob.")](media/logs-export-logic-app/blob-data.png#lightbox)
+
+### Logic App template
+
+The optional Parse JSON step isn't included in template
+
+```json
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Compose": {
+                "inputs": "@body('Run_query_and_list_results')",
+                "runAfter": {
+                    "Run_query_and_list_results": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },
+            "Create_blob_(V2)": {
+                "inputs": {
+                    "body": "@outputs('Compose')",
+                    "headers": {
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('AccountNameFromSettings'))}/files",
+                    "queries": {
+                        "folderPath": "/logicappexport",
+                        "name": "@{utcNow()}",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runAfter": {
+                    "Compose": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                },
+                "type": "ApiConnection"
+            },
+            "Run_query_and_list_results": {
+                "inputs": {
+                    "body": "let dt = now();\nlet year = datetime_part('year', dt);\nlet month = datetime_part('month', dt);\nlet day = datetime_part('day', dt);\n let hour = datetime_part('hour', dt);\nlet startTime = make_datetime(year,month,day,hour,0)-1h;\nlet endTime = startTime + 1h - 1tick;\nAzureActivity\n| where ingestion_time() between(startTime .. endTime)\n| project \n    TimeGenerated,\n    BlobTime = startTime, \n    OperationName ,\n    OperationNameValue ,\n    Level ,\n    ActivityStatus ,\n    ResourceGroup ,\n    SubscriptionId ,\n    Category ,\n    EventSubmissionTimestamp ,\n    ClientIpAddress = parse_json(HTTPRequest).clientIpAddress ,\n    ResourceId = _ResourceId ",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azuremonitorlogs']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/queryData",
+                    "queries": {
+                        "resourcegroups": "resource-group-name",
+                        "resourcename": "workspace-name",
+                        "resourcetype": "Log Analytics Workspace",
+                        "subscriptions": "workspace-subscription-id",
+                        "timerange": "Set in query"
+                    }
+                },
+                "runAfter": {},
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "Recurrence": {
+                "evaluatedRecurrence": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "recurrence": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "type": "Recurrence"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "azureblob": {
+                    "connectionId": "/subscriptions/logic-app-subscription-id/resourceGroups/logic-app-resource-group-name/providers/Microsoft.Web/connections/blob-connection-name",
+                    "connectionName": "blob-connection-name",
+                    "id": "/subscriptions/logic-app-subscription-id/providers/Microsoft.Web/locations/canadacentral/managedApis/azureblob"
+                },
+                "azuremonitorlogs": {
+                    "connectionId": "/subscriptions/blob-connection-name/resourceGroups/logic-app-resource-group-name/providers/Microsoft.Web/connections/azure-monitor-logs-connection-name",
+                    "connectionName": "azure-monitor-logs-connection-name",
+                    "id": "/subscriptions/blob-connection-name/providers/Microsoft.Web/locations/canadacentral/managedApis/azuremonitorlogs"
+                }
+            }
+        }
+    }
+}
+```
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Veracode | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Veracode'
 description: Learn how to configure single sign-on between Azure Active Directory and Veracode.
 services: active-directory
 author: jeevansd

@@ -22,7 +22,7 @@ You can also manage workspaces [using the Azure CLI](how-to-manage-workspace-cli
 ## Prerequisites
 
 - An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-- The [Azure PowerShell module](https://www.powershellgallery.com/packages/Az). To make sure you have the latest version, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+- The [Azure PowerShell module](https://www.powershellgallery.com/packages/Az). To make sure you have the latest version, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
   > [!IMPORTANT]
   > While the **Az.MachineLearningServices** PowerShell module is in preview, you must install it
@@ -168,6 +168,6 @@ To check for problems with your workspace, see [How to use workspace diagnostics
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
 
 To learn how to train an ML model with your workspace, see the [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md) tutorial.

@@ -1,5 +1,5 @@
 ---
-title: Require reauthentication with Conditional Access - Azure Active Directory
+title: Require reauthentication with Conditional Access
 description: Create a custom Conditional Access policy requiring reauthentication
 
 services: active-directory
@@ -19,6 +19,7 @@ ms.collection: M365-identity-device-management
 
 Protect user access on unmanaged devices by preventing browser sessions from remaining signed in after the browser is closed and setting a sign-in frequency to 1 hour.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

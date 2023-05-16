@@ -160,18 +160,20 @@ az keyvault set-policy -g <key vault resource group> -n <key vault name>  --obje
 
 ### Import certificate to Azure Spring Apps
 
-#### [Portal](#tab/Azure-portal)
-1. Go to your service instance.
-1. From the left navigation pane of your app, select **TLS/SSL settings**.
-1. Then select **Import Key Vault Certificate**.
+#### [Azure portal](#tab/Azure-portal)
 
-    ![Import certificate](./media/custom-dns-tutorial/import-certificate.png)
+1. Go to your Azure Spring Apps instance.
+1. From the left navigation pane, select **TLS/SSL settings**.
+1. Select **Import key vault certificate**.
+
+   :::image type="content" source="./media/custom-dns-tutorial/import-certificate.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL settings page for an Azure Spring Apps instance, with the Import key vault certificate button highlighted." lightbox="./media/custom-dns-tutorial/import-certificate.png":::
+
 
 1. When you have successfully imported your certificate, you'll see it in the list of **Private Key Certificates**.
 
     ![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 ```azurecli
 az spring certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>

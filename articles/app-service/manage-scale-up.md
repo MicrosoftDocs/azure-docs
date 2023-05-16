@@ -20,6 +20,10 @@ This article shows you how to scale your app in Azure App Service. There are two
   [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md). There, you find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
+>[!IMPORTANT]
+> [App Service now offers an automatic scale-out option to handle varying incoming HTTP requests.](./manage-automatic-scaling.md)
+>
+
 The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/overview-hosting-plans.md).
 They don't require you to change your code or redeploy your application.
 

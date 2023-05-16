@@ -6,7 +6,7 @@ author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.date: 11/30/2022
 ms.custom: sdkv2, event-tier1-build-2022
@@ -34,14 +34,14 @@ Review these [basic concepts of distributed GPU training](concept-distributed-tr
 
 ## MPI
 
-Azure ML offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. Azure ML constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
+Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. Azure Machine Learning constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
 
 > [!TIP]
-> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [AzureML GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure ML also provides [curated environments](resource-curated-environments.md) for popular frameworks. 
+> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [Azure Machine Learning GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure Machine Learning also provides [curated environments](resource-curated-environments.md) for popular frameworks. 
 
 To run distributed training using MPI, follow these steps:
 
-1. Use an Azure ML environment with the preferred deep learning framework and MPI. AzureML provides [curated environment](resource-curated-environments.md) for popular frameworks.
+1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environment](resource-curated-environments.md) for popular frameworks.
 1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
 1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
@@ -54,8 +54,8 @@ Use the MPI job configuration when you use [Horovod](https://horovod.readthedocs
 
 Make sure your code follows these tips:
 
-* The training code is instrumented correctly with Horovod before adding the Azure ML parts
-* Your Azure ML environment contains Horovod and MPI. The PyTorch and TensorFlow curated GPU environments come pre-configured with Horovod and its dependencies.
+* The training code is instrumented correctly with Horovod before adding the Azure Machine Learning parts
+* Your Azure Machine Learning environment contains Horovod and MPI. The PyTorch and TensorFlow curated GPU environments come pre-configured with Horovod and its dependencies.
 * Create a `command` with your desired distribution.
 
 ### Horovod example
@@ -77,7 +77,7 @@ When running MPI jobs with Open MPI images, the following environment variables 
 
 ## PyTorch
 
-Azure ML supports running distributed jobs using PyTorch's native distributed training capabilities (`torch.distributed`).
+Azure Machine Learning supports running distributed jobs using PyTorch's native distributed training capabilities (`torch.distributed`).
 
 > [!TIP]
 > For data parallelism, the [official PyTorch guidance](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html#comparison-between-dataparallel-and-distributeddataparallel) is to use DistributedDataParallel (DDP) over DataParallel for both single-node and multi-node distributed training. PyTorch also [recommends using DistributedDataParallel over the multiprocessing package](https://pytorch.org/docs/stable/notes/cuda.html#use-nn-parallel-distributeddataparallel-instead-of-multiprocessing-or-nn-dataparallel). Azure Machine Learning documentation and examples will therefore focus on DistributedDataParallel training.
@@ -92,7 +92,7 @@ torch.distributed.init_process_group(backend='nccl', init_method='env://', ...)
 
 The most common communication backends used are `mpi`, `nccl`, and `gloo`. For GPU-based training `nccl` is recommended for best performance and should be used whenever possible. 
 
-`init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default if `init_method` is not specified PyTorch will use the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on Azure ML.  PyTorch will look for the following environment variables for initialization:
+`init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default if `init_method` is not specified PyTorch will use the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on Azure Machine Learning.  PyTorch will look for the following environment variables for initialization:
 
 - **`MASTER_ADDR`** - IP address of the machine that will host the process with rank 0.
 - **`MASTER_PORT`** - A free port on the machine that will host the process with rank 0.
@@ -109,9 +109,9 @@ Beyond these, many applications will also need the following environment variabl
 You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
-1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal `# GPUs per node x # nodes`. If `process_count_per_instance` isn't specified, Azure ML will by default launch one process per node.
+1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal `# GPUs per node x # nodes`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
 
-Azure ML will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
+Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/distributed-training/distributed-cifar10.ipynb?name=job)]
 
@@ -121,14 +121,14 @@ Azure ML will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK
 
 ## DeepSpeed
 
-[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalabibility in terms of 
+[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalability in terms of 
 
 * Increase in model size
 * Increase in number of GPUs
 
 `DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
 
-You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
+You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
 
 ### DeepSpeed example
 
@@ -136,7 +136,7 @@ You can use a [curated environment](resource-curated-environments.md#azure-conta
 
 ## TensorFlow
 
-If you're using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, such as TensorFlow 2.x's `tf.distribute.Strategy` API, you can launch the distributed job via Azure ML using `distribution` parameters or the `TensorFlowDistribution` object.
+If you're using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, such as TensorFlow 2.x's `tf.distribute.Strategy` API, you can launch the distributed job via Azure Machine Learning using `distribution` parameters or the `TensorFlowDistribution` object.
 
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed/tensorflow-mnist-distributed.ipynb?name=job)]
@@ -145,7 +145,7 @@ If your training script uses the parameter server strategy for distributed train
 
 ### TF_CONFIG
 
-In TensorFlow, the **TF_CONFIG** environment variable is required for training on multiple machines. For TensorFlow jobs, Azure ML will configure and set the TF_CONFIG variable appropriately for each worker before executing your training script.
+In TensorFlow, the **TF_CONFIG** environment variable is required for training on multiple machines. For TensorFlow jobs, Azure Machine Learning will configure and set the TF_CONFIG variable appropriately for each worker before executing your training script.
 
 You can access TF_CONFIG from your training script if you need to: `os.environ['TF_CONFIG']`.
 

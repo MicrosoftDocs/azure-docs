@@ -4,6 +4,7 @@ description: Describes how to set the name and type for child resources in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/13/2021
 ---
 
@@ -29,7 +30,7 @@ The **full name** of the child resource uses the pattern:
 {parent-resource-name}/{child-resource-name}
 ```
 
-If you have more two levels in the hierarchy, keep repeating parent names:
+If you have more than two levels in the hierarchy, keep repeating parent names:
 
 ```bicep
 {parent-resource-name}/{child-level1-resource-name}/{child-level2-resource-name}

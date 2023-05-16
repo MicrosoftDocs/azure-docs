@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot your connections in Microsoft Purview
-description: This article explains the steps to troubleshoot your connections in Microsoft Purview.
+title: Troubleshoot scans and connections in Microsoft Purview
+description: This article explains the steps to troubleshoot your scans and source connections in Microsoft Purview.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 03/07/2023
 ms.custom: ignite-fall-2021
 ---
-# Troubleshoot your connections in Microsoft Purview
+# Troubleshoot your scans and connections in Microsoft Purview
 
-This article describes how to troubleshoot connection errors while setting up scans on data sources in Microsoft Purview.
+This article describes how to troubleshoot connection errors while setting up scans on data sources in Microsoft Purview, or errors that may occur with your scans.
 
 ## Permission the credential on the data source
 
@@ -87,6 +87,10 @@ If your Microsoft Purview scan used to successfully run, but are now failing, ch
 1. Have credentials to your resource changed or been rotated? If so, you'll need to update your scan to have the correct credentials.
 1. Is an [Azure Policy](../governance/policy/overview.md) preventing **updates to Storage accounts**? If so follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts.
 1. Are you using a self-hosted integration runtime? Check that it's up to date with the latest software and that it's connected to your network.
+
+## Test connection passes but scan fails with connection error
+
+Are you using private endpoints or virtual networks? Confirm your [network settings](concept-best-practices-security.md#network-security), paying attention to your Network Security Group (NSG) rules.
 
 ## Next steps
 

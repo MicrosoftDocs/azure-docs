@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 03/07/2023
 ms.author: danlep
 
 ---
@@ -83,7 +83,8 @@ Policy expressions provide a sophisticated means to control traffic and modify A
 API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
 
 * Global (all APIs)
-* Product (APIs associated with a selected product)
+* Workspace (all APIs associated with a selected workspace)
+* Product (all APIs associated with a selected product)
 * API (all operations in an API)
 * Operation (single operation in an API) 
 
@@ -98,6 +99,16 @@ When configuring a policy, you must first select the scope at which the policy a
 * When configuring policy definitions at more than one scope, you control the policy evaluation order in each policy section by placement of the `base` element 
 
 For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
+
+### GraphQL resolver policies
+
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
+
+* Currently, API Management supports GraphQL resolvers that specify HTTP data sources. Configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
+* You can't include a resolver policy in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
+* The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+
+For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
 ## Examples
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Maps Creator service geographic scope
 description: Learn about Azure Maps Creator service's geographic mappings in Azure Maps
-author: stevemunk
-ms.author: v-munksteve
+author: brendansco
+ms.author: Brendanc
 ms.date: 05/18/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,7 +12,7 @@ ms.custom: mvc, references_regions
 
 # Creator service geographic scope
 
-Azure Maps Creator is a geographically scoped service. Creator offers a resource provider API that, given an Azure region, creates an instance of Creator data deployed at the geographical level. The mapping from an Azure region to geography happens behind the scenes as described in the table below. For more details on Azure regions and geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies).
+Azure Maps Creator is a geographically scoped service. Creator offers a resource provider API that, given an Azure region, creates an instance of Creator data deployed at the geographical level. The mapping from an Azure region to geography happens behind the scenes as described in the following table. For more information on Azure regions and geographies, see [Azure geographies].
 
 ## Data locations
 
@@ -22,8 +22,9 @@ For disaster recovery and high availability, Microsoft may replicate customer da
 
 The following table describes the mapping between geography and supported Azure regions, and the respective geographic API endpoint. For example, if a Creator account is provisioned in the West US 2 region that falls within the United States geography, all API calls to the Conversion service must be made to `us.atlas.microsoft.com/conversion/convert`.
 
-
 | Azure Geographic areas (geos) | Azure datacenters (regions) | API geographic endpoint |
 |------------------------|----------------------|-------------|
 | Europe| West Europe, North Europe | eu.atlas.microsoft.com |
 |United States | West US 2, East US 2 | us.atlas.microsoft.com |
+
+[Azure geographies]: https://azure.microsoft.com/global-infrastructure/geographies

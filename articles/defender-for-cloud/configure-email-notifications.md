@@ -2,8 +2,8 @@
 title: Configure email notifications for Microsoft Defender for Cloud alerts
 description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails.
 ms.topic: quickstart
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 11/09/2021
 ms.custom: mode-other
 ---
@@ -57,7 +57,7 @@ URI: `https://management.azure.com/subscriptions/<SubscriptionId>/providers/Micr
 ```json
 {
     "properties": {
-        "emails": admin@contoso.com;admin2@contoso.com,
+        "emails": "admin@contoso.com;admin2@contoso.com",
         "notificationsByRole": {
             "state": "On",
             "roles": ["AccountAdmin", "Owner"]

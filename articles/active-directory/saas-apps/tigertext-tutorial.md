@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with TigerConnect Secure Messenger | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with TigerConnect Secure Messenger'
 description: Learn how to configure single sign-on between Azure Active Directory and TigerConnect Secure Messenger.
 services: active-directory
 author: jeevansd

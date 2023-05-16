@@ -1,6 +1,6 @@
 ---
-title: "Connect to Azure Database for MySQL flexible server with private access in the Azure portal"
-description: This article walks you through using the Azure portal to create and connect to an Azure Database for MySQL flexible server in private access.
+title: "Connect to Azure Database for MySQL - Flexible Server with private access in the Azure portal"
+description: This article walks you through using the Azure portal to create and connect to an Azure Database for MySQL - Flexible Server in private access.
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
@@ -13,9 +13,9 @@ ms.custom:
   - mode-ui
 ---
 
-# Connect Azure Database for MySQL Flexible Server with private access connectivity method
+# Connect Azure Database for MySQL - Flexible Server with private access connectivity method
 
-Azure Database for MySQL Flexible Server is a managed service that runs, manages, and scales highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
+Azure Database for MySQL - Flexible Server is a managed service that runs, manages, and scales highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
@@ -23,7 +23,7 @@ Azure Database for MySQL Flexible Server is a managed service that runs, manages
 
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-## Create an Azure Database for MySQL flexible server
+## Create an Azure Database for MySQL - Flexible Server
 
 You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
@@ -150,7 +150,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUI
 
 ## Clean up resources
 
-You've created an Azure Database for MySQL flexible server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group or the MySQL server. To delete the resource group, complete these steps:
+You've created an Azure Database for MySQL - Flexible Server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group or the MySQL server. To delete the resource group, complete these steps:
 
 1. Search for and select **Resource groups**in the Azure portal.
 1. In the list of resource groups, select the name of your resource group.

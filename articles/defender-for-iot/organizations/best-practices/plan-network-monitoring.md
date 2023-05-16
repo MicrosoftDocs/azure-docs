@@ -1,7 +1,7 @@
 ---
 title: Plan your sensor connections for OT monitoring - Microsoft Defender for IoT
 description: Learn about best practices for planning your OT network monitoring with Microsoft Defender for IoT.
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 06/02/2022
 ---
 

@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AD certificate-based authentication (CBA) FAQ - Azure Active Directory
+  title: Azure AD certificate-based authentication (CBA) FAQ
   description: Frequently asked questions and answers related to Azure AD certificate-based authentication (CBA). 
   
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 10/05/2022
+  ms.date: 02/21/2023
   ms.author: justinha
-  author: vimrang
+  author: justinha
   manager: amycolannino
   ms.reviewer: vimrang
   ms.collection: M365-identity-device-management
@@ -37,7 +37,9 @@ sections:
           How can an administrator enable Azure AD CBA?
         answer: |
           1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          1. Click **Azure Active Directory** > **Security** > **Authentication methods** > **Certificate-based Authentication** > **Basics**, click **Yes** to enable certificate-based authentication.
+          2. Select **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**.
+          3. Select policy: **Certificate-based Authentication**.
+          4. On the **Enable and Target** tab, select the **Enable** toggle to enable certificate-based authentication.
 
       - question: |
           Is Azure AD CBA a free feature?
@@ -69,7 +71,7 @@ sections:
           
           Use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
           
-          ```powershell
+          ```PowerShell
           $c=Get-AzureADTrustedCertificateAuthority
           $c[0]. crlDistributionPoint=""
           Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
@@ -120,14 +122,14 @@ sections:
           The browser caches the certificate after the certificate picker appears. If the user retries, the cached certificate is used automatically. The user should close the browser, and reopen a new session to try CBA again.          
 
       - question: |
-          Why does not proof up for registering other auth methods come up when I use single factor certificates?
+          Why doesn't proof up for registering other auth methods come up when I use single factor certificates?
         answer: |
-          A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods and should have MFA via another method to register other available auth methods.
+          A user is considered capable for MFA when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods.
           
       - question: |
           How can I use single-factor certificates to complete MFA?
         answer: |
-          We have support for single factor CBA to get MFA. CBA SF + PSI (passwordless phone sign in) and CBA SF + FIDO2 are the two supported combinations to get MFA using single factor certificates.
+          We have support for single factor CBA to get MFA. CBA SF + passwordless phone sign-in (PSI) and CBA SF + FIDO2 are the two supported combinations to get MFA using single factor certificates.
           [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
           
       - question: |
@@ -146,7 +148,16 @@ sections:
            GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
            ```
 
-       
+      - question: |
+           After a CRL endpoint is configured, end users aren't able to sign in and they see the following diagnostic message:
+           
+           ```http
+           AADSTS500173: Unable to download CRL. Invalid status code Forbidden from CRL distribution point
+           errorCode: 500173
+           ```
+           
+        answer: |
+          This is commonly seen when a firewall rule setting blocks access to the CRL endpoint. 
           
 additionalContent: |
   ## Next steps

@@ -2,6 +2,7 @@
   href: index.yml
 
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Database Migration Service?
     href: dms-overview.md
@@ -9,17 +10,19 @@
 - name: Quickstarts
   items:
   - name: Create service
-    items: 
-    - name: Portal
-      href: quickstart-create-data-migration-service-portal.md
-    - name: Bicep
-      displayName: ARM, Resource Manager, Template
-      href: create-dms-bicep.md
-    - name: ARM template
-      displayName: Resource Manager
-      href: create-dms-resource-manager-template.md
-    - name: in hybrid mode (Portal)
-      href: quickstart-create-data-migration-service-hybrid-portal.md
+    items:
+    - name: DMS (classic)
+      items: 
+      - name: Portal
+        href: quickstart-create-data-migration-service-portal.md
+      - name: Bicep
+        displayName: ARM, Resource Manager, Template
+        href: create-dms-bicep.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: create-dms-resource-manager-template.md
+      - name: in hybrid mode (Portal)
+        href: quickstart-create-data-migration-service-hybrid-portal.md
 
 - name: Concepts
   items:
@@ -51,7 +54,7 @@
     items: 
     - name: Security baseline
       href: /security/benchmark/azure/baselines/database-migration-security-baseline?toc=/azure/dms/toc.json
-  - name: Older versions
+  - name: DMS (classic)
     items: 
     - name: Prerequisites
       href: pre-reqs.md
@@ -66,6 +69,7 @@
   expanded: true
   items:
   - name: Migrate SQL Server
+    expanded: true
     items:
     - name: to Azure SQL Database (offline) in Azure Data Studio
       href: tutorial-sql-server-azure-sql-database-offline-ads.md
@@ -130,7 +134,7 @@
 
 - name: How-to guides
   items:
-  - name: Older versions
+  - name: DMS (classic)
     items: 
     - name: Monitor migration activity
       href: how-to-monitor-migration-activity.md

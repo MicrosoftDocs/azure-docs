@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with FCM HUB'
 description: Learn how to configure single sign-on between Azure Active Directory and FCM HUB.
 services: active-directory
 author: jeevansd
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/19/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB
+# Tutorial: Azure Active Directory SSO integration with FCM HUB
 
-In this tutorial, you'll learn how to integrate FCM HUB with Azure Active Directory (Azure AD). When you integrate FCM HUB with Azure AD, you can:
+In this tutorial, you learn how to integrate FCM HUB with Azure Active Directory (Azure AD). When you integrate FCM HUB with Azure AD, you can:
 
 * Control in Azure AD who has access to FCM HUB.
 * Enable your users to be automatically signed-in to FCM HUB with their Azure AD accounts.
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    - **Source Attribute**: PortalID, value provided by FCM
 
 1. In the **SAML Signing Certificate** section, use the edit option to select or enter the following settings, and then select **Save**:
-   - **Signing Option**: Sign SAML response
+   - **Signing Option**: Sign SAML response and Assertion
    - **Signing Algorithm**: SHA-256
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.

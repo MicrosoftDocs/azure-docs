@@ -1,5 +1,5 @@
 ---
-title: Windows roaming settings reference - Azure Active Directory
+title: Windows roaming settings reference
 description: Settings that will be roamed or backed up in Windows with ESR
 
 services: active-directory

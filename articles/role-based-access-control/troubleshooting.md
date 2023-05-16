@@ -9,9 +9,9 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/07/2023
+ms.date: 04/19/2023
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seohack1, devx-track-azurecli
 ---
 # Troubleshoot Azure RBAC
 
@@ -28,9 +28,6 @@ When you try to assign a role, you get the following error message:
 **Cause**
 
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
-
-> [!NOTE]
-> For specialized clouds, such as Azure Government and Azure China 21Vianet, the limit is **2000** role assignments per subscription.
 
 **Solution**
 
@@ -52,7 +49,7 @@ $ras.Count
 
 ###  Symptom - No more role assignments can be created at management group scope
 
-You are unable to assign a role at management group scope.
+You're unable to assign a role at management group scope.
 
 **Cause**
 
@@ -69,21 +66,21 @@ Try to reduce the number of role assignments in the management group.
 
 ### Symptom - Unable to assign a role
 
-You are unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the following permissions error:
+You're unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the following permissions error:
 
 `The client with object id does not have authorization to perform action`
 
 **Cause**
 
-You are currently signed in with a user that does not have permission to assign roles at the selected scope.
+You're currently signed in with a user that doesn't have permission to assign roles at the selected scope.
 
 **Solution**
 
-Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you're trying to assign the role.
 
 ### Symptom - Unable to assign a role using a service principal with Azure CLI
 
-You are using a service principal to assign roles with Azure CLI and you get the following error:
+You're using a service principal to assign roles with Azure CLI and you get the following error:
 
 `Insufficient privileges to complete the operation`
 
@@ -96,13 +93,13 @@ az role assignment create --assignee "userupn" --role "Contributor"  --scope "/s
 
 **Cause**
 
-It is likely Azure CLI is attempting to look up the assignee identity in Azure AD and the service principal cannot read Azure AD by default.
+It's likely Azure CLI is attempting to look up the assignee identity in Azure AD and the service principal can't read Azure AD by default.
 
 **Solution**
 
 There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to the service principal so that it can read data in the directory.
 
-The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You will need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
+The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You'll need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
 ```azurecli
 az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -123,7 +120,7 @@ The reason is likely a replication delay. The principal is created in one region
 
 **Solution 1**
 
-If you are creating a new user or service principal using the REST API or ARM template, set the `principalType` property when creating the role assignment using the [Role Assignments - Create](/rest/api/authorization/role-assignments/create) API. 
+If you're creating a new user or service principal using the REST API or ARM template, set the `principalType` property when creating the role assignment using the [Role Assignments - Create](/rest/api/authorization/role-assignments/create) API. 
 
 | principalType | apiVersion |
 | --- | --- |
@@ -134,11 +131,11 @@ For more information, see [Assign Azure roles to a new service principal using t
 
 **Solution 2**
 
-If you are creating a new user or service principal using Azure PowerShell, set the `ObjectType` parameter to `User` or `ServicePrincipal` when creating the role assignment using [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). The same underlying API version restrictions of Solution 1 still apply. For more information, see [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md).
+If you're creating a new user or service principal using Azure PowerShell, set the `ObjectType` parameter to `User` or `ServicePrincipal` when creating the role assignment using [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). The same underlying API version restrictions of Solution 1 still apply. For more information, see [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md).
 
 **Solution 3**
 
-If you are creating a new group, wait a few minutes before creating the role assignment.
+If you're creating a new group, wait a few minutes before creating the role assignment.
 
 ### Symptom - ARM template role assignment returns BadRequest status
 
@@ -150,7 +147,7 @@ For example, if you create a role assignment for a managed identity, then you de
 
 **Cause**
 
-The role assignment `name` is not unique, and it is viewed as an update.
+The role assignment `name` isn't unique, and it's viewed as an update.
 
 Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions. You also can't change the properties of an existing role assignment.
 
@@ -242,7 +239,7 @@ You deleted a security principal that had a role assignment. If you assign a rol
 
 It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.md).
 
-In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
+In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -269,37 +266,35 @@ You attempt to remove the last Owner role assignment for a subscription and you 
 
 **Cause**
 
-Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription.
+Removing the last Owner role assignment for a subscription isn't supported to avoid orphaning the subscription.
 
 **Solution**
 
 If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
-You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+You're allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you're a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there's no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
 
-### Symptom - Role assignment is not moved after moving a resource
+### Symptom - Role assignment isn't moved after moving a resource
 
 **Cause**
 
-If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned.
+If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned.
 
 **Solution**
 
-After you move a resource, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource. For information about how to move resources, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+After you move a resource, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it's a best practice to remove the role assignment before moving the resource. For information about how to move resources, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### Symptom - Role assignment changes are not being detected
 
-You recently added or updated a role assignment, but the changes are not being detected. You might see the message `Status: 401 (Unauthorized)`.
+You recently added or updated a role assignment, but the changes aren't being detected. You might see the message `Status: 401 (Unauthorized)`.
 
 **Cause 1**
 
-Azure Resource Manager sometimes caches configurations and data to improve performance. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
+Azure Resource Manager sometimes caches configurations and data to improve performance.
 
 **Solution 1**
 
-If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
-
-If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you're using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you're making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 **Cause 2**
 
@@ -309,6 +304,30 @@ You added managed identities to a group and assigned a role to that group. The b
 
 It can take several hours for changes to a managed identity's group or role membership to take effect. For more information, see [Limitation of using managed identities for authorization](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
+### Symptom - Role assignment changes at management group scope are not being detected
+
+You recently added or updated a role assignment at management group scope, but the changes are not being detected.
+
+**Cause**
+
+Azure Resource Manager sometimes caches configurations and data to improve performance.
+
+**Solution**
+
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you add or remove a built-in role assignment at management group scope and the built-in role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane. Custom roles with `DataActions` can't be assigned at the management group scope.
+
+### Symptom - Role assignments for management group changes are not being detected
+
+You created a new child management group and the role assignment on the parent management group is not being detected for the child management group.
+
+**Cause**
+
+Azure Resource Manager sometimes caches configurations and data to improve performance.
+
+**Solution**
+
+It can take up to 10 minutes for the role assignment for the child management group to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
+
 ### Symptom - Removing role assignments using PowerShell takes several minutes
 
 You use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command to remove a role assignment. You then use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command to verify the role assignment was removed for a security principal. For example:
@@ -317,7 +336,7 @@ You use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azr
 Get-AzRoleAssignment -ObjectId $securityPrincipalObject.Id
 ```
 
-The [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command indicates that the role assignment was not removed. However, if you wait 5-10 minutes and run [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) again, the output indicates the role assignment was removed.
+The [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command indicates that the role assignment wasn't removed. However, if you wait 5-10 minutes and run [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) again, the output indicates the role assignment was removed.
 
 **Cause**
 
@@ -341,15 +360,15 @@ $validateRemovedRoles = Get-AzRoleAssignment -Scope /subscriptions/$subId | Wher
 
 ### Symptom - Unable to update a custom role
 
-You are unable to update an existing custom role.
+You're unable to update an existing custom role.
 
 **Cause**
 
-You are currently signed in with a user that does not have permission to update custom roles.
+You're currently signed in with a user that doesn't have permission to update custom roles.
 
 **Solution**
 
-Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 ### Symptom - Unable to create or update a custom role
 
@@ -359,7 +378,7 @@ When you try to create or update a custom role, you get an error similar to foll
 
 **Cause**
 
-This error usually indicates that you do not have permissions to one or more of the [assignable scopes](role-definitions.md#assignablescopes) in the custom role.
+This error usually indicates that you don't have permissions to one or more of the [assignable scopes](role-definitions.md#assignablescopes) in the custom role.
 
 **Solution**
 
@@ -373,7 +392,7 @@ For more information, see the custom role tutorials using the [Azure portal](cus
 
 ### Symptom - Unable to delete a custom role
 
-You are unable to delete a custom role and get the following error message:
+You're unable to delete a custom role and get the following error message:
 
 `There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)`
 
@@ -391,7 +410,7 @@ When you try to create or update a custom role, you can't add more than one mana
 
 **Cause**
 
-You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+You can define only one management group in `AssignableScopes` of a custom role.
 
 **Solution**
 
@@ -405,7 +424,7 @@ When you try to create or update a custom role, you can't add data actions or yo
 
 **Cause**
 
-You are trying to create a custom role with data actions and a management group as assignable scope. Custom roles with `DataActions` cannot be assigned at the management group scope.
+You're trying to create a custom role with data actions and a management group as assignable scope. Custom roles with `DataActions` can't be assigned at the management group scope.
 
 **Solution**
 
@@ -435,11 +454,11 @@ When you try to create a resource, you get the following error message:
 
 **Cause**
 
-You are currently signed in with a user that does not have write permission to the resource at the selected scope.
+You're currently signed in with a user that doesn't have write permission to the resource at the selected scope.
 
 **Solution**
 
-Check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
+Check that you're currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
 
 ### Symptom - Unable to create a support request
 
@@ -449,11 +468,11 @@ When you try to create or update a support ticket, you get the following error m
 
 **Cause**
 
-You are currently signed in with a user that does not have permission to the create support requests.
+You're currently signed in with a user that doesn't have permission to the create support requests.
 
 **Solution**
 
-Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
 ## Azure features are disabled
 
@@ -486,7 +505,7 @@ A user has write access to a web app and some features are disabled.
 
 **Cause**
 
-Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple of websites:
+Web apps are complicated by the presence of a few different resources that interplay. Here's a typical resource group with a couple of websites:
 
 ![Web app resource group](./media/troubleshooting/website-resource-model.png)
 
@@ -545,7 +564,7 @@ A user has access to a function app and some features are disabled. For example,
 
 **Cause**
 
-Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the [Reader](built-in-roles.md#reader) role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the [Reader](built-in-roles.md#reader) role, they won't be able to view the functions within a function app. The portal displays **(No access)**.
 
 ![Function apps no access](./media/troubleshooting/functionapps-noaccess.png)
 
@@ -559,7 +578,7 @@ Assign an [Azure built-in role](built-in-roles.md) with write permissions for th
 
 **Cause**
 
-When you transfer an Azure subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and are not migrated to the target Azure AD directory.
+When you transfer an Azure subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and aren't migrated to the target Azure AD directory.
 
 **Solution**
 
@@ -569,11 +588,23 @@ You must re-create your role assignments in the target directory. You also have 
 
 **Solution**
 
-If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
+If you're an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
 ## Classic subscription administrators
 
-If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](rbac-and-directory-admin-roles.md).
+### Symptom - Deleting a guest assigned the Co-Administrator role doesn't the remove role assignment
+
+Consider the following scenario:
+
+- Invite a guest user from an external tenant and then assign them the classic Co-Administrator role.
+- Later, you delete the guest user from your tenant without removing the role assignment.
+- The guest user signs in to the Azure portal and switches to your tenant.
+
+The guest user still has the Co-Administrator role assignment.
+
+**Solution**
+
+Don't use the classic subscription administrator roles. Microsoft recommends that you manage access to Azure resources using Azure RBAC. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md) and [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
 
 ## Next steps
 

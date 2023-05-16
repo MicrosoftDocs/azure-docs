@@ -1,7 +1,6 @@
 ---
 title: Multi-instance GPU Node pool
 description: Learn how to create a Multi-instance GPU Node pool and schedule tasks on it
-services: container-service
 ms.topic: article
 ms.date: 1/24/2022
 ms.author: juda
@@ -143,7 +142,7 @@ nvgfd/gpu-feature-discovery
 ### Confirm multi-instance GPU capability
 As an example, if you used MIG1g as the GPU instance profile, confirm the node has multi-instance GPU capability by running:
 ```
-kubectl describe mignode
+kubectl describe node mignode
 ```
 If you're using single strategy, you'll see:
 ```

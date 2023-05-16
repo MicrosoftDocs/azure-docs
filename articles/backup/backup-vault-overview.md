@@ -125,7 +125,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
 >[!Note]
->You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource#az-resource-move).
+>You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource) and [CLI](/cli/azure/resource#az-resource-move).
 
 ### Supported regions
 

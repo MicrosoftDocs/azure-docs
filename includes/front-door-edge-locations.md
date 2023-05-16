@@ -16,7 +16,7 @@
 | South America | Buenos Aires, Argentina<br />Campinas, Brazil<br />Rio de Janeiro, Brazil<br />Sao Paulo, Brazil<br />Santiago, Chile<br />Bogota, Colombia |
 | Europe | Vienna, Austria<br />Brussels, Belgium<br />Sofia, Bulgaria<br />Zagreb, Croatia<br />Prague, Czech Republic<br />Copenhagen, Denmark<br /> Helsinki, Finland<br />Marseille, France<br />Paris, France<br />Saint Denis, France<br />Berlin, Germany<br />Duesseldorf, Germany<br />Frankfurt, Germany<br />Munich, Germany<br />Athens, Greece<br />Budapest, Hungary<br />Dublin, Ireland<br />Milan, Italy<br />Rome, Italy<br />Oslo, Norway<br />Warsaw, Poland<br />Lisbon, Portugal<br />Bucharest, Romania<br />Barcelona, Spain<br />Madrid, Spain<br />Stockholm, Sweden<br />Geneva, Switzerland<br />Zurich, Switzerland<br />London, United Kingdom<br />Manchester, United Kingdom<br />Kyiv, Ukraine |
 | Africa | Cairo, Egypt<br />Nairobi, Kenya<br />Rabat, Morocco<br />Lagos, Nigeria<br />Cape Town, South Africa<br />Johannesburg, South Africa |
-| Middle East | Tel Aviv, Israel<br />Istanbul, Turkey<br />Dubai, United Arab Emirates |
+| Middle East | Tel Aviv, Israel<br />Istanbul, Türkiye<br />Dubai, United Arab Emirates |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India |
 | Asia | Chai Wan, Hong Kong SAR<br />Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Taipei City, Taiwan<br />Bangkok, Thailand<br />Ho Chi Minh City, Vietnam |
 | Australia and New Zealand | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, New Zealand |

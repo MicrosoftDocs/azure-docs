@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for he-IL
 
 | `ipa` | `viseme` | Example 1               | Example 2                | Example 3                 |
 |-------|----------|-------------------------|--------------------------|---------------------------|
@@ -8,7 +16,7 @@
 | `o`   | 8        | אות                     | יום                      | לא                        |
 | `u`   | 7        | עוגה                    | כרוב                     | הגיעו                     |
 
-### Consonant
+### Consonant for he-IL
 
 | `ipa` | `viseme` | Example 1               | Example 2                | Example 3                 |
 |-------|----------|-------------------------|--------------------------|---------------------------|

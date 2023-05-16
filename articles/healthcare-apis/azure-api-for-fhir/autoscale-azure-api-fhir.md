@@ -14,30 +14,26 @@ ms.author: kesheth
 
 Azure API for FHIR, as a managed service, allows customers to persist with Fast Healthcare Interoperability Resources (FHIR&#174;) compliant healthcare data and exchange it securely through the service API. To accommodate different transaction workloads, customers can use manual scale or autoscale.
 
-## What is autoscale?
+Azure API for FHIR provides scaling capabilities at database and compute level.
 
-By default, Azure API for FHIR is set to manual scale. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 100,000 and submit a request to increase the limit. 
+##  Auto scale at Database level
 
-The autoscale feature is designed to scale computing resources including the database throughput `RU/s` up and down automatically according to the workloads, thus eliminating the manual steps of adjusting allocated computing resources. 
+By default, Azure API for FHIR is set to manual for database scaling. This option works well when the transaction workloads are known and consistent. Customers can adjust the throughput `RU/s` through the portal up to 100,000 and submit a request to increase the limit. 
 
-## What is the guidance on when to enable autoscale?
+The autoscale feature is designed to scale Azure resources including the database throughput automatically according to the workloads, eliminating possible bottlenecks in the data layer.
+
+Lets understand how to enable autoscaling at database level with next sections
+
+### Guidance to enable autoscale
 
 In general, customers should consider autoscale when their workloads vary significantly and are unpredictable. 
 
-## How to enable autoscale?
-
-To enable the autoscale feature, you can create a one-time support ticket to request it. The Microsoft support team will enable the autoscale feature based on the support priority.
+To enable the autoscale feature, customer needs to create a one-time support ticket to request it through Azure portal. The Microsoft support team enables the autoscale feature based on the support priority.
 
 > [!NOTE]
 > The autoscale feature isn't available from the Azure portal.
 
-## How to migrate to manual scale?
-
-A support ticket is required to change autoscale to manual scale and specify the throughput RU/s. The minimum value for manual scale you can set it to is: `MAX (400, highest max RU/s ever provisioned / 100, current storage in GB * 40)`, rounded to the nearest 1000 `RU/s`. The numbers used here are different from those used in autoscale.
-
-Once the change is completed, the new billing rates will be based on manual scale.
-
-## How to adjust the maximum throughput RU/s?
+### Autoscale for RU/s 
 
 When autoscale is enabled, the system calculates and sets the initial `Tmax` value. The scalability is governed by the maximum throughput `RU/s` value, or `Tmax`, and scales between `0.1 *Tmax` (or 10% `Tmax`) and `Tmax RU/s`. The `Tmax` increases automatically as the total data size grows. To ensure maximum scalability, the `Tmax` value should be kept as-is. However, customers can request that the value be changed to something between 10% and 100% of the `Tmax` value.
 
@@ -54,7 +50,23 @@ You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid
 >[!Note] 
 >As data storage grows, the system will automatically increase the max throughput to the next highest RU/s that can support that level of storage.
 
-## How to estimate throughput RU/s required?
+## Autoscale at Compute Level
+
+Autoscaling policies defined for FHIR service compute level consists:
+
+* Scaling Trigger
+
+Scaling Trigger describes when scaling of the service will be performed. Conditions that are defined in the trigger are checked periodically to determine if a service should be scaled or not. All triggers that are currently supported are Average CPU, Max Worker Thread, Average LogWrite, Average data IO.
+
+* Scaling mechanism
+
+The scaling mechanism is applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger won't be evaluated again until the scaling interval has expired, which is set to one minute for Azure API for FHIR.
+
+To ensure the best possible outcome, we recommend customers to gradually increase their request rate to match the expected push rate, rather than pushing all requests at once. 
+
+## FAQ
+
+### How to estimate throughput RU/s required?
 
 The data size is one of several factors used in calculating the total throughput RU/s required for manual scale and autoscale. You can find the data size using the Metrics menu option under **Monitoring**. Start a new chart and select **Cosmos DB Collection Size** in the Metric dropdown box and **Max** in the "Aggregation" box. 
 
@@ -71,7 +83,13 @@ Use the formula to calculate required RU/s.
 
 Keep in mind that this is only an estimate based on data size and that there are other factors that affect the required RU/s.
 
-## What is the cost impact of autoscale?
+### I enabled autoscale how can I migrate to scaling manually?
+
+A support ticket is required to change autoscale to manual scale and specify the throughput RU/s. The minimum value for manual scale you can set it to is: `MAX (400, highest max RU/s ever provisioned / 100, current storage in GB * 40)`, rounded to the nearest 1000 `RU/s`. The numbers used here are different from those used in autoscale.
+
+Once the change is completed, the new billing rates are based on manual scale.
+
+### What is the cost impact of autoscale?
 
 The autoscale feature incurs costs because of managing the provisioned throughput units automatically. The actual costs depend on hourly usage, but keep in mind that there are minimum costs of 10% of `Tmax` for reserved throughput RU/s. However, this cost increase doesn't apply to storage and runtime costs. For information about pricing, see [Azure API for FHIR pricing](https://azure.microsoft.com/pricing/details/azure-api-for-fhir/).
 
