@@ -8,19 +8,13 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/05/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
 # Scoping users or groups to be provisioned with scoping filters
-
-::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
 
 Learn how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute based rules. The rules are used to determine which users or groups are provisioned.
 
