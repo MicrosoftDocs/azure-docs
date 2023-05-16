@@ -87,7 +87,7 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 
 1. Change the virtual hardware parameters according to the required specifications for your needs. For more information, see the [table in the Prerequisites](#hw) section above.
 
-Continue with the next steps in this tutorial, the VM creation will continue later when installing the sensor software.
+Your VM is now prepared for your Defender for IoT software installation. You'll continue by installing the software later on in this tutorial, after you've onboarded your sensor in the Azure portal, configured traffic mirroring, and provisioned the machine for cloud management.
 
 ## Onboard the virtual sensor
 
