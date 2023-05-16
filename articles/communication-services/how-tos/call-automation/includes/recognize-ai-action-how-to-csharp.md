@@ -122,6 +122,31 @@ var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
                                     .StartRecognizingAsync(recognizeOptions)
                                     .ConfigureAwait(false);
 ```                                    
+
+### Speech-To-Text
+``` csharp
+var prompt = “Hi, how can I help you today?”
+var ssml = <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="{locale}">" +
+        $ "<voice name=\"{voiceName}\">" +
+        $ "<mstts:express-as style="{expression}">{payload}</mstts:express-as><s />" +
+        "</voice>" +
+        "</speak>";
+      var greetingPrompt = new SsmlSource(ssml) {
+        PlaySourceId = "playSourceId"
+      };
+
+var recognizeOptions = new CallMediaRecognizeSpeechOptions(
+                                                   targetParticipant: targetParticipant)
+{
+      InterruptCallMediaOperation = true,
+      InterrupPrompt = false, 
+      Prompt = greetingPrompt,
+      EndSilenceTimeoutInMS = TimeSpan.FromMilliseconds(1000),
+      OperationContext = “OpenQuestionSpeech”
+};
+
+await callConnectionMedia.StartRecognizingAsync(recognizeOptions)
+```
 **Note:** If parameters aren't set, the defaults will be applied where possible.
 
 ## Receiving recognize event updates
@@ -149,6 +174,9 @@ Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* event
                 case CollectTonesResult collectTonesResult: 
                     var tones = collectTonesResult.Tones;
                     break;
+               //Take action for Recognition through Speech
+               case SpeechResult speechResult:
+                    var address = ((SpeechResult)((RecognizeCompletedEventData) @event).RecognizeResult).Speech;
 
                 default:
                     logger.LogError($"Unexpected recognize event result identified for connection id: {@event.CallConnectionId}");
