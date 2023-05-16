@@ -51,10 +51,11 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
     The resource group name for your data collection rule follows the format: `MA_<workspace-name>_<REGION>_managed`, for example `MA_amw-proxytest_eastus_managed`. Use the following command to find the data collection rule ID:
 
     ```azurecli
-    az monitor data-collection rule show --name <dcr-name> --resource-group <resource-group-name> --query "id"```
+    az monitor data-collection rule show --name <dcr-name> --resource-group <resource-group-name> --query "id"
     ```
-1. Alternatively you can find your DCR ID and Metrics ingestion endpoint using the Azure portal on the Azure Monitor workspace Overview page.
-    1. Select the **Data collection rule** on the workspace Overview tab, then select **JSON view** to see the **Resource ID**.
+1. Alternatively you can find your DCR ID and Metrics ingestion endpoint using the Azure portal on the Azure Monitor workspace Overview page.  
+
+   Select the **Data collection rule** on the workspace Overview tab, then select **JSON view** to see the **Resource ID**.
 
  
    :::image type="content" source="./media/aad-authorization-proxy/workspace-overview.png" lightbox="./media/aad-authorization-proxy/workspace-overview.png" alt-text="A screenshot showing the overview page for an Azure Monitor workspace.":::
@@ -70,7 +71,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
 
     For example:
 
-    ```shell
+    ```bash
     az role assignment create \
     --assignee abcd1234-1243-abcd-9876-1234abcd5678  \
     --role "Monitoring Metrics Publisher" \
@@ -200,7 +201,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
 Check that the proxy is successfully ingesting metrics by checking the pod's logs, or by querying the Azure Monitor workspace.
 
 Check the pod's logs by running the following commands:
-```shell 
+```bash 
 # Get the azuremonitor-ingestion pod ID
  kubectl get pods -A | grep azuremonitor-ingestion
  #Using the returned pod ID, get the logs
@@ -385,7 +386,7 @@ A successful query returns a response similar to the following:
 + The proxy container doesn't start.  
 Run the following command to show any errors the proxy container.
 
-    ```shell
+    ```bash
     kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>`
     ```
 
@@ -393,7 +394,7 @@ Run the following command to show any errors the proxy container.
 
     The proxy checks for a valid identity to fetch a token during startup. If it fails to retrieve a token, start up fails. Errors are logged and can be viewed by running the following command:
 
-    ```shell
+    ```bash
     kubectl --namespace <Namespace> logs <Proxy-Pod-Name>
     ```
 
