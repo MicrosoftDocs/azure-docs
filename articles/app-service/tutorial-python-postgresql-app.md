@@ -550,7 +550,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     ### [Flask](#tab/flask)
 
-    If you are working with Flask, use the [Python (Flask) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git) template.
+    For this tutorial, Flask users should specify the [Python (Flask) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git) template.
     
     ```bash
     azd init --template msdocs-flask-postgresql-sample-app
@@ -558,7 +558,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
     
     ### [Django](#tab/django)
 
-    If you are working with Django, use the [Python (Django) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git) template.
+    For this tutorial, Django users should specify the [Python (Django) web app with PostgresSQL](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git) template.
 
     ```bash
     azd init --template msdocs-django-postgresql-sample-app
