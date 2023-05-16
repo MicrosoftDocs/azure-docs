@@ -15,8 +15,8 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * View the VM availability metric that indicates whether a VM is running.
-* Create an alert rule using the VM availability metric to notify you if the virtual machine is unavailable.
-* Create an action group to be proactively notified when an alert is created.
+> * Create an alert rule using the VM availability metric to notify you if the virtual machine is unavailable.
+> * Create an action group to be proactively notified when an alert is created.
 
  
 
