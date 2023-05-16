@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 05/15/2023
+ms.date: 05/16/2023
 ---
 
 # Build queries with cloud security explorer
@@ -69,6 +69,10 @@ The cloud security explorer allows you to build queries that can proactively hun
 
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png" alt-text="Screenshot that shows where to select search to run the query and results populated." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png":::
 
+If you want to save a copy of your results locally you can select the **Download CSV report** button to save a copy of your search results as a CSV file.
+
+:::image type="content" source="media/how-to-manage-cloud-security/download-csv-report.png" alt-text="Screenshot that shows where the download CSV report button is located om the screen.":::
+
 ## Query templates
 
 Query templates are pre-formatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
@@ -76,7 +80,6 @@ Query templates are pre-formatted searches using commonly used filters. Use one 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you the location of the query templates." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
 You can modify any template to search for specific results by changing the query and selecting **Search**.
-
 
 ## Share a query
 
