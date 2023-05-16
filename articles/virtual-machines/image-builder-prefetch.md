@@ -3,7 +3,7 @@ title: VM Boot Optimization for Azure Compute Gallery Images with Azure VM Image
 description: Optimize VM Boot and Provisioning time with Azure VM Image Builder 
 ms.author: surbhijain 
 ms.reviewer: kofiforson 
-ms.date: 04/05/2023 
+ms.date: 05/16/2023 
 ms.topic: how-to 
 ms.service: virtual-machines 
 ms.subservice: image-builder
@@ -43,9 +43,10 @@ The following types of images aren't supported:
 
 Optimization can be enabled while creating a VM image using the CLI. 
 
-Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template](/azure/virtual-machines/linux/image-builder-json). 
+Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization, and distribution.
 
-To optimize the image, you can enable additional fields in the template](insert AIB repo link) like shown in below snippet. 
+In your template, you will need to enable the additional fields shown below for VM optimization. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template.](/azure/virtual-machines/linux/image-builder-json)
+
 
 
 ```json 
