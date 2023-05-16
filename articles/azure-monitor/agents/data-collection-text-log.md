@@ -29,7 +29,7 @@ To complete this procedure, you need:
     - Do Not overwrite an existing file with new data. You should only append new data to the file.
     - Do Not rename a file and open a new file with the same name to log to. 
     - Do Not rename or copy large log files in to the monitored directory. If you must, do not exceed 50MB per minute
-    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingestion behavior. 
+    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingest1.5ion behavior. 
 
 
 ## Create a custom table
@@ -122,12 +122,12 @@ To create the data collection rule in the Azure portal:
 
 1. Specify the following information:
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas if your AMA is using Fluent Bit v1.5.1 or more.  
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns).
     
         Examples of valid inputs: 
         - 20220122-MyLog.txt 
         - ProcessA_MyLog.txt  
-        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt 
+        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
         > [!NOTE]
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
