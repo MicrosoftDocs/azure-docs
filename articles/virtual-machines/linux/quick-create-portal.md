@@ -124,6 +124,8 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
+In this quickstart, you deployed a virtual machine, created a Network Security Group and rule, and installed a basic web server.
+
 To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
