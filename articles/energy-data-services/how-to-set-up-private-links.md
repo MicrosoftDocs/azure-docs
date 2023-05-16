@@ -41,11 +41,11 @@ Use the following steps to create a private endpoint while provisioning a new Az
     [![Screenshot of choosing add private endpoint.](media/how-to-manage-private-links/private-links-12-add-pe.png)](media/how-to-manage-private-links/private-links-12-add-pe.png#lightbox)
 
 1. In **Create private endpoint**, enter or select the following information and select **OK**:
-    |Setting | Value |
-    |--------|-------|
-    |Subscription  | Select your subscription |
-    |Resource group| Select a resource group |
-    |Location| Select the region where you want to deploy the private endpoint |
+    |Setting| Value|
+    |--------|-----|
+    |Subscription| Select your subscription|
+    |Resource group| Select a resource group|
+    |Location| Select the region where you want to deploy the private endpoint|
     |Name| Enter a name for your private endpoint. The name must be unique|
     |Target sub-resource| **Azure Data Manager for Energy** by default|
     |**Networking**|
