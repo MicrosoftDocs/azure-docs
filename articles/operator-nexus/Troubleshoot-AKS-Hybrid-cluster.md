@@ -19,7 +19,7 @@ Follow these steps in order to gather the data needed to diagnose AKS-Hybrid cre
 
 If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the install failed
 
-[How to manage and lifecycle the AKS-Hybrid cluster](../../articles/operator-nexus/howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster)
+[How to manage and lifecycle the AKS-Hybrid cluster](./howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster)
 
 
 ## Prerequisites
@@ -69,13 +69,13 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
    - the ipv4prefix used must be unique across all defaultcninetworks and l3networks
  - the networks must have Provisioning state: Succeeded
 
- [How to connect az networkcloud using Azure CLI](../../articles/operator-nexus/howto-install-cli-extensions?tabs=linux#install-networkcloud-cli-extension)
+ [How to connect az networkcloud using Azure CLI](./howto-install-cli-extensions.md?tabs=linux#install-networkcloud-cli-extension)
 
 ### AKS-Hybrid resources 
 
 To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a hybridaks vnet.
 
-[How to connect az hybridaks vnet using Azure CLI](azure/hybridaks/vnet)
+[How to connect az hybridaks vnet using Azure CLI](/cli/azure/hybridaks/vnet)
 
 ## Common Issues
 
