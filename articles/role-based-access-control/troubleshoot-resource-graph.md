@@ -18,7 +18,7 @@ ms.author: rolyon
 
 To follow these steps, you must have:
 
-- 
+- [Owner](./built-in-roles.md#owner) or [User Access Administrator](./built-in-roles.md#user-access-administrator) role
 
 ## Reduce the number of Azure role assignments
 
@@ -109,13 +109,17 @@ Azure supports up to 5000 custom roles in a directory. If you get the error mess
       | summarize RoleAssignmentCount = count() by RoleId 
     ) on $left.rdId == $right.RoleId 
     | where isempty(RoleAssignmentCount) 
-     | project RoleDefinitionId = rdId, RoleDefinitionName = name, Scope
+    | project RoleDefinitionId = rdId, RoleDefinitionName = name, Scope
     ```
 
     The following shows an example of the output:
 
-1. Delete the custom roles that you no longer need. For more information, see [Delete a custom role](custom-roles-portal.md#delete-a-custom-role).
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-custom-roles-unused.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows custom roles without role assignments." lightbox="media/troubleshoot-resource-graph/resource-graph-custom-roles-unused.png":::
+
+1. Open your list of custom roles and delete the custom roles you no longer need.
+
+    :::image type="content" source="media/shared/custom-roles-delete-menu.png" alt-text="Screenshot of a list of custom roles that can be selected for deletion." lightbox="media/shared/custom-roles-delete-menu.png":::
 
 ## Next steps
 
-- 
+- [Remove Azure role assignments](./role-assignments-remove.md)

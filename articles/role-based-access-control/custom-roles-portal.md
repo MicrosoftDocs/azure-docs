@@ -327,7 +327,7 @@ Follow these steps to view your custom roles.
 
 1. Click the ellipsis (**...**) for the custom role you want to delete and then click **Delete**.
 
-    ![Screenshot that shows a list of custom roles that can be selected for deletion.](./media/custom-roles-portal/delete-menu.png)
+    ![Screenshot of a list of custom roles that can be selected for deletion.](./media/shared/custom-roles-delete-menu.png)
 
     It can take a few minutes for your custom role to be completely deleted.
 
