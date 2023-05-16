@@ -46,7 +46,7 @@ The recovered secret has the same:
 * `value`
 * all properties including `enabled`, `createdOn`, `tags`, and `version`
 
-```
+```javascript
 const deletedSecretName = 'myDeletedSecret';
 
 // Begin LRO
@@ -57,7 +57,6 @@ const recoveryResult = await recoveryPoller.pollUntilDone();
 
 console.log(`SecretName: ${recoveryResult.name}`);
 console.log(`Version: ${recoveryResult.version}`);
-
 ```
 
 This `recoveryResult` is a [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object. 

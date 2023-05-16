@@ -38,7 +38,7 @@ This method returns the [SecretProperties](/javascript/api/@azure/keyvault-secre
 
 ## Disable a new secret
 
-To disable a secret when it is created, use the [setSecret]() method with the option for **enabled** set to false.
+To disable a secret when it's created, use the [setSecret]() method with the option for **enabled** set to false.
 
 ```javascript
 const mySecretName = 'mySecret';

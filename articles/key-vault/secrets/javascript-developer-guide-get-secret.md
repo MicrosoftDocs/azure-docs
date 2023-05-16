@@ -74,7 +74,7 @@ secretName
 
 ## Get disabled secret
 
-Use the the following table to understand what you can do with a disabled secret.
+Use the following table to understand what you can do with a disabled secret.
 
 |Allowed|Not allowed|
 |--|--|
