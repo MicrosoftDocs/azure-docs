@@ -29,7 +29,7 @@ To complete this procedure, you need:
     - Do Not overwrite an existing file with new data. You should only append new data to the file.
     - Do Not rename a file and open a new file with the same name to log to. 
     - Do Not rename or copy large log files in to the monitored directory. If you must, do not exceed 50MB per minute
-    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingest1.5ion behavior. 
+    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingestion behavior. 
 
 
 ## Create a custom table
