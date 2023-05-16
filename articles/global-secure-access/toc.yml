@@ -31,14 +31,6 @@ items:
     href: how-to-get-started-with-global-secure-access.md
   - name: Manage admin access
     href: how-to-manage-admin-access.md
-  - name: Configure source IP restoration
-    href: how-to-source-ip-restoration.md
-  - name: Enable universal tenant restrictions
-    href: how-to-universal-tenant-restrictions.md
-  - name: Enable compliant network check
-    href: how-to-compliant-network.md
-  - name: Target traffic profiles with Conditional Access
-    href: how-to-target-resource.md
   - name: Connect
     expanded: false
     items:

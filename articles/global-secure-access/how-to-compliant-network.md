@@ -29,9 +29,9 @@ The compliant network is different than [IPv4, IPv6, or country locations](/azur
 ## Prerequisites
 
 * A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
-   * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
-   * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
+* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
+   * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md#global-secure-access-administrator)
+   * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md).
 
@@ -46,12 +46,12 @@ Some Outlook traffic may use the QUIC protocol. Global Secure Access doesn’t y
 To enable the required setting to allow the compliant network check, an administrator must take the following steps.
 
 1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
-1. Browse to **NEED THE ACTUAL PATH** > **Security **> **Adaptive Access**.
+1. Browse to **NEED THE ACTUAL PATH** > **Security**> **Adaptive Access**.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
    1. Confirm you have a location **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
 
-<!--Add screenshot of toggle here-->
+:::image type="content" source="media/how-to-source-compliant-network/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::
 
 > [!CAUTION]
 > If your organization has active Conditional Access policies based on compliant network check, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first delete any corresponding Conditional Access policies. 
@@ -89,7 +89,7 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources with an error message that says **You cannot access this right now**.
 
-<!--Add screenshot of error message here-->
+:::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window "You cannot access this right now".":::
 
 ## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
 
@@ -101,6 +101,6 @@ Verify the new named location was automatically created using [Microsoft Graph](
 
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
 
-<!--Add screenshot of Graph Explorer here-->
+:::image type="content" source="media/how-to-compliant-network/graph-explorer-expected-result-location-creation.png" alt-text="Screenshot showing Graph Explorer results of query":::
 
 ## Next steps

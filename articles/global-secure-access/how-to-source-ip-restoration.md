@@ -14,17 +14,17 @@ ms.reviewer: mamkumar
 ---
 # Source IP restoration
 
-With a cloud based network proxy between users and their resources, the source IP address that the resources see doesn't always match the actual source IP address. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP address. Customers that use IP-based location information as a control in Conditional Access typically can't use this with these traditional SASE solutions. 
+With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't always match the actual source IP address. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP address. Customers that use IP-based location information as a control in Conditional Access typically can't use this with these traditional solutions. 
 
-Microsoft’s existing solutions such as Conditional Access (CA) and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. Organizations can continue using IP location-based Conditional Access policies, including CAE strict location enforcement.
+Microsoft’s existing solutions such as Conditional Access (CA) and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. With Global Secure Access and source IP restoration organizations can continue using IP location-based Conditional Access policies, including CAE strict location enforcement.
 
 Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 
 ## Prerequisites
 
 * A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
-   * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
+* Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
+   * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md#global-secure-access-administrator)
    * Conditional Access Administrator or Security Administrator
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
 
