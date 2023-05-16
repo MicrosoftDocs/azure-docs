@@ -24,7 +24,7 @@ Source IP restoration allows services to see the real source IP address, these s
 
 * A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
-   * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md#global-secure-access-administrator)
+   * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * Conditional Access Administrator or Security Administrator
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
 
