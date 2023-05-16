@@ -34,21 +34,23 @@ Before you begin, verify that:
 1. Open your Dynamics 365 project in [LCS](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
 1. In the **Environment version information** section, make sure that you're using application release version 10.0.33 or above. 
 
-TBD - image
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
 
 1. To collect your environment URL, select **Login to environment** and save the URL in the browser to use in the ARM deployment. For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
 
-TBD - image
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details.png" alt-text="Screenshot of the Finance and Operations environment details.":::
 
 ### Deploy the solution and enable the data connector
 
 1. Navigate to the **Microsoft Sentinel** service.
-1. Select **Content hub**, and in the search bar, search for *BTP*.
-1. Select **Sentinel Solution for SAP BTP**.
+1. Select **Content hub**, and in the search bar, search for *F&O*.
+1. Select **Microsoft Sentinel solution for D365 F&O**.
 1. Select **Install**.
+
+    Image - TBD
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
 
@@ -76,7 +78,7 @@ For the analytics rules provided with this solution, enable auditing for these t
 - All tables under **System**
 - The **Bank accounts** table under **Bank**
 
-TBD - image
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables.png":::
 
 To enable auditing for these tables:
 
@@ -86,7 +88,7 @@ To enable auditing for these tables:
 1. Select **Next**. 
 1. To enable auditing on all fields of the selected tables, mark all four check marks to the right of the table names with empty field labels. To see the tables with empty field labels at the top, sort the table list by the field table in ascending order:
 
-    TBD - image
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes.png" alt-text="Screenshot of configuring the selected Finance and Operations database tables." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-changes.png":::
 
 1. Select **Finish**.
 1. Select **Yes** in all warning messages. 
@@ -108,11 +110,11 @@ To verify that log ingestion is working, you try to enable the **F&O – Bank ac
 1. Wait up to 15 minutes for Microsoft Sentinel to ingest the log and trigger the detection. 
 1. In Microsoft Sentinel, select **Incidents** and check for a new incident: 
 
-    TBD - image 
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-new-incident.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-new-incident.png":::
 
 1. If you want to view the raw logs, query the `FinanceOperationsActivity_CL` table: 
 
-    TBD - image 
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png" alt-text="Screenshot of querying the query_FinanceOperationsActivity_CL_table to view the raw logs in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png"::: 
 
 1. Repeat this procedure to enable the rest of the analytics rules provided with the solution.
 
