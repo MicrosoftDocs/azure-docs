@@ -61,7 +61,7 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 
 ## Transform data with the SAP CDC connector
 
-The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. For example, technical attributes associated with each row (like ODQ_CHANGEMODE) have to be understood to apply the changes to the sink correctly. Also, an extract of change data from ODP can contain multiple changes to the same key (for example, the same sales order). It is therefore important to respect the order of changes, while at the same time optimizing performance by processing the changes in parallel.
+The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. For example, technical attributes associated with each row (like ODQ_CHANGEMODE) have to be understood to apply the changes to the sink correctly. Also, an extract of change data from ODP can contain multiple changes to the same key (for example, the same sales order). It's therefore important to respect the order of changes, while at the same time optimizing performance by processing the changes in parallel.
 Moreover, managing a change data capture feed also requires keeping track of state, for example in order to provide built-in mechanisms for error recovery.
 Azure data factory mapping data flows take care of all such aspects. Therefore, SAP CDC connectivity is part of the mapping data flow experience. Thus, users can concentrate on the required transformation logic without having to bother with the technical details of data extraction.
 
