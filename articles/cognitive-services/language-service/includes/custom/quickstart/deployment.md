@@ -19,7 +19,7 @@ Click on **Add deployment** to start a new deployment job.
 
 A screenshot showing the deployment button
 
-Select Create new deployment to create a new deployment and assign a trained model from the dropdown below. You can also Overwrite an existing deployment by selecting this option and select the trained model you want to assign to it from the dropdown below.
+Select **Create new deployment** to create a new deployment and assign a trained model from the dropdown below. You can also Overwrite an existing deployment by selecting this option and select the trained model you want to assign to it from the dropdown below.
 
  Note
 
