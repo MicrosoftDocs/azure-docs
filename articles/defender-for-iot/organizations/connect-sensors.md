@@ -61,7 +61,6 @@ For more information, see [Provision OT sensors for cloud management](ot-deploy/
 
 > [!NOTE]
 > An intermediate certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma.
-> For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 If you already have a proxy set up in your Azure VNET, start by defining the proxy settings on your sensor console:
 
