@@ -243,12 +243,8 @@
               href: algorithm-cheat-sheet.md
             - name: How to select algorithms
               href: how-to-select-algorithms.md
-<<<<<<< HEAD
         # end v1
-    - name: Deploy models
-=======
     - name: Deploy to production
->>>>>>> affbd3f40758fd25ad290521f04a0fefbea56cce
       items:
         - name: Endpoints for inference
           href: concept-endpoints.md
