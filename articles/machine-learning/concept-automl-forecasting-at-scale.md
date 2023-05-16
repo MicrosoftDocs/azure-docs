@@ -55,4 +55,10 @@ For examples, see our guide on [HTS components](how-to-auto-train-forecast.md#fo
 
 Data scenarios featuring large amounts of historical observations and/or large numbers of related time series may benefit from a scalable, single model approach. Accordingly, **AutoML supports distributed training and model search on temporal convolutional network (TCN) models**, which are a type of deep neural network (DNN) for time series data. For more details on AutoML's TCN model class, see our [DNN article](concept-automl-forecasting-deep-learning.md).
 
- 
+Distributed DNN training achieves scalability using a partitioning algorithm that respects time series boundaries. During training, the DNN dataloader loads just what it needs to complete an iteration of back-propagation; the whole dataset is never read into memory. The partitions are further distributed across multiple compute cores (usually GPUs) on possibly multiple nodes to accelerate training. Coordination across computes is provided by the [Horovod](https://horovod.ai/) framework.
+
+# Next steps
+
+* Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
+* Learn about [how AutoML uses machine learning to build forecasting models](./concept-automl-forecasting-methods.md).
+* Learn about [deep learning models](./concept-automl-forecasting-deep-learning.md) for forecasting in AutoML

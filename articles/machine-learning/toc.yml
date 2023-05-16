@@ -214,6 +214,9 @@
                 - name: Deep learning models
                   displayName: auto ML, time series, forecasting, deep learning, TCN
                   href: concept-automl-forecasting-deep-learning.md
+                - name: Forecasting at scale
+                  displayName: auto ML, time series, forecasting, scalability, large data
+                  href: concept-automl-forecasting-at-scale.md
                 - name: Model sweeping and selection
                   displayName: auto ML, time series, forecasting, model selection, sweeping
                   href: concept-automl-forecasting-sweeping.md
@@ -774,10 +777,10 @@
         - name: Automated machine learning
           displayName: automl, auto ml
           items:
-            - name: Use automated ML (Python)
+            - name: Use automated ML for tabular data (Python)
               displayName: SDK, automl
               href: how-to-configure-auto-train.md
-            - name: Use automated ML (interface)
+            - name: Use automated ML for tabular data (interface)
               href: how-to-use-automated-ml-for-ml-models.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model

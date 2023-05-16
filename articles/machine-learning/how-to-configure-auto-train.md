@@ -8,12 +8,13 @@ ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 04/20/2022
+ms.date: 05/16/2023
 ms.topic: how-to
 ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
+show_latex: true
 ---
 
-# Set up AutoML training with the Azure Machine Learning Python SDK v2
+# Set up AutoML training for tabular data with the Azure Machine Learning Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
@@ -173,7 +174,7 @@ classification_job.set_training(
 
 Before you can submit your automated ML job, you need to determine the kind of machine learning problem you're solving. This problem determines which function your automated ML job uses and what model algorithms it applies.
 
-Automated ML supports tabular data based tasks (classification, regression, forecasting), computer vision tasks (such as Image Classification and Object Detection), and natural language processing tasks (such as Text classification and Entity Recognition tasks). Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
+Automated ML supports tabular data based tasks (classification, regression, forecasting), computer vision tasks (such as Image Classification and Object Detection), and natural language processing tasks (such as Text classification and Entity Recognition tasks). See our article on [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp) for more information. See our [time series forecasting guide](how-to-auto-train-forecast.md) for more details on setting up forecasting jobs.
 
 
 ### Supported algorithms
@@ -196,7 +197,7 @@ Classification | Regression | Time Series Forecasting
 [Random Forest](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#randomforest----randomforest-)* | [Random Forest](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#randomforestregressor----randomforest-) | [LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)*
 [Xgboost](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#xgboostclassifier----xgboostclassifier-)* |[Xgboost](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#xgboostregressor----xgboostregressor-)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)  | [ForecastTCN](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#tcnforecaster----tcnforecaster-)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)  | [TCNForecaster](concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster)
 [Stochastic Gradient Descent (SGD)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#sgdclassifier----sgd-)* |[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression) | [Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 ||| [ExponentialSmoothing](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#exponentialsmoothing----exponentialsmoothing-)
 ||| SeasonalNaive
@@ -436,8 +437,77 @@ pipeline_classification = automl_classification(
 
 ```
 
-For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/).
+For more examples on how to include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/).
+
+## AutoML at scale: distributed training
+
+For large data scenarios, AutoML supports distributed training for a limited set of models:
+
+Distributed algorithm | Supported tasks
+--|--  
+[LightGBM](https://lightgbm.readthedocs.io/en/latest/Parallel-Learning-Guide.html) | Classification, regression
+[TCNForecaster](concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster) | Forecasting
+
+Distributed training algorithms automatically partition and distribute your data across multiple compute cores, on possibly multiple nodes, for model training.
+
+### Classification and regression
+
+To use distributed training for classification, you need to set the `training_mode` and `max_nodes` properties of the job object. 
+
+Property | Description
+-- | --
+training_mode | Indicates training model; distributed or non-distributed. Defaults to non-distributed.
+max_nodes | The number of nodes to use for training by each AutoML trial
+
+The following code samples shows an example of these settings for a classification job:
+
+```python
+from azure.ai.ml.constants import TabularTrainingMode
+
+# Set the training mode to distributed
+classification_job.set_training(
+    allowed_training_algorithms=["light_gbm"],
+    training_mode=TabularTrainingMode.DISTRIBUTED
+)
+
+# Distribute training across 4 nodes
+classification_job.set_limits(
+    max_nodes=4,
+    # other limit settings
+)
+```
+
+### Forecasting
+
+To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). To use distributed training for forecasting, you need to set set the `training_mode`,`max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
+
+Property | Description
+-- | --
+training_mode | Indicates training model; distributed or non-distributed. Defaults to non-distributed.
+max_concurrent_trials | This is the maximum number of trial models to train in parallel. Defaults to 1.
+max_nodes | The total number of nodes to use for training. For forecasting, each trial model is trained using $\text{max}\left(2, \text{floor}( \text{max\_nodes} / \text{max\_concurrent\_trials}) \right)$ nodes.
+
+The following code samples shows an example of these settings for a forecasting job:
+
+```python
+from azure.ai.ml.constants import TabularTrainingMode
+
+# Set the training mode to distributed
+forecasting_job.set_training(
+    allowed_training_algorithms=["tcn_forecaster"],
+    training_mode=TabularTrainingMode.DISTRIBUTED
+)
+
+# Distribute training across 4 nodes
+# Train 2 trial models in parallel => 2 nodes per trial
+forecasting_job.set_limits(
+    max_concurrent_trials=2,
+    max_nodes=4,
+    # other limit settings
+)
+```
 
 ## Next steps
 
 + Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).
++ Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).

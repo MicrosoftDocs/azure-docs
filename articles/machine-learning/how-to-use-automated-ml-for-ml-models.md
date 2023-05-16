@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, ignite-2022
 ---
 
-# Set up no-code AutoML training with the studio UI 
+# Set up no-code AutoML training for tabular data with the studio UI 
 
 In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio).
 
