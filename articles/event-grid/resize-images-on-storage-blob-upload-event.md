@@ -2,39 +2,41 @@
 title: 'Tutorial: Use Azure Event Grid to automate resizing uploaded images'
 description: 'Tutorial: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.'
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 05/16/2023
 ms.devlang: csharp, javascript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Tutorial Step 2: Automate resizing uploaded images using Event Grid
 
-[Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  
+This tutorial extends the [Upload image data in the cloud with Azure Storage][previous-tutorial] tutorial to add serverless automatic thumbnail generation using [Azure Event Grid](overview.md) and [Azure Functions](../azure-functions/functions-overview.md). Here is the high-level workflow: 
 
-This tutorial extends the [Upload image data in the cloud with Azure Storage][previous-tutorial] tutorial to add serverless automatic thumbnail generation using Azure Event Grid and Azure Functions. Event Grid enables [Azure Functions](../azure-functions/functions-overview.md) to respond to [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) events and generate thumbnails of uploaded images. An event subscription is created against the Blob storage create event. When a blob is added to a specific Blob storage container, a function endpoint is called. Data passed to the function binding from Event Grid is used to access the blob and generate the thumbnail image.
+## Workflow
+1. You create a subscription to the `Microsoft.Storage.BlobCreated` event or for all blob events for the storage account, and specify an **Azure function** as an event handler.  
+1. When an image is uploaded the blob storage, the `Microsoft.Storage.BlobCreated` event is triggered. 
+1. When the event is triggered, the function specified in the event subscription is invoked. The function uses the event data passed by Azure Event Grid to access the blob and generate a thumbnail image for the original image in a different container in the same blob storage. 
 
-You use the Azure CLI and the Azure portal to add the resizing functionality to an existing image upload app.
+    Here's a screenshot of the app that's used to upload images and view the generated thumbnail images. 
 
-# [\.NET v12 SDK](#tab/dotnet)
-
-![Screenshot that shows a published web app in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
-
-# [Node.js v10 SDK](#tab/nodejsv10)
-
-![Screenshot that shows a published web app in a browser for the \.NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
-
+    # [\.NET v12 SDK](#tab/dotnet)
+    
+    ![Screenshot that shows a published web app in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+    
+    # [Node.js v10 SDK](#tab/nodejsv10)
+    
+    ![Screenshot that shows a published web app in a browser for the \.NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+    
 ---
 
-In this tutorial, you learn how to:
+In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
 > * Create an Azure Storage account
-> * Deploy serverless code using Azure Functions
-> * Create a Blob storage event subscription in Event Grid
+> * Create, configure, and deploy a function app
+> * Create an event subscription to storage events 
+> * Test the sample app
 
 ## Prerequisites
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To complete this tutorial:
 

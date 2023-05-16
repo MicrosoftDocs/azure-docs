@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 02/09/2023
+ms.date: 05/16/2023
 ms.author: spelluru
 ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
@@ -55,8 +55,13 @@ The following example creates a resource group named `myResourceGroup`.
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
+> [!NOTE]
+> Set appropriate values for `region` and `rgName` (resource group name). 
+
 ```powershell
-New-AzResourceGroup -Name myResourceGroup -Location southeastasia
+$region="eastus"
+$rgName="egridtutorialrg"
+New-AzResourceGroup -Name $rgName -Location $region
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -76,16 +81,15 @@ The sample uploads images to a blob container in an Azure storage account. A sto
 > [!IMPORTANT]
 > In part 2 of the tutorial, you use Azure Event Grid with Blob storage. Make sure to create your storage account in an Azure region that supports Event Grid. For a list of supported regions, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
-In the following command, replace your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a storage account in the resource group you created by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
+Create a storage account in the resource group you created by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Note down the Azure Storage account name that's displayed in the output. 
 
 ```powershell
-$blobStorageAccount="<blob_storage_account>"
-
-New-AzStorageAccount -ResourceGroupName myResourceGroup -Name $blobStorageAccount -SkuName Standard_LRS -Location southeastasia -Kind StorageV2 -AccessTier Hot
+$blobStorageAccount="myblobstorage" + (Get-Random).ToString()
+echo $blobStorageAccount
+New-AzStorageAccount -ResourceGroupName $rgName -Name $blobStorageAccount -SkuName Standard_LRS -Location $region -Kind StorageV2 -AccessTier Hot -AllowBlobPublicAccess $true
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -112,7 +116,7 @@ The *images* container's public access is set to `off`. The *thumbnails* contain
 Get the storage account key by using the [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) command. Then, use this key to create two containers with the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command.
 
 ```powershell
-$blobStorageAccountKey = ((Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -Name $blobStorageAccount)| Where-Object {$_.KeyName -eq "key1"}).Value
+$blobStorageAccountKey = ((Get-AzStorageAccountKey -ResourceGroupName $rgName -Name $blobStorageAccount)| Where-Object {$_.KeyName -eq "key1"}).Value
 $blobStorageContext = New-AzStorageContext -StorageAccountName $blobStorageAccount -StorageAccountKey $blobStorageAccountKey
 
 New-AzStorageContainer -Name images -Context $blobStorageContext
@@ -151,7 +155,8 @@ The following example creates an App Service plan named `myAppServicePlan` in th
 Create an App Service plan with the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command.
 
 ```powershell
-New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Tier "Free"
+$planName="MyAppServicePlan"
+New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name $planName -Tier "Free" -Location $region
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -172,12 +177,12 @@ In the following command, replace `<web_app>` with a unique name. Valid characte
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a [web app](../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command.
+Create a [web app](../app-service/overview.md) in the `myAppServicePlan` App Service plan with the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command. Note down the web app name. 
 
 ```powershell
-$webapp="<web_app>"
-
-New-AzWebApp -ResourceGroupName myResourceGroup -Name $webapp -AppServicePlan myAppServicePlan
+$webapp="MyWebApp" + (Get-Random).ToString()
+echo $webapp
+New-AzWebApp -ResourceGroupName $rgName -Name $webapp -AppServicePlan $planName
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -193,48 +198,45 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 ---
 
 ## Deploy the sample app from the GitHub repository
-
-# [.NET v12 SDK](#tab/dotnet)
-
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Azure.Storage](/dotnet/api/azure.storage), [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs), and [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models) namespaces to interact with the Azure Storage service.
 
-```azurecli
-az webapp deployment source config --name $webapp --resource-group myResourceGroup \
-  --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
-```
+# [PowerShell](#tab/azure-powershell)
 
 ```powershell
-az webapp deployment source config --name $webapp --resource-group myResourceGroup `
+az webapp deployment source config --name $webapp --resource-group $rgName `
   --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# [JavaScript v12 SDK](#tab/javascript)
-
-App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
-```
-
-```powershell
-az webapp deployment source config --name $webapp --resource-group myResourceGroup `
-  --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
 ---
 
+
 ## Configure web app settings
-
-# [.NET v12 SDK](#tab/dotnet)
-
 The sample web app uses the [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage) to upload images. Storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) or [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting) command.
+
+# [PowerShell](#tab/azure-powershell)
+
+```powershell
+Set-AzWebApp -ResourceGroupName $rgName -Name $webapp -AppSettings `
+  @{ `
+    'AzureStorageConfig__AccountName' = $blobStorageAccount; `
+    'AzureStorageConfig__ImageContainer' = 'images'; `
+    'AzureStorageConfig__ThumbnailContainer' = 'thumbnails'; `
+    'AzureStorageConfig__AccountKey' = $blobStorageAccountKey `
+  }
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -244,41 +246,14 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-```powershell
-New-AzStaticWebAppSetting -ResourceGroupName myResourceGroup -Name $webapp `
-  -AppSetting @{ `
-    AzureStorageConfig__AccountName = $blobStorageAccount `
-    AzureStorageConfig__ImageContainer = images `
-    AzureStorageConfig__ThumbnailContainer = thumbnails `
-    AzureStorageConfig__AccountKey = $blobStorageAccountKey `
-  }
-```
-
-# [JavaScript v12 SDK](#tab/javascript)
-
-The sample web app uses the [Azure Storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) to upload images. The storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) or [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting) command.
-
-```azurecli
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
-  --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
-    AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
-```
-
-```powershell
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
-  --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount `
-  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
-```
-
 ---
+
 
 After you deploy and configure the web app, you can test the image upload functionality in the app.
 
 ## Upload an image
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
-
-# [.NET v12 SDK](#tab/dotnet)
 
 Select the **Upload photos** region to specify and upload a file, or drag a file onto the region. The image disappears if successfully uploaded. The **Generated Thumbnails** section will remain empty until we test it later in this tutorial.
 
@@ -320,116 +295,6 @@ The following classes and methods are used in the preceding task:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# [JavaScript v12 SDK](#tab/javascript)
-
-Select **Choose File** to select a file, then select **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this tutorial.
-
-:::image type="content" source="media/storage-upload-process-images/upload-app-nodejs.png" alt-text="Screenshot of the page to upload photos in the Image Resizer JavaScript app.":::
-
-In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
-
-- [Multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
-- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [uploadStream](/javascript/api/%40azure/storage-blob/blockblobclient#uploadstream-readable--number--number--blockblobuploadstreamoptions-).
-
-As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
-
-> [!IMPORTANT]
-> Loading large files into memory may have a negative effect on your web app's performance. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into Blob storage. Once the files are in Blob storage, you can remove them from the server file system.
-
-```javascript
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
-const {
-  BlobServiceClient,
-  StorageSharedKeyCredential,
-  newPipeline
-} = require('@azure/storage-blob');
-
-const express = require('express');
-const router = express.Router();
-const containerName1 = 'thumbnails';
-const multer = require('multer');
-const inMemoryStorage = multer.memoryStorage();
-const uploadStrategy = multer({ storage: inMemoryStorage }).single('image');
-const getStream = require('into-stream');
-const containerName2 = 'images';
-const ONE_MEGABYTE = 1024 * 1024;
-const uploadOptions = { bufferSize: 4 * ONE_MEGABYTE, maxBuffers: 20 };
-
-const sharedKeyCredential = new StorageSharedKeyCredential(
-  process.env.AZURE_STORAGE_ACCOUNT_NAME,
-  process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY);
-const pipeline = newPipeline(sharedKeyCredential);
-
-const blobServiceClient = new BlobServiceClient(
-  `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
-  pipeline
-);
-
-const getBlobName = originalName => {
-  // Use a random number to generate a unique file name, 
-  // removing "0." from the start of the string.
-  const identifier = Math.random().toString().replace(/0\./, '');
-  return `${identifier}-${originalName}`;
-};
-
-router.get('/', async (req, res, next) => {
-
-  let viewData;
-
-  try {
-    const containerClient = blobServiceClient.getContainerClient(containerName1);
-    const listBlobsResponse = await containerClient.listBlobFlatSegment();
-
-    for await (const blob of listBlobsResponse.segment.blobItems) {
-      console.log(`Blob: ${blob.name}`);
-    }
-
-    viewData = {
-      title: 'Home',
-      viewName: 'index',
-      accountName: process.env.AZURE_STORAGE_ACCOUNT_NAME,
-      containerName: containerName1
-    };
-
-    if (listBlobsResponse.segment.blobItems.length) {
-      viewData.thumbnails = listBlobsResponse.segment.blobItems;
-    }
-  } catch (err) {
-    viewData = {
-      title: 'Error',
-      viewName: 'error',
-      message: 'There was an error contacting the blob storage container.',
-      error: err
-    };
-    res.status(500);
-  } finally {
-    res.render(viewData.viewName, viewData);
-  }
-});
-
-router.post('/', uploadStrategy, async (req, res) => {
-  const blobName = getBlobName(req.file.originalname);
-  const stream = getStream(req.file.buffer);
-  const containerClient = blobServiceClient.getContainerClient(containerName2);;
-  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-
-  try {
-    await blockBlobClient.uploadStream(stream,
-      uploadOptions.bufferSize, uploadOptions.maxBuffers,
-      { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
-    res.render('success', { message: 'File uploaded to Azure Blob Storage.' });
-  } catch (err) {
-    res.render('error', { message: err.message });
-  }
-});
-
-module.exports = router;
-```
-
----
 
 ## Verify the image is shown in the storage account
 
@@ -449,15 +314,7 @@ Choose a file with the file picker and select **Upload**.
 
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
-# [.NET v12 SDK](#tab/dotnet)
-
 ![.NET image resizer app with new image displayed](media/storage-upload-process-images/image-resizer-app.png)
-
-# [JavaScript v12 SDK](#tab/javascript)
-
-![Node.js image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
-
----
 
 In part two of the series, you automate thumbnail image creation so you don't need this image. In the **thumbnails** container, select the image you uploaded, and select **Delete** to remove the image.
 
