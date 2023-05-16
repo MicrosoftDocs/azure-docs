@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot AKS-Hybrid cluster provisioning  failures for Azure Operator Nexus
-description: Troubleshoot Hybrid Azure Kubernetes Service (AKS) clusters provisioning  failures. Learn how to debug failure codes.
+title: Troubleshoot AKS-Hybrid cluster provisioning failures for Azure Operator Nexus
+description: Troubleshoot Hybrid Azure Kubernetes Service (AKS) clusters provisioning failures. Learn how to debug failure codes.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -20,7 +20,6 @@ Follow these steps in order to gather the data needed to diagnose AKS-Hybrid cre
 If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the install failed
 
 [How to manage and lifecycle the AKS-Hybrid cluster](./howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster)
-
 
 ## Prerequisites
  1. Install the latest version of the
@@ -45,9 +44,9 @@ In the Azure portal, an unhealthy cluster may show:
 
 In the CLI, when looking at "az hybridaks show -g <> --name <>" output, an unhealthy cluster may show:
 
-- provisioningState: `Failed`
--provisioningState: `Succeeded`, but null values for fields such as 'lastConnectivityTime' and 'managedIdentityCertificateExpirationTime', or an errorMessage field that isn't null
+-provisioningState: `Failed`
 
+-provisioningState: `Succeeded`, but null values for fields such as 'lastConnectivityTime' and 'managedIdentityCertificateExpirationTime', or an errorMessage field that isn't null
 
 ## Basic network requirements 
 
@@ -176,5 +175,4 @@ There have been incidents where CNF workloads are unable to start due to resourc
 
 To access further details in the logs, refer [Log Analytic workspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace)
 
- If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
+If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
