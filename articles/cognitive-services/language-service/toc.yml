@@ -1005,8 +1005,13 @@ items:
     items:
       - name: How-to guides
         items:
+        - name: Create projects
+          href: sentiment-opinion-mining/custom/how-to/create-project.md
+        - name: Data selection and schema
+          href: sentiment-opinion-mining/custom/how-to/design-schema.md
         - name: Call the API
           href: sentiment-opinion-mining/custom/how-to/call-api.md
+        
 - name: Text Analytics for health
   items:
   - name: prebuilt
