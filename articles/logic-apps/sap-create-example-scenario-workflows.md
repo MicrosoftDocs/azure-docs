@@ -57,9 +57,9 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 1. After the SAP trigger information box appears, provide the required values, based on your SAP server configuration, and add any other available parameters for this trigger, for example:
 
-   * The **When a message is received from SAP** trigger supports SAP plain XML format. To receive IDocs as plain XML, in the trigger, open the **Add new parameter** list, select the **IDOC Format** parameter, and then set the parameter to **SapPlainXml**.
+   * The trigger supports SAP plain XML format. To receive IDocs as plain XML, in the trigger, open the **Add new parameter** list, select the **IDOC Format** parameter, and then set the parameter to **SapPlainXml**.
 
-   * The **When a message is received from SAP** trigger supports flat files. To receive IDocs as a flat file, in the trigger, open the **Add new parameter** list, select the **IDOC Format** parameter, and then set the parameter to **FlatFile**.
+   * The trigger supports flat files. To receive IDocs as a flat file, in the trigger, open the **Add new parameter** list, select the **IDOC Format** parameter, and then set the parameter to **FlatFile**.
 
      If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
@@ -146,6 +146,22 @@ You might get a similar error when SAP Application server or Message server name
    Azure Logic Apps sets up and tests your connection.
 
 1. After the SAP trigger information box appears, provide the required values, based on your SAP server configuration, and add any other available parameters for this trigger.
+
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **IDoc Format** | Yes | The format to use for receiving IDocs, for example: <br><br>- To receive IDocs as SAP plain XML, in the trigger, open the **IDoc Format** list, and select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, in the trigger, open the **IDoc Format** list, and select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **SAP RFC Server Degree of Parallelism** | Yes | The number of calls to process in parallel |
+   | **Allow Unreleased Segment** | Yes | Receive IDocs with or without unreleased segments |
+   | **SAP Gateway Host** | Yes | The registration host for the SAP RFC server |
+   | **SAP Gateway Service** | Yes | The registration gateway service for the SAP RFC server |
+   | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server |
+   | **SAP SNC Partner Names** | No | A list of SNC partner names with each named separated by a vertical bar (**\|**) |
+
+1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
+
+   Your workflow is now ready to receive messages from your SAP server.
+
+1. In your workflow's trigger history, check that the trigger registration succeeds.
 
 ---
 
