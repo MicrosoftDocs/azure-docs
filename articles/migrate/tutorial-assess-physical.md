@@ -88,6 +88,12 @@ Run an assessment as follows:
      - If you're using performance-based assessment, Azure Migrate suggests a value for you.
      - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
+     
+     **Component** | **Effective utilization** | **Add comfort factor (2.0)**
+     --- | --- | ---
+      Cores | 2  | 4
+      Memory | 8 GB | 16 GB
+
 1. In **Pricing**:
    - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. The assessment estimates the cost for that offer.
    - In **Currency**, select the billing currency for your account.
