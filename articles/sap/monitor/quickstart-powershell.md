@@ -34,7 +34,7 @@ In this quickstart, get started with Azure Monitor for SAP solutions by using th
   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
   ```
 
-- Create a virtual network (or use an existing one) for Azure Monitor for SAP solutions that has access to the source SAP system's virtual network.
+- Create or choose a virtual network for Azure Monitor for SAP solutions that has access to the source SAP system's virtual network.
 - Create a subnet with an address range of IPv4/25 or larger in the virtual network that's associated with Azure Monitor for SAP solutions, with subnet delegation assigned to **Microsoft.Web/serverFarms**.
 
    > [!div class="mx-imgBorder"]
@@ -66,7 +66,7 @@ $route_all = 'RouteAll'
 New-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -Location $location -AppLocation $location -ManagedResourceGroupName $managed_rg_name -MonitorSubnet $subnet_id -RoutingPreference $route_all
 ```
 
-To get the properties of an SAP monitor, use the [Get-AzWorkloadsMonitor](/powershell/module/az.workloads/get-azworkloadsmonitor) cmdlet. The following example gets properties of an SAP monitor for the specified subscription, resource group, and resource name:
+To get the properties of an SAP monitor, use the [Get-AzWorkloadsMonitor](/powershell/module/az.workloads/get-azworkloadsmonitor) cmdlet. The following example gets the properties of an SAP monitor for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 Get-AzWorkloadsMonitor -ResourceGroupName Contoso-AMS-RG -Name Contoso-AMS-Monitor
@@ -163,7 +163,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 
 ### Create a Microsoft SQL Server provider
 
-To create a SQL Server provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a SQL Server provider for the specified subscription, resource group, and resource name:
+To create a Microsoft SQL Server provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a SQL Server provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'

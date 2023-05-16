@@ -12,9 +12,9 @@ ms.author: sakhare
 
 # Enable TLS 1.2 or later in Azure Monitor for SAP solutions
 
-In article, learn about secure communication with TLS 1.2 or later in Azure Monitor for SAP solutions.
+In this article, learn about secure communication with TLS 1.2 or later in Azure Monitor for SAP solutions.
 
-Azure Monitor for SAP solutions resources and their associated manager resource group components are deployed within a virtual network in a subscription. Azure Functions is one component in a managed resource group. Azure Functions connects to an appropriate SAP system by using connection properties that you provide, pulls required telemetry data, and pushes that data to Log Analytics.  
+Azure Monitor for SAP solutions resources and their associated managed resource group components are deployed within a virtual network in a subscription. Azure Functions is one component in a managed resource group. Azure Functions connects to an appropriate SAP system by using connection properties that you provide, pulls required telemetry data, and pushes that data to Log Analytics.  
 
 Azure Monitor for SAP solutions provides encryption of monitoring telemetry data in transit by using approved cryptographic protocols and algorithms. Traffic between Azure Functions and SAP systems is encrypted with TLS 1.2 or later. By choosing this option, you can enable secure communication.
   
@@ -32,7 +32,7 @@ Certificates must be signed by a trusted root authority. Self-signed certificate
 
 When you deploy an Azure Monitor for SAP solutions resource, a managed resource group and its components are automatically deployed. Managed resource group components include Azure Functions, Log Analytics, Azure Key Vault, and a storage account. This storage account holds certificates that are needed to enable secure communication with TLS 1.2 or later.
 
-During the creation providers in Azure Monitor for SAP solutions, you choose to enable or disable secure communication. If you enable it, you can then choose which type of certificate you want to use.
+During the creation of providers in Azure Monitor for SAP solutions, you choose to enable or disable secure communication. If you enable it, you can then choose which type of certificate you want to use.
 
 If you select a root certificate, you need to [verify that it comes from a Microsoft-supported CA](/security/trusted-root/participants-list). You can then continue to create the provider instance. Subsequent data in transit is encrypted through this root certificate.
 

@@ -21,7 +21,7 @@ You can use Azure Monitor for SAP solutions with both [SAP on Azure virtual mach
 
 You can use Azure Monitor for SAP solutions to collect data from Azure infrastructure and databases in one central location. Then, you can visually correlate the data for faster troubleshooting.
 
-To monitor components of an SAP landscape (such as Azure VMs, high-availability (HA) clusters, SAP HANA databases, and SAP NetWeaver), add the corresponding [provider](providers.md). For more information, see [Quickstart: Deploy Azure Monitor for SAP solutions in Azure portal](quickstart-portal.md).
+To monitor components of an SAP landscape, add the corresponding [provider](providers.md). These components include Azure VMs, high-availability (HA) clusters, SAP HANA databases, and SAP NetWeaver. For more information, see [Quickstart: Deploy Azure Monitor for SAP solutions in Azure portal](quickstart-portal.md).
 
 Azure Monitor for SAP solutions uses the [Azure Monitor](../../azure-monitor/overview.md) capabilities of [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) and [workbooks](../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
 
@@ -100,7 +100,7 @@ Also see the [metrics specification](https://github.com/ClusterLabs/ha_cluster_e
 - Transactional RFC (**SM59**)
 - STMS change transport system metrics (**STMS**)
 
-## IBM Db2 data
+### IBM Db2 data
 
 - Database availability
 - Number of connections, logical reads, and physical reads
@@ -161,7 +161,7 @@ You can deploy Azure Monitor for SAP solutions and configure providers by using 
 
 ## What is the pricing?
 
-Azure Monitor for SAP solutions is a free product. There is no license fee.
+Azure Monitor for SAP solutions is a free product. There's no license fee.
 
 You're responsible for paying the cost of the underlying components in the managed resource group. You're also responsible for consumption costs associated with data use and retention. For more information, see:
 
