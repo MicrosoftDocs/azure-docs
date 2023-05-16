@@ -1,5 +1,5 @@
 ---
-title: Microsoft Threat Modeling Tool release 4/9/2019 
+title: Microsoft Threat Modeling Tool release 4/9/2019
 titleSuffix: Azure
 description: Documenting the release notes for the threat modeling tool release 7.1.60408.1.
 author: jegeib
@@ -41,7 +41,7 @@ All support links within the tool have been updated to direct users to [tmtextsu
 - Supported Operating Systems
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
 - .NET Version Required
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
+  - [.NET Framework 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool as well as templates.
 

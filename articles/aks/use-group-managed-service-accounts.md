@@ -77,7 +77,7 @@ To use GMSA with your AKS cluster, use the *enable-windows-gmsa*, *gmsa-dns-serv
 
 > [!NOTE]
 > When creating a cluster with Windows Server node pools, you need to specify the administrator credentials when creating the cluster. The following commands prompt you for a username and set it WINDOWS_USERNAME for use in a later command (remember that the commands in this article are entered into a BASH shell).
-> 
+>
 > ```azurecli
 > echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
 > ```
@@ -86,7 +86,7 @@ Use `az aks create` to create an AKS cluster then `az aks nodepool add` to add a
 
 > [!NOTE]
 > If you are using a custom vnet, you also need to specify the id of the vnet using *vnet-subnet-id* and may need to also add *docker-bridge-address*, *dns-service-ip*, and *service-cidr* depending on your configuration.
-> 
+>
 > If you created your own identity for the kubelet identity, use the *assign-kubelet-identity* parameter to specify your identity.
 
 ```azurecli
@@ -110,7 +110,7 @@ az aks nodepool add \
     --cluster-name myAKS \
     --os-type Windows \
     --name npwin \
-    --node-count 1    
+    --node-count 1
 ```
 
 You can also enable GMSA on existing clusters that already have Windows Server nodes and managed identities enabled using `az aks update`. For example:
@@ -237,7 +237,7 @@ data:
    # Add required Windows features, since they are not installed by default.
    Install-WindowsFeature "Web-Windows-Auth", "Web-Asp-Net45"
 
-   # Create simple ASP.Net page.
+   # Create simple ASP.NET page.
    New-Item -Force -ItemType Directory -Path 'C:\inetpub\wwwroot\app'
    Set-Content -Path 'C:\inetpub\wwwroot\app\default.aspx' -Value 'Authenticated as <B><%=User.Identity.Name%></B>, Type of Authentication: <B><%=User.Identity.AuthenticationType%></B>'
 

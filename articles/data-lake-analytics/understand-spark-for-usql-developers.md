@@ -12,7 +12,7 @@ ms.date: 01/20/2023
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
-Microsoft supports several Analytics services such as [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure HDInsight](../hdinsight/hdinsight-overview.md) and Azure Data Lake Analytics. We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines. To help U-SQL developers understand Apache Spark, and how you might transform your U-SQL scripts to Apache Spark, we've created this guidance.
+Microsoft supports several Analytics services such as [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), [Azure HDInsight](../hdinsight/hdinsight-overview.md), and Azure Data Lake Analytics. We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines. To help U-SQL developers understand Apache Spark, and how you might transform your U-SQL scripts to Apache Spark, we've created this guidance.
 
 It includes the steps you can take, and several alternatives.
 
@@ -35,7 +35,7 @@ It includes the steps you can take, and several alternatives.
       This means you're going to translate your U-SQL scripts to Spark. For more information, see [Understand Spark data formats](understand-spark-data-formats.md)
 
 > [!CAUTION]
-> Both [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) are cluster services and not serverless jobs like Azure Data Lake Analytics. You will have to consider how to provision the clusters to get the appropriate cost/performance ratio and how to manage their lifetime to minimize your costs. These services are have different performance characteristics with user code written in .NET, so you will have to either write wrappers or rewrite your code in a supported language. For more information, see [Understand Spark data formats](understand-spark-data-formats.md), [Understand Apache Spark code concepts for U-SQL developers](understand-spark-code-concepts.md), [.Net for Apache Spark](https://dotnet.microsoft.com/apps/data/spark)
+> Both [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) are cluster services and not serverless jobs like Azure Data Lake Analytics. You will have to consider how to provision the clusters to get the appropriate cost/performance ratio and how to manage their lifetime to minimize your costs. These services are have different performance characteristics with user code written in .NET, so you will have to either write wrappers or rewrite your code in a supported language. For more information, see [Understand Spark data formats](understand-spark-data-formats.md), [Understand Apache Spark code concepts for U-SQL developers](understand-spark-code-concepts.md), [.NET for Apache Spark](https://dotnet.microsoft.com/apps/data/spark)
 
 ## Next steps
 

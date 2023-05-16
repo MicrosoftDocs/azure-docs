@@ -1,6 +1,6 @@
 ---
 title: What's new on the Data Science Virtual Machine
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
 author: jesscioffi
 ms.service: data-science-vm
@@ -105,7 +105,7 @@ Version `22.09.19`
 
 Main changes:
 
-- `.Net Framework` to version `3.1.423`
+- `.NET Framework` to version `3.1.423`
 - `Azure Cli` to version `2.40.0`
 - `Intelijidea` to version `2022.2.2`
 - Microsoft Edge Browser to version `107.0.1379.1`
@@ -240,7 +240,7 @@ Main changes:
   - `azureml_py38_PT_TF`: additional `azureml_py38` environment, preinstalled with latest `TensorFlow` and `PyTorch`
   - `py38_default`: default system environment based on `Python 3.8`
   - We have removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
- 
+
 
 ## March 18, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
@@ -268,7 +268,7 @@ Main changes:
 Version: `21.12.03`
 
 Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
- 
+
 Users using Azure Resource Manager (ARM) template / virtual machine scale set to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
 
 ## December 3, 2021
@@ -283,7 +283,7 @@ Main changes:
 - Updated tensorflow to version 2.7.0
 - Fix for Azure Machine Learning SDK & AutoML environment
 - Windows Security update
-- Improvement of stability and minor bug fixes 
+- Improvement of stability and minor bug fixes
 
 
 
@@ -340,7 +340,7 @@ Main changes:
  - Changed VS Code to version 1.60.2
  - Fixed AutoML environment (azureml_py36_automl)
  - Fixed Azure Storage Explorer stability
- - Improvement of stability and minor bug fixes 
+ - Improvement of stability and minor bug fixes
 
 
 ## August 11, 2021
@@ -355,7 +355,7 @@ Main changes:
 - Update of Nvidia CuDNN to 8.1.0
 - Update of Jupyter Lab -to 3.0.16
 - Added MLFLow for experiment tracking
-- Improvement of stability and minor bug fixes 
+- Improvement of stability and minor bug fixes
 
 
 
@@ -369,7 +369,7 @@ Main changes:
 - Updated Azure CLI to 2.26.1
 - Updated Azure CLI Azure Machine Learning extension to 1.29.0
 - Update VS Code version 1.58.1
-- Improvement of stability and minor bug fixes 
+- Improvement of stability and minor bug fixes
 
 
 ## June 22, 2021
