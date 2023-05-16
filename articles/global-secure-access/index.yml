@@ -69,11 +69,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: App segment discovery
-            url: how-to-app-segment-discovery.md
+          - text: Audit logs
+            url: how-to-access-audit-logs.md
+          - text: Network traffic dashboard
+            url: concept-traffic-dashboard.md
           - text: Enriched Office 365 logs
             url: how-to-view-enriched-logs.md
-          - text: Network logging
-            url: how-to-network-logging.md
-          - text: Admin audit logging
-            url: how-to-access-audit-logs.md

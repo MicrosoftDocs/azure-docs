@@ -53,4 +53,4 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 - Monitor activity in real-time with Microsoft Sentinel.
 
 ## Next steps
-- [Manage admin access](how-to-manage-admin-access.md)
+

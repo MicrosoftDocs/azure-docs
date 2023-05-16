@@ -131,4 +131,4 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Update branch location](how-to-edit-branch-office-location.md)
+

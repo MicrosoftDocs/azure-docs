@@ -64,5 +64,5 @@ On our CPE device (simulated by local network gateway in our config), we have ad
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Create applications](how-to-create-applications.md)
+
 

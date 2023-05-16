@@ -26,7 +26,7 @@ Source IP restoration allows services to see the real source IP address, these s
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](/azure/active-directory/privileged-identity-management/how-to-manage-admin-access#global-secure-access-administrator-role)
    * Conditional Access Administrator or Security Administrator
-* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-create-branch-office-location.md).
+* A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-manage-branch-locations.md).
 
 ## Enable Global Secure Access signaling for Conditional Access
 
