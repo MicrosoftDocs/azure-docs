@@ -29,9 +29,9 @@ Before you begin, verify that:
 
 ## Set up the solution
 
-### Collect the environment URL from your D365 F&O cloud environment
+### Collect the environment URL from your Finance and Operations cloud environment
 
-1. Open your Dynamics 365 project in [LCS](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
+1. Open your Dynamics 365 project in [Microsoft Dynamics Lifecycle Services (LCS)](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
 1. In the **Environment version information** section, make sure that you're using application release version 10.0.33 or above. 
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information.":::
@@ -64,12 +64,12 @@ Before you begin, verify that:
 1. In the search bar, type *Dynamics 365 F&O*, and select **Dynamics 365 F&O (Using Azure Function)**. 
 1. Select **Open connector page**.
 
-## Deploy the F&O Data Connector 
+## Deploy the data connector 
 
-1. In the connector page, make sure that you meet the required prerequisites and follow the configuration steps in the UI. During this process, you: 
+In the connector page, make sure that you meet the required prerequisites and follow the configuration steps in the UI. During this process, you: 
 
     - Deploy the ARM template (Function App). 
-    - Create a new security role in Finance and Oerations and grant permissions to the Function App's managed identity. 
+    - Create a new security role in Finance and Operations and grant permissions to the Function App's managed identity. 
 
 ### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables 
 
@@ -100,7 +100,7 @@ To verify that log ingestion is working, you try to enable the **F&O – Bank ac
 1. To enable the **F&O – Bank account number changed** analytics rule, follow these [guidelines](../sentinel-solutions-deploy.md#analytics-rule).
 1. To trigger a detection, change the bank account number:
     1. Select **Modules** > **General ledger** > **ledger setup** > **ledger**.
-    1. Under the account structures, select **Add**, and and select any of the account structures (for example, **Manufacturing B/S**). 
+    1. Under the account structures, select **Add**, and select any of the account structures (for example, **Manufacturing B/S**). 
     1. In the dialog, select **Yes**.
     1. Select **workspace** > **bank management** and select all bank accounts. 
     1. In the new record, under **bank account**, add any name.
@@ -116,7 +116,7 @@ To verify that log ingestion is working, you try to enable the **F&O – Bank ac
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png" alt-text="Screenshot of querying the query_FinanceOperationsActivity_CL_table to view the raw logs in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png"::: 
 
-1. Repeat this procedure (steps 1-5) to enable the rest of the analytics rules provided with the solution.
+1. Repeat this procedure (steps 1-5) to enable the rest of the [analytics rules provided with the solution](dynamics-365-finance-operations-security-content#built-in-analytics-rules.md).
 
 ## Next steps
 
