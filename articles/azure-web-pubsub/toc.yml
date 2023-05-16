@@ -95,7 +95,15 @@
               href: howto-disable-local-auth.md
         - name: Custom domain
           href: howto-custom-domain.md
-    - name: Troubleshooting
+    name: Scale
+      items:
+        - name: Autoscale
+          href: howto-scale-autoscale.md
+    - name: Intergrate
+        href: howto-intergrate.md
+    - name: Manage
+        href: howto-manage.md
+    - name: Troubleshoot
       items:
         - name: Debug event handlers locally
           href: howto-local-debug-event-handler.md
@@ -103,12 +111,6 @@
           href: howto-troubleshoot-network-trace.md
         - name: Capture resource logs
           href: howto-troubleshoot-resource-logs.md
-    - name: Move across regions
-      href: howto-move-across-regions.md
-    - name: Scale
-      items:
-        - name: Autoscale
-          href: howto-scale-autoscale.md
 - name: Concepts
   expanded: false
   items:
@@ -143,25 +145,6 @@
       href: samples-app-scenarios.md
     - name: Platform and frameworks
       href: samples-platform-and-frameworks.md
-- name: Intergrate with other Azure services
-  expanded: false
-  items: 
-    - name: Overview
-      href: intergration-overview.md
-    - name: App Service
-      href: samples-persist messages.md
-    - name: Azure Functions
-      href: samples-persist messages.md
-    - name: Azure Container Apps
-      href: samples-persist messages.md
-    - name: Static Web Apps
-      href: samples-persist messages.md
-    - name: Azure Cosmos DB
-      href: samples-persist messages.md
-    - name: Application Gateway
-      href: samples-persist messages.md
-    - name: API Management
-      href: samples-persist messages.md
 - name: Reference
   items:
     - name: WebSocket subprotocols
