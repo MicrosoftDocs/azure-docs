@@ -64,7 +64,7 @@ In your template, you will need to enable the additional fields shown below for 
 ``` 
 
 > [!NOTE]
-> Use API Version `2022-07-01` or beyond to avail optimization benefits.
+> To enable VM optimization benefits, you must be using Azure Image Builder API Version `2022-07-01` or later.
 
   
 
