@@ -1,6 +1,6 @@
 ---
 title: Memo 22-09 other areas of Zero Trust
-description: Get guidance on understanding other Zero Trust requirements outlined in US government OMB memorandum 22-09.
+description: Understand other Zero Trust requirements in Office of Management and Budget memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -88,7 +88,7 @@ We recommend you set up an Azure function or an Azure logic app to use a system-
 
 Learn more: [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
-Another automation integration point is Azure AD PowerShell modules. Use PowerShell to perform common tasks or configurations in Azure AD, or incorporate into Azure functions or Azure Automation runbooks. 
+Another automation integration point is Microsoft Graph PowerShell modules. Use Microsoft Graph PowerShell to perform common tasks or configurations in Azure AD, or incorporate into Azure functions or Azure Automation runbooks. 
 
 ## Governance
 
