@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/16/2023
 
 
 ms.author: justinha
@@ -139,7 +139,7 @@ Admins can also configure parameters to better control how Microsoft Authenticat
 
 Global Administrators can also manage Microsoft Authenticator on a tenant-wide basis by using legacy MFA and SSPR policies. These policies allow Microsoft Authenticator to be enabled or disabled for all users in the tenant. There are no options to include or exclude anyone, or control how Microsoft Authenticator can be used for sign-in. 
 
-## Known Issues
+## Known issues
 
 The following known issues exist.
 
@@ -154,7 +154,11 @@ To resolve this scenario, follow these steps:
 
 Then the user can continue to use passwordless phone sign-in.
 
-### Federated Accounts
+### AuthenticatorAppSignInPolicy not supported
+
+The AuthenticatorAppSignInPolicy is a legacy policy that is not supported with Microsoft Authenticator. In order to enable your users for push notifications or passwordless phone sign-in with the Authenticator app, use the [Authentication Methods policy](concept-authentication-methods-manage.md). 
+
+### Federated accounts
 
 When a user has enabled any passwordless credential, the Azure AD login process stops using the login\_hint. Therefore the process no longer accelerates the user toward a federated login location.
 
