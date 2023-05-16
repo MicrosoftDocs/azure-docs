@@ -53,7 +53,7 @@ To save a legacy query, select **Save as query** from the **Save** dropdown in L
 
 ### Can't select the option to save to the default query pack
 
-This error can occur when the subscription containing the Log Analytics workspace where you're saving the query from has a default query pack.
+This error can occur when the subscription you try to save the query to doesn't have a default query pack.
 If you clear the option to **Save to the default query pack**, select a subscription that doesn't have a default query pack, and then select a subscription that has a default query pack, you won't be able to select this option.
 
 To resolve this error, close the **Save as query** dialog box, save the query again, and only select a subscription that has a default query pack.
