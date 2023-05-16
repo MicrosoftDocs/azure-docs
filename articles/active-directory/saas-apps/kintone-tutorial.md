@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. On the **Set up Kintone** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](./media/kintone-tutorial/loginurl.png "Login Url")
 
 ### Create an Azure AD test user
 
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	b. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	b. In the **Logout URL** textbox, paste "https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0".
 
 	c. Click **Browse** to upload your downloaded certificate file from Azure portal.
 
