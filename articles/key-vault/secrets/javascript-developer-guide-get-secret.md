@@ -36,7 +36,7 @@ To get a specific version of a secret in Azure Key Vault, use the [GetSecretOpti
 const name = 'mySecret';
 const options = {
     version: 'd9f2f96f120d4537ba7d82fecd913043'
-}
+};
  
 const { name, properties, value } = await client.getSecret(secretName, options);
 ```

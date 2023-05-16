@@ -69,12 +69,11 @@ To purge a secret in Azure Key Vault immediately, use the [beginDeleteSecret](/j
 
 The purge operation happens immediately and is irreversible. Consider creating a [backup](javascript-developer-guide-backup-secrets.md) of the secret before purging it. 
 
-```
+```javascript
 const deletedSecretName = 'myDeletedSecret';
 
 // Purge
 await client.purgeDeletedSecret(mySecretName);
-
 ```
 
 ## Next steps

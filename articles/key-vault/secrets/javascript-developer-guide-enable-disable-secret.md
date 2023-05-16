@@ -69,7 +69,7 @@ To disable an existing secret in Azure Key Vault, use the [updateSecretPropertie
 
 ```javascript
 const name = 'mySecret';
-const version= 'd9f2f96f120d4537ba7d82fecd913043'
+const version= 'd9f2f96f120d4537ba7d82fecd913043';
 
 // Success
 const properties = await client.updateSecretProperties(
