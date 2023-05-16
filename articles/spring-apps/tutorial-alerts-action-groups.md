@@ -34,13 +34,13 @@ The following procedures initialize both **Action Group** and **Alert** starting
 
 Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the left pane, then select **Manage actions**:
 
-![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
+:::image type="content" source="media/alerts-action-groups/action-1-a.png" alt-text="Screenshot of the Azure portal showing the Alerts page with Manage actions highlighted." lightbox="media/alerts-action-groups/action-1-a.png":::
 
 ## Set up Action Group
 
 To begin the procedure to initialize a new **Action Group**, select **Add action group**.
 
-![Screenshot portal Add action group](media/alerts-action-groups/action-1.png)
+:::image type="content" source="media/alerts-action-groups/action-1.png" alt-text="Screenshot of the Azure portal showing the Manage actions page with Add action group highlighted." lightbox="media/alerts-action-groups/action-1.png":::
 
 On the **Add action group** page:
 
@@ -58,7 +58,7 @@ On the **Add action group** page:
 
 1. Select **OK** in the **Add action group** dialog.
 
-   ![Screenshot Portal define action](media/alerts-action-groups/action-2.png)
+   :::image type="content" source="media/alerts-action-groups/action-2.png" alt-text="Screenshot of the Azure portal showing the Add action group page with the Action type pane open." lightbox="media/alerts-action-groups/action-2.png":::
 
 ## Set up Alert
 
@@ -66,13 +66,13 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Navigate back to the **Alerts** page and then select **Manage Alert Rules**.
 
-   ![Screenshot Portal define alert](media/alerts-action-groups/alerts-2.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-2.png" alt-text="Screenshot Portal define alert" lightbox="media/alerts-action-groups/alerts-2.png":::
 
 1. Select the **Resource** for the alert.
 
 1. Select **New alert rule**.
 
-   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-3.png" alt-text="Screenshot Portal new alert rule" lightbox="media/alerts-action-groups/alerts-3.png":::
 
 1. On the **Create rule** page, specify the **RESOURCE**.
 
@@ -80,11 +80,11 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select a condition. This example uses **System CPU Usage Percentage**.
 
-   ![Screenshot Portal new alert rule 2](media/alerts-action-groups/alerts-3-1.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-3-1.png" alt-text="Screenshot Portal new alert rule 2" lightbox="media/alerts-action-groups/alerts-3-1.png":::
 
 1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
 
-   ![Screenshot Portal new alert rule 3](media/alerts-action-groups/alerts-3-2.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-3-2.png" alt-text="Screenshot Portal new alert rule 3" lightbox="media/alerts-action-groups/alerts-3-2.png":::
 
 1. Select **Done**.
 
@@ -92,7 +92,7 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Under **ACTIONS**, select **Select action group**. From the ACTIONS pane, select the previously defined **Action Group**.
 
-   ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-3-3.png" alt-text="Screenshot Portal new alert rule 4" lightbox="media/alerts-action-groups/alerts-3-3.png":::
 
 1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
 
@@ -100,15 +100,15 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select **Create alert rule**.
 
-   ![Screenshot Portal new alert rule 5](media/alerts-action-groups/alerts-3-4.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-3-4.png" alt-text="Screenshot Portal new alert rule 5" lightbox="media/alerts-action-groups/alerts-3-4.png":::
 
 1. Verify that the new alert rule is enabled.
 
-   ![Screenshot Portal new alert rule 6](media/alerts-action-groups/alerts-4.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-4.png" alt-text="Screenshot Portal new alert rule 6" lightbox="media/alerts-action-groups/alerts-4.png":::
 
 A rule can also be created using the **Metrics** page:
 
-![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
+   :::image type="content" source="media/alerts-action-groups/alerts-5.png" alt-text="Screenshot Portal new alert rule 7" lightbox="media/alerts-action-groups/alerts-5.png":::
 
 ## Next steps
 

@@ -85,12 +85,11 @@ Verify using public endpoints or private test endpoints.
 
 Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
-![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-dashboard.png" alt-text="Hystrix dashboard":::
 
 Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This action displays the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
 
-![Hystrix stream](media/spring-cloud-circuit-breaker/hystrix-stream.png)
-Now you can experiment with the Circuit Breaker Dashboard.
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-stream.png" alt-text="Hystrix stream" lightbox="media/spring-cloud-circuit-breaker/hystrix-stream.png":::
 
 > [!NOTE]
 > In production, the Hystrix dashboard and metrics stream should not be exposed to the Internet.
@@ -99,7 +98,7 @@ Now you can experiment with the Circuit Breaker Dashboard.
 
 Hystrix metrics streams are also accessible from `test-endpoint`. As a backend service, we didn't assign a public end-point for `recommendation-service`, but we can show its metrics with test-endpoint at `https://primary:<KEY>@<SERVICE-NAME>.test.azuremicroservices.io/recommendation-service/default/actuator/hystrix.stream`
 
-![Hystrix test-endpoint stream](media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png)
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png" alt-text="Hystrix test-endpoint stream" lightbox="media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png":::
 
 As a web app, Hystrix dashboard should be working on `test-endpoint`. If it isn't working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/` to `/<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the `<base>` in the front-end files.
 

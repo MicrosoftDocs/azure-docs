@@ -145,7 +145,7 @@ The following table shows some examples of patterns for configuring your service
 | *test-config-server-app-1/dev*  | The pattern and repository URI matches a Spring boot application named `test-config-server-app-1` with a dev profile.  |
 | *test-config-server-app-2/prod* | The pattern and repository URI matches a Spring boot application named `test-config-server-app-2` with a prod profile. |
 
-:::image type="content" source="media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the 'Additional repositories' table highlighted.":::
+:::image type="content" source="media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the Additional repositories table highlighted.":::
 
 ## Attach your Config Server repository to Azure Spring Apps
 
