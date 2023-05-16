@@ -69,7 +69,6 @@ If you already have a project and you want to create an additional project, do t
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
 
-   Image with boarder: :::image type="Destination port range" source="media/destination-port-range.png" alt-text="Screenshot of destination port range.":::
    
 3. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
