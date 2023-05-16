@@ -40,16 +40,16 @@ You don't need to take any action to use availability zones in supported regions
 
 Device Provisioning Service stores customer data in the region where you deployed the service instance, and replicates data to a secondary region to support disaster recovery scenarios.
 
-DPS leverages [paired regions](../availability-zones/cross-region-replication-azure.md) to enable automatic failover. Microsoft-initiated failover is exercised by Microsoft in rare situations when an entire region goes down to failover all the DPS instances from the affected region to its corresponding paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
+By default, DPS leverages [cross-region replication](../availability-zones/cross-region-replication-azure.md) to enable automatic failover. Microsoft-initiated failover is exercised by Microsoft in rare situations when an entire region goes down to failover all the DPS instances from the affected region to its corresponding secondary region. Microsoft reserves the right to determine when this option will be exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
 
-Customers that have DPS deployed in Southeast Asia, East Asia, and Brazil South can opt-out of this feature.
+Customers that have DPS deployed in Southeast Asia, East Asia, and Brazil South can opt-out of automatic failover, in which case the customer data stays in the primary region and isn't replicated to a secondary region.
 
 ## Disable disaster recovery
 
-By default, DPS provides automatic failover by replicating data to the [paired region](../availability-zones/cross-region-replication-azure.md) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
+By default, DPS provides automatic failover by replicating data to a [secondary region](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
 
-* **Brazil South**; paired region, South Central US.
-* **Southeast Asia (Singapore)**; paired region, East Asia (Hong Kong).
+* **Brazil South**: paired region, South Central US.
+* **Southeast Asia (Singapore)**: paired region, East Asia (Hong Kong).
 
 To disable disaster recovery in supported regions, make sure that **Disaster recovery enabled** is unselected when you create your DPS instance:
 
