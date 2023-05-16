@@ -280,7 +280,7 @@
             - name: Resize node pools
               href: resize-node-pool.md
         - name: Use the Azure Linux container host for AKS
-          href: use-azurelinux.md
+          href: use-azure-linux.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true

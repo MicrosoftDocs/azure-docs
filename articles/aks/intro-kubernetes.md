@@ -88,7 +88,7 @@ For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
 The Azure Linux container host for AKS is an open-source Linux distribution created by Microsoft, and it’s available as a container host on Azure Kubernetes Service (AKS). The Azure Linux container host for AKS provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Azure Linux node pools in a new cluster, add Azure Linux node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Azure Linux nodes.
 
-For more information, see [Use the Azure Linux container host for AKS](use-azurelinux.md).
+For more information, see [Use the Azure Linux container host for AKS](use-azure-linux.md).
 
 ### Storage volume support
 

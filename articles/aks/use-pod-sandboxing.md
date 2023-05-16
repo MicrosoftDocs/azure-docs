@@ -304,7 +304,7 @@ kubectl delete pod pod-name
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [az-aks-install-cmd]: /cli/azure/aks#az-aks-install-cli
-[azurelinux-overview]: use-azurelinux.md
+[azurelinux-overview]: use-azure-linux.md
 [csi-storage-driver]: csi-storage-drivers.md
 [csi-secret-store driver]: csi-secrets-store-driver.md
 [az-aks-update]: /cli/azure/aks#az-aks-update
