@@ -417,6 +417,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-batch-pup",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "santiagxf/batch-pup",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
