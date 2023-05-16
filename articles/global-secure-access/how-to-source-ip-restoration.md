@@ -38,6 +38,8 @@ To enable the required setting to allow source IP restoration, an administrator 
 
 This functionality allows services like Microsoft Graph, Azure AD, SharePoint Online, and Exchange Online to see the actual source IP address.
 
+<!--Add screenshot of toggle here-->
+
 > [!CAUTION]
 > If your organization has active Conditional Access policies based on IP location checks, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first delete any corresponding Conditional Access policies. 
 
@@ -48,7 +50,8 @@ To see source IP restoration in action, administrators can take the following st
 1. Sign in to the **Azure portal** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Azure Active Directory** > **Users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
-   1. If source IP restoration is disabled, you will not see their actual IP address.
+   1. If source IP restoration is disabled, you won't see their actual IP address.
 
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 
+<!--Add screenshot of Sign-in logs here-->

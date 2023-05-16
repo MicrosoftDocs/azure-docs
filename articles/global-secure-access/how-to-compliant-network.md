@@ -51,6 +51,8 @@ To enable the required setting to allow the compliant network check, an administ
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
    1. Confirm you have a location **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
 
+<!--Add screenshot of toggle here-->
+
 > [!CAUTION]
 > If your organization has active Conditional Access policies based on compliant network check, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first delete any corresponding Conditional Access policies. 
 
@@ -87,6 +89,8 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources with an error message that says **You cannot access this right now**.
 
+<!--Add screenshot of error message here-->
+
 ## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
 
 The PM will provide more detail here
@@ -96,5 +100,7 @@ The PM will provide more detail here
 Verify the new named location was automatically created using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
 
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
+
+<!--Add screenshot of Graph Explorer here-->
 
 ## Next steps
