@@ -2,7 +2,7 @@
 title: Enhanced workload protection features in Defender for Servers
 description: Learn about the enhanced capabilities available in Defender for Servers, for VMs that are located in GCP, AWS and on-premises.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Enhanced workload protection features in Defender for Servers

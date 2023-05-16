@@ -99,8 +99,8 @@ Each SQL managed instance must have the following minimum resource requests and 
 
 |Service tier|General Purpose|Business Critical|
 |---|---|---|
-|CPU request|Minimum: 1<br/> Maximum: 24<br/> Default: 2|Minimum: 1<br/> Maximum: unlimited<br/> Default: 4|
-|CPU limit|Minimum: 1<br/> Maximum: 24<br/> Default: 2|Minimum: 1<br/> Maximum: unlimited<br/> Default: 4|
+|CPU request|Minimum: 1<br/> Maximum: 24<br/> Default: 2|Minimum: 3<br/> Maximum: unlimited<br/> Default: 4|
+|CPU limit|Minimum: 1<br/> Maximum: 24<br/> Default: 2|Minimum: 3<br/> Maximum: unlimited<br/> Default: 4|
 |Memory request|Minimum: `2Gi`<br/> Maximum: `128Gi`<br/> Default: `4Gi`|Minimum: `2Gi`<br/> Maximum: unlimited<br/> Default: `4Gi`|
 |Memory limit|Minimum: `2Gi`<br/> Maximum: `128Gi`<br/> Default: `4Gi`|Minimum: `2Gi`<br/> Maximum: unlimited<br/> Default: `4Gi`|
 

@@ -1,12 +1,10 @@
 ---
 title: KeyVaultCertificateSelector UI element
 description: Describes the Microsoft.KeyVault.KeyVaultCertificateSelector UI element for Azure portal.
-author: davidsmatlak
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.author: davidsmatlak
-
 ---
+
 # Microsoft.KeyVault.KeyVaultCertificateSelector UI element
 
 A control for selecting a key vault certificate.

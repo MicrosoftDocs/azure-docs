@@ -443,10 +443,6 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
-        - name: Messaging with Visual Studio Code
-          href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-        - name: Device management with Visual Studio Code
-          href: iot-hub-device-management-iot-toolkit.md
         - name: Device management with IoT extension for Azure CLI
           href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
         - name: Data visualization in a web app
@@ -524,6 +520,9 @@
     - name: REST APIs
       displayName: REST, /rest/api/iothub/
       href: /rest/api/iothub/
+    - name: Azure IoT Hub extension for Visual Studio Code
+      displayName: VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
+      href: reference-iot-hub-extension.md
     - name: Resource Manager template
       displayName: Microsoft.Devices, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
       href: /azure/templates/microsoft.devices/iothub-allversions
@@ -617,7 +616,7 @@
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Hub extension for Visual Studio Code
-      displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
+      displayName: VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       displayName: azure-iot-explorer, Plug and Play

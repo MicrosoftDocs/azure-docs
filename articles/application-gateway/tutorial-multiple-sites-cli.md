@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
@@ -22,7 +22,7 @@ In this article, you learn how to:
 * Create an application gateway
 * Create backend listeners
 * Create routing rules
-* Create virtual machine scale sets with the backend pools
+* Create Virtual Machine Scale Sets with the backend pools
 * Create a CNAME record in your domain
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
@@ -195,9 +195,9 @@ az network application-gateway rule create \
 
 ```
 
-## Create virtual machine scale sets
+## Create Virtual Machine Scale Sets
 
-In this example, you create three virtual machine scale sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
+In this example, you create three Virtual Machine Scale Sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
