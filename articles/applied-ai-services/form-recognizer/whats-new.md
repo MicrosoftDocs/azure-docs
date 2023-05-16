@@ -28,7 +28,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## May 2023
 
-**Introducing updated documentation for Build 2023**
+**Introducing refreshed documentation for Build 2023**
 
 * [🆕 Form Recognizer Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has enhanced navigation, structured access points, and enriched images.
 
