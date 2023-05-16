@@ -722,7 +722,7 @@ def hts_train_evaluate_factory(
     train_data_input,
     test_data_input,
     automl_config_input,
-    max_concurrency_per_instance=8,
+    max_concurrency_per_instance=4,
     prs_step_timeout=3700,
     instance_count=4,
     forecast_mode="rolling",
