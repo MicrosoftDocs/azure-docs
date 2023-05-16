@@ -55,24 +55,17 @@ landingContent:
             url: how-to-configure-traffic-forwarding.md
           - text: Install the Windows client
             url: how-to-install-windows-client.md
-          - text: Create branch Office locations
-            url: how-to-create-branch-office-location.md
+          - text: Manage branch locations
+            url: how-to-manage-branch-locations.md
 
-  - title: Create
+  - title: Conditional Access
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create applications
-            url: how-to-create-applications.md
-          - text: Create conditional access policies
-            url: how-to-create-conditional-access-policies.md
-
-  - title: Secure
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Session management policies
-            url: how-to-session-management-policies.md
+          - text: Target resource
+            url: how-to-target-resource.md
+          - text: Source IP restoration
+            url: how-to-source-ip-restoration.md
 
   - title: Monitor
     linkLists:

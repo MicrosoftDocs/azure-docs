@@ -4,99 +4,65 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Security Service Edge (SSE)?
-    href: overview-what-is-security-service-edge.md
   - name: What is Global Secure Access?
     href: overview-what-is-global-secure-access.md
   - name: What is Microsoft Entra Private Access?
     href: overview-what-is-private-access.md
   - name: What is Microsoft Entra Internet Access?
     href: overview-what-is-internet-access.md
-- name: Tutorials
-  expanded: false
-  items:
-  - name: Configure end-to-end Microsoft Entra Private Access
-    href: tutorial-configure-private-access.md
-  - name: Configure end-to-end Microsoft Entra Internet Access
-    href: tutorial-configure-internet-access.md
-- name: Concepts
+- name: Get started
   expanded: true
   items:
-  - name: Understand branch connectivity
-    href: concept-understand-branch-connectivity.md
+    - name: Configure traffic forwarding
+      href: how-to-configure-traffic-forwarding.md
+    - name: Manage branch office location
+      href: how-to-manage-branch-locations.md
+    - name: Define quick access ranges
+      href: how-to-define-quick-access-ranges.md
+    - name: Create Conditional Access policies
+      href: how-to-create-conditional-access-policies.md
+    - name: Install Windows client
+      href: how-to-install-windows-client.md
 - name: How-to guides
   expanded: true
   items:
-  - name: Get Started with Global Secure Access
-    href: how-to-get-started-with-global-secure-access.md
-  - name: Manage admin access
-    href: how-to-manage-admin-access.md
-  - name: Connect
+  - name: Branches
     expanded: false
     items:
-    - name: Define quick access ranges
-      href: how-to-define-quick-access-ranges.md
-    - name: Deploy on premises connectors
-      href: how-to-deploy-on-premises-connectors.md
-    - name: Configure traffic forwarding
-      href: how-to-configure-traffic-forwarding.md
-    - name: Configure devices
-      expanded: false
-      items:
-      - name: Install Windows client
-        href: how-to-install-windows-client.md
-    - name: Configure branch office locations
-      expanded: false
-      items:
-      - name: List all branch office locations
-        href: how-to-list-branch-locations.md
-      - name: Create branch office location
-        href: how-to-create-branch-office-location.md
-      - name: Create device link on branch office location
-        href: how-to-create-device-link-on-branch-location.md
+      - name: Understand branch connectivity
+        href: concept-understand-branch-connectivity.md
       - name: Assign traffic profile to branch office location
         href: how-to-assign-traffic-profile-to-branch-office-location.md
-      - name: Edit branch office location
-        href: how-to-edit-branch-office-location.md
+      - name: List branch locations
+        href: how-to-list-branch-locations.md
+      - name: Manage branch location device links
+        href: how-manage-branch-location-device-links.md
       - name: Test branch connectivity
-        href: how-to-test-branch-connectivity.md
-      - name: Delete device link or branch office location
-        href: how-to-delete-device-link-or-branch-location.md
-  - name: Create
+        href: how-to-test-branch-connectivity.md 
+  - name: Conditional Access
     expanded: false
     items:
-    - name: Create applications
-      href: how-to-create-applications.md
-    - name: Create conditional access policies
-      href: how-to-create-conditional-access-policies.md
-  - name: Secure
+      - name: Target resource
+        href: how-to-target-resource.md
+      - name: Source IP restoration
+        href: how-to-source-ip-restoration.md
+      - name: Compliant networks
+        href: how-to-compliant-network.md
+  - name: NEED A NAME
     expanded: false
     items:
-    - name: Session management policies
-      href: how-to-session-management-policies.md
-  - name: Monitor
+    - name: Deploy on premises connectors
+      href: how-to-deploy-on-premises-connectors.md
+    - name: Universal tenant restrictions
+      href: how-to-universal-tenant-restrictions.md
+-   name: Monitor
     expanded: false
     items:
-    - name: App segment discovery
-      href: how-to-app-segment-discovery.md
+    - name: Global Secure Access logs and monitoring
+      href: concept-global-secure-access-logs-monitoring.md
+    - name: Access audit logs
+      href: how-to-access-audit-logs.md
+    - name: Network traffic dashboard
+      href: concept-traffic-dashboard.md
     - name: Enriched Office 365 logs
       href: how-to-view-enriched-logs.md
-    - name: Network logging
-      href: how-to-network-logging.md
-    - name: Admin audit logging
-      href: how-to-access-audit-logs.md
-- name: Reference
-  expanded: false
-  items:
-  - name: Troubleshoot Global Secure Access
-    href: /troubleshoot
-- name: Resources
-  expanded: false
-  items:
-  - name: Global Secure Access FAQ
-    href: resource-faq.yml
-  - name: Training videos
-    expanded: false
-    items:
-    - name: Get started with Global Secure Access training videos
-      href: resource-network-access-training-videos.md
