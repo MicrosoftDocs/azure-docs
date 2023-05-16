@@ -15,7 +15,7 @@ To deploy your model from within the Language Studio:
 
 Select **Deploying a model** from the left side menu.
 
-Click on Add deployment to start a new deployment job.
+Click on **Add deployment** to start a new deployment job.
 
 A screenshot showing the deployment button
 
