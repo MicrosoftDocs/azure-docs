@@ -2,7 +2,7 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 05/24/2023
 ms.custom: devx-track-azurepowershell
 ms.service: backup
 author: jyothisuri
@@ -51,19 +51,19 @@ In all the scenarios (with or without private endpoints), both the workload exte
 
 In addition to these connections when the workload extension or MARS agent is installed for recovery services vault *without private endpoints*, connectivity to the following domains is also required:
 
-| Service | Domain names |
-| --- | --- |
-| Azure Backup | `*.backup.windowsazure.com` |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` <br><br> `*.storage.azure.net` |
-| Azure Active Directory (Azure AD) | [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). |
+| Service | Domain names | Port |
+| --- | --- | --- |
+| Azure Backup | `*.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` <br><br> `*.storage.azure.net` | 443 |
+| Azure Active Directory (Azure AD) | `*.australiacentral.r.login.microsoft.com` <br><br>  [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 When the workload extension or MARS agent is installed for Recovery Services vault with private endpoint, the following endpoints are hit:
 
-| Service | Domain name |
-| --- | --- |
-| Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net`   <br><br> `*.storage.azure.net` | 
-| Azure Active Directory (Azure AD) | [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). |
+| Service | Domain name | Port |
+| --- | --- | --- |
+| Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net`   <br><br> `*.storage.azure.net` | 443 | 
+| Azure Active Directory (Azure AD) |`*.australiacentral.r.login.microsoft.com` <br><br> [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 >[!Note]
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
