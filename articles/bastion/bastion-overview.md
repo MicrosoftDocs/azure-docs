@@ -15,7 +15,9 @@ ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 
 Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
 
-:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
+:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
+
+:::image type="content" source="./media/bastion-overview/architecture-highres.png" alt-text="Diagram showing Azure Bastion architecture1." lightbox="./media/bastion-overview/architecture-highres.png":::
 
 ## <a name="key"></a>Key benefits
 
