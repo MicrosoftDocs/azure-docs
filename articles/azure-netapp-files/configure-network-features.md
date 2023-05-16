@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 05/16/2023
 ms.custom: references_regions
 ms.author: anfdocs
 ---
@@ -77,28 +77,25 @@ This section shows you how to set the network features option when you create a 
 
 ## Edit network features option for existing volumes
 
-You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same network sibling set. This functionality currently doesn't support SDK.
+You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible.
 
 You can also revert the option from *Standard* back to *Basic* network features, but considerations apply and require careful planning. For example, you might need to change configurations for Network Security Groups (NSGs), user-defined routes (UDRs), and IP limits if you revert. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features.
 
+This feature currently doesn't support SDK.
+
+> [!IMPORTANT]
+> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. This feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
+> 
+> FeatureName                         ProviderName     RegistrationState   
+> -----------                         ------------     -----------------   
+> ANFBasicToStdNetworkFeaturesUpgrade Microsoft.NetApp Registered
+> ```
+
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
-
-1. The option to edit network features is currently in preview. If you are using this option for the first time, you must register it:  
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFBasicToStdNetworkFeaturesUpgrade 
-    ```
-
-    Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName  ANFBasicToStdNetworkFeaturesUpgrade 
-    ```
-
-    The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-    
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 1. Navigate to the volume that you want to change the network features option. 
 1. Select **Change network features**. 
