@@ -58,7 +58,7 @@ When creating a Conditional Access policy for the M365 profile, use the followin
 
 ### Assignments
 
-Traffic profiles can be assigned to branches, so you can customize what profiles are applied to what locations. You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-create-branch-office-location.md).
+Traffic profiles can be assigned to branches, so you can customize what profiles are applied to what locations. You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-manage-branch-locations.md).
 
 **To assign a branch to the M365 profile**:
 

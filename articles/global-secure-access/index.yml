@@ -7,12 +7,10 @@ metadata:
    title: Global Secure Access documentation
    description: Global Secure Access provides secure network access for both public Internet and private clouds.
    ms.service: network-access
-   ms.subservice: app-proxy
-   ms.workload: identity
    ms.topic: landing-page
    ms.date: 03/22/2023
-   author: kenwith
-   ms.author: kenwith
+   author: shlipsey3
+   ms.author: sarahlipsey
    manager: amycolannino
 
 landingContent:
@@ -55,34 +53,25 @@ landingContent:
             url: how-to-configure-traffic-forwarding.md
           - text: Install the Windows client
             url: how-to-install-windows-client.md
-          - text: Create branch Office locations
-            url: how-to-create-branch-office-location.md
+          - text: Manage branch locations
+            url: how-to-manage-branch-locations.md
 
-  - title: Create
+  - title: Conditional Access
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create applications
-            url: how-to-create-applications.md
-          - text: Create conditional access policies
-            url: how-to-create-conditional-access-policies.md
-
-  - title: Secure
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Session management policies
-            url: how-to-session-management-policies.md
+          - text: Target resource
+            url: how-to-target-resource.md
+          - text: Source IP restoration
+            url: how-to-source-ip-restoration.md
 
   - title: Monitor
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: App segment discovery
-            url: how-to-app-segment-discovery.md
+          - text: Audit logs
+            url: how-to-access-audit-logs.md
+          - text: Network traffic dashboard
+            url: concept-traffic-dashboard.md
           - text: Enriched Office 365 logs
             url: how-to-view-enriched-logs.md
-          - text: Network logging
-            url: how-to-network-logging.md
-          - text: Admin audit logging
-            url: how-to-access-audit-logs.md

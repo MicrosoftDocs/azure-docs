@@ -55,4 +55,4 @@ List all branches in your tenant using PowerShell.
     ```
 
 ## Next steps
-- [Create branch office location](how-to-create-branch-office-location.md)
+- [Create branch office location](how-to-manage-branch-locations.md)
