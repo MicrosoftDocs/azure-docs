@@ -23,7 +23,7 @@ The Azure Connected Machine agent package contains several logical components bu
 
   * An Azure Policy assignment that targets disconnected machines is unaffected.
   * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
-  * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
+  * Assignments are deleted after 14 days, and aren't reassigned to the machine after the 14-day period.
 
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
@@ -101,9 +101,9 @@ Installing the Connected Machine agent for Window applies the following system-w
 
 ### Linux agent installation details
 
-The preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configurs the agent.
+The preferred package format for the distribution (`.rpm` or `.deb`) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configurs the agent.
 
-Installing, upgrading, and removing the Connected Machine agent is not required after server restart.
+Installing, upgrading, and removing the Connected Machine agent isn't required after server restart.
 
 Installing the Connected Machine agent for Linux applies the following system-wide configuration changes.
 
@@ -154,7 +154,7 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
 * The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
 * The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. The following exceptions apply:
 
-  * If the extension installs background services that run independent of Azure Arc, such as the Microsoft Monitoring Agent, those services are not subject to the resource governance constraints listed above.
+  * If the extension installs background services that run independent of Azure Arc, such as the Microsoft Monitoring Agent, those services aren't subject to the resource governance constraints listed above.
   * The Log Analytics agent and Azure Monitor Agent can use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
   * The Azure Monitor Agent can use up to 30% of the CPU during normal operations.
   * The Linux OS Update Extension (used by Azure Update Management Center) can use up to 30% of the CPU to patch the server.
