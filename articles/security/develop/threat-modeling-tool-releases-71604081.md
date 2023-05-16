@@ -11,7 +11,7 @@ ms.date: 04/03/2019
 
 # Threat Modeling Tool update release 7.1.60408.1 - 4/9/2019
 
-Version 7.1.60408.1 of the Microsoft Threat Modeling Tool (TMT) was released on April 9 2019 and contains the following changes:
+Version 7.1.60408.1 of the Microsoft Threat Modeling Tool (TMT) was released on April 9, 2019 and contains the following changes:
 
 - New Stencils for Azure Key Vault and Azure Traffic Manager
 - TMT version number is now shown on the home screen
@@ -43,7 +43,7 @@ All support links within the tool have been updated to direct users to [tmtextsu
 - .NET Version Required
   - [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework) or later
 - Additional Requirements
-  - An Internet connection is required to receive updates to the tool as well as templates.
+  - An Internet connection is required to receive updates to the tool and templates.
 
 ## Documentation and feedback
 
