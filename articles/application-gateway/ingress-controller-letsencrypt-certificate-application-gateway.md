@@ -118,17 +118,17 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         kubernetes.io/ingress.class: azure/application-gateway
         cert-manager.io/cluster-issuer: letsencrypt-staging
     spec:
-    tls:
-    - hosts:
+      tls:
+      - hosts:
         - <PLACEHOLDERS.COM>
         secretName: guestbook-secret-name
-    rules:
-    - host: <PLACEHOLDERS.COM>
-        http:
-        paths:
-        - backend:
-            serviceName: frontend
-            servicePort: 80
+      rules:
+      - host: <PLACEHOLDERS.COM>
+          http:
+          paths:
+          - backend:
+              serviceName: frontend
+              servicePort: 80
     EOF
     ```
 
