@@ -37,7 +37,7 @@ items:
     href: how-to-universal-tenant-restrictions
   - name: Enable compliant network check
     href: how-to-compliant-network.md
-  - name: Conditional Access target resource
+  - name: Target traffic profiles with Conditional Access
     href: how-to-target-resource.md
   - name: Connect
     expanded: false
