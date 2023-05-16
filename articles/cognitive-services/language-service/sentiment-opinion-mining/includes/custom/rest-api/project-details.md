@@ -12,7 +12,7 @@ ms.author: aahi
 ---
 
 
-To get custom text classification project details, submit a **GET** request using the following URL and headers. Replace the placeholder values with your own values.   
+To get Custom sentiment analysis project details, submit a **GET** request using the following URL and headers. Replace the placeholder values with your own values.   
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}?api-version={API-VERSION}

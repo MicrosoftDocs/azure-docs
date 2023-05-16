@@ -19,15 +19,15 @@ Use this article to learn how to set up the requirements for starting with Custo
 
 ## Prerequisites
 
-Before you start using Custom sentiment analysis, you will need:
+Before you start using Custom sentiment analysis, you'll need:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 ## Create a Language resource 
 
-Before you start using Custom sentiment analysis, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with Custom sentiment analysis.
+Before you start using Custom sentiment analysis, you'll need an Azure Language resource. It's recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions preconfigured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with Custom sentiment analysis.
 
-You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to classify text.
+You also need an Azure storage account where you'll upload your `.txt` documents that will be used to train a model to classify text.
 
 > [!NOTE]
 >  * You need to have an **owner** role assigned on the resource group to create a Language resource.

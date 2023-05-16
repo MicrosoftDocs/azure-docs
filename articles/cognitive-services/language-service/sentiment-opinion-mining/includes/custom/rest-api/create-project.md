@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 04/14/2023
 ms.author: aahi
 ---
-To start creating a custom Text Analytics for health model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.
+To start creating a Custom sentiment analysis model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.
 
 > [!NOTE]
 > The project name is case-sensitive for all operations.
