@@ -26,7 +26,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](quickstart-go.md)
 >
 
-This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x and 3.3.x (v3.3x and higher is required for AAD authentication).
+This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x and 3.3.x.
 
 Throughout this quick tutorial, we rely on [Azure Databricks Runtime 12.2 with Spark 3.3.2](/azure/databricks/release-notes/runtime/12.2) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
 
