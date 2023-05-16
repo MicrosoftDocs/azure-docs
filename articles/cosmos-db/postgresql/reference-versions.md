@@ -24,31 +24,31 @@ versions](https://www.postgresql.org/docs/release/):
 ### PostgreSQL version 15
 
 The current minor release is 15.3. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/15.2/) to
+documentation](https://www.postgresql.org/docs/release/15.3/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 14
 
 The current minor release is 14.8. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/14.7/) to
+documentation](https://www.postgresql.org/docs/release/14.8/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
 The current minor release is 13.11. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/13.10/) to
+documentation](https://www.postgresql.org/docs/release/13.11/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 12
 
 The current minor release is 12.15. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/12.14/) to
+documentation](https://www.postgresql.org/docs/release/12.15/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11
 
 The current minor release is 11.20. Refer to the [PostgreSQL
-documentation](https://www.postgresql.org/docs/release/11.19/) to
+documentation](https://www.postgresql.org/docs/release/11.20/) to
 learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 10 and older
@@ -67,13 +67,12 @@ _major_ version upgrade.
 
 ## PostgreSQL version support and retirement
 
-Each major version of PostgreSQL will be supported by Azure Cosmos DB for
-PostgreSQL from the date on which Azure begins supporting the version until the
-version is retired by the PostgreSQL community. Refer to [PostgreSQL community
+Azure Cosmos DB for PostgreSQL supports each major version of PostgreSQL from the date on which Azure begins supporting the version until the PostgreSQL community retires that 
+major PostgreSQL version. Refer to [PostgreSQL community
 versioning policy](https://www.postgresql.org/support/versioning/).
 
-Azure Cosmos DB for PostgreSQL automatically performs minor version upgrades to
-the Azure preferred PostgreSQL version as part of periodic maintenance.
+Azure Cosmos DB for PostgreSQL automatically performs minor version updates to
+the latest PostgreSQL version available on Azure as part of periodic maintenance.
 
 ### Major version retirement policy
 
