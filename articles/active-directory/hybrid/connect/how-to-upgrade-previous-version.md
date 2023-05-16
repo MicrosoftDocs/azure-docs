@@ -104,7 +104,7 @@ To copy custom synchronization rules to another server, do the following:
 1. Open **Synchronization Rules Editor** on your active server.
 2. Select a custom rule. Click **Export**. This brings up a Notepad window. Save the temporary file with a PS1 extension. This makes it a PowerShell script. Copy the PS1 file to the staging server.
 
-   ![Screenshot showing the syncronization rules editor export window.](./media/how-to-upgrade-previous-version/exportrule.png)
+   ![Screenshot showing the synchronization rules editor export window.](./media/how-to-upgrade-previous-version/exportrule.png)
 
 3. The Connector GUID (globally-unique identifier) is different on the staging server, and you must change it. To get the GUID, start **Synchronization Rules Editor**, select one of the out-of-box rules that represent the same connected system, and click **Export**. Replace the GUID in your PS1 file with the GUID from the staging server.
 4. In a PowerShell prompt, run the PS1 file. This creates the custom synchronization rule on the staging server.
