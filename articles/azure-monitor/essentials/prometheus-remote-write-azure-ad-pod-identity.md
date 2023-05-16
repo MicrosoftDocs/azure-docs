@@ -26,7 +26,7 @@ To configure remote write for Azure Monitor managed service for Prometheus using
     az role assignment create --role "Virtual Machine Contributor" --assignee <managed identity clientID> --scope <Node ResourceGroup Id> 
     ```	 
 
-    The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>. You can locate it from the Resource groups menu in the Azure portal.
+    The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name MC_\<AKS-RESOURCE-GROUP\>_\<AKS-CLUSTER-NAME\>_\<REGION\>. You can locate it from the Resource groups menu in the Azure portal.
 
 1. Grant user-assigned managed identity `Monitoring Metrics Publisher` roles.
 
