@@ -18,11 +18,13 @@ With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virt
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Configure Azure Virtual Desktop for Azure Stack HCI
+There are two ways to deploy an Azure Virtual Desktop environment with session hosts on Azure Stack HCI:
 
-The following guides offer two approaches to deploy a complete Azure Virtual Desktop solution with Session Hosts on Azure Stack HCI. Both options deploy the Azure Virtual Desktop infrastructure in Azure. The **Manual Session Host Deployment** option then adds pre-deployed Virtual Machines in your Azure Stack HCI cluster to the Host Pool. The **Automated Session Host Deployment** option instead uses the Arc VM Management Resource Bridge to deploy new Azure Stack HCI Virtual Machines from an existing image and add them to new Host Pool. 
+- **Manual deployment**: you create virtual machines on your Azure Stack HCI cluster, then adds them to a new host pool.
 
-# [Manual Session Host Deployment](#tab/manual-deployment)
+- **Automated deployment**: virtual machines are created by the Arc VM Management Resource Bridge from an existing image, then adds them to a new host pool.
+
+# [Manual deployment](#tab/manual-deployment)
 
 ## Prerequisites
 
@@ -273,7 +275,7 @@ For an overview and pricing information, see [Azure Virtual Desktop for Azure St
 
 To find answers to frequently asked questions, see [FAQ](azure-stack-hci-faq.yml).
 
-# [Automated Session Host Deployment](#tab/automated-deployment)
+# [Automated deployment](#tab/automated-deployment)
 
 ## Prerequisites
 
