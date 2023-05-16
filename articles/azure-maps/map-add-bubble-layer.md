@@ -49,7 +49,7 @@ map.events.add("load", function () {
 });
 ```
 
-:::image type="content" source="./media/map-add-bubble-layer/add-a-bubble-layer.png" alt-text="Screenshot showing a map displaying six blue circles, or points in the specified locations.":::
+:::image type="content" source="./media/map-add-bubble-layer/add-a-bubble-layer.png" alt-text="Screenshot showing a map displaying five blue circles, or points in the specified locations.":::
 
 <!---------------------------------------------------------------------
 <br/>
@@ -69,10 +69,10 @@ This code shows you how to use a bubble layer to render a point on the map and a
     center: [-122.336641, 47.627631],
     zoom: 16,
     view: "Auto",
-         authOptions: {
+        authOptions: {
             authType: 'subscriptionKey',
-           subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
-         }
+            subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+        }
     });
 
     /*Ensure that the map is fully loaded*/
@@ -95,16 +95,16 @@ This code shows you how to use a bubble layer to render a point on the map and a
 
         //Add a layer for rendering point data.
         map.layers.add(new atlas.layer.SymbolLayer(dataSource, null, {
-           iconOptions: {
+            iconOptions: {
                 //Hide the icon image.
                 image: "none"
-           },
+            },
 
-           textOptions: {
+            textOptions: {
                 textField: "Museum of History & Industry (MOHAI)",
                 color: "#005995",
                 offset: [0, -2.2]
-           },
+            },
         }));
     });
 }
