@@ -546,18 +546,32 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     ---
 
-1. Run the `azd up` command to clone, provision and deploy the app resources. Provide the name of the template you wish to use for the `--template` parameter. The `azd up` command will also prompt you to login to Azure and provide a name and location for the app.
+1. Run the `azd init` command to clone and initialize the app template. Provide the name of the template you wish to use for the `--template` parameter. 
 
     ### [Flask](#tab/flask)
     
     ```bash
-    azd up --template msdocs-flask-postgresql-sample-app
+    azd init --template msdocs-flask-postgresql-sample-app
     ```
     
     ### [Django](#tab/django)
     
     ```bash
-    azd up --template msdocs-django-postgresql-sample-app
+    azd init --template msdocs-django-postgresql-sample-app
+    ```
+
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the template code. The `azd up` command will also prompt you to sign-in to Azure and select the desired subscription and location to deploy to.
+
+    ### [Flask](#tab/flask)
+    
+    ```bash
+    azd up
+    ```
+    
+    ### [Django](#tab/django)
+    
+    ```bash
+    azd up
     ```
 
 1. When the `azd up` command finishes running, the URL for your deployed web app in the console will be printed. Click, or copy and paste the web app URL into your browser to explore the running app and verify that it is working correctly. All of the Azure resources and application code were set up for you by the `azd up` command.
