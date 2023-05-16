@@ -17,8 +17,6 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 :::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
 
-:::image type="content" source="./media/bastion-overview/architecture-highres.png" alt-text="Diagram showing Azure Bastion architecture1." lightbox="./media/bastion-overview/architecture-highres.png":::
-
 ## <a name="key"></a>Key benefits
 
 |Benefit    |Description|
@@ -48,7 +46,7 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
-:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing the Azure Bastion architecture.":::
+:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
 
