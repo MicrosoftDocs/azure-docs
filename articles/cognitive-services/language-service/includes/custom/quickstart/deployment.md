@@ -13,7 +13,7 @@ Generally after training a model you would review its evaluation details and mak
 
 To deploy your model from within the Language Studio:
 
-Select Deploying a model from the left side menu.
+Select **Deploying a model** from the left side menu.
 
 Click on Add deployment to start a new deployment job.
 
