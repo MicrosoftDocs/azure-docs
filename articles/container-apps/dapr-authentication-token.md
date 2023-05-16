@@ -5,17 +5,17 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 04/14/2023
+ms.date: 05/16/2023
 ---
 
 # Enable token authentication for Dapr requests
 
-When [Dapr][dapr] is enabled for your application in Azure Container Apps, it injects the environmental variable `APP_API_TOKEN` into your app's container. Dapr includes the same token in all requests sent to your app, as either:
+When [Dapr][dapr] is enabled for your application in Azure Container Apps, it injects the environment variable `APP_API_TOKEN` into your app's container. Dapr includes the same token in all requests sent to your app, as either:
 
 - An HTTP header (`dapr-api-token`)
 - A gRPC metadata option (`dapr-api-token[0]`)
 
-The token is randomly generated and unique per each app and app revision. It can also change at any time. Your application should read the token from the `APP_API_TOKEN` environmental variable when it starts up to ensure that it's using the correct token.
+The token is randomly generated and unique per each app and app revision. It can also change at any time. Your application should read the token from the `APP_API_TOKEN` environment variable when it starts up to ensure that it's using the correct token.
 
 You can use this token to authenticate that calls coming into your application are actually coming from the Dapr sidecar, even when listening on public endpoints.
 
