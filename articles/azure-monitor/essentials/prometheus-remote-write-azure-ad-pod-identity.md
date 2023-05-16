@@ -12,7 +12,7 @@ ms.reviewer: rapadman
 
 
 > [!NOTE] 
-> The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Azure AD pod enabled. This approach is not recommended as AAD pod identity has been deprecated to be replace by [Azure Workload Identity]  (https://learn.microsoft.com/azure/active-directory/workload-identities/workload-identities-verview)
+> The remote write sidecar should only be configured via the following steps only if the AKS cluster already has the Azure AD pod enabled. This approach is not recommended as AAD pod identity has been deprecated to be replace by [Azure Workload Identity](/azure/active-directory/workload-identities/workload-identities-overview)
 
 
 To configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity, follow the steps below.
