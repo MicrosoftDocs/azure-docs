@@ -100,9 +100,17 @@
         - name: Autoscale
           href: howto-scale-autoscale.md
     - name: Intergrate
-      href: howto-intergrate.md
+      items: 
+        - name: App Service
+          href: intergrate-app-service.md
+        - name: Azure Functions
+          href: intergrate-azure-functions.md
+        - name: Static Web Apps
+          href: intergrate-static-web-apps.md
     - name: Manage
-      href: howto-manage.md
+      items:
+        - name: Move resource across regions
+          href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
         - name: Debug event handlers locally
@@ -113,12 +121,6 @@
           href: howto-troubleshoot-resource-logs.md
         - name: Common issues
           href: howto-troubleshoot-common-issues.md
-    - name: Move across regions
-      href: howto-move-across-regions.md
-    - name: Scale
-      items:
-        - name: Autoscale
-          href: howto-scale-autoscale.md
 - name: Concepts
   expanded: false
   items:
