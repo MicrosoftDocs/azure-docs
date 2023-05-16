@@ -21,8 +21,6 @@ ms.custom: mvc, references_regions, ignite-2022
    
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
-
-
 ## Overview
 
 Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of [PostgreSQL 11, 12, 13, and 14](./concepts-supported-versions.md). The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
@@ -84,7 +82,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | --- | --- | --- | --- |--- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: (v3 only) | :x: $ | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -110,11 +108,11 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South India | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: | :heavy_check_mark: |
-| Sweden Central | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| US Gov Arizona | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| US Gov Arizona | :x: $$ | :x: | :heavy_check_mark: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |

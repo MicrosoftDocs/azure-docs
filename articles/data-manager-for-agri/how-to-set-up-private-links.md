@@ -1,12 +1,12 @@
 ---
 title: Creating a private endpoint for Azure Data Manager for Agriculture
 description: Learn how to use private links in Azure Data Manager for Agriculture
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 03/22/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Create a private endpoint for Azure Data Manager for Agriculture
@@ -16,6 +16,10 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 By using Azure Private Link, you can connect to an Azure Data Manager for Agriculture service from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses.
 
 This article describes how to create a private endpoint and approval process for Azure Data Manager for Agriculture Preview.
+
+## Prerequisites
+
+[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Azure Data Manager for Agriculture Preview instance. This virtual network will allow automatic approval of the Private Link endpoint.
 
 ## How to set up a private endpoint
 Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:

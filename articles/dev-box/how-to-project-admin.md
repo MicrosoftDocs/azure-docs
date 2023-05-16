@@ -1,16 +1,15 @@
 ---
-title: Manage Microsoft Dev Box Preview projects
-titleSuffix: Microsoft Dev Box Preview
-description: Learn how to manage multiple projects by assigning admin permissions and delegating project administration.
+title: Provide administrative access to Microsoft Dev Box projects
+description: Learn how to manage multiple Dev Box projects by assigning admin permissions and delegating project administration.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Provide access to projects for project admins
+# Provide administrative access to Dev Box projects for project admins
 
 You can create multiple Microsoft Dev Box Preview projects in the dev center to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project admins can use the network connections and dev box definitions configured at the dev center level to create and manage dev box pools within their project.
 

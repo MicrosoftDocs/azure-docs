@@ -2,8 +2,8 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/07/2023
-
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -30,13 +30,13 @@ This article helps you understand this new feature, and how to implement it.
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
@@ -104,12 +104,12 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
@@ -139,13 +139,13 @@ Use the following command to enable Pod Sandboxing (preview) by creating a node 
 
    The following example adds a node pool to *myAKSCluster* with one node in *nodepool2* in the *myResourceGroup*:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
 2. Run the [az aks update][az-aks-update] command to enable pod sandboxing (preview) on the cluster.
 
-    ```bash
+    ```azurecli-interactive
     az aks update --name myAKSCluster --resource-group myResourceGroup
     ```
 
@@ -234,7 +234,7 @@ To demonstrate the deployment of an untrusted application into the pod sandbox o
 
     ```output
     root@untrusted:/# uname -r
-    5.15.80.mshv2-hvl1.m2
+    5.15.48.1-8.cm2
     ```
 
 3. Start a shell session to the container of the *trusted* pod to verify the kernel output:
@@ -252,13 +252,14 @@ To demonstrate the deployment of an untrusted application into the pod sandbox o
    The following example resembles output from the VM that is running the *trusted* pod, which is a different kernel than the *untrusted* pod running within the pod sandbox:
 
     ```output
-    5.15.48.1-8.cm2
+    5.15.80.mshv2-hvl1.m2
+    ```
 
 ## Cleanup
 
 When you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
 
-```azurecli
+```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster
 ```
 

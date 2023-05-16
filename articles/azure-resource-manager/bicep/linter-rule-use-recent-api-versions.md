@@ -2,7 +2,8 @@
 title: Linter rule - use recent API versions
 description: Linter rule - use recent API versions
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.custom: devx-track-bicep
+ms.date: 04/28/2023
 ---
 
 # Linter rule - use recent API versions
@@ -17,6 +18,8 @@ This rule looks for resource API versions that are older than 730 days. It is re
 Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `use-recent-api-versions`
+
+The rule includes a configuration property named `maxAllowedAgeInDays`, with a default value of **730** days (equivalent to 2 years). A value of **0** indicates that the apiVersion must be the latest non-preview version available or the latest preview version if only previews are available.
 
 ## Solution
 

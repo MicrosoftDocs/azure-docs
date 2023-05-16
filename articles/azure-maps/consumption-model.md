@@ -19,7 +19,7 @@ Depending on the value of **vehicleEngineType**, two principal Consumption Model
 
 In both Consumption Models, there are some dependencies when specifying parameters. Meaning that, explicitly specifying some parameters may require specifying some other parameters. Here are these dependencies to be aware of:
 
-* All parameters require **constantSpeedConsumption** to be specified by the user. It is an error to specify any other consumption model parameter, if **constantSpeedConsumption** is not specified. The **vehicleWeight** parameter is an exception for this requirement.
+* All parameters require **constantSpeedConsumption** to be specified by the user. It's an error to specify any other consumption model parameter, if **constantSpeedConsumption** isn't specified. The **vehicleWeight** parameter is an exception for this requirement.
 * **accelerationEfficiency** and **decelerationEfficiency** must always be specified as a pair (that is, both or none).
 * If **accelerationEfficiency** and **decelerationEfficiency** are specified, product of their values must not be greater than 1 (to prevent perpetual motion).
 * **uphillEfficiency** and **downhillEfficiency** must always be specified as a pair (that's, both or none).
@@ -33,7 +33,7 @@ In both Consumption Models, there are some dependencies when specifying paramete
 ## Combustion consumption model
 
 The Combustion Consumption Model is used when **vehicleEngineType** is set to _combustion_.
-The list of parameters that belong to this model are below. Refer to the Parameters section for detailed description.
+The following list of parameters belong to this model. Refer to the Parameters section for detailed description.
 
 * constantSpeedConsumptionInLitersPerHundredkm
 * vehicleWeight
@@ -48,7 +48,7 @@ The list of parameters that belong to this model are below. Refer to the Paramet
 ## Electric consumption model
 
 The Electric Consumption Model is used when **vehicleEngineType** is set to _electric_.
-The list of parameters that belong to this model are below. Refer to the Parameters section for detailed description.
+The following list of parameters belong to this model. Refer to the Parameters section for detailed description.
 
 * constantSpeedConsumptionInkWhPerHundredkm
 * vehicleWeight
@@ -62,5 +62,5 @@ The list of parameters that belong to this model are below. Refer to the Paramet
 
 ## Sensible values of consumption parameters
 
-A particular set of consumption parameters can be rejected, even though the set might fulfill all the explicit requirements. It happens when the value of a specific parameter, or a combination of values of several parameters, is considered to lead to unreasonable magnitudes of consumption values. If that happens, it most likely indicates an input error, as proper care is taken to accommodate all sensible values of consumption parameters. In case a particular set of consumption parameters is rejected, the accompanying error message will contain a textual explanation of the reason(s).
+A particular set of consumption parameters can be rejected, even though the set might fulfill all the explicit requirements. It happens when the value of a specific parameter, or a combination of values of several parameters, is considered to lead to unreasonable magnitudes of consumption values. If that happens, it most likely indicates an input error, as proper care is taken to accommodate all sensible values of consumption parameters. In case a particular set of consumption parameters is rejected, the accompanying error message contains a textual explanation of the reason(s).
 The detailed descriptions of the parameters have examples of sensible values for both models.

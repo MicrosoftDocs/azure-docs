@@ -18,9 +18,11 @@ ms.custom: "mqtt, devx-track-azurecli"
 
 This article shows you how to:
 
-* Use a simulated device to report its connectivity channel as a reported property on the device twin.
+* Use a simulated device to report its connectivity channel as a *reported property* on the device twin.
 
 * Query devices using filters on the tags and properties previously created.
+
+For more information about using device twin reported properties, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md).
 
 This article shows you how to create two Azure CLI sessions:
 
@@ -34,7 +36,7 @@ This article shows you how to create two Azure CLI sessions:
 
 * An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* Make sure that port 8883 is open in your firewall. The samples in this article use MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The samples in this article use MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 ## Prepare the Cloud Shell
 

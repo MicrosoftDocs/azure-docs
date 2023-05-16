@@ -14,6 +14,8 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Attach a Kubernetes cluster to Azure Machine Learning workspace
 
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 Once Azure Machine Learning extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to Azure Machine Learning workspace and create compute targets for ML professionals to use. 
 
 ## Prerequisites
@@ -66,9 +68,7 @@ We support two ways to attach a Kubernetes cluster to Azure Machine Learning wor
 
 ### [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
-
-The following commands show how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
+The following CLI v2 commands show how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
 
 **AKS cluster**
 
@@ -114,6 +114,45 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
     In the Kubernetes clusters tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
     :::image type="content" source="media/how-to-attach-arc-kubernetes/kubernetes-creating.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
+
+### [Azure SDK](#tab/sdk)
+
+The following python SDK v2 code shows how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
+
+**AKS cluster**
+
+```python
+from azure.ai.ml import load_compute
+
+# for AKS cluster, the resource_id should be something like '/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedClusters/<CLUSTER_NAME>''
+compute_params = [
+    {"name": "<COMPUTE_NAME>"},
+    {"type": "kubernetes"},
+    {
+        "resource_id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedClusters/<CLUSTER_NAME>"
+    },
+]
+k8s_compute = load_compute(source=None, params_override=compute_params)
+ml_client.begin_create_or_update(k8s_compute).result()
+```
+
+**Arc Kubernetes cluster**
+
+```python
+from azure.ai.ml import load_compute
+
+# for arc connected cluster, the resource_id should be something like '/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/connectedClusters/<CLUSTER_NAME>''
+compute_params = [
+    {"name": "<COMPUTE_NAME>"},
+    {"type": "kubernetes"},
+    {
+        "resource_id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/connectedClusters/<CLUSTER_NAME>"
+    },
+]
+k8s_compute = load_compute(source=None, params_override=compute_params)
+ml_client.begin_create_or_update(k8s_compute).result()
+
+```
    
 ---
 

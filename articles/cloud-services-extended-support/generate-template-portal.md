@@ -7,7 +7,7 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
-ms.custom: 
+ms.custom: devx-track-arm-template
 ---
 
 # Generate ARM Template for Cloud Services (extended support) using the Azure portal

@@ -7,6 +7,7 @@ author: ramankumarlive
 manager: kavithag
 
 tags: azure-service-management
+ms.custom: devx-track-azurepowershell
 
 ms.assetid:
 ms.service: virtual-machines

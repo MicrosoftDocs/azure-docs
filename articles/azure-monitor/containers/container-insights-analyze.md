@@ -134,7 +134,7 @@ You can [split](../essentials/metrics-charts.md#apply-splitting) a metric to vie
 
 When you switch to the **Nodes**, **Controllers**, and **Containers** tabs, a property pane automatically displays on the right side of the page. It shows the properties of the item selected, which includes the labels you defined to organize Kubernetes objects. When a Linux node is selected, the **Local Disk Capacity** section also shows the available disk space and the percentage used for each disk presented to the node. Select the **>>** link in the pane to view or hide the pane.
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **Live Events** tab at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Set up the Live Data (preview)](container-insights-livedata-setup.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **Live Events** tab at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Set up the Live Data](container-insights-livedata-setup.md). 
 
 While you review cluster resources, you can see this data from the container in real time. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md).
 
@@ -285,7 +285,7 @@ The icons in the status field indicate the online statuses of pods, as described
 
 ## Monitor and visualize network configurations
 
-Azure Network Policy Manager includes informative Prometheus metrics that you can use to monitor and better understand your network configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. For more information, see [Monitor and visualize network configurations with Azure NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+Azure Network Policy Manager includes informative Prometheus metrics that you can use to monitor and better understand your network configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. For more information, see [Monitor and visualize network configurations with Azure npm](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
 ## Workbooks
 

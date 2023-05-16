@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for nl-NL
 
 | `ipa` | `viseme` | Example 1    | Example 2    | Example 3       |
 |-------|----------|--------------|--------------|-----------------|
@@ -25,7 +33,7 @@
 | `œ`   | 4        | **oeu**vre   | s**er**vice  |                 |
 | `y`   | 4        | **uu**r      | t**uu**r     | n**u**          |
 
-### Consonant
+### Consonant for nl-NL
 
 | `ipa` | `viseme` | Example 1    | Example 2    | Example 3       |
 |-------|----------|--------------|--------------|-----------------|

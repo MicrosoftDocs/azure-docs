@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/14/2023
+ms.date: 03/23/2023
 ms.author: saraic
-ms.reviewer: cynthn
+ms.reviewer: cynthn, mattmcinnes
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 
@@ -195,7 +195,7 @@ During the preview, make sure that you create your gallery, image definitions, a
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
+> To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users.
 
 When creating an image to share with the community, you need to provide contact information. This information is shown **publicly**, so be careful when providing:
 - Community gallery prefix

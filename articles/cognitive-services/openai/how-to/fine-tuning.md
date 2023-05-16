@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/05/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 zone_pivot_groups: openai-fine-tuning
