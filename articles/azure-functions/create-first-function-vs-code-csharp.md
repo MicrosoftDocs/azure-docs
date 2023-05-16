@@ -30,14 +30,14 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
 1. Select the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
- 
+
 1. For **Select a language**, choose `C#`.
- 
-1. For **Select a .NET runtime**, choose from one of the following options: 
+
+1. For **Select a .NET runtime**, choose from one of the following options:
 
     | Option | .NET version | Process model | Description |
     | --- | --- | --- |  --- |
-    | **.NET 6.0 (LTS)** | .NET 6 | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
+    | **.NET 6.0 (LTS)** | .NET 6 | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
     | **.NET 6.0 Isolated (LTS)** | .NET 6 | [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
     | **.NET 7.0 Isolated** | .NET 7 | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
     | **.NET Framework Isolated** | .NET 7 | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
@@ -70,11 +70,11 @@ After checking that the function runs correctly on your local computer, it's tim
 
 ## Next steps
 
-You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Queue Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Queue Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp).
 
 The next article depends on your chosen process model.
 
-# [In-process](#tab/in-process) 
+# [In-process](#tab/in-process)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
