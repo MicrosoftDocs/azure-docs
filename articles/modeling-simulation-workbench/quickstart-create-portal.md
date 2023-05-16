@@ -33,13 +33,13 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
   >
   > You need to buy the license for production environment.
 
-## Sign in to Azure portal
+### Sign in to Azure portal
 
 Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
 ## Modeling and Simulation Workbench Onboarding
 
-## Register Azure Modeling and Simulation Workbench resource provider
+### Register Azure Modeling and Simulation Workbench resource provider
 
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 
@@ -63,9 +63,9 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 >
 > Don't block the creation of resources for a resource provider that is in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 
-## Create an application in Azure Active Directory
+### Create an application in Azure Active Directory
 
-### Register an application
+#### Register an application
 
 Registering your application establishes a trust relationship between Modeling and Simulation Workbench remote desktop authentication and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
 
@@ -93,7 +93,7 @@ Take note of the properties in the next steps:
 
    :::image type="content" source="/azure/active-directory/develop/media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing the application overview pane.":::
 
-### Add a client secret
+#### Add a client secret
 
 Creating a client secret allows the Azure Modeling and Simulation Workbench to redirect Azure AD sign-in requests directly to your organization's Azure Active Directory, as the only identity provider. This integration provides a single sign-on experience for your design team. The secret's lifetime should last the workbench's lifetime. If the secret does expire, your design team would lose access to the chamber. To address an expired secret, you can create a new secret and update the Azure Modeling and Simulation Workbench with the new values.
 
@@ -107,7 +107,7 @@ Take note of the properties in the next steps:
 
 - **Client secret value**: This secret value is *never displayed again* after you leave this page. Make sure to save the **secret value** somewhere to be available to store in your Key Vault created in the next section.
 
-### Create a vault
+#### Create a vault
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 1. In the Search box, enter **Key Vault**.
@@ -131,7 +131,7 @@ Take note of the properties in the next steps:
 
    :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
 
-### Key Vault role assignment
+#### Key Vault role assignment
 
 1. Go to the Key Vault created in **Create a vault** step and select **Access control (IAM)**.
 
@@ -151,7 +151,7 @@ Take note of the properties in the next steps:
    | Assign access to | User, group, or service principal       |
    | Members          | \<your Azure account\>                  |
 
-### Add secrets to Key Vault
+#### Add secrets to Key Vault
 
 1. Navigate to your key vault *QuickstartVault*-\<numbers\> in the Azure portal.
 1. On the Key Vault settings pages, select **Secrets**.

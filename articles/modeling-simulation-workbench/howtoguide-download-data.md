@@ -46,7 +46,7 @@ As a Chamber User or a Chamber Admin, browse to your connector to get the Dashbo
 
 1. Select a workload available and open a terminal session.
 
-1. Within workload terminal session, copy a file to /mount/private/dataout.
+1. Within workload terminal session, copy a file to */mount/datapipeline/dataout*.
 
 ## Request download
 
@@ -54,7 +54,7 @@ As a Chamber Admin, perform the following steps to request a file to be download
 
 1. From the chamber you're exporting data from, choose **File** from under **Data Pipeline**
 
-1. Select the file you want to export from the resource list shown. Files are named "mount-private-datain-\<filename\>"
+1. Select the file you want to export from the resource list shown. Files are named "mount-datapipeline-datain-\<filename\>"
 
 1. In the file overview section, note the data pipeline direction needs to be **outbound**, click on the **Request download** option.
 

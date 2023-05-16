@@ -44,7 +44,7 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 
 1. The customer is able to see the uploaded file resource with source filename under **Chamber | Data Pipeline | File**.
 
-1. Chamber Admin and chamber users can access the uploaded file from within the chamber by accessing the path: */mount/private/datain*.
+1. Chamber Admin and chamber users can access the uploaded file from within the chamber by accessing the path: */mount/datapipeline/datain*.
 
   > [!IMPORTANT]
   >

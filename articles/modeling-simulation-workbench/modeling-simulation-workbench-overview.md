@@ -12,7 +12,7 @@ ms.date: 01/01/2023
 
 # What is Azure Modeling and Simulation Workbench?
 
-The Azure Modeling and Simulation Workbench is an on-demand service that provides a fully managed engineering design and simulation environment with secure user collaboration enabled via multi-layered security and access controls. The Workbench has incorporated multi-layered security and access controls providing the users with the ability to monitor, scale and optimize the compute and storage capacity as needed. The Workbench utilizes various infrastructure services required to build a performant environment for engineering development, like workload specific VMs, scheduler, orchestration, license server, remote connectivity and desktop management, high performance NFS storage, network configurations, security and access controls, to name a few.
+The Azure Modeling and Simulation Workbench is an on-demand service that provides a fully managed engineering design and simulation environment with secure user collaboration enabled via multi-layered security and access controls. The Workbench has incorporated multi-layered security and access controls providing the users with the ability to monitor, scale and optimize the compute and storage capacity as needed. The workbench utilizes various infrastructure services required to build a performant environment for engineering development. These services include; workload specific VMs, scheduler, orchestration, license server, remote connectivity, high performance storage, network configurations, security and access controls, to name a few.
 
 <!--- TODO -   
 [!div class="mx-imgBorder"]
@@ -20,9 +20,9 @@ The Azure Modeling and Simulation Workbench is an on-demand service that provide
 
 The automated provisioning of the Workbench can reduce set up time of the design environment from weeks to hours. After providing an initial set of configurations, all resources, identity management, access controls, VMs, configured network and partitioned storage can all be provisioned automatically. In addition, this elastic infrastructure is fully scalable to the workload demands. For infra management and cost control, customers have push button controls to scale workloads up or down dynamically, and changing the storage performance tier and size dynamically. Chambers and workloads can be stopped while not in use, to further control costs.
 
-Service enables collaboration by allowing the primary dev teams to onboard their collaborators (customers, partners, ISVs, service/IP providers) within the same Chamber environment to perform codevelopment, joint analysis/debug activity.
+Service enables collaboration by allowing the primary dev teams to onboard their collaborators (customers, partners, ISVs, service/IP providers) within the same Chamber environment to perform joint analysis/debug activity.
 
-Multi-Chamber collaboration allows these primary dev teams and collaborators to have their independent Chamber environments, which provides privacy to each team to cowork among themselves, and collaborate via Shared Storage to share selective data across the Chambers.
+<!--Multi-Chamber collaboration allows these dev teams and their collaborators to have their own private workspaces, while allowing them to share data across chamber boundaries through Shared Storage-->
 
 ## Create and Use Azure Modeling and Simulation Workbench
 
@@ -37,5 +37,7 @@ The Azure Modeling and Simulation Workbench supports a wide variety of VM sizes 
 Storage (both private within chamber, and shared) is persistent with high availability throughout the lifecycle of a Modeling and Simulation Workbench, which includes all customer data and customizations. Users also have the ability to scale the storage capacity and performance tier as per their needs. Every component of a workload can benefit from a tightly integrated secure, intelligent, and fully managed platform, from computing and data management to security, networking, and workload management.
 
 ## Next steps
+
+- The limited public preview is currently available in US East and US Gov Virginia. To sign up for the preview, please visit [Azure Modeling and Simulation Workbench intake form](TBD). We look forward to hearing your feedback, which you can send to azuremswb@microsoft.com.
 
 - [Workbench](./concept-workbench.md)
