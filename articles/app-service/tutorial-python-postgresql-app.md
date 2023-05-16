@@ -578,7 +578,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
     azd auth login
     ```
 
-1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to sign-in to Azure and select the desired subscription and location to deploy to.
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to select the desired subscription and location to deploy to.
 
     ### [Flask](#tab/flask)
     
