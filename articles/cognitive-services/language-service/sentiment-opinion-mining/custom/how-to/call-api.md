@@ -1,6 +1,6 @@
 ---
-title: Send a Named Entity Recognition (NER) request to your custom model
-description: Learn how to send requests for custom NER.
+title: Send a Custom sentiment analysis request to your custom model
+description: Learn how to send requests for Custom sentiment analysis.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -8,52 +8,54 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 06/03/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 
-# Query your custom model
+# Send a Custom sentiment analysis request to your custom model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
 You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
 
-## Test deployed model
+## Test a deployed Custom sentiment analysis model
 
 You can use Language Studio to submit the custom entity recognition task and visualize the results. 
 
-[!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
+[!INCLUDE [Test model](../../../includes/custom/language-studio/test-model.md)]
 
-:::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing the model test results." lightbox="../media/test-model-results.png":::
+<!--:::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::--->
 
 
-## Send an entity recognition request to your model
+## Send a sentiment analysis request to your model
 
 # [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Get prediction URL](../../includes/custom/language-studio/get-prediction-url.md)]
+[!INCLUDE [Get prediction URL](../../../includes/custom/language-studio/get-prediction-url.md)]
 
 # [REST API](#tab/rest-api)
 
 First you need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/key-endpoint-page-azure-portal.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/key-endpoint-page-azure-portal.md)]
 
 
-### Submit a custom NER task
 
-[!INCLUDE [submit a custom NER task using the REST API](../includes/rest-api/submit-task.md)]
+
+### Submit a Custom sentiment analysis task
+
+[!INCLUDE [submit a custom NER task using the REST API](../../includes/custom/rest-api/submit-task.md)]
 
 ### Get task results
 
-[!INCLUDE [get custom NER task results](../includes/rest-api/get-results.md)]
+[!INCLUDE [get custom NER task results](../../includes/custom/rest-api/get-results.md)]
 
 # [Client libraries (Azure SDK)](#tab/client)
 
 First you need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/get-key-endpoint.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../../includes/get-key-endpoint.md)]
 
 3. Download and install the client library package for your language of choice:
     
@@ -82,4 +84,4 @@ First you need to get your resource key and endpoint:
 
 ## Next steps
 
-* [Enrich a Cognitive Search index tutorial](../tutorials/cognitive-search.md)
+* [Sentiment Analysis overview](../../overview.md)

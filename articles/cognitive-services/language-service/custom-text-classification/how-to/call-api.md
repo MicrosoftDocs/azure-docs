@@ -23,9 +23,11 @@ You can query the deployment programmatically [Prediction API](https://aka.ms/ct
 
 You can use Language Studio to submit the custom text classification task and visualize the results. 
 
-[!INCLUDE [Test model](../includes/language-studio/test-model.md)]
+[!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
----
+
+:::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing model test results for a single label classification project." lightbox="../media/test-model-results.png":::
+
 
 ## Send a text classification request to your model
 
@@ -34,13 +36,16 @@ You can use Language Studio to submit the custom text classification task and vi
 
 # [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Get pred URL](../includes/language-studio/get-prediction-url.md)]
+[!INCLUDE [Get prediction URL](../../includes/custom/language-studio/get-prediction-url.md)]
+
 
 # [REST API](#tab/rest-api)
 
-First you will need to get your resource key and endpoint:
+First you need to get your resource key and endpoint:
 
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
+[!INCLUDE [Get keys and endpoint Azure Portal](../../includes/key-endpoint-page-azure-portal.md)]
+
+
 
 ### Submit a custom text classification task
 
@@ -53,7 +58,7 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/client-libraries)
 
-First you will need to get your resource key and endpoint:
+First you'll need to get your resource key and endpoint:
 
 [!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
 
