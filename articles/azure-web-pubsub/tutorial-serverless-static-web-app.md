@@ -11,7 +11,7 @@ ms.date: 05/16/2022
 
 # Tutorial: Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
 
-Azure Web PubSub helps you build real-time messaging web applications using WebSocket. Azure Static Web Apps helps automatically build and deploy full-stack web apps to Azure from a code repository. In this tutorial, you'll learn how to use Web PubSub and Static Web Apps together to build a real-time chat room application.  
+Azure Web PubSub helps you build real-time messaging web applications using WebSocket. Azure Static Web Apps helps you build and deploy full-stack web apps automatically to Azure from a code repository. In this tutorial, you'll learn how to use Web PubSub and Static Web Apps together to build a real-time chat room application.  
 
 More specifically,  you'll learn how to:
 

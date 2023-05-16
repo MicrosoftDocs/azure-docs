@@ -28,10 +28,6 @@
           href: tutorial-serverless-notification.md
         - name: Build a real-time chat app with client authentication
           href: quickstart-serverless.md
-        - name: Build a real-time chat app by using an Azure Static Web App
-          href: tutorial-serverless-static-web-app.md
-        - name: Visualize IoT data by using an Azure Function
-          href: tutorial-serverless-iot.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -103,6 +99,8 @@
           href: integrate-azure-functions.md
         - name: Static Web Apps
           href: tutorial-serverless-static-web-app.md
+        - name: Azure IoT Hub
+          href: tutorial-serverless-iot.md
     - name: Monitor and manage
       items:
         - name: Audit compliance using Azure Policy

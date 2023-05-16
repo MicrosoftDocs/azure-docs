@@ -11,7 +11,7 @@ ms.custom: mode-ui
 ---
 # Azure Web PubSub samples - platforms and frameworks
 
-As Azure Web PubSub is built on top of WebSocket, the only requirement for using it is having the support of WebSocket, which is avaialbe in all modern browsers and major app development platforms.
+As Azure Web PubSub is built on top of WebSocket, the only requirement for using it is having the support of WebSocket, which is available in all modern browsers and major app development platforms.
 
 ## Web front-end
 :::row:::
