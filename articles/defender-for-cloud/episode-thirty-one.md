@@ -1,12 +1,12 @@
 ---
 title: Understanding data aware security posture capability | Defender for Cloud in the field 
 titleSuffix: Microsoft Defender for Cloud
-description: Learn about ndata aware security posture capabilities in Defender for Cloud
+description: Learn about data aware security posture capabilities in Defender CSPM
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 05/16/2023
 ---
 
-# New Custom Recommendations for AWS and GCP in Defender for Cloud
+# Understanding data aware security posture capability
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Tzach Kaufmann joins Yuri Diogenes to talk about data aware security posture capability as part of Defender CSPM. Tzach explains the importance of having data aware security posture capability to help security admins with risk prioritization. Tzach also demonstrates the step-by-step process to onboard this capability and demonstrates how to obtain the insights using Attack Path.
 <br>
@@ -17,8 +17,8 @@ ms.date: 05/15/2023
 - [02:00](/shows/mdc-in-the-field/new-custom-recommendations#time=02m00s) - What is Data Aware Security Posture?
 - [03:38](/shows/mdc-in-the-field/new-custom-recommendations#time=03m38s) - Understanding the onboarding process
 - [05:00](/shows/mdc-in-the-field/new-custom-recommendations#time=05m00s) - Sensitive labels discovery process
-- [07:05](/shows/mdc-in-the-field/new-custom-recommendations#time=07m05s) -  What's the difference between Data Aware Security Posture and Microsoft Purview?
-- [11:35](/shows/mdc-in-the-field/new-custom-recommendations#time=11m35s) -  Demonstration
+- [07:05](/shows/mdc-in-the-field/new-custom-recommendations#time=07m05s) - What's the difference between Data Aware Security Posture and Microsoft Purview?
+- [11:35](/shows/mdc-in-the-field/new-custom-recommendations#time=11m35s) - Demonstration
 - 
 ## Recommended resources
   - Learn more about  [Data Aware Security Posture](concept-data-security-posture.md) 
