@@ -141,7 +141,7 @@ The time-based attribute can be either one of two values, which are automaticall
 - createdDateTime: if the template is a joiner workflow designed to run either on hire or post onboarding.
 - employeeLeaveDateTime: If the template is a leaver workflow.
 
-These two values must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
+The values employeeHireDate and employeeLeaveDateTime must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 The offset determines how many days before or after the time-based attribute the workflow should be triggered. For example, if the attribute is employeeHireDate and offsetInDays is 7, then the workflow should trigger one week(7 days) before the employee hire date. The offsetInDays value can be as far ahead, or behind, as 60.
 
