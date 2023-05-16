@@ -421,7 +421,7 @@ items:
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
-      - name: Managed agent on AKS cluster
+      - name: Managed agent
         items:
         - name: Enable on AKS cluster
           displayName: Prometheus
