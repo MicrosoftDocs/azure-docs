@@ -4,7 +4,7 @@ description: Learn about the features BareMetal Infrastructure offers for NC2 wo
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 10/13/2022
+ms.date: 04/01/2023
 ---
 
 # What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
@@ -32,8 +32,6 @@ Alternatively, you can purchase licenses from Nutanix or from Azure Marketplace.
 
 NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervisor (AHV).
 
-- Servers are pre-loaded with [AOS 6.1](https://www.nutanixbible.com/4-book-of-aos.html).
-- AHV 6.1 is built into this product as the default hypervisor at no extra cost.
 - AHV hypervisor is based on open source Kernel-based Virtual Machine (KVM).
 - AHV will determine the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level.
 

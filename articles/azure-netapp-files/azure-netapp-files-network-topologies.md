@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/23/2022
+ms.date: 04/12/2023
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -55,6 +55,8 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	North Central US
 *   North Europe
 *   Norway East
+*   Norway West 
+*   Qatar Central
 *   South Africa North
 *	South Central US
 *   South India 
@@ -83,11 +85,13 @@ The following table describes what’s supported for each network features confi
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
-|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     No    |     No    |
-|     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
+|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes*    |     No    |
+|     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Yes  |     No    |
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
+
+\* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
 > [!IMPORTANT]
 > Conversion between Basic and Standard networking features in either direction is not currently supported. 
@@ -134,6 +138,8 @@ Subnet delegation gives explicit permissions to the Azure NetApp Files service t
 If you use a new VNet, you can create a subnet and delegate the subnet to Azure NetApp Files by following instructions in [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md). You can also delegate an existing empty subnet that's not delegated to other services.
 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
+
+Ensure that the address space size of the Azure NetApp Files delegated subnet is smaller than the address space of the virtual network to avoid unforeseen issues.
 
 ### UDRs and NSGs
 
@@ -203,3 +209,4 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+* [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)

@@ -1,12 +1,13 @@
 ---
-title: Confidential containers with Intex SGX enclaves on Azure
+title: Confidential containers with Intel SGX enclaves on Azure
 description: Learn about unmodified container support with confidential containers on Intel SGX through OSS and partner solutions
 services: container-service
 author: agowdamsft
 ms.topic: article
 ms.date: 7/15/2022
 ms.author: amgowda
-ms.service: container-service
+ms.service: virtual-machines
+ms.subservice: confidential-computing
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,7 +16,7 @@ ms.custom: ignite-fall-2021
 [Confidential containers](confidential-containers.md) help you run existing unmodified container applications of most **common programming languages** runtimes (Python, Node, Java etc.) in the Intel SGX based Trusted Execution Environment(TEE).
 This packaging model typically does not need any source-code modifications or recompilation and is the fastest method to run in Intel SGX enclaves. Typical deployment process for running your standard docker containers requires an Open-Source SGX Wrapper or Azure Partner Solution. 
 In this packaging and execution model each container application is loaded in the trusted boundary (enclave) and with a hardware-based isolation enforced by Intel SGX CPU. Each container running in an enclave receives its own memory encryption key delivered from the Intel SGX CPU.
-This model works well for off the shelf container applications available in the market or custom apps currently running on general purpose nodes
+This model works well for off the shelf container applications available in the market or custom apps currently running on general purpose nodes.
 To run an existing Docker container, applications on confidential computing nodes require an Intel Software Guard Extensions (SGX) wrapper software to help the container execution within the bounds of special CPU instruction set. 
 SGX creates a direct execution to the CPU to remove the guest operating system (OS), host OS, or hypervisor from the trust boundary. This step reduces the overall surface attack areas and vulnerabilities while achieving process level isolation within a single node.
 

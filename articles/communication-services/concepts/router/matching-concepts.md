@@ -33,21 +33,28 @@ In the following example we register a worker to
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var worker = await client.RegisterWorkerAsync(
-    id: "worker-1",
-    queueIds: new[] { "queue-1", "queue-2" },    
-    totalCapacity: 2,
-    channelConfigurations: new List<ChannelConfiguration>
+var worker = await client.CreateWorkerAsync(
+    new CreateWorkerOptions(
+            workerId: "worker-1",
+            totalCapacity: 2)
     {
-        new ChannelConfiguration(channelId: "voice", capacityCostPerJob: 2),
-        new ChannelConfiguration(channelId: "chat", capacityCostPerJob: 1)
-    },
-    labels: new LabelCollection()
-    {
-        ["Skill"] = 11,
-        ["English"] = true,
-        ["French"] = false,
-        ["Vendor"] = "Acme"
+        QueueIds = new Dictionary<string, QueueAssignment>()
+        {
+            ["queue-1"] = new QueueAssignment(),
+            ["queue-2"] = new QueueAssignment()
+        },
+        ChannelConfigurations = new Dictionary<string, ChannelConfiguration>()
+        {
+            ["voice"] = new ChannelConfiguration(2),
+            ["chat"] = new ChannelConfiguration(1)
+        },
+        Labels = new Dictionary<string, LabelValue>()
+        {
+            ["Skill"] = new LabelValue(11),
+            ["English"] = new LabelValue(true),
+            ["French"] = new LabelValue(false),
+            ["Vendor"] = new LabelValue("Acme")
+        },
     }
 );
 ```

@@ -14,7 +14,7 @@ ms.author: eur
 
 # SSML document structure and events
 
-The Speech Synthesis Markup Language (SSML) with input text determines the structure, content, and other characteristics of the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
+The Speech Synthesis Markup Language (SSML) with input text determines the structure, content, and other characteristics of the text to speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
 
 Refer to the sections below for details about how to structure elements in the SSML document. 
 
@@ -29,8 +29,8 @@ Here's a subset of the basic structure and syntax of an SSML document:
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="string">
     <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
-    <voice name="string">
-        <audio src="string"/></audio>
+    <voice name="string" effect="string">
+        <audio src="string"></audio>
         <bookmark mark="string"/>
         <break strength="string" time="string" />
         <emphasis level="value"></emphasis>
@@ -51,7 +51,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
 </speak>
 ```
 
-Some examples of contents that are allowed in each element are described in the following list:
+Some examples of contents that are allowed in each element are described in the following list: 
 - `audio`: The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `bookmark`: This element can't contain text or any other elements.
 - `break`: This element can't contain text or any other elements.
@@ -75,9 +75,23 @@ Some examples of contents that are allowed in each element are described in the 
 
 The Speech service automatically handles punctuation as appropriate, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark.
 
+## Special characters
+
+To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, use `&lt;` in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+
+For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML will be parsed as expected:
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        My favorite colors are green &amp; yellow.
+    </voice>
+</speak>
+```
+
 Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
-Attribute values must be enclosed by double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` won't be recognized. 
+Attribute values must be enclosed by double or single quotation marks. For example, `<prosody volume="90">` and `<prosody volume='90'>` are well-formed, valid elements, but `<prosody volume=90>` won't be recognized. 
 
 ## Speak root element
 
@@ -113,22 +127,21 @@ This example uses the `en-US-JennyNeural` voice. For more examples, see [voice e
 </speak>
 ```
 
-## Add or prevent a break
+## Add a break
 
-Use the `break` element to override the default behavior of breaks or pauses between words. You can use it to add or prevent pauses that are otherwise automatically inserted by the Speech service.
+Use the `break` element to override the default behavior of breaks or pauses between words. You can use it to add pauses that are otherwise automatically inserted by the Speech service.
 
 Usage of the `break` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul><br/><br/>Set `strength` to `none` to prevent automatic insertion of a prosodic break. | Optional |
+| `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul>| Optional |
 | `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
 
 Here are more details about the `strength` attribute.
 
 | Strength                      | Relative duration |
 | ---------- | ---------- |
-| None, or if no value provided | 0 ms        |
 | X-weak                        | 250 ms      |
 | Weak                          | 500 ms      |
 | Medium                        | 750 ms      |
@@ -137,14 +150,14 @@ Here are more details about the `strength` attribute.
 
 ### Break examples
 
-The supported values for attributes of the `break` element were [described previously](#add-or-prevent-a-break). 
+The supported values for attributes of the `break` element were [described previously](#add-a-break). The following three ways all add 750 ms breaks.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        Welcome <break /> to text-to-speech.
-        Welcome <break strength="medium" /> to text-to-speech.
-        Welcome <break time="250ms" /> to text-to-speech.
+        Welcome <break /> to text to speech.
+        Welcome <break strength="medium" /> to text to speech.
+        Welcome <break time="750ms" /> to text to speech.
     </voice>
 </speak>
 ```

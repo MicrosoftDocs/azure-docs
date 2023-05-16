@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Sample steps to interact with Seismic DDMS in Microsoft Energy Data Services  #Required; page title is displayed in search results. Include the brand.
-description: This tutorial shows you how to interact with Seismic DDMS Microsoft Energy Data Services  #Required; article description that is displayed in search results. 
-author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
-ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+title: Tutorial - Sample steps to interact with Seismic DDMS in Microsoft Azure Data Manager for Energy Preview
+description: This tutorial shows you how to interact with Seismic DDMS Azure Data Manager for Energy Preview
+author: elizabethhalper
+ms.author: elhalper
+ms.service: energy-data-services
+ms.topic: tutorial
 ms.date: 3/16/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Sample steps to interact with Seismic DDMS
 
-Seismic DDMS provides the capability to operate on seismic data in the Microsoft Energy Data Services instance.
+Seismic DDMS provides the capability to operate on seismic data in the Azure Data Manager for Energy Preview instance.
 
 In this tutorial, you will learn how to:
 
@@ -22,9 +22,9 @@ In this tutorial, you will learn how to:
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 ## Prerequisites
 
-### Microsoft Energy Data Services instance details
+### Azure Data Manager for Energy Preview instance details
 
-* Once the [Microsoft Energy Data Services instance](./quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
+* Once the [Azure Data Manager for Energy Preview instance](./quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
   
   | Parameter          | Value to use             | Example                               |
   | ------------------ | ------------------------ |-------------------------------------- |
@@ -43,7 +43,7 @@ In this tutorial, you will learn how to:
   * [Smoke test Postman collection](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/Azure%20DDMS%20OSDU%20Smoke%20Tests.postman_collection.json)
   * [Smoke Test Environment](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/%5BShip%5D%20osdu-glab.msft-osdu-test.org.postman_environment.json)
   
-3. Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
+3. Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Azure Data Manager for Energy Preview instance details](#azure-data-manager-for-energy-preview-instance-details)
 
 ## Register data partition to seismic
 

@@ -1,5 +1,5 @@
 ---
-title: Administrative units in Azure Active Directory | Microsoft Docs
+title: Administrative units in Azure Active Directory
 description: Use administrative units for more granular delegation of permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 01/31/2023
+ms.date: 03/07/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -41,7 +41,6 @@ A central administrator could:
 Here are some of the constraints for administrative units.
 
 - Administrative units can't be nested.
-- Administrative unit-scoped user account administrators can't create or delete users.
 - Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Groups

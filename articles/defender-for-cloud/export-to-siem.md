@@ -2,8 +2,8 @@
 title: Stream your alerts from Microsoft Defender for Cloud to Security Information and Event Management (SIEM) systems and other monitoring solutions
 description: Learn how to stream your security alerts to Microsoft Sentinel, third-party SIEMs, SOAR, or ITSM solutions
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 04/04/2022
 ---
 
@@ -53,7 +53,7 @@ Learn more in [Connect alerts from Microsoft Defender for Cloud](../sentinel/con
 Another alternative for investigating Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
 - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
 - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
-- [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
+- [Connect data from Azure Activity log](../sentinel/data-connectors/azure-activity.md)
 
 > [!TIP]
 > Microsoft Sentinel is billed based on the volume of data that it ingests for analysis in Microsoft Sentinel and stores in the Azure Monitor Log Analytics workspace. Microsoft Sentinel offers a flexible and predictable pricing model. [Learn more at the Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).

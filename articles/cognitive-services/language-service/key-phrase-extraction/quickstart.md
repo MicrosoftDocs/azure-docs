@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 02/13/2023
+ms.date: 02/17/2023
 ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-key-phrase, ignite-fall-2021, mode-api
@@ -47,6 +47,15 @@ zone_pivot_groups: programming-languages-text-analytics
 [!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
 
 ::: zone-end
+
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+
 
 ## Next steps
 

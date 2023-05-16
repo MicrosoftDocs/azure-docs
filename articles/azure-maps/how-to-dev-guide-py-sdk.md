@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Python REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Python SDK Developers Guide.
-author: stevemunk
-ms.author: v-munksteve
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 01/15/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -16,9 +16,9 @@ The Azure Maps Python SDK can be integrated with Python applications and librari
 
 ## Prerequisites
 
-- [Azure Maps account][Azure Maps account].
-- [Subscription key][Subscription key] or other form of [authentication][authentication].
-- Python on 3.7 or later. It's recommended to use the [latest release][python latest release]. For more information, see [Azure SDK for Python version support policy][support policy].
+- [Azure Maps account].
+- [Subscription key] or other form of [Authentication with Azure Maps].
+- Python on 3.7 or later. It's recommended to use the [latest release]. For more information, see [Azure SDK for Python version support policy].
 
 > [!TIP]
 > You can create an Azure Maps account programmatically, Here's an example using the Azure CLI:
@@ -49,9 +49,9 @@ pip install azure-maps-search --pre
 
 ### Azure Maps services
 
-Azure Maps Python SDK supports Python version 3.7 or later. For more information on future Python versions, see [Azure SDK for Python version support policy][support policy].
+Azure Maps Python SDK supports Python version 3.7 or later. For more information on future Python versions, see [Azure SDK for Python version support policy].
 
-| Service Name               | PyPi package            |  Samples     |
+| Service name               | PyPi package            |  Samples     |
 |----------------------------|-------------------------|--------------|
 | [Search][py search readme] | [azure-maps-search][py search package] | [search samples][py search sample] |
 | [Route][py route readme]   | [azure-maps-route][py route package] |  [route samples][py route sample] |
@@ -60,22 +60,22 @@ Azure Maps Python SDK supports Python version 3.7 or later. For more information
 
 ## Create and authenticate a MapsSearchClient
 
-You'll need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps][authentication].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
-> The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search package client library][Search package client library] to learn more about the search methods available.
+> The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search package client library] to learn more about the search methods available.
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity package][Azure Identity package]. To use the [DefaultAzureCredential][defaultazurecredential] provider, you'll need to install the Azure Identity client package:
+You can authenticate with Azure AD using the [Azure Identity package]. To use the [DefaultAzureCredential] provider, you need to install the Azure Identity client package:
 
 ```powershell
 pip install azure-identity 
 ```
 
-You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Next you'll need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details][View authentication details].
+Next you need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details].
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
@@ -95,7 +95,7 @@ $Env:AZURE_TENANT_ID="your Directory (tenant) ID"
 $Env:MAPS_CLIENT_ID="your Azure Maps client ID"
 ```
 
-After setting up the environment variables, you can use them in your program to instantiate the `AzureMapsSearch` client. Create a file named *demo.py* and add the following:
+After setting up the environment variables, you can use them in your program to instantiate the `AzureMapsSearch` client. Create a file named *demo.py* and add the following code:
 
 ```Python
 import os
@@ -111,7 +111,7 @@ maps_search_client = MapsSearchClient(
 ```
 
 > [!IMPORTANT]
-> The other environment variables created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
+> The other environment variables created in the previous code snippet, while not used in the code sample, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
 
@@ -125,7 +125,7 @@ Now you can create environment variables in PowerShell to store the subscription
 $Env:SUBSCRIPTION_KEY="your subscription key"
 ```
 
-Once your environment variable is created, you can access it in your code. Create a file named *demo.py* and add the following:
+Once your environment variable is created, you can access it in your code. Create a file named *demo.py* and add the following code:
 
 ```Python
 import os
@@ -159,19 +159,20 @@ def fuzzy_search():
         query="Starbucks",
         coordinates=(47.61010, -122.34255)
     )
-    # Print the search results 
-    print("Starbucks search result nearby Seattle:") 
-    for result_item in result.results:
-        print(f"* {result_item.address.street_number }   {result_item.address.street_name }")
-        print(f"  {result_item.address.municipality } {result_item.address.country_code } {result_item.address.postal_code }")
-        print(f"  Coordinate: {result_item.position.lat}, {result_item.position.lon}"
-  ) 
+    
+    # Print the search results
+    if len(result.results) > 0:
+        print("Starbucks search result nearby Seattle:")
+        for result_item in result.results:
+            print(f"* {result_item.address.street_number }   {result_item.address.street_name }")
+            print(f"  {result_item.address.municipality } {result_item.address.country_code } {result_item.address.postal_code }")
+            print(f"  Coordinate: {result_item.position.lat}, {result_item.position.lon}") 
 
 if __name__ == '__main__': 
     fuzzy_search() 
 ```
 
-The sample code above instantiates `AzureKeyCredential` with the Azure Maps subscription key, then it to instantiate the `MapsSearchClient` object. The methods provided by `MapsSearchClient` forward the request to the Azure Maps REST endpoints. In the end, the program iterates through the results and prints the address and coordinates for each result.
+This sample code instantiates `AzureKeyCredential` with the Azure Maps subscription key, then uses it to instantiate the `MapsSearchClient` object. The methods provided by `MapsSearchClient` forward the request to the Azure Maps REST endpoints. In the end, the program iterates through the results and prints the address and coordinates for each result.
 
 After finishing the program, run `python demo.py` from the project folder in PowerShell:
 
@@ -233,19 +234,24 @@ def search_address():
     result = maps_search_client.search_address( 
         query="1301 Alaskan Way, Seattle, WA 98101, US" 
     )
-    print(f"Coordinate: {result.results[0].position.lat}, {result.results[0].position.lon}")
+    
+    # Print reuslts if any
+    if len(result.results) > 0:
+        print(f"Coordinate: {result.results[0].position.lat}, {result.results[0].position.lon}")
+    else:
+        print("No address found")
 
 if __name__ == '__main__':
     search_address()
 ```
 
-Results returned by the `search_address()` method are ordered by confidence score and print the coordinates of the first result.
+The `SearchAddress` method returns results ordered by confidence score and prints the coordinates of the first result.
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return long-running operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The examples below demonstrate how to call the batched reverse search method.
+Azure Maps Search also provides some batch query methods. These methods return long-running operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The following examples demonstrate how to call the batched reverse search method.
 
-Since these return LRO objects, you'll need the `asyncio` method included in the `aiohttp` package:
+Since these return LRO objects, you need the `asyncio` method included in the `aiohttp` package:
 
 ```powershell
 pip install aiohttp
@@ -279,7 +285,7 @@ if __name__ == '__main__':
     asyncio.run(begin_reverse_search_address_batch())
 ```
 
-In the above example, three queries are passed to the batched reverse search request. To get the LRO results, the request will create a batch request with a batch ID as result that can be used to fetch batch response later. The LRO results will be cached on the server side for 14 days.
+In the above example, three queries are passed to the batched reverse search request. To get the LRO results, the request creates a batch request with a batch ID as result that can be used to fetch batch response later. The LRO results are cached on the server side for 14 days.
 
 The following example demonstrates the process of calling the batch ID and retrieving the operation results of the batch request:
 
@@ -340,18 +346,18 @@ if __name__ == '__main__':
 
 ## Additional information
 
-The [Azure Maps Search Package client library for Python][Search package client library] in the *Azure SDK for Python Preview* documentation.
+The [Azure Maps Search package client library] in the *Azure SDK for Python Preview* documentation.
 
 <!--------------------------------------------------------------------------------------------------------------->
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
-[authentication]: azure-maps-authentication.md
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Authentication with Azure Maps]: azure-maps-authentication.md
 
-[Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
-[python latest release]: https://www.python.org/downloads/
+[Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
+[latest release]: https://www.python.org/downloads/
 
 <!--  Python SDK Developers Guide  --->
-[support policy]: https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy
+[Azure SDK for Python version support policy]: https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy
 [py search package]: https://pypi.org/project/azure-maps-search
 [py search readme]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/maps/azure-maps-search/README.md
 [py search sample]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/maps/azure-maps-search/samples
@@ -367,6 +373,6 @@ The [Azure Maps Search Package client library for Python][Search package client 
 
 <!--- Authentication ---->
 [Azure Identity package]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
-[defaultazurecredential]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#DefaultAzureCredential
+[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [View authentication details]: how-to-manage-authentication.md#view-authentication-details

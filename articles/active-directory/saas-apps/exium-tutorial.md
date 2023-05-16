@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Exium | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Exium'
 description: Learn how to configure single sign-on between Azure Active Directory and Exium.
 services: active-directory
 author: jeevansd

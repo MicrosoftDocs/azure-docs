@@ -206,7 +206,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 ### To view recommendations for a focus area and take corrective action
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **Workspace summary** menu item.  
+3. In the Log Analytics subscriptions pane, select a workspace and then click the **Workspace summary (deprecated)** menu item.  
 4. On the **Overview** page, click the **System Center Operations Manager Health Check** tile.
 5. On the **System Center Operations Manager Health Check** page, review the summary information in one of the focus area sections and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![focus area](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>

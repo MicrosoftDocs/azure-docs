@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/14/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 
@@ -17,7 +16,7 @@ recommendations: false
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -138,7 +137,7 @@ To interact with the Form Recognizer service, you need to create an instance of 
 
 ## General document model
 
-Extract text, tables, structure, key-value pairs, and named entities from documents.
+Extract text, tables, structure, and key-value pairs from documents.
 
 > [!div class="checklist"]
 >

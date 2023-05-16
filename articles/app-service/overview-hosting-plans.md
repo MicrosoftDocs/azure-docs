@@ -4,8 +4,8 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 10/01/2020
-ms.custom: seodec18
+ms.date: 04/06/2023
+ms.custom: UpdateFrequency3
 
 ---
 # Azure App Service plan overview
@@ -24,7 +24,7 @@ The _pricing tier_ of an App Service plan determines what App Service features y
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, runs an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out.
 - **Dedicated compute**: The **Basic**, **Standard**, **Premium**, **PremiumV2**, and **PremiumV3** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances are available to you for scale-out.
-- **Isolated**: This **Isolated** and **IsolatedV2** tiers run dedicated Azure VMs on dedicated Azure Virtual Networks. It provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities.
+- **Isolated**: The **Isolated** and **IsolatedV2** tiers run dedicated Azure VMs on dedicated Azure Virtual Networks. It provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -33,13 +33,19 @@ Each tier also provides a specific subset of App Service features. These feature
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> The new **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](../virtual-machines/acu.md) per virtual CPU), SSD storage, and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
+> The **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](../virtual-machines/acu.md) per virtual CPU), SSD storage, memory-optimized options and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
 >
-> Similar to other dedicated tiers, three VM sizes are available for this tier:
->
-> - Small (2 CPU core, 8 GiB of memory) 
-> - Medium (4 CPU cores, 16 GiB of memory) 
-> - Large (8 CPU cores, 32 GiB of memory)  
+> Multiple VM sizes are available for this tier including 4-to-1 and 8-to-1 memory-to-core ratios:
+> 
+> - P0v3&nbsp;&nbsp;&nbsp;&nbsp;(1 vCPU, 4 GiB of memory) 
+> - P1v3&nbsp;&nbsp;&nbsp;&nbsp;(2 vCPU, 8 GiB of memory)
+> - P1mv3&nbsp;(2 vCPU, 16 GiB of memory)
+> - P2v3&nbsp;&nbsp;&nbsp;&nbsp;(4 vCPU, 16 GiB of memory) 
+> - P2mv3&nbsp;(4 vCPU, 32 GiB of memory)
+> - P3v3&nbsp;&nbsp;&nbsp;&nbsp;(8 vCPU, 32 GiB of memory)  
+> - P3mv3&nbsp;(8 vCPU, 64 GiB of memory)
+> - P4mv3&nbsp;(16 vCPU, 128 GiB of memory) 
+> - P5mv3&nbsp;(32 vCPU, 256 GiB of memory) 
 >
 > For **PremiumV3** pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 >
@@ -105,9 +111,12 @@ Isolate your app into a new App Service plan when:
   | B1, S1, P1v2, I1v1 | 8 |
   | B2, S2, P2v2, I2v1 | 16 |
   | B3, S3, P3v2, I3v1 | 32 |
+  | P0v3 | 8 |
   | P1v3, I1v2 | 16 |
-  | P2v3, I2v2 | 32 |
-  | P3v3, I3v2 | 64 |
+  | P2v3, I2v2, P1mv3 | 32 |
+  | P3v3, I3v2, P2mv3 | 64 |
+  | I4v2, I5v2, I6v2 | Max density bounded by vCPU usage |
+  | P3mv3, P4mv3, P5mv3 | Max density bounded by vCPU usage |
 
 - You want to scale the app independently from the other apps in the existing plan.
 - The app needs resource in a different geographical region.

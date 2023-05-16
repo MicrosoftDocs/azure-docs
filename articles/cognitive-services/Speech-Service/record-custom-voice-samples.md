@@ -28,7 +28,7 @@ A highly-natural custom neural voice depends on several factors, like the qualit
 
 The quality of your training data is a primary factor. For example, in the same training set, consistent volume, speaking rate, speaking pitch, and speaking style are essential to create a high-quality custom neural voice. You should also avoid background noise in the recording and make sure the script and recording match. To ensure the quality of your data, you need to follow [script selection criteria](#script-selection-criteria) and [recording requirements](#recording-your-script). 
 
-Regarding the size of the training data, in most cases you can build a reasonable custom neural voice with 500 utterances. According to our tests, adding more training data in most languages does not necessarily improve naturalness of the voice itself (tested using the MOS score), however, with more training data that covers more word instances, you have higher possibility to reduce the DSAT (dis-satisfied part of the speech, for example, the glitches) ratio for the voice. 
+Regarding the size of the training data, in most cases you can build a reasonable custom neural voice with 500 utterances. According to our tests, adding more training data in most languages does not necessarily improve naturalness of the voice itself (tested using the MOS score), however, with more training data that covers more word instances, you have higher possibility to reduce the ratio of dissatisfactory parts of speech for the voice, such as the glitches. To hear what dissatisfactory parts of speech sound like, refer to [the GitHub examples](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/DSAT-examples.md).
 
 In some cases, you may want a voice persona with unique characteristics. For example, a cartoon persona needs a voice with a special speaking style, or a voice that is very dynamic in intonation. For such cases, we recommend that you prepare at least 1000 (preferably 2000) utterances, and record them at a professional recording studio. To learn more about how to improve the quality of your voice model, see [characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
 
@@ -92,7 +92,7 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
    Best practices include:
     - Balanced coverage for Parts of Speech, like verbs, nouns, adjectives, and so on.  
-    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text-to-Speech engine learns how to pronounce each letter in your style.
+    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text to speech engine learns how to pronounce each letter in your style.
     - Readable, understandable, common-sense scripts for the speaker to read.
     - Avoid too many similar patterns for words/phrases, like "easy" and "easier".
     - Include different formats of numbers: address, unit, phone, quantity, date, and so on, in all sentence types.  

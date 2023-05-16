@@ -8,6 +8,7 @@ ms.date: 12/06/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
+ms.custom: devx-track-terraform
 ---
 
 # Create two web apps connected securely with Private Endpoint and VNet integration
@@ -30,7 +31,7 @@ Browse to the [Azure documentation](/azure/developer/terraform/) to learn how to
 
 ## The complete terraform file
 
-To use this file, replace the placeholders _\<unique-frontend-app-name>_ and _\<unique-frontend-app-name>_ (app name is used to form a unique DNS name worldwide). 
+To use this file, replace the placeholders _\<unique-frontend-app-name>_ and _\<unique-backend-app-name>_ (app name is used to form a unique DNS name worldwide). 
 
 ```hcl
 terraform {

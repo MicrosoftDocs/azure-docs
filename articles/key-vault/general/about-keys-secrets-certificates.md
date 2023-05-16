@@ -8,16 +8,41 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 12/12/2022
+ms.date: 04/18/2023
 ms.author: mbaldwin
 ---
 
 # Azure Key Vault keys, secrets and certificates overview
 
-Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two resource types: vaults and managed HSMs.
+Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data: keys, secrets, and certificates. Keys, secrets, and certificates are collectively referred to as "objects".
 
-## DNS suffixes for base URL
- This table shows the base URL DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
+## Object identifiers
+Objects are uniquely identified within Key Vault using a case-insensitive identifier called the object identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the key vault, object type, user provided object name, and an object version. Identifiers that don't include the object version are referred to as "base identifiers". Key Vault object identifiers are also valid URLs, but should always be compared as case-insensitive strings.
+
+For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
+
+An object identifier has the following general format (depending on container type):  
+
+- **For Vaults**:
+`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+
+- **For Managed HSM pools**:
+`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+
+> [!NOTE]
+> See [Object type support](#object-types) for types of objects supported by each container type.
+
+Where:  
+
+| Element | Description |  
+|-|-|  
+| `vault-name` or `hsm-name` | The name for a key vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
+| `object-type` | The type of the object, "keys",  "secrets", or "certificates".|  
+| `object-name` | An `object-name` is a user provided name for and must be unique within a key vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
+| `object-version `| An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object. |  
+
+## DNS suffixes for object identifiers
+The Azure Key Vault resource provider supports two resource types: vaults and managed HSMs. This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
 
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSMs
 ---|---|---
@@ -27,9 +52,9 @@ Azure US Government | .vault.usgovcloudapi.net | Not supported
 Azure German Cloud | .vault.microsoftazure.de | Not supported
 
 ## Object types
- This table shows object types and their suffixes in the base URL.
+ This table shows object types and their suffixes in the object identifier.
 
-Object type|URL Suffix|Vaults|Managed HSM Pools
+Object type|Identifier Suffix|Vaults|Managed HSM Pools
 --|--|--|--
 **Cryptographic keys**||
 HSM-protected keys|/keys|Supported|Supported
@@ -63,37 +88,12 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 
 ## Objects, identifiers, and versioning
 
-Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
+Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique object identifier. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
 Objects in Key Vault can be retrieved by specifying a version or by omitting version to get latest version of the object. Performing operations on objects requires providing version to use specific version of the object.
 
 > [!NOTE]
 > The values you provide for Azure resources or object IDs may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
-
-### Vault-name and Object-name
-Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
-
-For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
-
-An object identifier has the following general format (depending on container type):  
-
-- **For Vaults**:
-`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-- **For Managed HSM pools**:
-`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
-
-> [!NOTE]
-> See [Object type support](#object-types) for types of objects supported by each container type.
-
-Where:  
-
-| Element | Description |  
-|-|-|  
-|`vault-name` or `hsm-name`|The name for a vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  
-|`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
 
 ## Next steps
 

@@ -11,20 +11,20 @@ ms.date: 11/02/2021
 
 # Project limits and boundaries
 
-Question answering limits provided below are a combination of the [Azure Cognitive Search pricing tier limits](../../../../search/search-limits-quotas-capacity.md) and question answering limits. Both sets of limits affect how many knowledge bases you can create per resource and how large each knowledge base can grow.
+Question answering limits provided below are a combination of the [Azure Cognitive Search pricing tier limits](../../../../search/search-limits-quotas-capacity.md) and question answering limits. Both sets of limits affect how many projects you can create per resource and how large each project can grow.
 
-## Knowledge bases
+## Projects
 
-The maximum number of knowledge bases is based on [Azure Cognitive Search tier limits](../../../../search/search-limits-quotas-capacity.md).
+The maximum number of projects is based on [Azure Cognitive Search tier limits](../../../../search/search-limits-quotas-capacity.md).
 
-Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of knowledge bases you need based on number of different subject domains. One subject domain (for a single language) should be in one knowledge base.
+Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of projects you need based on number of different subject domains. One subject domain (for a single language) should be in one project.
 
 With custom question answering, you have a choice to set up your language resource in a single language or multiple languages. You can make this selection when you create your first project in the [Language Studio](https://language.azure.com/).
 
   > [!IMPORTANT]
-  > You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
+  > You can publish N-1 projects of a single language or N/2 projects of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 
-For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases of the same language (one index per published knowledge base). The 15th index is used for all the knowledge bases for authoring and testing. If you choose to have knowledge bases in different languages, then you can only publish seven knowledge bases.
+For example, if your tier has 15 allowed indexes, you can publish 14 projects of the same language (one index per published project). The 15th index is used for all the projects for authoring and testing. If you choose to have projects in different languages, then you can only publish seven projects.
 
 
 ## Extraction limits
@@ -61,17 +61,17 @@ The maximum number of deep-links that can be crawled for extraction of question 
 
 Metadata is presented as a text-based `key:value` pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../../../search/search-limits-quotas-capacity.md)**.
 
-If you choose to projects with multiple languages in a single language resource, there is a dedicated test index per project/knowledge base. So the limit is applied per project/knowledge base in the language service.
+If you choose to projects with multiple languages in a single language resource, there is a dedicated test index per project. So the limit is applied per project in the language service.
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum metadata fields per language service (per knowledge base)|1,000|100*|1,000|1,000|1,000|1,000|
+|Maximum metadata fields per language service (per project)|1,000|100*|1,000|1,000|1,000|1,000|
 
-If you don't choose the option to have projects with multiple different languages, then the limits are applied across all knowledge bases in the language service.
+If you don't choose the option to have projects with multiple different languages, then the limits are applied across all projects in the language service.
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum metadata fields per Language service (across all knowledge bases)|1,000|100*|1,000|1,000|1,000|1,000|
+|Maximum metadata fields per Language service (across all projects)|1,000|100*|1,000|1,000|1,000|1,000|
 
 ### By name and value
 
@@ -83,8 +83,8 @@ The length and acceptable characters for metadata name and value are listed in t
 |Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)<br>Only one value allowed.|`^[^:|]+$`|500|
 |||||
 
-## Knowledge base content limits
-Overall limits on the content in the knowledge base:
+## Project content limits
+Overall limits on the content in the project:
 * Length of answer text: 25,000 characters
 * Length of question text: 1,000 characters
 * Length of metadata key text: 100 characters
@@ -99,14 +99,14 @@ Overall limits on the content in the knowledge base:
 
 ## Create project call limits:
 
-These represent the limits for each create project/knowledge base action; that is, selecting *Create new project* or calling the REST API to create a project/knowledge base.
+These represent the limits for each create project action; that is, selecting *Create new project* or calling the REST API to create a project.
 
 * Recommended maximum number of alternate questions per answer: 300
 * Maximum number of URLs: 10
 * Maximum number of files: 10
 * Maximum number of QnAs permitted per call: 1000
 
-## Update knowledge base call limits
+## Update project call limits
 
 These represent the limits for each update action; that is, selecting *Save* or calling the REST API with an update request.
 * Length of each source name: 300
@@ -120,7 +120,7 @@ These represent the limits for each update action; that is, selecting *Save* or 
 > [!NOTE]
 > * If you need to use larger files than the limit allows, you can break the file into smaller files before sending them to the API. 
 
-These represent the limits when unstructured files are used to *Create new project* or call the REST API to create a knowledge base:
+These represent the limits when unstructured files are used to *Create new project* or call the REST API to create a project:
 * Length of file: We will extract first 32000 characters
 * Maximum three responses per file.
 
@@ -130,7 +130,7 @@ These represent the limits when unstructured files are used to *Create new proje
 > * If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
 > * A document is a single string of text characters.  
 
-These represent the limits when REST API is used to answer a question based without having to create a project/knowledge base:
+These represent the limits when REST API is used to answer a question based without having to create a project:
 * Number of documents: 5
 * Maximum size of a single document:  5,120 characters
 * Maximum three responses per document.

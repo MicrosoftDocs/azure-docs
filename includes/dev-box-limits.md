@@ -8,10 +8,10 @@ ms.author: dhruvmu
 
 | Subscription type  | VM Cores | Network Connections | Dev centers | Dev box definitions | Dev box projects |
 | ------------------ | -------- | ------------------- | ----------- | ------------------- | ---------------- |
-| Pay as you go      | 20       | 10                  | 2           | 200                 | 500              |
-| Azure Pass         | 20       | 10                  | 2           | 200                 | 500              |
-| CSP                | 20       | 10                  | 2           | 200                 | 500              |
-| Free trial         | 0        | 0                   | 0           | 0                   | 0                |
-| Azure for Students | 0        | 0                   | 0           | 0                   | 0                |
-| Enterprise         | 80       | 10                  | 5           | 200                 | 500              |
-| MSDN               | n/a      | 5                   | 2           | 200                 | 500              |
+| Pay as you go      |   20     |         5           |     2       |     200             |     500          |
+| Azure Pass         |   20     |         5           |     2       |     200             |     500          |
+| CSP                |   20     |         5           |     2       |     200             |     500          |
+| Free trial         |    0     |         0           |     0       |       0             |       0          |
+| Azure for Students |    0     |         0           |     0       |       0             |       0          |
+| Enterprise         |   80     |        10           |     5       |     200             |     500          |
+| MSDN               |  n/a     |         5           |     2       |     200             |     500          |

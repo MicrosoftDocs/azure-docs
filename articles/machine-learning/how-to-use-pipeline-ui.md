@@ -17,24 +17,36 @@ ms.custom: designer, event-tier1-build-2022
 
 Azure Machine Learning studio provides UI to build and debug your pipeline. You can use components to author a pipeline in the designer, and you can debug your pipeline in the job detail page.
 
-This article will introduce how to use the studio UI to build and debug machine learning pipelines.
+This article introduces how to use the studio UI to build and debug machine learning pipelines.
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Build machine learning pipeline
 
 ### Drag and drop components to build pipeline
 
-In the designer homepage, you can select **New pipeline** to open a blank pipeline draft.
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>In this article, we will create pipeline using custom components. 
 
-In the asset library left of the canvas, there are **Data assets** and **Components** tabs, which contain components and data registered to the workspace. For what is component and how to create custom component, you can refer to the [component concept article](concept-component.md).
+In the designer homepage, you can select **New pipeline -> Custom** to open a blank pipeline draft.
 
-You can quickly filter **My assets** or **Designer built-in assets**.
+In the asset library left of the canvas, there are **Data**,**Model** and **Component** tabs, which contain data, model and components registered to the workspace. For what is component and how to create custom component, you can refer to the [component concept article](concept-component.md). 
+
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/asset-library.png" alt-text="Screenshot showing the asset library with filter by selected." lightbox= "./media/how-to-use-pipeline-ui/asset-library.png":::
 
-Then you can drag and drop either built-in components or custom components to the canvas. You can construct your pipeline or configure your components in any order. Just hide the right pane to construct your pipeline first, and open the right pane to configure your component.
+Then you can drag and drop components, data and model to build a pipeline. You can construct your pipeline or configure your components in any order. Just hide the right pane to construct your pipeline first, and open the right pane to configure your component.
 
-> [!NOTE]
-> Currently built-in components and custom components cannot be used together.
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/hide-right-pane.png" alt-text="Screenshot showing the close and open button." lightbox= "./media/how-to-use-pipeline-ui/hide-right-pane.png":::
 
@@ -60,6 +72,31 @@ If you want to try a few different parameter values for the same pipeline, you c
 On the pipeline job detail page, you can check the status of the overall job and each node inside, and logs of each node.
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png" alt-text="Screenshot showing pipeline job detail page." lightbox= "./media/how-to-use-pipeline-ui/pipeline-job-detail-page.png":::
+
+#### Try the optimized submission wizard(preview)
+
+There is an optimized pipeline submission wizard to streamline your pipeline submission experience. It provides spacious space to edit pipeline inputs and outputs, and the ability to modify runtime settings, such as the default compute, at the time of submission.
+
+To enable this feature:
+1. Navigate to Azure Machine Learning studio UI.
+2. Select Manage preview features (megaphone icon) among the icons on the top right side of the screen.
+3. In Managed preview feature panel, toggle on **Submit pipeline jobs using the optimized submission wizard**
+
+
+:::image type="content" source="./media/how-to-use-pipeline-ui/enable-submission-wizard.png" alt-text="Screenshot showing how to enable submission wizard." lightbox= "./media/how-to-use-pipeline-ui/enable-submission-wizard.png":::
+
+After enabling the pipeline submission wizard, select **Configure & Submit** button on the top right to submit the pipeline job.
+
+Then you will see a step-by-step wizard, which allows you to edit pipeline inputs & outputs, and change runtime settings before submitting the pipeline job. Follow the wizard to submit the pipeline job.
+
+:::image type="content" source="./media/how-to-use-pipeline-ui/submission-wizard.png" alt-text="Screenshot showing the inputs & outputs tab of the submission wizard." lightbox= "./media/how-to-use-pipeline-ui/submission-wizard.png":::
+
+
+
+
+
+
+
 
 ## Debug your pipeline in job detail page
 
@@ -244,7 +281,7 @@ Status and definitions:
 
 | Status | What does it mean? | Time estimation | Next step |
 |------|--------------|-------------|----------|
-| Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
+| Not started | Job is submitted from client side and accepted in Azure Machine Learning services. Time spent in this stage is mainly in Azure Machine Learning service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
 |Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you're using curated or registered custom environment, this time should be very short. | Check image building log. |
 |Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster.| If you're using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
 |Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | This status is expected to be most time consuming one.	| 1. Go to the source code check if there's any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
@@ -274,3 +311,4 @@ In this article, you learned the key features in how to create, explore, and deb
 + [How to train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 + [How to deploy model to real-time endpoint in the designer](tutorial-designer-automobile-price-deploy.md)
 + [What is machine learning component](concept-component.md)
++ [Deploy a pipeline with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)

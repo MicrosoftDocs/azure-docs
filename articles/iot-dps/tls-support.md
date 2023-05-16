@@ -1,12 +1,13 @@
 ---
- title: Azure IoT Device Provisioning Service (DPS) TLS support
- description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
- services: iot-dps
- author: kgremban
- ms.service: iot-dps
- ms.topic: conceptual
- ms.date: 09/15/2022
- ms.author: kgremban
+title: TLS support with DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
+author: kgremban
+
+ms.author: kgremban
+ms.service: iot-dps
+ms.topic: concept-article
+ms.date: 09/15/2022
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)

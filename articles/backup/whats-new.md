@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 03/20/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -16,6 +16,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- April 2023
+  - [Microsoft Azure Backup Server v4 is now generally available](#microsoft-azure-backup-server-v4-is-now-generally-available)
+- March 2023
+  - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
+  - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
+  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
+  - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
+  - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
   - [Multi-user authorization using Resource Guard for Backup vault (in preview)](#multi-user-authorization-using-resource-guard-for-backup-vault-in-preview)
   - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
@@ -49,6 +57,58 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Microsoft Azure Backup Server v4 is now generally available
+
+Azure Backup now provides Microsoft Azure Backup Server (MABS) v4, the latest edition of on-premises backup solution.
+
+- It can *protect* and *run on* Windows Server 2022, Azure Stack HCI 22H2, vSphere 8.0, and SQL Server 2022.
+- It contains stability improvements and bug fixes on *MABS v3 UR2*. 
+
+For more information see [What's new in MABS](backup-mabs-whats-new-mabs.md).
+## Multiple backups per day for Azure VMs is now generally available
+
+Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
+
+For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+
+## Immutable vault for Azure Backup is now generally available
+
+Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
+
+For more information, see the [concept of Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
+
+## Support for selective disk backup with enhanced policy for Azure VM (preview)
+
+Azure Backup now provides *Selective Disk backup and restore* capability to Enhanced policy. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier.
+
+This is useful when you:
+
+- Manage critical data in a subset of the VM disks.
+- Use database backup solutions and want to back up only their OS disk to reduce cost. 
+
+For more information, see [Selective disk backup and restore](selective-disk-backup-restore.md).
+
+## Azure Kubernetes Service backup (preview)
+
+Azure Kubernetes Service (AKS) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for both cluster state and application data (persistent volumes - CSI driver based Azure Disks). 
+
+The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore with the ability to store backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning test or developer environments, or cluster upgrade scenarios. 
+
+AKS backup integrates with [Backup center](backup-center-overview.md) (with other backup management capabilities) to provide a single pane of glass that helps you govern, monitor, operate, and analyze backups at scale.
+
+For more information, see [Overview of AKS backup (preview)](azure-kubernetes-service-backup-overview.md).
+
+## Azure Blob vaulted backups (preview)
+
+Azure Backup now enables you to perform a vaulted backup of block blob data in *general-purpose v2 storage accounts* to protect data against ransomware attacks or source data loss due to malicious or rogue admin. You can define the backup schedule to create recovery points and the retention settings that determine how long backups will be retained in the vault. You can configure and manage the vaulted and operational backups using a single backup policy. 
+
+Under vaulted backups, the data is copied and stored in the Backup vault. So, you get an offsite copy of data that can be retained for up to *10 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and get access to your data. The vaulted backups can be managed at scale via the Backup center, and monitored via the rich alerting and reporting capabilities offered by the Azure Backup service.
+
+If you're currently using operational backups, we recommend you to switch to vaulted backups for complete protection against different data loss scenarios.
+
+For more information, see [Azure Blob backup overview](blob-backup-overview.md).
 
 ## Multi-user authorization using Resource Guard for Backup vault (in preview)
 
@@ -194,7 +254,7 @@ For more information, see [Overview of operational backup for Azure Blobs](blob-
 
 ## Enhancements to encryption using customer-managed keys for Azure Backup (in preview)
 
-Azure Backup now provides enhanced capabilities (in preview) to manage encryption with customer-managed keys. Azure Backup allows you to bring in your own keys to encrypt the backup data in the Recovery Services vaults, thus providing you a better control.
+Azure Backup now provides enhanced capabilities (in preview) to manage encryption with customer-managed keys. Azure Backup allows you to bring in your own keys to encrypt the backup data in the Recovery Services vaults, thus providing you with better control.
 
 - Supports user-assigned managed identities to grant permissions to the keys to manage data encryption in the Recovery Services vault.
 - Enables encryption with customer-managed keys while creating a Recovery Services vault.

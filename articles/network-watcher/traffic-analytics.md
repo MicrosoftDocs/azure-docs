@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.date: 01/06/2023
 ms.author: halkazwini
 ms.reviewer: vinigam
-ms.custom: template-concept, references_regions, engagement-fy23, devx-track-azurepowershell, kr2b-contr-experiment
+ms.custom: template-concept, references_regions, engagement-fy23, kr2b-contr-experiment
 ---
 
 # Azure Network Watcher Traffic analytics
@@ -101,7 +101,6 @@ One of the following [Azure built-in roles](../role-based-access-control/built-i
 |---------          |---------               |
 |Resource Manager   | Owner                  |
 |                   | Contributor            |
-|                   | Reader                 |
 |                   | Network Contributor    |
 
 If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) to your account. The custom role should support the following actions at the subscription level:

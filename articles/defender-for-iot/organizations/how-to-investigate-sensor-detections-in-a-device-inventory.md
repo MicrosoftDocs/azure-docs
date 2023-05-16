@@ -1,7 +1,7 @@
 ---
 title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
-ms.date: 07/21/2022
+ms.date: 02/28/2023
 ms.topic: how-to
 ---
 
@@ -39,7 +39,7 @@ This procedure describes how to view detected devices in the **Device inventory*
 
     :::image type="content" source="media/how-to-inventory-sensor/sensor-inventory-view-details.png" alt-text="Screenshot of the Device inventory page on an OT sensor console." lightbox="media/how-to-inventory-sensor/sensor-inventory-view-details.png":::
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Edit device details
 
@@ -49,7 +49,13 @@ If you're working with a cloud-connected sensor, any edits you make in the senso
 
 **To edit device details**:
 
-1. Select one or more devices in the grid, and then select **View full details** in the pane on the right.
+1. Select a device in the grid, and then select **Edit** in the toolbar at the top of the page.
+
+1. In the **Edit** pane on the right, modify the device fields as needed, and then select **Save** when you're done.
+
+You can also open the edit pane from the device details page:
+
+1. Select a device in the grid, and then select **View full details** in the pane on the right.
 
 1. In the device details page, select **Edit Properties**.
 
@@ -61,10 +67,11 @@ Editable fields include:
 - Device name
 - Device type
 - OS
-- Purdue layer
+- Purdue level
 - Description
+- Scanner or programming device
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Export the device inventory to CSV
 
@@ -91,11 +98,11 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 **To merge devices from the device inventory:**
 
-1. Use the SHIFT key to select two devices from the inventory, and then right-click one of them.
+1. In the **Device inventory** page, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
 
-1. Select **Merge** to merge the devices. This can take up to 2 minutes to complete.
+1. At the prompt, select **Confirm** to confirm that you want to merge the devices.
 
-1. When the **Set merge device attributes** dialog appears, enter a meaningful name for your merged device, and then select **Save**.
+The devices are merged, and a confirmation message appears at the top right.
 
 ## View inactive devices
 
@@ -120,14 +127,17 @@ You may want to delete devices from your device inventory, such as if they've be
 
 Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
 
-**To delete a single device**:
+**To delete one or more devices**:
 
-You can delete a single device when they’ve been inactive for more than 10 minutes.
+You can delete a device when it's been inactive for more than 10 minutes.
 
-1. In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
-1. At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-**To delete all inactive devices**
+1. At the prompt, select **Confirm** to confirm that you want to delete the device or devices from Defender for IoT.
+
+The device or devices are deleted, and a confirmation message appears at the top right.
+
+**To delete all inactive devices**:
 
 This procedure is supported for the *cyberx* and admin users only.
 
@@ -138,45 +148,11 @@ This procedure is supported for the *cyberx* and admin users only.
 
 All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
 
-## Export device inventory information
-
-You can export device inventory information to a .csv file.
-
-**To export:**
-
-- Select **Export file** from the Device Inventory page. The report is generated and downloaded.
-
-## Device inventory column reference
-
-The following table describes the device properties shown in the **Device inventory** page on a sensor console.
-
-| Name | Description |
-|--|--|
-| **Description** | A description of the device |
-| **Discovered** | When this device was first seen in the network. |
-| **Firmware version** | The device's firmware, if detected. |
-| **FQDN** | The device's FQDN value |
-| **FQDN lookup time** | The device's FQDN lookup time |
-| **Groups** | The groups that this device participates in. |
-| **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
-| **Is Known as Scanner** | Defined as a network scanning device by the user. |
-| **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
-| **Last Activity** | The last activity that the device performed. |
-| **MAC Address** | The MAC address of the device. |
-| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
-| **Operating System** | The OS of the device, if detected. |
-| **PLC mode** (preview) | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
-| **Protocols** | The protocols that the device uses. |
-| **Type** | The type of device as determined by the sensor, or as entered by the user. |
-| **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
-
 ## Next steps
 
 For more information, see:
 
+- [Defender for IoT device inventory](device-inventory.md)
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [Device data retention periods](references-data-retention.md#device-data-retention-periods)

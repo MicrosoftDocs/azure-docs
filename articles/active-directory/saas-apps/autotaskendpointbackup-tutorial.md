@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Autotask Endpoint Backup | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Autotask Endpoint Backup'
 description: Learn how to configure single sign-on between Azure Active Directory and Autotask Endpoint Backup.
 services: active-directory
 author: jeevansd

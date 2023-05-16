@@ -4,7 +4,7 @@ description: Use the Azure Monitor portal to manage log alert rules created in e
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 2/23/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ms.reviewer: harelbr
 ---
 # Manage alert rules created in previous versions
@@ -53,7 +53,7 @@ This article describes the process of managing alert rules created in the previo
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 
    ![Screenshot that shows the Alert Details pane.](media/alerts-log/AlertsPreviewSuppress.png)
-1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md#webhook) when the alert condition is met.
+1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
     > [!NOTE]
     > For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 1. (Optional) Customize actions in log alert rules:
@@ -81,7 +81,7 @@ Use the following PowerShell cmdlets to manage rules with the [Scheduled Query R
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule.
 
 > [!NOTE]
-> The `ScheduledQueryRules` PowerShell cmdlets can only manage rules created in [this version of the Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log alert rules created by using the legacy [Log Analytics Alert API](./api-alerts.md) can only be managed by using PowerShell after you [switch to the Scheduled Query Rules API](../alerts/alerts-log-api-switch.md).
+> The `ScheduledQueryRules` PowerShell cmdlets can only manage rules created in [this version of the Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). Log alert rules created by using the legacy [Log Analytics Alert API](./api-alerts.md) can only be managed by using PowerShell after you [switch to the Scheduled Query Rules API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
 
 Example steps for creating a log alert rule by using PowerShell:
 

@@ -2,10 +2,9 @@
 title: How to stop monitoring your Azure Red Hat OpenShift v3 cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your Azure Red Hat OpenShift cluster with Container insights.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/24/2022
-ms.custom: devx-track-azurepowershell
 ms.reviewer: aul
-
 ---
 
 # How to stop monitoring your Azure Red Hat OpenShift v3 cluster

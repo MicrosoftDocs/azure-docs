@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with HeyBuddy | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with HeyBuddy"
 description: Learn how to configure single sign-on between Azure Active Directory and HeyBuddy.
 services: active-directory
 author: jeevansd

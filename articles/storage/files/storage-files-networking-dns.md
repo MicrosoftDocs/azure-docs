@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Configuring DNS forwarding for Azure Files
@@ -46,7 +46,7 @@ Before you can setup DNS forwarding to Azure Files, you need to have completed t
 
 - A storage account containing an Azure file share you would like to mount. To learn how to create a storage account and an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
 - A private endpoint for the storage account. To learn how to create a private endpoint for Azure Files, see [Create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- The [latest version](/powershell/azure/install-az-ps) of the Azure PowerShell module.
+- The [latest version](/powershell/azure/install-azure-powershell) of the Azure PowerShell module.
 
 > [!Important]  
 > This guide assumes you're using the DNS server within Windows Server in your on-premises environment. All of the steps described in this guide are possible with any DNS server, not just the Windows DNS Server.

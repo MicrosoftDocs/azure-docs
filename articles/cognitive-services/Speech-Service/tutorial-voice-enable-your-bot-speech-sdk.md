@@ -31,7 +31,7 @@ The voice-enabled chat bot that you make in this tutorial follows these steps:
 1. Optionally, higher-accuracy keyword verification happens on the service.
 1. The audio is passed to the speech recognition service and transcribed to text.
 1. The recognized text is passed to the echo bot as a Bot Framework activity.
-1. The response text is turned into audio by the text-to-speech service, and streamed back to the client application for playback.
+1. The response text is turned into audio by the text to speech service, and streamed back to the client application for playback.
 
 ![Diagram that illustrates the flow of the Direct Line Speech channel.](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
@@ -75,7 +75,7 @@ This section walks you through creating a resource group in the West US region. 
 
 ### Choose an Azure region
 
-Ensure that you use a [supported Azure region](regions.md#voice-assistants). The Direct Line Speech channel uses the text-to-speech service, which has neural and standard voices. Neural voices are used at [these Azure regions](regions.md#speech-service), and standard voices (retiring) are used at [these Azure regions](how-to-migrate-to-prebuilt-neural-voice.md).
+Ensure that you use a [supported Azure region](regions.md#voice-assistants). The Direct Line Speech channel uses the text to speech service, which has neural and standard voices. Neural voices are used at [these Azure regions](regions.md#speech-service), and standard voices (retiring) are used at [these Azure regions](how-to-migrate-to-prebuilt-neural-voice.md).
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -99,7 +99,7 @@ At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceG
 
 | Name | Type  | Location |
 |------|-------|----------|
-| SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
+| SpeechEchoBotTutorial-Speech | Speech | West US |
 
 ### Create an Azure App Service plan
 
@@ -426,15 +426,15 @@ In the source code of the Windows Voice Assistant Client, use these files to rev
 
 ## Optional: Change the language and bot voice
 
-The bot that you've created will listen for and respond in English, with a default US English text-to-speech voice. However, you're not limited to using English or a default voice. 
+The bot that you've created will listen for and respond in English, with a default US English text to speech voice. However, you're not limited to using English or a default voice. 
 
 In this section, you'll learn how to change the language that your bot will listen for and respond in. You'll also learn how to select a different voice for that language.
 
 ### Change the language
 
-You can choose from any of the languages mentioned in the [speech-to-text](language-support.md?tabs=stt) table. The following example changes the language to German.
+You can choose from any of the languages mentioned in the [speech to text](language-support.md?tabs=stt) table. The following example changes the language to German.
 
-1. Open the Windows Voice Assistant Client app, select the **Settings** button (upper-right gear icon), and enter **de-de** in the **Language** field. This is the locale value mentioned in the [speech-to-text](language-support.md?tabs=stt) table. 
+1. Open the Windows Voice Assistant Client app, select the **Settings** button (upper-right gear icon), and enter **de-de** in the **Language** field. This is the locale value mentioned in the [speech to text](language-support.md?tabs=stt) table. 
 
    This step sets the spoken language to be recognized, overriding the default **en-us**. It also instructs the Direct Line Speech channel to use a default German voice for the bot reply.
 1. Close the **Settings** page, and then select the **Reconnect** button to establish a new connection to your echo bot.
@@ -442,7 +442,7 @@ You can choose from any of the languages mentioned in the [speech-to-text](langu
 
 ### Change the default bot voice
 
-You can select the text-to-speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
+You can select the text to speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
 
 The following example adds SSML to the echo bot reply so that the German voice `de-DE-RalfNeural` (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md?tabs=tts) that are supported for your language.
 
@@ -489,7 +489,7 @@ If you're not going to continue using the echo bot deployed in this tutorial, yo
 ## Explore documentation
 
 * [Deploy to an Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see the improvement in bot response time.
-* [Deploy to an Azure region that supports high-quality neural text-to-speech voices](./regions.md#speech-service).
+* [Deploy to an Azure region that supports high-quality neural text to speech voices](./regions.md#speech-service).
 * Get pricing associated with the Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

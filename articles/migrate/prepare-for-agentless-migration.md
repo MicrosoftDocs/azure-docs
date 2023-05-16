@@ -105,7 +105,7 @@ The preparation script executes the following changes based on the OS type of th
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
-   ```
+   ```powershell
    Get-Service -Name Dhcp
    Where-Object StartType -ne Automatic
    Set-Service -StartupType Automatic
@@ -173,17 +173,17 @@ The preparation script executes the following changes based on the OS type of th
       An illustrative example for rebuilding initrd
 
       - Back up the existing initrd image
-
-        ```
+      
+       ```bash
         cd /boot
         sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
-        ```
+       ```
 
       - Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
 
-        ```
+       ```bash
           sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
-        ```
+       ```
    Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out, using the aforementioned steps.
 
 1. **Enable Azure Serial Console logging**
@@ -192,13 +192,13 @@ The preparation script executes the following changes based on the OS type of th
 
    Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
 
-   ```
+   ```config
     console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
    ```
 
    We also recommend removing the following parameters if they exist.
 
-   ```
+   ```config
    rhgb quiet crashkernel=auto
    ```
     [Refer to this article](../virtual-machines/linux/create-upload-generic.md#general-linux-system-requirements) for specific changes.
@@ -211,9 +211,9 @@ The preparation script executes the following changes based on the OS type of th
 
       An illustrative example for RedHat servers
 
-      ```console
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+      ```bash
+         sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+         sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
       ```
 
    1. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It's recommended to make these changes for servers running RedHat and Ubuntu distributions.
@@ -222,8 +222,8 @@ The preparation script executes the following changes based on the OS type of th
     
       An illustrative example for RedHat servers
 
-      ```console
-         # sudo rpm -e --nodeps NetworkManager
+      ```bash
+         sudo rpm -e --nodeps NetworkManager
       ```
 
    1. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
@@ -270,9 +270,9 @@ The preparation script executes the following changes based on the OS type of th
     You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
     Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
 
-   ```
-    $ vgchange -an <vg-name>
-    $ blockdev –flushbufs <disk-device-name>
+   ```bash
+      sudo vgchange -an <vg-name>
+      sudo lockdev –flushbufs <disk-device-name>
    ```
 
    [Learn more on the changes for Linux servers.](../virtual-machines/linux/create-upload-generic.md)

@@ -9,7 +9,7 @@ ms.author: joburges
 author: ssalgadodev
 ms.date: 08/15/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
@@ -32,7 +32,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
     * The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
     * The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with thee candidate script and run the test suite against the local endpoint.
 
-## Azure Machine learning inference HTTP server
+## Azure Machine Learning inference HTTP server
 
 The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
 

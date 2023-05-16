@@ -27,16 +27,6 @@ This article will be updated to reflect the features that are currently in previ
 
 The following features are available in preview.
 
-### Network rule name logging (preview)
-
-With this new feature, the event logs for network rules adds the following attributes:
-   - Policy name
-   - Rule collection group
-   - Rule collection
-   - Rule name 
-
-For more information, see [Azure Firewall network rule name logging (preview)](firewall-network-rule-logging.md).
-
 ### Structured Firewall Logs (preview)
 
 With Structured Firewall Logs, you'll be able to choose to use Resource Specific tables instead of an existing AzureDiagnostics table. Structured Firewall Logs is required for Policy Analytics. This new method helps you with better log querying and is recommended because:
@@ -48,17 +38,11 @@ With Structured Firewall Logs, you'll be able to choose to use Resource Specific
 
 For more information, see [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md).
 
-### Policy Analytics (preview)
+### Explicit proxy (preview)
 
-Policy Analytics provides insights, centralized visibility, and control to Azure Firewall. IT teams today are challenged to keep Firewall rules up to date, manage existing rules, and remove unused rules. Any accidental rule updates can lead to a significant downtime for IT teams.
+With the Azure Firewall Explicit proxy set on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user defined route (UDR).
 
-For more information, see [Azure Firewall Policy Analytics (preview)](policy-analytics.md).
-
-### Easy upgrade/downgrade (preview)
-
-You can now easily upgrade your existing Firewall Standard SKU to Premium SKU and downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
-
-For more information, see [Azure Firewall easy upgrade/downgrade (preview)](easy-upgrade.md).
+For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
 
 
 ## Next steps

@@ -23,7 +23,7 @@ Once you've created a service principal, retrieve an access token using a REST c
 
 ```HTTP
 
-    POST /<appId>/oauth2/v2.0/token
+    POST /<tenant-id>/oauth2/token
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     

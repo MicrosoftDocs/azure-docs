@@ -6,6 +6,7 @@ ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
 ms.date: 02/09/2023
 ms.author: madsd
+ms.custom: msangapu
 ---
 
 # Using Private Endpoints for App Service apps

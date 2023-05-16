@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Soloinsight-CloudGate SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Soloinsight-CloudGate SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Soloinsight-CloudGate SSO.
 services: active-directory
 author: jeevansd

@@ -90,6 +90,8 @@
       href: backup-azure-policy-supported-skus.md
     - name: Azure Database for PostgreSQL backup support matrix
       href: backup-azure-database-postgresql-support-matrix.md
+    - name: Azure Kubernetes Service backup support matrix
+      href: azure-kubernetes-service-cluster-backup-support-matrix.md
     - name: Automation in Azure Backup
       href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
@@ -120,12 +122,22 @@
       href: protect-backups-from-ransomware-faq.yml
   - name: Backup center
     href: backup-center-overview.md
+  - name: Azure VM backup
+    href: backup-azure-vms-introduction.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: About HANA database backup
       href: sap-hana-database-about.md
     - name: Architecture
-      href: azure-backup-architecture-for-sap-hana-backup.md      
+      href: azure-backup-architecture-for-sap-hana-backup.md
+  - name: Azure Kubernetes Service backup
+    items:
+    - name: Overview
+      href: azure-kubernetes-service-backup-overview.md
+    - name: Prerequisites  
+      href: azure-kubernetes-service-cluster-backup-concept.md      
+  - name: Azure Blob backup
+    href: blob-backup-overview.md          
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -180,8 +192,6 @@
       href: backup-center-actions.md
   - name: Azure VM backup
     items:
-    - name: Overview
-      href: backup-azure-vms-introduction.md
     - name: Backup
       items:
       - name: Back up and restore Azure VMs with Azure Backup Instant Restore
@@ -288,6 +298,22 @@
         href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
+  - name: Azure Kubernetes Service backup
+    items:
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore.md
+      - name: Manage
+        href: azure-kubernetes-service-cluster-manage-backups.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup-using-powershell.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore-using-powershell.md      
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -348,10 +374,8 @@
         href: backup-azure-dataprotection-use-rest-api-backup-disks.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-disks.md
-  - name: Azure Blobs backup
+  - name: Azure Blob backup
     items:
-    - name: Overview
-      href: blob-backup-overview.md
     - name: From the Azure portal
       items:
       - name: Configure and manage
@@ -436,8 +460,10 @@
     items:
     - name: Protection matrices
       items:
-      - name: MABS V3 UR1 (and later) protection matrix
+      - name: MABS V4 (and later) protection matrix
         href: backup-mabs-protection-matrix.md
+      - name: MABS V3 UR1 (and later)
+        href: microsoft-azure-backup-server-protection-v3-ur1.md
       - name: MABS V3 RTM protection matrix
         href: microsoft-azure-backup-server-protection-v3.md
     - name: Install or upgrade
@@ -659,6 +685,8 @@
       href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure Blob backup
+      href: backup-azure-troubleshoot-blob-backup.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
@@ -681,6 +709,8 @@
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier
       href: troubleshoot-archive-tier.md
+    - name: Azure Kubernetes Service
+      href: azure-kubernetes-service-backup-troubleshoot.md  
 - name: Reference
   items:
   - name: Archived release notes

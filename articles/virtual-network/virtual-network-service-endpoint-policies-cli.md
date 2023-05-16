@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 tags: azure-resource-manager
-# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
@@ -13,7 +12,8 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: allensu
-ms.custom: 
+ms.custom: devx-track-azurecli
+# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 ---
 
 # Manage data exfiltration to Azure Storage accounts with virtual network service endpoint policies using the Azure CLI
@@ -295,7 +295,7 @@ Create a VM in the *Private* subnet with [az vm create](/cli/azure/vm). If SSH k
 az vm create \
   --resource-group myResourceGroup \
   --name myVmPrivate \
-  --image UbuntuLTS \
+  --image <SKU linux image> \
   --vnet-name myVirtualNetwork \
   --subnet Private \
   --generate-ssh-keys
@@ -334,7 +334,7 @@ sudo mkdir /mnt/MyAzureFileShare2
 ```
 
 Attempt to mount the Azure file share from storage account *notallowedstorageacc* to the directory you created. 
-This article assumes you deployed the latest version of Ubuntu. If you are using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares. 
+This article assumes you deployed the latest version of Linux distribution. If you are using earlier versions of Linux distribution, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares. 
 
 Before executing the command below, replace *\<storage-account-key>* with value of *AccountKey* from **$saConnectionString2**.
 

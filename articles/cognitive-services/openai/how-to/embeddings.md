@@ -1,5 +1,5 @@
 ---
-title: 'How to generate embeddings with Azure OpenAI'
+title: 'How to generate embeddings with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
 services: cognitive-services
@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 6/24/2022
+ms.date: 5/9/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -44,7 +44,31 @@ response = openai.Embedding.create(
     engine="YOUR_DEPLOYMENT_NAME"
 )
 embeddings = response['data'][0]['embedding']
+print(embeddings)
 ```
+
+# [C#](#tab/csharp)
+```csharp
+using Azure;
+using Azure.AI.OpenAI;
+
+Uri oaiEndpoint = new ("https://YOUR_RESOURCE_NAME.openai.azure.com");
+string oaiKey = "YOUR_API_KEY";
+
+AzureKeyCredential credentials = new (oaiKey);
+
+OpenAIClient openAIClient = new (oaiEndpoint, credentials);
+
+EmbeddingsOptions embeddingOptions = new ("Your text string goes here");
+
+var returnValue = openAIClient.GetEmbeddings("YOUR_DEPLOYMENT_NAME", embeddingOptions);
+
+foreach (float item in returnValue.Value.Data[0].Embedding)
+{
+    Console.WriteLine(item);
+}
+```
+
 ---
 
 ## Best Practices

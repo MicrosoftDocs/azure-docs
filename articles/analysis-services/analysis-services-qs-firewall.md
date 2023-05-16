@@ -6,7 +6,7 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.date: 08/12/2020
 ms.topic: quickstart
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.custom: mode-ui
 #Customer intent: As a BI developer, I want to secure my server by configuring a server firewall and create open IP address ranges for client computers in my organization.
 ---

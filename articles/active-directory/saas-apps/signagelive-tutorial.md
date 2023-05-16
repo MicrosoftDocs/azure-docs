@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Signagelive | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Signagelive'
 description: Learn how to configure single sign-on between Azure Active Directory and Signagelive.
 services: active-directory
 author: jeevansd

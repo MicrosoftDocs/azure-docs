@@ -40,7 +40,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 Many modern apps have a single-page app front end written primarily in JavaScript, often with a framework like Angular, React, or Vue. The Microsoft identity platform supports these apps by using the [OpenID Connect](v2-protocols-oidc.md) protocol for authentication and one of two types of authorization grants defined by OAuth 2.0. The supported grant types are either the [OAuth 2.0 implicit grant flow](v2-oauth2-implicit-grant-flow.md) or the more recent [OAuth 2.0 authorization code + PKCE flow](v2-oauth2-auth-code-flow.md) (see below).
 
-The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for an access token and a refresh token using cross-site web requests. The access token expires every 24 hours, and the app must request another code using the refresh token. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
+The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for an access token and a refresh token using cross-site web requests. For single-page apps (SPAs), the access token is valid for 1 hour, and once expired, must request another code using the refresh token. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
 
 :::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
@@ -112,7 +112,7 @@ In this flow, the app receives an authorization code from the Microsoft identity
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
 
 > [!NOTE]
-> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-error-codes.md).
 
 ## Daemons and server-side apps
 

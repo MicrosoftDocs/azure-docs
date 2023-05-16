@@ -18,13 +18,76 @@ ms.devlang: csharp
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container, directory, or blob with the Blob Storage client library for .NET version 12.
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container, directory, or blob with the Blob Storage client library for .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## Assign Azure roles for access to data
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
+
+## Set up your project
+
+To work with the code examples in this article, follow these steps to set up your project.
+
+### Install packages
+
+For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following packages:
+
+### [.NET CLI](#tab/packages-dotnetcli)
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Storage.Blobs
+```
+
+### [PowerShell](#tab/packages-powershell)
+
+```powershell
+Install-Package Azure.Identity
+Install-Package Azure.Storage.Blobs
+```
+---
+
+For the [directory](#get-a-user-delegation-sas-for-a-directory) code examples, add the following packages:
+
+### [.NET CLI](#tab/packages-dotnetcli)
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Storage.Files.DataLake
+```
+
+### [PowerShell](#tab/packages-powershell)
+
+```powershell
+Install-Package Azure.Identity
+Install-Package Azure.Storage.Files.DataLake
+```
+---
+
+### Set up the app code
+
+For the [blob](#get-a-user-delegation-sas-for-a-blob) and [container](#get-a-user-delegation-sas-for-a-container) code examples, add the following `using` directives:
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
+using Azure.Storage.Sas;
+```
+
+For the [directory](#get-a-user-delegation-sas-for-a-directory) code example, add the following `using` directives:
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Files.DataLake;
+using Azure.Storage.Files.DataLake.Models;
+using Azure.Storage.Sas;
+```
 
 ## Get an authenticated token credential
 
@@ -34,11 +97,11 @@ The following code snippet shows how to get the authenticated token credential a
 
 ```csharp
 // Construct the blob endpoint from the account name.
-string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
+string blobEndpoint = $"https://{accountName}.blob.core.windows.net";
 
-// Create a new Blob service client with Azure AD credentials.
-BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
-                                                     new DefaultAzureCredential());
+// Create a blob service client object using DefaultAzureCredential
+BlobServiceClient blobClient = new(new Uri(blobEndpoint),
+                                   new DefaultAzureCredential());
 ```
 
 To learn more about authorizing access to Blob Storage from your applications with the .NET SDK, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication).
@@ -57,19 +120,19 @@ Use one of the following methods to request the user delegation key:
 The following code snippet gets the user delegation key and writes out its properties:
 
 ```csharp
-// Get a user delegation key for the Blob service that's valid for seven days.
-// You can use the key to generate any number of shared access signatures over the lifetime of the key.
+// Get a user delegation key for the Blob service that's valid for seven days
+// You can use the key to generate any number of shared access signatures over the lifetime of the key
 UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
                                                                    DateTimeOffset.UtcNow.AddDays(7));
 
-// Read the key's properties.
+// Read the key's properties
 Console.WriteLine("User delegation key properties:");
-Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
-Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
-Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
-Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
-Console.WriteLine("Key signed service: {0}", key.SignedService);
-Console.WriteLine("Key signed version: {0}", key.SignedVersion);
+Console.WriteLine($"Key signed start: {key.SignedStartsOn}");
+Console.WriteLine($"Key signed expiry: {key.SignedExpiresOn}");
+Console.WriteLine($"Key signed object ID: {key.SignedObjectId}");
+Console.WriteLine($"Key signed tenant ID: {key.SignedTenantId}");
+Console.WriteLine($"Key signed service: {key.SignedService}");
+Console.WriteLine($"Key signed version: {key.SignedVersion}");
 ```
 
 ## Get a user delegation SAS for a blob

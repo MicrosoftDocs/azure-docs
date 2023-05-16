@@ -4,15 +4,15 @@ title: Azure File Sync documentation # < 60 chars
 summary: Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. # < 160 chars
 
 metadata:
-  title: Azure File Sync documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure File Sync documentation
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.
   services: storage
-  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: storage
   ms.subservice: files
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: khdownie #Required; your GitHub user alias, with correct capitalization.
-  ms.author: kendownie #Required; microsoft alias of author; optional team alias.
+  author: khdownie
+  ms.author: kendownie
   ms.date: 09/08/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -52,10 +52,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Files Windows troubleshooting
-            url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=/azure/storage/filesync/toc.json
+          - text: Azure Files troubleshooting
+            url: ../files/files-troubleshoot.md?toc=/azure/storage/filesync/toc.json
           - text: Azure Files performance troubleshooting
-            url: ../files/storage-troubleshooting-files-performance.md?toc=/azure/storage/filesync/toc.json
+            url: ../files/files-troubleshoot-performance.md?toc=/azure/storage/filesync/toc.json
           - text: Azure File Sync troubleshooting
             url: file-sync-troubleshoot.md
 

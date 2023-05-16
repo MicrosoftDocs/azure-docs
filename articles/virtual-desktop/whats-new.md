@@ -2,8 +2,8 @@
 title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
-ms.topic: overview
-ms.date: 02/06/2023
+ms.topic: release-notes
+ms.date: 04/27/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,56 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## April 2023
+
+Here's what changed in April 2023:
+
+### Azure Virtual Desktop Store app for Windows in public preview
+
+The [Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) is now in public preview for Windows 10 and 11. With the Store App, you can now automatically update the client, unlike with the Remote Desktop client. You can also pin remote apps to your Start menu to personalize your desktop and reduce clutter.
+
+For more information about the public preview release version, check out [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop (preview)](users/client-features-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json), [What's new in the Azure Virtual Desktop Store App (preview)](whats-new-client-windows-azure-virtual-desktop-app.md), or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-app/ba-p/3785698).
+
+## March 2023
+
+Here's what changed in March 2023:
+
+### Redesigned connection bar for the Windows Desktop client
+
+The latest version of the Windows Desktop client includes a redesigned connection bar. For more information, see [Updates for version 1.2.4159](whats-new-client-windows.md#updates-for-version-124159). 
+
+### Shutdown session host status
+
+The Shutdown session host status is now available in the Azure Virtual Desktop portal and the most recent API version. For more information, see [Session host statuses and health checks](troubleshoot-statuses-checks.md#session-host-statuses).
+
+### Windows 10 and 11 22H2 images now visible in the image drop-down menu
+
+Windows 10 and 11 22H2 Enterprise and Enterprise multi-session images are now visible in the image dropdown when creating a new host pool or adding a VM in a host pool from the Azure Virtual Desktop portal.
+
+### Uniform Resource Identifier Schemes in public preview
+
+Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or Remote App using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
+
+### Azure Virtual Desktop Insights at Scale now generally available
+
+Azure Virtual Desktop Insights at Scale is now generally available. This feature gives you the ability to review performance and diagnostic information in multiple host pools at the same time in a single view. If you're an existing Azure Virtual Desktop Insights user, you get this feature without having to do any extra configuration or setup. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-general-availability-of-azure-virtual-desktop/ba-p/3738624) and [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). 
+
+## February 2023
+
+Here's what changed in February 2023:
+
+### Symmetric NAT support for RDP Shortpath in public preview
+
+This feature is an extension of the generally available Remote Desktop Protocol (RDP) Shortpath feature that allows us to establish a User Datagram Platform (UDP) connection indirectly using a relay with the TURN (Traversal Using Relays around NAT) protocol for symmetric NAT (Network Address Translation). For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-symmetric-nat-support-for-rdp/ba-p/3736466) or [RDP Shortpath for Azure Virtual Desktop](rdp-shortpath.md?tabs=public-networks).
+
+### Multimedia redirection enhancements now generally available
+
+Multimedia Redirection (MMR) is now generally available. MMR enables smooth video playback while viewing videos in a browser running on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-multimedia-redirection-mmr-on/ba-p/3736489) or [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
+
+### New User Interface for Azure Virtual Desktop web client now in public preview
+
+The Azure Virtual Desktop web client has a new user interface (UI) that's now in public preview. This new UI gives the web client a cleaner, more modern look and feel. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-web/ba-p/3731165) or [Use features of the Remote Desktop Web client](./users/client-features-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json#display-preferences).
 
 ## January 2023
 
@@ -202,7 +252,7 @@ The Azure Virtual Desktop metadata database located in Australia is now in publi
 
 ### Intune user configuration for Windows 11 Enterprise multi-session VMs in public preview
 
-Deploying Intune user configuration policies from Microsoft Endpoint Manager admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
+Deploying Intune user configuration policies from the Microsoft Intune admin center to Windows 11 Enterprise multi-session virtual machines (VMs) on Azure Virtual Desktop is now in public preview. In this preview, you can configure the following features:
 
 - User scope policies using the Settings catalog.
 - User certificates via Templates.
@@ -240,7 +290,7 @@ Here's what changed in April 2022:
 
 ### Intune device configuration for Windows multi-session now generally available
 
-Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multi-session VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
+Deploying Intune device configuration policies from the Microsoft Intune admin center to Windows multi-session VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
 
 ### Scheduled Agent Updates public preview
 
@@ -367,7 +417,7 @@ Screen capture protection is now supported on the macOS client and the Azure Gov
 
 ### Azure Active Directory domain join 
 
-Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Endpoint Manager (Intune) is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure China clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### Breaking change in Azure Virtual Desktop Azure Resource Manager template
 
@@ -385,11 +435,11 @@ Here's what changed in September 2021.
 
 You can now use Azure Resource Manager templates for any update you want to apply to your session hosts after deployment. You can access this feature by selecting the **Virtual machines** tab while creating a host pool.
 
-You can also now set host pool, app group, and workspace diagnostic settings while creating host pools instead of afterwards. Configuring these settings during the host pool creation process also automatically sets up reporting data for Azure Virtual Desktop Insights.
+You can also now set host pool, application group, and workspace diagnostic settings while creating host pools instead of afterwards. Configuring these settings during the host pool creation process also automatically sets up reporting data for Azure Virtual Desktop Insights.
 
 ### Azure Active Directory domain join
 
-Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Intune as part of Microsoft Endpoint Manager. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
 
 ### Azure China
 
@@ -433,7 +483,7 @@ All available images in the Azure Virtual Desktop image gallery that include Mic
 
 ### Azure Active Directory Domain Join for Session hosts is in public preview
 
-You can now join your Azure Virtual Desktop virtual machines (VMs) directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Endpoint Manager. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+You can now join your Azure Virtual Desktop virtual machines (VMs) directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Intune. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### FSLogix version 2105 is now available
 
@@ -521,9 +571,9 @@ We've expanded our Azure control plane presence to the United Arab Emirates (UAE
 
 On September 30, 2021, the Azure Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
 
-### Microsoft Endpoint Manager public preview
+### Microsoft Intune public preview
 
-We've started the public preview for Microsoft Endpoint Manager support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+We've started the public preview for Microsoft Intune support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ### FSLogix version 2105 public preview
 
@@ -811,7 +861,7 @@ You can now use the [Experience Estimator](https://azure.microsoft.com/services/
     
 - We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
-- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
+- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Intune. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## August 2020
 

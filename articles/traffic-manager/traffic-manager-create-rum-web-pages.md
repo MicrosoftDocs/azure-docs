@@ -7,10 +7,10 @@ author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 04/06/2021
 ms.author: greglin 
+ms.custom: template-how-to
 ---
 
 # How to send Real User Measurements to Azure Traffic Manager using web pages

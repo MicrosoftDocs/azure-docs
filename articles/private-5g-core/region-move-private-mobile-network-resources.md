@@ -2,8 +2,8 @@
 title: Move Azure Private 5G Core private mobile network resources between regions
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to move your private mobile network resources to a different region.
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 01/04/2023
@@ -19,7 +19,7 @@ You might move your resources to another region for a number of reasons. For exa
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Ensure Azure Private 5G Core supports the region to which you want to move your resources. Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+- Ensure Azure Private 5G Core supports the region to which you want to move your resources. Refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core).
 - Verify pricing and charges associated with the target region to which you want to move your resources.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
 - If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
@@ -47,13 +47,13 @@ The following list contains the data that will be lost over the region move. Bac
 > 
 > If you want your source deployment to stay operational during the region move, skip this step and move to [Generate template](#generate-template). You'll need to make additional modifications to the template in [Prepare template](#prepare-template).
 
-Before moving your resources, you'll need to delete all SIMs in your deployment. You'll also need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. 
+Before moving your resources, you'll need to delete all SIMs in your deployment. You'll also need to uninstall all packet core instances you want to move by changing their **Azure Arc Custom Location** field to **None**. 
 
 1. Follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
 1. For each site that you want to move, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the changes below. You can ignore the sections about attaching and modifying data networks.
 
-    1. In *Modify the packet core configuration*, make a note of the custom location value in the **Custom ARC location** field.
-    1. Set the **Custom ARC location** field to **None**.
+    1. In *Modify the packet core configuration*, make a note of the custom location value in the **Azure Arc Custom Location** field.
+    1. Set the **Azure Arc Custom Location** field to **None**.
     1. In *Submit and verify changes*, the packet core will be uninstalled.
 
 ### Generate template
@@ -101,7 +101,7 @@ You'll need to customize your template to ensure all your resources are correctl
 
 You can now install your packet core instances in the new region.
 
-For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to reconfigure your packet core custom location. In *Modify the packet core configuration*, set the **Custom ARC location** field to the custom location value you noted down in [Remove SIMs and custom location](#remove-sims-and-custom-location). You can ignore the sections about attaching and modifying data networks.
+For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to reconfigure your packet core custom location. In *Modify the packet core configuration*, set the **Azure Arc Custom Location** field to the custom location value you noted down in [Remove SIMs and custom location](#remove-sims-and-custom-location). You can ignore the sections about attaching and modifying data networks.
 
 ## Restore backed up deployment information
 
@@ -122,7 +122,7 @@ Configure your deployment in the new region using the information you gathered i
 
 ## Verify
 
-Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
+Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your deployment is operating normally after the region move.
 
 ## Next steps
 

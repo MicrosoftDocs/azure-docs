@@ -26,6 +26,7 @@ Some generic guidelines are:
 - If you're returning a large number of results, make sure you're using SQL Server Management Studio or Azure Data Studio and not Azure Synapse Studio. Azure Synapse Studio is a web tool that isn't designed for large result sets.
 - If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).
 - Consider caching the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. Serverless SQL pools can't provide an interactive experience in Power BI Direct Query mode if you're using complex queries or processing a large amount of data.
+- Maximum concurrency is not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
 
 ## Client applications and network connections
 

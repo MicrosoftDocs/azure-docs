@@ -12,7 +12,7 @@ ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
-
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Active Directory Authentication with the Speech SDK
 
@@ -144,7 +144,7 @@ To get the resource ID using PowerShell, confirm that you have PowerShell versio
 
     `Get-Module -ListAvailable Az`
 
-    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
+    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell) to upgrade.
 
 Now run `Connect-AzAccount` to create a connection with Azure.
 

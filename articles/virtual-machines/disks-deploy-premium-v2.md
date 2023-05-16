@@ -3,16 +3,18 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2.
 author: roygara
 ms.author: rogarana
-ms.date: 02/08/2023
+ms.date: 04/10/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a Premium SSD v2
 
 Azure Premium SSD v2 is designed for IO-intense enterprise workloads that require sub-millisecond disk latencies and high IOPS and throughput at a low cost. Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, gaming, on virtual machines or stateful containers. For conceptual information on Premium SSD v2, see [Premium SSD v2](disks-types.md#premium-ssd-v2).
+
+Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
 ## Limitations
 
@@ -24,7 +26,7 @@ Azure Premium SSD v2 is designed for IO-intense enterprise workloads that requir
 
 ## Prerequisites
 
-- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
+- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 
 ## Determine region availability programmatically
 
@@ -66,7 +68,7 @@ Now that you know the region and zone to deploy to, follow the deployment steps 
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. Replace the values of all the variables with your own, then run the following script:
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. The following script creates a Premium SSD v2 with a 4k sector size, to deploy one with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
 
 ```azurecli-interactive
 ## Initialize variables
@@ -74,6 +76,7 @@ diskName="yourDiskName"
 resourceGroupName="yourResourceGroupName"
 region="yourRegionName"
 zone="yourZoneNumber"
+##Replace 4096 with 512 to deploy a disk with 512 sector size
 logicalSectorSize=4096
 vmName="yourVMName"
 vmImage="Win2016Datacenter"
@@ -103,7 +106,7 @@ az vm create -n $vmName -g $resourceGroupName \
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. Replace the values of all the variables with your own, then run the following script:
+Create a Premium SSD v2 disk in an availability zone. Then create a VM in the same region and availability zone that supports Premium Storage and attach the disk to it. The following script creates a Premium SSD v2 with a 4k sector size, to deploy one with a 512 sector size, update the `$logicalSectorSize` parameter. Replace the values of all the variables with your own, then run the following script:
 
 ```powershell
 # Initialize variables
@@ -114,6 +117,7 @@ $diskName = "yourDiskName"
 $diskSizeInGiB = 100
 $diskIOPS = 5000
 $diskThroughputInMBPS = 150
+#To use a 512 sector size, replace 4096 with 512
 $logicalSectorSize=4096
 $lun = 1
 $vmName = "yourVMName"
@@ -174,6 +178,10 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroupName
 1. Select the **Disk SKU** and select **Premium SSD v2**.
 
     :::image type="content" source="media/disks-deploy-premium-v2/premv2-select.png" alt-text="Screenshot selecting Premium SSD v2 SKU." lightbox="media/disks-deploy-premium-v2/premv2-select.png":::
+
+1. Select whether you'd like to deploy a 4k or 512 logical sector size.
+
+    :::image type="content" source="media/disks-deploy-premium-v2/premv2-sector-size.png" alt-text="Screenshot of deployment logical sector size deployment options." lightbox="media/disks-deploy-premium-v2/premv2-sector-size.png":::
 
 1. Proceed through the rest of the VM deployment, making any choices that you desire.
 

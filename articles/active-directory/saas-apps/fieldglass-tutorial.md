@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Fieldglass | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Fieldglass'
 description: Learn how to configure single sign-on between Azure Active Directory and Fieldglass.
 services: active-directory
 author: jeevansd
