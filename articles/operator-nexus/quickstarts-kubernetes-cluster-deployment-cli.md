@@ -38,7 +38,7 @@ Before you run the commands, you need to set several variables to define the con
 * **CONTROL_PLANE_VM_SIZE**: The size of the virtual machine for the control plane nodes. In this example, we're using ```NC_G2_v1```.
 * **INITIAL_AGENT_POOL_NAME**: The name of the initial agent pool. In this example, we're using ```agentpool1```.
 * **INITIAL_AGENT_POOL_COUNT**: The number of nodes in the initial agent pool. In this example, we're using ```1```.
-* **INITIAL_AGENT_POOL_VM_SIZE**: The size of the virtual machine for the agent pool nodes. In this example, we're using ```NC_G2_v1```.
+* **INITIAL_AGENT_POOL_VM_SIZE**: The size of the virtual machine for the agent pool nodes. In this example, we're using ```NC_M4_v1```.
 * **POD_CIDR**: The network range for the Kubernetes pods in the cluster, in CIDR notation. In this example, we're using ```10.244.0.0/16```.
 * **SERVICE_CIDR**: The network range for the Kubernetes services in the cluster, in CIDR notation. In this example, we're using ```10.96.0.0/16```.
 * **DNS_SERVICE_IP**: The IP address for the Kubernetes DNS service. In this example, we're using ```10.96.0.10```.
