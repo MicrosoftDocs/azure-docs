@@ -242,7 +242,9 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
 
 <a name="single-tenant-prerequisites"></a>
 
-For a Standard workflow in single-tenant Azure Logic Apps, use the SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
+For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
+
+##### Upload assemblies to Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -276,6 +278,10 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the SAP *built-in
    1. Create the following folder and subfolders: **lib** > **builtinOperationSdks** > **net472**
 
    1. In the **net472** folder, upload the assembly files larger than 4 MB.
+
+##### SAP trigger requirements
+
+The SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 #### [ISE](#tab/ise)
 
