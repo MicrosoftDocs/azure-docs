@@ -21,15 +21,14 @@ This article describes how to create a Standard consumption and dedicated plan i
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- (Optional) [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
+- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 
 ## Provision a Standard consumption and dedicated plan instance
 
 You can use either the Azure portal or the Azure CLI to create a Standard consumption and dedicated plan.
 
 > [!IMPORTANT]
->
-> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You are billed for the dedicated workload profile based on the provisioned provisioned.  For more information, see [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -66,11 +65,11 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and choose **Consumption and Dedicated workload profiles** for the **Plan**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps environment page with Consumption and Dedicated workload profiles selected for the plan." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps environment page with the Consumption and Dedicated workload profiles selected for the plan." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-azure-container-apps-environment.png":::
 
-1. At this point, you have created an Azure Container Apps environment with a default standard consumption workload profile. If you wish to add a dedicated workload profile to the same Azure Container Apps environment, you can select the **Workload profiles** tab and select on **Add workload profile**. 
+1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. If you wish to add a dedicated workload profile to the same Azure Container Apps environment, you can select the **Workload profiles** tab and select **Add workload profile**.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png" alt-text="Screenshot of Azure portal showing Create Workload Profiles tab." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png":::
+   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png" alt-text="Screenshot of the Azure portal showing the Create Workload Profiles tab." lightbox="media/quickstart-provision-standard-consumption-service-instance/create-workload-profiles.png":::
 
 1. Select **Review and create**.
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
-ms.date: 05/07/2023
+ms.date: 05/23/2023
 ---
 
 # What's new in Azure Spring Apps
@@ -38,11 +38,7 @@ Build service now supports a large size build agent pool and allows at most one 
 
 - **Tanzu Components on demand**: You can allow enabling or disabling of Tanzu components after service provisioning. You can also learn how to do that per Tanzu component doc. For more information, see the [Enable/disable Application Configuration Service after service creation](how-to-enterprise-application-configuration-service.md#enabledisable-application-configuration-service-after-service-creation) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
-## What's new archive
-
-This section contains information on previous updates for Azure Spring Apps.
-
-### December 2022
+## December 2022
 
 The following updates are now available in both basic/standard and enterprise plan:
 
@@ -62,7 +58,7 @@ The following updates are now available in the enterprise plan:
 
 - **Managed Spring Cloud Gateway enhancement**: We have newly added app-level routing rule support to simplify your routing rule configuration and TLS support from the gateway to apps in managed Spring Cloud Gateway. For more information, see [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md).
 
-### September 2022
+## September 2022
 
 The following updates are now available to help customers reduce adoption barriers and pricing frictions to take full advantage of the capabilities offered by Azure Spring Apps Enterprise.
 
@@ -72,3 +68,6 @@ The following updates are now available to help customers reduce adoption barrie
 
 You can compare the price change from [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058).
 
+## Older updates
+
+For older updates, see [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring).

@@ -15,21 +15,21 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
 Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Apps provides two options for you to solve this problem:
 
 > [!NOTE]
-> To use service registry in the Standard consumption plan, you must enable it first. For more information, see [Enable eureka for Consumption Plan](quickstart-standard-consumption-eureka-server.md).
+> To use service registry in the Standard consumption plan, you must enable it first. For more information, see [Enable and disable Eureka Server in Azure Spring Apps](quickstart-standard-consumption-eureka-server.md).
 
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.
 
   Azure Spring Apps creates a corresponding Kubernetes service for every app running in it using the app name as the Kubernetes service name. You can invoke calls from one app to another app by using the app name in an HTTP/HTTPS request such as `http(s)://{app name}/path`. This approach is also suitable for Enterprise tier. For more information, see the [Kubernetes registry code sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/k8s-service-registry).
 
   > [!NOTE]
-  > This approach not suitable for Standard consumption (Preview)
+  > This approach isn't suitable for Standard consumption (Preview).
 
 * Use Managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 

@@ -9,7 +9,7 @@ ms.date: 05/15/2023
 ms.custom: devx-track-java
 ---
 
-# Enable and Disable Eureka Server in Azure Spring Apps
+# Enable and disable Eureka Server in Azure Spring Apps
 
 **This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
 

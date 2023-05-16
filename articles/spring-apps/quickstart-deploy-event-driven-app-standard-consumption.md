@@ -76,7 +76,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    az configure --defaults location=${LOCATION}
    ```
 
-1. Use the following commands to set your default subscription. First, list all available subscriptions to determine the subscription ID you need to use.
+1. Use the following command to list all available subscriptions, then determine the ID for the subscription you want to use.
 
    ```azurecli
    az account list --output table
@@ -162,7 +162,7 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
    az extension add --name spring
    ```
 
-1. Use the following command to register the `Microsoft.AppPlatform` provider for the Azure Spring Apps:
+1. Use the following command to register the `Microsoft.AppPlatform` provider for Azure Spring Apps:
 
    ```azurecli
    az provider register --namespace Microsoft.AppPlatform
@@ -188,11 +188,10 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 ## Create an app in your Azure Spring Apps instance
 
-You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+You can create an app in either standard consumption or dedicated workload profiles.
 
 > [!IMPORTANT]
->
-> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You are billed for the dedicated workload profile based on the provisioned provisioned.  For more information, see [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 ### Create an app with consumption workload profile
 
@@ -212,21 +211,23 @@ Use the following command to create an app in the Azure Spring Apps instance:
 
 ### Create an app with dedicated workload profile
 
-Dedicated workload profiles support run apps with customized hardware and increased cost predictability using Dedicated workload profiles.
+Dedicated workload profiles support running apps with customized hardware and increased cost predictability using Dedicated workload profiles.
 
 Use the following command to create a dedicated workload profile:
 
 ```azurecli
 az containerapp env workload-profile set \
-    -name ${AZURE_CONTAINER_APPS_ENVIRONMENT} \
-    --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 \
+    --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} \
+    --workload-profile-name my-wlp \
+    --workload-profile-type D4 \
+    --min-nodes 1 \
     --max-nodes 2
 ```
 
-And use the following command to create an app with the dedicated workload profile:
+Use the following command to create an app with the dedicated workload profile:
 
 ```azurecli
-az spring app create \       
+az spring app create \
     --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
     --cpu 1 \
