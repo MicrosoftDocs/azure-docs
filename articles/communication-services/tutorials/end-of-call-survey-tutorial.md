@@ -31,6 +31,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	An [App Insight resource](../../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource) only if you want to survey custom questions.
 
 
 <!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
@@ -159,6 +160,52 @@ Screenshare. However, each API value can be customized from a minimum of
 
    > [!NOTE]
    > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+
+## Custom questions
+You can ask custom questions and collect users feedback. Steps to survey custom questions:
+-  [Create App Insight resource](../../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
+-  Initialize the JavaScript SDK using plain JavaScript or NPM typescript:
+   -  Plain JavaScript will have the **appInsights** variable globally available. [Click here to know more about App Insight initialization using plain JavaScript](../../../azure-monitor/app/javascript-sdk).
+   -  Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../../azure-monitor/app/javascript-sdk-advanced).
+
+-  Send custom events using App Insights:
+	``` javascript
+	currentCall.feature(SDK.Features.CallSurvey).submitSurvey(survey).then(res => {
+	// improvementSuggesstion is our custome question here
+        if (improvementSuggestion !== '') {
+        	appInsights.trackEvent({
+                    name: "CallSurvey", properties: {
+                        // Survey ID to correlate the survey
+                        id: res.id,
+                        // Other custom properties as key value pair
+                        improvementSuggestion: improvementSuggestion
+                    }
+                });
+         }
+	});
+	appInsights.flush();
+	```
+Custom survey data will be available under your App Insights workspace. You can use [Workbooks](../../../azure/update-center/workbooks) to query between multiple resources and correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
+-  Create new Workbook (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
+-  Add new query (+Add -> Add query)
+-  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
+-  You can rename the query (Advanced Settings -> Step name [example: call-survey])
+-  Query last 24 hours call rating. 
+   ```KQL
+   ACSCallSurvey
+   | where TimeGenerated > now(-24h)
+   ```
+-  Add another query to get data from App Insights (+Add -> Add query)
+-  Make sure `Data source` is `Logs` and `Resource type` is `Application Insights`
+-  Custom events query.
+   ```KQL
+   customEvents
+   | extend d=parse_json(customDimensions)
+   | project SurveyId = d.id, ImprovementSuggestion = d.improvementSuggestion
+   ```
+-  You can rename the query (Advanced Settings -> Step name [example: custom-call-survey])
+-  Finally merge these two queries by surveyId. Create new query (+Add -> Add query).
+-  Make suer the `Data source` is Merge and select `Merge type` as needed
 
 <!-- 
 ## Collect survey data
