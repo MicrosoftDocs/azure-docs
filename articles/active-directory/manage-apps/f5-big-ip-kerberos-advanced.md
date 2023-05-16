@@ -455,7 +455,7 @@ BIG-IP logs are a reliable source of information. To increase the log verbosity 
 4. Select **Debug** from the SSO list.
 5. Select **OK**. 
 
-Reproduce your problem before you look at the logs. Then revert this feature, when finished. Otherwise the verbosity is signficant. 
+Reproduce your problem before you look at the logs. Then revert this feature, when finished. Otherwise the verbosity is significant. 
 
 **BIG-IP error**
 

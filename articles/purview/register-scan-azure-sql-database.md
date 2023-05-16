@@ -431,13 +431,16 @@ To create policies that cover all data sources inside a resource group or Azure 
 ## Extract lineage (preview) 
 <a id="lineagepreview"></a>
 
+>[!NOTE]
+>Lineage is not currently supported using a self-hosted integration runtime and a private endpoint. You need to enable Azure services to access the server under network settings for your Azure SQL Database.
+
 Microsoft Purview supports lineage from Azure SQL Database. When you're setting up a scan, you turn on the **Lineage extraction** toggle to extract lineage.  
 
 ### Prerequisites for setting up a scan with lineage extraction
 
 1. Follow the steps in the [Configure authentication for a scan](#configure-authentication-for-a-scan) section of this article to authorize Microsoft Purview to scan your SQL database.
 
-2. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview managed identity. 
+1. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview managed identity. 
 
     Use the following example SQL syntax to create a user and grant permission. Replace `<purview-account>` with your account name.
 
@@ -447,12 +450,13 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
     EXEC sp_addrolemember 'db_owner', <purview-account> 
     GO
     ```
-3. Run the following command on your SQL database to create a master key:
+1. Run the following command on your SQL database to create a master key:
 
     ```sql
     Create master key
     Go
     ```
+1. Ensure that **Allow Azure services and resources to access this server** is enabled under networking/firewall for your Azure SQL resource.
 
 ### Create a scan with lineage extraction turned on
 
