@@ -35,6 +35,9 @@ If you use the default web view in your app to sign in users, you'll get automat
 
 This type of SSO is currently not available on macOS. MSAL on macOS only supports WKWebView which doesn't have SSO support with Safari.
 
+> [!NOTE]
+> KMSI must be enabled and selected on Azure B2C policies in order for SSO to work correctly. 
+
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
 MSAL Objective-C support migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
