@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/15/2022
+ms.date: 05/16/2022
 ms.author: jasteppe
 ---
 
@@ -14,11 +14,11 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, you'll learn how to deploy convert-data.
+In this article, learn how to configure convert-data.
 
 ## Customize templates
 
-You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. Refer to the extension documentation for more details.
+You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data.
 
 > [!NOTE]
 > FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to R4 Liquid templates are currently not supported. 
@@ -44,7 +44,7 @@ After you create an Azure Container Registry instance, you can use the **FHIR Co
 
 ### Step 3: Enable Azure Managed Identity in your FHIR service instance
 
-1. Go to your instance of the FHIR service in the Azure portal, and then select the **Identity** blade.
+1. Go to your instance of the FHIR service in the Azure portal, and then select the **Identity** option.
 
 2. Change the status to **On** to enable Managed Identity in the FHIR service.
 
@@ -54,7 +54,7 @@ After you create an Azure Container Registry instance, you can use the **FHIR Co
 
 1. In your resource group, go to your **Container Registry** instance, and then select the **Access control (IAM)** tab.
 
-2. Select **Add** > **Add role assignment**. If the **Add role assignment** option is unavailable, ask your Azure administrator to grant you permissions for performing this task.
+2. Select **Add** > **Add role assignment**. If the **Add role assignment** option is unavailable, ask your Azure administrator to grant you the permissions for performing this task.
 
    ![Screenshot of the "Access control" pane and the "Add role assignment" menu.](../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
@@ -98,7 +98,7 @@ You can register up to 20 Azure Container Registry servers in the FHIR service.
     az extension add -n healthcareapis
     ```
 
-2. Register the Azure Container Registry servers to the FHIR service by doing either of the following:
+2. Register the Azure Container Registry servers to the FHIR service by doing either of the following steps:
 
    * To register a single Azure Container Registry server, run:
 

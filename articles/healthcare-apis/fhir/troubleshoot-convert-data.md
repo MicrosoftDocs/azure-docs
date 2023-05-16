@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 05/15/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-## Add some troubleshooting
+## Troubleshooting steps
 
 ## Next steps
 
