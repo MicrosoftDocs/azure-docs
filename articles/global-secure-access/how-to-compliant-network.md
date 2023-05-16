@@ -16,15 +16,15 @@ ms.reviewer: mamkumar
 
 Using Conditional Access along with Global Secure Access customers can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
 
-Using the Global Secure Access client installed on devices or configured branch office locations allows administrators to gate resource behind a compliant network with advanced Conditional Access controls. In essence, this compliant network makes it infinitely easier for administrators to manage and maintain, without going through the cumbersome process of compiling a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organziation's VPN egress points to ensure security.
+Using the Global Secure Access client installed on devices or configured branch office locations allows administrators to secure resource behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
 
 This compliant network check is specific to each tenant. 
 
 - Using this check you can ensure that other organizations using Microsoft's Global Secure Access services can't access your resources. 
    - For example: Contoso can protect their services like Exchange Online and SharePoint Online behind their compliant network check to ensure only Contoso users can access these resources. 
-   - If another organization like Fabrikam was using a compliant network check they would not pass Contoso's compliant network check. 
+   - If another organization like Fabrikam was using a compliant network check, they wouldn't pass Contoso's compliant network check. 
 
-The compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No upkeep is required by administrators.
+The compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No administrator upkeep is required.
 
 ## Prerequisites
 
@@ -37,13 +37,13 @@ The compliant network is different than [IPv4, IPv6, or country locations](/azur
 
 ### Known limitations
 
-The preview does not support IPv6 traffic. IPv6 must be turned off for this preview.
+The preview doesn't support IPv6 traffic. IPv6 must be turned off for this preview.
 
 Some Outlook traffic may use the QUIC protocol. Global Secure Access doesn’t yet support the QUIC protocol.
 
 ## Enable Global Secure Access signaling for Conditional Access
 
-To enable the required setting to allow the compliant network check an administrator must take the following steps.
+To enable the required setting to allow the compliant network check, an administrator must take the following steps.
 
 1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
 1. Browse to **NEED THE ACTUAL PATH** > **Security **> **Adaptive Access**.
@@ -83,9 +83,9 @@ After administrators confirm the policy settings using [report-only mode](../act
 ## Try your compliant network policy
 
 1. On an end-user device with the [NaaS client installed and running](how-to-install-windows-client.md)
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should allow you access to resources.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should allow access to resources.
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources with an error message that says **You cannot access this right now**.
 
 ## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
 
