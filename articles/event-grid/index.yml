@@ -64,28 +64,6 @@ landingContent:
             url: mqtt-routing.md
 
  # Card
-  - title: Pull delivery
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Pull delivery
-            url: pull-delivery-overview.md
-          - text: Concepts
-            url: concepts-pull-delivery.md
-      - linkListType: quickstart
-        links:
-          - text: Publish and subscribe to events using namespace topics
-            url: publish-events-using-namespace-topics.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create, view, and manage namespaces
-            url: create-view-manage-namespaces.md
-          - text: Create, view, and manage namespace topics
-            url: create-view-manage-namespace-topics.md
-          - text: Create, view, and manage event subscriptions
-            url: create-view-manage-event-subscriptions.md
-
- # Card
   - title: Push delivery
     linkLists:
       - linkListType: concept
@@ -122,3 +100,26 @@ landingContent:
             url: subscribe-to-partner-events.md
           - text: Onboard as a partner
             url: onboard-partner.md
+
+ # Card
+  - title: Pull delivery
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Pull delivery
+            url: pull-delivery-overview.md
+          - text: Concepts
+            url: concepts-pull-delivery.md
+      - linkListType: quickstart
+        links:
+          - text: Publish and subscribe to events using namespace topics
+            url: publish-events-using-namespace-topics.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create, view, and manage namespaces
+            url: create-view-manage-namespaces.md
+          - text: Create, view, and manage namespace topics
+            url: create-view-manage-namespace-topics.md
+          - text: Create, view, and manage event subscriptions
+            url: create-view-manage-event-subscriptions.md
+
