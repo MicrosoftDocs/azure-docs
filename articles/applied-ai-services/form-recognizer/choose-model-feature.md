@@ -18,28 +18,28 @@ Azure Form Recognizer supports a wide variety of models that enable you to add i
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
-The following decision chart highlights the features of each **Form Recognizer v3.0** supported model and helps you choose the best model to meet the needs and requirements of your application.
+The following decision charts highlight the features of each **Form Recognizer v3.0** supported model and help you choose the best model to meet the needs and requirements of your application.
 
-> [!NOTE]
-> Check the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
+> [!IMPORTANT]
+> Be sure to heck the [**language support**](language-support.md) page for supported language text and field extraction  by feature.
 
 ## Pretrained document-analysis models
 
 | Document type | Example| Data to extract | Your best solution |
 | -----------------|-----------|--------|-------------------|
-|**A generic document**. | A contract or letter. |You want to extract primarily written or printed text lines, words, locations, and detected languages.|[**Read OCR model**](concept-read.md)|
+|**A generic document**. | A contract or letter. |You want to primarily extract written or printed text lines, words, locations, and detected languages.|[**Read OCR model**](concept-read.md)|
 |**A document that includes structural information**. |A report or study.| In addition to written or printed text, you need to extract structural information like tables, selection marks, paragraphs, titles, headings, and subheadings.| [**Layout analysis model**](concept-layout.md)
 |**A structured or semi-structured document that includes content formatted as fields and values**.|A form or document that is a standardized format commonly used in your business or industry like a credit application or survey. | You want to extract fields and values including ones not covered by the scenario-specific prebuilt models **without having to train a custom model**.| [**General document  model**](concept-general-document.md)|
 
-## Pretrained schema-specific models
+## Pretrained scenario-specific models
 
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
 |**U.S. W-2 tax form**|You want to extract key information such as salary, wages, and taxes withheld.|[**W-2 model**](concept-w2.md)|
-|**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member, prescription, and group number.|[**Health insurance card model**](./concept-insurance-card.md)|
+|**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-insurance-card.md)|
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
  |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|
-|**Identity document (ID)** like a U.S. driver's license or international passport. |You want to extract key information such as first name, last name, and date of birth. | [**Identity document (ID) model**](concept-id-document.md)|
+|**Identity document (ID)** like a U.S. driver's license or international passport. |You want to extract key information such as first name, last name, date of birth, address, and signature. | [**Identity document (ID) model**](concept-id-document.md)|
 |**Business card** or calling card.|You want to extract key information such as first name, last name, company name, email address, and phone number.|[**Business card model**](concept-business-card.md)|
 |**Mixed-type document(s)** with structured, semi-structured, and/or unstructured elements. | You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| [**Custom model**](concept-custom.md)|
 
@@ -53,9 +53,9 @@ The following decision chart highlights the features of each **Form Recognizer v
 
 | Training set | Example documents | Your best solution |
 | -----------------|--------------|-------------------|
-|**Structured, consistent documents with a static layout**. |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
-|**Structured, semi-structured and unstructured documents**.|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
-|**A collection of several models each trained on similar-type documents.** |&#9679; Supply purchase orders model</br>&#9679; Equipment purchase orders model</br>&#9679; Furniture purchase orders model</br> All composed into a single model.| [**Composed custom model**](concept-composed-models.md)|
+|**Structured, consistent, documents with a static layout**. |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
+|**Structured, semi-structured, and unstructured documents**.|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
+|**A collection of several models each trained on similar-type documents.** |&#9679; Supply purchase orders</br>&#9679; Equipment purchase orders</br>&#9679; Furniture purchase orders</br> **All composed into a single model**.| [**Composed custom model**](concept-composed-models.md)|
 
 ## Next steps
 
