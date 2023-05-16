@@ -75,7 +75,7 @@ You can create an Azure Event Grid subscription with an Event Hubs namespace as 
 To learn how to explore captured Avro files, see [Explore captured Avro files](explore-captured-avro-files.md).
 
 ## Azure Storage account as a destination
-Enabling capture on an event hub with Azure Storage as the capture destination, or updating properties on an event hub with Azure Storage as the capture destination requires the user or service principal must have a RBAC role with the following permissions assigned at the storage account scope. 
+To enable capture on an event hub with Azure Storage as the capture destination, or update properties on an event hub with Azure Storage as the capture destination, the user or service principal must have an RBAC role with the following permissions assigned at the storage account scope. 
 
 ```
 Microsoft.Storage/storageAccounts/blobServices/containers/write
@@ -92,7 +92,7 @@ Please enable Microsoft.Storage/storageAccounts/blobServices/containers/write, M
 TrackingId:<ID>, SystemTracker:mynamespace.servicebus.windows.net:myhub, Timestamp:<TimeStamp>
 ```
 
-The [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built in role with above permissions, so add the user account or the service principal to this role.  
+The [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role with above permissions, so add the user account or the service principal to this role.  
 
 ## Next steps
 Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data Lake, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics using familiar tools and platforms of your choosing, at any scale you need.
