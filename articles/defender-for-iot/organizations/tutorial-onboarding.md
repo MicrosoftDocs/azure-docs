@@ -196,7 +196,7 @@ Open the file you'd downloaded earlier to view the list of required endpoints. C
 
 
 > [!TIP]
-> You can download the list of required endpoints from the **Sites and sensors** page in the Azure portal. Go to **Sites and sensors** > **More actions** > **Download endpoint details**. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+> You can also download the list of required endpoints from the **Sites and sensors** page in the Azure portal. Go to **Sites and sensors** > **More actions** > **Download endpoint details**. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 > [!IMPORTANT]
 > Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new [JSON file](https://www.microsoft.com/download/details.aspx?id=56519) each week and make the required changes on your site to correctly identify services running in Azure.
