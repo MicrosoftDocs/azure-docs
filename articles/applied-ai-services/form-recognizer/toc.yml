@@ -4,10 +4,10 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Form Recognizer?
+  - name: 🆕 What is Azure Form Recognizer?
     displayName: models, develop, development
     href: overview.md
-  - name: Choose a model
+  - name: 🆕 Choose a model
     href: choose-model-feature.md
   - name: Form Recognizer Studio
     displayName: get started

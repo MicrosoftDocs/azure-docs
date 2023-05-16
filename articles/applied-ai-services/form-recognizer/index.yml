@@ -24,7 +24,7 @@ landingContent:
      linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Form Recognizer?
+          - text: 🆕 What is Azure Form Recognizer?
             url: overview.md
       - linkListType: whats-new
         links:

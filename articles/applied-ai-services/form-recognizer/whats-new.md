@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: whats-new
-ms.date: 03/15/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ms.custom: references_regions
@@ -25,6 +25,14 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+
+## May 2023
+
+**Introducing updated documentation for Build 2023**
+
+* [🆕 Form Recognizer Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has been improved to provide enhanced navigation, structured access points, and enriched images.
+
+* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) is now a standalone article that provides guidance for choosing the best Form Recognizer solution for your projects and workflows via a video presentation and decision tables.
 
 ## April 2023
 
