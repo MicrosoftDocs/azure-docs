@@ -12,9 +12,9 @@ ms.author: pgibson
 > [!IMPORTANT]
 > This article aims to provide a simplistic understanding of how to identify OSM configurations and translate them to equivalent Istio configurations for migrating workloads from OSM to Istio. This by no means, is considered to be an exhaustive detailed guide.
 
-This article will provide practical guidance for mapping OSM configurations to the [Istio](https://istio.io/) equivalent, so that you can begin to migrate your microservices deployments that are currently managed by OSM over to being managed by Istio. To simplify how to properly move your OSM configurations to Istio, we will utilize the OSM [Bookstore sample application](https://docs.openservicemesh.io/docs/getting_started/install_apps/) as a base reference for current OSM users. The following walk-through will deploy the Bookstore application. The same steps will be followed and explain how to apply the OSM [SMI](https://smi-spec.io/) traffic policies using the Istio equivalent.
+This article provides practical guidance for mapping OSM policies to the [Istio](https://istio.io/) policies to help migrate your microservices deployments managed by OSM over to being managed by Istio. We utilize the OSM [Bookstore sample application](https://docs.openservicemesh.io/docs/getting_started/install_apps/) as a base reference for current OSM users. The following walk-through deploys the Bookstore application. The same steps are followed and explain how to apply the OSM [SMI](https://smi-spec.io/) traffic policies using the Istio equivalent.
 
-If you are not currently using OSM and are new to Istio, we would suggest you start with [Istio's own Getting Started guide](https://istio.io/latest/docs/setup/getting-started/) to learn how to utilize the Istio service mesh for your applications. If you are currently using OSM, make sure you are familiar with the OSM [Bookstore sample application](https://docs.openservicemesh.io/docs/getting_started/install_apps/) walk-through on how OSM configures traffic policies. The following walk-through will not duplicate the current documentation, but will make references to specific topics when relevant. You should be comfortable and fully aware of the bookstore application architecture before proceeding.
+If you are not using OSM and are new to Istio, we suggest you start with [Istio's own Getting Started guide](https://istio.io/latest/docs/setup/getting-started/) to learn how to utilize the Istio service mesh for your applications. If you are currently using OSM, make sure you are familiar with the OSM [Bookstore sample application](https://docs.openservicemesh.io/docs/getting_started/install_apps/) walk-through on how OSM configures traffic policies. The following walk-through will not duplicate the current documentation, but will make references to specific topics when relevant. You should be comfortable and fully aware of the bookstore application architecture before proceeding.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ If you are not currently using OSM and are new to Istio, we would suggest you st
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 - OSM is uninstalled from your Kubernetes cluster
 - Any existing OSM Bookstore application, including namespaces, is uninstalled and deleted from your cluster
-- [Install the Istio AKS service mesh add-on](https://learn.microsoft.com/azure/aks/istio-deploy-addon)
+- [Install the Istio AKS service mesh add-on](/azure/aks/istio-deploy-addon.md)
 
 ## Modifications needed to the OSM Sample Bookstore Application
 
@@ -30,13 +30,13 @@ To allow for Istio to manage the OSM bookstore application, there are a couple o
 
 ### Bookstore Modifications
 
-In the OSM Bookstore walk-through, the bookstore service gets deployed and then another bookstore-v2 service is then deployed to demonstrate how OSM provides traffic shifting, allowing you to split the client (bookbuyer) traffic between multiple service endpoints. The first new concept to understand how Istio handles what they refer to as [Traffic Shifting](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/).
+In the OSM Bookstore walk-through, the bookstore service is deployed along with another bookstore-v2 service to demonstrate how OSM provides traffic shifting. This allowed you to split the client (bookbuyer) traffic between multiple service endpoints. The first new concept to understand how Istio handles what they refer to as [Traffic Shifting](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/).
 
-OSM implementation of traffic shifting is based on the [SMI Traffic Split specification](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-split/v1alpha4/traffic-split.md) that requires the existence of multiple top-level services that are added as backends with the desired weight metric to shift client requests from one service to another. Istio accomplishes traffic shifting using a combination of a [Virtual Service](https://istio.io/latest/docs/reference/config/networking/virtual-service/) and a [Destination Rule](https://istio.io/latest/docs/reference/config/networking/destination-rule/). It is highly recommended that you familiarize yourself with both the concepts of a virtual service and destination rule.
+OSM implementation of traffic shifting is based on the [SMI Traffic Split specification](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-split/v1alpha4/traffic-split.md). The SMI Traffic Split specification requires the existence of multiple top-level services that are added as backends with the desired weight metric to shift client requests from one service to another. Istio accomplishes traffic shifting using a combination of a [Virtual Service](https://istio.io/latest/docs/reference/config/networking/virtual-service/) and a [Destination Rule](https://istio.io/latest/docs/reference/config/networking/destination-rule/). It is highly recommended that you familiarize yourself with both the concepts of a virtual service and destination rule.
 
-Put simply, the Istio virtual service defines routing rules for clients that request the host (service name). Virtual Services allows for multiple versions of a deployment to be associated to one virtual service hostname for clients to target. Multiple deployments can be labeled for the same service representing different versions of the application behind the same hostname. The Istio virtual service can then be configured to weight the request to a specific version of the service. The available versions of the service are configured by the use of the `subsets` attribute in a Istio destination rule.
+Put simply, the Istio virtual service defines routing rules for clients that request the host (service name). Virtual Services allows for multiple versions of a deployment to be associated to one virtual service hostname for clients to target. Multiple deployments can be labeled for the same service, representing different versions of the application behind the same hostname. The Istio virtual service can then be configured to weight the request to a specific version of the service. The available versions of the service are configured by the use of the `subsets` attribute in a Istio destination rule.
 
-The modification made to the bookstore service and deployment for Istio removes the need to have an explicit second service to target, which was originally needed by the SMI Traffic Split. There is also no need for another service account for the bookstore v2 service as well, since it will be consolidated under the bookstore service. The original OSM [traffic-access-v1.yaml](https://raw.githubusercontent.com/openservicemesh/osm-docs/release-v1.2/manifests/access/traffic-access-v1.yaml) manifest modification to Istio for both the bookstore v1 and v2 are shown in the below [Create Pods, Services, and Service Accounts](#create-pods-services-and-service-accounts) section. We will demonstrate how we do traffic splitting, known as traffic shifting later in the walk-through:
+The modification made to the bookstore service and deployment for Istio removes the need to have an explicit second service to target, which was needed by the SMI Traffic Split. There's no need for another service account for the bookstore v2 service as well, since it will be consolidated under the bookstore service. The original OSM [traffic-access-v1.yaml](https://raw.githubusercontent.com/openservicemesh/osm-docs/release-v1.2/manifests/access/traffic-access-v1.yaml) manifest modification to Istio for both the bookstore v1 and v2 are shown in the below [Create Pods, Services, and Service Accounts](#create-pods-services-and-service-accounts) section. We demonstrate how we do traffic splitting, known as traffic shifting later in the walk-through:
 
 ### MySql Modifications
 
@@ -60,7 +60,7 @@ spec:
 
 ## Deploy the Modified Bookstore Application
 
-Similar to the OSM Bookstore walk-through, we will start with a new install of the bookstore application.
+Similar to the OSM Bookstore walk-through, we start with a new install of the bookstore application.
 
 ### Create the Namespaces
 
@@ -84,9 +84,9 @@ kubectl label namespace bookwarehouse istio-injection=enabled
 
 ### Deploy the Istio Virtual Service and Destination Rule for Bookstore
 
-As mentioned earlier in the Bookstore Modification section, Istio will handle traffic shifting utilizing a VirtualService weight attribute we will configure later in the walk-through. We will now deploy the virtual service and destination rule for the bookstore service. This step will make only the bookstore version 1 available even though the bookstore version 2 will be deployed. This is due to the virtual service only supplying a route to the version 1 of bookstore. As a reminder, different from how OSM handles traffic shifting (traffic split), OSM deployed another service for the bookstore version 2 application to set up how traffic is split between client requests using a TrafficSplit. When using traffic shifting with Istio, we can reference shifting traffic to multiple Kubernetes application deployments (versions) labeled for the same service.
+As mentioned earlier in the Bookstore Modification section, Istio will handle traffic shifting utilizing a VirtualService weight attribute we configure later in the walk-through. We will now deploy the virtual service and destination rule for the bookstore service. We deploy only the bookstore version 1 available even though the bookstore version 2 will be deployed. This is due to the virtual service only supplying a route to the version 1 of bookstore. Different from how OSM handles traffic shifting (traffic split), OSM deployed another service for the bookstore version 2 application. This is how OSM had to set up traffic to be split between client requests using a TrafficSplit. When using traffic shifting with Istio, we can reference shifting traffic to multiple Kubernetes application deployments (versions) labeled for the same service.
 
-As part of this specific walk-though, the deployment of both bookstore versions (v1 & v2) will be deployed at the same time, but only the version 1 will be reachable due to the virtual service configuration. There is no need to deploy another service for bookstore version 2, we will enable a route to the bookstore version 2 later when we update the bookstore virtual service and provide the necessary weight attribute to do traffic shifting.
+In this walk-though, the deployment of both bookstore versions (v1 & v2) will be deployed at the same time. Only the version 1 is reachable due to the virtual service configuration. There is no need to deploy another service for bookstore version 2, we enable a route to the bookstore version 2 later when we update the bookstore virtual service and provide the necessary weight attribute to do traffic shifting.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -127,7 +127,7 @@ EOF
 
 ### Create Pods, Services, and Service Accounts
 
-We will utilize a single manifest file that contains the modifications discussed earlier in the walk-through to deploy the bookbuyer, bookthief, bookstore, bookwarehouse, and mysql applications.
+We use a single manifest file that contains the modifications discussed earlier in the walk-through to deploy the bookbuyer, bookthief, bookstore, bookwarehouse, and mysql applications.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -482,15 +482,15 @@ http://localhost:8083 - bookthief
 
 ## Configure Istio's Traffic Policies
 
-To maintain continuity with the original OSM Bookstore walk-through for the translation to Istio, we will discuss [OSM's Permissive Traffic Policy Mode](https://release-v1-2.docs.openservicemesh.io/docs/getting_started/traffic_policies/#permissive-traffic-policy-mode). OSM's permissive traffic policy mode was a concept of allowing or denying traffic in the mesh without any specific [SMI Traffic Access Control rule](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md) deployed. This configuration existed to allow users to onboard applications into the mesh, while gaining mTLS encryption, without requiring explicit rules to allow applications in the mesh to communicate. Essentially this feature was intended to avoid breaking the communications of your application as soon as it was managed by OSM, and provide time to define your rules while ensuring that application communications was mTLS encrypted. This setting could be set to `true` or `false` via OSM's MeshConfig.
+To maintain continuity with the original OSM Bookstore walk-through for the translation to Istio, we discuss [OSM's Permissive Traffic Policy Mode](https://release-v1-2.docs.openservicemesh.io/docs/getting_started/traffic_policies/#permissive-traffic-policy-mode). OSM's permissive traffic policy mode was a concept of allowing or denying traffic in the mesh without any specific [SMI Traffic Access Control rule](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md) deployed. The permissive traffic mode configuration existed to allow users to onboard applications into the mesh, while gaining mTLS encryption, without requiring explicit rules to allow applications in the mesh to communicate. The permissive traffic mode feature was to avoid breaking the communications of your application as soon as it was managed by OSM, and provide time to define your rules while ensuring that application communications was mTLS encrypted. This setting could be set to `true` or `false` via OSM's MeshConfig.
 
-Istio handles mTLS enforcement differently. Different from OSM, where enforcement of mTLS is by default, Istio's permissive mode will automatically configure sidecar proxies to use mTLS but allow the service to accept both plaintext and mTLS traffic. The equivalent to OSM's permissive mode configuration is to utilize Istio's `PeerAuthentication` settings. This can be done granularly at the namespace or for the entire mesh. For more information on Istio's enforcement of mTLS, read the [Istio Mutual TLS Migration article](https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/).
+Istio handles mTLS enforcement differently. Different from OSM, Istio's permissive mode will automatically configure sidecar proxies to use mTLS but allow the service to accept both plaintext and mTLS traffic. The equivalent to OSM's permissive mode configuration is to utilize Istio's `PeerAuthentication` settings. `PeerAuthentication` can be done granularly at the namespace or for the entire mesh. For more information on Istio's enforcement of mTLS, read the [Istio Mutual TLS Migration article](https://istio.io/latest/docs/tasks/security/authentication/mtls-migration/).
 
 ### Enforce Istio Strict Mode on Bookstore Namespaces
 
-It is important to remember, just like OSM's permissive mode, Istio's `PeerAuthentication` configuration is only related to the use of mTLS enforcement. Actual layer-7 policies, much like those used in OSM's HTTPRouteGroups, will be handled using Istio's AuthorizationPolicy configurations you'll see later in the walk-through.
+It is important to remember, just like OSM's permissive mode, Istio's `PeerAuthentication` configuration is only related to the use of mTLS enforcement. Actual layer-7 policies, much like those used in OSM's HTTPRouteGroups, is handled using Istio's AuthorizationPolicy configurations you see later in the walk-through.
 
-We will granularly put the bookbuyer, bookthief, bookstore, and bookwarehouse namespaces in Istio's mTLS strict mode.
+We granularly put the bookbuyer, bookthief, bookstore, and bookwarehouse namespaces in Istio's mTLS strict mode.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -536,7 +536,7 @@ EOF
 
 Similar to OSM's [SMI Traffic Target](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha2/traffic-access.md) and [SMI Traffic Specs](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md) resources to define access control and routing policies for the applications to communicate, Istio accomplishes these similar fine-grain controls by using `AuthorizationPolicy` configurations.
 
-Let's walk through translating the bookstore TrafficTarget policy, which specifically allows the bookbuyer to communicate to it, with only certain layer-7 path, headers, and methods. Below is a portion of the [traffic-access-v1.yaml](https://raw.githubusercontent.com/openservicemesh/osm-docs/release-v1.2/manifests/access/traffic-access-v1.yaml) manifest.
+Let's walk through translating the bookstore TrafficTarget policy, which specifically allows the bookbuyer to communicate to it, with only certain layer-7 path, headers, and methods. The following is a portion of the [traffic-access-v1.yaml](https://raw.githubusercontent.com/openservicemesh/osm-docs/release-v1.2/manifests/access/traffic-access-v1.yaml) manifest.
 
 ```yml
 kind: TrafficTarget
@@ -580,7 +580,7 @@ spec:
         - GET
 ```
 
-If you notice under the TrafficTarget policy, in the spec is where you can explicitly define what source service can communicate with a destination service. We can see that we are allowing the source bookbuyer to be authorized to communicate to the destination bookstore. If we simply translate the service-to-service authorization from an OSM `TrafficTarget` configuration to an Istio `AuthorizationPolicy` it will look like this below:
+If you notice under the TrafficTarget policy, in the spec is where you can explicitly define what source service can communicate with a destination service. We can see that we are allowing the source bookbuyer to be authorized to communicate to the destination bookstore. If we translate the service-to-service authorization from an OSM `TrafficTarget` configuration to an Istio `AuthorizationPolicy` it looks like this below:
 
 ```yml
 apiVersion: security.istio.io/v1beta1
@@ -599,7 +599,7 @@ spec:
             principals: ["cluster.local/ns/bookbuyer/sa/bookbuyer"]
 ```
 
-In the Istio's `AuthorizationPolicy`, you will notice how the OSM TrafficTarget policy destination service is mapped to the selector label match and the namespace the service resides in. The source service is shown under the rules section where there is a source/principles attribute that maps to the service account name for the bookbuyer service.
+In the Istio's `AuthorizationPolicy`, you notice how the OSM TrafficTarget policy destination service is mapped to the selector label match and the namespace the service resides in. The source service is shown under the rules section where there is a source/principles attribute that maps to the service account name for the bookbuyer service.
 
 In addition to just the source/destination configuration in the OSM TrafficTarget, OSM binds the use of a HTTPRouteGroup to further define the layer-7 authorization the source has access to. We can see in just the portion of the HTTPRouteGroup below. There are two `matches` for the allowed source service.
 
@@ -739,7 +739,7 @@ EOF
 
 ### Allowing the Bookthief Application to access Bookstore
 
-Currently there is no `AuthorizationPolicy` that allows for the bookthief to communicate with bookstore. We can deploy the following `AuthorizationPolicy` to allow the bookthief to communicate to the bookstore. You will notice the addition for the rule for the bookstore policy that allows the bookthief authorization.
+Currently there is no `AuthorizationPolicy` that allows for the bookthief to communicate with bookstore. We can deploy the following `AuthorizationPolicy` to allow the bookthief to communicate to the bookstore. You notice the addition for the rule for the bookstore policy that allows the bookthief authorization.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -824,7 +824,7 @@ The bookthief UI should now be incrementing books from bookstore v1.
 
 ## Configure Traffic Shifting between two Service Versions
 
-To demonstrate how to balance traffic between two versions of a Kubernetes service known as traffic shifting in Istio. As you recall in a previous section, OSM implementation of traffic shifting relied on two distinct services being deployed and adding those service names to the backend configuration of the `TrafficTarget` policy. This is not needed for how Istio implements traffic shifting. With Istio we can create multiple deployments that represents each version of the service application and shift traffic to those specific versions via the Istio `virtualservice` configuration.
+To demonstrate how to balance traffic between two versions of a Kubernetes service, known as traffic shifting in Istio. As you recall in a previous section, OSM implementation of traffic shifting relied on two distinct services being deployed and adding those service names to the backend configuration of the `TrafficTarget` policy. This deployment architecture is not needed for how Istio implements traffic shifting. With Istio, we can create multiple deployments that represent each version of the service application and shift traffic to those specific versions via the Istio `virtualservice` configuration.
 
 The currently deployed `virtualservice` only has a route rule to the v1 version of the bookstore shown below:
 
@@ -839,7 +839,7 @@ spec:
             subset: v1
 ```
 
-We will now update the `virtualservice` to shift 100% of the weight to the v2 version of the bookstore.
+We update the `virtualservice` to shift 100% of the weight to the v2 version of the bookstore.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -869,4 +869,4 @@ You should now see both the bookbuyer and bookthief UI incrementing for the book
 
 ## Summary
 
-We hope this walk-through provided the necessary guidance on how to migrate your current OSM policies to Istio policies. It is also recommended to take time and review the [Istio Concepts](https://istio.io/latest/docs/concepts/) and walking through [Istio's own Getting Started guide](https://istio.io/latest/docs/setup/getting-started/) to learn how to utilize the Istio service mesh to manage your applications.
+We hope this walk-through provided the necessary guidance on how to migrate your current OSM policies to Istio policies. Take time and review the [Istio Concepts](https://istio.io/latest/docs/concepts/) and walking through [Istio's own Getting Started guide](https://istio.io/latest/docs/setup/getting-started/) to learn how to use the Istio service mesh to manage your applications.
