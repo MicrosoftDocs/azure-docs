@@ -1,20 +1,24 @@
 ---
-title: Workflow HTTP connector
-description: This article describes how to use HTTP connector in Purview workflows
+title: Use external APIs in Workflows
+description: Work with external APIs using HTTP connector and Parse JSON in Microsoft Purview workflows.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/16/2023
 ms.custom: template-how-to
 ---
 
-# Workflows HTTP connector
+# Use external APIs in Workflows
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-You can use [workflows](concept-workflow.md) to automate some business processes through Microsoft Purview. HTTP connector allows Purview workflows to integrate with external applications. HTTP connectors use Representational State Transfer (REST) architecture, which allows Microsoft Purview workflows to interact directly with third party applications by using web requests. 
+You can use [workflows](concept-workflow.md) to automate some business processes through Microsoft Purview, and the [HTTP connector](#http-connector) and [parse JSON action](#parse-json-action) allow you to integrate your workflows with external applications.
+
+## HTTP connector
+
+HTTP connectors use Representational State Transfer (REST) architecture, which allows Microsoft Purview workflows to interact directly with third party applications by using web requests. 
 
 HTTP connector is available in all workflow templates.
 
@@ -47,6 +51,8 @@ HTTP connector is available in all workflow templates.
 ## Parse JSON action
 
 The parse JSON action in workflows allows you to take an incoming JSON from HTTP (or any other action/connector), and parse the JSON to extract values for use in your workflow.
+
+The parse JSON action is available in all workflows.
 
 The parse JSON action has two parameters:
 
