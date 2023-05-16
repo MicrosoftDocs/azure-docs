@@ -34,11 +34,11 @@ Use the following steps to create a private endpoint while provisioning a new Az
 
 1. During the creation of Azure Data Manager for Energy instance, select the **Networking** tab.
 
-    [![Screenshot of the Networking tab.](media/how-to-manage-private-links/private-links-11-networking-tab.png)](media/how-to-manage-private-links/private-links-11-networking-tab.png#lightbox)
+    [![Screenshot of the Networking tab during provisioning.](media/how-to-manage-private-links/private-links-11-networking-tab.png)](media/how-to-manage-private-links/private-links-11-networking-tab.png#lightbox)
 
 1. In the Networking tab, select **Disable public access and use private access** and then choose **Add** under Private endpoint.
 
-    [![Screenshot of the Networking tab.](media/how-to-manage-private-links/private-links-12-add-pe.png)](media/how-to-manage-private-links/private-links-12-add-pe.png#lightbox)
+    [![Screenshot of choosing add private endpoint.](media/how-to-manage-private-links/private-links-12-add-pe.png)](media/how-to-manage-private-links/private-links-12-add-pe.png#lightbox)
 
 1. In **Create private endpoint**, enter or select the following information and select **OK**:
     |Setting | Value |
@@ -55,21 +55,21 @@ Use the following steps to create a private endpoint while provisioning a new Az
     |Integrate with private DNS zone| Leave the default value - **Yes**|
     |Private DNS zone| Leave the default value|
 
-    [![Screenshot of the Networking tab.](media/how-to-manage-private-links/private-links-13-create-pe.png)](media/how-to-manage-private-links/private-links-13-create-pe.png#lightbox)
+    [![Screenshot of the Create private endpoint tab - 1.](media/how-to-manage-private-links/private-links-13-create-pe.png)](media/how-to-manage-private-links/private-links-13-create-pe.png#lightbox)
 
-    [![Screenshot of the Networking tab.](media/how-to-manage-private-links/private-links-14-private-dns.png)](media/how-to-manage-private-links/private-links-14-private-dns.png#lightbox)
+    [![Screenshot of the Craete private endpoint tab - 2.](media/how-to-manage-private-links/private-links-14-private-dns.png)](media/how-to-manage-private-links/private-links-14-private-dns.png#lightbox)
 
 
 1. Verify the private endpoint details in the Networking tab and next, select **Review+Create** after completing other tabs.
 
-    [![Screenshot of the Networking tab.](media/how-to-manage-private-links/private-links-15-review-pe.png)](media/how-to-manage-private-links/private-links-15-review-pe.png#lightbox)
+    [![Screenshot of the Private endpoint details.](media/how-to-manage-private-links/private-links-15-review-pe.png)](media/how-to-manage-private-links/private-links-15-review-pe.png#lightbox)
 
 1. On the Review + create page, Azure validates your configurations.
 When you see Validation passed, select the **Create** button.
 1. An Azure Data Manager for Energy instance is created with private link.
 1. You can navigate to Networking post instance provisioning and see the private endpoint created under **Private access** tab.
 
-    [![Screenshot of the Networking tab.](media/how-to-manage-private-links/private-links-16-validate-pe.png)](media/how-to-manage-private-links/private-links-16-validate-pe.png#lightbox)
+    [![Screenshot of the private endpoint created.](media/how-to-manage-private-links/private-links-16-validate-pe.png)](media/how-to-manage-private-links/private-links-16-validate-pe.png#lightbox)
 
 ## Create a private endpoint post instance provisioning by using the Azure portal 
 
