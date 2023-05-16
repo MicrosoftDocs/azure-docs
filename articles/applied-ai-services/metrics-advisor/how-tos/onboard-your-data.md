@@ -48,7 +48,7 @@ After signing into your Metrics Advisor portal and choosing your workspace, clic
 #### 1. Basic settings
 Next you'll input a set of parameters to connect your time-series data source. 
 * **Source Type**: The type of data source where your time series data is stored.
-* **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, and Custom. The lowest interval the customization option supports is 300 seconds.
+* **Granularity**: The interval between consecutive data points in your time series data. Currently Metrics Advisor supports: Yearly, Monthly, Weekly, Daily, Hourly, per minute, and Custom. The lowest interval the customization option supports is 60 seconds.
   * **Seconds**: The number of seconds when *granularityName* is set to *Customize*.
 * **Ingest data since (UTC)**: The baseline start time for data ingestion. `startOffsetInSeconds` is often used to add an offset to help with data consistency.
 
