@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 05/16/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -30,11 +30,11 @@ To create Bicep files, you need a good Bicep editor. We recommend:
 
   Select **Install**.
 
-  :::image type="content" source="./media/install/install-extension.png" alt-text="Install Bicep extension":::
+  :::image type="content" source="./media/install/install-extension.png" alt-text="Screenshot of installing Bicep extension.":::
 
 To verify you've installed the extension, open any file with the `.bicep` file extension. You should see the language mode in the lower right corner change to **Bicep**.
 
-:::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
+:::image type="content" source="./media/install/language-mode.png" alt-text="Screenshot of Bicep language mode.":::
 
 If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
@@ -66,7 +66,7 @@ To configure the settings:
 1. From the `File` menu, select `Preferences`, and then select `Settings`.
 1. Expand `Extensions`, and then select `Bicep`:
 
-    :::image type="content" source="./media/install/bicep-extension-settings.png" alt-text="Configure Bicep extension settings":::
+    :::image type="content" source="./media/install/bicep-extension-settings.png" alt-text="Screenshot of configuring Bicep extension settings.":::
 
 ## Visual Studio and Bicep extension
 
