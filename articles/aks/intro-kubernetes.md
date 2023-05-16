@@ -21,6 +21,8 @@ When you deploy an AKS cluster, you specify the number and size of the nodes, an
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
+> [!NOTE]
 > AKS also supports Windows Server containers.
 
 ## Access, security, and monitoring
