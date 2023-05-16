@@ -73,7 +73,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../storage/common/storage-introduction.md) 
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 
@@ -107,12 +107,12 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location ${LOCATION}
    ```
 
-1. An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). To create the environment, run the following command:
+1. An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same log analytics workspace. For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md). Use the following command to create the environment:
 
    ```azurecli-interactive
    az containerapp env create \
-       --name ${MANAGED_ENVIRONMENT} \
        --resource-group ${RESOURCE_GROUP} \
+       --name ${MANAGED_ENVIRONMENT} \
        --location ${LOCATION} \
        --enable-workload-profiles
    ```
@@ -121,8 +121,8 @@ Use the following steps to create an Azure Spring Apps service instance.
 
    ```azurecli-interactive
    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
-       --name ${MANAGED_ENVIRONMENT} \
        --resource-group ${RESOURCE_GROUP} \
+       --name ${MANAGED_ENVIRONMENT} \
        --query id \
        --output tsv)
    ```
@@ -140,13 +140,15 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ## Create an app in your Azure Spring Apps instance
 
-An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one business app. Apps run in an Azure Spring Apps service instance, or simply service instance, as shown in the following diagram.
+An app is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](concept-understand-app-and-deployment.md)
+
+Apps run in an Azure Spring Apps service instance, or simply service instance, as shown in the following diagram.
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 You can create an app in either standard consumption or dedicated workload profiles. See [Azure Spring Apps pricing](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-**Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
+**Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.**
 
 ### Create an app with consumption workload profile
 
@@ -251,7 +253,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../storage/common/storage-introduction.md) 
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 
@@ -429,7 +431,7 @@ Use the following steps to build and deploy your app.
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
 1. In the **Subscription** textbox, verify that your subscription is correct.
-1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in [Provision an instance of Azure Spring Apps](#provision-an-instance-of-azure-spring-apps-1).
+1. In the **Service** textbox, select the instance of Azure Spring Apps that you created in the [Provision an instance of Azure Spring Apps](#provision-an-instance-of-azure-spring-apps-1) section.
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
    :::image type="content" source="media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="media/quickstart/intellij-create-new-app.png":::

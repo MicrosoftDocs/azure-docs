@@ -1,5 +1,5 @@
 ---
-title: "Map an existing custom domain to Azure Spring Apps"
+title: Map an existing custom domain to Azure Spring Apps
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
@@ -18,46 +18,47 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-Domain Name Service (DNS) is a technique for storing network node names throughout a network. This article maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
+Domain Name Service (DNS) is a technique for storing network node names throughout a network. This article maps a domain, such as `www.contoso.com`, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
 
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault.
 
 ## Prerequisites
 
-* An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app).
-* A domain name with access to the DNS registry for domain provider such as GoDaddy.
-* A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
-* A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- (Optional) [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
+- An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app).-* A domain name with access to the DNS registry for domain provider such as GoDaddy.
+- A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
+-A deployed instance of Azure Key Vault. For more information, see [About Azure Key Vault](../key-vault/general/overview.md).
 
 ## Key Vault private link considerations
 
 The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the following IP addresses to Azure Key Vault firewall:
 
-* `20.99.204.111`
-* `20.201.9.97`
-* `20.74.97.5`
-* `52.235.25.35`
-* `20.194.10.0`
-* `20.59.204.46`
-* `104.214.186.86`
-* `52.153.221.222`
-* `52.160.137.39`
-* `20.39.142.56`
-* `20.199.190.222`
-* `20.79.64.6`
-* `20.211.128.96`
-* `52.149.104.144`
-* `20.197.121.209`
-* `40.119.175.77`
-* `20.108.108.22`
-* `102.133.143.38`
-* `52.226.244.150`
-* `20.84.171.169`
-* `20.93.48.108`
-* `20.75.4.46`
-* `20.78.29.213`
-* `20.106.86.34`
-* `20.193.151.132`
+- `20.99.204.111`
+- `20.201.9.97`
+- `20.74.97.5`
+- `52.235.25.35`
+- `20.194.10.0`
+- `20.59.204.46`
+- `104.214.186.86`
+- `52.153.221.222`
+- `52.160.137.39`
+- `20.39.142.56`
+- `20.199.190.222`
+- `20.79.64.6`
+- `20.211.128.96`
+- `52.149.104.144`
+- `20.197.121.209`
+- `40.119.175.77`
+- `20.108.108.22`
+- `102.133.143.38`
+- `52.226.244.150`
+- `20.84.171.169`
+- `20.93.48.108`
+- `20.75.4.46`
+- `20.78.29.213`
+- `20.106.86.34`
+- `20.193.151.132`
 
 ## Import certificate
 
@@ -125,8 +126,14 @@ To upload your certificate to key vault:
 
 #### [CLI](#tab/Azure-CLI)
 
+Use the following command to import a certificate:
+
 ```azurecli
-az keyvault certificate import --file <path to .pfx file> --name <certificate name> --vault-name <key vault name> --password <export password>
+az keyvault certificate import \
+    --file <path-to-.pfx-file> \
+    --name <certificate-name> \
+    --vault-name <key-vault-name> \
+    --password <export-password>
 ```
 
 ---
@@ -153,10 +160,15 @@ You need to grant Azure Spring Apps access to your key vault before you import c
 
 #### [CLI](#tab/Azure-CLI)
 
-Grant Azure Spring Apps read access to key vault, replace the *\<key vault resource group>* and *\<key vault name>* in the following command.
+Use the following command grants Azure Spring Apps read access to key vault:
 
 ```azurecli
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy \
+    -resoruce-group <key-vault-resource-group-name> \
+    -name <key-vault-name> \
+    --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 \
+    --certificate-permissions get list \
+    --secret-permissions get list
 ```
 
 ---
@@ -178,22 +190,32 @@ az keyvault set-policy -g <key vault resource group> -n <key vault name>  --obje
 
 #### [Azure CLI](#tab/Azure-CLI)
 
+Use the following command to add a certificate:
+
 ```azurecli
-az spring certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
+az spring certificate add \
+    --resrouce-group <resoruce-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <cert-name> \
+    --vault-uri <key-vault-uri> \
+    --vault-certificate-name <key-vault-cert-name>
 ```
 
-To show a list of certificates imported:
+Use the following command show a list of imported certificates:
 
 ```azurecli
-az spring certificate list --resource-group <resource group name> --service <service name>
+az spring certificate list \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
 ```
 
 ---
 
 > [!IMPORTANT]
-> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in this section: [Add SSL Binding](#add-ssl-binding).
+> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in the [Add SSL Binding](#add-ssl-binding) section.
 
 ## Add Custom Domain
+
 You can use a CNAME record to map a custom DNS name to Azure Spring Apps.
 
 > [!NOTE]
@@ -229,14 +251,24 @@ One app can have multiple domains, but one domain can only map to one app. When 
 
 #### [CLI](#tab/Azure-CLI)
 
+Use the following command to bind a custom domain with the app.
+
 ```azurecli
-az spring app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring app custom-domain bind \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --domain-name <domain-name> \
+    --app <app-name> 
+
 ```
 
-To show the list of custom domains:
+Use the following command to show the list of custom domains:
 
 ```azurecli
-az spring app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
+az spring app custom-domain list \
+    --resource-group <resource-group-name>
+    --service <Azure-Spring-Apps-instance-name>
+    --app <app-name> \
 ```
 
 ---
@@ -257,8 +289,16 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 
 #### [CLI](#tab/Azure-CLI)
 
+Use the following command to update a custom domain of the app.
+
 ```azurecli
-az spring app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring app custom-domain update \
+    --resource-group <resource-group-name> 
+    --service <service-name>
+    --domain-name <domain-name> \
+    --certificate <cert-name> \
+    --app <app-name> \
+
 ```
 
 ---
@@ -278,8 +318,14 @@ In your app page, in the left navigation, select **Custom Domain**. Then, set **
 
 #### [CLI](#tab/Azure-CLI)
 
+Use the following command to update the configurations of an app.
+
 ```azurecli
-az spring app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
+az spring app update \
+    -resource-group <resource-group-name> \
+    -service <Azure-Spring-Apps-instance-name> \
+    -nane <app name> \
+    --https-only
 ```
 
 ---
@@ -288,6 +334,6 @@ When the operation is complete, navigate to any of the HTTPS URLs that point to 
 
 ## Next steps
 
-* [What is Azure Key Vault?](../key-vault/general/overview.md)
-* [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
-* [Launch your Spring Cloud App by using the Azure CLI](./quickstart.md)
+- [What is Azure Key Vault?](../key-vault/general/overview.md)
+- [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+- [Launch your Spring Cloud App by using the Azure CLI](./quickstart.md)

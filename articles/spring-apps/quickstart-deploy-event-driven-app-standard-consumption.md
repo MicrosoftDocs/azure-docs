@@ -64,31 +64,31 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    APP_NAME=<event-driven-app-name>
    ```
 
-1. Sign in to Azure by using the following command:
+1. Use the following command to sign in to Azure:
 
    ```azurecli
    az login
    ```
 
-1. Set the default location by using the following command:
+1. Use the following command to set the default location:
 
    ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
-1. Set your default subscription. First, list all available subscriptions:
+1. Use the following commands to set your default subscription. First, list all available subscriptions to determine the subscription ID you need to use.
 
    ```azurecli
    az account list --output table
    ```
 
-1. Determine the ID of the subscription you want to set and use it with the following command to set your default subscription.
+1. Use the following command to set your default subscription:
 
    ```azurecli
    az account set --subscription <subscription-ID>
    ```
 
-1. Create a resource group by using the following command:
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
@@ -104,13 +104,13 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 Create a Service Bus instance by using the following steps.
 
-1. Use the following command to create a Service Bus namespace.
+1. Use the following command to create a Service Bus namespace:
 
    ```azurecli
    az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
    ```
 
-1. Use the following commands to create two queues named `lower-case` and `upper-case`.
+1. Use the following commands to create two queues named `lower-case` and `upper-case`:
 
    ```azurecli
    az servicebus queue create \
@@ -127,13 +127,13 @@ The Azure Container Apps environment creates a secure boundary around a group of
 
 Use the following steps to create the environment:
 
-1. Install the Azure Container Apps extension for the CLI by using the following command:
+1. Use the following command to install the Azure Container Apps extension for the Azure CLI:
 
    ```azurecli
    az extension add --name containerapp --upgrade
    ```
 
-1. Register the `Microsoft.App` namespace by using the following command:
+1. Use the following command to register the `Microsoft.App` namespace:
 
    ```azurecli
    az provider register --namespace Microsoft.App
@@ -145,7 +145,7 @@ Use the following steps to create the environment:
    az provider register --namespace Microsoft.OperationalInsights
    ```
 
-1. Create the environment by using the following command:
+1. Use the following command to create the environment:
 
    ```azurecli
    az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
@@ -155,20 +155,20 @@ Use the following steps to create the environment:
 
 An instance of an Azure Spring Apps Standard consumption and dedicated plan hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
-1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption and dedicated by using the following command:
+1. Use the following command to install the Azure CLI extension designed for Azure Spring Apps Standard consumption and dedicated:
 
    ```azurecli
    az extension remove --name spring && \
    az extension add --name spring
    ```
 
-1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
+1. Use the following command to register the `Microsoft.AppPlatform` provider for the Azure Spring Apps:
 
    ```azurecli
    az provider register --namespace Microsoft.AppPlatform
    ```
 
-1. Get the Azure Container Apps environment resource ID by using the following command:
+1. Use the following command to get the Azure Container Apps environment resource ID:
 
    ```azurecli
    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
@@ -190,11 +190,13 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 You can create an app in either standard consumption or dedicated workload profiles. See [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-**Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.** 
+> [!IMPORTANT]
+>
+> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You are billed for the dedicated workload profile based on the provisioned provisioned.  For more information, see [Workload profiles definition](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 ### Create an app with consumption workload profile
 
-Create an app in the Azure Spring Apps instance by using the following command:
+Use the following command to create an app in the Azure Spring Apps instance:
 
    ```azurecli
    az spring app create \
@@ -210,16 +212,20 @@ Create an app in the Azure Spring Apps instance by using the following command:
 
 ### Create an app with dedicated workload profile
 
-Dedicated workload profiles support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
+Dedicated workload profiles support run apps with customized hardware and increased cost predictability using Dedicated workload profiles.
+
+Use the following command to create a dedicated workload profile:
 
 ```azurecli
-az containerapp env workload-profile set -n ${AZURE_CONTAINER_APPS_ENVIRONMENT}
-    --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+az containerapp env workload-profile set \
+    -name ${AZURE_CONTAINER_APPS_ENVIRONMENT} \
+    --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 \
+    --max-nodes 2
 ```
 
 And use the following command to create an app with the dedicated workload profile:
 
-```azurecli-interactive
+```azurecli
 az spring app create \       
     --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \

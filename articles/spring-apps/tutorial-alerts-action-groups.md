@@ -1,5 +1,5 @@
 ---
-title: "Monitor Azure Spring Apps resources using alerts and action groups | Microsoft Docs"
+title: Monitor Azure Spring Apps resources using alerts and action groups
 description: Learn how to use Spring app alerts.
 author: karlerickson
 ms.author: karler
@@ -27,7 +27,8 @@ There are two steps to set up an alert pipeline:
 
 ## Prerequisites
 
-In addition to the Azure Spring Apps requirements, the procedures in this article work with a deployed Azure Spring Apps instance. Follow a [quickstart](./quickstart.md) to get started.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- A deployed Azure Spring Apps instance. For more infomration, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md) to get started.
 
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of an Azure Spring Apps instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
 
@@ -87,9 +88,9 @@ The previous steps created an **Action Group** that uses email. You could also u
 
 1. Select **Done**.
 
-   For details of the conditions available to monitor, see [User portal metrics options](./concept-metrics.md#user-metrics-options).
+   For details of the conditions available to monitor, see the [User portal metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
-1. Under **ACTIONS**, select **Select action group**. From the **ACTIONS** pane select the previously defined **Action Group**.
+1. Under **ACTIONS**, select **Select action group**. From the ACTIONS pane, select the previously defined **Action Group**.
 
    ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png)
 

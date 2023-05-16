@@ -93,19 +93,19 @@ You can create the Azure Container Apps environment in one of two ways:
 
 - Using a system assigned virtual network, as described in the following procedure.
 
-1. Sign in to Azure by using the following command:
+1. Use the following command to sign in to Azure:
 
    ```azurecli
    az login
    ```
 
-1. Install the Azure Container Apps extension for the Azure CLI by using the following command:
+1. Use the following command to install the Azure Container Apps extension for the Azure CLI:
 
    ```azurecli
    az extension add --name containerapp --upgrade
    ```
 
-1. Register the `Microsoft.App` namespace by using the following command:
+1. Use the following command to register the `Microsoft.App` namespace:
 
    ```azurecli
    az provider register --namespace Microsoft.App
@@ -125,7 +125,7 @@ You can create the Azure Container Apps environment in one of two ways:
    AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    ```
 
-1. Create the Azure Container Apps environment by using the following command:
+1. Use the following command to create the Azure Container Apps environment:
 
    ```azurecli
    az containerapp env create \
@@ -151,14 +151,14 @@ You can create the Azure Container Apps environment in one of two ways:
 
 Use the following steps to deploy the service instance:
 
-1. Install the latest Azure CLI extension for Azure Spring Apps by using the following command:
+1. Use the following command to install the latest Azure CLI extension for Azure Spring Apps:
 
    ```azurecli
    az extension remove --name spring && \
    az extension add --name spring
    ```
 
-1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
+1. Use the following command to register the `Microsoft.AppPlatform` provider for the Azure Spring Apps:
 
    ```azurecli
    az provider register --namespace Microsoft.AppPlatform

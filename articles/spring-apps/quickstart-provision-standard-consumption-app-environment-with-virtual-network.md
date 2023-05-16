@@ -100,19 +100,19 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-1. Sign in to Azure by using the following command:
+1. Use the following command to sign in to Azure:
 
    ```azurecli
    az login
    ```
 
-1. Install the Azure Container Apps extension for the Azure CLI by using the following command:
+1. Use the following command to install the Azure Container Apps extension for the Azure CLI:
 
    ```azurecli
    az extension add --name containerapp --upgrade
    ```
 
-1. Register the `Microsoft.App` namespace by using the following command:
+1. Use the following command to register the `Microsoft.App` namespace:
 
    ```azurecli
    az provider register --namespace Microsoft.App
@@ -149,7 +149,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
        --address-prefixes 10.0.0.0/23
    ```
 
-1. Use the following command to get the ID for the infrastructure subnet and store it in a variable.
+1. Use the following command to get the ID for the infrastructure subnet and store it in a variable:
 
    ```azurecli
    INFRASTRUCTURE_SUBNET=$(az network vnet subnet show \
@@ -161,7 +161,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
        | tr -d '[:space:]')
    ```
 
-1. Use the following command to create the Azure Container Apps environment using the infrastructure subnet ID.
+1. Use the following command to create the Azure Container Apps environment using the infrastructure subnet ID:
 
    ```azurecli
    az containerapp env create \
