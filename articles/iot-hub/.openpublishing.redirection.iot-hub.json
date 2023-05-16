@@ -1347,6 +1347,16 @@
       "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-support.md",
       "redirect_url": "/azure/iot/iot-mqtt-connect-to-iot-hub",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iot-toolkit.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
     }
   ]
 }
