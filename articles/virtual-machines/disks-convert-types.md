@@ -204,7 +204,7 @@ The disk type conversion is instantaneous. You can start your VM after the conve
 
 ## Migrate to Premium SSD v2 or Ultra Disk
 
-Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through incremental snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
+Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -225,7 +225,10 @@ $storageType = 'PremiumV2_LRS'
 #This location should be same as the snapshot location
 #Get all the Azure location using command below:
 #Get-AzLocation
-$location = 'westus'
+
+#Select the same location as the current disk
+#Note that Premium SSD v2 and Ultra Disks are only supported in a select number of regions
+$location = 'eastus'
 
 $logicalSectorSize=512
 
@@ -254,7 +257,9 @@ resourceGroupName="yourResourceGroupNameHere"
 snapshotName="desiredSnapshotNameHere"
 #Provide the storage type. Use PremiumV2_LRS or UltraSSD_LRS.
 storageType=PremiumV2_LRS
-
+#Select the same location as the current disk
+#Note that Premium SSD v2 and Ultra Disks are only supported in a select number of regions
+location=eastus
 logicalSectorSize=512
 
 # Get the disk you need to backup
@@ -263,19 +268,19 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 # Create the snapshot
 snapshot=$(az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true)
 
-az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-sector-size $logicalSectorSize
+az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location
 
 ```
 
 # [Portal](#tab/azure-portal)
 
+The following steps assume you already have a snapshot. To learn how to create one, see [Create a snapshot of a virtual hard disk](snapshot-copy-managed-disk.md),
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the VM from the list of **Virtual machines**.
-1. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
-1. In the pane for the VM, select **Disks** from the menu.
-1. Select the disk that you want to convert.
 1. Select the search bar at the top. Search for and select Disks.
 1. Select **+Create** and fill in the details.
+1. Make sure the **Region** and **Availability** zone meet the requirements of either your Premium SSD v2 or Ultra Disk.
+1. For **Region** select the same region as the snapshot you took.
 1. For **Source Type** select **Snapshot**.
 1. Select the snapshot you just created.
 1. Select **Change size** and select either **Premium SSD v2** or **Ultra Disk** for the **Storage Type**.
