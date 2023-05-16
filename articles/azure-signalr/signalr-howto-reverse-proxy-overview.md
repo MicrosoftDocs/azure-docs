@@ -3,7 +3,7 @@ title: How to integrate Azure SignalR with reverse proxies
 description: This article provides information about the general practice integrating Azure SignalR with reverse proxies
 author: vicancy
 ms.author: lianwei
-ms.date: 08/16/2022
+ms.date: 05/16/2023
 ms.service: signalr
 ms.topic: how-to
 ---
@@ -53,5 +53,7 @@ There are several general practices to follow when using a reverse proxy in fron
 ## Next steps
 
 - Learn [how to work with Application Gateway](./signalr-howto-work-with-app-gateway.md).
+
+- Learn [how to work with API Management](./signalr-howto-work-with-apim.md).
 
 - Learn more about [the internals of Azure SignalR](./signalr-concept-internals.md).
