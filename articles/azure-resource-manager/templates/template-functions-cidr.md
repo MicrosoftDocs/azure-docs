@@ -178,7 +178,7 @@ The preceding example returns the following array:
 
 `cidrHost(network, hostIndex)`
 
-Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation. In the case of `192.168.1.0/24`, there are reserved IP addresses: `192.168.1.0` serves as the network identifier address, while `192.168.1.255` functions as the broadcast address. Only IP addresses ranging from `192.168.1.1` to `192.168.1.254` can be assigned to hosts, which are refer to as "usable" IP addresses. Consequently, when the function is passed a hostIndex of `0`, `192.168.1.1` is returned.
+Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation. For example, in the case of `192.168.1.0/24`, there are reserved IP addresses: `192.168.1.0` serves as the network identifier address, while `192.168.1.255` functions as the broadcast address. Only IP addresses ranging from `192.168.1.1` to `192.168.1.254` can be assigned to hosts, which are referred to as "usable" IP addresses. So, when the function is passed a hostIndex of `0`, `192.168.1.1` is returned.
 
 In Bicep, use the [cidrHost](../bicep/bicep-functions-cidr.md#cidrhost) function.
 
