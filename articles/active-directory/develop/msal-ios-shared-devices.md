@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2023
+ms.date: 05/16/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe, akgoel23
 ms.custom: aaddev
@@ -37,14 +37,14 @@ To take advantage of shared device mode feature, app developers and cloud device
 
    Supporting shared device mode should be considered a feature upgrade for your application, and can help increase its adoption in environments where the same device is used among multiple users.
 
-    > [!IMPORTANT] 
-    > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS don't require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
+   > [!IMPORTANT]
+   > [Microsoft applications](#microsoft-applications-that-support-shared-device-mode) that support shared device mode on iOS don't require any changes and just need to be installed on the device to get the benefits that come with shared device mode.
 
 ## Set up device in Shared Device Mode
 
-Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
+Your device needs to be configured to support shared device mode. It must have iOS 14+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
-Microsoft Intune supports zero-touch provisioning for devices in Azure Active Directory (Azure AD) shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To setup device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
+Microsoft Intune supports zero-touch provisioning for devices in Azure Active Directory (Azure AD) shared device mode, which means that the device can be set up and enrolled in Intune with minimal interaction from the frontline worker. To set up device in shared device mode when using Microsoft Intune as the MDM, see [Set up enrollment for devices in Azure AD shared device mode](/mem/intune/enrollment/automated-device-enrollment-shared-device-mode/).
 
 > [!IMPORTANT]
 > We are working with third-party MDMs to support shared device mode. We will update the list of third-party MDMs as they start supporting the shared device mode.
