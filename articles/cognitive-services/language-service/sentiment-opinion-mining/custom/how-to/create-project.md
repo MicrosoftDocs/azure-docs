@@ -1,7 +1,7 @@
 ---
-title: How to create custom text classification projects
+title: How to create Custom sentiment analysis projects
 titleSuffix: Azure Cognitive Services
-description: Learn about the steps for using Azure resources with custom text classification.
+description: Learn about the steps for using Azure resources with Custom sentiment analysis.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,19 +13,19 @@ ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# How to create custom text classification project
+# How to create Custom sentiment analysis project
 
-Use this article to learn how to set up the requirements for starting with custom text classification and create a project.
+Use this article to learn how to set up the requirements for starting with Custom sentiment analysis and create a project.
 
 ## Prerequisites
 
-Before you start using custom text classification, you will need:
+Before you start using Custom sentiment analysis, you will need:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 ## Create a Language resource 
 
-Before you start using custom text classification, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
+Before you start using Custom sentiment analysis, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with Custom sentiment analysis.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to classify text.
 
@@ -39,11 +39,11 @@ You also will need an Azure storage account where you will upload your `.txt` do
 > [!Note]
 > You shouldn't move the storage account to a different resource group or subscription once it's linked with the Language resource.
 
-[!INCLUDE [create a new resource from the Azure portal](../../includes/custom/resource-creation-azure-portal.md)]
+[!INCLUDE [create a new resource from the Azure portal](../../../includes/custom/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from Language Studio](../../includes/custom/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../../../includes/custom/resource-creation-language-studio.md)]
 
-[!INCLUDE [create a new resource with Azure PowerShell](../../includes/custom/resource-creation-powershell.md)]
+[!INCLUDE [create a new resource with Azure PowerShell](../../../includes/custom/resource-creation-powershell.md)]
 
 
 ---
@@ -54,16 +54,16 @@ You also will need an Azure storage account where you will upload your `.txt` do
 
 ## Using a pre-existing Language resource
 
-[!INCLUDE [use an existing resource](../includes/use-pre-existing-resource.md)]
+[!INCLUDE [use an existing resource](../../../includes/custom/use-pre-existing-resource.md)]
 
 
-## Create a custom text classification project
+## Create a Custom sentiment analysis project
 
-Once your resource and storage container are configured, create a new custom text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can [import it](#import-a-custom-text-classification-project) to get started.
+Once your resource and storage container are configured, create a new Custom sentiment analysis project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can [import it](#import-a-custom-sentiment-analysis-project) to get started.
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Language Studio project creation](../../../includes/language-studio/create-project.md)]
+[!INCLUDE [Language Studio project creation](../../../includes/custom/language-studio/create-project.md)]
 
 
 ### [REST APIs](#tab/apis)
@@ -72,7 +72,7 @@ Once your resource and storage container are configured, create a new custom tex
 
 ---
 
-## Import a custom text classification project
+## Import a Custom sentiment analysis project
 
 <!--If you have already labeled data, you can use it to get started with the service. Make sure that your labeled data follows the [accepted data formats](../concepts/data-formats.md).-->
 
@@ -102,7 +102,7 @@ Once your resource and storage container are configured, create a new custom tex
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Delete project using Language Studio](../includes/language-studio/delete-project.md)]
+[!INCLUDE [Delete project using Language Studio](../../../includes/custom/language-studio/delete-project.md)]
 
 ### [REST APIs](#tab/apis)
 
@@ -114,4 +114,4 @@ Once your resource and storage container are configured, create a new custom tex
 
 * You should have an idea of the [project schema](design-schema.md) you will use to label your data.
 
-* After your project is created, you can start [labeling your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.
+<!--* After your project is created, you can start [labeling your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.-->
