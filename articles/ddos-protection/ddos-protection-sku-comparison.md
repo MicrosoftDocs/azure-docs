@@ -60,7 +60,7 @@ DDoS Network Protection and DDoS IP Protection have the following limitations:
 - Protecting a public IP resource attached to a NAT Gateway isn't supported.
 - Virtual machines in Classic/RDFE deployments aren't supported.
 - Scenarios in which a single VM is running behind a public IP is not recommended. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability)
-- Protected resources that include public IP address prefix, or public IP created from public IP address prefix aren't supported. Azure Load Balancer with a public IP created from a public IP prefix is supported.
+- Partially supported: the Azure DDoS Protection service can protect a public load balancer with a public IP address prefix linked to its frontend. It effectively detects and mitigates DDoS attacks. However, telemetry and logging for the protected public IP addresses within the prefix range are currently unavailable. 
 
 DDoS IP Protection is similar to Network Protection, but has the following additional limitation:
 
