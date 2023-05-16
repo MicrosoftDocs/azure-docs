@@ -147,6 +147,7 @@ You have a choice of operating systems that you can use for session hosts to pro
 > [!IMPORTANT]
 > - The following items are not supported:
 >   - 32-bit operating systems or SKUs not listed in the previous table.
+>   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
 >   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
 > 
