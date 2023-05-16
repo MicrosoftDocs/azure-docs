@@ -2,7 +2,7 @@
 title: Troubleshoot Application Insights Profiler
 description: Walk through troubleshooting steps and information to enable and use Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 05/11/2023
 ms.reviewer: charles.weininger
 ---
 
@@ -48,7 +48,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 
 Search for trace messages and custom events sent by Profiler to your Application Insights resource.
 
-1. In your Application Insights resource, select **Search**.
+1. In your Application Insights resource, select **Search** from the top menu.
 
    :::image type="content" source="./media/profiler-troubleshooting/search-trace-messages.png" alt-text="Screenshot that shows selecting the Search button from the Application Insights resource.":::
 
@@ -92,6 +92,8 @@ For Profiler to work properly, make sure:
       1. Select **Go**.
    1. On the top menu, select **Tools** > **WebJobs dashboard**.
       The **WebJobs** pane opens.
+
+      If **ApplicationInsightsProfiler3** doesn't show up, restart your App Service application.
    
       :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot that shows the WebJobs pane, which displays the name, status, and last runtime of jobs.":::
 

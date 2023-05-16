@@ -58,7 +58,7 @@ The Azure Arc service in the Azure portal provides a streamlined way to create a
 
 ### Azure PowerShell
 
-You can use [Azure PowerShell](/powershell/azure/install-az-ps) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet.
+You can use [Azure PowerShell](/powershell/azure/install-azure-powershell) to create a service principal with the [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) cmdlet.
 
 1. Check the context of your Azure PowerShell session to ensure you're working in the correct subscription. Use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) if you need to change the subscription.
     

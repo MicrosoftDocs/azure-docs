@@ -70,11 +70,18 @@ Next, create a personal access token. Depending on the type of repository you us
 
 1. Go to the home page of the GitHub repository that contains the template definitions.
 1. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
-1. On the left sidebar, select **Developer settings** > **Personal access tokens**.
+1. On the left sidebar, select **Developer settings** > **Personal access tokens** > **Fine-grained tokens**.
 1. Select **Generate new token**.
-1. On **New personal access token**, in **Note**, enter a description for your token.
-1. In the **Expiration** dropdown, select an expiration for your token.
-1. For a private repository, under **Select scopes**, select the **repo** scope.
+1. On the New fine-grained personal access token page, provide the following information:
+
+    |Name      |Value      |
+    |----------|-----------|
+    |**Token name**|Enter a descriptive name for the token.|
+    |**Expiration**|Select the token expiration period in days.|
+    |**Description**|Enter a description for the token.|
+    |**Repository access**|Select **Public Repositories (read-only)**.|
+    
+    Leave the other options at their defaults.
 1. Select **Generate token**.
 1. Save the generated token. You use the token later.
 
@@ -88,9 +95,49 @@ Next, create a personal access token. Depending on the type of repository you us
 
 Store the personal access token that you generated as a [key vault secret](../key-vault/secrets/about-secrets.md) and copy the secret identifier:
 
-1. Create a [key vault](../key-vault/general/quick-create-portal.md#create-a-vault).
-1. Add the personal access token as a [secret to the key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
-1. Open the secret and [copy the secret identifier](../key-vault/secrets/quick-create-portal.md#retrieve-a-secret-from-key-vault).
+#### Create a Key Vault
+You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). 
+
+If you don't have an existing key vault, use the following steps to create one:
+
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+1.	In the Search box, enter *Key Vault*.
+1.	From the results list, select **Key Vault**.
+1.	On the Key Vault page, select **Create**.
+1.	On the Create key vault tab, provide the following information:
+
+    |Name      |Value      |
+    |----------|-----------|
+    |**Name**|Enter a name for the key vault.|
+    |**Subscription**|Select the subscription in which you want to create the key vault.|
+    |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
+    |**Location**|Select the location or region where you want to create the key vault.|
+    
+    Leave the other options at their defaults.
+
+1. On the Access policy tab, select **Azure role-based access control**, and then select **Review + create**.
+
+1. On the Review + create tab, select **Create**.
+
+#### Store the personal access token in the key vault
+
+1. In the Key Vault, on the left menu, select **Secrets**.
+1.	On the Secrets page, select **Generate/Import**.
+1.	On the Create a secret page:
+    - In the **Name** box, enter a descriptive name for your secret.
+    - In the **Secret value** box, paste the GitHub secret.
+    - Select **Create**.
+
+
+#### Get the secret identifier
+
+Get the path to the secret you created in the key vault. 
+
+1. In the Azure portal, navigate to your key vault.
+1. On the key vault page, from the left menu, select **Secrets**.
+1. On the Secrets page, select the secret you created earlier.
+1. On the versions page, select the **CURRENT VERSION**.
+1. On the current version page, for the **Secret identifier**, select copy.
 
 ### Add your repository as a catalog
 

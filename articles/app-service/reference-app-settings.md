@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 11/01/2022
+ms.date: 05/09/2023
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -228,14 +228,11 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 | Setting name | Description | Example|
 |-|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZENDEXTENSIONS` | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
+| `PHP_ZENDEXTENSIONS` | For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
 | `PHP_VERSION` | Read-only. The selected PHP version. ||
-| `PORT` | Read-only. Port that Apache server listens to in the container. ||
+| `WEBSITE_PORT` | Read-only. Port that Apache server listens to in the container. ||
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
 | `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. ||
-| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). ||
-| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. ||
-| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. ||
 
 <!-- 
 ZEND_BIN_PATH

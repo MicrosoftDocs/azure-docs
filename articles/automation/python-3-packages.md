@@ -91,7 +91,7 @@ After a package has been imported, it's listed on the Python packages page in yo
 ### Import a package with dependencies
 
 
-You can import a Python 3.8 package and its dependencies by importing the following Python script into a Python 3.8 runbook, and then running it.
+You can import a Python 3.8 package and its dependencies by importing the following Python script into a Python 3.8 runbook. Ensure that Managed identity is enabled for your Automation account and has Automation Contributor access for successful import of package.
 
 
 ```cmd

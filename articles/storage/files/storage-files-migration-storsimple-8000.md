@@ -25,7 +25,7 @@ The StorSimple 8000 series is represented by either the 8100 or the 8600 physica
     :::column:::
         This video provides an overview of:
         - Azure Files
-        - Azure Files Sync
+        - Azure File Sync
         - Comparison of StorSimple & Azure Files
         - StorSimple Data Manager migration tool and process overview
     :::column-end:::

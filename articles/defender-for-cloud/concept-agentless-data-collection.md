@@ -1,8 +1,8 @@
 ---
 title: Agentless scanning of cloud machines using Microsoft Defender for Cloud
 description: Learn how Defender for Cloud can gather information about your multicloud compute resources without installing an agent on your machines.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 09/28/2022
