@@ -2377,11 +2377,11 @@ groups:
   title: GitHub Actions deployment options
   prompt: Choose how you deploy
   pivots:
-  - id: Manual
-    title: method-manual
-  - id: Azure portal
-    title: method-portal
-  - id: Azure CLI
-    title: method-cli
-  - id: GitHub Actions template
-    title: method-template
+  - id: method-manual
+    title: Manual
+  - id: method-portal
+    title: Azure portal
+  - id: method-cli
+    title: Azure CLI
+  - id: method-template
+    title: GitHub Actions template
