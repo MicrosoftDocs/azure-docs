@@ -42,7 +42,7 @@ Use the following steps to create a private endpoint while provisioning a new Az
 
 1. In **Create private endpoint**, enter or select the following information and select **OK**:
     |Setting | Value |
-    |----------|-----|
+    |--------|-------|
     |Subscription  | Select your subscription |
     |Resource group| Select a resource group |
     |Location| Select the region where you want to deploy the private endpoint |
