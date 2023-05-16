@@ -13,7 +13,7 @@ ms.author: aahi
 
 1. Sign into the [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select your Language resource. 
 
-2. Under the **Classify text** section of Language Studio, select **Custom text classification**.
+2. Select the feature you want to use <!--Under the **Classify text** section of Language Studio, select **Custom text classification**.-->
 
     :::image type="content" source="../../media/select-custom-text-classification.png" alt-text="A screenshot showing the location of custom text classification in the Language Studio landing page." lightbox="../../media/select-custom-text-classification.png":::
         

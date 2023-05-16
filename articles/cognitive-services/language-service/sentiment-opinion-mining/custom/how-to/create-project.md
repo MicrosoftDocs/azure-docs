@@ -39,17 +39,12 @@ You also will need an Azure storage account where you will upload your `.txt` do
 > [!Note]
 > You shouldn't move the storage account to a different resource group or subscription once it's linked with the Language resource.
 
-### [Using the Azure portal](#tab/azure-portal)
+[!INCLUDE [create a new resource from the Azure portal](../../includes/custom/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
+[!INCLUDE [create a new resource from Language Studio](../../includes/custom/resource-creation-language-studio.md)]
 
-### [Using Language Studio](#tab/language-studio)
+[!INCLUDE [create a new resource with Azure PowerShell](../../includes/custom/resource-creation-powershell.md)]
 
-[!INCLUDE [create a new resource from Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
-
-### [Using Azure PowerShell](#tab/azure-powershell)
-
-[!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
 ---
 
@@ -68,26 +63,26 @@ Once your resource and storage container are configured, create a new custom tex
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Language Studio project creation](../includes/language-studio/create-project.md)]
+[!INCLUDE [Language Studio project creation](../../../includes/language-studio/create-project.md)]
 
 
 ### [REST APIs](#tab/apis)
 
-[!INCLUDE [REST APIs project creation](../includes/rest-api/create-project.md)]
+[!INCLUDE [REST APIs project creation](../../includes/custom/rest-api/create-project.md)]
 
 ---
 
 ## Import a custom text classification project
 
-If you have already labeled data, you can use it to get started with the service. Make sure that your labeled data follows the [accepted data formats](../concepts/data-formats.md).
+<!--If you have already labeled data, you can use it to get started with the service. Make sure that your labeled data follows the [accepted data formats](../concepts/data-formats.md).-->
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Import project](../includes/language-studio/import-project.md)]
+[!INCLUDE [Import project](../../../includes/custom/language-studio/import-project.md)]
 
 ### [REST APIs](#tab/apis)
 
-[!INCLUDE [Import project](../includes/rest-api/import-project.md)]
+[!INCLUDE [Import project](../../includes/custom/rest-api/import-project.md)]
 
 ---
 
@@ -95,11 +90,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
+[!INCLUDE [Language Studio project details](../../../includes/custom/language-studio/project-details.md)]
 
 ### [REST APIs](#tab/apis)
 
-[!INCLUDE [REST API project details](../includes/rest-api/project-details.md)]
+[!INCLUDE [REST API project details](../../includes/custom/rest-api/project-details.md)]
 
 ---
 
@@ -107,11 +102,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/studio)
 
-[!INCLUDE [Delete project using Language Studio](../../includes/custom/language-studio/delete-project.md)]
+[!INCLUDE [Delete project using Language Studio](../includes/language-studio/delete-project.md)]
 
 ### [REST APIs](#tab/apis)
 
-[!INCLUDE [Delete project using the REST API](../includes/rest-api/delete-project.md)]
+[!INCLUDE [Delete project using the REST API](../../includes/custom/rest-api/delete-project.md)]
 
 ---
 
