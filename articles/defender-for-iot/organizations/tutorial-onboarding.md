@@ -184,7 +184,7 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 [!INCLUDE [validate-traffic-mirroring](includes/validate-traffic-mirroring.md)]
 
-## Provision for cloud monitoring
+## Provision for cloud management
 
 This section describes how to configure endpoints to define in firewall rules, ensuring that your OT sensors can connect to Azure.
 
