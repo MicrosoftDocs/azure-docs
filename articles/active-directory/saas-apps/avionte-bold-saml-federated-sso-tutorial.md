@@ -78,7 +78,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
-## Configure Avionte Bold SAML Federated SSO SSO
+## Configure Avionte Bold SAML Federated SSO
 
 To configure single sign-on on **Avionte Bold SAML Federated SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Avionte Bold SAML Federated SSO support team](mailto:Support@avionte.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
