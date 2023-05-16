@@ -376,10 +376,9 @@ sections:
       - question: |
           How can I collect Windows security events by using the new Azure Monitor Agent?
         answer: |
-          There are two ways you can collect security events by using the new agent when it sends to a Log Analytics workspace:
-          - You can use Azure Monitor Agent to natively collect security events, the same as other Windows events. These events flow to the [`Event`](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
+          There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
+          - You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. If you want Security Events to flow into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead, you can [create the required DCR with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
           - If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
-          
           
       - question: |
           Can Azure Monitor Agent and the Log Analytics agent coexist side by side?
@@ -529,7 +528,7 @@ sections:
             1. Search for **Cost Management** and use the **Cost analysis** pane to see forecasted costs.
             1. Search for **Cost Management and Billing** and open the **Billing scopes** pane to see current charges across subscriptions.
           
-      - question: What do Application Insights modify in my project?
+      - question: What does Application Insights modify in my project?
         answer: |
           The details depend on the type of project. For a web application:
           
@@ -905,10 +904,10 @@ sections:
           There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
           - Reduces enablement effort
           - Brings in Azure Specific features such as:
-           - Azure Active Directory (Azure AD) Authentication
-           - Offline Storage and Automatic Retries
-           - Preserves traces with service components using Application Insights SDKs
-           - Live Metrics (future)
+              - Azure Active Directory (Azure AD) Authentication
+              - Offline Storage and Automatic Retries
+              - Preserves traces with service components using Application Insights SDKs
+              - Live Metrics (future)
           
           In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
            - An OTLP exporter and send to a second destination simultaneously

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/25/2020
+ms.date: 05/08/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
 ms.custom: aaddev, devx-track-python
@@ -37,62 +37,11 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-Given that your web app now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
-
-- The URL of the downstream web API
-- The scopes required for calling the API
-
-In the following example, the `GraphBeta` section specifies these settings.
-
-```JSON
-{
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common",
-
-   // To call an API
-   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
-   "ClientCertificates": [
-  ]
- },
- "GraphBeta": {
-    "BaseUrl": "https://graph.microsoft.com/beta",
-    "Scopes": "user.read"
-    }
-}
-```
-
-Instead of a client secret, you can provide a client certificate. The following code snippet shows using a certificate stored in Azure Key Vault.
-
-```JSON
-{
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common",
-
-   // To call an API
-   "ClientCertificates": [
-      {
-        "SourceType": "KeyVault",
-        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
-        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
-      }
-   ]
-  },
-  "GraphBeta": {
-    "BaseUrl": "https://graph.microsoft.com/beta",
-    "Scopes": "user.read"
-  }
-}
-```
-
-*Microsoft.Identity.Web* provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
+[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
 
 ## Startup.cs
 
-Your web app needs to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApp(Configuration)`. This line exposes the `ITokenAcquisition` service that you can use in your controller and page actions. However, as you'll see in the following two options, it can be done more simply. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
+Your web app needs to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApp(Configuration)`. This line exposes the `IAuthorizationHeaderProvider` service that you can use in your controller and page actions. However, as you see in the following two options, it can be done more simply. You also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -115,7 +64,7 @@ Your web app needs to acquire a token for the downstream API. You specify it by 
 
 The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional, and enable your web app to request the scopes and the user's consent to those scopes when they sign in. If you don't specify the scopes, *Microsoft.Identity.Web* enables an incremental consent experience.
 
-If you don't want to acquire the token yourself, *Microsoft.Identity.Web* provides two mechanisms for calling a web API from a web app. The option you choose depends on whether you want to call Microsoft Graph or another API.
+*Microsoft.Identity.Web* offers two mechanisms for calling a web API from a web app without you having to acquire a token. The option you choose depends on whether you want to call Microsoft Graph or another API.
 
 ### Option 1: Call Microsoft Graph
 
@@ -146,7 +95,13 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
 
 ### Option 2: Call a downstream web API other than Microsoft Graph
 
-To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides `.AddDownstreamWebApi()`, which requests tokens and calls the downstream web API.
+If you want to call an API other than Microsoft Graph, *Microsoft.Identity.Web* enables you to use the `IDownstreamApi` interface in your API actions. To use this interface:
+
+1. Add the [Microsoft.Identity.Web.DownstreamApi](https://www.nuget.org/packages/Microsoft.Identity.Web.DownstreamApi) NuGet package to your project.
+1. Add `.AddDownstreamApi()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddDownstreamApi()` has two arguments, and is shown in the following snippet:
+   - The name of a service (API), which is used in your controller actions to reference the corresponding configuration
+   - a configuration section representing the parameters used to call the downstream web API.
+
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -160,7 +115,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
-                  .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+                  .AddDownstreamApi("MyApi", Configuration.GetSection("GraphBeta"))
                .AddInMemoryTokenCaches();
       // ...
      }
@@ -181,13 +136,123 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 
 # [ASP.NET](#tab/aspnet)
 
-Because user sign-in is delegated to the OpenID Connect (OIDC) middleware, you must interact with the OIDC process. How you interact depends on the framework you use.
 
-For ASP.NET, you'll subscribe to middleware OIDC events:
+## Client secrets or client certificates
 
-- You'll let ASP.NET Core request an authorization code by means of the Open ID Connect middleware. ASP.NET or ASP.NET Core will let the user sign in and consent.
-- You'll subscribe the web app to receive the authorization code. This subscription is done by using a C# delegate.
-- When the authorization code is received, the code uses MSAL libraries to redeem it. The resulting access tokens and refresh tokens are stored in the token cache. The cache can be used in other parts of the application, such as controllers, to acquire other tokens silently.
+[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+
+## Startup.Auth.cs
+
+Your web app needs to acquire a token for the downstream API, *Microsoft.Identity.Web* provides two mechanisms for calling a web API from a web app. The option you choose depends on whether you want to call Microsoft Graph or another API.
+
+### Option 1: Call Microsoft Graph
+
+If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to directly use the `GraphServiceClient` (exposed by the Microsoft Graph SDK) in your API actions. To expose Microsoft Graph:
+
+1. Add the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet package to your project.
+1. Add `.AddMicrosoftGraph()` to the service collection in the *Startup.Auth.cs* file. `.AddMicrosoftGraph()` has several overrides. Using the override that takes a configuration section as a parameter, the code becomes:
+
+  ```csharp
+  using Microsoft.Extensions.DependencyInjection;
+  using Microsoft.Identity.Client;
+  using Microsoft.Identity.Web;
+  using Microsoft.Identity.Web.OWIN;
+  using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
+  using Microsoft.IdentityModel.Validators;
+  using Microsoft.Owin.Security;
+  using Microsoft.Owin.Security.Cookies;
+  using Owin;
+
+  namespace WebApp
+  {
+      public partial class Startup
+      {
+          public void ConfigureAuth(IAppBuilder app)
+          {
+              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+              app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+              // Get an TokenAcquirerFactory specialized for OWIN
+              OwinTokenAcquirerFactory owinTokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>();
+
+              // Configure the web app.
+              app.AddMicrosoftIdentityWebApp(owinTokenAcquirerFactory,
+                                            updateOptions: options => {});
+
+              // Add the services you need.
+              owinTokenAcquirerFactory.Services
+                  .Configure<ConfidentialClientApplicationOptions>(options => 
+                        { options.RedirectUri = "https://localhost:44326/"; })
+                  .AddMicrosoftGraph()
+                  .AddInMemoryTokenCaches();
+              owinTokenAcquirerFactory.Build();
+          }
+      }
+  }
+  ```
+
+### Option 2: Call a downstream web API other than Microsoft Graph
+
+If you want to call an API other than Microsoft Graph, *Microsoft.Identity.Web* enables you to use the `IDownstreamApi` interface in your API actions. To use this interface:
+
+1. Add the [Microsoft.Identity.Web.DownstreamApi](https://www.nuget.org/packages/Microsoft.Identity.Web.DownstreamApi) NuGet package to your project.
+1. Add `.AddDownstreamApi()` after `.EnableTokenAcquisitionToCallDownstreamApi()` in the *Startup.cs* file. `.AddDownstreamApi()` has two arguments:
+   - The name of a service (api): you use this name in your controller actions to reference the corresponding configuration
+   - a configuration section representing the parameters used to call the downstream web API.
+
+Here's the code:
+
+   ```csharp
+  using Microsoft.Extensions.DependencyInjection;
+  using Microsoft.Identity.Client;
+  using Microsoft.Identity.Web;
+  using Microsoft.Identity.Web.OWIN;
+  using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
+  using Microsoft.IdentityModel.Validators;
+  using Microsoft.Owin.Security;
+  using Microsoft.Owin.Security.Cookies;
+  using Owin;
+
+  namespace WebApp
+  {
+      public partial class Startup
+      {
+          public void ConfigureAuth(IAppBuilder app)
+          {
+              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+              app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+              // Get an TokenAcquirerFactory specialized for OWIN.
+              OwinTokenAcquirerFactory owinTokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>();
+
+              // Configure the web app.
+              app.AddMicrosoftIdentityWebApp(owinTokenAcquirerFactory,
+                                            updateOptions: options => {});
+
+              // Add the services you need.
+              owinTokenAcquirerFactory.Services
+                  .Configure<ConfidentialClientApplicationOptions>(options => 
+                        { options.RedirectUri = "https://localhost:44326/"; })
+                  .AddDownstreamApi("Graph", owinTokenAcquirerFactory.Configuration.GetSection("GraphBeta"))
+                  .AddInMemoryTokenCaches();
+              owinTokenAcquirerFactory.Build();
+          }
+      }
+  }
+   ```
+
+### Summary
+
+You can choose various token cache implementations. For details, see [Microsoft.Identity.Web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
+
+The following image shows the various possibilities of *Microsoft.Identity.Web* and their effect on the *Startup.cs* file:
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
+
+> [!NOTE]
+> To fully understand the code examples here, be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
 
 Code examples in this article and the following one are extracted from the [ASP.NET Web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect). You might want to refer to that sample for full implementation details.
 
@@ -212,74 +277,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [ASP.NET](#tab/aspnet)
 
-ASP.NET handles things similarly to ASP.NET Core, except that the configuration of OpenID Connect and the subscription to the `OnAuthorizationCodeReceived` event happen in the [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) file. The concepts are also similar to those in ASP.NET Core, except that in ASP.NET you must specify the `RedirectUri` in [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). This configuration is a bit less robust than the one in ASP.NET Core, because you need to change it when you deploy your application.
-
-Here's the code for Startup.Auth.cs:
-
-```csharp
-public partial class Startup
-{
-  public void ConfigureAuth(IAppBuilder app)
-  {
-    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-
-    app.UseCookieAuthentication(new CookieAuthenticationOptions());
-
-    // Custom middleware initialization. This is activated when the code obtained from a code_grant is present in the query string (&code=<code>).
-    app.UseOAuth2CodeRedeemer(
-        new OAuth2CodeRedeemerOptions
-        {
-            ClientId = AuthenticationConfig.ClientId,
-            ClientSecret = AuthenticationConfig.ClientSecret,
-            RedirectUri = AuthenticationConfig.RedirectUri
-        }
-      );
-
-  app.UseOpenIdConnectAuthentication(
-      new OpenIdConnectAuthenticationOptions
-      {
-        // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0.
-        Authority = AuthenticationConfig.Authority,
-        ClientId = AuthenticationConfig.ClientId,
-        RedirectUri = AuthenticationConfig.RedirectUri,
-        PostLogoutRedirectUri = AuthenticationConfig.RedirectUri,
-        Scope = AuthenticationConfig.BasicSignInScopes + " Mail.Read", // A basic set of permissions for user sign-in and profile access "openid profile offline_access"
-        TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = false,
-            // In a real application, you would use IssuerValidator for additional checks, such as making sure the user's organization has signed up for your app.
-            //     IssuerValidator = (issuer, token, tvp) =>
-            //     {
-            //        //if(MyCustomTenantValidation(issuer))
-            //        return issuer;
-            //        //else
-            //        //    throw new SecurityTokenInvalidIssuerException("Invalid issuer");
-            //    },
-            //NameClaimType = "name",
-        },
-        Notifications = new OpenIdConnectAuthenticationNotifications()
-        {
-            AuthorizationCodeReceived = OnAuthorizationCodeReceived,
-            AuthenticationFailed = OnAuthenticationFailed,
-        }
-      });
-  }
-
-  private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
-  {
-      // Upon successful sign-in, get the access token and cache it by using MSAL.
-      IConfidentialClientApplication clientApp = MsalAppBuilder.BuildConfidentialClientApplication(new ClaimsPrincipal(context.AuthenticationTicket.Identity));
-      AuthenticationResult result = await clientApp.AcquireTokenByAuthorizationCode(new[] { "Mail.Read" }, context.Code).ExecuteAsync();
-  }
-
-  private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
-  {
-      notification.HandleResponse();
-      notification.Response.Redirect("/Error?message=" + notification.Exception.Message);
-      return Task.FromResult(0);
-  }
-}
-```
+*Microsoft.Identity.Web.OWIN* simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/9fdcf15c66819b31b1049955eed5d3e5391656f5/src/Microsoft.Identity.Web.OWIN/AppBuilderExtension.cs#L95) for details on how this works.
 
 # [Java](#tab/java)
 
@@ -358,7 +356,7 @@ The Microsoft sign-in screen sends the authorization code to the `/getAToken` UR
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="36-41":::
 
-See [app.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.5.0/app.py#L36-41) for the full context of that code.
+See `app.py` for the full context of that code.
 
 ---
 
@@ -406,54 +404,34 @@ For details about the token-cache providers, see also Microsoft.Identity.Web's [
 
 # [ASP.NET](#tab/aspnet)
 
-The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](msal-net-token-cache-serialization.md).
-
-The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58):
-
-
-First, to use these implementations:
-- add the Microsoft.Identity.Web NuGet package. These token cache serializers aren't brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
-- In your code, use the Microsoft.Identity.Web namespace:
-
-  ```csharp
-  #using Microsoft.Identity.Web
-  ```
-- Once you have built your confidential client application, add the token cache serialization of your choice.
+The ASP.NET tutorial uses dependency injection to let you decide the token cache implementation in the *Startup.Auth.cs* file for your application. *Microsoft.Identity.Web* comes with prebuilt token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
-public static class MsalAppBuilder
+var services = owinTokenAcquirerFactory.Services;
+// Use a distributed token cache by adding:
+services.AddDistributedTokenCaches();
+
+// Then, choose your implementation.
+// For instance, the distributed in-memory cache (not cleared when you stop the app):
+services.AddDistributedMemoryCache();
+
+// Or a Redis cache:
+services.AddStackExchangeRedisCache(options =>
 {
-  private static IConfidentialClientApplication clientapp;
+ options.Configuration = "localhost";
+ options.InstanceName = "SampleInstance";
+});
 
-  public static IConfidentialClientApplication BuildConfidentialClientApplication()
-  {
-    if (clientapp == null)
-    {
-      clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
-            .WithClientSecret(AuthenticationConfig.ClientSecret)
-            .WithRedirectUri(AuthenticationConfig.RedirectUri)
-            .WithAuthority(new Uri(AuthenticationConfig.Authority))
-            .Build();
-
-      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache serialization with our implementation
-      clientapp.AddInMemoryTokenCache();
-    }
-    return clientapp;
-  }
+// Or even a SQL Server token cache:
+services.AddDistributedSqlServerCache(options =>
+{
+ options.ConnectionString = _config["DistCache_ConnectionString"];
+ options.SchemaName = "dbo";
+ options.TableName = "TestCache";
+});
 ```
 
-Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced cache serialization implementations like Redis, SQL, Cosmos DB, or distributed memory. Here's an example for Redis:
-
-```csharp
-  clientapp.AddDistributedTokenCache(services =>
-  {
-    services.AddStackExchangeRedisCache(options =>
-    {
-        options.Configuration = "localhost";
-        options.InstanceName = "SampleInstance";
-    });
-  });
-```
+For details about the token-cache providers, see also the *Microsoft.Identity.Web* [Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) article, and the [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) phase of the web app's tutorial.
 
 For details see [Token cache serialization for MSAL.NET](./msal-net-token-cache-serialization.md).
 

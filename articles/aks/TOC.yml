@@ -444,19 +444,23 @@
               href: http-proxy.md
         - name: Ingress
           items:
-            - name: Use ingress-nginx
+            - name: Use Web Application Routing add-on (preview)
+              href: web-app-routing.md
+            - name: Use Application Gateway Ingress Controller add-on
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
+            - name: Use Istio gateway with Istio Service Mesh add-on (preview)
+              href: istio-deploy-ingress.md
+            - name: Use HTTP application routing add-on (retired)
+              href: http-application-routing.md
+            - name: Unmanaged 
               items:
+              - name: Use ingress-nginx
+                items:
                 - name: Create an ingress controller
                   href: ingress-basic.md
                 - name: Use TLS with an ingress controller
                   href: ingress-tls.md
-            - name: Use HTTP application routing
-              href: http-application-routing.md
-            - name: Enable the AGIC add-on for an existing AKS cluster
-              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
-              maintainContext: true
-            - name: Use Web Application Routing (preview)
-              href: web-app-routing.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -527,6 +531,8 @@
       items:
         - name: Monitor AKS
           href: monitor-aks.md
+        - name: Monitor kube-audit events
+          href: monitor-apiserver.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
@@ -584,8 +590,14 @@
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
-        - name: Deploy Kubernetes applications from Azure Marketplace
-          href: deploy-marketplace.md
+        - name: Deploy Kubernetes applications
+          items:
+            - name: Deploy Kubernetes applications from Azure Marketplace
+              href: deploy-marketplace.md
+            - name: Deploy Kubernetes applications with ARM template
+              href: deploy-application-template.md
+            - name: Deploy Kubernetes applications with Azure CLI
+              href: deploy-application-az-cli.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
@@ -627,7 +639,11 @@
         - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
           href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Use cluster extensions
-      href: cluster-extensions.md
+      items:
+      - name: About cluster extensions
+        href: cluster-extensions.md
+      - name: Use the Azure CLI
+        href: deploy-extensions-az-cli.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
