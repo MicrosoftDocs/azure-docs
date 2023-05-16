@@ -1113,7 +1113,7 @@ items:
     items:
     - name: Create projects
       href: custom-text-analytics-for-health/how-to/create-project.md
-    - name: Data selection and schema designa
+    - name: Data selection and schema design
       href: custom-text-analytics-for-health/how-to/design-schema.md
     - name: Label data
       href: custom-text-analytics-for-health/how-to/label-data.md

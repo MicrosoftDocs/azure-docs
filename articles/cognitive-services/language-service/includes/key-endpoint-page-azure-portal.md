@@ -14,4 +14,4 @@ ms.author: aahi
 
 2. From the menu on the left side, select **Keys and Endpoint**. You'll use the endpoint and key for the API requests 
 
-    :::image type="content" source="../media/key-endpoint-page.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../media/key-endpoint-page.png":::
+    :::image type="content" source="../media/key-endpoint-page.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal." lightbox="../media/key-endpoint-page.png":::

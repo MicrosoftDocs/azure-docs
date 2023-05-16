@@ -25,7 +25,7 @@ You can use Language Studio to submit the custom entity recognition task and vis
 
 [!INCLUDE [Test model](../../includes/custom/language-studio/test-model.md)]
 
-:::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::
+:::image type="content" source="../media/test-model-results.png" alt-text="A screenshot of the model test results" lightbox="../media/test-model-results.png":::
 
 
 ## Send an entity recognition request to your model
