@@ -75,29 +75,29 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
    > [!NOTE]
    >
-   > The SAP managed connector parameters don't specify or save the language used for sending data to your SAP server. 
-   > Instead, at both design time and run time, the connector uses your web browser's local language from each request 
-   > that's sent to your server. 
+   > The SAP managed connector parameters don't specify or save the language used for sending 
+   > data to your SAP server. Instead, at both design time and run time, the connector uses 
+   > your web browser's local language from each request that's sent to your server. 
    >
-   > For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests the SAP connection with 
-   > Portuguese, but doesn't save the connection with that language. At run time, if no accept header is passed, 
-   > by default, English is used.
+   > For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests 
+   > the SAP connection with Portuguese, but doesn't save the connection with that language. 
+   > At run time, if no accept header is passed, by default, English is used.
 
    The following example shows a basically configured SAP managed trigger in a Consumption workflow:
 
-   ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-consumption.png)
+   ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-managed-consumption.png)
 
    The following example shows an SAP managed trigger where you can filter messages by selecting SAP actions:
 
-   ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-select-action-consumption.png)
+   ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-select-action-managed-consumption.png)
 
    Or, by manually specifying an action:
 
-   ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-manual-enter-action-consumption.png)
+   ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-manual-enter-action-managed-consumption.png)
 
    The following example shows how the action appears when you set up the trigger to receive more than one message:
 
-   ![Screenshot shows example trigger that receives multiple messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-multiple-message-consumption.png)
+   ![Screenshot shows example trigger that receives multiple messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-multiple-message-managed-consumption.png)
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
@@ -184,6 +184,10 @@ You might get a similar error when SAP Application server or Message server name
    | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
    | **SAP SNC Partner Names** | No | Filter the messages that your receive from your SAP server based on a list of SNC partner names. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**, and enter each name separated by a vertical bar (**\|**). |
 
+   The following example shows a basically configured SAP built-in trigger in a Standard workflow:
+
+   ![Screenshot shows basically configured SAP built-in connector trigger in Standard workflow.](./media/logic-apps-using-sap-connector/trigger-sap-built-in-standard.png)
+
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
    Your workflow is now ready to receive messages from your SAP server.
@@ -199,19 +203,6 @@ To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger d
 The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](workflow-definition-language-functions-reference.md#xpath):
 
 1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [set up a workflow with an SAP trigger](#receive-message-sap).
-
-   > [!IMPORTANT]
-   >
-   > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
-   > when you configure your logic app workflow and SAP server. Otherwise, you might receive the following errors in the 
-   > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
-   >
-   > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-   > * **Non-ABAP RFC client (partner type) not supported**
-   >
-   > For more information from SAP, review the following notes (login required) 
-   > [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329) 
-   > and [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597).
 
 1. To immediately reply with the status of your SAP request, [add a Response action to your logic app workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
 
