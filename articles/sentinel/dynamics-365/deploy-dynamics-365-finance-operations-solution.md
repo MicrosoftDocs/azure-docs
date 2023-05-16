@@ -1,6 +1,6 @@
 ---
 title: Deploy Microsoft Sentinel solution for D365 F&O
-description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for Dynamics 365 Finance and operations (D365 F&O)ץ
+description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations (D365 F&O)ץ
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 05/14/2023
 
 # Deploy Microsoft Sentinel solution for D365 F&O
 
-This article describes how to deploy the Microsoft Sentinel solution for D365 F&O. The solution monitors and protects your Dynamics 365 Finance and operations system: It collects audits and activity logs from the Dynamics 365 Finance and operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
+This article describes how to deploy the Microsoft Sentinel solution for D365 F&O. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
 
 > [!IMPORTANT]
 > The Microsoft Sentinel solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -34,14 +34,14 @@ Before you begin, verify that:
 1. Open your Dynamics 365 project in [LCS](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
 1. In the **Environment version information** section, make sure that you're using application release version 10.0.33 or above. 
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information.":::
 
-1. To collect your environment URL, select **Login to environment** and save the URL in the browser to use in the ARM deployment. For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
+1. To collect your environment URL, select **Login to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-fo-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details.png" alt-text="Screenshot of the Finance and Operations environment details.":::
+    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details.png" alt-text="Screenshot of the Finance and Operations environment details." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-details.png":::
 
 ### Deploy the solution and enable the data connector
 
@@ -69,11 +69,11 @@ Before you begin, verify that:
 1. In the connector page, make sure that you meet the required prerequisites and follow the configuration steps in the UI. During this process, you: 
 
     - Deploy the ARM template (Function App). 
-    - Create a new security role in Finance and operations and grant permissions to the Function App's managed identity. 
+    - Create a new security role in Finance and Oerations and grant permissions to the Function App's managed identity. 
 
-### Enable auditing on the relevant Dynamics 365 Finance and operations data tables 
+### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables 
 
-For the analytics rules provided with this solution, enable auditing for these tables:    
+To enable the analytics rules provided with this solution, enable auditing for these tables:    
  
 - All tables under **System**
 - The **Bank accounts** table under **Bank**
@@ -116,7 +116,7 @@ To verify that log ingestion is working, you try to enable the **F&O – Bank ac
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png" alt-text="Screenshot of querying the query_FinanceOperationsActivity_CL_table to view the raw logs in Microsoft Sentinel." lightbox="media/deploy-dynamics-365-finance-operations-solution/query_FinanceOperationsActivity_CL_table.png"::: 
 
-1. Repeat this procedure to enable the rest of the analytics rules provided with the solution.
+1. Repeat this procedure (steps 1-5) to enable the rest of the analytics rules provided with the solution.
 
 ## Next steps
 

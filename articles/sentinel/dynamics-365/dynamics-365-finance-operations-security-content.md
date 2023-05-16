@@ -23,10 +23,10 @@ You can also add related [watchlists](../watchlists.md) to use in your search, d
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
 |**F&O - Network alias reassignment** |Identifies changes to user accounts where the network alias was modified to a new value. Changes to this field allow the new network alias to assume the same authentication context and privileges of the former. | | |
-|**F&O - Successful sign-in without MFA** |Identifies successful sign-in events to Finance and operations and Lifecycle services using single factor or password authentication. | | |
-|**F&O - Workload identity monitor** |Identifies changes to workload identities registered in Finance and operations, including user association reassignment. | | |
-|**F&O - Mass update or deletion of user records** |Identifies large delete or update operations on Finance and operations user records based on predefined thresholds.<br><br>Default update threshold: **50**<br>Default delete threshold: **10** | | |
-|**F&O - Bank account number changed** |Identifies changes to bank account numbers in Finance and operations. | | |
+|**F&O - Successful sign-in without MFA** |Identifies successful sign-in events to Finance and Operations and Lifecycle services using single factor or password authentication. | | |
+|**F&O - Workload identity monitor** |Identifies changes to workload identities registered in Finance and Operations, including user association reassignment. | | |
+|**F&O - Mass update or deletion of user records** |Identifies large delete or update operations on Finance and Operations user records based on predefined thresholds.<br><br>Default update threshold: **50**<br>Default delete threshold: **10** | | |
+|**F&O - Bank account number changed** |Identifies changes to bank account numbers in Finance and Operations. | | |
 
 ## Next steps
 
