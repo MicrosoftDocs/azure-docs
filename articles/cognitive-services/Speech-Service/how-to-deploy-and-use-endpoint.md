@@ -18,12 +18,12 @@ zone_pivot_groups: programming-languages-set-nineteen
 
 After you've successfully created and [trained](how-to-custom-voice-create-voice.md) your voice model, you deploy it to a custom neural voice endpoint. 
 
-Use the Speech Studio to [add a deployment endpoint](#add-a-deployment-endpoint) for your custom neural voice. You can use either the Speech Studio or text-to-speech REST API to [suspend or resume](#suspend-and-resume-an-endpoint) a custom neural voice endpoint. 
+Use the Speech Studio to [add a deployment endpoint](#add-a-deployment-endpoint) for your custom neural voice. You can use either the Speech Studio or text to speech REST API to [suspend or resume](#suspend-and-resume-an-endpoint) a custom neural voice endpoint. 
 
 > [!NOTE]
 > You can create up to 50 endpoints with a standard (S0) Speech resource, each with its own custom neural voice.
 
-To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same Speech resource to pass through the authentication of the text-to-speech service.
+To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same Speech resource to pass through the authentication of the text to speech service.
 
 ## Add a deployment endpoint
 
@@ -49,9 +49,9 @@ The application settings that you use as REST API [request parameters](#request-
 
 ## Use your custom voice
 
-The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. 
+The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
 
-One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text-to-speech quickstart](get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
+One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text to speech quickstart](get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -317,5 +317,5 @@ The HTTP status code for each response indicates success or common errors.
 ## Next steps
 
 - [How to record voice samples](record-custom-voice-samples.md)
-- [Text-to-Speech API reference](rest-text-to-speech.md)
+- [Text to speech API reference](rest-text-to-speech.md)
 - [Batch synthesis](batch-synthesis.md)
