@@ -6,14 +6,20 @@ items:
   - name: What is Storage Tasks?
     href: overview.md
   expanded: true
+- name: Quickstarts
+  items:
+  - name: Create, assign, and run a Storage Task
+  - href: storage-task-quickstart-portal.md
 - name: Concepts
   items: 
-  - name: Concept article here
+  - name: Monitor Storage Tasks
     href: conceptual-article.md
 - name: How-To
   items: 
-  - name: How to article here
-    href: storage-task-how-to.md
+  - name: Edit Storage Task Conditions
+    href: storage-task-condition-edit.md
+  - name: Manage a Storage Task Assignment
+    href: storage-task-assignment-manage.md
   expanded: true
 - name: Reference
   items:
@@ -21,6 +27,12 @@ items:
     href: /rest/api/storageservices/blob-service-rest-api
 - name: Resources
   items:
+    - name: FAQ
+    - href: storage-task-faq.md
+    - name: Known issues and limitations
+      href: storage-task-known-issues.md
+    - name: Monitoring data Reference
+      href: storage-task-monitor-data-reference.md
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=storage
     - name: Storage Tasks on Microsoft Q&A
