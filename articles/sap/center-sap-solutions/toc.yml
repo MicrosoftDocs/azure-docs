@@ -3,10 +3,38 @@ items:
     href: overview.md
   - name: FAQ
     href: faq.yml
+  - name: Quickstarts
+    items:
+    - name: Deploy S/4 HANA infrastructure - Azure PowerShell
+      href: quickstart-create-distributed-non-high-availability.md
+    - name: Install SAP software - Azure PowerShell
+      href: quickstart-install-distributed-non-high-availability.md  
+    - name: Deploy S/4 HANA infrastructure - Azure CLI
+      href: quickstart-create-high-availability-namecustom.md
+    - name: Install SAP software - Azure CLI
+      href: quickstart-install-high-availability-namecustom-cli.md
+    - name: Register an existing SAP system - Azure PowerShell
+      href: quickstart-register-system-powershell.md
+    - name: Register an existing SAP system - Azure CLI
+      href: quickstart-register-system-cli.md  
+    - name: Start and stop SAP system - Azure PowerShell 
+      href: quick-stop-start-sap-powershell.md
+    - name: Start and stop SAP system - Azure CLI
+      href: quick-stop-start-sap-cli.md
+  - name: Tutorials
+    items:
+    - name: Deploy infrastructure for an SAP system with customized resource names
+      href: tutorial-create-high-availability-name-custom.md
   - name: Concepts
     items:
     - name: Manage resources with Azure RBAC
       href: manage-with-azure-rbac.md
+    - name: Reliability
+      items:
+      - name: Reliability overview
+        href: compliance-bcdr-reliabilty.md
+      - name: Customer enabled disaster recovery
+        href: compliance-cedr.md
   - name: How-to guides
     items:
     - name: Deployment
@@ -37,5 +65,10 @@ items:
         href: monitor-portal.md
   - name: Reference
     items:
-    - name: Azure CLI guide
-      href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
+    - name: Azure CLI
+      href: /cli/azure/workloads/sap-virtual-instance 
+    - name: Azure PowerShell
+      href: /powershell/module/az.workloads/new-azworkloadssapvirtualinstance
+    - name: REST - SAP Virtual Instance
+      href: /rest/api/workloads/        
+
