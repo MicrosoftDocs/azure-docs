@@ -150,7 +150,8 @@ model_monitor = MonitorSchedule(name="fraud_detection_model_monitoring",
                                 trigger=recurrence_trigger, 
                                 create_monitor=monitor_definition)
 
-ml_client.schedules.begin_create_or_update(model_monitor)
+poller = ml_client.schedules.begin_create_or_update(model_monitor)
+created_monitor = poller.result()
 
 ```
 
