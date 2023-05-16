@@ -72,7 +72,8 @@ To get started, create a pipeline with a mapping data flow.
 Next, specify a staging linked service and staging folder in Azure Data Lake Gen2, which serves as an intermediate storage for data extracted from SAP.
 
  >[!NOTE]
-   >The staging linked service cannot use a self-hosted integration runtime.
+   > - The staging linked service cannot use a self-hosted integration runtime.
+   > - The staging folder should be considered an internal storage of the SAP CDC connector. For further optimizations of the SAP CDC runtime, implementation details, like the file format used for the staging data, might change. We therefore recommend not to use the staging folder for other purposes, e.g. as a source for other copy activities or mapping data flows.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
 
