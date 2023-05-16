@@ -54,12 +54,17 @@ The parse JSON action in workflows allows you to take an incoming JSON from HTTP
 
 The parse JSON action is available in all workflows.
 
+:::image type="content" source="./media/how-to-use-workflow-http-connector/parse-json-action.png" alt-text="Screenshot of the workflows parse JSON action, showing its paramaters filled out with sample data.":::
+
 The parse JSON action has two parameters:
 
 - Content - this will be a variable that should contain the JSON you want to parse.
 - Schema - this should be the schema of the incoming JSON, which will allow the workflow to parse the incoming information. You can supply your own, or use the **Generate from sample** button. If you generate from a sample, you'll enter a sample JSON payload and a schema will be automatically generated for you.
 
 Actions and connectors in the workflow after the parse JSON action will be able to use the values extracted from the JSON by selecting **Add dynamic content** for any parameters.
+
+:::image type="content" source="./media/how-to-use-workflow-http-connector/add-dynamic-content.png" alt-text="Screenshot of another connector with values from the Parse JSON action added.":::
+
 
 ## Next steps
 
