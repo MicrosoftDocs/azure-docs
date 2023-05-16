@@ -57,7 +57,7 @@ The following table shows the node events, and the actions they cause for AKS no
 
 ## Limitations
 
-In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration, or has failed to initially register as a healthy node.
+In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration, or has failed to initially register as a healthy node. Node Autodrain is a best effort service and cannot be guaranteed to operate perfectly in all scenarios
 
 ## Next steps
 
