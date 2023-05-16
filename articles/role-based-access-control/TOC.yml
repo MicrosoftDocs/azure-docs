@@ -156,7 +156,7 @@
     - name: Troubleshoot Azure RBAC
       href: troubleshooting.md
     - name: Reduce role assignments and custom roles
-      href: role-assignments-reduce.md
+      href: troubleshoot-resource-graph.md
 - name: Reference
   items:
   - name: Built-in roles
