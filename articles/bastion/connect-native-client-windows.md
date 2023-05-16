@@ -5,13 +5,15 @@ description: Learn how to connect to a VM from a Windows computer by using Basti
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 05/16/2023
 ms.author: cherylmc
 ---
 
 # Connect to a VM using a native client
 
 This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using the native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
+
+:::image type="content" source="./media/connect-native-client-windows/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/connect-native-client-windows/native-client-architecture.png":::
 
 Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
 
