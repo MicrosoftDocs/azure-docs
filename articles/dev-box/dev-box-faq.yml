@@ -7,7 +7,7 @@ metadata:
   ms.topic: faq 
   ms.date: 05/16/2023 
 title: "Microsoft Dev Box: Frequently asked questions"
-summary: This article provides answers to some of the most commonly asked questions about [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box/).|
+summary: This article provides answers to some of the most commonly asked questions about [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box/).
   
 # Remove all the comments in this template before you sign-off or merge to the main branch.
 
@@ -17,14 +17,16 @@ summary: This article provides answers to some of the most commonly asked questi
 sections:
   - name: General FAQ
     questions:
-      - question: # Question.
-        answer: # Answer.
+      - question: Which repository providers does Dev Box support?
+        answer: Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery for Dev Box.  
+                For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)
+         
           
-      - question: # Question.
+      - question: Example question # Question.
         answer: |
           A multiline or formatted answer to the question.
-          Use any markdown formatting you want, provided that you maintain the indent
-         on the lines after the | characters.
+          Use any markdown formatting you want, if you maintain the indent
+          on the lines after the | characters.
 
 additionalContent: |
     ## Next steps
