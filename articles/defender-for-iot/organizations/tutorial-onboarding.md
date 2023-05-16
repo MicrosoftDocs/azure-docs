@@ -192,7 +192,7 @@ For more information, see [Methods for connecting sensors to Azure](architecture
 
 **To configure endpoint details**:
 
-Using the endpoint details file you'd downloaded earlier when [onboarding the sensor](#onboard-the-virtual-sensor), configure your firewall rules so that your sensor can access the cloud on port 443, to each of the listed endpoints in the downloaded list.
+Open the file you'd downloaded earlier to view the list of required endpoints. Configure your firewall rules so that your sensor can access each of the required endpoints, over port 443.
 
 To ensure that your sensor can connect to Azure, configure the listed endpoints as allowed outbound HTTPS traffic over port 443. You'll need to configure these outbound allow rules once for all OT sensors onboarded to the same subscription.
 
