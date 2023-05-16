@@ -19,7 +19,7 @@ Enabling GMSA with Windows Server nodes on AKS requires:
 * Azure CLI version 2.35.0 or greater
 * [Managed identities][aks-managed-id] with your AKS cluster.
 * Permissions to create or update an Azure Key Vault.
-* Permissions to configure GMSA on Active Directory Domain Service or on-prem Active Directory.
+* Permissions to configure GMSA on Active Directory Domain Service or on-premises Active Directory.
 * The domain controller must have Active Directory Web Services enabled and must be reachable on port 9389 by the AKS cluster.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ To create your own identity, use `az identity create` to create an identity. The
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
 
-You can grant your kubelet identity access to your key vault before or after you create your cluster. The following example uses `az identity list` to get the id of the identity and set it to *MANAGED_ID* then uses `az keyvault set-policy` to grant the identity access to the *MyAKSGMSAVault* key vault.
+You can grant your kubelet identity access to your key vault before or after you create your cluster. The following example uses `az identity list` to get the ID of the identity and set it to *MANAGED_ID* then uses `az keyvault set-policy` to grant the identity access to the *MyAKSGMSAVault* key vault.
 
 ```azurecli
 MANAGED_ID=$(az identity list --query "[].id" -o tsv)
@@ -345,9 +345,9 @@ If the page loads, but you aren't prompted to authenticate, use `kubectl logs PO
 > [!NOTE]
 > Windows containers won't show logs on kubectl by default. To enable Windows containers to show logs, you need to embed the Log Monitor tool on your Windows image. More information is available [here](https://github.com/microsoft/windows-container-tools).
 
-### Connection time out when trying to load the page
+### Connection timeout when trying to load the page
 
-If you receive a connection time out when trying to load the page, verify the sample app is running with `kubectl get pods --watch`. Sometimes the external IP address for the sample app service is available before the sample app pod is running.
+If you receive a connection timeout when trying to load the page, verify the sample app is running with `kubectl get pods --watch`. Sometimes the external IP address for the sample app service is available before the sample app pod is running.
 
 ### Pod fails to start and a *winapi error* shows in the pod events
 
