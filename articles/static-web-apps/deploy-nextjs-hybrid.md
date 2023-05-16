@@ -54,6 +54,16 @@ Begin by initializing a new Next.js application.
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 
+## Configure your Next.js app for deployment to Static Web Apps
+
+To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project. This will reduce the size of your Next.js project and ensure it is below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
+
+```js
+module.exports ={
+    output:"standalone",
+}
+```
+
 ## Deploy your static website
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
