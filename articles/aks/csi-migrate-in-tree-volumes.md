@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/23/2023
+ms.date: 05/16/2023
 author: mgoedtel
 
 ---
@@ -54,11 +54,11 @@ The following are important considerations to evaluate:
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     # Patch the Persistent Volume in case ReclaimPolicy is Delete
     NAMESPACE=$1
     i=1
-    for PVC in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+    for PVC in $(kubectl get pvc -n $NAMESPACE | awk '{ print $1}'); do
       # Ignore first record as it contains header
       if [ $i -eq 1 ]; then
         i=$((i + 1))
@@ -91,7 +91,7 @@ The following are important considerations to evaluate:
     * Creates a new PVC with the PV name you specify.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
     NAMESPACE=$1
@@ -246,7 +246,7 @@ Before proceeding, verify the following:
     * Creates a new file with the filename `<namespace>-timestamp`, which contains a list of all old resources that needs to be cleaned up.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
     NAMESPACE=$1
@@ -371,7 +371,7 @@ Migration from in-tree to CSI is supported by creating a static volume.
     Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
 
     ```bash
-    #!/bin/sh
+    #!/bin/bash
     # Patch the Persistent Volume in case ReclaimPolicy is Delete
     namespace=$1
     i=1
