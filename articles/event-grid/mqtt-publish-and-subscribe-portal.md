@@ -63,7 +63,7 @@ If you don't already have a certificate, you can create a sample certificate usi
 1. On the Review + create tab of the Create namespace page, select **Create**.
 
     > [!NOTE]
-> To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.    
+    > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.    
 1. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.  
 1. In the Overview page, you see that the MQTT is in Disabled state.  To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
 1. On Configuration page, select the Enable MQTT option, and Apply the settings.
@@ -86,9 +86,9 @@ If you don't already have a certificate, you can create a sample certificate usi
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of client 2 configuration.":::
 
     > [!NOTE]
-> - To keep the QuickStart simple, you'll be using Thumbprint match for authentication.  For detailed steps on using X.509 CA certificate chain for client authentication, see [client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
-> - Also, we use the default $all client group, which includes all the clients in the namespace for this exercise.  To learn more about creating custom client groups using client attributes, see client groups.
-
+    > - To keep the QuickStart simple, you'll be using Thumbprint match for authentication.  For detailed steps on using X.509 CA certificate chain for client authentication, see [client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
+    > - Also, we use the default $all client group, which includes all the clients in the namespace for this exercise.  To learn more about creating custom client groups using client attributes, see client groups.
+    
 ## Create topic spaces
 
 1. Go to Topic spaces page under MQTT section.
