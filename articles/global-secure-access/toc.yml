@@ -36,7 +36,7 @@ items:
       - name: List branch locations
         href: how-to-list-branch-locations.md
       - name: Manage branch location device links
-        href: how-manage-branch-location-device-links.md
+        href: how-to-manage-branch-location-device-links.md
       - name: Test branch connectivity
         href: how-to-test-branch-connectivity.md 
   - name: Conditional Access
