@@ -14,11 +14,9 @@ ms.reviewer: mamkumar
 ---
 # Enable compliant network check with Conditional Access
 
-Leveraging Azure AD Conditional Access (CA) checks, customers can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps by using defense-in-depth provisions like device and/or location conditions. These conditions provide effective protection against user identity theft or token theft. Microsoft Network-as-a-Service (NaaS) introduces the new ‘Compliant Network’ check within CA and Continuous Access Evaluation (CAE) – ensuring that the user connects from a verified network connectivity model for the specific enterprise tenant as well as is compliant with all the network security policies enforced by the admins.  
+Using Conditional Access along with Global Secure Access customers can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
 
-Furthermore, in today’s world of remote users, in place of tracking multiple IP locations and IP ranges for physical offices, the admin can use the compliant network location as a gating condition to secure access to corporate resources. In essence, this Compliant Network capability makes it infinitely easier for an Admin to manage and maintain, without going through the cumbersome process of compiling a list of all the enterprise location IPs. The NaaS compliant network check also works seamlessly for remote users (and not just branch offices), without the need to hairpin traffic through corporate VPN egress points, thereby enabling dual advantage of best performance with best security! 
-
-Administrators today struggle to track IP network locations with the concept of remote first users. Using the Global Secure Access client installed on devices or configured branch office locations allows administrators to gate resource behind a compliant network with advanced Conditional Access controls. 
+Using the Global Secure Access client installed on devices or configured branch office locations allows administrators to gate resource behind a compliant network with advanced Conditional Access controls. In essence, this compliant network makes it infinitely easier for administrators to manage and maintain, without going through the cumbersome process of compiling a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organziation's VPN egress points to ensure security.
 
 This compliant network check is specific to each tenant. 
 
@@ -26,7 +24,7 @@ This compliant network check is specific to each tenant.
    - For example: Contoso can protect their services like Exchange Online and SharePoint Online behind their compliant network check to ensure only Contoso users can access these resources. 
    - If another organization like Fabrikam was using a compliant network check they would not pass Contoso's compliant network check. 
 
-Further this compliant network check removes the need to hairpin traffic through a VPN, providing your users with better performance and security. This compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No upkeep is required by administrators.
+The compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No upkeep is required by administrators.
 
 ## Prerequisites
 
