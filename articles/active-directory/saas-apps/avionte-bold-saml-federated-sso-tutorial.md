@@ -61,6 +61,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	a. In the **Identifier** textbox, type a value using the following pattern:
 	`urn:auth0:avionte:<CustomerEnvironment>-federated-saml-sso` 
+	
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
 	`https://login.myavionte.com/login/callback?connection=<CustomerEnvironment>-federated-saml-sso`
 
