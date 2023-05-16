@@ -70,41 +70,36 @@ Run an assessment as follows:
     ![Screenshot of View all button to review assessment properties.](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. In **Assessment properties** > **Target Properties**:
-    - In **Target location**, specify the Azure region to which you want to migrate.
-        - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
-        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government)
-    - In **Storage type**,
-        - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
-        - Alternatively, select the storage type you want to use for VM when you migrate it.
-    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
-        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
-        - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
-        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
+   - In **Target location**, specify the Azure region to which you want to migrate.
+   - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
+   - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
+   - In **Storage type**,
+     - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
+     - Alternatively, select the storage type you want to use for VM when you migrate it.
+   - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+     - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
+     - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
 1. In **VM Size**:
-     - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
-        - In **Performance history**, indicate the data duration on which you want to base the assessment
-        - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
-    - In **VM Series**, specify the Azure VM series you want to consider.
-        - If you're using performance-based assessment, Azure Migrate suggests a value for you.
-        - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
-    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
-
-          **Component** | **Effective utilization** | **Add comfort factor (2.0)**
-             --- | --- | ---
-             Cores | 2  | 4
-             Memory | 8 GB | 16 GB
+   - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
+     - In **Performance history**, indicate the data duration on which you want to base the assessment.
+     - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
+   - In **VM Series**, specify the Azure VM series you want to consider.
+     - If you're using performance-based assessment, Azure Migrate suggests a value for you.
+     - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
+   - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
 
 1. In **Pricing**:
-    - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. The assessment estimates the cost for that offer.
-    - In **Currency**, select the billing currency for your account.
-    - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-    - In **VM Uptime**, specify the duration (days per month/hour per day) that VMs will run.
-        - This is useful for Azure VMs that won't run continuously.
-        - Cost estimates are based on the duration specified.
-        - Default is 31 days per month/24 hours per day.
-    - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
-    - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
+   - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. The assessment estimates the cost for that offer.
+   - In **Currency**, select the billing currency for your account.
+   - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+   - In **VM Uptime**, specify the duration (days per month/hour per day) that VMs will run.
+     - This is useful for Azure VMs that won't run continuously.
+     - Cost estimates are based on the duration specified.
+    - Default is 31 days per month/24 hours per day.
+   - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
+   - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 1. Select **Save** if you make changes.
 
 1. In **Assess Servers**, select **Next**.
