@@ -7,11 +7,7 @@ ms.topic: conceptual
 
 # Enable Azure VM extensions using Red Hat Ansible automation
 
-This article shows you how to use Red Hat Ansible Automation Platform to deploy VM extensions at scale to Azure Arc-enabled servers.
-
-The examples in this article rely on content developed and incubated by Red Hat through the [Ansible Content Lab for Cloud Content](https://cloud.lab.ansible.io/).
-
-This article also uses the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection. This collection contains many roles and playbooks that are pertinent to this article, including the following:
+This article shows you how to deploy VM extensions to Azure Arc-enabled servers at scale using the Red Hat Ansible Automation Platform. The examples in this article rely on content developed and incubated by Red Hat through the [Ansible Content Lab for Cloud Content](https://cloud.lab.ansible.io/). This article also uses the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection. This collection contains many roles and playbooks that are pertinent to this article, including the following:
 
 |File or Folder  |Description  |
 |---------|---------|
@@ -43,7 +39,7 @@ A working account credential configured in Ansible Automation Platform for the A
 
 ## Configuring the content
 
-To use the Azure Infrastructure Configuration Demo collection in Automation Controller, follow the steps below to set up a project with the repository:
+To use the [Azure Infrastructure Configuration Demo collection](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) in Automation Controller, follow the steps below to set up a project with the repository:
 
 1. Log in to automation controller.
 1. In the left menu, select **Projects**.
@@ -84,9 +80,12 @@ You'll need to create templates in order to enable and disable Arc-enabled serve
 
 ### Enable Azure Arc VM extensions
 
-This template is responsible for enabling an Azure Arc-enabled server VM extension on the hosts you identify. Arc only supports enabling or disabling a single extension at a time, so this process can take some time. If you attempt to enable or disable another VM extension with this template prior to Azure completing this process, the template reports an error.
+This template is responsible for enabling an Azure Arc-enabled server VM extension on the hosts you identify.
 
-Once the job template has run, it may take minutes to hours for each machine to report that the extension is operational.  Once the extension is operational, then this job template can be run again with another extension and will not report an error.
+> [!IMPORTANT]
+> Arc only supports enabling or disabling a single extension at a time, so this process can take some time. If you attempt to enable or disable another VM extension with this template prior to Azure completing this process, the template reports an error.
+> 
+> Once the job template has run, it may take minutes to hours for each machine to report that the extension is operational.  Once the extension is operational, then this job template can be run again with another extension and will not report an error.
 
 Follow the steps below to create the template:
 
@@ -127,11 +126,7 @@ Follow the steps below to create the template:
 
 ### Disable Azure Arc VM extensions
 
-This template is responsible for disabling an Azure Arc-enabled server VM extension on the hosts you identify. Arc only supports enabling or disabling a single extension at a time, so this process can take some time. If you attempt to enable or disable another VM extension with this template prior to Azure completing this process, the template will report an error.
-
-Once the job template has run, it may take minutes to hours for each machine to report that the extension has been removed.  Once that happens, this job template can be run again with another extension and will not report an error.
-
-Follow the steps below to create the template:
+This template is responsible for disabling an Azure Arc-enabled server VM extension on the hosts you identify. Follow the steps below to create the template:
 
 1. On the right menu, select **Templates**.
 1. Select **Add**.
