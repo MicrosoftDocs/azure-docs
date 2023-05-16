@@ -11,7 +11,7 @@ ms.date: 11/01/2021
 [Group Managed Service Accounts (GMSA)][gmsa-overview] is a managed domain account for multiple servers that provides automatic password management, simplified service principal name (SPN) management and the ability to delegate the management to other administrators. AKS provides the ability to enable GMSA on your Windows Server nodes, which allows containers running on Windows Server nodes to integrate with and be managed by GMSA.
 
 
-## Pre-requisites
+## Prerequisites
 
 Enabling GMSA with Windows Server nodes on AKS requires:
 
@@ -50,13 +50,13 @@ az keyvault secret set --vault-name MyAKSGMSAVault --name "GMSADomainUserCred" -
 
 ## Optional: Use a custom VNET with custom DNS
 
-Your domain controller needs to be configured through DNS so it is reachable by the AKS cluster. You can configure your network and DNS outside of your AKS cluster to allow your cluster to access the domain controller. Alternatively, you can configure a custom VNET with a custom DNS using Azure CNI with your AKS cluster to provide access to your domain controller. For more details, see [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][aks-cni].
+Your domain controller needs to be configured through DNS so it's reachable by the AKS cluster. You can configure your network and DNS outside of your AKS cluster to allow your cluster to access the domain controller. Alternatively, you can configure a custom VNET with a custom DNS using Azure CNI with your AKS cluster to provide access to your domain controller. For more information, see [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][aks-cni].
 
 ## Optional: Use your own kubelet identity for your cluster
 
 To provide the AKS cluster access to your key vault, the cluster kubelet identity needs access to your key vault. By default, when you create a cluster with managed identity enabled, a kubelet identity is automatically created. You can grant access to your key vault for this identity after cluster creation, which is done in a later step.
 
-Alternatively, you can create your own identity and use this identity during cluster creation in a later step. For more details on the provided managed identities, see [Summary of managed identities][aks-managed-id-kubelet].
+Alternatively, you can create your own identity and use this identity during cluster creation in a later step. For more information on the provided managed identities, see [Summary of managed identities][aks-managed-id-kubelet].
 
 To create your own identity, use `az identity create` to create an identity. The following example creates a *myIdentity* identity in the *myResourceGroup* resource group.
 
@@ -64,7 +64,7 @@ To create your own identity, use `az identity create` to create an identity. The
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
 
-You can grant your kubelet identity access to you key vault before or after you create you cluster. The following example uses `az identity list` to get the id of the identity and set it to *MANAGED_ID* then uses `az keyvault set-policy` to grant the identity access to the *MyAKSGMSAVault* key vault.
+You can grant your kubelet identity access to your key vault before or after you create your cluster. The following example uses `az identity list` to get the id of the identity and set it to *MANAGED_ID* then uses `az keyvault set-policy` to grant the identity access to the *MyAKSGMSAVault* key vault.
 
 ```azurecli
 MANAGED_ID=$(az identity list --query "[].id" -o tsv)
@@ -340,18 +340,18 @@ To verify GMSA is working and configured correctly, open a web browser to the ex
 
 ### No authentication is prompted when loading the page
 
-If the page loads, but you are not prompted to authenticate, use `kubectl logs POD_NAME` to display the logs of your pod and verify you see *IIS with authentication is ready*.
+If the page loads, but you aren't prompted to authenticate, use `kubectl logs POD_NAME` to display the logs of your pod and verify you see *IIS with authentication is ready*.
 
 > [!NOTE]
 > Windows containers won't show logs on kubectl by default. To enable Windows containers to show logs, you need to embed the Log Monitor tool on your Windows image. More information is available [here](https://github.com/microsoft/windows-container-tools).
 
-### Connection timeout when trying to load the page
+### Connection time out when trying to load the page
 
-If you receive a connection timeout when trying to load the page, verify the sample app is running with `kubectl get pods --watch`. Sometimes the external IP address for the sample app service is available before the sample app pod is running.
+If you receive a connection time out when trying to load the page, verify the sample app is running with `kubectl get pods --watch`. Sometimes the external IP address for the sample app service is available before the sample app pod is running.
 
-### Pod fails to start and an *winapi error* shows in the pod events
+### Pod fails to start and a *winapi error* shows in the pod events
 
-After running `kubectl get pods --watch` and waiting several minutes, if your pod does not start, run `kubectl describe pod POD_NAME`. If you see a *winapi error* in the pod events, this is likely an error in your GMSA cred spec configuration. Verify all the replacement values in *gmsa-spec.yaml* are correct, rerun `kubectl apply -f gmsa-spec.yaml`, and redeploy the sample application.
+After running `kubectl get pods --watch` and waiting several minutes, if your pod doesn't start, run `kubectl describe pod POD_NAME`. If you see a *winapi error* in the pod events, this is likely an error in your GMSA cred spec configuration. Verify all the replacement values in *gmsa-spec.yaml* are correct, rerun `kubectl apply -f gmsa-spec.yaml`, and redeploy the sample application.
 
 
 [aks-cni]: configure-azure-cni.md

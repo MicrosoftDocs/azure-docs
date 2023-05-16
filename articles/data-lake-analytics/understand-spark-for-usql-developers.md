@@ -20,13 +20,13 @@ It includes the steps you can take, and several alternatives.
 
 1. Transform your job orchestration pipelines.
 
-   If you use [Azure Data Factory](../data-factory/introduction.md) to orchestrate your Azure Data Lake Analytics scripts, you'll have to adjust them to orchestrate the new Spark programs.
-2. Understand the differences between how U-SQL and Spark manage data
+   If you use [Azure Data Factory](../data-factory/introduction.md) to orchestrate your Azure Data Lake Analytics scripts, you have to adjust them to orchestrate the new Spark programs.
+2. Understand the differences between how U-SQL and Spark manage data.
 
-   If you want to move your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md), you'll have to copy both the file data and the catalog maintained data. Azure Data Lake Analytics only supports Azure Data Lake Storage Gen1. See [Understand Spark data formats](understand-spark-data-formats.md)
-3. Transform your U-SQL scripts to Spark
+   If you want to move your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md), you have to copy both the file data and the catalog maintained data. Azure Data Lake Analytics only supports Azure Data Lake Storage Gen1. For more information, see [Understand Spark data formats](understand-spark-data-formats.md).
+3. Transform your U-SQL scripts to Spark.
 
-   Before transforming your U-SQL scripts, you'll have to choose an analytics service. Some of the available compute services available are:
+   Before transforming your U-SQL scripts, you have to choose an analytics service. Some of the available compute services available are:
       - [Azure Data Factory DataFlow](../data-factory/concepts-data-flow-overview.md)
       Mapping data flows are visually designed data transformations that allow data engineers to develop a graphical data transformation logic without writing code. While not suited to execute complex user code, they can easily represent traditional SQL-like dataflow transformations
       - [Azure HDInsight Hive](../hdinsight/hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md)

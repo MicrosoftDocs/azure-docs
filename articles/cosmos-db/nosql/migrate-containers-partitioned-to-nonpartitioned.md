@@ -23,7 +23,7 @@ The non-partitioned containers are legacy and you should migrate your existing n
 
 ## Migrate container using the system defined partition key
 
-To support the migration, Azure Cosmos DB provides a system defined partition key named `/_partitionkey` on all the containers that don’t have a partition key. You cannot change the partition key definition after the containers are migrated. For example, the definition of a container that is migrated to a partitioned container will be as follows:
+To support the migration, Azure Cosmos DB provides a system defined partition key named `/_partitionkey` on all the containers that don’t have a partition key. You can't change the partition key definition after the containers are migrated. For example, the definition of a container that is migrated to a partitioned container will be as follows:
 
 ```json
 {
@@ -96,7 +96,7 @@ For the complete sample, see the [.NET samples][1] GitHub repository.
 
 ## Migrate the documents
 
-While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property `/_partitionKey` path is not automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with `_partitionKey` property in the documents.
+While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property `/_partitionKey` path isn't automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with `_partitionKey` property in the documents.
 
 ## Access documents that don't have a partition key
 
@@ -148,7 +148,7 @@ For the complete sample, see the [Java samples][2] GitHub repository.
 
 ## Migrate the documents
 
-While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property `/_partitionKey` path is not automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with `_partitionKey` property in the documents.
+While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property `/_partitionKey` path isn't automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with `_partitionKey` property in the documents.
 
 ## Access documents that don't have a partition key
 
