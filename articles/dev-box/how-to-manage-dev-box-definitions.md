@@ -82,6 +82,9 @@ The following steps show you how to create a dev box definition by using an exis
 
 1. Select **Create**.
 
+> [!NOTE]
+> Dev box definitions with 4 core SKUs are no longer supported. You will need to update to an 8 core SKU or delete the dev box definition.
+
 ## Update a dev box definition
 
 Over time, your needs for dev boxes will change. You might want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so that new dev boxes will use the new configuration.

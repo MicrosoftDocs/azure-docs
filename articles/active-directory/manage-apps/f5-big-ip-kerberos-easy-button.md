@@ -21,7 +21,7 @@ Learn to secure Kerberos-based applications with Azure Active Directory (Azure A
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication. 
-* Enforce organizatinal policies. See [What is Conditional Access?](../conditional-access/overview.md).
+* Enforce organizational policies. See [What is Conditional Access?](../conditional-access/overview.md).
 * Full SSO between Azure AD and BIG-IP published services
 * Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
