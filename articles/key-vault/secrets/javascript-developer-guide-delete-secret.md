@@ -13,11 +13,13 @@ ms.author: mbaldwin
 ---
 # Delete, restore, or purge a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to delete an existing secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to delete an existing secret from Azure Key Vault.
 
 ## Delete a secret
 
-To disable a secret in Azure Key Vault, use the [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-begindeletesecret) long running operation (LRO) method of the SecretClient class, chained with the [pollUntilDone](/javascript/api/@azure/keyvault-secrets/pollerlike#@azure-keyvault-secrets-pollerlike-polluntildone) to wait until the deletion is complete. 
+To delete a secret in Azure Key Vault, use the [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-begindeletesecret) long running operation (LRO) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class, chained with the [pollUntilDone](/javascript/api/@azure/keyvault-secrets/pollerlike#@azure-keyvault-secrets-pollerlike-polluntildone) to wait until the deletion is complete. 
+
+When a secret is deleted, it uses the configured [delete strategy](../general/soft-delete-overview.md) for the key vault.
 
 ```javascript
 const existingSecretName = 'myExistingSecret';
@@ -63,7 +65,7 @@ This `recoveryResult` is a [SecretProperties](/javascript/api/@azure/keyvault-se
 
 ## Purge a secret
 
-To purge a secret in Azure Key Vault, use the [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-begindeletesecret) long running operation (LRO) method of the SecretClient class, chained with the [pollUntilDone](/javascript/api/@azure/keyvault-secrets/pollerlike#@azure-keyvault-secrets-pollerlike-polluntildone) to wait until the deletion is complete. 
+To purge a secret in Azure Key Vault immediately, use the [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-begindeletesecret) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 The purge operation happens immediately and is irreversible. Consider creating a [backup](javascript-developer-guide-backup-secrets.md) of the secret before purging it. 
 

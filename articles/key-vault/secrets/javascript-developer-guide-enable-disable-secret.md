@@ -14,11 +14,11 @@ ms.author: mbaldwin
 
 # Enable and disable a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to enable and disable a secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to enable and disable a secret from Azure Key Vault.
 
 ## Enable a secret
 
-To enable a secret in Azure Key Vault, use the [updateSecretProperties](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-updatesecretproperties) method of the SecretClient class. 
+To enable a secret in Azure Key Vault, use the [updateSecretProperties](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-updatesecretproperties) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 ```javascript
 const name = 'mySecret';
@@ -65,7 +65,7 @@ try{
 
 ## Disable an existing secret
 
-To disable an existing secret in Azure Key Vault, use the [updateSecretProperties](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-updatesecretproperties) method of the SecretClient class. 
+To disable an existing secret in Azure Key Vault, use the [updateSecretProperties](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-updatesecretproperties) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 ```javascript
 const name = 'mySecret';

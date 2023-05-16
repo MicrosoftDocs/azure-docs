@@ -65,19 +65,22 @@ Before programmatically authenticating to Azure to use Azure Key Vault secrets, 
 
 Use the [DefaultAzureCredential](https://www.npmjs.com/package/@azure/identity#DefaultAzureCredential) in production based on the credential mechanisms.
 
+---
+
 ## Build your application
 
 As you build your application, your code interacts with two types of resources:
 
-- Secret object, which includes the name, value, and secret properties, returned as a [KeyVaultSecret](/javascript/api/@azure/keyvault-secrets/keyvaultsecret)
+- [**KeyVaultSecret**](/javascript/api/@azure/keyvault-secrets/keyvaultsecret), which includes: 
     - Secret name, a string value. 
     - Secret value, which is a string of the secret. You provide the serialization and deserialization of the secret value into and out of a string as needed. 
     - Secret properties.
-- Secret properties, which include the secret's metadata, such as its name, version, tags, expiration data, and whether it's enabled. In JavaScript, the secret properties are returned as a [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object.
+- [**SecretProperties**](/javascript/api/@azure/keyvault-secrets/secretproperties), which include the secret's metadata, such as its name, version, tags, expiration data, and whether it's enabled.
 
-If you need the value of the secret, use methods that return the [KeyVaultSecret](/javascript/api/@azure/keyvault-secrets/keyvaultsecret):
+If you need the value of the KeyVaultSecret, use methods that return the [KeyVaultSecret](/javascript/api/@azure/keyvault-secrets/keyvaultsecret):
 
 * [getSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-getsecret)
+* [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret)
 
 The rest of the methods return the SecretProperties object or another form of the properties such as:
 
@@ -87,7 +90,7 @@ The rest of the methods return the SecretProperties object or another form of th
 
 The SecretClient object is the top object in the SDK. This client allows you to manipulate the secrets.
 
-Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest) object.
+Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) object.
 
 ```javascript
 // Include required dependencies
@@ -113,3 +116,7 @@ const secret = await client.getSecret("MySecretName");
 - [API reference](/javascript/api/overview/azure/keyvault-secrets-readme)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.7.0/sdk/keyvault/keyvault-secrets)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+
+## Next steps
+
+* [Add a secret](javascript-developer-guide-set-update-rotate-secret.md)

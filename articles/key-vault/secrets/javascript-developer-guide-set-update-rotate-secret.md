@@ -14,11 +14,11 @@ ms.author: mbaldwin
 
 # Set, update, and rotate a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to set, update, and rotate a secret in Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to set, update, and rotate a secret in Azure Key Vault.
 
 ## Set a secret
 
-To set a secret in Azure Key Vault, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method of the SecretClient class. 
+To set a secret in Azure Key Vault, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 The secret value type is a string. The initial value can be anything that can be serialized to a string such as JSON or BASE64 encoded data. You need to provide the serialization before setting the secret in the Key Vault and deserialization after getting the secret from the Key Vault.
 
@@ -78,9 +78,9 @@ This method returns the [KeyVaultSecret](/javascript/api/@azure/keyvault-secrets
 
 ## Update secret value
 
-To update a **secret value**, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method show in the [previous section](#set-a-secret-with-properties). Make sure to pass the new value as a string and _all_ the properties you want to keep from the current version of the secret. Any current properties not set in additional calls to setSecret will be lost. 
+To update a **secret value**, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method shown in the [previous section](#set-a-secret-with-properties). Make sure to pass the new value as a string and _all_ the properties you want to keep from the current version of the secret. Any current properties not set in additional calls to setSecret will be lost. 
 
-This generates a new version of a secret. The returned [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object includes the new version.
+This generates a new version of a secret. The returned [SecretProperties](/javascript/api/@azure/keyvault-secrets/secretproperties) object includes the new version Id.
 
 ## Update secret properties
 

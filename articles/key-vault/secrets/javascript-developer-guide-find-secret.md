@@ -13,9 +13,11 @@ ms.author: mbaldwin
 ---
 # List or find a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to find a secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to find a secret from Azure Key Vault.
 
 All list methods return an iterable. You can get all items in the list or chain the [byPage()](/javascript/api/@azure/core-paging/pagedasynciterableiterator#@azure-core-paging-pagedasynciterableiterator-bypage) method to iterate a page of items at a time. 
+
+Once you have a secret's properties, you can then use the [**getSecret**](javascript-developer-guide-get-secret.md#get-current-version-of-secret) method to get the secret's value.
 
 ## List all secrets
 
@@ -26,6 +28,7 @@ for await (const secretProperties of client.listPropertiesOfSecrets()){
 
   // do something with properties
   console.log(`Secret name: ${secretProperties.name}`);
+
 }
 ```
 
@@ -100,13 +103,15 @@ for await (const page of client.listDeletedSecrets().byPage({ maxPageSize: maxRe
 console.log(`Total # of secrets:${itemCount}`);
 ```
 
+The secretProperties object is a [DeletedSecret](/javascript/api/@azure/keyvault-secrets/deletedsecret) object.  
+
 ## Find secret by property
 
 To find the current (most recent) version of a secret, which matches a property name/value, loop over all secrets and compare the properties. The following JavaScript code finds all enabled secrets. 
 
 This code uses the following method in a loop of all secrets:
 
-* [listPropertiesOfSecrets()](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listpropertiesofsecrets) - returns latest version's property object per secret, used to get the secret name
+* [listPropertiesOfSecrets()](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listpropertiesofsecrets) - returns latest version's property object per secret
 
 
 ```javascript
@@ -142,12 +147,12 @@ console.log(secretsFound)
 
 ## Find versions by property
 
-To find all versions, which match a property name/value, loop over all secret version and compare the properties. 
+To find all versions, which match a property name/value, loop over all secret versions and compare the properties. 
 
 This code uses the following methods in a nested loop:
 
-* [listPropertiesOfSecrets()](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listpropertiesofsecrets) - returns latest versions's property object per secret, used to get the secret name
-* [listPropertiesOfSecretVersions()](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listpropertiesofsecretversions) - returns all versions for 1 secret, used to get each version's properties
+* [listPropertiesOfSecrets()](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listpropertiesofsecrets) - returns latest versions's property object per secret
+* [listPropertiesOfSecretVersions()](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listpropertiesofsecretversions) - returns all versions for 1 secret
 
 ```javascript
 const secretsFound = [];
@@ -187,3 +192,7 @@ console.log(secretsFound);
 ]
 */
 ```
+
+## Next steps
+
+* [Back up and restore secret](javascript-developer-guide-backup-secrets.md)

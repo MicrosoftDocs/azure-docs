@@ -13,11 +13,11 @@ ms.author: mbaldwin
 ---
 # Backup and restore a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to back up and restore an existing secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to back up and restore an existing secret from Azure Key Vault.
 
 ## Back up a secret
 
-To back up a secret (and all its versions and properties) in Azure Key Vault, use the [backupSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-backupsecret) method of the SecretClient class. 
+To back up a secret (and all its versions and properties) in Azure Key Vault, use the [backupSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-backupsecret) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 ```javascript
 const existingSecretName = 'myExistingSecret';
@@ -29,7 +29,7 @@ This `backupResult` is a Uint8Array, which is also known as a Buffer in Node.js.
 
 ## Restore a backed-up secret
 
-To restore a backed-up secret (and all its versions and properties) in Azure Key Vault, use the [restoreSecretBackup](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-restoresecretbackup) method of the SecretClient class. 
+To restore a backed-up secret (and all its versions and properties) in Azure Key Vault, use the [restoreSecretBackup](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-restoresecretbackup) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 ```javascript
 // ... continuing code from previous section
