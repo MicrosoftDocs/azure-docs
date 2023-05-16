@@ -9,7 +9,7 @@ ms.date: 05/16/2023
 
 # Build queries with cloud security explorer
 
-Defender for Cloud's contextual security capabilities assist security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
+Defender for Cloud's contextual security capabilities assists security teams in reducing the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, identifies the biggest security risks, and distinguishes them from less risky issues.
 
 Use the cloud security explorer, to proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
@@ -43,7 +43,7 @@ The cloud security explorer allows you to build queries that can proactively hun
 
 - **Custom Search** - Use the dropdown menus to apply filters to build your query.
 
-- **Query templates** -  Use any of the available pre-built query templates to more efficiently build your query.
+- **Query templates** -  Use any of the available prebuilt query templates to more efficiently build your query.
 
 - **Share query link** - Copy and share a link of your query with other people.
 
@@ -69,13 +69,13 @@ The cloud security explorer allows you to build queries that can proactively hun
 
     :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png" alt-text="Screenshot that shows where to select search to run the query and results populated." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-search-populated.png":::
 
-If you want to save a copy of your results locally you can select the **Download CSV report** button to save a copy of your search results as a CSV file.
+If you want to save a copy of your results locally, you can select the **Download CSV report** button to save a copy of your search results as a CSV file.
 
-:::image type="content" source="media/how-to-manage-cloud-security/download-csv-report.png" alt-text="Screenshot that shows where the download CSV report button is located om the screen.":::
+:::image type="content" source="media/how-to-manage-cloud-security/download-csv-report.png" alt-text="Screenshot that shows where the download CSV report button is located on the screen.":::
 
 ## Query templates
 
-Query templates are pre-formatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
+Query templates are preformatted searches using commonly used filters. Use one of the existing query templates from the bottom of the page by selecting **Open query**.
 
 :::image type="content" source="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png" alt-text="Screenshot that shows you the location of the query templates." lightbox="media/how-to-manage-cloud-security/cloud-security-explorer-query-templates.png":::
 
