@@ -102,13 +102,15 @@ The following table shows the available options for the checksum algorithm, as d
 | MD5 | 2 | Standard MD5 hash algorithm. |
 | StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
 
-### Specify the access tier for a blob
+### Set a blob's access tier on upload
 
-You can set the access tier of a blob on upload.
+You can set the access tier for a blob by using the [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) object. The following code example shows how to set the access tier when uploading a blob:
 
-### 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithAccessTier":::
 
-To learn more about 
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+
+To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 
 ## Resources
 
