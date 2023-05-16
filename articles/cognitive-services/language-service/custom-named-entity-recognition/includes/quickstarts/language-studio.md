@@ -66,7 +66,7 @@ After your model is deployed, you can start using it to extract entities from yo
 
 [!INCLUDE [Test a model using Language Studio](../../../includes/custom/language-studio/test-model.md)]
 
-:::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
+:::image type="content" source="../../media/test-model-results.png" alt-text="A screenshot showing the model test results." lightbox="../../media/test-model-results.png":::
 
 ## Clean up resources
 

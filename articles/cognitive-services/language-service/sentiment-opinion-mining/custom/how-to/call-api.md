@@ -1,6 +1,6 @@
 ---
-title: Send a Custom Sentiment Analysis request to your custom model
-description: Learn how to send requests for custom sentiment analysis.
+title: Send a Custom sentiment analysis request to your custom model
+description: Learn how to send requests for Custom sentiment analysis.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -43,7 +43,7 @@ First you need to get your resource key and endpoint:
 
 
 
-### Submit a custom sentiment analysis task
+### Submit a Custom sentiment analysis task
 
 [!INCLUDE [submit a custom NER task using the REST API](../../includes/custom/rest-api/submit-task.md)]
 
