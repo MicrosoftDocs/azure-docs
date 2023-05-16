@@ -149,29 +149,6 @@ For every active automation, we recommend you create an identical (disabled) aut
 
 Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
 
-### Mitigate breaking change
-
-Recently we've rebranded the following recommendation:
-
-- [Deploy Workflow Automation for Microsoft Defender for Cloud alerts](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1525828-9a90-4fcf-be48-268cdd02361e)
-- [Deploy Workflow Automation for Microsoft Defender for Cloud recommendations](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F73d6ab6c-2475-4850-afd6-43795f3492ef)
-- [Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509122b9-ddd9-47ba-a5f1-d0dac20be63c)
-
-Unfortunately, this change came with an unavoidable breaking change. The breaking change causes all of the old workflow automation policies that used the built-in connectors to be uncompliant.
-
-**To mitigate this issue**:
-
-1. Navigate to the logic app that is connected to the policy.
-1. Select **Logic app designer**.
-1. Select the **three dot** > **Rename**.
-1. Rename the Defender for Cloud connector as follows:
-    
-    | Original name | New name|
-    |--|--|
-    |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When a Microsoft Defender for Cloud Alert is created or triggered.|
-    | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When a Microsoft Defender for Cloud Recommendation is created or triggered |
-    | Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance | When a Microsoft Defender for Cloud Regulatory Compliance Assessment is created or triggered |
-
 
 ## Next steps
 
