@@ -546,7 +546,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
     ---
 
-1. Run the `azd init` command to clone and initialize the app template. Provide the name of the template you wish to use for the `--template` parameter. 
+1. Run the `azd init` command to clone and initialize the `azd` app template. Provide the name of the template you wish to use for the `--template` parameter. 
 
     ### [Flask](#tab/flask)
     
@@ -560,7 +560,7 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
     azd init --template msdocs-django-postgresql-sample-app
     ```
 
-1. Run the `azd up` command to provision the necessary Azure resources and deploy the template code. The `azd up` command will also prompt you to sign-in to Azure and select the desired subscription and location to deploy to.
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to sign-in to Azure and select the desired subscription and location to deploy to.
 
     ### [Flask](#tab/flask)
     
