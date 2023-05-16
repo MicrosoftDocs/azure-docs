@@ -9,7 +9,7 @@ ms.author: v-saambe
 author: v-saambe
 ---
 
-# Troubleshoot AKS-Hybrid cluster provisioning  failures   
+# Troubleshoot AKS-Hybrid cluster provisioning failures
 
 Follow these steps in order to gather the data needed to diagnose AKS-Hybrid creation or management issues. 
 
@@ -54,14 +54,14 @@ In the CLI, when looking at "az hybridaks show -g <> --name <>" output, an unhea
 At a minimum, every AKS-Hybrid cluster needs a defaultcninetwork and a cloudservicesnetwork.
 Starting from the bottom up, we can consider Managed Network Fabric resources, Network Cloud resources, and AKS-Hybrid resources:
 
-###  Network fabric resources:
+#### Network fabric resources
 
  - the fabric is preconfigured with the vlans that is required for cloudservicesnetworks in the range 300-349
  - the fabric must be configured with an l3isolationdomain and l3 internalnetwork for use with the defaultcninetwork
    - the vlan must be in the range 500-599 (this limitation is intended to be removed in a future release)
    - the l3isolationdomain must be successfully enabled
 
-### Network cloud resources 
+#### Network cloud resources 
 
  - the cloudservicesnetwork must be created
  - extended-location of the cluster associated with the cluster should be matches with cluster.
@@ -71,7 +71,7 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
 
  [How to connect az networkcloud using Azure CLI](./howto-install-cli-extensions.md?tabs=linux#install-networkcloud-cli-extension)
 
-### AKS-Hybrid resources 
+#### AKS-Hybrid resources 
 
 To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a hybridaks vnet.
 
@@ -81,13 +81,13 @@ To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped"
 
 Any of the following problems can cause the AKS-Hybrid cluster to fail to provisioning fully 
 
-### Several AKS-Hybrid clusters fail or time out when created close together
+#### Several AKS-Hybrid clusters fail or time out when created close together
 
   The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an instance. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as `connected` or `online` in the Azure portal. See the picture at the top of the "AKS-Hybrid Cluster Triage" document for an example of a successful cluster. Only then is it safe to create another AKS-Hybrid cluster.
 
   If you have already tried to create several at once and have them in a `failed` state, delete all failed clusters and any partially succeeded clusters. Anything that isn't a fully successful cluster should be deleted. Additionally, you should check for and delete any leftover artifacts from failed clusters. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile and register the current undercloud cluster state. Then try to create a single new AKS-Hybrid cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating AKS-Hybrid clusters, one at a time.
 
-### Case mis-match between AKS-Hybrid vnet and Network Cloud network
+#### Case mis-match between AKS-Hybrid vnet and Network Cloud network
 
 To set up an AKS-Hybrid virtual network (vnet), the provided Network Cloud network resource IDs must exactly (that is, case-sensitively) match the actual ARM resource ID. (this limitation is intended to be removed in a future release)
 
@@ -104,7 +104,7 @@ The most reliable way to obtain the correct value to use when creating the vnet 
    az networkcloud l3network show -g "example-rg" -n "l3n-name" -o tsv --query id
  ```
 
-### l3isolationdomain or l2isolationdomain isn't enabled
+#### l3isolationdomain or l2isolationdomain isn't enabled
 
 At a high level, the steps to create isolation domains are as follows
 
@@ -120,25 +120,25 @@ It's important to check that the fabric resources do achieve an administrativeSt
 
 An approach to confirm the use show commands, for instance:
 
- ```bash
+```bash
 
   az nf l3domain show -g "example-rg" --resource-name "l2domainname" -o table
   az nf l2domain show -g "example-rg" --resource-name "l3domainname" -o table
 ```
-### Network Cloud network status is Failed
+#### Network Cloud network status is failed
 
 Care must be taken when creating networks to ensure that they come up successfully.
 
 In particular, pay attention to the following constraints when creating defaultcninetworks:
 
-   - the ipv4prefix and vlan need to match internalnetwork in the referenced l3isolationdomain
+  - the ipv4prefix and vlan need to match internalnetwork in the referenced l3isolationdomain
   - the ipv4prefix must be unique across defaultcninetworks (and l3networks) in the Network Cloud cluster
 
 If using CLI to create these resources, it's useful to use the '--debug' option. The output includes an operation status URL, which can be queried using az rest.
 
 If the resource has already been created, see the section on Surfacing Errors.
 
-### Known Errors
+#### Known Errors
 
 Depending on the mechanism used for creation (Azure portal, CLI, ARM), it's sometimes hard to see why resources are Failed.
 
@@ -146,9 +146,9 @@ One useful tool to help surface errors is the [az monitor activity-log](/cli/azu
 
 For example, to see why a defaultcninetwork failed:
 
- ```bash
-RESOURCE_ID="/subscriptions/$subscriptionsid/resourceGroups/example-rg/providers/Microsoft.NetworkCloud/defaultcninetworks/example-duplicate-prefix-dcn"
-az monitor activity-log list --resource-id "${RESOURCE_ID}" -o tsv --query '[].properties.statusMessage' | jq
+```bash
+ RESOURCE_ID="/subscriptions/$subscriptionsid/resourceGroups/example-rg/providers/Microsoft.NetworkCloud/defaultcninetworks/example-duplicate-prefix-dcn"
+ az monitor activity-log list --resource-id "${RESOURCE_ID}" -o tsv --query '[].properties.statusMessage' | jq
 ```
 
 The result:
@@ -168,9 +168,8 @@ The result:
 }
 
 ```
-
  
-### OOM on AKS-Hybrid node
+#### OOM on AKS-Hybrid node
 
 There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. It's been seen on nodes that have Azure Arc pods that are consuming many compute resources. At the moment, article of discussion on how to properly mitigate this issue.
  
