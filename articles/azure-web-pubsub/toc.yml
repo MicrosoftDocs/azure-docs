@@ -65,10 +65,6 @@
               href: howto-create-serviceclient-with-javascript-and-azure-identity.md
             - name: Use server SDK with Azure Identity and Python
               href: howto-create-serviceclient-with-python-and-azure-identity.md
-    - name: Monitor
-      items:
-        - name: Audit compliance using Azure Policy
-          href: howto-monitor-azure-policy.md
     - name: Secure
       items:
         - name: Protect the access key
@@ -99,18 +95,20 @@
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
-    - name: Intergrate
+    - name: Integrate
       items: 
         - name: App Service
-          href: intergrate-app-service.md
+          href: integrate-app-service.md
         - name: Azure Functions
-          href: intergrate-azure-functions.md
+          href: integrate-azure-functions.md
         - name: Static Web Apps
-          href: intergrate-static-web-apps.md
-    - name: Manage
-      items:
-        - name: Move resource across regions
-          href: howto-move-across-regions.md
+          href: tutorial-serverless-static-web-app.md
+    - name: Monitor and manage
+          items:
+            - name: Audit compliance using Azure Policy
+              href: howto-monitor-azure-policy.md
+            - name: Move resource across regions
+              href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
         - name: Debug event handlers locally
@@ -154,7 +152,7 @@
     - name: App scenarios
       href: samples-app-scenarios.md
     - name: Platform and frameworks
-      href: samples-platform-and-frameworks.md
+      href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
     - name: WebSocket subprotocols

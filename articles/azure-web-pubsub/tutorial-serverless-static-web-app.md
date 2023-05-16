@@ -1,19 +1,19 @@
 ---
-title: Tutorial - Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
+title: Integrate - create a chat app using Azure Web PubSub and deploy to Azure Static Web Apps
 description: A tutorial about how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless chat application.
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 06/03/2022
+ms.date: 05/16/2022
 ---
 
 # Tutorial: Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
 
-Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. By using Azure Static Web Apps, you can automatically build and deploy full-stack web apps to Azure from a code repository. In this tutorial, you'll learn how to use Web PubSub service and Static Web Apps to build a serverless, real-time chat room messaging application.  
+Azure Web PubSub helps you build real-time messaging web applications using WebSocket. Azure Static Web Apps helps automatically build and deploy full-stack web apps to Azure from a code repository. In this tutorial, you'll learn how to use Web PubSub and Static Web Apps together to build a real-time chat room application.  
 
-In this tutorial, you'll learn how to:
+More specifically,  you'll learn how to:
 
 > [!div class="checklist"]
 > * Build a serverless chat app
@@ -176,7 +176,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 ## Configure the Web PubSub event handler
 
-You're very close to complete. The last step is to configure Web PubSub transfer client requests to your function APIs.
+You're very close to complete. The last step is to configure Web PubSub so that client requests will be transfer to your function APIs.
 
 1. Run the following command to configure Web PubSub service events. It maps functions under the `api` folder in your repo to the Web PubSub event handler.
 
@@ -200,13 +200,12 @@ az group delete --name my-awps-swa-group
 
 ## Next steps
 
-In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application.
+In this quickstart, you learned how to develop and deploy a serverless chat application. Now, you can start building your own application.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Client streaming using subprotocol](tutorial-subprotocol.md)
+> [Have fun with playable demos](https://azure.github.io/azure-webpubsub/)
 
 > [!div class="nextstepaction"]
 > [Azure Web PubSub bindings for Azure Functions](reference-functions-bindings.md)
 
-> [!div class="nextstepaction"]
-> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
+

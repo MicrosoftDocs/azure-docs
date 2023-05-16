@@ -8,7 +8,6 @@ ms.service: azure-web-pubsub
 ms.topic: samples
 ms.date: 05/15/2023
 ms.custom: mode-ui
-zone_pivot_groups: azure-web-pubsub-samples-app-scenarios
 ---
 # Azure Web PubSub samples - app scenarios
 
