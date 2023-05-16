@@ -1,5 +1,5 @@
 ---
-title: What's Azure Form Recognizer?
+title: What is Azure Form Recognizer?
 titleSuffix: Azure Applied AI Services
 description: Azure Form Recognizer is a machine-learning based OCR and intelligent document processing service to automate extraction of key data from forms and documents.
 author: laujan
@@ -16,7 +16,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# What's Azure Form Recognizer?
+# What is Azure Form Recognizer?
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -109,7 +109,7 @@ Custom models are trained using your labeled datasets to extract distinct data f
 :::row:::
     :::column:::
         **Classification model**</br>
-         Custom classifiers analyze an input documents to identify document types prior to invoking an extraction model.
+         Custom classifiers analyze input documents to identify document types prior to invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
