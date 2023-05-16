@@ -179,16 +179,16 @@ List<NodeAgentSku> nodeAgentSkus =
 Func<ImageReference, bool> isUbuntu1804 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("18.04-LTS");
+    imageRef.Sku.Contains("20.04-LTS");
 
 // Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 18.04. 
+// Ubuntu Server 20.04. 
 NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu1804));
+    sku.VerifiedImageReferences.Any(isUbuntu2004));
 
 // Select an ImageReference from those available for node agent.
 ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1804);
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2004);
 
 // Create the virtual machine configuration to use to create the pool.
 VirtualMachineConfiguration virtualMachineConfiguration =
