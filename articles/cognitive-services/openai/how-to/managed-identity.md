@@ -1,5 +1,5 @@
 ---
-title: How to Configure Azure OpenAI Service with Managed Identities
+title: How to configure Azure OpenAI Service with managed identities
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Azure Active Directory
 ms.service: cognitive-services
@@ -12,7 +12,7 @@ recommendations: false
 ms.custom: devx-track-azurecli
 ---
 
-# How to Configure Azure OpenAI Service with Managed Identities
+# How to configure Azure OpenAI Service with managed identities
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Azure Active Directory (Azure AD).
 

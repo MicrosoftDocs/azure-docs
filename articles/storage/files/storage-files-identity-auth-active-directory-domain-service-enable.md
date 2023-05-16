@@ -180,6 +180,9 @@ Set-ADUser $userObject -KerberosEncryptionType AES256
 Get-ADUser $userObject -properties KerberosEncryptionType
 ```
 
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
+
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
 ## Next steps

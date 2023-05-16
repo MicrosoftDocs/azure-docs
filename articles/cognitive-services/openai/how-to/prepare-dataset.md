@@ -49,7 +49,7 @@ Classifiers are the easiest models to get started with. For classification probl
 
 #### Case study: Is the model making untrue statements?
 
-Let's say you'd like to ensure that the text of the ads on your website mention the correct product and company. In other words, you want to ensure the model isn't making things up. You may want to fine-tune a classifier which filters out incorrect ads.
+Let's say you'd like to ensure that the text of the ads on your website mentions the correct product and company. In other words, you want to ensure the model isn't making things up. You may want to fine-tune a classifier which filters out incorrect ads.
 
 The dataset might look something like the following:
 

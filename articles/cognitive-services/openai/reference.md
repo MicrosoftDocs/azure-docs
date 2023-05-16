@@ -176,7 +176,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ## Chat completions
 
-Create completions for chat messages with the ChatGPT  and GPT-4  models. Chat completions are currently only available with `api-version=2023-03-15-preview`.
+Create completions for chat messages with the ChatGPT  and GPT-4  models. 
 
 **Create chat completions**
 

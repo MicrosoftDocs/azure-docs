@@ -34,9 +34,9 @@ sections:
           
           With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. 
       - question: |
-          Does Azure OpenAI support VNET's and Private Endpoints?
+          Does Azure OpenAI support VNETs and Private Endpoints?
         answer: | 
-          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNET's and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
+          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNETs and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
       - question: |
           Do the GPT-4 models currently support image input?
         answer: | 
