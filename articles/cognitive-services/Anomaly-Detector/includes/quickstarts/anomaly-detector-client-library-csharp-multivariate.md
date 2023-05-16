@@ -285,7 +285,7 @@ internal class Program
                     Console.WriteLine("Errors:");
                     try
                     {
-                        Console.WriteLine(string.Format("Error code: {}. Message: {}", resultResponse.Results[0].Summary.Code.ToString(), resultResponse.Results[0].Summary.Message.ToString()));
+                        Console.WriteLine(string.Format("Error code: {}. Message: {}", resultResponse.Summary.Errors[0].Code.ToString(), resultResponse.Summary.Errors[0].Message.ToString()));
                     }
                     catch (Exception e)
                     {
