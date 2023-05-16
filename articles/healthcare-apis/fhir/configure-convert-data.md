@@ -32,7 +32,7 @@ We recommend that you host your own copy of templates in an Azure Container Regi
 3. [Enable Azure Managed Identity in your FHIR service instance](#step-3-enable-azure-managed-identity-in-your-fhir-service-instance)
 4. [Provide Azure Container Registry access to the FHIR service managed identity](#step-4-provide-azure-container-registry-access-to-the-fhir-service-managed-identity)
 5. [Register the Azure Container Registry server in the FHIR service](#step-5-register-the-azure-container-registry-server-in-the-fhir-service)
-6. [Configure the Azure Container Registry firewall for secure access - Optional](#step-6-configure-the-azure-container-registry-firewall-for-secure-access---optional)
+6. [Configure the Azure Container Registry firewall for secure access](#step-6-configure-the-azure-container-registry-firewall-for-secure-access)
 
 ### Step 1: Create an Azure Container Registry instance
 
@@ -112,7 +112,7 @@ You can register up to 20 Azure Container Registry servers in the FHIR service.
      az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
      ```
 
-### Step 6: Configure the Azure Container Registry firewall for secure access - Optional
+### Step 6: Configure the Azure Container Registry firewall for secure access
 
 1. In the Azure portal, on the left pane, select **Networking** for the Azure Container Registry instance.
 
