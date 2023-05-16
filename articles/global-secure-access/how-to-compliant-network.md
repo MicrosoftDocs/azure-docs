@@ -89,7 +89,7 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources with an error message that says **You cannot access this right now**.
 
-:::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window "You cannot access this right now".":::
+:::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You cannot access this right now.":::
 
 ## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
 
