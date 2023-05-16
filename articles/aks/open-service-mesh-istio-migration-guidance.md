@@ -16,11 +16,13 @@ This article will provide practical guidance for mapping OSM configurations to t
 
 If you are not currently using OSM and are new to Istio, we would suggest you start with [Istio's own Getting Started guide](https://istio.io/latest/docs/setup/getting-started/) to learn how to utilize the Istio service mesh for your applications. If you are currently using OSM, make sure you are familiar with the OSM [Bookstore sample application](https://docs.openservicemesh.io/docs/getting_started/install_apps/) walk-through on how OSM configures traffic policies. The following walk-through will not duplicate the current documentation, but will make references to specific topics when relevant. You should be comfortable and fully aware of the bookstore application architecture before proceeding.
 
-The following should be confirmed before moving on through the walk-through:
+## Prerequisites
 
-1. OSM is uninstalled from your Kubernetes cluster
-1. Any existing OSM Bookstore application, including namespaces, is uninstalled and deleted from your cluster
-1. [Install the Istio AKS service mesh add-on](https://learn.microsoft.com/azure/aks/istio-deploy-addon)
+- An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+- [Azure CLI installed](/cli/azure/install-azure-cli).
+- OSM is uninstalled from your Kubernetes cluster
+- Any existing OSM Bookstore application, including namespaces, is uninstalled and deleted from your cluster
+- [Install the Istio AKS service mesh add-on](https://learn.microsoft.com/azure/aks/istio-deploy-addon)
 
 ## Modifications needed to the OSM Sample Bookstore Application
 
