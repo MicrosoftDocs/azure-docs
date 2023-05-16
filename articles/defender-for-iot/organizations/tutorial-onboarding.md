@@ -229,7 +229,9 @@ This procedure describes how to install the sensor software on your VM.
 
 <!--need to add this is continuation of creating vm, or open vm etc?the instructions seem off-->
 
-1. In your VM: For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
+1. If you had closed your VM, sign into the ESXi again and open your VM settings. 
+
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
 1. Select **Next** > **Finish**.
 
