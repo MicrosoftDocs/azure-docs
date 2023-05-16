@@ -2,7 +2,7 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 05/16/2023
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 ---
 
@@ -14,12 +14,12 @@ In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-
 
 There are four options for deploying a function with GitHub Actions: 
 
-1. Use the Deployment option in the Azure portal 
+1. Use the Deployment option in the Azure portal.
 1. Manually create your GitHub Actions workflow. 
 1. Use Azure CLI to generate a workflow file and deploy your app.   
 1. Use an Actions template within GitHub.  
 
-All four approaches will involve adding a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow. 
+All four approaches involve adding a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow. 
 
 For an Azure Functions workflow, the file has three sections: 
 
@@ -39,7 +39,7 @@ For an Azure Functions workflow, the file has three sections:
 
 ## Use the Deployment option in Azure portal
 
-You can get started quickly with GitHub Actions through the Deployment tab when you create a function in Azure portal. You can also add GitHub Actions to an existing function app. This will automatically generate a workflow file based on your application stack and commit it to your GitHub repository in the correct directory.
+You can get started quickly with GitHub Actions through the Deployment tab when you create a function in Azure portal. You can also add GitHub Actions to an existing function app. This option generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory.
 
 To add a GitHub Actions workflow when you create a new function app:
 
