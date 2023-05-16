@@ -30,7 +30,7 @@ If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the 
  1. Network fabric controller and resource group
  1. Network fabric instances and resource group
  1. AKS-Hybrid cluster name and resource group
- 1. CLI, Bicep or ARM template used to create or attempt creation
+ 1. CLI, Bicep or Azure Resource Manager (ARM) template used to create or attempt creation
 
 ## What does an unhealthy AKS-Hybrid cluster look like?
 
@@ -42,7 +42,7 @@ In the Azure portal, an unhealthy cluster may show:
 - Status: 'Offline'
 - Managed identity certificate expiration time: "Couldn't display date/time, invalid format."
 
-In the CLI, when looking at "az hybridaks show -g <> --name <>" output, an unhealthy cluster may show:
+In the CLI, when looking at "az hybridaks show -g <>--name <>" output, an unhealthy cluster may show:
 
 -provisioningState: `Failed`
 
@@ -56,7 +56,7 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
 ### Network fabric resources
 
  - the fabric is preconfigured with the vlans that is required for cloudservicesnetworks in the range 300-349
- - the fabric must be configured with an l3isolationdomain and l3 internalnetwork for use with the defaultcninetwork
+ - the fabric must be configured with an l3isolationdomain and l3 internal network for use with the defaultcninetwork
    - the vlan must be in the range 500-599 (this limitation is intended to be removed in a future release)
    - the l3isolationdomain must be successfully enabled
 
@@ -68,31 +68,31 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
    - the ipv4prefix used must be unique across all defaultcninetworks and l3networks
  - the networks must have Provisioning state: Succeeded
 
- [How to connect az networkcloud using Azure CLI](./howto-install-cli-extensions.md?tabs=linux#install-networkcloud-cli-extension)
+ [How to connect az network cloud using Azure CLI](./howto-install-cli-extensions.md?tabs=linux#install-networkcloud-cli-extension)
 
 ### AKS-Hybrid resources 
 
 To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a hybridaks vnet.
 
-[How to connect az hybridaks vnet using Azure CLI](/cli/azure/hybridaks/vnet)
+[az hybridaks vnet using Azure CLI](/cli/azure/hybridaks/vnet)
 
 ## Common Issues
 
 Any of the following problems can cause the AKS-Hybrid cluster to fail to provisioning fully 
 
-### Several AKS-Hybrid clusters fail or time out when created close together
+### AKS-Hybrid clusters may fail or timeout when created concurrently
 
-  The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an instance. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as `connected` or `online` in the Azure portal. See the picture at the top of the "AKS-Hybrid Cluster Triage" document for an example of a successful cluster. Only then is it safe to create another AKS-Hybrid cluster.
+  The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an instance. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as `connected` or `online` in the Azure portal. 
 
-  If you have already tried to create several at once and have them in a `failed` state, delete all failed clusters and any partially succeeded clusters. Anything that isn't a fully successful cluster should be deleted. Additionally, you should check for and delete any leftover artifacts from failed clusters. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile and register the current undercloud cluster state. Then try to create a single new AKS-Hybrid cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating AKS-Hybrid clusters, one at a time.
+  If you have already tried to create several at once and have them in a `failed` state, delete all failed clusters and any partially succeeded clusters. Anything that isn't a fully successful cluster should be deleted. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile. Then try to create a single new AKS-Hybrid cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating AKS-Hybrid clusters, one at a time.
 
-### Case mis-match between AKS-Hybrid vnet and Network Cloud network
+### Case mismatch between AKS-Hybrid vnet and Network Cloud network
 
-To set up an AKS-Hybrid virtual network (vnet), the provided Network Cloud network resource IDs must exactly (that is, case-sensitively) match the actual ARM resource ID. (this limitation is intended to be removed in a future release)
+To configure an AKS-Hybrid virtual network (vnet), it's necessary for the provided Network Cloud network resource IDs to precisely match the actual Azure Resource Manager (ARM) resource ID, including being case-sensitive. To ensure be the IDs have identical uppercase and lowercase letters, it's necessary and important to ensure the correct casing when setting up the network
 
-If using CLI, the--aods-vnet-id* parameter. If using ARM, Bicep, or a manual "az rest" API call, the value of .properties.infraVnetProfile.networkCloud.networkId
+If using CLI, the--aods-vnet-id* parameter. If using Azure Resource Manager (ARM), Bicep, or a manual "az rest" API call, the value of .properties.infraVnetProfile.networkCloud.networkId
 
-The mixture of upper, lower, and camelCase throughout the ARM ID depends on how the network was created.
+The mixture of upper, lower, and camelCase throughout the Azure Resource Manager (ARM) ID depends on how the network was created.
 
 The most reliable way to obtain the correct value to use when creating the vnet is to query the object for its ID, for example:
 
@@ -130,7 +130,7 @@ Care must be taken when creating networks to ensure that they come up successful
 
 In particular, pay attention to the following constraints when creating defaultcninetworks:
 
-  - the ipv4prefix and vlan need to match internalnetwork in the referenced l3isolationdomain
+  - the ipv4prefix and vlan need to match internal network in the referenced l3isolationdomain
   - the ipv4prefix must be unique across defaultcninetworks (and l3networks) in the Network Cloud cluster
 
 If using CLI to create these resources, it's useful to use the '--debug' option. The output includes an operation status URL, which can be queried using az rest.
@@ -139,7 +139,7 @@ If the resource has already been created, see the section on Surfacing Errors.
 
 ### Known Errors
 
-Depending on the mechanism used for creation (Azure portal, CLI, ARM), it's sometimes hard to see why resources are Failed.
+Depending on the mechanism used for creation (Azure portal, CLI, Azure Resource Manager (ARM)), it's sometimes hard to see why resources are Failed.
 
 One useful tool to help surface errors is the [az monitor activity-log](/cli/azure/monitor/activity-log) command, which can be used to show activities for a specific resource ID, resource group, or correlation ID. (The information is also present in the Activity sign-in the Azure portal)
 
@@ -168,10 +168,11 @@ The result:
 }
 
 ```
-### OOM on AKS-Hybrid node
+### Memory saturation on AKS-Hybrid node
 
-There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. It's been seen on nodes that have Azure Arc pods that are consuming many compute resources. At the moment, article of discussion on how to properly mitigate this issue.
- 
+There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. It's been seen on nodes that have Azure Arc pods that are consuming many compute resources. To reduce memory saturation, use effective monitoring tools and apply best practices.
+
+For more information, refer [Troubleshoot memory saturation in AKS clusters](troubleshoot/azure/azure-kubernetes/identify-memory-saturation-aks)
 
 To access further details in the logs, refer [Log Analytic workspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace)
 

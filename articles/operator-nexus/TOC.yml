@@ -53,9 +53,9 @@
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
-- name: Troubleshooting Guide
+- name: Troubleshooting
   items:
-    - name: Troubleshoot AKS-Hybrid common issues
+    - name: Troubleshoot AKS-Hybrid
       href: Troubleshoot-AKS-Hybrid-cluster.md
 - name: Sample Deployment
   items:
