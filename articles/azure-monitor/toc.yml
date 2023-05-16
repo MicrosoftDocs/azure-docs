@@ -58,6 +58,8 @@ items:
       href: vm/tutorial-monitor-vm-guest.md
     - name: Monitor virtual machines
       items:
+      - name: Best practices
+        href: best-practices-vm.md
       - name: Overview
         href: vm/monitor-virtual-machine.md
       - name: Deploy agents

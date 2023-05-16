@@ -26,6 +26,19 @@ VM insights stores its data in Azure Monitor Logs, which allows it to deliver po
 
 ![Screenshot that shows the VM insights perspective in the Azure portal.](media/vminsights-overview/vminsights-azmon-directvm.png)
 
+## Who should use VM insights?
+VM insights is not required for monitoring your virtual machines in Azure Monitor. You can use other methods to [deploy the Azure Monitor agent](../agents/azure-monitor-agent-manage.md) to your virtual machines, and [create data collection rules](../agents/data-collection-rule-azure-monitor-agent.md) to collect the same performance counters. Even if you use VM insights, you need to create additional data collection rules to collect events from your VMs and to alert on events or performance data.
+
+VM insights provides the following value:
+
+| Feature | Alternative |
+|:---|:---|
+| List of all your VMs and their monitoring status. Deploy agents for unmonitored machines with a single click. | Use the [AMA Migration Helper](../agents/azure-monitor-agent-migration-tools.md) to view agent installation status and use any of the available methods to [install the Azure Monitor agent](../agents/azure-monitor-agent-manage.md). |
+| Automatically created data collection rules with predefined set of performance counters. | Use the Azure portal to [create data collection rules](../agents/data-collection-rule-azure-monitor-agent.md) to collect performance counters. |
+| Predefined workbooks that allow you to view trending of collected performance data. | Use [metrics explorer]() to analyze client performance counters or [create your own workbooks](). |
+| Collect data to support the [map feature](vminsights-maps.md) that graphically illustrates processes running on your VMs and dependencies between them. | Disable collection of processes and dependencies to lower your data ingestion cost. |
+
+
 ## Pricing
 
 There's no direct cost for VM insights, but you're charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), VM insights is billed for:
