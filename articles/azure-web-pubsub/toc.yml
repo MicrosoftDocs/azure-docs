@@ -95,7 +95,7 @@
               href: howto-disable-local-auth.md
         - name: Custom domain
           href: howto-custom-domain.md
-    name: Scale
+    - name: Scale
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
