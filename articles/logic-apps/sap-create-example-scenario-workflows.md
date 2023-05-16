@@ -66,7 +66,7 @@ The following example logic app workflow triggers when the workflow's SAP trigge
    |-----------|----------|-------------|
    | **GatewayHost** | Yes | The registration gateway host for the SAP RFC server |
    | **GatewayService** | Yes | The registration gateway service for the SAP RFC server |
-   | **ProgramId** | Yes | The registration gateway program ID for the SAP RFC server |
+   | **ProgramId** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
    | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **DegreeOfParallelism**, and enter the new value. |
    | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Add new parameter** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
    | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, in the trigger, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
@@ -158,7 +158,7 @@ You might get a similar error when SAP Application server or Message server name
 
    The SAP built-in trigger, **Register SAP RFC server for trigger**, is a webhook-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
 
-1. If prompted, provide the following connection information for your on-premises SAP server. Otherwise, continue with the next step to set up your SAP trigger.
+1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
@@ -168,9 +168,7 @@ You might get a similar error when SAP Application server or Message server name
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server |
-   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). **Note**: The SAP built-in connector saves this parameter value s part of the SAP connection parameters. |
-
-1. When you're done, select **Create**.
+   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. |
 
    After Azure Logic Apps sets up and tests your connection, the SAP trigger information box appears.
 
@@ -178,19 +176,19 @@ You might get a similar error when SAP Application server or Message server name
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **IDoc Format** | Yes | The format to use for receiving IDocs. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **IDoc Format** | Yes | The format to use for receiving IDocs. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>**Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
    | **SAP RFC Server Degree of Parallelism** | Yes | The number of calls to process in parallel |
    | **Allow Unreleased Segment** | Yes | Receive IDocs with or without unreleased segments. From the list, select **Yes** or **No**. |
    | **SAP Gateway Host** | Yes | The registration gateway host for the SAP RFC server |
    | **SAP Gateway Service** | Yes | The registration gateway service for the SAP RFC server |
-   | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server |
+   | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
    | **SAP SNC Partner Names** | No | Filter the messages that your receive from your SAP server based on a list of SNC partner names. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**, and enter each name separated by a vertical bar (**\|**). |
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
    Your workflow is now ready to receive messages from your SAP server.
 
-1. In your workflow's trigger history, check that the trigger registration succeeds.
+1. After the trigger fires and your workflow runs, review the workflow's trigger history to confirm that trigger registration succeeded.
 
 ---
 
@@ -198,9 +196,9 @@ You might get a similar error when SAP Application server or Message server name
 
 To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, you have to implement a few more steps to split the packet into individual IDocs by setting up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html). 
 
-The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
+The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [set up a logic app workflow with an SAP trigger](#receive-message-sap).
+1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [set up a workflow with an SAP trigger](#receive-message-sap).
 
    > [!IMPORTANT]
    >

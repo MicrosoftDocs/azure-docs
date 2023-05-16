@@ -835,4 +835,3 @@ The following screenshot shows the example query's traces results table:
 ## Next steps
 
 * [Create SAP common scenario workflows](sap-create-example-scenario-workflows.md)
-* [Connect to on-premises systems  from Azure Logic Apps](logic-apps-gateway-connection.md)

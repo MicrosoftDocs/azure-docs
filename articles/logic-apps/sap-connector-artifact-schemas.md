@@ -260,3 +260,7 @@ The following example is an alternative method to set the transaction identifier
   <guid>8820ea40-5825-4b2f-ac3c-b83adc34321c</guid>
 </Send>
 ```
+
+## Next steps
+
+* [Create SAP common scenario workflows](sap-create-example-scenario-workflows.md)
