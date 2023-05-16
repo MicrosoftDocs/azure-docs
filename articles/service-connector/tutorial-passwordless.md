@@ -306,7 +306,12 @@ For other language, there's not plugin or library for passwordless connection, y
 
 ```csharp
 // Call managed identities for Azure resources endpoint.
+// system assigned identity
 var sqlServerTokenProvider = new DefaultAzureCredential();
+
+// user assigned identity
+// var sqlServerTokenProvider = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
+
 string accessToken = (await sqlServerTokenProvider.GetTokenAsync(
     new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
 string connString = String.Format(
@@ -343,7 +348,7 @@ For more information, see
 1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](../mysql/flexible-server/connect-java.md?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
     ```bash
     cat << EOF > src/main/resources/application.properties
-    url=${AZURE_POSTGRESQL_CONNECTIONSTRING}&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
+    url=${AZURE_MYSQL_CONNECTIONSTRING}&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
     EOF
     ```
     If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.Azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
@@ -364,56 +369,21 @@ For more information, see
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
 ```csharp
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net");
-request.Headers["Metadata"] = "true";
-request.Method = "GET";
-string accessToken = null;
+// system assigned identity
+var credential = new DefaultAzureCredential(); 
+// user assigned identity
+// var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
 
-try
-{
-    // Call managed identities for Azure resources endpoint.
-    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-    // Pipe response Stream to a StreamReader and extract access token.
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream());
-    string stringResponse = streamResponse.ReadToEnd();
-    var list = JsonSerializer.Deserialize<Dictionary<string, string>>(stringResponse);
-    accessToken = list["access_token"];
-}
-catch (Exception e)
-{
-    Console.Out.WriteLine("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
-    System.Environment.Exit(1);
-}
-//
+TokenRequestContext tokenRequestContext = new TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" });  
+AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);  
 // Open a connection to the MySQL server using the access token.
-//
-var builder = new MySqlConnectionStringBuilder
-{
-    Server = Host,
-    Database = Database,
-    UserID = User,
-    Password = accessToken,
-    SslMode = MySqlSslMode.Required,
-};
-
-using (var conn = new MySqlConnection(builder.ConnectionString))
+var connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING") + $";Password={accessToken.Token}"        
+using (var conn = new MySqlConnection(connectionString))
 {
     Console.Out.WriteLine("Opening connection using access token...");
     await conn.OpenAsync();
 
-    using (var command = conn.CreateCommand())
-    {
-        command.CommandText = "SELECT VERSION()";
-
-        using (var reader = await command.ExecuteReaderAsync())
-        {
-            while (await reader.ReadAsync())
-            {
-                Console.WriteLine("\nConnected!\n\nMySQL version: {0}", reader.GetString(0));
-            }
-        }
-    }
+    // do something
 }
 ```
 
