@@ -3,7 +3,7 @@ title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/05/2023
+ms.date: 05/16/2023
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -130,12 +130,12 @@ For a VNet, attached Azure disk, static IP address, or route table outside the d
     az role assignment create --assignee <control-plane-identity-principal-id> --role "Contributor" --scope "<custom-resource-group-resource-id>"
     ```
 
-For a user-assigned kubelet identity outside the default worker node resource group, you need to assign the `Managed Identity Operator` role on the kubelet identity.
+For a user-assigned kubelet identity outside the default worker node resource group, you need to assign the `Managed Identity Operator` role on the kubelet identity for control plane identity.
 
 * Assign the `Managed Identity Operator` role on the kubelet identity using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
-    az role assignment create --assignee <kubelet-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
+    az role assignment create --assignee  <control-plane-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
     ```
 
 > [!NOTE]
@@ -176,7 +176,12 @@ A custom control plane managed identity enables access to the existing identity 
     }
     ```
 
+> [!NOTE]
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+
 * Before creating the cluster, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az role assignment create`][az-role-assignment-create] command.
+
+* Create the cluster with user-assigned control plane identity.
 
     ```azurecli-interactive
     az aks create \
