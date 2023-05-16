@@ -31,7 +31,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
--	An [App Insight resource](../../azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) only if you want to survey custom questions.
+-	An [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource) only if you want to survey custom questions.
 
 
 <!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
@@ -163,10 +163,10 @@ Screenshare. However, each API value can be customized from a minimum of
 
 ## Custom questions
 You can ask custom questions and collect users feedback. Steps to survey custom questions:
--  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource).
+-  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 -  Initialize the JavaScript SDK using plain JavaScript or NPM typescript:
-   -  Plain JavaScript will have the **appInsights** variable globally available. [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk).
-   -  Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced).
+   -  Plain JavaScript will have the **appInsights** variable globally available. [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md).
+   -  Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
 
 -  Send custom events using App Insights:
 	``` javascript
@@ -185,7 +185,7 @@ You can ask custom questions and collect users feedback. Steps to survey custom 
 	});
 	appInsights.flush();
 	```
-Custom survey data will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks) to query between multiple resources and correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
+Custom survey data will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources and correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
 -  Create new Workbook (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
