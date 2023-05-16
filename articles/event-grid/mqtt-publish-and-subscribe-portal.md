@@ -144,9 +144,9 @@ If you don't already have a certificate, you can create a sample certificate usi
 10. Select Connect to connect the client to the Event Grid MQTT service.
 11. Repeat the above steps to connect the second client “client2”, with corresponding authentication information as shown.
 
-:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
 
-:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 2 on MQTTX app.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 2 on MQTTX app.":::
 
 ## Publish/subscribe using MQTTX app
 
