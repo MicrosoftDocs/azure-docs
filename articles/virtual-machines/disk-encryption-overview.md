@@ -2,7 +2,7 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 04/05/2023
+ms.date: 05/15/2023
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
@@ -35,6 +35,7 @@ Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidenti
 | Encryption of caches | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Data flows encrypted between Compute and Storage | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Customer control of keys | &#x2705; When configured with DES | &#x2705; When configured with DES | &#x2705; When configured with KEK | &#x2705; When configured with DES |
+| HSM Support | Azure Key Vault Premium and Managed HSM | Azure Key Vault Premium and Managed HSM | Azure Key Vault Premium | Azure Key Vault Premium and Managed HSM 
 | Does not use your VM's CPU | &#x2705; | &#x2705; | &#10060; | &#10060; |
 | Works for custom images | &#x2705; | &#x2705; | &#10060; Does not work for custom Linux images | &#x2705; |
 | Enhanced Key Protection | &#10060; | &#10060; | &#10060; | &#x2705; |
