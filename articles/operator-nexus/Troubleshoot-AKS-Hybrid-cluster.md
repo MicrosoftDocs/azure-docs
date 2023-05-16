@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot AKS-Hybrid cluster provision failures for Azure Operator Nexus
-description: Troubleshoot Hybrid Azure Kubernetes Service (AKS) clusters provision failures. Learn how to debug failure codes.
+title: Troubleshoot AKS-Hybrid cluster provisioning  failures for Azure Operator Nexus
+description: Troubleshoot Hybrid Azure Kubernetes Service (AKS) clusters provisioning  failures. Learn how to debug failure codes.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -9,7 +9,7 @@ ms.author: v-saambe
 author: v-saambe
 ---
 
-# Troubleshoot AKS-Hybrid cluster provision failures   
+# Troubleshoot AKS-Hybrid cluster provisioning  failures   
 
 Follow these steps in order to gather the data needed to diagnose AKS-Hybrid creation or management issues. 
 
@@ -79,17 +79,17 @@ To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped"
 
 ## Common Issues
 
-Any of the following problems can cause the AKS-Hybrid cluster to fail to provision fully 
+Any of the following problems can cause the AKS-Hybrid cluster to fail to provisioning fully 
 
-### Several AKS-Hybrid clusters fail or timeout when created close together
+### Several AKS-Hybrid clusters fail or time out when created close together
 
-  The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an instance. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as `connected` or `online` in the Azure Portal. See the picture at the top of the "AKS-Hybrid Cluster Triage" document for an example of a successful cluster. Only then is it safe to create another AKS-Hybrid cluster.
+  The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an instance. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as `connected` or `online` in the Azure portal. See the picture at the top of the "AKS-Hybrid Cluster Triage" document for an example of a successful cluster. Only then is it safe to create another AKS-Hybrid cluster.
 
   If you have already tried to create several at once and have them in a `failed` state, delete all failed clusters and any partially succeeded clusters. Anything that isn't a fully successful cluster should be deleted. Additionally, you should check for and delete any leftover artifacts from failed clusters. After all clusters and artifacts are deleted, wait a few minutes for the Arc Appliance and cluster operators to reconcile and register the current undercloud cluster state. Then try to create a single new AKS-Hybrid cluster. As mentioned, wait for that to come up successfully and report as connected/online. You should now be able to continue creating AKS-Hybrid clusters, one at a time.
 
 ### Case mis-match between AKS-Hybrid vnet and Network Cloud network
 
-To set up an AKS-Hybrid virtual network (vnet), the provided Network Cloud network resource ID's must exactly (that is, case-sensitively) match the actual ARM resource ID. (this limitation is intended to be removed in a future release)
+To set up an AKS-Hybrid virtual network (vnet), the provided Network Cloud network resource IDs must exactly (that is, case-sensitively) match the actual ARM resource ID. (this limitation is intended to be removed in a future release)
 
 If using CLI, the--aods-vnet-id* parameter. If using ARM, Bicep, or a manual "az rest" API call, the value of .properties.infraVnetProfile.networkCloud.networkId
 
@@ -104,7 +104,7 @@ The most reliable way to obtain the correct value to use when creating the vnet 
    az networkcloud l3network show -g "example-rg" -n "l3n-name" -o tsv --query id
  ```
 
-### l3isolationdomain or l2isolationdomain is not enabled
+### l3isolationdomain or l2isolationdomain isn't enabled
 
 At a high level, the steps to create isolation domains are as follows
 
@@ -116,7 +116,7 @@ At a high level, the steps to create isolation domains are as follows
   az nf l3domain update-admin-state--state Enable
   ```
 
-It's important to check that the fabric resources do achieve an administrativeState of Enabled, and that the provisioningState is Succeeded. The networks will not operate if the step of uupdate-admin-state is skipped or unsuccessful
+It's important to check that the fabric resources do achieve an administrativeState of Enabled, and that the provisioningState is Succeeded. If the 'update-admin-state' step is skipped or unsuccessful, the networks are unable to operate
 
 An approach to confirm the use show commands, for instance:
 
@@ -175,7 +175,7 @@ The result:
 There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. It's been seen on nodes that have Azure Arc pods that are consuming many compute resources. At the moment, article of discussion on how to properly mitigate this issue.
  
 
-For additional log information, refer [Log Analytic worspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace)
+To access further details in the logs, refer [Log Analytic workspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace)
 
  If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
