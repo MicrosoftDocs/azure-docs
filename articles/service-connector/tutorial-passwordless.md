@@ -46,13 +46,13 @@ If you get a error code `AADSTS530003`, please ask your IT department for help t
 
 ::: zone pivot="postgresql"
 
-If your database server is in Virtual Network, please make sure your environment can access the server in VNet.
+If your database server is in Virtual Network, please make sure your environment can access the server in the Virtual Network.
 
 ::: zone-end
 
 ::: zone pivot="mysql"
 
-If your database server is in Virtual Network, please make sure your environment can access the server in VNet.
+If your database server is in Virtual Network, please make sure your environment can access the server in the Virtual Network.
 
 ::: zone-end
 
