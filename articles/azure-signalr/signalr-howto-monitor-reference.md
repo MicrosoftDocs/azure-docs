@@ -1,5 +1,6 @@
 ---
-title: Monitoring Azure SignalR service data reference
+title: Monitoring Azure SignalR Service data reference
+
 description: Important reference material needed when you monitor logs and metrics in Azure SignalR service.
 author: wanlwanl
 ms.service: signalr
@@ -8,7 +9,8 @@ ms.date: 05/15/2023
 ms.author: wanl
 ---
 
-# Monitoring Azure SignalR service data reference
+# Monitoring Azure SignalR Service data reference
+
 
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure SignalR service. See the [Use diagnostics logs to monitor SignalR Service](signalr-howto-diagnostic-logs.md) article for details on collecting and analyzing monitoring data for Azure SignalR service.
 
@@ -107,7 +109,8 @@ TransportType | Transport type of the connection. Allowed values are: `Websocket
 
 Azure SignalR service uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Azure SignalR service uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#signalr) article.
 
-## See Also
+## See also
+
 
 - See [Monitoring Azure SignalR](signalr-howto-diagnostic-logs.md) for a description of monitoring Azure SignalR service.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

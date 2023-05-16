@@ -71,12 +71,14 @@ Currently Azure Web PubSub supports integration with [Azure Storage](../azure-mo
 
 1. Go to Azure portal.
 1. On **Diagnostic settings** page of your Azure Web PubSub service instance, select **+ Add diagnostic setting**.
-    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="Screenshot of viewing diagnostic settings and create a new one":::
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="Screenshot of viewing diagnostic settings and create a new one.":::
+
 1. In **Diagnostic setting name**, input the setting name.
 1. In **Category details**, select any log category you need.
 1. In **Destination details**, check **Archive to a storage account**.
 
-    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-details.png" alt-text="Screenshot of configuring diagnostic setting detail":::
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-details.png" alt-text="Screenshot of configuring diagnostic setting detail.":::
+
 1. Select **Save** to save the diagnostic setting.
 > [!NOTE]
 > The storage account should be in the same region as Azure Web PubSub service.
@@ -96,18 +98,21 @@ To view the resource logs, follow these steps:
 
 1. Select `Logs` in your target Log Analytics.
 
-    :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
+    :::image type="content" alt-text="Screenshot showing Log Analytics menu item." source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
+
 
 1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
-    :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
+    :::image type="content" alt-text="Screenshot showing query log in Log Analytics." source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
+
 
 To use a sample query for SignalR service, follow the steps below.
 1. Select `Logs` in your target Log Analytics.
 1. Select `Queries` to open query explorer.
 1. Select `Resource type` to group sample queries in resource type.
 1. Select `Run` to run the script.
-    :::image type="content" alt-text="Sample query in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
+    :::image type="content" alt-text="Screenshot showing sample query in Log Analytics." source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
+
 
 ## Alerts
 

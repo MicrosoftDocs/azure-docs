@@ -106,7 +106,8 @@ TransportType | Transport type of the connection. Allowed values are: `Websocket
 
 Azure Web PubSub uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Azure Web PubSub uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#signalr-service-webpubsub) article.
 
-## See Also
+## See also
+
 
 - See [Monitoring Azure SignalR](howto-azure-monitor.md) for a description of monitoring Azure Web PubSub.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
