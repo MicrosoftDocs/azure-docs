@@ -2,11 +2,12 @@
 title: 'Tutorial: Protect your NAT gateway with Azure DDoS Protection Standard'
 titlesuffix: Azure NAT Gateway
 description: Learn how to create an NAT gateway in an Azure DDoS Protection Standard protected virtual network.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: nat-gateway
 ms.topic: tutorial 
 ms.date: 01/24/2022
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Protect your NAT gateway with Azure DDoS Protection Standard
