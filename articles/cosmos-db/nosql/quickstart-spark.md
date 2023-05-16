@@ -456,7 +456,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
         az cosmosdb sql role definition list --account-name $accountName --resource-group $resourceGroupName 
     ```
 
-1. This should bring back a response like the below:
+1. This should bring back a response like the below. Record the `id` value.
 
     ```json
         [
@@ -489,7 +489,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     > [!NOTE]
     > Make sure to use its Object ID as found in the **Enterprise applications** section of the Azure Active Directory portal blade (and not the App registrations section you used earlier).
 
-1. Now create a role assignment. Replace the `<aadPrincipalId>` with Object ID you recorded above (note this is NOT the same as Object ID visible from the app registrations view you saw earlier). Also replace `<myResourceGroup>` and `<myCosmosAccount>` accordingly in the below. Replace `<roleDefinitionId>` with the value fetched from running the above command. Then run in Azure CLI:
+1. Now create a role assignment. Replace the `<aadPrincipalId>` with Object ID you recorded above (note this is NOT the same as Object ID visible from the app registrations view you saw earlier). Also replace `<myResourceGroup>` and `<myCosmosAccount>` accordingly in the below. Replace `<roleDefinitionId>` with the `id` value fetched from running the `az cosmosdb sql role definition list` command you ran above. Then run in Azure CLI:
 
     ```azurecli-interactive
     resourceGroupName='<myResourceGroup>'
