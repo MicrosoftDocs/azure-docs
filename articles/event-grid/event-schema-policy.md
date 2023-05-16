@@ -1,9 +1,9 @@
 ---
 title: Azure Policy as an Event Grid source
 description: This article describes how to use Azure Policy as an Event Grid event source. It provides the schema and links to tutorial and how-to articles.
-author: timwarner-msft
+author: spelluru
 ms.topic: conceptual
-ms.author: timwarner
+ms.author: spelluru
 ms.date: 07/19/2022
 ---
 
