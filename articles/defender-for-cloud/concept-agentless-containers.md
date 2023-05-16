@@ -3,7 +3,7 @@ title: Agentless Container Posture for Microsoft Defender for Cloud
 description: Learn how Agentless Container Posture offers discovery and visibility for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 05/16/2023
 ms.custom: template-concept
 ---
 
@@ -23,10 +23,10 @@ Learn more about [Cloud Security Posture Management](concept-cloud-security-post
 Agentless Container Posture provides the following capabilities:
 
 - Using Kubernetes Attack Path analysis to visualize risks and threats to Kubernetes environments.
-- Using Cloud Security Explorer for risk hunting by querying various risk scenarios.
+- Using cloud security explorer for risk hunting by querying various risk scenarios.
 - Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
 - Agentless discovery and visibility within Kubernetes components.
-- Agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) with Cloud Security Explorer.
+- Agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
 
     [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) for Containers in Defender Cloud Security Posture Management (CSPM) gives you frictionless, wide, and instant visibility on actionable posture issues without the need for installed agents, network connectivity requirements, or container performance impact.
 
