@@ -32,7 +32,7 @@ The second step is to install the new version of the agent. Follow the steps des
 
 After you've reenabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. You have two methods to verify the agent upgraded successfully:
 
-* Run the command `kubectl get pod \<ama-logs-agent-pod-name\> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for Azure Monitor Agent in the **Containers** section of the output.
+* Run the command `kubectl get pod <ama-logs-agent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for Azure Monitor Agent in the **Containers** section of the output.
 * On the **Nodes** tab, select the cluster node. On the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
 The version of the agent shown should match the latest version listed on the [Release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) page.
@@ -91,7 +91,7 @@ To reenable discovery of the environmental variables, apply the same process you
 ```  
 ## Semantic version update of container insights agent version
 
-Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod<timestamp>-<commitId> and win-ciprod<timestamp>-<commitId>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
+Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod\<timestamp\>-\<commitId\> and win-ciprod\<timestamp\>-\<commitId\>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
 
 Semver is a universal software versioning schema which is defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
 
