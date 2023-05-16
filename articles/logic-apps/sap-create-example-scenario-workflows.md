@@ -34,13 +34,9 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
-1. In the designer, [find and add the SAP trigger named **When a message is received from SAP**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow).
+1. [Follow these general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow) to add the SAP managed connector trigger named **When a message is received** to your workflow.
 
-   > [!NOTE]
-   > The SAP trigger in these steps is a webhook-based trigger, not a polling trigger. If you're using the data gateway, 
-   > the trigger is called from the data gateway only when a message exists, so no polling is necessary.
-
-1. If prompted. provide the following connection information for your on-premises SAP server. Otherwise, continue with the next step to set up your SAP trigger.
+1. If prompted. provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
    | Parameter | Description |
    |-----------|-------------|
@@ -51,39 +47,50 @@ The following example logic app workflow triggers when the workflow's SAP trigge
    | **Logon Type** | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>- **Application Server**: **AS Host**, **AS Service**, and **AS System Number** <br><br>- **Group**: **MS Server Host**, **MS Service Name or Port Number**, **MS System ID**, and **MS Logon Group** |
    | **Safe Typing** | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
 
-1. When you're done, select **Create**.
+   After Azure Logic Apps sets up and tests your connection, the trigger information box appears.
 
-   Azure Logic Apps sets up and tests your connection.
+1. Based on your SAP server configuration and scenario, provide the necessary parameter values for the [**When a message is received** trigger](/connectors/sap/#when-a-message-is-received), and add any other available trigger parameters that you want to use in your scenario.
 
-1. After the SAP trigger information box appears, provide the required values, based on your SAP server configuration, and add any other available parameters for this trigger, for example:
+   > [!NOTE]
+   >
+   > This SAP trigger is a webhook-based trigger, not a polling trigger, and doesn't include options to specify 
+   > a polling schedule. For example, when you use the managed SAP connector with the on-premises data gateway, 
+   > the trigger is called from the data gateway only when a message arrives, so no polling is necessary.
+   >
+   > The available trigger parameters vary based on whether you set the **Logon Type** parameter value to **Application Server** or **Group**.
 
-   * The trigger supports SAP plain XML format. To receive IDocs as plain XML, in the trigger, open the **Add new parameter** list, select the **IDOC Format** parameter, and then set the parameter to **SapPlainXml**.
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **GatewayHost** | Yes | The registration gateway host for the SAP RFC server |
+   | **GatewayService** | Yes | The registration gateway service for the SAP RFC server |
+   | **ProgramId** | Yes | The registration gateway program ID for the SAP RFC server |
+   | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **DegreeOfParallelism**, and enter the new value. |
+   | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Add new parameter** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
+   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, in the trigger, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **Receive IDOCS with unreleased segements**, and select **Yes** or **No**. |
+   | **SncPartnerNames** | No | Filter using a list of SNC partner names by entering each name separated by a vertical bar (**\|**). To add this parameter, in the trigger, from the **Add new parameter** list, select **SncPartnerNames**, and enter the names as required. |
 
-   * The trigger supports flat files. To receive IDocs as a flat file, in the trigger, open the **Add new parameter** list, select the **IDOC Format** parameter, and then set the parameter to **FlatFile**.
+   The following example shows a basically configured SAP managed trigger in a Consumption workflow:
 
-     If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
+   ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-consumption.png)
 
-   * To filter the messages that you receive from your SAP server, open the trigger's **Add new parameter** list, select **SapActions**, and then [specify a list of SAP actions](#filter-with-sap-actions).
+   The following example shows an SAP managed trigger where you can filter messages by selecting SAP actions:
 
-     For example, in the **SapActions** section, for the **SapActions - 1** parameter, you can use the file picker to select an SAP action:
+   ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-select-action-consumption.png)
 
-     ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-select-sap-action-consumption.png)
+   Or, by manually specifying an action:
 
-     Or, you can manually specify an action:
+   ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-manual-enter-action-consumption.png)
 
-     ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-manual-enter-sap-action-consumption.png)
+   The following example shows how the action appears when you set up the trigger to receive more than one message:
 
-     Here's an example that shows how the action appears when you set up the trigger to receive more than one message.
-
-     ![Screenshot that shows a trigger example that receives multiple messages.](./media/logic-apps-using-sap-connector/example-trigger.png)
-
-     For more information about the SAP action, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+   ![Screenshot shows example trigger that receives multiple messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-multiple-message-consumption.png)
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
    Your workflow is now ready to receive messages from your SAP server.
 
-1. In your workflow's trigger history, check that the trigger registration succeeds.
+1. After the trigger fires and your workflow runs, review the workflow's trigger history to confirm that trigger registration succeeded.
 
 #### 500 Bad Gateway or 400 Bad Request error
 
@@ -125,11 +132,20 @@ You might get a similar error when SAP Application server or Message server name
 
 ### [Single-tenant](#tab/single-tenant)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and a blank workflow in the designer.
+> [!NOTE]
+>
+> During preview, the SAP built-in trigger is available in the Azure portal, but currently, 
+> the trigger can't receive calls from SAP when deployed in Azure. To fire the trigger, 
+> you can run the workflow locally in Visual Studio Code. For more information, see 
+> [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
-1. In the designer, [find and add the SAP trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
+1. In Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
 
-1. If prompted. provide the following connection information for your on-premises SAP server. Otherwise, continue with the next step to set up your SAP trigger.
+1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
+
+   The SAP built-in trigger, **Register SAP RFC server for trigger**, is a webhook-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
+
+1. If prompted, provide the following connection information for your on-premises SAP server. Otherwise, continue with the next step to set up your SAP trigger.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
@@ -143,16 +159,16 @@ You might get a similar error when SAP Application server or Message server name
 
 1. When you're done, select **Create**.
 
-   Azure Logic Apps sets up and tests your connection.
+   After Azure Logic Apps sets up and tests your connection, the SAP trigger information box appears.
 
-1. After the SAP trigger information box appears, provide the required values, based on your SAP server configuration, and add any other available parameters for this trigger.
+1. Based on your SAP server configuration and scenario, provide the following trigger information, and add any available trigger parameters that you want to use in your scenario.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
    | **IDoc Format** | Yes | The format to use for receiving IDocs, for example: <br><br>- To receive IDocs as SAP plain XML, in the trigger, open the **IDoc Format** list, and select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, in the trigger, open the **IDoc Format** list, and select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
    | **SAP RFC Server Degree of Parallelism** | Yes | The number of calls to process in parallel |
    | **Allow Unreleased Segment** | Yes | Receive IDocs with or without unreleased segments |
-   | **SAP Gateway Host** | Yes | The registration host for the SAP RFC server |
+   | **SAP Gateway Host** | Yes | The registration gateway host for the SAP RFC server |
    | **SAP Gateway Service** | Yes | The registration gateway service for the SAP RFC server |
    | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server |
    | **SAP SNC Partner Names** | No | A list of SNC partner names with each named separated by a vertical bar (**\|**) |
@@ -167,13 +183,14 @@ You might get a similar error when SAP Application server or Message server name
 
 ## Receive IDoc packets from SAP
 
-You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html), which are batches or groups of IDocs. To receive IDoc packets, the SAP connector, and specifically the trigger, doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, some additional steps are required to split the packet into individual IDocs.
+To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, you have to implement a few more steps to split the packet into individual IDocs by setting up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html). 
 
-Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
+The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app workflow with an SAP trigger. If you don't already have this trigger in your logic app workflow, follow the previous steps in this topic to [set up a logic app workflow with an SAP trigger](#receive-message-sap).
+1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [set up a logic app workflow with an SAP trigger](#receive-message-sap).
 
    > [!IMPORTANT]
+   >
    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
    > when you configure your logic app workflow and SAP server. Otherwise, you might receive the following errors in the 
    > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
@@ -184,10 +201,6 @@ Here's an example that shows how to extract individual IDocs from a packet by us
    > For more information from SAP, review the following notes (login required) 
    > [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329) 
    > and [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597).
-
-   For example:
-
-   ![Screenshot that shows adding an SAP trigger to logic app workflow.](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
 1. To immediately reply with the status of your SAP request, [add a Response action to your logic app workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
 
@@ -263,7 +276,7 @@ Next, create an action to send your IDoc message to SAP when your Request trigge
 
 Based on your logic app type, follow the corresponding steps:
 
-#### [Multi-tenant](#tab/multi-tenant)
+### [Multi-tenant](#tab/multi-tenant)
 
 1. In the workflow designer, under the trigger, select **New step**.
 
@@ -335,6 +348,8 @@ Based on your logic app type, follow the corresponding steps:
       ![Screenshot that shows completing the SAP action.](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
+
+---
 
 ### Send flat file IDocs
 
@@ -762,7 +777,7 @@ This destination will identify your logic app workflow for the receiver port.
 
 1. Save your changes.
 
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received from SAP**.
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received**.
 
    This way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
 
