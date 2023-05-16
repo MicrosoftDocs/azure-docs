@@ -62,50 +62,6 @@ If your database server disallows public access, please make sure your environme
 
 ::: zone-end
 
-#### Permissions
-The following permissions may be required to create passwordless connection with Service Connector:
-
-::: zone pivot="postgresql"
-
-| Permission | Operation |
-| --- | --- |
-| Microsoft.DBforPostgreSQL/flexibleServers/read | Required to get information of database server |
-| Microsoft.DBforPostgreSQL/flexibleServers/write | Required to enable AAD authentication for database server |
-| Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
-| Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
-| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
-
-::: zone-end
-
-::: zone pivot="mysql"
-
-| Permission | Operation |
-| --- | --- |
-| Microsoft.DBforMySQL/flexibleServers/read | Required to get information of database server |
-| Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided user managed identity to database server |
-| Microsoft.DBforMySQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
-| Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
-| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
-
-::: zone-end
-
-
-::: zone pivot="sql"
-
-| Permission | Operation |
-| --- | --- |
-| Microsoft.Sql/servers/read | Required to get information of database server |
-| Microsoft.Sql/servers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
-| Microsoft.Sql/servers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
-| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
-| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
-
-::: zone-end
-
-In some cases, the permission is not required. For example, if the CLI login user is already an Active Directory Administrator on SQL server, then you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
-
 ### Install the Service Connector passwordless extension
 [!INCLUDE [CLI-samples-clean-up](./install_passwordless_extension.md)]
 
@@ -275,6 +231,49 @@ This Service Connector command will do the following tasks in the background:
 - Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING` or `AZURE_POSTGRESQL_CONNECTIONSTRING` or `AZURE_SQL_CONNECTIONSTRING` based on the database type.
 
 For Azure Spring Apps and Azure Container Apps, the operations are similar.
+
+For above tasks, the following permissions may be required to create passwordless connection with Service Connector:
+
+::: zone pivot="postgresql"
+
+| Permission | Operation |
+| --- | --- |
+| Microsoft.DBforPostgreSQL/flexibleServers/read | Required to get information of database server |
+| Microsoft.DBforPostgreSQL/flexibleServers/write | Required to enable AAD authentication for database server |
+| Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
+| Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
+| Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
+| Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
+
+::: zone-end
+
+::: zone pivot="mysql"
+
+| Permission | Operation |
+| --- | --- |
+| Microsoft.DBforMySQL/flexibleServers/read | Required to get information of database server |
+| Microsoft.DBforMySQL/flexibleServers/write | Required to add the provided user managed identity to database server |
+| Microsoft.DBforMySQL/flexibleServers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
+| Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
+| Microsoft.DBforMySQL/flexibleServers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
+| Microsoft.DBforMySQL/flexibleServers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
+
+::: zone-end
+
+
+::: zone pivot="sql"
+
+| Permission | Operation |
+| --- | --- |
+| Microsoft.Sql/servers/read | Required to get information of database server |
+| Microsoft.Sql/servers/firewallRules/write | Required to create firewall rule in case the local IP address is blocked |
+| Microsoft.Sql/servers/firewallRules/delete | Required to revert the firewall rule created by Service Connector to avoid security issue |
+| Microsoft.Sql/servers/administrators/read | Required to check if Azure CLI login user is a database server AAD administrator |
+| Microsoft.Sql/servers/administrators/write | Required to add Azure CLI login user as database server AAD administrator |
+
+::: zone-end
+
+In some cases, the permission is not required. For example, if the CLI login user is already an Active Directory Administrator on SQL server, then you don't need to have `Microsoft.Sql/servers/administrators/write` permission.
 
 
 ## Connect to database with Azure Active Directory authentication
