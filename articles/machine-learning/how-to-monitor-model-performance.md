@@ -116,25 +116,29 @@ create_monitor:
 You can use the following code to set up out-of-box model monitoring:
 
 ```python
-#get a handle to the workspace
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.constants import TimeZone
-from azure.ai.ml.dsl import pipeline
+from azure.identity import InteractiveBrowserCredential
+from azure.ai.ml import MLClient
 from azure.ai.ml.entities import (
+    MonitoringTarget,
+    MonitorDefinition,
     MonitorSchedule,
     RecurrencePattern,
-    RecurrenceTrigger
+    RecurrenceTrigger,
+    SparkResourceConfiguration,
 )
 
+#get a handle to the workspace
 ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
 
-cpu_cluster = ml_client.computes.get("my_spark_compute")
+spark_configuration = SparkResourceConfiguration(
+    instance_type="standard_e4s_v3",
+    runtime_version="3.2"
+)
 
 monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
 
-monitor_definition = MonitorDefinition(compute=cpu_cluster, monitoring_target=monitoring_target)
+monitor_definition = MonitorDefinition(compute=spark_configuration, monitoring_target=monitoring_target)
 
 recurrence_trigger = RecurrenceTrigger(
     frequency="day",
@@ -282,9 +286,6 @@ You can use the following code for advanced model monitoring setup:
 #get a handle to the workspace
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
 
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.constants import TimeZone
-from azure.ai.ml.dsl import pipeline
 from azure.ai.ml.entities import (
     MonitorSchedule,
     RecurrencePattern,
