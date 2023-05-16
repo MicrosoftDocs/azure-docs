@@ -17,9 +17,9 @@ ms.author: jasteppe
 
 By using the `$convert-data` custom endpoint in the FHIR service, you can convert health data from various formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports three types of data conversion: 
 
-* HL7v2 to FHIR
-* C-CDA to FHIR
-* JSON to FHIR (intended for custom conversion mapping)
+* HL7v2 to FHIR R4
+* C-CDA to FHIR R4
+* JSON to FHIR R4 (intended for custom conversion mapping)
 * FHIR STU3 to FHIR R4
 
 > [!NOTE]
@@ -45,7 +45,7 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 | `rootTemplate` | The root template to use while transforming the data. | For **HL7v2**:<br> "ADT_A01", "ADT_A02", "ADT_A03", "ADT_A04", "ADT_A05", "ADT_A08", "ADT_A11",  "ADT_A13", "ADT_A14", "ADT_A15", "ADT_A16", "ADT_A25", "ADT_A26", "ADT_A27", "ADT_A28", "ADT_A29", "ADT_A31", "ADT_A47", "ADT_A60", "OML_O21", "ORU_R01", "ORM_O01", "VXU_V04", "SIU_S12", "SIU_S13", "SIU_S14", "SIU_S15", "SIU_S16", "SIU_S17", "SIU_S26", "MDM_T01", "MDM_T02"<br><br> For **C-CDA**:<br> "CCD", "ConsultationNote", "DischargeSummary", "HistoryandPhysical", "OperativeNote", "ProcedureNote", "ProgressNote", "ReferralNote", "TransferSummary" <br><br> For **JSON**: <br> "ExamplePatient", "Stu3ChargeItem" <br><br> For **FHIR STU3**: <br> STU3 Resource Name (for example: "Patient", "Observation", "Organization") <br> |
 
 > [!NOTE]
-> FHIR STU3 to R4 templates are "diff" Liquid templates that provide mappings of field differences only between a STU3 resource and its equivalent resource in FHIR R4 standard. Some of the STU3 resources are renamed or removed from R4. Please refer to [Resource differences and constraints for STU3 to R4 conversion](https://github.com/microsoft/FHIR-Converter/blob/main/docs/Stu3R4-resources-differences.md).
+> FHIR STU3 to FHIR R4 templates are "diff" Liquid templates that provide mappings of field differences only between a FHIR STU3 resource and its equivalent resource in the FHIR R4 standard. Some of the FHIR STU3 resources are renamed or removed from FHIR R4. Please refer to [Resource differences and constraints for STU3 to R4 conversion](https://github.com/microsoft/FHIR-Converter/blob/main/docs/Stu3R4-resources-differences.md).
 
 > [!NOTE]
 > JSON templates are sample templates for use in building your own conversion mappings. They are *not* "default" templates that adhere to any pre-defined health data message types. JSON itself is not specified as a health data format, unlike HL7v2 or C-CDA. Therefore, instead of providing "default" JSON templates, we provide some sample JSON templates that you can use as a starting point for your own customized mappings.
@@ -53,8 +53,8 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 > [!WARNING]
 > Default templates are released under the MIT License and are *not* supported by Microsoft Support.
 >
-> We only provide default templates to help you get started with your data conversion workflow. These default templates are not intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following:
-
+> The default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following:
+>
 > 1. Host your own copy of the templates in an Azure Container Registry instance.
 > 2. Register the templates to the FHIR service. 
 > 3. Use your registered templates in your API calls.
