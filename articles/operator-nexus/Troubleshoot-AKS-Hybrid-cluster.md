@@ -139,7 +139,7 @@ If the resource has already been created, see the section on Surfacing Errors be
 
 Depending on the mechanism used for creation (Azure Portal, CLI, ARM), it is sometimes hard to see why resources are Failed.
 
-One useful tool to help surface errors is the [az monitor activity-log](/cli/azure/monitor/activity-log?view=azure-cli-latest#) command, which can be used to show activities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
+One useful tool to help surface errors is the [az monitor activity-log](/cli/azure/monitor/activity-log) command, which can be used to show activities for a specific resource id, resource group, or correlation id. (The information is also present in the Activity Log in the Azure Portal)
 
 For example, to see why a defaultcninetwork failed:
 
@@ -192,7 +192,7 @@ Symptoms:
  
  If possible, check:
 
-  - Can the natterizer pod reach the hybridaks vm using the [az hybridaks proxy --h](/cli/azure/hybridaks?view=azure-cli-latest#az-hybridaks-proxy) command
+  - Can the natterizer pod reach the hybridaks vm using the [az hybridaks proxy --h](/cli/azure/hybridaks#az-hybridaks-proxy) command
 
   ```Azure CLI
       $ az hybridaks show -n $name -g $resorucegroup | grep -i defaultcninetwork
