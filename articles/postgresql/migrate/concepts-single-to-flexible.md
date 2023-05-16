@@ -205,7 +205,7 @@ Search for the **azure.extensions** parameter on the Server Parameters blade on 
 :::image type="content" source="./media/concepts-single-to-flexible/allowlist-extensions.png" alt-text="Diagram that shows allow listing of extensions on Flexible Server." lightbox="./media/concepts-single-to-flexible/allowlist-extensions.png":::
 
 > [!NOTE]  
-> If TIMESCALEDB, PG_PARTMAN or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
+> If TIMESCALEDB, POSTGIS, POSTGIS_TOPOLOGY, POSTGIS_SFCGAL or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
 Check if the list contains any of the following extensions:
 - PG_CRON
@@ -234,7 +234,7 @@ Use the **Save and Restart** option and wait for the postgresql server to restar
 Once the pre-migration steps are complete, you're ready to carry out the migration of the production databases of your single server. At this point, you've finalized the day and time of production migration along with a planned downtime for your applications.
 
 - Create a flexible server with a **General-Purpose** or **Memory Optimized** compute tier. Pick a minimum 4VCore or higher SKU to complete the migration quickly. Burstable SKUs are blocked for use as migration target servers.
-- Don't include HA or geo redundancy option while creating flexible server. You can always enable it with zero downtime once the migration from single server is complete. Don't create any read-replicas yet on the flexible server.
+- Don't include HA option while creating flexible server. You can always enable it with zero downtime once the migration from single server is complete. Don't create any read-replicas yet on the flexible server.
 - Before initiating the migration, stop all the applications that connect to your production server.
 - Checkpoint the source server by running **checkpoint** command and restart the source server.
 This command ensures any remaining applications or connections are disconnected. Additionally, you can run **select * from pg_stat_activity;** after the restart to ensure no applications is connected to the source server.
@@ -262,7 +262,7 @@ If the above conditions are met, the table will be migrated in multiple partitio
 ### Post migration
 
 - Once the migration is complete, verify the data on your flexible server and make sure it's an exact copy of the single server.
-- Post verification, enable HA/ backup options as needed on your flexible server.
+- Post verification, enable HA option as needed on your flexible server.
 - Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
 - Migrate users and roles from single to flexible servers. This step can be done by creating users on flexible servers and providing them with suitable privileges or by using the steps that are listed in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md).
 - If you've changed any server parameters from their default values in single server, copy those server parameter values in flexible server.
