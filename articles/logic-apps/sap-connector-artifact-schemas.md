@@ -1,6 +1,6 @@
 ---
 title: SAP artifact schemas
-description: Connect to an SAP server from a Standard workflow in Azure Logic Apps.
+description: Sample SAP artifacts for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: daviburg
@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 05/23/2023
 ---
 
-# SAP artifact schemas in Azure Logic Apps
+# SAP artifact schemas for workflows in Azure Logic Apps
 
 This reference guide provides more information about schemas for SAP artifacts 
 

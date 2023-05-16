@@ -15,11 +15,9 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use this connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
+This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use the SAP connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
 
-> [!IMPORTANT]
-> For Standard logic app workflows, the SAP *built-in* connector is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but is also currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](#connector-technical-reference).
 
 ## SAP compatibility
 
@@ -59,7 +57,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label and built-in connector (preview), which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
-<a name"connector-parameters"></a>
+<a name="connector-parameters"></a>
 
 ### Connector parameters
 
@@ -614,6 +612,17 @@ In Consumption workflows, the **SAP Application Server** and **SAP Message Serve
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
+## Create workflows for common SAP scenarios
+
+For a how-to guide to creating workflows for common SAP integration workloads, see the following sections in [Create workflows for common SAP scenarios](sap-create-example-scenario-workflows.md):
+
+* [Receive message from SAP](sap-create-example-scenario-workflows.md#receive-message-sap)
+* [](sap-create-example-scenario-workflows.md)
+* [](sap-create-example-scenario-workflows.md)
+* [](sap-create-example-scenario-workflows.md)
+* [](sap-create-example-scenario-workflows.md)
+* [](sap-create-example-scenario-workflows.md)
+
 ## Safe typing
 
 By default, when you create your SAP connection, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and the trigger.
@@ -823,106 +832,7 @@ The following screenshot shows the example query's traces results table:
 
 [![Screenshot showing Application Insights with the traces results table.](./media/logic-apps-using-sap-connector/application-insights-traces.png)](./media/logic-apps-using-sap-connector/application-insights-traces.png#lightbox)
 
-## Advanced scenarios
-
-### Change language headers
-
-When you connect to SAP from Logic Apps, the default language for the connection is English. You can set the language for your connection by using the [standard HTTP header `Accept-Language`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) with your inbound requests.
-
-> [!TIP]
-> Most web browsers add an `Accept-Language` header based on the user's settings. The web browser applies this header when you create a new SAP connection in the workflow designer, either update your web browser's settings to use your preferred language, or create your SAP connection using Azure Resource Manager instead of the workflow designer.
-
-For example, you can send a request with the `Accept-Language` header to your logic app workflow by using the **Request** trigger. All the actions in your logic app workflow receive the header. Then, SAP uses the specified languages in its system messages, such as BAPI error messages.
-
-The SAP connection parameters for a logic app workflow don't have a language property. So, if you use the `Accept-Language` header, you might get the following error: **Please check your account info and/or permissions and try again.** In this case, check the SAP component's error logs instead. The error actually happens in the SAP component that uses the header, so you might get one of these error messages:
-
-* `"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"`
-
-* `"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"`
-
-### Confirm transaction explicitly
-
-When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). By default, the **Send to SAP** action handles both the steps for the function transfer and for the transaction confirmation in a single call. The SAP connector gives you the option to decouple these steps. You can send an IDoc and rather than automatically confirm the transaction, you can use the explicit **\[IDOC] Confirm transaction ID** action.
-
-This capability to decouple the transaction ID confirmation is useful when you don't want to duplicate transactions in SAP, for example, in scenarios where failures might happen due to causes such as network issues. When the **Send to SAP** action separately confirms the transaction ID, the SAP system completes the transaction only once.
-
-Here's an example that shows this pattern:
-
-1. Create a blank logic app workflow, and add the Request trigger.
-
-1. From the SAP connector, add the **\[IDOC] Send document to SAP** action. Provide the details for the IDoc that you send to your SAP system.
-
-1. To explicitly confirm the transaction ID in a separate step, in the **Confirm TID** field, select **No**. For the optional **Transaction ID GUID** field, you can either manually specify the value or have the connector automatically generate and return this GUID in the response from the **\[IDOC] Send document to SAP** action.
-
-   ![Screenshot that shows the "[IDOC] Send document to SAP" action properties](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
-
-1. To explicitly confirm the transaction ID, add the **\[IDOC] Confirm transaction ID** action, making sure to [avoid sending duplicate IDocs to SAP](#avoid-sending-duplicate-idocs). Click inside the **Transaction ID** box so that the dynamic content list appears. From that list, select the **Transaction ID** value that's returned from the **\[IDOC] Send document to SAP** action.
-
-   ![Screenshot that shows the "Confirm transaction ID" action](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
-
-   After this step runs, the current transaction is marked complete at both ends, on the SAP connector side and on SAP system side.
-
-#### Avoid sending duplicate IDocs
-
-If you experience an issue with duplicate IDocs being sent to SAP from your logic app workflow, follow these steps to create a string variable to serve as your IDoc transaction identifier. Creating this transaction identifier helps prevent duplicate network transmissions when there are issues such as temporary outages, network issues, or lost acknowledgments.
-
-> [!NOTE]
-> SAP systems forget a transaction identifier after a specified time, or 24 hours by default. 
-> As a result, SAP never fails to confirm a transaction identifier if the ID or GUID is unknown.
-> If confirmation for a transaction identifier fails, this failure indicates that communcation 
-> with the SAP system failed before SAP was able to acknowledge the confirmation.
-
-1. In the workflow designer, add the action **Initialize variable** to your logic app workflow.
-
-1. In the editor for the action **Initialize variable**, configure the following settings. Then, save your changes.
-
-   1. For **Name**, enter a name for your variable. For example, `IDOCtransferID`.
-
-   1. For **Type**, select **String** as the variable type.
-
-   1. For **Value**, select the text box **Enter initial value** to open the dynamic content menu.
-
-   1. Select the **Expressions** tab. In the list of functions, enter the function `guid()`.
-
-   1. Select **OK** to save your changes. The **Value** field is now set to the `guid()` function, which generates a GUID.
-
-1. After the **Initialize variable** action, add the action **\[IDOC] Send document to SAP**.
-
-1. In the editor for the action **\[IDOC] Send document to SAP**, configure the following settings. Then, save your changes.
-
-   1. For **IDOC type** select your message type, and for **Input IDOC message**, specify your message.
-
-   1. For **SAP release version**, select your SAP configuration's values.
-
-   1. For **Record types version**, select your SAP configuration's values.
-
-   1. For **Confirm TID**, select **No**.
-
-   1. Select **Add new parameter list** > **Transaction ID GUID**.
-
-   1. Select the text box to open the dynamic content menu. Under the **Variables** tab, select the name of the variable that you created, for example, `IDOCtransferID`.
-
-1. On the title bar of the action **\[IDOC] Send document to SAP**, select **...** > **Settings**.
-
-   For **Retry Policy**, it's recommended to select **Default** &gt; **Done**. However, you can instead configure a custom policy for your specific needs. For custom policies, it's recommended to configure at least one retry to overcome temporary network outages.
-
-1. After the action **\[IDOC] Send document to SAP**, add the action **\[IDOC] Confirm transaction ID**.
-
-1. In the editor for the action **\[IDOC] Confirm transaction ID**, configure the following settings. Then, save your changes.
-
-1. For **Transaction ID**, enter the name of your variable again. For example, `IDOCtransferID`.
-
-1. Optionally, validate the deduplication in your test environment.
-
-    1. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step.
-    
-    1. To validate which IDoc number got assigned after each call to the **\[IDOC] Send document to SAP** action, use the **\[IDOC] Get IDOC list for transaction** action with the same **Transaction ID** and the **Receive** direction.
-
-       If the same, single IDoc number is returned for both calls, the IDoc was deduplicated.
-
-   When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
-
 ## Next steps
 
-* [Create example SAP workflows](create-example-workflows-sap.md)
+* [Create SAP common scenario workflows](sap-create-example-scenario-workflows.md)
 * [Connect to on-premises systems  from Azure Logic Apps](logic-apps-gateway-connection.md)
