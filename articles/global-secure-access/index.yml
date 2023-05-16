@@ -7,12 +7,10 @@ metadata:
    title: Global Secure Access documentation
    description: Global Secure Access provides secure network access for both public Internet and private clouds.
    ms.service: network-access
-   ms.subservice: app-proxy
-   ms.workload: identity
    ms.topic: landing-page
    ms.date: 03/22/2023
-   author: kenwith
-   ms.author: kenwith
+   author: shlipsey3
+   ms.author: sarahlipsey
    manager: amycolannino
 
 landingContent:

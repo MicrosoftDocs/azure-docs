@@ -19,10 +19,10 @@ items:
       href: how-to-manage-branch-locations.md
     - name: Define quick access ranges
       href: how-to-define-quick-access-ranges.md
-    - name: Create Conditional Access policies
-      href: how-to-create-conditional-access-policies.md
-    - name: Install Windows client
+    - name: MISSING DETAIL Install Windows client
       href: how-to-install-windows-client.md
+    - name: MISSING DETAIL Get started with Global Secure Access
+      href: how-to-get-started-with-global-secure-access.md
 - name: How-to guides
   expanded: true
   items:
@@ -48,13 +48,13 @@ items:
         href: how-to-source-ip-restoration.md
       - name: Compliant networks
         href: how-to-compliant-network.md
-  - name: NEED A NAME
+      - name: Universal tenant restrictions
+        href: how-to-universal-tenant-restrictions.md
+  - name: Applications
     expanded: false
     items:
     - name: Deploy on premises connectors
       href: how-to-deploy-on-premises-connectors.md
-    - name: Universal tenant restrictions
-      href: how-to-universal-tenant-restrictions.md
 -   name: Monitor
     expanded: false
     items:
