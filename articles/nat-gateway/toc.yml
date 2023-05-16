@@ -35,8 +35,6 @@ items:
     href: tutorial-migrate-outbound-nat.md
   - name: Migrate a virtual machine public IP address
     href: tutorial-migrate-ilip-nat.md
-  - name: Deploy a NAT gateway with DDoS protection
-    href: tutorial-protect-nat-gateway-ddos.md
   expanded: true
 - name: Concepts
   items:
