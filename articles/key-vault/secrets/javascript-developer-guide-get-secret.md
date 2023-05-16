@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Get a secret from Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-sdk-client.md), then use the client to get a secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to get a secret from Azure Key Vault.
 
 ## Get current version of secret
 

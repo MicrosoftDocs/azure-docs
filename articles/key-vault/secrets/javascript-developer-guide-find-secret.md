@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # List or find a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-sdk-client.md), then use the client to find a secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to find a secret from Azure Key Vault.
 
 All list methods return an iterable. You can get all items in the list or chain the [byPage()](/javascript/api/@azure/core-paging/pagedasynciterableiterator#@azure-core-paging-pagedasynciterableiterator-bypage) method to iterate a page of items at a time. 
 

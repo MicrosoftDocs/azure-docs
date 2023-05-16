@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Backup and restore a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-sdk-client.md), then use the client to back up and restore an existing secret from Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to back up and restore an existing secret from Azure Key Vault.
 
 ## Back up a secret
 

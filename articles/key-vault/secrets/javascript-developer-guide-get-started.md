@@ -49,7 +49,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
     npm install @azure/identity
     ```
 
-## Authorize access and connect to Blob Storage
+## Authorize access and connect to Key Vault
 
 Azure Active Directory (Azure AD) provides the most secure connection by managing the connection identity ([**managed identity**](../../active-directory/managed-identities-azure-resources/overview.md)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
 
@@ -108,8 +108,8 @@ const secret = await client.getSecret("MySecretName");
 
 ## See also
 
-- [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-- [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
-- [API reference](/javascript/api/@azure/storage-blob/)
-- [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
+- [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.7.0/sdk/keyvault/keyvault-secrets/samples)
+- [API reference](/javascript/api/overview/azure/keyvault-secrets-readme)
+- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.7.0/sdk/keyvault/keyvault-secrets)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)

@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Set, update, and rotate a secret in Azure Key Vault with JavaScript
 
-Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-sdk-client.md), then use the client to set, update, and rotate a secret in Azure Key Vault.
+Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-authenticate-get-started.md), then use the client to set, update, and rotate a secret in Azure Key Vault.
 
 ## Set a secret
 
