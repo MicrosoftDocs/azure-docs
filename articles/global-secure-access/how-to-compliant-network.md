@@ -5,7 +5,7 @@ description: Require known compliant network locations with Conditional Access.
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 05/15/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,7 +43,7 @@ The preview does not support IPv6 traffic. IPv6 must be turned off for this prev
 
 Some Outlook traffic may use the QUIC protocol. Global Secure Access doesn’t yet support the QUIC protocol.
 
-### Enable Global Secure Access signaling for Conditional Access
+## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow the compliant network check an administrator must take the following steps.
 
@@ -55,10 +55,6 @@ To enable the required setting to allow the compliant network check an administr
 
 > [!CAUTION]
 > If your organization has active Conditional Access policies based on compliant network check, and you disable Global Secure Access signaling in Conditional Access, you may unintentionally block targeted end-users from being able to access the resources. If you must disable this feature, first delete any corresponding Conditional Access policies. 
-
-## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
-
-The PM will provide more detail here
 
 ## Protect Exchange and SharePoint Online behind the compliant network
 
@@ -93,9 +89,14 @@ After administrators confirm the policy settings using [report-only mode](../act
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
 
+## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
+
+The PM will provide more detail here
+
 ## Troubleshooting
 
 Verify the new named location was automatically created using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
 
 GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
 
+## Next steps

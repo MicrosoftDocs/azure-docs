@@ -5,7 +5,7 @@ description: What are universal tenant restrictions
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 05/15/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
