@@ -57,7 +57,7 @@ Data collection with custom logging allows you to log pandas DataFrames directly
 
 ### Update your scoring script with custom logging code
 
-First, you'll need to add custom logging code to your scoring script (`score.py`). For custom logging, you'll need the `azure-ai-monitoring` package. For more information, see the comprehensive [PyPI page for the data collector SDK](https://pypi.org/project/azureml-ai-monitoring/).
+First, you'll need to add custom logging code to your scoring script (`score.py`). For custom logging, you'll need the `azureml-ai-monitoring` package. For more information, see the comprehensive [PyPI page for the data collector SDK](https://pypi.org/project/azureml-ai-monitoring/).
 
 1. Import the `azureml-ai-monitoring` package by adding the following line to the top of the scoring script:
 
