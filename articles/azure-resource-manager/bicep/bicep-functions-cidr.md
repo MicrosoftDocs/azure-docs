@@ -3,7 +3,7 @@ title: Bicep functions - CIDR
 description: Describes the functions to use in a Bicep file to manipulate IP addresses and create IP address ranges.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/11/2023
+ms.date: 05/16/2023
 ---
 
 # CIDR functions for Bicep
@@ -69,7 +69,7 @@ The preceding example returns the following object:
 
 ## cidrSubnet
 
-`cidrSubnet(network, cidr, subnetIndex)`
+`cidrSubnet(network, newCIDR, subnetIndex)`
 
 Splits the specified IP address range in CIDR notation into subnets with a new CIDR value and returns the IP address range of the subnet with the specified index.
 
@@ -80,7 +80,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:-|:-|:-|:-|
 | network | Yes | string | String containing an IP address range to convert in CIDR notation. |
-| cidr | Yes | int | An integer representing the CIDR to be used to subnet.  |
+| newCIDR | Yes | int | An integer representing the CIDR to be used to subnet. This value should be equal or larger than the CIDR value in the `network` parameter. |
 | subnetIndex | Yes | int | Index of the desired subnet IP address range to return. |
 
 ### Return value
@@ -129,7 +129,7 @@ The preceding example returns the following array:
 
 `cidrHost(network, hostIndex)`
 
-Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation.
+Calculates the usable IP address of the host with the specified index on the specified IP address range in CIDR notation. In the case of `192.168.1.0/24`, there are reserved IP addresses: `192.168.1.0` serves as the network identifier address, while `192.168.1.255` functions as the broadcast address. Only IP addresses ranging from `192.168.1.1` to `192.168.1.254` can be assigned to hosts, which are refer to as "usable" IP addresses. Consequently, when the function is passed a hostIndex of `0`, `192.168.1.1` is returned.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
