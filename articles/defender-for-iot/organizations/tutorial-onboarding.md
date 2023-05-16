@@ -292,7 +292,7 @@ This procedure describes how to install the sensor software on your VM.
 
     The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in.
 
-1. Enter the credentials for one of the users that you'd copied down in the [previous step](#credentials).
+1. Enter the credentials for the `support` users with the credentials that you'd copied down in the [previous step](#credentials).
 
     - If the `iot-sensor login:` prompt disappears, press **ENTER** to have it shown again.
     - When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
