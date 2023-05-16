@@ -32,7 +32,7 @@ You can get pronunciation assessment scores for:
 > [!NOTE]
 > The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale.
 > 
-> Usage of pronunciation assessment costs the same as standard Speech to text pay-as-you-go [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). You can also purchase standard Speech to text commitment tier for pronunciation assessment. For instance, if you previously used 25,000 hours of Speech to text (STT) and 25,000 hours of Pronunciation Assessment (PA), the total monthly cost would have been $50,000. However, you can now purchase a 50,000-hour commitment tier in advance for half the price at $25,000 per month. Any overage hours on either STT or PA that exceed 50,000 will also be charged at half price ($0.5 per hour) instead of the $1 per hour pay-as-you-go price. This effectively provides a 50% discount.
+> Usage of pronunciation assessment costs the same as standard Speech to text, whether pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment.
 >
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
