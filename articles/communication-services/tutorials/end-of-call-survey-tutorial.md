@@ -190,16 +190,18 @@ Custom survey data will be available under your App Insights workspace. You can 
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])
--  Query last 24 hours call rating. 
+-  Query the call rating data-
    ```KQL
    ACSCallSurvey
    | where TimeGenerated > now(-24h)
    ```
 -  Add another query to get data from App Insights (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Application Insights`
--  Custom events query.
+-  Query the custom events-
    ```KQL
    customEvents
+   | where timestamp > now(-24h)
+   | where name == 'CallSurvey'
    | extend d=parse_json(customDimensions)
    | project SurveyId = d.id, ImprovementSuggestion = d.improvementSuggestion
    ```
