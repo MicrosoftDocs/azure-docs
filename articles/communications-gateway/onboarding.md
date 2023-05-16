@@ -67,7 +67,7 @@ Your onboarding team will work through the steps described in [Prepare for live 
 
  - Work through the test plan we agreed, with your help.
  - Provide training on the Azure Communications Gateway solution. Training topics include:
-   - A technical overview of the Azure Commmunications Gateway platform.
+   - A technical overview of the Azure Communications Gateway platform.
    - How your engineering and operations staff can interact with Azure Communications Gateway and Operator Connect.
    - How your teams can get support for Azure Communications Gateway and Operator Connect.
  - Help you to prepare for launch.
