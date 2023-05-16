@@ -127,7 +127,7 @@ The solution is to fix JSON files at first and then reopen the pipeline using Au
 
 For more troubleshooting help, try these resources:
 
-* [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+* [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
