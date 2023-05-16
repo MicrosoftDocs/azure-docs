@@ -13,6 +13,12 @@ ms.topic: how-to
 
 # Configure a dev box by using Azure VM Image Builder
 
+
+   > [!IMPORTANT]
+   > Currently Microsoft Dev Box only supports images that use the security type [Trusted Launch](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2#deploy-a- trusted-launch-vm) enabled. 
+   >
+   >
+
 When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments.
 
 Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
