@@ -19,8 +19,17 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## May 2023
 
+- [Microsoft Sentinel solution for D365 F&O (Preview)](#microsoft-sentinel-solution-for-d365-fo-preview)
 - [Use Hunts to conduct end-to-end proactive threat hunting in Microsoft Sentinel](#use-hunts-to-conduct-end-to-end-proactive-threat-hunting)
 - [Audit and track incident task activity](#audit-and-track-incident-task-activity)
+
+### Microsoft Sentinel solution for D365 F&O (Preview)
+
+The Microsoft Sentinel Solution for D365 F&O monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
+
+The solution includes the **Dynamics 365 F&O** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
+
+[Learn more about the solution](dynamics-365/dynamics-365-finance-operations-solution-overview.md).
 
 ### Use Hunts to conduct end-to-end proactive threat hunting
 
