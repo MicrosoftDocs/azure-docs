@@ -37,7 +37,7 @@ sections:
       - question: |
           What's the difference between Azure AD Connect sync and cloud sync?
         answer: |
-          With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. 
+          With Azure AD Connect sync, provisioning runs on the on-premises sync server. Configuration is stored on the on-premises sync server. With Azure AD Connect cloud sync, the provisioning configuration is stored in the cloud and runs in the cloud as part of the Azure AD provisioning service. See the detailed article [What is Azure AD Connect cloud sync](what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) for a detailed comparison.
 
       - question: |
           Can I use cloud sync to sync from multiple Active Directory forests?
