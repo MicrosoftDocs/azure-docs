@@ -97,7 +97,8 @@ To download and install the extension:
 
 An icon is added to the right of the address bar, which enables sign in and customization of the extension.
 
-Note: Sign-in into the extension is currently not supported for Guest B2B Microsoft Accounts (MSA).
+> [!NOTE]
+> Sign-in into the extension is currently not supported for Guest B2B Microsoft Accounts (MSA).
 
 ### Permissions
 
