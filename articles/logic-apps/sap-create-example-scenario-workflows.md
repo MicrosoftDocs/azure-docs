@@ -36,16 +36,21 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 1. [Follow these general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow) to add the SAP managed connector trigger named **When a message is received** to your workflow.
 
-1. If prompted. provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
+1. If prompted. provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
-   | Parameter | Description |
-   |-----------|-------------|
-   | **Connection name** | Enter a name for the connection. |
-   | **Data Gateway** | 1. For **Subscription**, select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. <br><br>2. For **Connection Gateway**, select your data gateway resource in Azure. |
-   | **Client** | The SAP client ID to use for connecting to your SAP server |
-   | **Authentication Type** | The authentication type to use for your connection. To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=multi-tenant#enable-secure-network-communications). |
-   | **Logon Type** | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>- **Application Server**: **AS Host**, **AS Service**, and **AS System Number** <br><br>- **Group**: **MS Server Host**, **MS Service Name or Port Number**, **MS System ID**, and **MS Logon Group** |
-   | **Safe Typing** | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Connection name** | Yes | Enter a name for the connection. |
+   | **Data Gateway** | Yes | 1. For **Subscription**, select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. <br><br>2. For **Connection Gateway**, select your data gateway resource in Azure. |
+   | **Client** | Yes | The SAP client ID to use for connecting to your SAP server |
+   | **Authentication Type** | Yes | The authentication type to use for your connection, which must be **Basic** (username and password). To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
+   | **SAP Username** | Yes | The username for your SAP server |
+   | **SAP Password** | Yes | The password for your SAP server |
+   | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
+   | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
+
+   For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
    After Azure Logic Apps sets up and tests your connection, the trigger information box appears.
 
@@ -56,8 +61,6 @@ The following example logic app workflow triggers when the workflow's SAP trigge
    > This SAP trigger is a webhook-based trigger, not a polling trigger, and doesn't include options to specify 
    > a polling schedule. For example, when you use the managed SAP connector with the on-premises data gateway, 
    > the trigger is called from the data gateway only when a message arrives, so no polling is necessary.
-   >
-   > The available trigger parameters vary based on whether you set the **Logon Type** parameter value to **Application Server** or **Group**.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
@@ -68,7 +71,17 @@ The following example logic app workflow triggers when the workflow's SAP trigge
    | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Add new parameter** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
    | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, in the trigger, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
    | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **Receive IDOCS with unreleased segements**, and select **Yes** or **No**. |
-   | **SncPartnerNames** | No | Filter using a list of SNC partner names by entering each name separated by a vertical bar (**\|**). To add this parameter, in the trigger, from the **Add new parameter** list, select **SncPartnerNames**, and enter the names as required. |
+   | **SncPartnerNames** | No | Filter the messages that your receive from your SAP server based on a list of SNC partner names. To add this parameter, in the trigger, from the **Add new parameter** list, select **SncPartnerNames**, and enter each name separated by a vertical bar (**\|**). |
+
+   > [!NOTE]
+   >
+   > The SAP managed connector parameters don't specify or save the language used for sending data to your SAP server. 
+   > Instead, at both design time and run time, the connector uses your web browser's local language from each request 
+   > that's sent to your server. 
+   >
+   > For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests the SAP connection with 
+   > Portuguese, but doesn't save the connection with that language. At run time, if no accept header is passed, 
+   > by default, English is used.
 
    The following example shows a basically configured SAP managed trigger in a Consumption workflow:
 
@@ -134,7 +147,7 @@ You might get a similar error when SAP Application server or Message server name
 
 > [!NOTE]
 >
-> During preview, the SAP built-in trigger is available in the Azure portal, but currently, 
+> The preview SAP built-in trigger is available in the Azure portal, but currently, 
 > the trigger can't receive calls from SAP when deployed in Azure. To fire the trigger, 
 > you can run the workflow locally in Visual Studio Code. For more information, see 
 > [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
@@ -155,7 +168,7 @@ You might get a similar error when SAP Application server or Message server name
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server |
-   | **Language** | Yes | Either **Default** or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). |
+   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). **Note**: The SAP built-in connector saves this parameter value s part of the SAP connection parameters. |
 
 1. When you're done, select **Create**.
 
@@ -165,13 +178,13 @@ You might get a similar error when SAP Application server or Message server name
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **IDoc Format** | Yes | The format to use for receiving IDocs, for example: <br><br>- To receive IDocs as SAP plain XML, in the trigger, open the **IDoc Format** list, and select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, in the trigger, open the **IDoc Format** list, and select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **IDoc Format** | Yes | The format to use for receiving IDocs. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
    | **SAP RFC Server Degree of Parallelism** | Yes | The number of calls to process in parallel |
-   | **Allow Unreleased Segment** | Yes | Receive IDocs with or without unreleased segments |
+   | **Allow Unreleased Segment** | Yes | Receive IDocs with or without unreleased segments. From the list, select **Yes** or **No**. |
    | **SAP Gateway Host** | Yes | The registration gateway host for the SAP RFC server |
    | **SAP Gateway Service** | Yes | The registration gateway service for the SAP RFC server |
    | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server |
-   | **SAP SNC Partner Names** | No | A list of SNC partner names with each named separated by a vertical bar (**\|**) |
+   | **SAP SNC Partner Names** | No | Filter the messages that your receive from your SAP server based on a list of SNC partner names. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**, and enter each name separated by a vertical bar (**\|**). |
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
