@@ -33,11 +33,11 @@ The key to experiencing the updated behavior is to start in **Content hub (Previ
 
 For more information on the new solution content behavior, see [Discover and deploy OOTB content](sentinel-solutions-deploy.md#enable-content-items-in-a-solution).
 
-If there was a particular sample query for a third party data connector you are looking for, we still publish these in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors/jamf-protect.md).
+If there was a particular sample query for a third party data connector you are looking for, we still publish them in our **All connectors** index. For example, here are the sample queries for the [Jamf Protect connector](data-connectors/jamf-protect.md).
 
 ## Microsoft Sentinel GitHub changes
 
-Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/Azure-Sentinel) for community contributions that are vetted by Microsoft and the community. It's the source for most of the content items in the content hub.
+Microsoft Sentinel has an official [GitHub repository](https://github.com/Azure/Azure-Sentinel) for community contributions vetted by Microsoft and the community. It's the source for most of the content items in the content hub.
 
 For consistent discovery of this content, the OOTB content centralization changes have already been extended to the Microsoft Sentinel GitHub repo:
 
