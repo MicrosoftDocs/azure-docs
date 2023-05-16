@@ -50,7 +50,11 @@ Follow these steps to identify where multiple role assignments for users can be 
     | order by count_ desc
     ```
 
-    The following shows an example of the output:
+    The following shows an example of the output. The results are ordered by the number of principals.
+
+1. For a row, select **See details** to open the **Details** pane.
+
+1. Under **AllPrincipals**, get the list of the principal IDs with the same role assignment.
 
 1. Create an Azure AD group and add the principals to the group.
 
@@ -62,7 +66,7 @@ Follow these steps to identify where multiple role assignments can be replaced w
 
 1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
-1. Run the following query to get role assignments that assign the same principal and role definition at different scopes.
+1. Run the following query to get role assignments that assign the same principal and role at different scopes.
 
     ```kusto
     AuthorizationResources  
@@ -84,11 +88,15 @@ Follow these steps to identify where multiple role assignments can be replaced w
      | order by count_ desc
     ```
 
-    The following shows an example of the output:
+    The following shows an example of the output. The results are ordered by the number of scopes.
 
-1.  Replace role assignments with a single role assignment at the highest scope.
+1. For a row, select **See details** to open the **Details** pane.
 
-## Delete unused Azure custom roles
+1. Under **Scopes**, get the list of the scopes for the same principal and role.
+
+1. Replace the multiple role assignments with a single role assignment at the highest scope.
+
+## Find and delete unused Azure custom roles
 
 Azure supports up to 5000 custom roles in a directory. If you get the error message: `Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)`, you can use these steps to find and delete unused custom roles.
 
