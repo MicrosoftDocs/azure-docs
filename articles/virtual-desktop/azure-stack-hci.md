@@ -22,7 +22,7 @@ There are two ways to deploy an Azure Virtual Desktop environment with session h
 
 - **Manual deployment**: you create virtual machines on your Azure Stack HCI cluster, then adds them to a new host pool.
 
-- **Automated deployment**: virtual machines are created by the Arc VM Management Resource Bridge from an existing image, then adds them to a new host pool.
+- **Automated deployment**: virtual machines are created by the Arc VM Management Resource Bridge from an existing image, then added to a new host pool.
 
 # [Manual deployment](#tab/manual-deployment)
 
