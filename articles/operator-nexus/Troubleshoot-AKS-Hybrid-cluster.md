@@ -174,4 +174,8 @@ The result:
 
 There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. It's been seen on nodes that have Azure Arc pods that are consuming many compute resources. At the moment, article of discussion on how to properly mitigate this issue.
  
+
+For additional log information, refer [Log Analytic worspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace)
+
  If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
