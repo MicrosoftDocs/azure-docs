@@ -104,11 +104,11 @@
         - name: Static Web Apps
           href: tutorial-serverless-static-web-app.md
     - name: Monitor and manage
-          items:
-            - name: Audit compliance using Azure Policy
-              href: howto-monitor-azure-policy.md
-            - name: Move resource across regions
-              href: howto-move-across-regions.md
+      items:
+        - name: Audit compliance using Azure Policy
+          href: howto-monitor-azure-policy.md
+        - name: Move resource across regions
+          href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
         - name: Debug event handlers locally
