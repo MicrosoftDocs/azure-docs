@@ -164,6 +164,7 @@ The Azure Connected Machine agent is designed to manage agent and system resourc
 During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
 
 | | Windows | Linux |
+| --- | --- | --- |
 | **CPU usage (normalized to 1 core)** | 0.07% | 0.02% |
 | **Memory usage** | 57 MB | 42 MB |
 
