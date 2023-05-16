@@ -47,7 +47,7 @@ The quality of data you train your model with affects model performance greatly.
 * Consider where your data comes from. If you are collecting data from one person, department, or part of your scenario, you are likely missing diversity that may be important for your model to learn about. 
 
 > [!NOTE]
-> If your documents are in multiple languages, select the **multiple languages** option during [project creation](../quickstart.md) and set the **language** option to the language of the majority of your documents.
+> If your documents are in multiple languages, select the **multiple languages** option during project creation and set the **language** option to the language of the majority of your documents.
 
 ## Data preparation
 

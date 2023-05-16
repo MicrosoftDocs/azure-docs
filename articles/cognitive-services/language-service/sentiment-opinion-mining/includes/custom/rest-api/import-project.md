@@ -9,7 +9,7 @@ ms.date: 05/24/2022
 ms.author: aahi
 ---
 
-Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).
+Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. <!--Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).-->
 
 If a project with the same name already exists, the data of that project is replaced.
 
@@ -111,7 +111,7 @@ Once you send your API request, you’ll receive a `202` response indicating tha
 
 Possible error scenarios for this request:
 
-* The selected resource doesn't have [proper permissions](../../how-to/create-project.md#using-a-pre-existing-language-resource) for the storage account.
+* The selected resource doesn't have [proper permissions](../../../custom/how-to/create-project.md#using-a-pre-existing-language-resource) for the storage account.
 * The `storageInputContainerName` specified doesn't exist.
 * Invalid language code is used, or if the language code type isn't string.
 * `multilingual` value is a string and not a boolean.
