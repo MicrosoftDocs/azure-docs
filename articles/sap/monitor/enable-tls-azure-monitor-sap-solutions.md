@@ -10,9 +10,7 @@ ms.author: sakhare
 #Customer intent: I am a SAP BASIS or cloud infrastructure team memever, i want to deploy Azure Monitor for SAP solutions with secure communication.
 ---
 
-# Enable TLS 1.2 or higher in Azure Monitor for SAP solutions (preview)
-
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
+# Enable TLS 1.2 or higher in Azure Monitor for SAP solutions 
 
 In this document, learn about secure communication with TLS 1.2 or higher in Azure Monitor for SAP solutions.
 
