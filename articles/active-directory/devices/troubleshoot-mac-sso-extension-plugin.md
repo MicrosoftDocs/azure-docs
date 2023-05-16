@@ -383,7 +383,7 @@ The following actions should take place for a successful interactive sign-on:
 1. Return an access token to the client application to access the Microsoft Graph with a scope of User.Read.
 
 > [!IMPORTANT]
-> The sample log snippets that follows, have been annoted with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
+> The sample log snippets that follows, have been annotated with comment headers // that are not seen in the logs. They are used to help illustrate a specific action being undertaken. We have documented the log snippets this way to assist with copy and paste operations. In addition, the log examples have been trimmed to only show lines of significance for troubleshooting.
 
 The User clicks on the **Call Microsoft Graph API** button to invoke the sign-in process.
 
@@ -444,7 +444,7 @@ Resolved authority, validated: YES, error: 0
 [MSAL] Resolving authority: Masked(not-null), upn: Masked(null)
 [MSAL] Resolved authority, validated: YES, error: 0
 [MSAL] Start webview authorization session with webview controller class MSIDAADOAuthEmbeddedWebviewController: 
-[MSAL] Presenting web view contoller. 
+[MSAL] Presenting web view controller. 
 ```
 
 The logging sample can be broken down into three segments:
@@ -471,7 +471,7 @@ SSOExtensionLogs
 //Acquire PRT//
 ///////////////
 [MSAL] -completeWebAuthWithURL: msauth://microsoft.aad.brokerplugin/?code=(not-null)&client_info=(not-null)&state=(not-null)&session_state=(not-null)
-[MSAL] Dismissed web view contoller.
+[MSAL] Dismissed web view controller.
 [MSAL] Result from authorization session callbackURL host: microsoft.aad.brokerplugin , has error: NO
 [MSAL] (Default accessor) Looking for token with aliases (
     "login.windows.net",
