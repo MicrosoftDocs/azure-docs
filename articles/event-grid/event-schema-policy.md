@@ -18,7 +18,7 @@ tutorials to use Azure Policy as an event source.
 
 ## Next steps
 
-- For a walkthrough routing Azure Policy state change events, see
+- For a walkthrough on routing Azure Policy state change events, see
   [Use Event Grid for policy state change notifications](../governance/policy/tutorials/route-state-change-events.md).
 - For an overview of integrating Azure Policy with Event Grid, see
   [React to Azure Policy events by using Event Grid](../governance/policy/concepts/event-overview.md).
