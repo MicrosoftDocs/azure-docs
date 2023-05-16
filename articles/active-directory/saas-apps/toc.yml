@@ -250,6 +250,8 @@
         href: autotaskworkplace-tutorial.md
       - name: Aventri
         href: etouches-tutorial.md
+      - name: Avionte Bold SAML Federated SSO
+        href: avionte-bold-saml-federated-sso-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
       - name: AwareGo
