@@ -100,9 +100,9 @@
         - name: Autoscale
           href: howto-scale-autoscale.md
     - name: Intergrate
-        href: howto-intergrate.md
+      href: howto-intergrate.md
     - name: Manage
-        href: howto-manage.md
+      href: howto-manage.md
     - name: Troubleshoot
       items:
         - name: Debug event handlers locally
