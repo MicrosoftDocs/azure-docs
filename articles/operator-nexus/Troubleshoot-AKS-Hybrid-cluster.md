@@ -202,6 +202,7 @@ Symptoms:
   ```Azure CLI
   $ az networkcloud defaultcninetwork show -g $resorucegroup -n defaultcninetwork-$ | grep -i ipv4ConnectedPrefix
     ```
+
   - Can the hybridaks vm reach its default gateway?
 
   ```bash
