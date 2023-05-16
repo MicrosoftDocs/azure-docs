@@ -307,7 +307,7 @@ This procedure describes how to validate your installation using the sensor's ow
 
 **To validate your installation**:
 
-1. Sign in to the OT sensor.
+1. Sign in to the OT sensor as the `support` user.
 
 1. Select **System Settings** > **Sensor management** > **System Health Check**.
 
