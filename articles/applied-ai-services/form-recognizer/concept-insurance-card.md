@@ -93,7 +93,7 @@ See how data is extracted from health insurance cards using the Form Recognizer 
 |`PrescriptionInfo.RxPlan`|`string`|Prescription Plan number|A1|
 |`Pbm`|`string`|Pharmacy Benefit Manager for the plan|CVS CAREMARK|
 |`EffectiveDate`|`date`|Date from which the plan is effective|08/12/2012|
-|`Copays`|`array`|Array holding list of CoPay Benefits||
+|`Copays`|`array`|Array holding list of copay Benefits||
 |`Copays.*`|`object`|||
 |`Copays.*.Benefit`|`string`|Co-Pay Benefit name|Deductible|
 |`Copays.*.Amount`|`currency`|Co-Pay required amount|$1,500|

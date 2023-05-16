@@ -32,13 +32,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * [🆕 Form Recognizer Overview](overview.md?view=form-recog-3.0.0&preserve-view=true) has been improved to provide enhanced navigation, structured access points, and enriched images.
 
-* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) is now a standalone article that provides guidance for choosing the best Form Recognizer solution for your projects and workflows via a video presentation and decision tables.
+* [🆕 Choose a Form Recognizer model](choose-model-feature.md?view=form-recog-3.0.0&preserve-view=true) is now a standalone that provides guidance for choosing the best Form Recognizer solution for your projects and workflows.
 
 ## April 2023
 
 **Announcing the latest Azure Form Recognizer client-library public preview release**
 
-* The public preview release SDKs are supported by Form Recognizer REST API Version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument). This release includes the following new features and capabilities available for .NET/C# (4.1.0-beta-1), Java (4.1.0-beta-1), JavaScript (4.1.0-beta-1), and Python (3.3.0b.1) SDKs:
+* Form Recognizer REST API Version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) supports the public preview release SDKs. This release includes the following new features and capabilities available for .NET/C# (4.1.0-beta-1), Java (4.1.0-beta-1), JavaScript (4.1.0-beta-1), and Python (3.3.0b.1) SDKs:
 
   * [**Custom classification model**](concept-custom-classifier.md)
 
@@ -46,7 +46,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   * [**Add-on capabilities**](concept-add-on-capabilities.md)
 
-* For more information _see_, [**Form Recognizer SDK (public preview**)](./sdk-preview.md) and [March 2023 release](#march-2023) notes.
+* For more information, _see_ [**Form Recognizer SDK (public preview**)](./sdk-preview.md) and [March 2023 release](#march-2023) notes.
 
 ## March 2023
 
@@ -377,7 +377,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolves to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
-  * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
+  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country, and zip code.
 
 * **AI quality improvements**
 
