@@ -24,8 +24,8 @@ The following example creates a cluster named *myNexusAKSCluster* in resource gr
 Before you run the commands, you need to set several variables to define the configuration for your cluster. Here are the variables you need to set, along with some default values you can use for certain variables:
 
 * **CUSTOM_LOCATION**: This argument specifies a custom location of the Nexus instance. Azure Extended Locations allow you to use Azure services directly in your datacenter. Define this variable according to your own datacenter location.
-* **CSN_ID**: CSN ID is the unique identifier for the cloud services network you want to use. You should replace it with your actual Cloud Services Network ID.
-* **CNI_ID**: CNI ID the unique identifier for the network interface to be used by the container runtime. You should replace it with your actual CNI Network ID.
+* **CSN_ARM_ID**: CSN ID is the unique identifier for the cloud services network you want to use. You should replace it with your actual Cloud Services Network ID.
+* **CNI_ARM_ID**: CNI ID the unique identifier for the network interface to be used by the container runtime. You should replace it with your actual CNI Network ID.
 * **CLUSTER_NAME**: The name you want to give to your Kubernetes cluster. In this example, we're using ```myNexusAKSCluster```.
 * **RESOURCE_GROUP**: The name of the Azure resource group where you want to create the cluster. In this example, we're using ```myResourceGroup```.
 * **SUBSCRIPTION_ID**: The ID of your Azure subscription. This ID is obtained automatically using the command ```az account show -o tsv --query id```.
@@ -48,28 +48,28 @@ Once you've defined these variables, you can run the Azure CLI command to create
 Here are the set commands for defining these variables:
 
 ```bash
-CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
-CSN_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
-CNI_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
-AAD_ADMIN_GROUP_OBJECT_ID="00000000-0000-0000-0000-000000000000"
-CLUSTER_NAME="myNexusAKSCluster"
+LOCATION="eastus"
 RESOURCE_GROUP="myResourceGroup"
 SUBSCRIPTION_ID="$(az account show -o tsv --query id)"
-LOCATION="eastus"
+CUSTOM_LOCATION="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+CSN_ARM_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+CNI_ARM_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+AAD_ADMIN_GROUP_OBJECT_ID="00000000-0000-0000-0000-000000000000"
+CLUSTER_NAME="myNexusAKSCluster"
 K8S_VERSION="v1.24.9"
-ADMIN_USERNAME="clouduser"
+ADMIN_USERNAME="azureuser"
 SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
 CONTROL_PLANE_COUNT="1"
 CONTROL_PLANE_VM_SIZE="NC_G2_v1"
-INITIAL_AGENT_POOL_NAME="agentpool1"
+INITIAL_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-1"
 INITIAL_AGENT_POOL_COUNT="1"
-INITIAL_AGENT_POOL_VM_SIZE="NC_G2_v1"
+INITIAL_AGENT_POOL_VM_SIZE="NC_M4_v1"
 POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
 > [!NOTE]
-> Please replace the placeholders for CUSTOM_LOCATION, CSN_ID, CNI_ID and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
+> Please replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
 * After defining these variables, you can create the Kubernetes cluster by executing the following Azure CLI command:
 
@@ -90,8 +90,8 @@ az networkcloud kubernetescluster create \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
 --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
 --network-configuration \
-    cloud-services-network-id="${CSN_ID}" \
-    cni-network-id="${CNI_ID}" \
+    cloud-services-network-id="${CSN_ARM_ID}" \
+    cni-network-id="${CNI_ARM_ID}" \
     pod-cidrs="[${POD_CIDR}]" \
     service-cidrs="[${SERVICE_CIDR}]" \
     dns-service-ip="${DNS_SERVICE_IP}" \

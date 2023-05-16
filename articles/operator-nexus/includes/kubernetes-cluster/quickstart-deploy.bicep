@@ -54,7 +54,7 @@ param controlPlaneVmSkuName string = 'NC_G2_v1'
 param systemPoolNodeCount int = 1
 
 @description('VM size of the worker nodes')
-param workerVmSkuName string = 'NC_G2_v1'
+param workerVmSkuName string = 'NC_M4_v1'
 
 resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01-preview' = {
   name: name
@@ -77,7 +77,7 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
     }
     initialAgentPoolConfigurations: [
       {
-        name: '${name}-nodepool1'
+        name: '${name}-nodepool-1'
         administratorConfiguration: {
           adminUsername: adminUsername
           sshPublicKeys: [for sshKey in sshPublicKey: {

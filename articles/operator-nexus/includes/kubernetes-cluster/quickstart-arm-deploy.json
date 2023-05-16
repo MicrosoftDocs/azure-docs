@@ -4,7 +4,7 @@
     "parameters": {
       "adminUsername": {
         "type": "string",
-        "defaultValue": "clouduser",
+        "defaultValue": "azureuser",
         "metadata": {
           "description": "Admin user name of the virtual machine."
         }
@@ -85,7 +85,7 @@
       },
       "systemPoolName": {
         "type": "string",
-        "defaultValue": "system-pool-1",
+        "defaultValue": "nodepool-1",
         "metadata": {
           "description": "Nexus Kubernetes cluster system pool name"
         }
@@ -107,9 +107,9 @@
       "workerVmSkuName": {
         "type": "string",
         "metadata": {
-          "description": "Nexus Kubernetes worker vmSize to use (e.g. NC_M8_v1)"
+          "description": "Nexus Kubernetes worker vmSize to use (e.g. NC_M4_v1)"
         },
-        "defaultValue": "NC_M16_v1",
+        "defaultValue": "NC_M4_v1",
         "allowedValues": [
           "NC_M4_v1",
           "NC_M8_v1",
