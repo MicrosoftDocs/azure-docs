@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Video Indexer with Azure Resource Health
 description: Learn how to troubleshoot Azure Video Indexer with Azure Resource Health.
-ms.topic: troubleshoot
+ms.topic: how-to
 ms.date: 05/12/2023
 ---
 
