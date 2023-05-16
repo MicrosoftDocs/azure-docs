@@ -172,7 +172,7 @@ The result:
 
 There have been incidents where CNF workloads are unable to start due to resource constraints on the AKS-Hybrid node that the CNF workload is scheduled on. It's been seen on nodes that have Azure Arc pods that are consuming many compute resources. To reduce memory saturation, use effective monitoring tools and apply best practices.
 
-For more information, refer [Troubleshoot memory saturation in AKS clusters](troubleshoot/azure/azure-kubernetes/identify-memory-saturation-aks)
+For more information, refer [Troubleshoot memory saturation in AKS clusters](/troubleshoot/azure/azure-kubernetes/identify-memory-saturation-aks)
 
 To access further details in the logs, refer [Log Analytic workspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace)
 
