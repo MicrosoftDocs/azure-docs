@@ -21,7 +21,7 @@ The Azure Active Directory authorization proxy is a reverse proxy, which can be 
 
 The proxy can be deployed with custom templates using release image or as helm chart. Both deployments contain the same customizable parameters. These parameters are described in the [Parameters](#parameters) table.  
 
-The following examples show how to deploy the proxy for To deploy the proxy for remote write and for querying data from Azure Monitor.
+The following examples show how to deploy the proxy for remote write and for querying data from Azure Monitor.
 
 ## [Remote write example](#tab/remote-write-example)
 
@@ -30,8 +30,7 @@ The following examples show how to deploy the proxy for To deploy the proxy for 
 
 Before deploying the proxy, find your managed identity and assign it the `Monitoring Metrics Publisher` role for the Azure Monitor workspace's data collection rule.  
 
-1. Find your managed identity's `clientId` using the following command:
-
+1. Find the `clientId` for the managed identity for your AKS cluster.  The managed identity is used to authenticate to the Azure Monitor workspace.  The managed identity is created when the AKS cluster is created. 
     ```azurecli
     # Get the identity client_id
     az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"
@@ -48,7 +47,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
     ```
 
 1. Find your Azure Monitor workspace's data collection rule (DCR) ID.  
-    The rule name is tha same as the workspace name.
+    The rule name is same as the workspace name.
     The resource group name for your data collection rule follows the format: `MA_<workspace-name>_<REGION>_managed`, for example `MA_amw-proxytest_eastus_managed`. Use the following command to find the data collection rule ID:
 
     ```azurecli
@@ -180,8 +179,8 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
     ```
 
 1. Configure remote write url.  
-    The URL hostname is made up of the ingestion service name and namespace in the following format `<ingestion service name>.<namespace>.svc.cluster.local`.  In this example the host is `azuremonitor-ingestion.observability.svc.cluster.local`  
-    Configure the URL path using the path from the `Metrics ingestion endpoint` from the Azure Monitor workspace Overview page.  For example, `dataCollectionRules/dcr-abc123d987e654f3210abc1def234567/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview`
+    The URL hostname is made up of the ingestion service name and namespace in the following format `<ingestion service name>.<namespace>.svc.cluster.local`.  In this example, the host is `azuremonitor-ingestion.observability.svc.cluster.local`.  
+    Configure the URL path using the path from the `Metrics ingestion endpoint` from the Azure Monitor workspace Overview page. For example, `dataCollectionRules/dcr-abc123d987e654f3210abc1def234567/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview`.
 
     ```yml
     prometheus:
@@ -198,8 +197,9 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
 
 ###  Check that the proxy is ingesting data
 
-Using the logs, check that the proxy is successfully ingesting metrics form the logs orby querying the Azure Monitor workspace.
+Check that the proxy is successfully ingesting metrics by checking the pod's logs, or by querying the Azure Monitor workspace.
 
+Check the pod's logs by running the following commands:
 ```shell 
 # Get the azuremonitor-ingestion pod ID
  kubectl get pods -A | grep azuremonitor-ingestion
@@ -211,12 +211,13 @@ Using the logs, check that the proxy is successfully ingesting metrics form the 
  time="2023-05-16T08:47:27Z" level=info msg="Successfully sent request, returning response back." ContentLength=0 Request="https://amw-proxytest-05-t16w.eastus-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-688b6ed1f2244e098a88e32dde18b4f6/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview" StatusCode=200
 ```
 
-To query your Azure Monitor workspace follow the steps below:
+To query your Azure Monitor workspace, follow the steps below:
+
 1. From your Azure Monitor workspace, select **Workbooks** .
 
 1. Select the **Prometheus Explorer** tile.
     :::image type="content" source="./media/aad-authorization-proxy/workspace-workbooks.png" lightbox="./media/aad-authorization-proxy/workspace-workbooks.png" alt-text="A screenshot showing the workbooks gallery for an Azure Monitor workspace.":::
-1. On the explorer page enter *up* into the query box.
+1. On the explorer page, enter *up* into the query box.
 1. Select the **Grid** tab to see the results.
 1. Check the **cluster** column to see if from your cluster are displayed.
     :::image type="content" source="./media/aad-authorization-proxy/prometheus-explorer.png" lightbox="./media/aad-authorization-proxy/prometheus-explorer.png" alt-text="A screenshot showing the Prometheus explorer query page.":::
@@ -225,131 +226,141 @@ To query your Azure Monitor workspace follow the steps below:
 ## [Query metrics example](#tab/query-metrics-example)
 This deployment allows external entities to query an Azure Monitor workspace via the proxy.
 
-Before deploying the proxy, find your managed identity and assign it the `Monitoring Metrics Reader` role for the Azure Monitor workspace.
+Before deploying the proxy, find your managed identity and assign it the `Monitoring Metrics reader` role for the Azure Monitor workspace. 
 
-```azurecli
-# Get the identity client_id
-az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"
-```
+1. Find the `clientId` for the managed identity for your AKS cluster.  The managed identity is used to authenticate to the Azure Monitor workspace.  The managed identity is created when the AKS cluster is created.
 
-The output has the following format:
-```bash 
-{
-  "kubeletidentity": {
-    "clientId": "abcd1234-1243-abcd-9876-1234abcd5678",
-    "objectId": "12345678-abcd-abcd-abcd-1234567890ab",
-    "resourceId": "/subscriptions/def0123-1243-abcd-9876-1234abcd5678/resourcegroups/MC_rg-proxytest-01_proxytest-01_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/proxytest-01-agentpool"
-  }
-```
+    ```azurecli
+    # Get the identity client_id
+    az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"
+    ```
+    
+    The output has the following format:
+    ```bash 
+    {
+      "kubeletidentity": {
+        "clientId": "abcd1234-1243-abcd-9876-1234abcd5678",
+        "objectId": "12345678-abcd-abcd-abcd-1234567890ab",
+        "resourceId": "/subscriptions/def0123-1243-abcd-9876-1234abcd5678/resourcegroups/MC_rg-proxytest-01_proxytest-01_eastus/providers/Microsoft.ManagedIdentity/    userAssignedIdentities/proxytest-01-agentpool"
+      }
+    }
+    ```
 
-Assign the `Monitoring Data Reader` role to the identity using the `clientId` from the previous command so that it can read from the Azure Monitor workspace.
+1. Assign the `Monitoring Data Reader` role to the identity using the `clientId` from the previous command so that it can read from the Azure Monitor workspace.
 
-```azurecli
-#Read permissions to the workspace
-az role assignment create --assignee <clientid>  --role "Monitoring Data Reader" --scope <workspace-id>
-```
+    ```azurecli
+    az role assignment create --assignee <clientid>  --role "Monitoring Data Reader" --scope <workspace-id>
+    ```
 
-Use the following YAML file to deploy the proxy for remote query. Modify the following parameters:
+1. Use the following YAML file to deploy the proxy for remote query. Modify the following parameters:
 
-+ `TARGET_HOST` - The host that you want to query data from. Use the `Query endpoint` from the Azure monitor workspace Overview page. For example, `https://k8s-03-workspace-abcs.eastus.prometheus.monitor.azure.com`
-`
-+ `AAD_CLIENT_ID` - The `clientId` of the managed identity used that was assigned the `Monitoring Metrics Reader` role.
-+ `AUDIENCE` - For querying metrics from Azure Monitor Workspace, set `AUDIENCE` to `https://prometheus.monitor.azure.com/.default`.
+    + `TARGET_HOST` - The host that you want to query data from. Use the `Query endpoint` from the Azure monitor workspace Overview page. For example, `https://proxytest-workspace-abcs.eastus.prometheus.monitor.azure.com`
+    + `AAD_CLIENT_ID` - The `clientId` of the managed identity used that was assigned the `Monitoring Metrics Reader` role.
+    + `AUDIENCE` - For querying metrics from Azure Monitor Workspace, set `AUDIENCE` to `https://prometheus.monitor.azure.com/.default`.
+    + Remove `OTEL_GRPC_ENDPOINT` and `OTEL_SERVICE_NAME` if you aren't using OpenTelemetry.
 
-For more information on the parameters, see the [Parameters](#parameters) table.
+    For more information on the parameters, see the [Parameters](#parameters) table.
 
-proxy-query.yaml
+    proxy-query.yaml
 
-```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    labels:
-        app: azuremonitor-query
-    name: azuremonitor-query
-    namespace: observability
-spec:
-    replicas: 1
-    selector:
-        matchLabels:
+    ```yml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        labels:
             app: azuremonitor-query
-    template:
-        metadata:
-            labels:
+        name: azuremonitor-query
+        namespace: observability
+    spec:
+        replicas: 1
+        selector:
+            matchLabels:
                 app: azuremonitor-query
-            name: azuremonitor-query
-        spec:
-            containers:
-            - name: aad-auth-proxy
-              image: mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/images/aad-auth-proxy:aad-auth-proxy-0.1.0-main-04-11-2023-623473b0
-              imagePullPolicy: Always
-              ports:
-              - name: auth-port
-                containerPort: 8082
-              env:
-              - name: AUDIENCE
-                value: https://prometheus.monitor.azure.com/.default
-              - name: TARGET_HOST
-                value: <Query endpoint host>
-              - name: LISTENING_PORT
-                value: "8082"
-              - name: IDENTITY_TYPE
-                value: userAssigned
-              - name: AAD_CLIENT_ID
-                value: <clientId>
-              - name: AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE
-                value: "10"
-              - name: OTEL_GRPC_ENDPOINT
-                value: "otel-collector.observability.svc.cluster.local:4317"
-              - name: OTEL_SERVICE_NAME
-                value: azuremonitor_query
-              livenessProbe:
-                httpGet:
-                  path: /health
-                  port: auth-port
-                initialDelaySeconds: 5
-                timeoutSeconds: 5
-              readinessProbe:
-                httpGet:
-                  path: /ready
-                  port: auth-port
-                initialDelaySeconds: 5
-                timeoutSeconds: 5
----
-apiVersion: v1
-kind: Service
-metadata:
-    name: azuremonitor-query
-    namespace: observability
-spec:
-    ports:
-        - port: 80
-          targetPort: 8082
-    selector:
-        app: azuremonitor-query
-```
+        template:
+            metadata:
+                labels:
+                    app: azuremonitor-query
+                name: azuremonitor-query
+            spec:
+                containers:
+                - name: aad-auth-proxy
+                  image: mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/images/aad-auth-proxy:aad-auth-proxy-0.1.0-main-04-11-2023-623473b0
+                  imagePullPolicy: Always
+                  ports:
+                  - name: auth-port
+                    containerPort: 8082
+                  env:
+                  - name: AUDIENCE
+                    value: https://prometheus.monitor.azure.com/.default
+                  - name: TARGET_HOST
+                    value: <Query endpoint host>
+                  - name: LISTENING_PORT
+                    value: "8082"
+                  - name: IDENTITY_TYPE
+                    value: userAssigned
+                  - name: AAD_CLIENT_ID
+                    value: <clientId>
+                  - name: AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE
+                    value: "10"
+                  - name: OTEL_GRPC_ENDPOINT
+                    value: "otel-collector.observability.svc.cluster.local:4317"
+                  - name: OTEL_SERVICE_NAME
+                    value: azuremonitor_query
+                  livenessProbe:
+                    httpGet:
+                      path: /health
+                      port: auth-port
+                    initialDelaySeconds: 5
+                    timeoutSeconds: 5
+                  readinessProbe:
+                    httpGet:
+                      path: /ready
+                      port: auth-port
+                    initialDelaySeconds: 5
+                    timeoutSeconds: 5
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+        name: azuremonitor-query
+        namespace: observability
+    spec:
+        ports:
+            - port: 80
+              targetPort: 8082
+        selector:
+            app: azuremonitor-query
+    ```
 
+1. Deploy they proxy using command:
 
+    ```bash
+    # create the namespace if it doesn't already exist
+    kubectl create namespace observability 
 
-Deploy proxy using command:
-```bash
-kubectl create namespace observability 
-kubectl apply -f proxy-query.yaml -n observability
-```
+    kubectl apply -f proxy-query.yaml -n observability
+    ```
 
+###  Check that you can query using the proxy
 
-Test that you can query metrics from the proxy using the following command: <<<<<<<<<<<<<<<>>>>>>>>>>>>>>>
+To test that the proxy is working, create a port forward to the proxy pod, then query the proxy.
+
 
 ```bash
 # Get the pod name for azuremonitor-query pod
 kubectl get pods -n observability
 
-#
-kubectl port-forward pod/azuremonitor-query-86d9867b85-zdqlj -n observability 8082:8082
+# Use the pod ID to create the port forward in the background
+kubectl port-forward pod/<pod ID> -n observability 8082:8082 &
 
+# query the proxy
  curl http://localhost:8082/api/v1/query?query=up
+```
 
-{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-userpool-20877385-vmss000007","job":"kubelet","kubernetes_io_os":"linux","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-userpool-20877385-vmss000007","job":"cadvisor"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-nodepool1-21858175-vmss000007","job":"node","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"ama-metrics-ksm.kube-system.svc.cluster.local:8080","job":"kube-state-metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-userpool-20877385-vmss000007","job":"node","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-nodepool1-21858175-vmss000007","job":"kubelet","kubernetes_io_os":"linux","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-userpool-20877385-vmss000006","job":"node","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-nodepool1-21858175-vmss000007","job":"cadvisor"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-userpool-20877385-vmss000006","job":"cadvisor"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-nodepool1-21858175-vmss000006","job":"kubelet","kubernetes_io_os":"linux","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-nodepool1-21858175-vmss000006","job":"cadvisor"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-nodepool1-21858175-vmss000006","job":"node","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"ed-k8s-03","instance":"aks-userpool-20877385-vmss000006","job":"kubelet","kubernetes_io_os":"linux","metrics_path":"/metrics"},"value":[1684177493.19,"1"]}]}}
+A successful query returns a response similar to the following:
+
+```
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","cluster":"proxytest-01","instance":"aks-userpool-20877385-vmss000007","job":"kubelet","kubernetes_io_os":"linux","metrics_path":"/metrics"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"proxytest-01","instance":"aks-userpool-20877385-vmss000007","job":"cadvisor"},"value":[1684177493.19,"1"]},{"metric":{"__name__":"up","cluster":"proxytest-01","instance":"aks-nodepool1-21858175-vmss000007","job":"node","metrics_path":"/metrics"},"value":[1684177493.19,"1"]}]}}
 ```
 ---
 
@@ -357,47 +368,46 @@ kubectl port-forward pod/azuremonitor-query-86d9867b85-zdqlj -n observability 80
 
 | Image Parameter | Helm chart Parameter name | Description | Supported values | Mandatory |
 | --------- | --------- | --------------- | --------- | --------- |
-|  TARGET_HOST | targetHost | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Data collection rule` from the workspaces Overview page| | Yes |
-|  IDENTITY_TYPE | identityType | Identity type that is used to authenticate requests. This proxy supports three types of identities. | systemassigned, userassigned, aadapplication | Yes |
-| AAD_CLIENT_ID | aadClientId | Client ID of the identity used. This is used for userassigned and aadapplication identity types. Check [Fetch parameters for identities](IDENTITY.md#fetch-parameters-for-identities) on how to fetch client_id | | Yes for userassigned and aadapplication |
-| AAD_TENANT_ID | aadTenantId | Tenant ID  of the identity used. Tenant ID is used for aadapplication identity types. Check [Fetch parameters for identities](IDENTITY.md#fetch-parameters-for-identities) on how to fetch tenant_id | | Yes for aadapplication |
-| AAD_CLIENT_CERTIFICATE_PATH | aadClientCertificatePath | this is the path where proxy can find the certificate for aadapplication. This path should be accessible by proxy and should be a either a pfx or pem certificate containing private key. Check [CSI driver](IDENTITY.md#set-up-csi-driver-for-certificate-management) for managing certificates. | | Yes for aadapplication |
-| AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE | aadTokenRefreshIntervalInMinutes | Token is refreshed based on the percentage of time until token expiry. Default value is 10% time before expiry. | | No |
-| AUDIENCE | audience | Audience for the token | | No |
-| LISTENING_PORT | listeningPort | Proxy listening on this port | | Yes |
-| OTEL_SERVICE_NAME | otelServiceName | Service name for OTEL traces and metrics. Default value: aad_auth_proxy | | No |
-| OTEL_GRPC_ENDPOINT | otelGrpcEndpoint | Proxy pushes OTEL telemetry to this endpoint. Default value:  http://localhost:4317 | | No |
+|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Data collection rule` from the workspaces Overview page| | Yes |
+|  `IDENTITY_TYPE` | `identityType` | Identity type that is used to authenticate requests. This proxy supports three types of identities. | `systemassigned`, `userassigned`, `aadapplication` | Yes |
+| `AAD_CLIENT_ID` | `aadClientId` | Client ID of the identity used. This is used for `userassigned` and `aadapplication` identity types. Use `az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"` to retrieve the Client ID | | Yes for `userassigned` and `aadapplication` |
+| `AAD_TENANT_ID` | `aadTenantId` | Tenant ID  of the identity used. Tenant ID is used for `aadapplication` identity types. | | Yes for `aadapplication` |
+| `AAD_CLIENT_CERTIFICATE_PATH` | `aadClientCertificatePath` | The path where proxy can find the certificate for aadapplication. This path should be accessible by proxy and should be a either a pfx or pem certificate containing private key. | | For `aadapplication` identity types only |
+| `AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE` | `aadTokenRefreshIntervalInMinutes` | Token is refreshed based on the percentage of time until token expiry. Default value is 10% time before expiry. | | No |
+| `AUDIENCE` | `audience` | Audience for the token | | No |
+| `LISTENING_PORT` | `listeningPort` | Proxy listening on this port | | Yes |
+| `OTEL_SERVICE_NAME` | `otelServiceName` | Service name for OTEL traces and metrics. Default value: aad_auth_proxy | | No |
+| `OTEL_GRPC_ENDPOINT` | `otelGrpcEndpoint` | Proxy pushes OTEL telemetry to this endpoint. Default value:  http://localhost:4317 | | No |
 
 
 ## Troubleshooting
 
-1. Proxy container does not start
-Run the following command which shows any errors if in the proxy container.
++ The proxy container doesn't start.  
+Run the following command to show any errors the proxy container.
 
-```shell
-kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>`
-```
+    ```shell
+    kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>`
+    ```
 
-1. Proxy does not - configuration errors
++ Proxy doesn't start - configuration errors
 
-Proxy checks for valid identity to fetch a token during start up. If this fails, start up fails. Errors are  logged and can be viewed by running the following command:
+    The proxy checks for a valid identity to fetch a token during startup. If it fails to retrieve a token, start up fails. Errors are logged and can be viewed by running the following command:
 
-```shell
-kubectl --namespace <Namespace> logs <Proxy-Pod-Name>
-```
+    ```shell
+    kubectl --namespace <Namespace> logs <Proxy-Pod-Name>
+    ```
 
-Example output:
-```
-time="2023-05-15T11:24:06Z" level=info msg="Configuration settings loaded:" AAD_CLIENT_CERTIFICATE_PATH= AAD_CLIENT_ID=abc123de-be75-4141-a1e6-abc123987def AAD_TENANT_ID= AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE=10 AUDIENCE="https://prometheus.monitor.azure.com" IDENTITY_TYPE=userassigned LISTENING_PORT=8082 OTEL_GRPC_ENDPOINT= OTEL_SERVICE_NAME=aad_auth_proxy TARGET_HOST=k8s-03-workspace-orkw.eastus.prometheus.monitor.azure.com
-2023-05-15T11:24:06.414Z [ERROR] TokenCredential creation failed:Failed to get access token: ManagedIdentityCredential authentication failed
-GET http://169.254.169.254/metadata/identity/oauth2/token
---------------------------------------------------------------------------------
-RESPONSE 400 Bad Request
---------------------------------------------------------------------------------
-{
-  "error": "invalid_request",
-  "error_description": "Identity not found"
-}
---------------------------------------------------------------------------------
-```
-
+    Example output:
+    ```
+    time="2023-05-15T11:24:06Z" level=info msg="Configuration settings loaded:" AAD_CLIENT_CERTIFICATE_PATH= AAD_CLIENT_ID=abc123de-be75-4141-a1e6-abc123987def AAD_TENANT_ID= AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE=10 AUDIENCE="https://prometheus.monitor.azure.com" IDENTITY_TYPE=userassigned LISTENING_PORT=8082 OTEL_GRPC_ENDPOINT= OTEL_SERVICE_NAME=aad_auth_proxy TARGET_HOST=proxytest-01-workspace-orkw.eastus.prometheus.monitor.azure.com
+    2023-05-15T11:24:06.414Z [ERROR] TokenCredential creation failed:Failed to get access token: ManagedIdentityCredential authentication failed
+    GET http://169.254.169.254/metadata/identity/oauth2/token
+    --------------------------------------------------------------------------------
+    RESPONSE 400 Bad Request
+    --------------------------------------------------------------------------------
+    {
+      "error": "invalid_request",
+      "error_description": "Identity not found"
+    }
+    --------------------------------------------------------------------------------
+    ```
