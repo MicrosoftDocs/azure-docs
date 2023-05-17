@@ -130,14 +130,11 @@ To pin a Linux function app to a specific host version, you set a version-specif
 > [!IMPORTANT]
 > Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.9`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].   
 >
-> For apps running in a Consumption plan, setting [`linuxFxVersion`] to a specific image may also increase cold start times. This is because pinning to a specific image prevents Functions from using some cold start optimizations. 
+> Pinning to a specific runtime isn't currently supported for Linux function apps running in a Consumption plan. 
 
-The following table provides an example of [`linuxFxVersion`] values required to pin a Node.js 18 function app to a specific runtime version of 4.11.2:
+The following is an example of the [`linuxFxVersion`] value required to pin a Node.js 18 function app to a specific runtime version of 4.11.2:
 
-| [Hosting plan](functions-scale.md)  | [`linuxFxVersion` value][`linuxFxVersion`] |
-| --- | --- |
-| Consumption  | `DOCKER|mcr.microsoft.com/azure-functions/mesh:4.11.2-node18` | 
-| Premium/Dedicated | `DOCKER|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` |
+`DOCKER|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` 
 
 When needed, a support professional can provide you with a valid base image URI for your application. 
 
