@@ -30,8 +30,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. In the **Virtual machines** page, select **Create** and then **Azure virtual machine**. The **Create a virtual machine** page opens.
 1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2022 Datacenter - Gen 2* for the **Image**. Leave the other defaults.
 
-    :::image type="content" source="![instance-details](https://github.com/MicrosoftDocs/azure-docs/assets/68106560/d88fd608-22f7-4fc8-ad15-16dbec097bd6)
-" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
 
     > [!NOTE]
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
