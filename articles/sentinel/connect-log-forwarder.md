@@ -30,7 +30,7 @@ Using the link provided below, you will run a script on the designated machine t
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
-Install the product solution from the **Content Hub** in Microsoft Sentinel. If the product isn't listed, install the solution for **Common Event Format**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
+Install the product solution from the **Content Hub** in Microsoft Sentinel. If the product isn't listed, install the solution for **Common Event Format**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 Your machine must meet the following requirements:
 
