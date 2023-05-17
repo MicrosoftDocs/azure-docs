@@ -226,10 +226,10 @@ To verify that your cluster has the Defender extension installed on it, follow t
     > [!NOTE]
     > It might show "installState": "Pending" for the first few minutes.
 
-1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "mdc-XXXXX" is in 'Running' state:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
 ### [**REST API**](#tab/k8s-verify-api)
@@ -249,10 +249,10 @@ To confirm a successful deployment, or to validate the status of your extension 
     > [!TIP]
     > It might show "installState": "Pending" for the first few minutes.
 
-1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "mdc-XXXXX" is in 'Running' state:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
 ---

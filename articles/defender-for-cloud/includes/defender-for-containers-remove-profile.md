@@ -75,7 +75,7 @@ Request body parameters:
 1. To verify that the profile was successfully removed, run the following command:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
     When the profile is removed, you should see that no pods are returned in the `get pods` command. It might take a few minutes for the pods to be deleted.
