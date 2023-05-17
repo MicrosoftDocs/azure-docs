@@ -89,7 +89,7 @@ Your REST API is protected by Azure AD access token. You can test your API by ob
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure administrator account.
 1. Select **Azure Active Directory** > **App registrations**.
-1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-extension). 
+1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension). 
 1. Copy the [application ID](custom-extension-get-started.md#22-grant-admin-consent).
 1. If you haven't created an app secret, follow these steps:
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
