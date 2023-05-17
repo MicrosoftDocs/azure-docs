@@ -49,11 +49,10 @@ If you are unable to use a configuration metadata document, you will need to gat
 1. Press the **Add** button to finish setting up the identity provider. 
 
 > [!NOTE]
-> The OpenID provider name cannot contain symbols like "-" because an appsetting will be created based this and it does not support it. Use "_" instead.  
+> The OpenID provider name can't contain symbols like "-" because an appsetting will be created based on this and it doesn't support it. Use "_" instead.  
 
 > [!NOTE]
-> Azure requires “openid”, “profile” and “email” scopes, make sure you have configured your App Registration in your ID Provider with at least these scopes.  
->
+> Azure requires "openid," "profile," and "email" scopes. Make sure you've configured your App Registration in your ID Provider with at least these scopes.  
 
 ## <a name="related-content"> </a>Next steps
 
