@@ -126,10 +126,10 @@ You can use the following optional parameters with the previous commands:
 
 `--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` is a comma-separated list of Kubernetes label keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional labels, provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'.
 
-`--configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of Kubernetes annotations keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional annotations, provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'. A single `''` can be provided per resource instead to allow any annotations, but that has severe performance implications (Example: '=pods=[]').
+`--configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of Kubernetes annotations keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional annotations, provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'.
 
 > [!NOTE]
->  A single `''` can be provided per resource instead to allow any labels, but that has severe performance implications (Example: '=pods=[]').
+>  A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications (Example: '=pods=[]').
 
 
 ```azurecli
@@ -149,39 +149,42 @@ az k8s-extension create \
 
 + If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider by following the steps in the [Register resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of the Azure resource providers and types article.
 
-+ The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
++ The Azure Monitor workspace and Azure Managed Grafana workspace must already exist.
 + The template must be deployed in the same resource group as the Azure Managed Grafana workspace.
 + Users with the User Access Administrator role in the subscription of the AKS cluster can enable the Monitoring Data Reader role directly by deploying the template.
 
-### Retrieve required values for Grafana resource
+### Create an extension
 
-> [!NOTE]
-> Azure Managed Grafana is not currently available in the Azure US Government cloud.
+1. Retrieve required values for the Grafana resource
 
-1. On the Overview page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
+    > [!NOTE]
+    > Azure Managed Grafana is not currently available in the Azure US Government cloud.
 
-If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you need the list of already existing Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If the field doesn't exist, the instance hasn't been linked with any Azure Monitor workspace.
+    On the Overview page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
 
-```json
-"properties": { 
-    "grafanaIntegrations": { 
-        "azureMonitorWorkspaceIntegrations": [ 
-            { 
-                "azureMonitorWorkspaceResourceId": "full_resource_id_1" 
-            }, 
-            { 
-                "azureMonitorWorkspaceResourceId": "full_resource_id_2" 
-            } 
-        ] 
+    If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you need the list of already existing Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If the field doesn't exist, the instance hasn't been linked with any Azure Monitor workspace.
+
+    ```json
+    "properties": { 
+        "grafanaIntegrations": { 
+            "azureMonitorWorkspaceIntegrations": [ 
+                { 
+                    "azureMonitorWorkspaceResourceId": "full_resource_id_1" 
+                }, 
+                { 
+                    "azureMonitorWorkspaceResourceId": "full_resource_id_2" 
+                } 
+            ] 
+        } 
     } 
-} 
-```
+    ```
 
-### Download and edit the template and the parameter file  
+1. Download and edit the template and the parameter file  
 
-1. Download the template at https://aka.ms/azureprometheus-arc-arm-template and save it as *existingClusterOnboarding.json*.
 
-1. Download the parameter file at https://aka.ms/azureprometheus-arc-arm-template-parameters and save it as *existingClusterParam.json*.
+    1. Download the template at https://aka.ms/azureprometheus-arc-arm-template and save it as *existingClusterOnboarding.json*.
+
+     1. Download the parameter file at https://aka.ms/azureprometheus-arc-arm-template-parameters and save it as *existingClusterParam.json*.
 
 1. Edit the following fields' values in the parameter file.
 
@@ -197,38 +200,38 @@ If you're using an existing Azure Managed Grafana instance that's already linked
    |`grafanaLocation` |Location for the managed Grafana instance. Retrieve from the **JSON view** on the Overview page for the Grafana instance. |
    |`grafanaSku` |SKU for the managed Grafana instance. Retrieve from the **JSON view** on the Overview page for the Grafana instance. Use the `sku.name`. |
 
+1. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. For example:
 
-1. Open the template file and update the grafanaIntegrations property at the end of the file with the values that you retrieved from the Grafana instance. The following example is similar:
-
-```json
-{ 
-    "type": "Microsoft.Dashboard/grafana", 
-    "apiVersion": "2022-08-01", 
-    "name": "[split(parameters('grafanaResourceId'),'/')[8]]", 
-    "sku": { 
-        "name": "[parameters('grafanaSku')]" 
-    }, 
-    "location": "[parameters('grafanaLocation')]", 
-    "properties": { 
-        "grafanaIntegrations": { 
-        "azureMonitorWorkspaceIntegrations": [ 
-            { 
-                "azureMonitorWorkspaceResourceId": "full_resource_id_1" 
-            }, 
-            { 
-                "azureMonitorWorkspaceResourceId": "full_resource_id_2" 
-            }, 
-            { 
-                "azureMonitorWorkspaceResourceId": "[parameters('azureMonitorWorkspaceResourceId')]" 
+    ```json
+    { 
+        "type": "Microsoft.Dashboard/grafana", 
+        "apiVersion": "2022-08-01", 
+        "name": "[split(parameters('grafanaResourceId'),'/')[8]]", 
+        "sku": { 
+            "name": "[parameters('grafanaSku')]" 
+        }, 
+        "location": "[parameters('grafanaLocation')]", 
+        "properties": { 
+            "grafanaIntegrations": { 
+            "azureMonitorWorkspaceIntegrations": [ 
+                { 
+                    "azureMonitorWorkspaceResourceId": "full_resource_id_1" 
+                }, 
+                { 
+                    "azureMonitorWorkspaceResourceId": "full_resource_id_2" 
+                }, 
+                { 
+                    "azureMonitorWorkspaceResourceId": "[parameters    ('azureMonitorWorkspaceResourceId')]" 
+                } 
+            ] 
             } 
-        ] 
         } 
-    } 
-}
-```
+    }
+    ```
 
-In the example JSON above, `full_resource_id_1` and `full_resource_id_2` are already in the Azure Managed Grafana resource JSON. They're added here to the Azure Resource Manager template (ARM template). If you don't have any existing Grafana integrations, don't include these entries.  
-The final `azureMonitorWorkspaceResourceId` entry is in the template by default and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
+    In the example JSON above, `full_resource_id_1` and `full_resource_id_2` are already in the Azure Managed Grafana resource JSON. They're added here to the Azure Resource Manager template (ARM template). If you don't have any existing Grafana integrations, don't include these entries.  
+
+    The final `azureMonitorWorkspaceResourceId` entry is in the template by default and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
 
 ### Verify extension installation status
 
