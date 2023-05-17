@@ -581,9 +581,13 @@ In the source tenant, to enable provisioning, create a provisioning job.
 1. In the source tenant, use the [New-MgServicePrincipalSynchronizationJob](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjob?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a provisioning job based on a template.
 
     ```powershell
-    New-MgServicePrincipalSynchronizationJob
-        -ServicePrincipalId $ServicePrincipalId
-        -TemplateId "Azure2Azure"
+    New-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -TemplateId "Azure2Azure"
+    ```
+
+    ```Output
+    Id         TemplateId
+    --         ----------
+    {JobId}    Azure2Azure
     ```
 ::: zone-end
 
