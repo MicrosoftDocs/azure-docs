@@ -172,22 +172,18 @@ Event Grid enables [filtering](../event-grid/event-filtering.md) on event types,
 * Subject: For IoT Hub events, the subject is the device name. The subject takes the format `devices/{deviceId}`. You can filter subjects based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber.
 * Data content: The data content is populated by IoT Hub using the message format. You can choose what events are delivered based on the contents of the telemetry message. For examples, see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering). For filtering on the telemetry message body, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these properties are case insensitive.
 
-## Limitations
+## Limitations for device connection state events
 
-The following sections describe limitations for device connected and device disconnected events.
-
-### Device state events
-
-Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications.
+Device connected and device disconnected events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications.
 
 * For devices connecting using Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [MQTT protocol](iot-hub-mqtt-support.md) will have connection states sent automatically.
 * For devices connecting using the Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [AMQP protocol](iot-hub-amqp-support.md), a cloud-to-device link should be created to reduce any delay in accurate connection states.
 * For devices connecting using the .NET [Azure IoT SDK](iot-hub-devguide-sdks.md) with the [MQTT](iot-hub-mqtt-support.md) or [AMQP](iot-hub-amqp-support.md) protocol won’t send a device connected event until an initial device-to-cloud or cloud-to-device message is sent/received.
 * Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](iot-hub-mqtt-support.md). Over AMQP these equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
 
-### Device state interval
+### Device connection state interval
 
-IoT Hub attempts to report each device state change event, but some may be missed. At minimum, IoT Hub reports state change events that occur 60 seconds apart from each other. This behavior may lead to outcomes such as multiple device connect events reported with no device disconnect events between them.
+IoT Hub attempts to report each device connection state change event, but some may be missed. At minimum, IoT Hub reports connection state change events that occur 60 seconds apart from each other. This behavior may lead to outcomes such as multiple device connect events reported with no device disconnect events between them.
 
 <!--
 ![Diagram that shows state change events on a device, and how those events are reported by IoT Hub.](https://user-images.githubusercontent.com/94493443/178398214-7423f7ca-8dfe-4202-8e9a-46cc70974b5e.png)
