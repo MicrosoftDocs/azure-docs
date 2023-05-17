@@ -22,7 +22,7 @@ keywords:
 <sup>1</sup> **GPT-4 models are currently in preview.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Go to Azure OpenAI Studio
 
@@ -105,7 +105,7 @@ response = openai.ChatCompletion.create(
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the playground.](TODO: ADD FORM LINK)
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ### Understanding the prompt structure
 

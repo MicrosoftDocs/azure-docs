@@ -27,7 +27,7 @@ keywords:
 <sup>1</sup> **GPT-4 models are currently in preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
@@ -89,7 +89,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ---
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](TODO: ADD FORM LINK)
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ## Create a new Python application
 
@@ -157,7 +157,7 @@ Yes, most of the Azure Cognitive Services support customer managed keys. However
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue when running the code sample.](TODO: UPDATE LINK)
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-python-application)
 
 ### Understanding the message structure
 

@@ -20,7 +20,7 @@ keywords:
 - An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
 
 ## Go to the Azure OpenAI Studio
 
@@ -71,7 +71,7 @@ To use the Azure OpenAI for text summarization in the GPT-3 Playground, follow t
 The accuracy of the response can vary per model. The Davinci based model in this example is well-suited to this type of summarization, whereas a Codex based model wouldn't perform as well at this particular task.
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the playground.](TODO: ADD FORM LINK)
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
 ## Clean up resources
 

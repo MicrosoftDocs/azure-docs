@@ -109,7 +109,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ---
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](TODO: ADD FORM LINK)
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ## Create .NET application
 
@@ -203,7 +203,7 @@ await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoices
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue when running the code samples.](TODO: UPDATE LINK)
+> [I ran into an issue when running the code samples.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-dotnet-application)
 
 ## Clean up resources
 

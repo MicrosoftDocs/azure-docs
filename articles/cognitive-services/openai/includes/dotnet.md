@@ -24,7 +24,7 @@ keywords:
 - An Azure OpenAI Service resource with the `text-davinci-003` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
@@ -107,7 +107,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ---
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](TODO: ADD FORM LINK)
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
 ## Create .NET application
 
@@ -152,7 +152,7 @@ Microsoft was founded on April 4, 1975
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue when running the code sample.](TODO: UPDATE LINK)
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Create-dotnet-application)
 
 
 ## Clean up resources

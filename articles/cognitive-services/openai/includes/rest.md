@@ -21,9 +21,6 @@ keywords:
 - The following Python libraries: os, requests, json
 - An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](TODO:ADD FORM LINK)
-
 ## Set up
 
 ### Retrieve key and endpoint
@@ -76,7 +73,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ---
 
 > [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](TODO: ADD FORM LINK)
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
 ## Create a new Python application
 
@@ -149,8 +146,7 @@ The output from the completions API will look as follows.
 ```
 
 > [!div class="nextstepaction"]
-> [I ran into an issue when running the code sample.](TODO: UPDATE LINK)
-
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Create-sample-code)
 
 The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
