@@ -1,7 +1,7 @@
 ---
 title: Call Center Telephony Integration - Speech service
 titleSuffix: Azure Cognitive Services
-description: A common scenario for speech-to-text is transcribing large volumes of telephony data that come from various systems, such as interactive voice response (IVR) in real-time. This requires an integration with the Telephony System used.
+description: A common scenario for speech to text is transcribing large volumes of telephony data that come from various systems, such as interactive voice response (IVR) in real-time. This requires an integration with the Telephony System used.
 services: cognitive-services
 author: goergenj
 ms.author: jagoerge
@@ -26,9 +26,9 @@ To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
 
 
 > [!TIP]
-> For guidance on reducing Text to Speech latency check out the **[How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp)** guide.
+> For guidance on reducing Text to speech latency check out the **[How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp)** guide.
 > 
-> In addition, consider implementing a Text to Speech cache to store all synthesized audio and playback from the cache in case a string has previously been synthesized.
+> In addition, consider implementing a Text to speech cache to store all synthesized audio and playback from the cache in case a string has previously been synthesized.
 
 ## Next steps
 

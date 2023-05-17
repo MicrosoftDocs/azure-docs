@@ -87,6 +87,8 @@ After submitted pipeline job, you can go to pipeline job detail page to change p
 - [pipeline_with_train_eval_pipeline_component](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb)
 
 ## Next steps
+
 - [YAML reference for pipeline component](reference-yaml-component-pipeline.md)
 - [Track an experiment](how-to-log-view-metrics.md)
 - [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+- [Deploy a pipeline with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
