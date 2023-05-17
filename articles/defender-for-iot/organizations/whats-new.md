@@ -26,11 +26,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses are available for purchase only in the [Microsoft 365 Admin center](https://admin.microsoft.com/Adminportal/Home).
 
-Licenses are available for individual sites, based on the sizes of those respective sites. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors.
+Licenses are available for individual sites, based on the sizes of those respective sites. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
 
-A trial license is also available for 60 days, using a *Large* license size.
+- A trial license is also available for 60 days, using a *Large* license size.
 
-Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of their plan. However, existing customers cannot add any new plans in the Azure portal.
+- Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of their plan. However, existing customers cannot add any new plans in the Azure portal.
 
 <!--starting june 14-->
 For more information, see:

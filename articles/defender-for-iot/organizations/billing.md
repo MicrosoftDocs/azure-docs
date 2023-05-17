@@ -10,28 +10,31 @@ ms.custom: enterprise-iot
 
 As you plan your Microsoft Defender for IoT deployment, you typically want to understand the Defender for IoT pricing plans and billing models so you can optimize your costs.
 
+OT monitoring is billed using site-based licenses, where each license applies to an individual site, based on the site size. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, all which monitor devices detected in connected networks.
+
+
 ## Free trial
 
 If you would like to evaluate Defender for IoT, you can use a trial license for 60 days.
 
-- **For OT networks**, use a trial to deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. An OT trial incudes a *Small* sized license, which supports 250 [committed devices](#defender-for-iot-committed-devices), which are the number of devices you want to monitor in your network.
+- **For OT networks**, use a trial to deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. An OT trial incudes a *Large* sized license, which supports 1,000 [devices](#defender-for-iot-devices).
 
 <!--what happens when the trial is up?
     The trial for OT networks is free of charge for the first 30 days. Any usage beyond 30 days incurs a charge based on the monthly plan for 1,000 devices. For more information, see [the Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).-->
 
 - **For Enterprise IoT networks**, use a trial to view alerts, recommendations, and vulnerabilities in Microsoft 365. An Enterprise IoT trial is not limited to a specific number of devices.
 
-## Defender for IoT committed devices
+## Defender for IoT devices
 
-When purchasing a Defender for IoT license for an OT plan, or when onboarding or editing a monthly Enterprise IoT plan, we recommend that you have a sense of how many *committed devices* you'll want to cover. *Committed devices* are the devices being monitored by your Defender for IoT plan.
+When purchasing a Defender for IoT license for an OT plan, or when onboarding or editing a monthly Enterprise IoT plan, we recommend that you have a sense of how many devices you'll want to cover. 
 
-- **OT monitoring**: Purchase a license for each site that you're planning to monitor. License fees differ based on the number of committed devices covered in each license.
+- **OT monitoring**: Purchase a license for each site that you're planning to monitor. License fees differ based on the site size, each which covers a different number of devicves.
 
 - **Enterprise IoT monitoring**: You're billed based on the number of committed devices associated with each subscription.
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
-For more information, see [the Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/) and [Start a Microsoft Defender for IoT trial](getting-started.md).
+For more information, see [Start a Microsoft Defender for IoT trial](getting-started.md).
 
 ### Device coverage warning
 
@@ -40,21 +43,20 @@ If the number of actual devices detected by Defender for IoT exceeds the number 
 
 :::image type="content" source="media/billing/device-coverage-warning.png" alt-text="Screenshot of the device coverage warning.":::
 
-This message indicates that you need to update the number of committed devices on the relevant subscription to match the actual number of devices being monitored.
+This message indicates that you need to do one of the following:
 
-To update the number of committed devices, edit your plan from the **Plans and pricing** page. For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks).
+- **OT monitoring**: Purchase a new license for a larger site size. For more information, see <m365 on cancellation policies>.
+- **Enterprise IoT monitoring**: [Update the number of devices for your plan](manage-subscriptions-enterprise.md) to match the actual number of devices being monitored.    Billing cycles for Enterprise IoT plans follow each a calendar month. Changes you make to an Enterprise IoT plan are implemented one hour after confirming the updated, and are reflected in your monthly bill.
+
 
 > [!NOTE]
-> This warning is a reminder for you to update the number of committed devices for your subscription, and does not affect Defender for IoT functionality.
+> This warning is a reminder for you to update your plan, and does not affect Defender for IoT functionality.
 
 ## Billing cycles and changes in your plans
 
-<!--is this still correct?-->
-Billing cycles for Microsoft Defender for IoT follow each a calendar month. Changes you make to Defender for IoT plans are implemented one hour after confirming the updated, and are reflected in your monthly bill.
+For information about OT plans, see <xref to M365 docs>.
 
-Canceling a Defender for IoT plan from your Azure subscription also takes effect one hour after canceling the plan.
 
-Your company may have more than one paying entity. If so, you can onboard, edit, or cancel a plan for more than one subscription.
 
 ## Next steps
 
