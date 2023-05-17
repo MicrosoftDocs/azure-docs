@@ -1,13 +1,13 @@
 ---
-title: Manage OT plans on Azure subscriptions
-description: Manage Microsoft Defender for IoT plans for OT monitoring on your Azure subscriptions.
-ms.date: 05/10/2023
+title: Manage OT plans and licenses - Microsoft Defender for IoT
+description: Manage Microsoft Defender for IoT plans and licenses for OT monitoring.
+ms.date: 05/17/2023
 ms.topic: how-to
 ---
 
-# Manage OT plans on Azure subscriptions
+# Manage OT plans and licenses
 
-Your Microsoft Defender for IoT deployment is managed through a plan on your Azure subscription. For OT networks, purchase a Defender for IoT license for each of your OT sites from the Microsoft 365 Admin center, and then apply the license to your OT plan in the Azure portal.
+Your Microsoft Defender for IoT deployment for OT monitoring is managed through a site-based license, purchased in the Microsoft 365 Admin center. After you've purchased your license, apply that license to your OT plan in the Azure portal.
 
 If you're looking to manage Enterprise IoT plans, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
 
@@ -74,6 +74,8 @@ Business considerations may require that you apply your existing IoT sensors to 
 ## Legacy procedures for plan management in the Azure portal
 
 Customers with existing plans from earlier than June 1, 2023 can continue to manage their plans in the Azure portal, until the end of their plan.
+
+For legacy customers, *committed devices* are the number of devices you're monitoring. For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 <!-- i don't think this is still relevant
 

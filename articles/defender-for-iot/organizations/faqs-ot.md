@@ -2,7 +2,7 @@
 title: FAQs for OT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT OT networks.
 ms.topic: faq
-ms.date: 07/07/2022
+ms.date: 05/17/2023
 ---
 
 # Operational Technology (OT) networks frequently asked questions
@@ -68,7 +68,7 @@ For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.m
 
 ## I am seeing a warning that we have exceeded the maximum number of devices for the subscription. How do I resolve this?
 
-If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal, and you will need to edit your plan and update the number of committed devices on the relevant subscription. For more information, see [Edit a plan for OT networks](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks).
+If the number of actual devices detected by Defender for IoT exceeds the number of devices covered by your licenses, a warning message will appear in Defender for IoT in the Azure portal, and you'll need to purchase a new license for a larger site. For more information, see [Edit a plan for OT networks](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks).
 
 ## Next steps
 

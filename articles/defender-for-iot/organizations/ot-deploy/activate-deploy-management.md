@@ -1,7 +1,7 @@
 ---
 title: Activate and set up an on-premises management console - Microsoft Defender for IoT 
 description: Learn how to activate and set up an on-premises management console when deploying your Microsoft Defender for IoT system for OT network monitoring.
-ms.date: 01/16/2023
+ms.date: 05/17/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -41,21 +41,21 @@ In a browser, go to the on-premises management console's IP address, and enter t
 
 ## Activate the on-premises management console
 
-Activate your on-premises management console using a downloaded file from the Azure portal. Defender for IoT activation files track the number of committed devices detected by connected OT sensors against the number of committed devices in your OT plan.
+Activate your on-premises management console using a downloaded file from the Azure portal. Defender for IoT activation files track the number of devices detected by connected OT sensors against the number of devices covered by your [licenses](../billing.md).
 
-If your sensors detect more devices than you have included in your plan, update the number of committed devices. For more information, see [Manage OT plans on Azure subscriptions](../how-to-manage-subscriptions.md).
+If your sensors detect more devices than you're licensed for, purchase a new license for a larger site. For more information, see [Manage OT plans and licenses](../how-to-manage-subscriptions.md).
 
 **To activate**:
 
 1. After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. In the message bar, select the **Take action** link.
 
-    An **Activation** dialog shows the number of monitored devices and registered committed devices. Since you're just starting the deployment, both of these values should be **0**.
+    An **Activation** dialog shows the number of monitored devices and licensed devices. Since you're just starting the deployment, both of these values should be **0**.<!---->TBD is this correct?
 
 1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
 
 1. In the **Plans** grid, select one or more subscriptions.
 
-   If you select multiple subscriptions, the activation file is associated with all selected subscriptions and the number of committed devices defined at the time of download.
+   If you select multiple subscriptions, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.<!---->TBD is this correct?
 
     If you don't see the subscription that you're looking for, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](../../../azure-portal/set-preferences.md).
 
@@ -72,7 +72,7 @@ If your sensors detect more devices than you have included in your plan, update 
     A confirmation message appears to confirm that the file's been uploaded successfully.
 
 > [!NOTE]
-> You'll need to upload a new activation file in specific cases, such as if you modify the number of committed devices in your OT plan after having uploaded your initial activation file, or if you've [deleted your OT plan](../how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks) from the subscription that the previous activation file was associated with.
+> You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file, or if you've [deleted your OT plan](../how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks) from the subscription that the previous activation file was associated with.<!---->IS THIS CORRECT?
 >
 > For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 

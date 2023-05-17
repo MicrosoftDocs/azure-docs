@@ -1,7 +1,7 @@
 ---
 title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
-ms.date: 06/27/2022
+ms.date: 05/17/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
@@ -10,7 +10,7 @@ ms.custom: enterprise-iot
 
 Use the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 ## View the device inventory
 
@@ -132,7 +132,7 @@ If you have devices no longer in use, delete them from the device inventory so t
 
 Devices might be inactive because of misconfigured SPAN ports, changes in network coverage, or because the device was unplugged from the network.
 
-Delete inactive devices to maintain a correct representation of current network activity, better understand your committed devices when managing your Defender for IoT plans, and to reduce clutter on your screen.
+Delete inactive devices to maintain a correct representation of current network activity, better understand your the number of devices that you're monitoring when managing your Defender for IoT [licenses and plans](billing.md), and to reduce clutter on your screen.
 
 **To delete a device**:
 

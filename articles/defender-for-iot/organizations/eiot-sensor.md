@@ -2,7 +2,7 @@
 title: Enhance device discovery with a Microsoft Defender for IoT Enterprise IoT network sensor
 description: Learn how to register an Enterprise IoT network sensor in Defender for IoT for extra device visibility not covered by Defender for Endpoint.
 ms.topic: tutorial
-ms.date: 10/19/2022
+ms.date: 05/17/2023
 ms.custom: enterprise-iot
 ---
 
@@ -200,9 +200,9 @@ If you're a Defender for Endpoint customer with an Enterprise IoT plan, you'll b
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-If you're on a monthly commitment, you may want to edit the number of committed devices in your Enterprise IoT plan. For more information, see:
+If you're on a monthly commitment, you may want to edit the number of devices covered by your Enterprise IoT plan. For more information, see:
 
-- [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring)
+- [Calculate monitored devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-monitored-devices-for-enterprise-iot-monitoring)
 - [Defender for IoT subscription billing](billing.md)
 - The [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/)
 
