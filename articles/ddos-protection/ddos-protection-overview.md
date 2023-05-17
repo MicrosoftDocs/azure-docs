@@ -74,6 +74,20 @@ For DDoS IP Protection, there's no need to create a DDoS protection plan. Custom
 
 To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). 
 
+
+## How to disable DDoS standard Protection
+
+Its important to know the consequences of disabling the Azure standard DDos Protection. Once you have gone throught the same and still decide to disable the Azure DDoS standard protection, Please refer the below steps. 
+- Ensure that all the protected resources are removed/disabled before you can go ahead and delete the DDoS std plan 
+- You will not be able to disable the plan untill you detach all the protected instances from the Azure DDoS std plan 
+- Go to your Azure Std DDoS Plan 
+- click on the protected resources 
+- detach all the resources which are part of the plan protection 
+- Once done wait for the page to referesh for few mins 
+- Go ahead and delete the DDoS standrd plan 
+
+Unable to upload the screenshots of the proces(Please suggest)
+
 ## DDoS Protection FAQ
 
 For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
