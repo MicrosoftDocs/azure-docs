@@ -593,7 +593,7 @@ The sections ahead review the steps that `azd` handled for you in more depth. Yo
 
 ### 1. Cloned and initialized the project
 
-The `azd up` command cloned the sample app project template to your machine. The project template includes the following components:
+The `azd init` command cloned the sample app project template to your machine. The project template includes the following components:
 
 * **Source code**: The code and assets for a Flask or Django web app that can be used for local development or deployed to Azure.
 * **Bicep files**: Infrastructure as code (IaC) files that are used by `azd` to create the necessary resources in Azure.
