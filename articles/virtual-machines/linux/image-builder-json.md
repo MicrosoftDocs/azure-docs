@@ -4,7 +4,7 @@ description: Learn how to create a Bicep file or ARM JSON template to use with A
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 05/08/2023
+ms.date: 05/17/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -1110,6 +1110,11 @@ The following JSON distributes the image as a VHD to a custom storage account.
 "distribute": [
   {
     "type": "VHD",
+    "runOutputName": "<VHD name>",
+    "artifactTags": {
+        "<name>": "<value>",
+        "<name>": "<value>"
+    },
     "uri": "<replace with Azure storage URI>"
   }
 ]
@@ -1118,12 +1123,17 @@ The following JSON distributes the image as a VHD to a custom storage account.
 # [Bicep](#tab/bicep)
 
 ```bicep
-distribute: [
-  {
+resource distribute 'Microsoft.Compute/galleries/images/runOutputs' = {
+  name: '<VHD name>'
+  properties: {
     type: 'VHD'
+    artifactTags: {
+      '<name>': '<value>'
+      '<name>': '<value>'
+    }
     uri: '<replace with Azure storage URI>'
   }
-]
+}
 ```
 
 ---
