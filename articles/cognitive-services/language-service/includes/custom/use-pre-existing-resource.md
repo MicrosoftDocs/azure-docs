@@ -40,7 +40,7 @@ Your Language resource must have identity management, to enable it using [Langua
 
 ---
 
-### Enable custom text classification feature
+### Enable the custom feature for your resource
 
 Make sure to enable **Custom text classification / Custom Named Entity Recognition** feature from Azure portal.
 
