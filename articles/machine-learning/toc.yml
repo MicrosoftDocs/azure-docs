@@ -490,7 +490,7 @@
           displayName: AKS, inference
           href: ./v1/how-to-create-attach-kubernetes.md
         # end v1
-        - name: Attach and Manage a Synapse Spark pool
+        - name: Attach and Manage a Synapse Spark pool 
           displayName: Attach and Manage a Synapse Spark pool
           href: how-to-manage-synapse-spark-pool.md
         # v1
