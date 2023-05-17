@@ -23,3 +23,5 @@ To test your deployed models from within the [Language Studio](https://aka.ms/La
 5. Click on **Run the test** from the top menu.
 
 6. In the **Result** tab, you can see the extracted entities from your text and their types. You can also view the JSON response under the **JSON** tab.
+
+    :::image type="content" source="../../../media/custom/quickstart/test-model-results.png" alt-text="View the test results"../../../media/custom/quickstart/test-model-results.png":::
