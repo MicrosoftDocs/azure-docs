@@ -432,7 +432,7 @@ To create policies that cover all data sources inside a resource group or Azure 
 <a id="lineagepreview"></a>
 
 >[!NOTE]
->Lineage is not currently supported using a self-hosted integration runtime and a private endpoint. You need to enable Azure services to access the server under network settings for your Azure SQL Database.
+>Lineage is not currently supported using a self-hosted integration runtime or managed VNET runtime and a private endpoint. You need to enable Azure services to access the server under network settings for your Azure SQL Database.
 
 Microsoft Purview supports lineage from Azure SQL Database. When you're setting up a scan, you turn on the **Lineage extraction** toggle to extract lineage.  
 
