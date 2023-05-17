@@ -14,30 +14,29 @@ There are several networking considerations to review before you set up your Azu
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution is compatible with AS-Path Prepend for redundant ExpressRoute configurations, with the caveat of not honoring the outbound path selection from Azure toward on-premises. If you're running two or more ExpressRoute paths between on-premises and Azure, and you don't meet the listed [prerequisites](#prerequisites), you might experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. 
+Azure VMware Solution has considerations relating to the use of AS-Path Prepend for redundant ExpressRoute configurations. If you're running two or more ExpressRoute paths between on-premises and Azure, consider the following guidance for influencing traffic out of Azure VMware Solution towards your on-premises location via ExpressRoute GlobalReach.
 
-The connectivity problem happens when Azure VMware Solution doesn't notice AS-Path Prepend and uses equal-cost multipath (ECMP) routing to send traffic toward your environment over both ExpressRoute circuits. That action causes problems with stateful firewall inspection.
+Due to asymmetric routing, connectivity issues can occur when Azure VMware Solution doesn't observe AS-Path Prepend and therefore uses equal-cost multipath (ECMP) routing to send traffic toward your environment over both ExpressRoute circuits. This behavior can cause problems with stateful firewall inspection devices placed behind existing ExpressRoute circuits.
 
 ### Prerequisites
 
-For AS-Path Prepend, verify that all of the following listed connections are true:
+For AS-Path Prepend, consider the following:
 
 > [!div class="checklist"]
+> * The key point is that you must prepend **Public** ASN numbers to influence how AVS route's traffic back to on-premises. If you prepend using _Private_ ASN, AVS will ignore the prepend, and the ECMP behavior above will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilizes Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
 > * Both or all circuits are connected to Azure VMware Solution through ExpressRoute Global Reach.
 > * The same netblocks are being advertised from two or more circuits.
-> * Stateful firewalls are in the network path.
-> * You're using AS-Path Prepend to force Azure to prefer one path over others.
-
-Use either 2-byte or 4-byte public ASN numbers, and make sure that they're compatible with Azure VMware Solution. If you don't own a public ASN for prepending, open a [Microsoft support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to view options.
+> * You wish to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
+> * Use either 2-byte or 4-byte public ASN numbers. If you don't own a public ASN for prepending, open a [Microsoft support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to explore further options.
 
 ## Management VMs and default routes from on-premises
 
 > [!IMPORTANT]
-> Azure VMware Solution management virtual machines (VMs) won't honor a default route from on-premises.
+> Azure VMware Solution management virtual machines (VMs) won't honor a default route from on-premises for RFC1918 destinations.
 
-If you're routing back to your on-premises networks by using only a default route advertised toward Azure, vCenter Server and NSX-T Manager VMs won't be compatible with that route.
+If you're routing back to your on-premises networks by using only a default route advertised toward Azure, traffic from vCenter Server and NSX-T Manager VMs towards on-premises destinations with private IP addresses won't follow that route.
 
-To reach vCenter Server and NSX-T Manager, provide specific routes from on-premises to allow traffic to have a return path to those networks.
+To reach vCenter Server and NSX-T Manager from on-premises, provide specific routes to allow traffic to have a return path to those networks. For example, advertise the RFC1918 summaries (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16).
 
 ## Default route to Azure VMware Solution for internet traffic inspection
 

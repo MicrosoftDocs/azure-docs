@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD single sign-on integration with F5 | Microsoft Docs'
+title: 'Tutorial: Azure AD single sign-on integration with F5'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and F5.
 services: active-directory
 author: jeevansd
@@ -379,7 +379,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
     * Profile Scope: Profile
     * Languages: English
 
-        ![Screenshot that shows the "Profiles/Policies - Properties" page with the "Name", "Profile Type", and "Langauges" text boxes highlighted.](./media/kerbf5-tutorial/configure30.png)
+        ![Screenshot that shows the "Profiles/Policies - Properties" page with the "Name", "Profile Type", and "Languages" text boxes highlighted.](./media/kerbf5-tutorial/configure30.png)
 
 1. Click on the name, KerbApp200, complete the following information and click **Update**.
 
@@ -490,7 +490,7 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try F5 with Azure AD](https://aad.portal.azure.com/)
+
 
 - [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 

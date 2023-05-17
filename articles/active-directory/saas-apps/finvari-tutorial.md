@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Finvari | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Finvari'
 description: Learn how to configure single sign-on between Azure Active Directory and Finvari.
 services: active-directory
 author: jeevansd

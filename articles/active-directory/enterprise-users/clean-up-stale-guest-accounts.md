@@ -1,5 +1,5 @@
 ---
-title: Clean up stale guest accounts - Azure Active Directory | Microsoft Docs
+title: Clean up stale guest accounts
 description: Clean up stale guest accounts using access reviews 
 services: active-directory 
 author: gargi-sinha

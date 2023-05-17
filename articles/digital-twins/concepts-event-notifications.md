@@ -151,7 +151,7 @@ An example message body, populated in AMQP's *data* section:
 ---
 
 >[!NOTE]
-> Azure Digital Twins currently doesn't support [filtering events](how-to-manage-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
+> Azure Digital Twins currently doesn't support [filtering events](how-to-create-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
 
 ## Digital twin lifecycle notifications
 

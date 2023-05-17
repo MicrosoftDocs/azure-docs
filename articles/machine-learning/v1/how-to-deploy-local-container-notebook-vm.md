@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: deploy, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, event-tier1-build-2022
 ms.author: ssalgado
 author: ssalgadodev
 ms.date: 04/22/2021
@@ -26,7 +26,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md).
+- An Azure Machine Learning workspace with a compute instance running. For more information, see [Create resources to get started](../quickstart-create-resources.md).
 
 ## Deploy to the compute instances
 

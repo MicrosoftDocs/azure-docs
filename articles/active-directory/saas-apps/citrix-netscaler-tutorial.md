@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix ADC SAML Connector for Azure AD by using Kerberos-based authentication.
 services: active-directory
 author: jeevansd
@@ -104,7 +104,7 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
 
 	> [!NOTE]
 	> * The URLs that are used in this section aren't real values. Update these values with the actual values for Identifier, Reply URL, and Sign-on URL. Contact the [Citrix ADC SAML Connector for Azure AD client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-    > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC SAML Connector for Azure AD side to enble Azure AD to post the token at the configured URL.
+    > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC SAML Connector for Azure AD side to enable Azure AD to post the token at the configured URL.
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, for **App Federation Metadata Url**, copy the URL and save it in Notepad.
 

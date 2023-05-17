@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure BullseyeTDP for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BullseyeTDP for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BullseyeTDP.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: a1a4e5ab-87ae-4cad-b187-cc474a8ea185
 ms.service: active-directory

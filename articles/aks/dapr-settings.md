@@ -3,7 +3,6 @@ title: Configure the Dapr extension for your Azure Kubernetes Service (AKS) and 
 description: Learn how to configure the Dapr extension specifically for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-service
 ms.topic: article
 ms.date: 01/09/2023
 ---
@@ -158,6 +157,23 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
 
+## Using Mariner-based images
+
+From Dapr version 1.8.0, you can use Mariner images with the Dapr extension. To use them, set the`global.tag` flag:
+
+```azurecli
+az k8s-extension upgrade --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--set global.tag=1.10.0-mariner
+```
+
+- [Learn more about using Mariner-based images with Dapr.][dapr-mariner]
+- [Learn more about deploying Mariner on AKS.][aks-mariner]
+
+
 ## Disable automatic CRD updates
 
 With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
@@ -182,7 +198,7 @@ az k8s-extension upgrade --cluster-type managedClusters \
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements). 
+The Dapr extension for AKS and Arc for Kubernetes requires outbound URLs on `https://:443` to function. In addition to the `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts, verify you've included the [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 
@@ -200,6 +216,8 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [install-cli]: /cli/azure/install-azure-cli
 [dapr-migration]: ./dapr-migration.md
 [dapr-settings]: ./dapr-settings.md
+[aks-mariner]: ./cluster-configuration.md#mariner-os
+
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
@@ -212,3 +230,4 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
+[dapr-mariner]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-mariner-based-images

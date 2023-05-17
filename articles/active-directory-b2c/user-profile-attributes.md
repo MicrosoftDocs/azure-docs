@@ -21,7 +21,7 @@ Your Azure Active Directory B2C (Azure AD B2C) directory user profile comes with
 Most of the attributes that can be used with Azure AD B2C user profiles are also supported by Microsoft Graph. This article describes supported Azure AD B2C user profile attributes. It also notes those attributes that are not supported by Microsoft Graph, as well as Microsoft Graph attributes that should not be used with Azure AD B2C.
 
 > [!IMPORTANT]
-> You should'nt use built-in or extension attributes to store sensitive personal data, such as account credentials, government identification numbers, cardholder data, financial account data, healthcare information, or sensitive background information.
+> You shouldn't use built-in or extension attributes to store sensitive personal data, such as account credentials, government identification numbers, cardholder data, financial account data, healthcare information, or sensitive background information.
 
 You can also integrate with external systems. For example, you can use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the authoritative source of customer data. For more information, see the [remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) solution.
 
@@ -189,7 +189,7 @@ Extension attributes in the Graph API are named by using the convention `extensi
 Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
 
 ```json
-    "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
 The following data types are supported when defining an attribute in a schema extension:

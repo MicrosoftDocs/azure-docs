@@ -52,7 +52,6 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
-| [Public IP addresses per Resource Group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contact support. | 
 | Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
 

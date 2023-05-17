@@ -8,7 +8,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 07/06/2022
+ms.date: 02/08/2023
 ms.custom: subject-monitoring
 ---
 

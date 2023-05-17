@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartDraw | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartDraw'
 description: Learn how to configure single sign-on between Azure Active Directory and SmartDraw.
 services: active-directory
 author: jeevansd

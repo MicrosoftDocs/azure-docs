@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Using Azure Batch rendering
 
-> [!IMPORTANT]
+> [!WARNING]
 > The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on February 29, 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 There are several ways to use Azure Batch rendering:
@@ -22,7 +22,7 @@ There are several ways to use Azure Batch rendering:
   * For each of the rendering applications, a number of pool and job templates are provided that can be used to easily create pools and to submit jobs.  A set of templates is listed in the application UI, with the template files being accessed from GitHub.
   * Custom templates can be authored from scratch or the supplied templates from GitHub can be copied and modified.
 * Client application plug-ins:
-  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications.  The plug-ins mainly invoke the Batch Explorer application with contextual information about the current 3D model and includes features to help manage assets.
+  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications.  The plug-ins mainly invoke the Batch Explorer application with contextual information about the current 3D model and include features to help manage assets.
 
 The best way to try Azure Batch rendering and simplest way for end-users, who are not developers and not Azure experts, is to use the Batch Explorer application, either directly or invoked from a client application plug-in.
 

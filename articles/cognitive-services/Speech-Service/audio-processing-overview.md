@@ -7,7 +7,7 @@ author: hasyashah
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/07/2022
 ms.author: hasshah
 ms.custom: ignite-fall-2021
@@ -31,12 +31,12 @@ Processing is performed fully locally where the Speech SDK is being used. No aud
 
 The Microsoft Audio Stack also powers a wide range of Microsoft products:
 * **Windows** - Microsoft Audio Stack is the default speech processing pipeline when using the Speech audio category. 
-* **Microsoft Teams Displays and Microsoft Teams Room devices** - Microsoft Teams Displays and Teams Room devices use the Microsoft Audio Stack to enable high quality hands-free, voice-based experiences with Cortana.
+* **Microsoft Teams Displays and Microsoft Teams Rooms devices** - Microsoft Teams Displays and Teams Rooms devices use the Microsoft Audio Stack to enable high quality hands-free, voice-based experiences with Cortana.
 
 ## Speech SDK integration
 
 The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. Some of the key Microsoft Audio Stack features available via the Speech SDK include:
-* **Realtime microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
+* **Real-time microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
 * **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario does not include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
 * **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays (see more information on supported preset geometries at [Microphone array recommendations](speech-sdk-microphone.md#microphone-geometry)).
 * **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.

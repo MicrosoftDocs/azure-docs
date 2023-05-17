@@ -66,7 +66,7 @@ If using a StorSimple 8100 or 8600 physical device, the device is available in t
 | 6  | Canada                | 21 | Ireland            | 36 | Poland              | 51 | Switzerland                |
 | 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
 | 8  | Colombia              | 23 | Italy              | 38 | Puerto Rico         | 53 | Thailand                   |
-| 9  | Czech Republic        | 24 | Japan              | 39 | Qatar               | 54 | Turkey                     |
+| 9  | Czech Republic        | 24 | Japan              | 39 | Qatar               | 54 | Türkiye                    |
 | 10 | Denmark               | 25 | Kenya              | 40 | Romania             | 55 | Ukraine                    |
 | 11 | Egypt                 | 26 | Kuwait             | 41 | Russia              | 56 | United Arab Emirates       |
 | 12 | Finland               | 27 | Macao SAR          | 42 | Saudi Arabia        | 57 | United Kingdom             |

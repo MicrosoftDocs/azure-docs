@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
 author: dem108
 ms.author: sehan
-ms.date: 04/26/2022
-ms.reviewer: larryfr
+ms.date: 01/24/2023
+ms.reviewer: mopeakande
+
 ---
 
 # CLI (v2) managed online deployment YAML schema
@@ -53,7 +53,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Default value |
 | --- | ---- | ----------- | ------------- |
 | `request_timeout_ms` | integer | The scoring timeout in milliseconds. | `5000` |
-| `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. <br><br> Set to the number of requests that your model can process concurrently on a single node. Setting this value higher than your model's actual concurrency can lead to higher latencies. Setting this value too low may lead to under utilized nodes. Setting too low may also result in requests being rejected with a 429 HTTP status code, as the system will opt to fail fast. <br><br> For more information, see [Troubleshooting online endpoints: HTTP status codes](how-to-troubleshoot-online-endpoints.md#http-status-codes). | `1` |
+| `max_concurrent_requests_per_instance` | integer | The maximum number of concurrent requests per instance allowed for the deployment. <br><br> **Note:** If you're using [AzureML Inference Server](how-to-inference-server-http.md) or [AzureML Inference Images](concept-prebuilt-docker-images-inference.md), your model must be configured to handle concurrent requests. To do so, pass `WORKER_COUNT: <int>` as an environment variable. For more information about `WORKER_COUNT`, see [AzureML Inference Server Parameters](how-to-inference-server-http.md#server-parameters) <br><br> **Note:** Set to the number of requests that your model can process concurrently on a single node. Setting this value higher than your model's actual concurrency can lead to higher latencies. Setting this value too low may lead to under utilized nodes. Setting too low may also result in requests being rejected with a 429 HTTP status code, as the system will opt to fail fast. For more information, see [Troubleshooting online endpoints: HTTP status codes](how-to-troubleshoot-online-endpoints.md#http-status-codes). | `1` |
 | `max_queue_wait_ms` | integer | The maximum amount of time in milliseconds a request will stay in the queue. | `500` |
 
 ### ProbeSettings
@@ -63,7 +63,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `initial_delay` | integer | The number of seconds after the container has started before the probe is initiated. Minimum value is `1`. | `10` |
 | `period` | integer | How often (in seconds) to perform the probe. | `10` |
 | `timeout` | integer | The number of seconds after which the probe times out. Minimum value is `1`. | `2` |
-| `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1`. | `1` |
+| `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1` for readiness probe. The value for liveness probe is fixed as `1`. | `1` |
 | `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in the case of a liveness probe means the container will be restarted. In the case of a readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
 
 ## Remarks

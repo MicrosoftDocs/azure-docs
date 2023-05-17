@@ -70,7 +70,7 @@ You can check existing roles using [Azure portal](../../role-based-access-contro
 
 ## Additional steps when subscription is in a new tenant
 
-If you moved your key vault to a subscription in a new tenant, you need to manually update the tenant ID and remove old access policies and role assignments. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell, you may need to run the Clear-AzContext command to allow you to see resources outside your current selected scope. 
+If you moved your subscription containing the key vault to a new tenant, you need to manually update the tenant ID and remove old access policies and role assignments. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell, you may need to run the Clear-AzContext command to allow you to see resources outside your current selected scope. 
 
 ### Update tenant ID in a key vault
 

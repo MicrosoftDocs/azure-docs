@@ -73,7 +73,7 @@
   - name: Node.js
     href: /javascript/api/@azure/cognitiveservices-contentmoderator/
   - name: Python
-    href: /python/api/overview/azure/cognitiveservices/contentmoderator
+    href: /python/api/overview/azure/content-moderator
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
@@ -93,6 +93,6 @@
   - name: Azure Government and global Azure
     href: ../../azure-government/compare-azure-government-global-azure.md
   - name: Azure updates
-    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

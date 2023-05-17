@@ -334,19 +334,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | sqlServerRegistrations | Yes | Yes |
 > | sqlServerRegistrations / sqlServers | No | No |
 
-## Microsoft.AzurePercept
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | accounts / devices | No | No |
-> | accounts / devices / sensors | No | No |
-> | accounts / sensors | No | No |
-> | accounts / solutioninstances | No | No |
-> | accounts / solutions | No | No |
-> | accounts / targets | No | No |
-
 ## Microsoft.AzureScan
 
 > [!div class="mx-tableFixed"]

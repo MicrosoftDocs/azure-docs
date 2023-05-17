@@ -56,11 +56,10 @@ The following languages are supported:
 The following list shows the required environment variables:
 
 - `connection-string`
-- `sampling-percentage`
 
 Upper-case keys are allowed, and you can also replace `_` with `-`.
 
-For other supported environment variables, see [Application Insights Overview](/azure/azure-monitor/app/app-insights-overview?tabs=net).
+For other supported environment variables, see [Application Insights Overview](../azure-monitor/app/app-insights-overview.md?tabs=net).
 
 ### Use Dynatrace
 

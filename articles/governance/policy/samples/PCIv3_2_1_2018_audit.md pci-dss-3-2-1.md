@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for PCI v3.2.1:2018 PCI DSS 3.2.1
 description: Details of the PCI v3.2.1:2018 PCI DSS 3.2.1 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/05/2023
+ms.date: 02/14/2023
 ms.topic: sample
 ms.custom: generated
 ---

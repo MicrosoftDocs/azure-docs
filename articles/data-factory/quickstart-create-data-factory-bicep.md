@@ -7,7 +7,7 @@ tags: azure-resource-manager
 author: jonburchel 
 ms.author: jburchel 
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 08/19/2022
 ---
 

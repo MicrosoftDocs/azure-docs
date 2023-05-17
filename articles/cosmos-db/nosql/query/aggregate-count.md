@@ -24,11 +24,11 @@ COUNT(<scalar_expr>)
 ## Arguments
   
 *scalar_expr*  
-   Is any scalar expression
+   Any expression that results in a scalar value
   
 ## Return types
   
-Returns a numeric expression.  
+Returns a numeric (scalar) value
   
 ## Examples
   
@@ -37,11 +37,12 @@ The following example returns the total count of items in a container:
 ```sql
 SELECT COUNT(1)
 FROM c
-``` 
-COUNT can take any scalar expression as input. The below query will produce an equivalent results:
+```
+
+In the first example, the parameter of the `COUNT` function is any scalar value or expression, but the parameter does not influence the result. The first example passes in a scalar value of `1` to the `COUNT` function. This second example will produce an identical result even though a different scalar expression is used. In the second example, the scalar expression of `2 + 3` is passed in to the `COUNT` function, but the result will be equivalent to the first function.
 
 ```sql
-SELECT COUNT(2)
+SELECT COUNT(2 + 3)
 FROM c
 ```
 

@@ -8,7 +8,7 @@ ms.date: 01/16/2023
 ms.topic: how-to
 ---
 
-# Manage workbooks in update management center (preview)
+# Create reports in update management center (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 

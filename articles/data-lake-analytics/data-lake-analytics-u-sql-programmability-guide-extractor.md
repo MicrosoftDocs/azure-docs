@@ -2,14 +2,15 @@
 title: U-SQL user defined extractor programmability guide for Azure Data Lake
 description: Learn about the U-SQL UDO programmability guide - user defined extractor.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # Use user-defined extractor
 
 ## U-SQL UDO: user-defined extractor
+
 U-SQL allows you to import external data by using an EXTRACT statement. An EXTRACT statement can use built-in UDO extractors:  
 
 * *Extractors.Text()*: Provides extraction from delimited text files of different encodings.
@@ -26,6 +27,7 @@ It can be useful to develop a custom extractor. This can be helpful during data 
 * Parse data in unsupported encoding.
 
 ## How to define and use user-defined extractor
+
 To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, and encoding, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:
 
 ```csharp
@@ -40,7 +42,7 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-The **SqlUserDefinedExtractor** attribute indicates that the type should be registered as a user-defined extractor. This class cannot be inherited.
+The **SqlUserDefinedExtractor** attribute indicates that the type should be registered as a user-defined extractor. This class can't be inherited.
 
 SqlUserDefinedExtractor is an optional attribute for UDE definition. It used to define AtomicFileProcessing property for the UDE object.
 

@@ -86,7 +86,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 1. Select **Next**.
 1. Optionally, you can add up to 10 custom speaking styles:
     1. Select **Add a custom style** and thoughtfully enter a custom style name of your choice. This name will be used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#speaking-styles-and-roles). You can also use the custom style name as SSML via the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
-    1. Select style samples as training data. It's recommended that the style samples are all from the same voice talent profile.
+    1. Select style samples as training data. The style samples should be all from the same voice talent profile.
 1. Select **Next**.
 1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
 1. Select **Next**.
@@ -172,19 +172,19 @@ Each paragraph of the utterance results in a separate audio. If you want to comb
 
 ### Update engine version for your voice model
 
-Azure Text-to-Speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version.
+Azure Text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version.
 
 When a new engine is available, you're prompted to update your neural voice model.
 
 :::image type="content" source="media/custom-voice/cnv-engine-update-prompt.png" alt-text="Screenshot of displaying engine update message." lightbox="media/custom-voice/cnv-engine-update-prompt.png":::
 
-Go to the model details page, select **Update** at the top to display **Update** window.
+Go to the model details page and follow the on-screen instructions to install the latest engine.
 
-:::image type="content" source="media/custom-voice/cnv-engine-update.png" alt-text="Screenshot of selecting Update menu at the top of page." lightbox="media/custom-voice/cnv-engine-update.png":::
+:::image type="content" source="media/custom-voice/cnv-new-engine-install.png" alt-text="Screenshot of following on-screen instructions to install the new engine.":::
 
-Then select **Update** to update your model to the latest engine version.
+Alternatively, select **Install the latest engine** later to update your model to the latest engine version.
 
-:::image type="content" source="media/custom-voice/cnv-engine-update-done.png" alt-text="Screenshot of selecting Update button to update engine.":::
+:::image type="content" source="media/custom-voice/cnv-install-latest-engine.png" alt-text="Screenshot of selecting Install the latest engine button to update engine.":::
 
 You're not charged for engine update. The previous versions are still kept. You can check all engine versions for the model from **Engine version** drop-down list, or remove one if you don't need it anymore. 
 
@@ -196,7 +196,11 @@ The updated version is automatically set as default. But you can change the defa
 
 If you want to test each engine version of your voice model, you can select a version from the drop-down list, then select **DefaultTests** under **Testing** to listen to the sample audios. If you want to upload your own test scripts to further test your current engine version, first make sure the version is set as default, then follow the [testing steps above](#test-your-voice-model).
 
-After you've updated the engine version for your voice model, you need to [redeploy this new version](how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product). You can only deploy the default version. 
+Updating the engine will create a new version of the model at no additional cost. After you've updated the engine version for your voice model, you need to deploy the new version to [create a new endpoint](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version. 
+
+:::image type="content" source="media/custom-voice/cnv-engine-redeploy.png" alt-text="Screenshot that shows how to redeploy a new version of your voice model.":::
+
+After you've created a new endpoint, you need to [transfer the traffic to the new endpoint in your product](how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product).
 
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
@@ -226,4 +230,4 @@ Navigate to the project where you copied the model to [deploy the model copy](ho
 
 - [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
-- [Text-to-Speech API reference](rest-text-to-speech.md)
+- [Text to speech API reference](rest-text-to-speech.md)

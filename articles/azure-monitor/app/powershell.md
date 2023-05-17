@@ -2,8 +2,8 @@
 title: Automate Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell by using an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/02/2020 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/22/2023
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.reviewer: vitalyg
 ---
 
@@ -11,7 +11,7 @@ ms.reviewer: vitalyg
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Manager. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](../logs/cost-logs.md#application-insights-billing), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Manager. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./availability-overview.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](../logs/cost-logs.md#application-insights-billing), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is:
 
@@ -422,7 +422,7 @@ To automate the creation of any other resource of any kind, create an example ma
 
 1. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components` to your application resource.
 
-    ![Screenshot that shows navigation in Azure Resource Explorer.](./media/powershell/01.png)
+    :::image type="content" source="./media/powershell/01.png" lightbox="./media/powershell/01.png" alt-text="Screenshot that shows navigation in Azure Resource Explorer.":::
 
     *Components* are the basic Application Insights resources for displaying applications. There are separate resources for the associated alert rules and availability web tests.
 1. Copy the JSON of the component into the appropriate place in `template1.json`.

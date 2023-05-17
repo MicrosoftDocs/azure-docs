@@ -1,6 +1,7 @@
 ---
-title: Azure traffic analytics
-description: Learn what traffic analytics is, and how to use traffic analytics for viewing network activity, securing networks, and optimizing performance.
+title: Traffic analytics
+titleSuffix: Azure Network Watcher
+description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
@@ -9,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 01/06/2023
 ms.author: halkazwini
 ms.reviewer: vinigam
-ms.custom: template-concept, references_regions, engagement-fy23, devx-track-azurepowershell, kr2b-contr-experiment
+ms.custom: template-concept, references_regions, engagement-fy23, kr2b-contr-experiment
 ---
 
-# Traffic analytics
+# Azure Network Watcher Traffic analytics
 
 Traffic analytics is a cloud-based solution that provides visibility into user and application activity in your cloud networks. Specifically, traffic analytics analyzes Azure Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
@@ -100,7 +101,6 @@ One of the following [Azure built-in roles](../role-based-access-control/built-i
 |---------          |---------               |
 |Resource Manager   | Owner                  |
 |                   | Contributor            |
-|                   | Reader                 |
 |                   | Network Contributor    |
 
 If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) to your account. The custom role should support the following actions at the subscription level:

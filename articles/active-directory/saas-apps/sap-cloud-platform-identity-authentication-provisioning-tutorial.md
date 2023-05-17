@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to SAP Cloud Platform Identity Authentication.
 services: active-directory
 author: twimmers
@@ -54,7 +54,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 2. 	Press the **+Add** button on the left hand panel in order to add a new administrator to the list. Choose **Add System** and enter the name of the system.   
 
 > [!NOTE]
-> The admininistrator user in SAP Cloud Platform Identity Authentication must be of type **System**. Creating a normal administrator user can lead to *unauthorized* errors while provisioning.   
+> The administrator user in SAP Cloud Platform Identity Authentication must be of type **System**. Creating a normal administrator user can lead to *unauthorized* errors while provisioning.   
 
 3.	Under Configure Authorizations, switch on the toggle button against **Manage Users**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fabric | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fabric'
 description: Learn how to configure single sign-on between Azure Active Directory and Fabric.
 services: active-directory
 author: jeevansd

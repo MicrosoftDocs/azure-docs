@@ -69,7 +69,7 @@ Users enter the soft-delete state anytime the user object is deleted by using th
 
 The most frequent scenarios for user deletion are:
 
-* An administrator intentionally deletes a user in the Azure AD portal in response to a request or as part of routine user maintenance.
+* An administrator intentionally deletes a user in the Azure portal in response to a request or as part of routine user maintenance.
 * An automation script in Microsoft Graph or PowerShell triggers the deletion. For example, you might have a script that removes users who haven't signed in for a specified time.
 * A user is moved out of scope for synchronization with Azure AD Connect.
 * A user is removed from an HR system and is deprovisioned via an automated workflow.

@@ -63,7 +63,7 @@ To set up an SAP CDC linked service:
        - To extract ABAP CDS views from S/4HANA, select **ABAP_CDS**.
        - To extract InfoProviders or InfoObjects from SAP BW or BW/4HANA, select **BW**.
        - To extract SAP extractors from SAP ECC, select **SAPI**.
-       - To extract SAP application tables from SAP source systems via SAP LT replication server as a proxy, select **SLT_\<your queue alias\>**.
+       - To extract SAP application tables from SAP source systems via SAP LT replication server as a proxy, select **SLT~\<your queue alias\>**.
 
        If you want to extract SAP application tables, but you don’t want to use SAP Landscape Transformation Replication Server (SLT) as a proxy, you can create SAP extractors by using the RSO2 transaction code or Core Data Services (CDS) views with the tables. Then, extract the tables directly from your SAP source systems by using either an **SAPI** or an **ABAP_CDS** context.
 

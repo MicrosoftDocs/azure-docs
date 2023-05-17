@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.date: 03/16/2023
 ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
@@ -165,13 +165,13 @@ Check that the zipped file is secure before you deploy it.
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC 
 
     - For Azure Government:
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC 
  
 
 ### 3. Run the Azure Migrate installer script

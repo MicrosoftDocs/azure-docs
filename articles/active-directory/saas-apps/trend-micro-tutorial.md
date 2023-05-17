@@ -205,7 +205,7 @@ Complete these steps to configure TMWS SSO on the application side.
 After you configure the Azure AD service and specify Azure AD as the user authentication method, you can sign in to the TMWS proxy server to verify your setup. After the Azure AD sign-in verifies your account, you can visit the internet.
 
 > [!NOTE]
-> TMWS doesn't support testing single sign-on from the Azure AD portal, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
+> TMWS doesn't support testing single sign-on from the Azure portal, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
 
 1. Clear the browser of all cookies and then restart the browser. 
 

@@ -1,15 +1,23 @@
 ---
 title: What's new in Azure Managed Grafana
 description: Recent updates for Azure Managed Grafana
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: managed-grafana
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 02/06/2023
 
 ---
 
 # What's New in Azure Managed Grafana
+
+## February 2023
+
+### Support for SMTP settings
+
+Configuring SMTP settings for Azure Managed Grafana is now supported.
+
+For more information, go to [SMTP settings](how-to-smtp-settings.md).
 
 ## January 2023
 

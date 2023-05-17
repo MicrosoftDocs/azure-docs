@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Retail Zipline | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Retail Zipline'
 description: Learn how to configure single sign-on between Azure Active Directory and Retail Zipline.
 services: active-directory
 author: jeevansd

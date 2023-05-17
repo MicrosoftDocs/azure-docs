@@ -9,7 +9,6 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
-ROBOTS: NOINDEX
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET
@@ -22,7 +21,7 @@ Get started with the Azure Blob Storage client library for .NET. Azure Blob Stor
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
@@ -173,6 +172,8 @@ string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
 BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(containerName);
 ```
 
+To learn more about creating a container, and to explore more code samples, see [Create a blob container with .NET](storage-blob-container-create.md).
+
 ### Upload a blob to a container
 
 Add the following code to the end of the `Program.cs` class:
@@ -202,6 +203,8 @@ The code snippet completes the following steps:
 1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_String_System_Boolean_System_Threading_CancellationToken_) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
+To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with .NET](storage-blob-upload.md).
+
 ### List blobs in a container
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
@@ -217,6 +220,8 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
     Console.WriteLine("\t" + blobItem.Name);
 }
 ```
+
+To learn more about listing blobs, and to explore more code samples, see [List blobs with .NET](storage-blobs-list.md).
 
 ### Download a blob
 
@@ -235,6 +240,8 @@ Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 // Download the blob's contents and save it to a file
 await blobClient.DownloadToAsync(downloadFilePath);
 ```
+
+To learn more about downloading blobs, and to explore more code samples, see [Download a blob with .NET](storage-blob-download.md).
 
 ### Delete a container
 
@@ -258,6 +265,8 @@ File.Delete(downloadFilePath);
 
 Console.WriteLine("Done");
 ```
+
+To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with .NET](storage-blob-container-delete.md).
 
 ## The completed code
 

@@ -8,10 +8,8 @@ ms.topic: tutorial
 ms.date: 12/10/2021
 ms.author: mbaldwin
 ms.devlang: javascript
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-
+ms.custom: mvc, devx-track-js, devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
-
 ---
 
 # Tutorial: Use Azure Key Vault with a virtual machine in JavaScript
@@ -173,8 +171,8 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
         return (await client.getSecret(secretName)).value;
     }
     
-    getSecret("mySecret").then(secretValue => {
-        console.log(`The value of secret 'mySecret' in '${keyVaultName}' is: '${secretValue}'`);
+    getSecret(secretName).then(secretValue => {
+        console.log(`The value of secret '${secretName}' in '${keyVaultName}' is: '${secretValue}'`);
     }).catch(err => {
         console.log(err);
     })

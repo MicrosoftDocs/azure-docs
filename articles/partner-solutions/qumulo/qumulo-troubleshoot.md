@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Native Qumulo Scalable File Service Preview
+title: Troubleshoot Azure Native Qumulo Scalable File Service
 description: This article provides information about troubleshooting Azure Native Qumulo Scalable File Service.
 
 ms.topic: conceptual
@@ -7,9 +7,9 @@ ms.date: 01/18/2023
 
 ---
 
-# Troubleshoot Azure Native Qumulo Scalable File Service Preview
+# Troubleshoot Azure Native Qumulo Scalable File Service
 
-This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service Preview.
+This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service.
 
 Try the troubleshooting information in this article first. If that doesn't work, you can use one of the following methods to open a request form for Qumulo support:
 
@@ -22,13 +22,13 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 A purchase can fail because a valid credit card is not connected to the Azure subscription, or because a payment method is not associated with the subscription.
 
-Try using a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Update the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
+Try using a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Update the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
 
 ## You got a purchase error related to an Enterprise Agreement
 
 Some Microsoft Enterprise Agreement (EA) subscriptions don't allow Azure Marketplace purchases.
 
-Try using a different subscription, or [enable your subscription for Azure Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+Try using a different subscription, or [enable your subscription for Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 
 ## You can't create a resource
 
@@ -42,4 +42,4 @@ For successful creation of a Qumulo service, custom role-based access control (R
 
 ## Next steps
 
-- [Manage Azure Native Qumulo Scalable File Service Preview](qumulo-how-to-manage.md)
+- [Manage Azure Native Qumulo Scalable File Service](qumulo-how-to-manage.md)

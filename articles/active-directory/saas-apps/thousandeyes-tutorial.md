@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ThousandEyes | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ThousandEyes'
 description: Learn how to configure single sign-on between Azure Active Directory and ThousandEyes.
 services: active-directory
 author: jeevansd

@@ -5,7 +5,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 11/01/2021
+ms.date: 01/31/2023
 ---
 
 ### Copy activity support
@@ -51,6 +51,7 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Compression setting for Binary, delimited text, Excel, JSON, and XML files.
 - Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
 - Copy data to file-based sink with setting of max rows per file.
+- Column level lineage is not currently supported by ADF copy for resource sets.
 
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
 

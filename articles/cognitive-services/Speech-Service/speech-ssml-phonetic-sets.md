@@ -14,7 +14,7 @@ ms.author: jiajzhan
 
 # SSML phonetic alphabets
 
-Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text-to-speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup-pronunciation.md#phoneme-element).
+Phonetic alphabets are used with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to improve the pronunciation of text to speech voices. To learn when and how to use each alphabet, see [Use phonemes to improve pronunciation](speech-synthesis-markup-pronunciation.md#phoneme-element).
 
 Speech service supports the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) suprasegmentals that are listed here. You set `ipa` as the `alphabet` in [SSML](speech-synthesis-markup-pronunciation.md#phoneme-element). 
 
@@ -147,6 +147,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## zh-TW
 [!INCLUDE [zh-TW](./includes/phonetic-sets/text-to-speech/zh-tw.md)]
 
+## Map X-SAMPA to IPA
+[!INCLUDE [X-SAMPA](./includes/phonetic-sets/text-to-speech/x-sampa.md)]
 
-***
 

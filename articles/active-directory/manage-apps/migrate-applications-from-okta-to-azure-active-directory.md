@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Migrate your applications from Okta to Azure Active Directory 
@@ -26,7 +27,7 @@ To create an application inventory:
 1. With the Postman app, from the Okta admin console, generate an API token.
 2. On the API dashboard, under **Security**, select **Tokens** > **Create Token**.
 
-    ![Screenshot of the Tokens and Create Tokens options under Sercurity.](media/migrate-applications-from-okta-to-azure-active-directory/token-creation.png)
+    ![Screenshot of the Tokens and Create Tokens options under Security.](media/migrate-applications-from-okta-to-azure-active-directory/token-creation.png)
 
 3. Enter a token name and then select **Create Token**.
 
@@ -87,7 +88,7 @@ To migrate a SAML 2.0 application to Azure AD, configure the application in your
 
 To complete the migration, repeat the configuration for all applications in the Okta tenant.
 
-2. In the [Azure Active Directory admin center](https://aad.portal.azure.com), select **Azure Active Directory** > **Enterprise applications** > **+ New application**.
+2. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Enterprise applications** > **+ New application**.
 
     ![Screenshot of the New Application option on All applications.](media/migrate-applications-from-okta-to-azure-active-directory/list-of-new-applications.png)
 
@@ -107,7 +108,7 @@ To complete the migration, repeat the configuration for all applications in the 
 
     ![Screenshot of the New from Metadata File option under Single Sign On Settings.](media/migrate-applications-from-okta-to-azure-active-directory/salesforce-admin-console.png)
 
-7. Upload the XML file you downloaded from the Azure AD portal. Then select **Create**.
+7. Upload the XML file you downloaded from the Azure portal. Then select **Create**.
 8. Upload the certificate you downloaded from Azure. Select **Save**.
 
     ![Screenshot of the Identity Provider Certificate entry under SAML Single Sign On.](media/migrate-applications-from-okta-to-azure-active-directory/create-saml-provider.png)
@@ -122,7 +123,7 @@ To complete the migration, repeat the configuration for all applications in the 
 
     ![Screenshot of the Download Metadata option, also entries for Entity ID and Your Organization.](media/migrate-applications-from-okta-to-azure-active-directory/record-values-for-azure.png)
 
-11. To upload the file to the Azure AD portal, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
+11. To upload the file to the Azure portal, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
 12. Ensure the imported values match the recorded values. Select **Save**.
 
     ![Screenshot of entries for SAML-based sign-on, and Basic SAML Configuration.](media/migrate-applications-from-okta-to-azure-active-directory/upload-metadata-file.png)
@@ -167,7 +168,7 @@ To migrate an OpenID Connect (OIDC) or OAuth 2.0 application to Azure AD, in you
 
 To complete the migration, repeat configuration for all applications in the Okta tenant.
 
-1. In the [Azure AD portal](https://aad.portal.azure.com), select **Azure Active Directory** > **Enterprise applications**. 
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Enterprise applications**. 
 2. Under **All applications**, select **New application**.
 3. Select **Create your own application**. 
 4. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. 

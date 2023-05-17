@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to Bizagi Studio for Digital Process Automation.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 2fbff65a-5345-4c08-a6c7-60b80d867a3e
 ms.service: active-directory
@@ -60,7 +60,7 @@ To configure Bizagi Studio for Digital Process Automation to support provisionin
 
 5. Copy and save the **Client Secret**. In the Azure portal, for your Bizagi Studio for Digital Process Automation application, on the **Provisioning** tab, the client secret value is entered in the **Secret Token** field.
 
-   ![Screenshot of Oauth, with Client Secret highlighed.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
+   ![Screenshot of Oauth, with Client Secret highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
 
 ## Add the application from the Azure AD gallery
 

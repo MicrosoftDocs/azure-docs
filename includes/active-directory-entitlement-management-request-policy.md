@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: active-directory
-author: ajburnle
+author: owinfreyATL
 manager: amycolannino
 ms.service: active-directory
 ms.topic: include
-ms.date: 03/30/2020
-ms.author: ajburnle
+ms.date: 02/27/2023
+ms.author: owinfrey
 ms.custom: include file
 ---
 
@@ -204,7 +204,22 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Screenshot that shows the option for enabling new requests and assignments.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Select **Next**.
+1. Go to the [verified ID requirement section](#add-a-verified-id-requirement-preview) section to learn how to add a verified ID requirement to your access package. Otherwise, select **Next**.
+
+## Add a Verified ID requirement (Preview)
+
+> [!NOTE]
+> You will need to have a Global administrator role to add verified ID requirements to an access package. Identity Governance administrator, User administrator, Catalog owner, or Access package manager will be able to add verified ID requirements to access packages soon.
+
+Follow these steps if you want to add a verified ID requirement to your access package policy. Users requesting access to the access package will need to present the required verified IDs before successfully submitting their request. You can learn more about how to configure your tenant with the Microsoft Entra Verified ID service [here](../articles/active-directory/verifiable-credentials/decentralized-identifier-overview.md).
+
+1. Click + Add issuer and select an issuer from the Entra Verified ID network. If you want to issue your own credentials to users, you can find instructions on how to do that [here](../articles/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer.md).
+    :::image type="content" source="media/active-directory-entitlement-management-request-policy/access-package-select-issuer.png" alt-text="Access package select issuer.":::
+1. Select the credential type(s) you want users to present during the request process. 
+    :::image type="content" source="media/active-directory-entitlement-management-request-policy/access-package-select-credential.png" alt-text="Select access package credential.":::
+    > [!NOTE]
+    > If you select multiple credential types from one issuer, users will be required to present credentials of all selected types. Similarly, if you include multiple issuers, users will be required to present credentials from each of the issuers you include in the policy. To give users the option of presenting different credentials from various issuers, configure separate policies for each issuer/credential type you’ll accept.
+1. Click Add to add the verified ID requirement to the access package policy. 
 
 ## Add Requestor information to an access package
 

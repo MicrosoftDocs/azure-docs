@@ -68,6 +68,7 @@ The following table provides a summary of known issues carried over from the pre
   |-----|-----|-----|
   | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
   | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
+  | 3 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
 
 
 ## Next steps

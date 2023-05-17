@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 01/24/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up AutoML training with Python
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-a
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
 > * [v1](how-to-configure-auto-train-v1.md)
-> * [v2 (current version)](../how-to-configure-auto-train.md)
+> * [v2 (current version)](../how-to-configure-auto-train.md?view=azureml-api-2&preserve-view=true)
 
 In this guide, learn how to set up an automated machine learning, AutoML, training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
@@ -99,7 +99,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## Training, validation, and test data
 
-You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure training, validation, cross validation, and test data](../how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
+You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure training, validation, cross validation, and test data](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
 
 If you do not explicitly specify a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
 
@@ -112,7 +112,7 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 > [!TIP] 
 > You can upload **test data (preview)** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
 > Learn how to: 
-> * [Pass in test data to your AutoMLConfig object](../how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
+> * [Pass in test data to your AutoMLConfig object](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 > * [Test the models automated ML generated for your experiment](#test-models-preview).
 >  
 > If you prefer a no-code experience, see [step 12 in Set up AutoML with the studio UI](../how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
@@ -143,7 +143,7 @@ Next determine where the model will be trained. An automated ML training experim
 
  * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.[Azure Machine Learning Managed Compute](../concept-compute-target.md#azure-machine-learning-compute-managed) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
 
- * An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](../how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) for examples of notebooks with Azure Databricks.
+ * An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) for examples of notebooks with Azure Databricks.
 
 Consider these factors when choosing your compute target:
 
@@ -275,7 +275,7 @@ The recommendations are similar to those noted for regression scenarios.
 ### Data featurization
 
 In every automated ML experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
-See [Featurization in AutoML](../how-to-configure-auto-features.md) for more detail and code examples. 
+See [Featurization in AutoML](how-to-configure-auto-features.md) for more detail and code examples. 
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same featurization steps applied during training are applied to your input data automatically.
@@ -284,9 +284,9 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](../how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
+|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
 |`"featurization": 'off'`| Indicates featurization step shouldn't be done automatically.|
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](../how-to-configure-auto-features.md#customize-featurization).|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-featurization).|
 
 
 
@@ -417,12 +417,12 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md).
 
-* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](../how-to-configure-auto-features.md#featurization-transparency). 
+* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
-You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](../how-to-configure-auto-features.md#scaling-and-normalization). 
+You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](how-to-configure-auto-features.md#scaling-and-normalization). 
 
 > [!TIP]
-> Automated ML also let's you [view the generated model training code for Auto ML trained models](../how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
+> Automated ML also let's you [view the generated model training code for Auto ML trained models](how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 
@@ -452,7 +452,7 @@ RunDetails(run).show()
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](../how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](../how-to-configure-auto-train.md#compute-to-run-experiment)
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](../how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
 ### Get test job results 
 
@@ -544,4 +544,4 @@ For general information on how model explanations and feature importance can be 
 
 + Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md).
 
-+ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).
++ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

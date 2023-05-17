@@ -2,7 +2,7 @@
 title: Azure Queue storage output binding for Azure Functions
 description: Learn to create Azure Queue storage messages in Azure Functions.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -13,6 +13,23 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Azure Functions can create new Azure Queue storage messages by setting up an output binding.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-queue.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -251,7 +268,31 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way.
+The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="QueueOutput1")
+@app.route(route="message")
+@app.queue_output(arg_name="msg", 
+                  queue_name="<QUEUE_NAME>", 
+                  connection="<CONNECTION_SETTING>")
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+    input_msg = req.params.get('name')
+    logging.info(input_msg)
+    
+    msg.set(input_msg)
+    
+    logging.info(f'name: {name}')
+    return 'OK'
+```
+# [v1](#tab/python-v1)
 
 A Storage queue binding is defined in *function.json* where *type* is set to `queue`.
 
@@ -312,6 +353,8 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -370,6 +413,22 @@ The following table explains the binding configuration properties that you set i
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `queue_output`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+| `arg_name` | The name of the variable that represents the queue in function code. |
+| `queue_name` | The name of the queue. |
+| `connection` | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections). |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -404,6 +463,13 @@ The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.fu
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 

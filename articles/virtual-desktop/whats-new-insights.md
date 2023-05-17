@@ -2,8 +2,8 @@
 title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
 author: Heidilohr
-ms.topic: conceptual
-ms.date: 01/18/2023
+ms.topic: release-notes
+ms.date: 03/16/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -28,11 +28,36 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 2.0.0
+
+This update was released on March 6, 2023 and had the following change:
+
+- The Azure Virtual Desktop Insights at scale feature is now generally available.
+
+## Version 1.6.1
+
+This update was released in February 27, 2023 and had the following changes:
+
+- The Azure Virtual Desktop Insights *at scale* feature is now generally available.
+- Added the version of the OS used on session hosts to the **Overview** tab.
+
+## Version 1.6.0
+
+This update was released on January 30, 2023 and had the following change:
+
+- Added idle session reporting to the **Utilization** tab that visualizes sessions with no active connections.
+
+## Version 1.5.0
+
+This update was released on January 9, 2023 and had the following change:
+
+- Added FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale* public preview.
+
 ## Version 1.4.0
 
 This update was released in October 2022 and has the following changes:
 
-- Added Windows 7 end of life reporting for client operating system and a dynamic notification box as a reminder of the deprecation timeframe for Windows 7 support for Azure Virtual Desktop.
+- Added Windows 7 end-of-life reporting for client operating system and a dynamic notification box as a reminder of the deprecation timeframe for Windows 7 support for Azure Virtual Desktop.
 
 ## Version 1.3.0
 
@@ -50,7 +75,7 @@ This update was released in July 2022 and has the following changes:
 
 This update was released in June 2022 and has the following changes:
 
-- Updated templates for Configuration Workbook to be available via the gallery rather than external GitHub.
+- Updated templates for Configuration Workbook to be available at the gallery instead of the external GitHub.
 
 ## Version 1.2.0
 

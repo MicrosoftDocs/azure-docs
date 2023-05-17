@@ -28,7 +28,7 @@ Depending on the uptime goals you define for your IoT solutions, you should dete
 
 ## Intra-region HA
 
-The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No extra work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
+The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No extra work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns) must be built in to the components interacting with a cloud application to deal with transient failures.
 
 ## Availability zones
 
@@ -149,7 +149,7 @@ Failover capability won't be available if you disable disaster recovery for an I
 
 :::image type="content" source="media/iot-hub-ha-dr/disaster-recovery-disabled.png" alt-text="Screenshot that shows disaster recovery disabled for an IoT hub in Singapore region.":::
 
-You can only disable disaster recovery to avoid data replication outside of the paired region in Brazil South or Southeast Asia when you create an IoT hub. If you want to configure your existing IoT hub to disable disaster recovery, you need to create a new IoT hub with disaster recovery disabled and manually migrate your existing IoT hub. For guidance, see [How to clone an Azure IoT Hub to another region](iot-hub-how-to-clone.md). This article contains advice about migrating routes, custom endpoints, and other IoT Hub artifacts when migrating to a new Iot hub. You can ignore concerns that have to do with migrating across regions.
+You can only disable disaster recovery to avoid data replication outside of the paired region in Brazil South or Southeast Asia when you create an IoT hub. If you want to configure your existing IoT hub to disable disaster recovery, you need to create a new IoT hub with disaster recovery disabled and manually migrate your existing IoT hub. For guidance, see [How to migrate an IoT hub](migrate-hub-state-cli.md).
 
 ## Achieve cross region HA
 

@@ -10,7 +10,7 @@ author: dem108
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt
+ms.custom: UpdateFrequency5, deploy, docker, prebuilt
 ---
 
 # Extend a prebuilt Docker image
@@ -26,7 +26,7 @@ Using a Dockerfile allows for full customization of the image before deployment.
 The main tradeoff for this approach is that an extra image build will take place during deployment, which slows down the deployment process. If you can use the [Python package extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) method, deployment will be faster.
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For a tutorial on creating a workspace, see [Get started with Azure Machine Learning](../quickstart-create-resources.md).
+* An Azure Machine Learning workspace. For a tutorial on creating a workspace, see [Create resources to get started](../quickstart-create-resources.md).
 * Familiarity with authoring a [Dockerfile](https://docs.docker.com/engine/reference/builder/).
 * Either a local working installation of [Docker](https://www.docker.com/), including the `docker` CLI, **OR** an Azure Container Registry (ACR) associated with your Azure Machine Learning workspace.
 

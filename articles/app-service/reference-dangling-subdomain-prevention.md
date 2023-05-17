@@ -4,6 +4,7 @@ description: Describes options for dangling subdomain prevention on Azure App Se
 ms.topic: article
 ms.date: 10/14/2022
 ms.author: msangapu
+ms.custom: UpdateFrequency3
 author: msangapu-msft
 ---
 
@@ -42,4 +43,4 @@ These records prevent the creation of another App Service app using the same nam
 
 DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation.
 
-To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
+To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md)

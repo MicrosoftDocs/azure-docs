@@ -11,10 +11,8 @@ ms.workload: identity
 ms.date: 07/26/2022
 ms.author: jomondi
 ms.reviewer: karavar
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 zone_pivot_groups: enterprise-apps-cli
-
-
 #Customer intent: As an administrator of an Azure AD tenant, I want to create an enterprise application using client ID for a multi-tenant application provided by a service provider or independent software vendor.
 ---
 
@@ -52,7 +50,7 @@ where:
 
 :::zone pivot="msgraph-powershell"
 
-1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Administrator user account.
 1. Run the following command to create the enterprise application:
 
    ```powershell

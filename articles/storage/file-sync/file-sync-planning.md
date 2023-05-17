@@ -4,10 +4,10 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 02/03/2023
 ms.author: kendownie
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment
@@ -72,7 +72,9 @@ Azure File Sync is supported with the following versions of Windows Server:
 | Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
-| Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |
+| Windows Server 2012 R2* | Datacenter, Standard, and Storage Server | Full and Core |
+
+*Requires downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
 Future versions of Windows Server will be added as they are released.
 
@@ -115,7 +117,7 @@ In the following table, we have provided both the size of the namespace as well 
 ### Evaluation cmdlet
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 

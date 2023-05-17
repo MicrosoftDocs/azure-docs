@@ -5,7 +5,7 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: overview
-ms.date: 11/30/2022
+ms.date: 01/17/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -54,7 +54,7 @@ Azure Migrate integrates with several ISV offerings.
 [Device42](https://docs.device42.com/) | Assess servers.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI.
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers.
-[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess servers.
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295) | Assess servers.
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases.
 [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers.
 

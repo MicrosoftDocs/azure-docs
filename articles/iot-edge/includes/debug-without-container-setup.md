@@ -31,7 +31,7 @@ IoT Edge modules need an IoT Edge environment to run and debug. You can use an I
 
    You can use the Docker Explorer view in Visual Studio Code to see the module's running status.
 
-    :::image type="content" source="media/simulator-status.png" alt-text="Screenshot showing simulator module status in the Docker Explorer pane of VS Code.":::
+    :::image type="content" source="media/simulator-status.png" alt-text="Screenshot showing simulator module status in the Docker Explorer pane of Visual Studio Code.":::
 
    The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without the IoT Edge security daemon and provides environment settings for your native module app or module containers. The **input** container exposes REST APIs to help bridge messages to the target input channel on your module.
 

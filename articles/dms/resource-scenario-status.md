@@ -4,13 +4,11 @@ titleSuffix: Azure Database Migration Service
 description: Learn which migration scenarios are currently supported for Azure Database Migration Service and their availability status.
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg, randolphwest
-ms.date: 06/13/2022
+ms.date: 04/27/2022
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom: mvc
-services: database-migration
 ---
 
 # Azure Database Migration Service supported scenarios
@@ -40,28 +38,28 @@ The following table describes the current status of Database Migration Service s
 
 | Target | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL Database** | SQL Server <sup>1</sup> | ✔ | Preview |
-| | Amazon RDS SQL Server | ✔ | Preview |
-| | Oracle | X | |
-| **Azure SQL Database Managed Instance** | SQL Server <sup>1</sup> | ✔ | GA |
-| | Amazon RDS SQL Server | X | |
-| | Oracle | X | |
-| **Azure SQL VM** | SQL Server <sup>1</sup> | ✔ | GA |
-| | Amazon RDS SQL Server | X | |
-| | Oracle | X | |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure Database for MySQL - Single Server** | MySQL | ✔ | GA |
-| | Amazon RDS MySQL | ✔ | GA |
-| | Azure Database for MySQL <sup>2</sup> | ✔ | GA |
-| **Azure Database for MySQL - Flexible Server** | MySQL | ✔ | GA |
-| | Amazon RDS MySQL | ✔ | GA |
-| | Azure Database for MySQL <sup>2</sup> | ✔ | GA |
-| **Azure Database for PostgreSQL - Single Server** | PostgreSQL | X |
-| | Amazon RDS PostgreSQL | X | |
-| **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | X |
-| | Amazon RDS PostgreSQL | X | |
-| **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
-| | Amazon RDS PostgreSQL | X | |
+| **Azure SQL Database** | SQL Server <sup>1</sup> | Yes | GA |
+| | Amazon RDS SQL Server | Yes | GA |
+| | Oracle | No | |
+| **Azure SQL Database Managed Instance** | SQL Server <sup>1</sup> | Yes | GA |
+| | Amazon RDS SQL Server | Yes | GA |
+| | Oracle | No | |
+| **Azure SQL VM** | SQL Server <sup>1</sup> | Yes | GA |
+| | Amazon RDS SQL Server | Yes | GA |
+| | Oracle | No | |
+| **Azure Cosmos DB** | MongoDB | Yes | GA |
+| **Azure Database for MySQL - Single Server** | MySQL | Yes | GA |
+| | Amazon RDS MySQL | Yes | GA |
+| | Azure Database for MySQL <sup>2</sup> | Yes | GA |
+| **Azure Database for MySQL - Flexible Server** | MySQL | Yes | GA |
+| | Amazon RDS MySQL | Yes | GA |
+| | Azure Database for MySQL <sup>2</sup> | Yes | GA |
+| **Azure Database for PostgreSQL - Single Server** | PostgreSQL | No |
+| | Amazon RDS PostgreSQL | No | |
+| **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | No |
+| | Amazon RDS PostgreSQL | No | |
+| **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | No |
+| | Amazon RDS PostgreSQL | No | |
 
 <sup>1</sup> Offline migrations through the Azure SQL Migration extension for Azure Data Studio are supported for Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure SQL Database. For more information, see [Migrate databases by using the Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md).
 
@@ -73,27 +71,27 @@ The following table describes the current status of Database Migration Service s
 
 | Target | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL Database** | SQL Server <sup>1</sup>| X | |
-| | Amazon RDS SQL | X | |
-| | Oracle | X | |
-| **Azure SQL Database MI** | SQL Server <sup>1</sup>| ✔ | GA |
-| | Amazon RDS SQL | X | |
-| | Oracle | X | |
-| **Azure SQL VM** | SQL Server <sup>1</sup>| ✔ | GA |
-| | Amazon RDS SQL | X | |
-| | Oracle | X | |
-| **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure Database for MySQL - Flexible Server** | Azure Database for MySQL - Single Server | ✔ | Preview |
-| | MySQL | ✔  | Preview |
-| | Amazon RDS MySQL | ✔  | Preview |
-| **Azure Database for PostgreSQL - Single Server** | PostgreSQL | ✔ | GA |
-| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | ✔ | GA |
-| | Amazon RDS PostgreSQL | ✔ | GA |
-| **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | ✔ | GA |
-| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | ✔ | GA |
-| | Amazon RDS PostgreSQL | ✔ | GA |
-| **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
-| | Amazon RDS PostgreSQL | ✔ | GA |
+| **Azure SQL Database** | SQL Server <sup>1</sup>| No | |
+| | Amazon RDS SQL | No | |
+| | Oracle | No | |
+| **Azure SQL Database MI** | SQL Server <sup>1</sup>| Yes | GA |
+| | Amazon RDS SQL | Yes | GA |
+| | Oracle | No | |
+| **Azure SQL VM** | SQL Server <sup>1</sup>| Yes | GA |
+| | Amazon RDS SQL | Yes | GA|
+| | Oracle | No | |
+| **Azure Cosmos DB** | MongoDB | Yes | GA |
+| **Azure Database for MySQL - Flexible Server** | Azure Database for MySQL - Single Server | Yes | GA |
+| | MySQL | Yes  | GA |
+| | Amazon RDS MySQL | Yes  | GA |
+| **Azure Database for PostgreSQL - Single Server** | PostgreSQL | Yes | GA |
+| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | Yes | GA |
+| | Amazon RDS PostgreSQL | Yes | GA |
+| **Azure Database for PostgreSQL - Flexible Server** | PostgreSQL | Yes | GA |
+| | Azure Database for PostgreSQL - Single Server <sup>2</sup> | Yes | GA |
+| | Amazon RDS PostgreSQL | Yes | GA |
+| **Azure Database for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | Yes | GA |
+| | Amazon RDS PostgreSQL | Yes | GA |
 
 <sup>1</sup> Online migrations (minimal downtime) through the Azure SQL Migration extension for Azure Data Studio are supported for Azure SQL Managed Instance and SQL Server on Azure Virtual Machines targets. For more information, see [Migrate databases by using the Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md).
 

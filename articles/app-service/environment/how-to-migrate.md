@@ -3,6 +3,7 @@ title: Use the migration feature to migrate your App Service Environment to App 
 description: Learn how to migrate your App Service Environment to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 12/5/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
@@ -77,7 +78,7 @@ Using the new IPs, update any of your resources or networking components to ensu
 App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
 
 ```azurecli
-az network vnet subnet update --resource-group $VNET_RG -name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
+az network vnet subnet update --resource-group $VNET_RG --name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 
 ## 6. Confirm there are no locks on the virtual network
@@ -93,7 +94,7 @@ az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Mi
 Delete any exisiting locks using the following command.
 
 ```azurecli
-az lock delete --resource-group jordan-rg --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+az lock delete --resource-group $VNET_RG --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
 ```
 
 For related commands to check if your subscription or resource group has locks, see [Azure CLI reference for locks](../../azure-resource-manager/management/lock-resources.md#azure-cli).
