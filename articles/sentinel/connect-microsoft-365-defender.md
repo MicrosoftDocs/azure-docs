@@ -27,7 +27,7 @@ For more information about incident integration and advanced hunting event colle
 - Your user must have read and write permissions on your Microsoft Sentinel workspace.
 
 - To make any changes to the connector settings, your user must be a member of the same Azure Active Directory tenant with which your Microsoft Sentinel workspace is associated.
-- Install the solution for **Microsoft 365 Defender** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
+- Install the solution for **Microsoft 365 Defender** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ### Prerequisites for Active Directory sync via MDI
 

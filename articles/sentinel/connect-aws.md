@@ -275,7 +275,7 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
 ## Prerequisites
 
 - You must have write permission on the Microsoft Sentinel workspace.
--  Install the Amazon Web Services solution from the Content Hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
+-  Install the Amazon Web Services solution from the Content Hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 > [!NOTE]
 > Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
