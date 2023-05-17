@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   items:
   - name: Create, assign, and run a Storage Task
-  - href: storage-task-quickstart-portal.md
+    href: storage-task-quickstart-portal.md
 - name: Concepts
   items: 
   - name: Monitor Storage Tasks
@@ -28,7 +28,7 @@ items:
 - name: Resources
   items:
     - name: FAQ
-    - href: storage-task-faq.md
+      href: storage-task-faq.md
     - name: Known issues and limitations
       href: storage-task-known-issues.md
     - name: Monitoring data Reference
