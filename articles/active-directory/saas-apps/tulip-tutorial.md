@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with Tulip, perform the following steps:
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Tulip SSO](#configure-tulip-sso)** - to configure the single sign-on settings on application side.
     1. To configure SSO on a Tulip instance, with existing users, reach out to support@tulip.co.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
 
 ## Configure Azure AD SSO
 
