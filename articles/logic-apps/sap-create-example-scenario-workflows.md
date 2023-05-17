@@ -32,6 +32,8 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 ### Add an SAP trigger
 
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+
 ### [Multi-tenant](#tab/multi-tenant)
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
@@ -149,7 +151,7 @@ You might get a similar error when SAP Application server or Message server name
 
 The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
-1. Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
+1. In Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
 
 1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
 
@@ -290,35 +292,53 @@ To create a logic app workflow that sends an IDoc message to an SAP server and r
 
 ### Add the Request trigger
 
-To have your workflow receive IDocs from SAP over XML HTTP, you can use the [Request trigger](../connectors/connectors-native-reqres.md). To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
+To have your workflow receive IDocs from SAP over XML HTTP, you can use the [Request built-in trigger](../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP *POST* requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
 
-This section continues with the Request trigger, so first, create a workflow with an endpoint where your SAP server can send HTTP *POST* requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
+To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
 
-1. In the [Azure portal](https://portal.azure.com), create a logic app resource and a blank workflow, which opens the designer.
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-1. On the designer, under the search box, select **Built-in**. In the search box, enter **http request**. 
+### [Multi-tenant](#tab/multi-tenant)
 
-1. From the triggers list, select the Request trigger named **When a HTTP request is received**.
+1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource and a blank workflow in the designer.
 
-   ![Screenshot that shows the Consumption workflow designer and selected Request trigger.](./media/logic-apps-using-sap-connector/add-request-trigger-consumption.png)
+1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow).
+
+   ![Screenshot shows the Request trigger for a Consumption workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   This step generates an endpoint URL, which hat can receive requests that now appears in your trigger.
+   This step generates an endpoint URL where your trigger can receive requests from your SAP server, for example:
 
-   ![Screenshot that shows the workflow designer with the Request trigger with generated POST URL being copied.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
+   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Consumption workflow.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url-consumption.png)
+
+### [Single-tenant](#tab/single-tenant)
+
+1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow in the designer.
+
+1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
+
+   ![Screenshot shows the Request trigger for a Consumption workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-standard.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+   This step generates an endpoint URL where your trigger can receive requests from your SAP server, for example:
+
+   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Standard workflow.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url-standard.png)
+
+---
 
 <a name="add-sap-action-send-message"></a>
 
 ### Add an SAP action to send message
 
-Next, create an action to send your IDoc message to SAP when your Request trigger fires. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing).
+Next, create an action to send your IDoc message to SAP when the workflow's Request trigger fires. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. In the SAP managed connector, the **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing).
 
-Based on your logic app type, follow the corresponding steps:
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Multi-tenant](#tab/multi-tenant)
 
-1. In the workflow designer, under the trigger, select **New step**.
+1. In the workflow designer, under the Request trigger, select **New step**.
 
 1. Under the **Choose an operation** search box, select **Enterprise**. In the search box, enter **send message sap**. From the actions list, select the SAP action named **Send message to SAP**.
 
