@@ -1,6 +1,6 @@
 ---
 title: Best practices for monitoring virtual machines in Azure Monitor
-description: Provides a template for a Well-Architected Framework (WAF) article specific to Log Analytics workspaces in Azure Monitor.
+description: Best practices organized by the pillars of the Well-Architected Framework (WAF)for monitoring virtual machines in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -47,4 +47,4 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Next step
 
-- [Get complete guidance on configuring monitoring for virtual machines](vm/monitor-virtual-machine.md.md).
+- [Get complete guidance on configuring monitoring for virtual machines](vm/monitor-virtual-machine.md).
