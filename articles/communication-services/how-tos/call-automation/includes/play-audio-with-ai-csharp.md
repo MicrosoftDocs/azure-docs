@@ -103,7 +103,7 @@ String textToPlay = “Welcome to Contoso”;
 
 SsmlSource playsource = new SsmlSource(textToPlay);
 {
-"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">This is the play ssml test for recognize with choice.</voice></speak>"}
+"<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"}
 
 ```
 
