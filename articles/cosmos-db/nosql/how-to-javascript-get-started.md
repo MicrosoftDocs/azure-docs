@@ -28,13 +28,13 @@ This article shows you how to connect to Azure Cosmos DB for NoSQL using the Jav
 
 ## Set up your local project
 
-1. Create a new directory for you JavaScript project in a bash shell.
+1. Create a new directory for your JavaScript project in a bash shell.
 
     ```bash
     mkdir cosmos-db-nosql-javascript-samples && cd ./cosmos-db-nosql-javascript-samples
     ```
 
-1. Create a new JavaScript application by using the [``npm init``](/dotnet/core/tools/dotnet-new) command with the **console** template.
+1. Create a new JavaScript application by using the [``npm init``](https://docs.npmjs.com/cli/v6/commands/npm-init) command with the **console** template.
 
     ```bash
     npm init -y
@@ -296,12 +296,21 @@ export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
 Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
 
 ```javascript
+// Get Cosmos Client
+import { CosmosClient } from "@azure/cosmos";
 
+// Provide required connection from environment variables
+const key = process.env.COSMOS_KEY;
+// Endpoint format: https://YOUR-RESOURCE-NAME.documents.azure.com:443/
+const endpoint = process.env.COSMOS_ENDPOINT;
+
+// Authenticate to Azure Cosmos DB
+const cosmosClient = new CosmosClient({ endpoint, key });
 ```
 
 ### Connect using the Microsoft Identity Platform
 
-To connect to your API for NoSQL account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
+To connect to your API for NoSQL account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal depends on where you host your application code. The table below serves as a quick reference guide.
 
 | Where the application runs | Security principal
 |--|--|---|
@@ -326,29 +335,34 @@ The **@azure/identity** npm package contains core authentication functionality t
     ```
 #### Create CosmosClient with default credential implementation
 
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) instance.
+If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/javascript/api/@azure/identity/defaultazurecredential) instance.
 
-For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
+```javascript
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="credential":::
+```
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="default_credential" highlight="4":::
+```javascript
+
+```
 
 #### Create CosmosClient with a custom credential implementation
 
-If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
+If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [@azure/identity client library for JavaScript](/javascript/api/@azure/identity/). These other classes also derive from the ``TokenCredential`` class.
 
-For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
+For this example, we create a [``ClientSecretCredential``](/javascript/api/@azure/identity/tokencredential) instance by using client and tenant identifiers, along with a client secret.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
+```javascript
+```
 
 You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/104-client-secret-credential/Program.cs" id="secret_credential" highlight="4":::
+```javascript
+
+```
 
 ## Build your application
 
@@ -372,30 +386,30 @@ Each type of resource is represented by one or more associated .NET classes. Her
 
 | Class | Description |
 |---|---|
-| [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) | This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
-| [``Database``](/dotnet/api/microsoft.azure.cosmos.database) | This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it. |
-| [``Container``](/dotnet/api/microsoft.azure.cosmos.container) | This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it. |
+| [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) | This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service. |
+| [``Database``](/javascript/api/@azure/cosmos/database) | This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it. |
+| [``Container``](/javascript/api/@azure/cosmos/container) | This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it. |
 
 The following guides show you how to use each of these classes to build your application.
 
 | Guide | Description |
 |--|---|
-| [Create a database](how-to-dotnet-create-database.md) | Create databases |
-| [Create a container](how-to-dotnet-create-container.md) | Create containers |
-| [Read an item](how-to-dotnet-read-item.md) | Point read a specific item |
-| [Query items](how-to-dotnet-query-items.md) | Query multiple items |
+| [Create a database](how-to-javascript-create-database.md) | Create databases |
+| [Create a container](how-to-javascript-create-container.md) | Create containers |
+| [Create and read an item](how-to-javascript-create-item.md) | Point read a specific item |
+| [Query items](how-to-javascript-query-items.md) | Query multiple items |
 
 ## See also
 
-- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-- [Samples](samples-dotnet.md)
-- [API reference](/dotnet/api/microsoft.azure.cosmos)
-- [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+- [npm package](https://www.npmjs.com/package/@azure/cosmos)
+- [Samples](samples-nodejs.md)
+- [API reference](/javascript/api/@azure/cosmos/)
+- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Next steps
 
 Now that you've connected to an API for NoSQL account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md)
+> [Create a database in Azure Cosmos DB for NoSQL using JavaScript](how-to-javascript-create-database.md)
