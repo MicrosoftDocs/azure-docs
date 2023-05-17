@@ -91,7 +91,7 @@ Depending on your environment configuration, you might connect using one of the 
 
 - A site-to-site VPN over the internet.
 
-For more information, see [Connect via multicloud vendors](connect-sensors.md#setting-up-connectivity-for-multicloud-environments).
+For more information, see [Connect via multicloud vendors](connect-sensors.md#set-up-connectivity-for-multicloud-environments).
 
 ## Next steps
 

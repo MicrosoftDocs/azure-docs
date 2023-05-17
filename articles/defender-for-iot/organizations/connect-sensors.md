@@ -31,8 +31,12 @@ This step is performed by your deployment and connectivity teams.
 
 ## Configure a proxy
 
+This section describes how to configure proxy settings on your sensor console.
+
 > [!NOTE]
 > An intermediate certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma.
+
+**To define proxy settings on your sensor console:**
 
 1. Sign into your OT sensor and select **System settings > Sensor Network Settings**.
 
@@ -41,7 +45,7 @@ This step is performed by your deployment and connectivity teams.
     - Proxy Host
     - Proxy Port
     - Proxy Username (optional)
-    - Proxy Password
+    - Proxy Password (optional)
 
     For example:
 
@@ -359,7 +363,7 @@ This procedure describes how to install and configure a connection between your 
 
     For more information, see [Provision OT sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
-## Setting up connectivity for multicloud environments
+## Set up connectivity for multicloud environments
 
 This section describes how to connect your sensor to Defender for IoT in Azure from sensors deployed in one or more public clouds. For more information, see [Multicloud connections](architecture-connections.md#multicloud-connections).
 
