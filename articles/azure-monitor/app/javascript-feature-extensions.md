@@ -93,18 +93,9 @@ const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
 
-## Set ConversionScope (HEART workbook)
+## Set the authenticated user context
 
-Within Application Insights, if you're using the HEART workbook with the Click Analytics plugin, keep the following guidance in mind.
-
-Unless you set the authenticated user context, you must select **Anonymous Users** from the **ConversionScope** dropdown in the HEART workbook to see telemetry data.
-
-:::image type="content" source="media/javascript-feature-extensions/HEART-workbook-Anonymous-Users-selected.png" alt-text="Screenshot that shows the HEART Analytics workbook in the Azure portal. The ConversionScope dropdown is highlighted with Anonymous Users selected." lightbox="media/javascript-feature-extensions/HEART-workbook-Anonymous-Users-selected.png":::
-
-If you want to set the authenticated user context:
-
-1. [Set the authenticated user id and the account id](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext).
-1. In the HEART workbook, select **Authenticated Users** from the **ConversionScope** dropdown. 
+If you need to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). This setting isn't required to use Click Analytics.
 
 ## Use the plug-in
 
