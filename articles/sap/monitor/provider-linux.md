@@ -1,5 +1,5 @@
 ---
-title: Configure Linux provider for Azure Monitor for SAP solutions (preview)
+title: Configure Linux provider for Azure Monitor for SAP solutions 
 description: This article explains how to configure a Linux OS provider for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
@@ -9,13 +9,9 @@ ms.date: 03/09/2023
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a Linux provider so that I can use Azure Monitor for SAP solutions for monitoring.
 ---
-# Configure Linux provider for Azure Monitor for SAP solutions (preview)
-
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
+# Configure Linux provider for Azure Monitor for SAP solutions 
 
 In this how-to guide, you learn to create a Linux OS provider for *Azure Monitor for SAP solutions* resources.
-
-This content applies to both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
 ## Prerequisites
 
@@ -76,7 +72,7 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 ## Create Linux OS provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to the Azure Monitor for SAP solutions or Azure Monitor for SAP solutions (classic) service.
+1. Go to the Azure Monitor for SAP solutions.
 1. Select **Create** to make a new Azure Monitor for SAP solutions resource.
 1. Select **Add provider**.
 1. Configure the following settings for the new provider:

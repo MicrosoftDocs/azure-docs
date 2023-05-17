@@ -133,7 +133,11 @@ You can get more usage details about Log Analytics workspaces and Application In
 
 ### Log Analytics workspace
 
-To learn about your usage trends and choose the most cost-effective [commitment tier](logs/cost-logs.md#commitment-tiers) for your Log Analytics workspace, select **Usage and estimated costs** from the **Log Analytics workspace** menu in the Azure portal.
+To learn about your usage trends and choose the most cost-effective pricing tier (Pay-as-you-go or a [commitment tier](logs/cost-logs.md#commitment-tiers)) for your Log Analytics workspace, select **Usage and estimated costs** from the **Log Analytics workspace** menu in the Azure portal.
+
+> [!NOTE]
+> 
+> **Usage and estimated costs** does *not* show your actual billed usage. It calculates what your data ingestion charges would have been for the last 31 days of usage if your workspace had been in each of the available pricing tiers. You can use these estimated costs to select the lowest cost tier based on your workspace's data ingestion.
 
 :::image type="content" source="logs/media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Screenshot that shows Usage and estimated costs.":::
 

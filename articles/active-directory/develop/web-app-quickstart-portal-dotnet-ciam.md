@@ -24,5 +24,5 @@ ms.date: 05/05/2023
 >     ```console
 >     dotnet run
 >     ```
-> 1. Open your browser, visit `https://locahost:7274`, select **Sign-in**, then follow the prompts.
+> 1. Open your browser, visit `https://localhost:7274`, select **Sign-in**, then follow the prompts.
 >

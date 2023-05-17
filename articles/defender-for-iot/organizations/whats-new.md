@@ -24,13 +24,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Billing changes
 
-Starting June 1, 2023, Microsoft Defender for IoT licenses are available for purchase only in the Microsoft 365 Admin center.
+Starting June 1, 2023, Microsoft Defender for IoT licenses are available for purchase only in the [Microsoft 365 Admin center](https://admin.microsoft.com/Adminportal/Home).
 
 Licenses are available for individual sites, based on the sizes of those respective sites. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors.
 
-A trial license is also available for 60 days, using a *Small* license size.
+A trial license is also available for 60 days, using a *Large* license size.
 
-Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of the plan. However, existing customers cannot add any new plans in the Azure portal.
+Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of their plan. However, existing customers cannot add any new plans in the Azure portal.
 
 <!--starting june 14-->
 For more information, see:
@@ -38,6 +38,18 @@ For more information, see:
 - [Defender for IoT subscription billing](billing.md)
 - [Start a Microsoft Defender for IoT trial](getting-started.md)
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
+
+## May 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### Configure Active Directory and NTP settings in the Azure portal
+
+Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
+
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
 
 ## April 2023
 
