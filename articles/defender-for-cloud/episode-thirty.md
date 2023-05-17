@@ -19,7 +19,7 @@ ms.date: 05/14/2023
 - [12:27](/shows/mdc-in-the-field/new-custom-recommendations#time=12m27s) - Custom recommendation update interval
 - [14:30](/shows/mdc-in-the-field/new-custom-recommendations#time=14m30s) -  Filtering custom recommendations in the Defender for Cloud dashboard 
 - [16:40](/shows/mdc-in-the-field/new-custom-recommendations#time=16m40s) -  Prerequisites to use the custom recommendations feature
-- 
+ 
 ## Recommended resources
   - Learn how to [create custom recommendations and security standards](create-custom-recommendations.md) 
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)

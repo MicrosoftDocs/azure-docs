@@ -19,7 +19,7 @@ ms.date: 05/16/2023
 - [05:00](/shows/mdc-in-the-field/data-aware-security-posture#time=05m00s) - Sensitive labels discovery process
 - [07:05](/shows/mdc-in-the-field/data-aware-security-posture#time=07m05s) - What's the difference between Data Aware Security Posture and Microsoft Purview?
 - [11:35](/shows/mdc-in-the-field/data-aware-security-posture#time=11m35s) - Demonstration
-- 
+ 
 ## Recommended resources
   - Learn more about  [Data Aware Security Posture](concept-data-security-posture.md) 
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
