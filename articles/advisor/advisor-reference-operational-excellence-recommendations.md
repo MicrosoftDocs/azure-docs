@@ -22,19 +22,19 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 1. On the **Advisor** dashboard, select the **Operational Excellence** tab.
 
 
-## Spring Cloud
+## Azure Spring Apps
 
 ### Update your outdated Azure Spring Apps SDK to the latest version
 
 We have identified API calls from an outdated Azure Spring Apps SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Apps SDK to the latest version)](../spring-apps/index.yml).
+Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Azure Spring Apps API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Apps API Version)](../spring-apps/index.yml).
+Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ## Automation
 
@@ -116,7 +116,7 @@ Learn more about [Virtual machine - IncreaseQuotaExperiment (Increase the number
 
 ### Add Azure Monitor to your virtual machine (VM) labeled as production
 
-Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs,  and it monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+Azure Monitor for VMs monitors your Azure virtual machines (VM) and Virtual Machine Scale Sets at scale. It analyzes the performance and health of your Windows and Linux VMs,  and it monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 Learn more about [Virtual machine - AddMonitorProdVM (Add Azure Monitor to your virtual machine (VM) labeled as production)](/azure/azure-monitor/insights/vminsights-overview).
 
@@ -194,11 +194,11 @@ This cluster is not using ephemeral OS disks which can provide lower read/write 
 
 Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
 
-### Use Uptime SLA
+### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
+This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
+Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 

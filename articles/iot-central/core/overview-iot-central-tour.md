@@ -56,6 +56,8 @@ Once you're inside your IoT application, use the left pane to access various fea
 
     **Device templates** lets you create and manage the characteristics of devices that connect to your application.
 
+    **Edge manifests** lets you import and manage deployment manifests for the IoT Edge devices that connect to your application.
+
     **Data explorer** exposes rich capabilities to analyze historical trends and correlate various telemetries from your devices.
 
     **Dashboards** displays all application and personal dashboards. 
@@ -116,7 +118,13 @@ This page lets you create and view device groups in your IoT Central application
 
 :::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot of Device Templates.":::
 
-The device templates page is where you can view and create device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) tutorial.
+The device templates page is where you can view and create device templates in the application. To learn more, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
+
+### Edge manifests
+
+:::image type="content" source="Media/overview-iot-central-tour/manifests.png" alt-text="Screenshot of Edge manifests page.":::
+
+The edge manifests page is where you can import and manage IoT Edge deployment manifests in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) tutorial.
 
 ### Data Explorer
 

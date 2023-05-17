@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Fortes Change Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Fortes Change Cloud for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Fortes Change Cloud.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: ef9a8f5e-0bf0-46d6-8e17-3bcf1a5b0a6b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

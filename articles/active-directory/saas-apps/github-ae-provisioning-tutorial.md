@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure GitHub AE for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GitHub AE for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub AE.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: d9818c05-e279-45b4-8aad-0fa156abd74e
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

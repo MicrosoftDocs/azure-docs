@@ -1,18 +1,19 @@
 ---
 title: Build, Sign and Verify a container image using notation and certificate in Azure Key Vault
 description: In this tutorial you'll learn to create a signing certificate, build a container image, remote sign image with notation and Azure Key Vault, and then verify the container image using the Azure Container Registry.
-author: dtzar
+author: feynmanzhou
 ms.author: davete
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/11/2022
+ms.date: 4/23/2023
 ---
 
 # Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
 
-The Azure Key Vault (AKV) is used to store a signing key that can be utilized by **notation** with the notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures using the **az** or **oras** CLI commands.
+The Azure Key Vault (AKV) is used to store a signing key that can be utilized by [notation](http://notaryproject.dev/) with the notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures using the **az** or **oras** CLI commands.
 
-The signed containers enable users to assure deployments are built from a trusted entity and verify artifact hasn't been tampered with since their creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment and avoid attacks.
+The signed image enables users to assure deployments are built from a trusted entity and verify artifact hasn't been tampered with since their creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment and avoid attacks.
 
 
 In this tutorial:
@@ -24,20 +25,17 @@ In this tutorial:
 
 ## Prerequisites
 
-> * Install, create and sign in to [ORAS artifact enabled registry](./container-registry-oras-artifacts.md#create-oras-artifact-enabled-registry)
+> * Create and sign in ACR with OCI artifact enabled
 > * Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md)
 >*  This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install the notation CLI and AKV plugin
 
-> [!NOTE]
-> The tutorial uses early released versions of notation and notation plugins.  
-
-1. Install notation 0.11.0-alpha.4 with plugin support on a Linux environment. You can also download the package for other environments from the [release page](https://github.com/notaryproject/notation/releases/tag/v0.11.0-alpha.4).
+1. Install notation v1.0.0-rc.4 on a Linux environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/).
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v0.11.0-alpha.4/notation_0.11.0-alpha.4_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0-rc.4/notation_1.0.0-rc.4_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the notation cli to the desired bin directory in your PATH
@@ -47,8 +45,7 @@ In this tutorial:
 2. Install the notation Azure Key Vault plugin for remote signing and verification.
 
     > [!NOTE]
-    > The plugin directory varies depending upon the operating system being used.  The directory path below assumes Ubuntu.
-    > Please read the [notation config article](https://github.com/notaryproject/notation/blob/main/specs/notation-config.md) for more information.
+    > The plugin directory varies depending upon the operating system being used. The directory path below assumes Ubuntu. Please read the [Notation directory structure for system configuration](https://notaryproject.dev/docs/concepts/directory-structure/) for more information.
     
     ```bash
     # Create a directory for the plugin
@@ -56,13 +53,13 @@ In this tutorial:
     
     # Download the plugin
     curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v0.4.0-alpha.4/notation-azure-kv_0.4.0-alpha.4_Linux_amd64.tar.gz
+        https://github.com/Azure/notation-azure-kv/releases/download/v0.6.0/notation-azure-kv_0.6.0_Linux_amd64.tar.gz
     
     # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv notation-azure-kv
     ```
 
-3. List the available plugins and verify that the plugin is available.
+3. List the available plugins.
 
     ```bash
     notation plugin ls
@@ -80,7 +77,7 @@ In this tutorial:
     AKV_NAME=<your-unique-keyvault-name>
     # New desired key name used to sign and verify
     KEY_NAME=wabbit-networks-io
-    KEY_SUBJECT_NAME=wabbit-networks.io
+    CERT_SUBJECT="CN=wabbit-networks.io,O=Notary,L=Seattle,ST=WA,C=US"
     CERT_PATH=./${KEY_NAME}.pem
     ```
 
@@ -101,14 +98,14 @@ In this tutorial:
 
 ## Store the signing certificate in AKV
 
-If you have an existing certificate, upload it to AKV. For more information on how to use your own signing key, see the [signing certificate requirements.](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements)
+If you have an existing certificate, upload it to AKV. For more information on how to use your own signing key, see the [signing certificate requirements.](https://github.com/Azure/notation-azure-kv/blob/release-0.6/docs/ca-signed-workflow.md)
 Otherwise create an x509 self-signed certificate storing it in AKV for remote signing using the steps below.
 
 ### Create a self-signed certificate (Azure CLI)
 
 1. Create a certificate policy file.
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts.
+    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts. The subject is used later as trust identity that user trust during verification.
 
     ```bash
     cat <<EOF > ./my_policy.json
@@ -121,24 +118,28 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
         "ekus": [
             "1.3.6.1.5.5.7.3.3"
         ],
-        "subject": "CN=${KEY_SUBJECT_NAME}",
+        "keyUsage": [
+            "digitalSignature"
+        ],
+        "subject": "$CERT_SUBJECT",
         "validityInMonths": 12
         }
     }
     EOF
     ```
 
-1. Create the certificate.
+2. Create the certificate.
 
     ```azure-cli
     az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
-1. Get the Key ID for the certificate.
+3. Get the Key ID for the certificate.
 
     ```bash
     KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
+    
 4. Download public certificate.
 
     ```bash
@@ -146,19 +147,31 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     az keyvault certificate download --file $CERT_PATH --id $CERT_ID --encoding PEM
     ```
 
-5. Add the Key ID to the keys and certs.
+5. Add a signing key referencing the key ID.
 
     ```bash
-    notation key add --name $KEY_NAME --plugin azure-kv --id $KEY_ID
-    notation cert add --name $KEY_NAME $CERT_PATH
+    notation key add $KEY_NAME --plugin azure-kv --id $KEY_ID
     ```
 
-6. List the keys and certs to confirm.
+6. List the keys to confirm.
 
-    ```bash
-    notation key ls
-    notation cert ls
-    ```
+   ```bash
+   notation key ls
+   ```
+
+7. Add the downloaded public certificate to named trust store for signature verification.
+
+   ```bash
+   STORE_TYPE="ca"
+   STORE_NAME="wabbit-networks.io"
+   notation cert add --type $STORE_TYPE --store $STORE_NAME $CERT_PATH
+   ```
+    
+8. List the certificate to confirm.
+
+   ```bash
+   notation cert ls
+   ```
 
 ## Build and sign a container image
 
@@ -168,92 +181,72 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     az acr build -r $ACR_NAME -t $IMAGE $IMAGE_SOURCE
     ```
 
-2. Authenticate with your individual Azure AD identity to use an ACR token.
+2. Authenticate with your individual Azure AD identity to use an ACR token. 
 
     ```azure-cli
     export USER_NAME="00000000-0000-0000-0000-000000000000"
     export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
-    export NOTATION_PASSWORD=$PASSWORD
+    notation login -u $USER_NAME -p $PASSWORD $REGISTRY
     ```
 
-3. Choose [COSE](https://datatracker.ietf.org/doc/html/rfc8152) or JWS signature envelope to sign the container image.
+> [!NOTE]
+> Currently, `notation` relies on [Docker Credential Store](https://docs.docker.com/engine/reference/commandline/login/#credentials-store) for authentication. Notation requires additional configuration on Linux. If `notation login` is failing, you can configure the Docker Credential Store or Notation environment variables by following the guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/).
 
-   - Sign the container image with the COSE signature envelope:
+3. Sign the container image with the [COSE](https://datatracker.ietf.org/doc/html/rfc8152) signature format using the signing key added in previous step.
  
     ```bash
-    notation sign --envelope-type cose --key $KEY_NAME $IMAGE
+    notation sign --signature-format cose --key $KEY_NAME $IMAGE
     ```
     
-   - Sign the container image with the default JWS signature envelope:
-   
-    ```bash
-    notation sign --key $KEY_NAME $IMAGE
-    ```
-    
-## View the graph of artifacts with the ORAS CLI
+4. View the graph of signed images and associated signatures.
 
-ACR support for ORAS artifacts enables a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI.
-
-1. Signed images can be view with the ORAS CLI.
-
-    ```bash
-    oras login -u $USER_NAME -p $PASSWORD $REGISTRY
-    oras discover -o tree $IMAGE
-    ```
-
-## View the graph of artifacts with the Azure CLI
-
-1. List the manifest details for the container image.
-
-    ```azure-cli
-    az acr manifest show-metadata $IMAGE -o jsonc
-    ```
-
-2.  Generates a result, showing the `digest` representing the notary v2 signature.
-
-    ```json
-    {
-      "changeableAttributes": {
-        "deleteEnabled": true,
-        "listEnabled": true,
-        "readEnabled": true,
-        "writeEnabled": true
-      },
-      "createdTime": "2022-05-13T23:15:54.3478293Z",
-      "digest": "sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613",
-      "lastUpdateTime": "2022-05-13T23:15:54.3478293Z",
-      "name": "v1",
-      "quarantineState": "Passed",
-      "signed": false
-    }
-    ```
+   ```bash
+   notation ls $IMAGE
+   ```
 
 ## Verify the container image
 
-1. The notation command can also help to ensure the container image hasn't been tampered with since build time by comparing the `sha` with what is in the registry.
+1. Configure trust policy before verification.
 
-```bash
-notation verify $IMAGE
-sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613
-```
-The sha256 result is a successful verification of the image using the trusted certificate.
+   The trust policy is a JSON document named `trustpolicy.json`, which is stored under the notation configuration directory. Users who verify signed artifacts from a registry use the trust policy to specify trusted identities that sign the artifacts, and the level of signature verification to use.
 
-2. We can add a different local signing certificate to show how multiple certificates and verification failures work.
+   Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://notaryproject.dev/docs/concepts/trust-store-trust-policy-specification/) for details.
 
-```bash
-notation cert generate-test -n localcert --trust true
-notation verify $IMAGE
-sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613
-```
+    ```bash
+    cat <<EOF > ./trustpolicy.json
+    {
+        "version": "1.0",
+        "trustPolicies": [
+            {
+                "name": "wabbit-networks-images",
+                "registryScopes": [ "$REGISTRY/$REPO" ],
+                "signatureVerification": {
+                    "level" : "strict" 
+                },
+                "trustStores": [ "$STORE_TYPE:$STORE_NAME" ],
+                "trustedIdentities": [
+                    "x509.subject: $CERT_SUBJECT"
+                ]
+            }
+        ]
+    }
+    EOF
+    ```
 
-We can see that verification still passes because `notation verify` will implicitly pass with _any_ certificate in its trust store.  To get a verification failure, we'll remove the certificate utilized to sign the image.
+3. Use `notation policy` to import the trust policy configuration from a JSON file that we created previously. 
 
-```azure-cli
-notation cert rm $KEY_NAME
-notation verify $IMAGE
-2022/06/10 11:24:30 verification failure: x509: certificate signed by unknown authority
-```
+    ```bash
+    notation policy import ./trustpolicy.json
+    notation policy show
+    ```
+    
+4. The notation command can also help to ensure the container image hasn't been tampered with since build time by comparing the `sha` with what is in the registry.
+
+    ```bash
+    notation verify $IMAGE
+    ```
+   Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
 
 ## Next steps
 
-See [Enforce policy to only deploy signed container images to Azure Kubernetes Service (AKS) utilizing **ratify** and **gatekeeper**.](https://github.com/Azure/notation-azure-kv/blob/main/docs/nv2-sign-verify-aks.md)
+See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/examples/ratify-verify-azure-cmd.md).

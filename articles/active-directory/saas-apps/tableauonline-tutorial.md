@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Tableau Cloud
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| DispalyName | user.displayname |
+	| DisplayName | user.displayname |
 
 
 	c. Copy the namespace value for these attributes: givenname, email and surname by using the following steps:

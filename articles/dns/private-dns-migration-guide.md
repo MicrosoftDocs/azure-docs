@@ -105,7 +105,7 @@ If you're using automation including templates, PowerShell scripts or custom cod
 * [Azure DNS private zones REST API](/rest/api/dns/privatedns/privatezones)
 * [Azure DNS private zones CLI](/cli/azure/network/private-dns/link/vnet)
 * [Azure DNS private zones PowerShell](/powershell/module/az.privatedns/)
-* [Azure DNS private zones SDK](/dotnet/api/overview/azure/privatedns/management)
+* [Azure DNS private zones SDK](/dotnet/api/overview/azure/resourcemanager.privatedns-readme)
 
 ## Need further help
 

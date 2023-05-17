@@ -3,7 +3,7 @@ title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 10/12/2022
+ms.date: 05/02/2023
 ---
 
 # Service Bus Premium and Standard messaging tiers
@@ -76,7 +76,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Select **View full pricing details** to see more information about each tier.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Select **View full pricing details** to see more information about each tier.
 
 :::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Screenshot that shows the selection of premium tier when creating a namespace.":::
 
@@ -87,7 +87,7 @@ Azure Service Bus premium tier namespaces support the ability to send large mess
 
 Here are some considerations when sending large messages on Azure Service Bus -
    * Supported on Azure Service Bus premium tier namespaces only.
-   * Supported only when using the AMQP protocol. Not supported when using the SBMP protocol.
+   * Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols.
    * Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
    * Sending large messages will result in decreased throughput and increased latency.
    * While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.

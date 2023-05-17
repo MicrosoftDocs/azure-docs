@@ -22,7 +22,7 @@ This article describes how to use Azure Spring Apps with a Palo Alto firewall.
 
 For example, the [Azure Spring Apps reference architecture](./reference-architecture.md) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Apps deployment and use Palo Alto instead, as described in this article.
 
-You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md). 
+You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md). 
 
 > [!Note]
 > In describing the use of REST APIs, this article uses the PowerShell variable syntax to indicate names and values that are left to your discretion. Be sure to use the same values in all the steps.
@@ -53,7 +53,7 @@ The rest of this article assumes you have the following two pre-configured netwo
 
 Next, create three CSV files.
 
-Name the first file *AzureSpringAppsServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Apps network requirements](./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements) section of [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
+Name the first file *AzureSpringAppsServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Apps network requirements](./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,protocol,port,tag

@@ -7,10 +7,10 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 01/30/2023
 ---
 
-# Rebalance shards in cluster
+# Rebalance shards in cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

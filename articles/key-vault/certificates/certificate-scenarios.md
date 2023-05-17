@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 06/13/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---
@@ -96,12 +96,14 @@ Key Vault service sends requests to CA (outbound traffic). Therefore, it’s ful
 
 ### Formats of Import we support
 Azure Key Vault supports .pem and .pfx certificate files for importing Certificates into Key vault.
-We support the following type of Import for PEM file format. A single PEM encoded certificate along with a PKCS#8 encoded, unencrypted key which has the following
+We support the following type of Import for PEM file format. A single PEM encoded certificate along with a PKCS#8 encoded, unencrypted key which has the following format:
 
 -----BEGIN CERTIFICATE-----
+
 -----END CERTIFICATE-----
 
 -----BEGIN PRIVATE KEY-----
+
 -----END PRIVATE KEY-----
 
 When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in different formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format. 
@@ -111,10 +113,12 @@ When you are importing the certificate, you need to ensure that the key is inclu
 >Ensure that no other meta data is present in the certificate file and that the private key not showing as encrypted.
 
 ### Formats of Merge CSR we support
+
 AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA).
 If you need to covert the P7B's format to the supported one, you can use [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode)
 
 -----BEGIN CERTIFICATE-----
+
 -----END CERTIFICATE-----
 
 

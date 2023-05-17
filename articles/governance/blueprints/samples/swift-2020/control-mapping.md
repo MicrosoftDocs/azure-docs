@@ -308,7 +308,7 @@ integration and the ability to review post-attack mitigation reports. This bluep
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
-- Azure DDoS Protection Standard should be enabled
+- Azure DDoS Protection should be enabled
 
 ## 1.1 and 6.1 Boundary Protection
 

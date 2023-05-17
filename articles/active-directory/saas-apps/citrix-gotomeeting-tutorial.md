@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with GoToMeeting | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with GoToMeeting'
 description: Learn the steps you need to perform to integrate GoToMeeting with Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with GoToMeeting

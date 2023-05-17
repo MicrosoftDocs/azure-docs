@@ -85,7 +85,7 @@ Before you begin migration, identify key use cases, detection rules, data, and a
 When planning the discover phase, use the following guidance to identify your use cases.
 - Identify and analyze your current use cases by threat, operating system, product, and so on.
 - What’s the scope? Do you want to migrate all use cases, or use some prioritization criteria?
-- Conduct a [Crown Jewel Analysis](https://www.mitre.org/research/technology-transfer/technology-licensing/crown-jewels-analysis).
+- Identify which security assets are most critical to your migration.
 - What use cases are effective? A good starting place is to look at which detections have produced results within the last year (false positive versus positive rate). 
 - What are the business priorities that affect use case migration? What are the biggest risks to your business? What type of issues put your business most at risk?
 - Prioritize by use case characteristics.

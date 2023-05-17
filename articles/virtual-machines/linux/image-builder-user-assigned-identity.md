@@ -3,12 +3,12 @@ title: Create a virtual machine image and use a user-assigned managed identity t
 description: In this article, you'll use Azure VM Image Builder to create a virtual machine image that can access files that are stored in Azure Storage with a user-assigned managed identity.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 03/02/2021
+ms.reviewer: erd
+ms.date: 11/28/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli
 ---
 
 # Create an image and use a user-assigned managed identity to access files in an Azure storage account 
@@ -20,42 +20,6 @@ This article shows how to create a customized image by using Azure VM Image Buil
 Azure VM Image Builder supports using scripts and copying files from GitHub, Azure storage accounts, and other locations. If you want to use the locations, they must be externally accessible to VM Image Builder.
 
 In the following example, you'll create two resource groups, one for the custom image and the other to host an Azure storage account that contains a script file. This example simulates a real-life scenario, where you might have build artifacts or image files in various storage accounts. You'll create a user-assigned identity and then grant the identity read permissions on the script file, but you won't allow public access to the file. You'll then use the shell customizer to download and run a script from the storage account.
-
-
-## Register the features
-
-1. To use VM Image Builder, you need to register the feature:
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-    ```
-
-2. Check the status of the feature registration:
-
-    ```azurecli-interactive
-    az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-    ```
-
-3. Check your registration:
-
-
-    ```azurecli-interactive
-    az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-    az provider show -n Microsoft.KeyVault | grep registrationState
-    az provider show -n Microsoft.Compute | grep registrationState
-    az provider show -n Microsoft.Storage | grep registrationState
-    az provider show -n Microsoft.Network | grep registrationState
-    ```
-
-4. If the output doesn't show your features as *Registered*, run the following commands:
-
-    ```azurecli-interactive
-    az provider register -n Microsoft.VirtualMachineImages
-    az provider register -n Microsoft.Compute
-    az provider register -n Microsoft.KeyVault
-    az provider register -n Microsoft.Storage
-    az provider register -n Microsoft.Network
-    ```
 
 
 ## Create a resource group

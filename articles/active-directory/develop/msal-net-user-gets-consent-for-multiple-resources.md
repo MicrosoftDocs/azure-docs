@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: dmwendia
-ms.reviewer: saeeda
+ms.reviewer: jmprieur, saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how to specify additional scopes so I can get pre-consent for several resources.
 ---

@@ -41,7 +41,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - Latest version of [Git](https://git-scm.com/download/) installed.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create the provisioning service and two divisional IoT hubs
 
@@ -53,9 +53,9 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. It is recommended that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
+    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. We recommend that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az group create --name contoso-us-resource-group --location westus
     ```
 
@@ -63,7 +63,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
     ```
 
@@ -75,8 +75,8 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     > [!CAUTION]
     > The example Azure Function code for the custom allocation policy requires the substring `-toasters-` in the hub name. Make sure to use a name containing the required toasters substring.
-    
-    ```azurecli-interactive 
+
+    ```azurecli-interactive
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
@@ -84,20 +84,20 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
+    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
 
     > [!CAUTION]
     > The example Azure Function code for the custom allocation policy requires the substring `-heatpumps-` in the hub name. Make sure to use a name containing the required heatpumps substring.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
     This command may take a few minutes to complete.
 
-5. The IoT hubs must be linked to the DPS resource. 
+5. The IoT hubs must be linked to the DPS resource.
 
-    Run the following two commands to get the connection strings for the hubs you just created. Replace the hub resource names with the names you chose in each command:
+    Run the following two commands to get the connection strings for the hubs you created. Replace the hub resource names with the names you chose in each command:
 
     ```azurecli-interactive 
     hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
@@ -165,7 +165,7 @@ In this section, you create an Azure function that implements your custom alloca
         </Project>
         ```
 
-    2. Click the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
+    2. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
 
     3. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload will create the file without uploading the contents.)
 
@@ -312,29 +312,35 @@ In this section, you create an Azure function that implements your custom alloca
 
 In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
-1. Still on the [Azure portal](https://portal.azure.com), open your provisioning service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-2. Select **Manage enrollments** on the left pane, and then select the **Add enrollment group** button at the top of the page.
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
 
-3. On **Add Enrollment Group**, enter the following information, and select the **Save** button.
+1. Select **Add enrollment group**.
 
-    **Group name**: Enter **contoso-custom-allocated-devices**.
+1. On the **Registration + provisioning** tab of the **Add enrollment group** page, provide the following information to configure the enrollment group details:
 
-    **Attestation Type**: Select **Symmetric Key**.
+   | Field | Description |
+   | :--- | :--- |
+   | **Attestation** |Select **Symmetric key** as the **Attestation mechanism**.|
+   | **Symmetric key settings** |Check the **Generate symmetric keys automatically** box. |
+   | **Group name** | Enter *contoso-custom-allocated-devices* as the group name.|
+   | **Provisioning status** | Check the **Enable this enrollment** box. |
 
-    **Auto Generate Keys**: This checkbox should already be checked.
+1. Select **Next: IoT hubs**.
 
-    **Select how you want to assign devices to hubs**: Select **Custom (Use Azure Function)**.
+1. On the **IoT hubs** tab of the **Add enrollment group** page, provide the following information to determine which IoT hubs the enrollment group can provision devices to:
 
-    **Subscription**: Select the subscription where you created your Azure Function.
+   | Field | Description |
+   | :---- | :---------- |
+   | **Target IoT hubs** |Select one or more of your linked IoT hubs, or add a new link to an IoT hub.|
+   | **Allocation policy** | Select **Custom (use Azure Function)**. Select **Select Azure function**, then follow the prompts to select the function that you created for this tutorial. |
 
-    **Function App**: Select your function app by name. **contoso-function-app-1098** was used in this example.
+1. Select **Review + create**.
 
-    **Function**: Select the **HttpTrigger1** function.
+1. On the **Review + create** tab, verify all of your values then select **Create**.
 
-    ![Add custom allocation enrollment group for symmetric key attestation](./media/tutorial-custom-allocation-policies/create-custom-allocation-enrollment.png)
-
-4. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
+After saving the enrollment, reopen it and make a note of the **Primary key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
 
 ## Derive unique device keys
 
@@ -435,11 +441,11 @@ This section is oriented toward a Windows-based workstation. For a Linux example
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
-    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+    It's important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
 2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
-3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
+3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter, for example: `lts_01_2023`.
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -619,7 +625,7 @@ The following table shows expected scenarios and the results error codes you mig
 | The webhook returns 200 OK with ‘iotHubHostName’ present in the response, but set to an empty string or null | Result status: Failed<br><br> Error code: CustomAllocationIotHubNotSpecified (400208) | SDK returns PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | The webhook returns 401 Unauthorized | Result status: Failed<br><br>Error code: CustomAllocationUnauthorizedAccess (400209) | SDK returns PROV_DEVICE_RESULT_UNAUTHORIZED |
 | An Individual Enrollment was created to disable the device | Result status: Disabled | SDK returns PROV_DEVICE_RESULT_DISABLED |
-| The webhook returns error code >= 429 | DPS’ orchestration will retry a number of times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1s<br>&nbsp;&nbsp;- Increment: 9s | SDK will ignore error and submit another get status message in the specified time |
+| The webhook returns error code >= 429 | DPS’ orchestration will retry several times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1 s<br>&nbsp;&nbsp;- Increment: 9 s | SDK will ignore error and submit another get status message in the specified time |
 | The webhook returns any other status code | Result status: Failed<br><br>Error code: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 ## Clean up resources
@@ -644,17 +650,7 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about custom allocation policies, see
+To learn more about custom allocation policies, see
 
-    > [!div class="nextstepaction"]
-    > [Understand custom allocation policies](concepts-custom-allocation.md)
-
-* To learn more Reprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more Deprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
+> [!div class="nextstepaction"]
+> [Understand custom allocation policies](concepts-custom-allocation.md)

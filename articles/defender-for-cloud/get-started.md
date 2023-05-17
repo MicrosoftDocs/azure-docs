@@ -2,8 +2,8 @@
 title: Microsoft Defender for Cloud's enhanced security features
 description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
 ms.topic: quickstart
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 11/09/2021
 ms.custom: mode-other
 ---
@@ -24,7 +24,7 @@ This quickstart section will walk you through all the recommended steps to enabl
 ## Prerequisites
 To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-To enable enhanced security features on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
+In Defender for Cloud, you only see information related to a resource when you're assigned the Owner, Contributor, or Reader role for the subscription or for the resource group the resource is in.
 
 ## Enable Defender for Cloud on your Azure subscription
 

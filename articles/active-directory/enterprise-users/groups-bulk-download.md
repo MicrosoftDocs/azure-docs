@@ -1,6 +1,6 @@
 ---
 
-title: Download a list of groups in the Azure Active Directory portal | Microsoft Docs
+title: Download a list of groups in the Azure portal
 description: Download group properties in bulk in the Azure admin center in Azure Active Directory. 
 services: active-directory 
 author: barclayn
@@ -21,6 +21,9 @@ ms.collection: M365-identity-device-management
 You can download a list of all the groups in your organization to a comma-separated values (CSV) file in the portal for Azure Active Directory (Azure AD), part of Microsoft Entra. All admins and non-admin users can download group lists.
 
 ## To download a list of groups
+
+>[!NOTE]
+> The columns downloaded are pre-defined
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with an account in your organization.
 1. In Azure AD, select **Groups** > **Download groups**.

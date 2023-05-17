@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Iris Intranet for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Iris Intranet for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Iris Intranet.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 38db8479-6d33-43de-9f71-1f1bd184fe69
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

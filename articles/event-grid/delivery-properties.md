@@ -2,7 +2,8 @@
 title: Azure Event Grid - Set custom headers on delivered events 
 description: Describes how you can set custom headers (or delivery properties) on delivered events. 
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.custom: devx-track-azurecli
+ms.date: 02/21/2023
 ---
 
 # Custom delivery properties
@@ -13,7 +14,9 @@ You can set custom headers on the events that are delivered to the following des
 - Webhooks
 - Azure Service Bus topics and queues
 - Azure Event Hubs
-- Relay Hybrid Connections
+- Azure Functions
+- Azure Relay Hybrid Connections
+
 
 When creating an event subscription in the Azure portal, you can use the **Delivery Properties** tab to set custom HTTP headers. This page lets you set fixed and dynamic header values.
 

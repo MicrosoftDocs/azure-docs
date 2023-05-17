@@ -53,12 +53,14 @@ landingContent:
             url: manage-secrets.md
           - text: Manage revisions
             url: revisions-manage.md
-          - text: Set up HTTP ingress
-            url: ingress.md
+          - text: Set up ingress
+            url: ingress-how-to.md
           - text: Connect multiple apps
             url: connect-apps.md
           - text: Use a custom VNET 
             url: vnet-custom.md
+          - text: Quotas
+            url: quotas.md
       - linkListType: concept
         links:
           - text: Dapr integration

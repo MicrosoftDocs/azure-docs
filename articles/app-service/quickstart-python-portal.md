@@ -159,3 +159,6 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

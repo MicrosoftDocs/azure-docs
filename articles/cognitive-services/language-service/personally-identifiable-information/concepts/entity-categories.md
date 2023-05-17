@@ -3,13 +3,13 @@ title: Entity categories recognized by Personally Identifiable Information (dete
 titleSuffix: Azure Cognitive Services
 description: Learn about the entities the PII feature can recognize from unstructured text.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/15/2021
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
@@ -301,7 +301,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-## Category: IP
+## Category: IP Address
 
 This category contains the following entity:
 
@@ -309,7 +309,7 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::
@@ -317,7 +317,7 @@ This category contains the following entity:
 
         Network IP addresses. Returned as both PII and PHI.
 
-        To get this entity category, add `IP` to the `piiCategories` parameter. `IP` will be returned in the API response if detected.
+        To get this entity category, add `IPAddress` to the `piiCategories` parameter. `IPAddress` will be returned in the API response if detected.
       
     :::column-end:::
 
@@ -383,7 +383,8 @@ The entity in this category can have the following subcategories.
     :::column-end:::
 :::row-end:::
 
-## Category: Quantity
+
+## Category: Age
 
 This category contains the following entities:
 
@@ -391,34 +392,7 @@ This category contains the following entities:
     :::column span="":::
         **Entity**
 
-        Quantity
-
-    :::column-end:::
-    :::column span="2":::
-        **Details**
-
-        Numbers and numeric quantities.
-
-        To get this entity category, add `Quantity` to the `piiCategories` parameter. `Quantity` will be returned in the API response if detected.
-      
-    :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-    :::column-end:::
-:::row-end:::
-
-#### Subcategories
-
-The entity in this category can have the following subcategories.
-
-:::row:::
-    :::column span="":::
-        **Entity subcategory**
-
-        Age
+           Age
 
     :::column-end:::
     :::column span="2":::
@@ -427,7 +401,7 @@ The entity in this category can have the following subcategories.
         Ages. 
 
         To get this entity category, add `Age` to the `piiCategories` parameter. `Age` will be returned in the API response if detected.
-      
+
     :::column-end:::
     :::column span="2":::
         **Supported document languages**

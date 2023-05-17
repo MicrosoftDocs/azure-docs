@@ -2,11 +2,11 @@
 title: Quickstart - Create a service connection in Azure Spring Apps with the Azure CLI
 description: Quickstart showing how to create a service connection in Azure Spring Apps with the Azure CLI
 displayName: 
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 08/09/2022
+ms.date: 04/13/2022
 ms.devlang: azurecli
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
@@ -23,23 +23,27 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 - At least one application hosted by Azure Spring Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't  have one, [deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Version 2.37.0 or higher of the Azure CLI must be installed. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 
 - The Azure Spring Apps extension must be installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name spring`.
 
-## Prepare to create a connection
+## Initial set up
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register -n Microsoft.ServiceLinker
     ```
 
-1. Run the command `az spring connection` to get a list of supported target services for Azure Spring Apps.
+    > [!TIP]
+    > You can check if the resource provider has already been registered by running the command `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
 
-    ```azurecli-interactive
+
+1. Optionally, run the command [az spring connection list-support-types](/cli/azure/spring/connection#az-spring-connection-list-support-types) to get a list of supported target services for Azure Spring Apps.
+
+    ```azurecli
     az spring connection list-support-types --output table
     ```
 
@@ -54,7 +58,7 @@ You can create a connection from Azure Spring Apps using an access key or a mana
 
 1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and an Azure Blob Storage with an access key.
 
-    ```azurecli-interactive
+    ```azurecli
     az spring connection create storage-blob --secret
     ```
 

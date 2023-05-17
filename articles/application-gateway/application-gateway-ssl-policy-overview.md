@@ -20,8 +20,8 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 - SSL 2.0 and 3.0 are disabled for all application gateways and are not configurable.
 - A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3.
 - If no TLS policy is defined, the minimum protocol version is set to TLSv1_0, and protocol versions v1.0, v1.1, and v1.2 are supported.
-- The new **Predefined and Customv2 policies** that support **TLS v1.3** are currently in **Preview** and only available with Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
-- Using a new Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (for SSL Policy and [SSL Profile](application-gateway-configure-listener-specific-ssl-policy.md#set-up-a-listener-specific-ssl-policy)). Hence, both old and new policies cannot co-exist on a gateway. You must use any of the older predefined or custom policies across the gateway if clients require older TLS versions or ciphers (for example, TLS v1.0).
+- The [**2022 Predefined**](#predefined-tls-policy) and [**Customv2 policies**](#custom-tls-policy) that support **TLS v1.3** are available only with Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
+- Using a 2022 Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (for SSL Policy and [SSL Profile](application-gateway-configure-listener-specific-ssl-policy.md#set-up-a-listener-specific-ssl-policy)). Hence, both old and new policies cannot co-exist on a gateway. You must use any of the older predefined or custom policies across the gateway if clients require older TLS versions or ciphers (for example, TLS v1.0).
 - TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites used in "client to application gateway connections" are based on the type of listener certificates on the application gateway. Whereas the cipher suites used in establishing "application gateway to backend pool connections" are based on the type of server certificates presented by the backend servers.
 
 ## Predefined TLS policy
@@ -30,7 +30,7 @@ Application Gateway offers several predefined security policies. You can configu
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies, you can refer to the PowerShell, CLI, REST API or the Listeners blade in portal.
 
-| Predefined policy names (AppGwSslPolicy&lt;YYYYMMDD&gt;) | 20150501  | 20170401 | 20170401S | 20220101 <br/> (Preview) | 20220101S <br/> (Preview) |
+| Predefined policy names (AppGwSslPolicy&lt;YYYYMMDD&gt;) | 20150501  | 20170401 | 20170401S | 20220101 | 20220101S |
 | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
 | **Minimum Protocol Version** | 1.0 | 1.1 | 1.2 | 1.2 | 1.2 |
 | **Enabled protocol versions** | 1.0<br/>1.1<br/>1.2 | 1.1<br/>1.2 | 1.2 | 1.2<br/>1.3 | 1.2<br/>1.3 |
@@ -71,7 +71,7 @@ The following table shows the list of cipher suites and minimum protocol version
 If a TLS policy needs to be configured for your requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, as well as the supported cipher suites and their priority order.
   
 > [!NOTE]
-> The newer, stronger ciphers and TLSv1.3 support are only available with the **CustomV2 policy (Preview)**. It provides enhanced security and performance benefits.
+> The newer, stronger ciphers and TLSv1.3 support are only available with the **CustomV2 policy**. It provides enhanced security and performance benefits.
 
 > [!IMPORTANT]
 > - If you're using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU.

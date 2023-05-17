@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/10/2022
+ms.date: 04/21/2023
 ms.author: jeedes
 
 ---
 
 # Tutorial: Azure AD SSO integration with Contentkalender
 
-In this tutorial, you'll learn how to integrate Contentkalender with Azure Active Directory (Azure AD). When you integrate Contentkalender with Azure AD, you can:
+In this tutorial, you learn how to integrate Contentkalender with Azure Active Directory (Azure AD). When you integrate Contentkalender with Azure AD, you can:
 
 * Control in Azure AD who has access to Contentkalender.
 * Enable your users to be automatically signed-in to Contentkalender with their Azure AD accounts.
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Contentkalender with Azure Activ
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Contentkalender single sign-on (SSO) enabled subscription.
+* Contentkalender single sign-on (SSO) enabled subscription (contact Contentkalender [customer service](mailto:info@contentkalender.nl)).
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
@@ -79,24 +79,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-   a. In the **Identifier** text box, type one of the following URLs:
+   a. In the **Identifier** text box, type the URL:
+    `https://login.contentkalender.nl` 
+
+   b. In the **Reply URL** text box, type the URL:
+   `https://login.contentkalender.nl/sso/saml/callback`
    
-   | **Identifier** |
-   |------------|
-   | `https://login.contentkalender.nl` |
-   | `https://login.decontentkalender.be` |
-   | `https://contentkalender-acc.bettywebblocks.com/` |
-
-   b. In the **Reply URL** text box, type one of the following URLs:
-
-   | **Reply URL** |
-   |-----------|
-   | `https://login.contentkalender.nl/sso/saml/callback` |
-   | `https://login.decontentkalender.be/sso/saml/callback` |
-   | `https://contentkalender-acc.bettywebblocks.com/sso/saml/callback` |
-
    c. In the **Sign-on URL** text box, type the URL:
-   `https://contentkalender-acc.bettywebblocks.com/v2/login`
+   `https://login.contentkalender.nl/v2/login`
 
 1. Your Contentkalender application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Contentkalender expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 

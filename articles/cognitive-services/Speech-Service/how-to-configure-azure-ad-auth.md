@@ -12,7 +12,7 @@ ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
-
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Active Directory Authentication with the Speech SDK
 
@@ -51,6 +51,7 @@ Here's an example of using Azure Identity to get an Azure AD access token from a
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
 var browserToken = browserCredential.GetToken(context);
+string aadToken = browserToken.Token;
 ```
 The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
@@ -143,7 +144,7 @@ To get the resource ID using PowerShell, confirm that you have PowerShell versio
 
     `Get-Module -ListAvailable Az`
 
-    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
+    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell) to upgrade.
 
 Now run `Connect-AzAccount` to create a connection with Azure.
 

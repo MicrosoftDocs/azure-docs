@@ -1,5 +1,5 @@
 ---
-title: Move from Storage Analytics metrics to Azure Monitor metrics | Microsoft Docs
+title: Move from Storage Analytics metrics to Azure Monitor metrics
 description: Learn how to transition from Storage Analytics metrics (classic metrics) to metrics in Azure Monitor. 
 author: normesta
 ms.service: storage

@@ -70,6 +70,7 @@ These five groups are sufficient for a basic setup. Later, you can add security 
 > [!NOTE]
 >- Learn how to create a security group in [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 >- Learn how to add a security group from another security group in [Add or remove a group from another group using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
+>- When creating a security group make sure that the **Group Type** is **Security**. Microsoft 365 groups are not supported for Azure SQL.
 
 >[!Tip]
 >Individual Synapse users can use Azure Active Directory in the Azure portal to view their group memberships. This allows them to determine which roles they've been granted.
@@ -84,7 +85,7 @@ Synapse workspaces use default storage containers for:
 Identify the following information about your storage:
 
 - The ADLS Gen2 account to use for your workspace. This document calls it `storage1`. `storage1` is considered the "primary" storage account for your workspace.
-- The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`.
+- The container inside `storage1` that your Synapse workspace will use by default. This document calls it `container1`.
 
 - Select **Access control (IAM)**.
 

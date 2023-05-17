@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register SAP Business Warehouse (BW), and how to au
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|No|No|
 
 The supported SAP BW versions are 7.3 to 7.5. SAP BW/4HANA isn't supported.
 
@@ -42,6 +42,10 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
 - Dimension
 - Time dimension
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -61,12 +65,16 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
         > [!Note]
         > The driver should be accessible to all accounts in the machine. Don't put it in a path under user account.
 
-* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You need an ABAP developer account to create the RFC function module on the SAP server. The user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
+    * Self-hosted integration runtime communicates with the SAP server over dispatcher port 32NN and gateway port 33NN, where NN is your SAP instance number from 00 to 99. Make sure the outbound traffic is allowed on your firewall.
+
+* Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide.md). You need an ABAP developer account to create the RFC function module on the SAP server. For scan execution, the user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:
 
     * STFC_CONNECTION (check connectivity)
     * RFC_SYSTEM_INFO (check system information)
     * OCS_GET_INSTALLED_COMPS (check software versions)
-    * Z_MITI_BW_DOWNLOAD (main metadata import)
+    * Z_MITI_BW_DOWNLOAD (main metadata import, the function module you create following the Purview guide)
+    
+    The underlying SAP Java Connector (JCo) libraries may call additional RFC function modules e.g. RFC_PING, RFC_METADATA_GET, etc., refer to [SAP support note 460089](https://launchpad.support.sap.com/#/notes/460089) for details.
 
 ## Register
 
@@ -78,7 +86,10 @@ The only supported authentication for SAP BW source is **Basic authentication**.
 
 ### Steps to register
 
-1. Navigate to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**.
 1. In **Register sources**, select **SAP BW** > **Continue**.  

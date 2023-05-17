@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 07/01/2020
+ms.date: 04/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
@@ -22,7 +23,7 @@ If the servers don't appear in the portal, wait for a few minutes because it tak
 
 If the state still doesn't change:
 
-- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Azure Migrate: Server migration.
+- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
 
 If the preceding step doesn't work and you're discovering VMware servers:
 
@@ -369,7 +370,7 @@ Typical SQL discovery errors are summarized in the following table.
 
 ## Common web apps discovery errors
 
-Azure Migrate supports discovery of ASP.NET web apps running on on-premises machines by using Azure Migrate: Discovery and assessment. Web apps discovery is currently supported for VMware only. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
+Azure Migrate supports discovery of web apps running on on-premises machines by using Azure Migrate: Discovery and assessment. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
 
 Typical web apps discovery errors are summarized in the following table.
 

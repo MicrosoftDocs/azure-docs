@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 11/01/2022
+ms.author: glenga
+---
 # [In-process](#tab/in-process)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download).
@@ -8,7 +15,7 @@
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
 # [Isolated process](#tab/isolated-process)
 
@@ -22,5 +29,5 @@
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 ---

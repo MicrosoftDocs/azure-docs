@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -152,8 +152,6 @@ When you select the Smart Global Governance tile in Access Panel, you should be 
 - [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Smart Global Governance with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 

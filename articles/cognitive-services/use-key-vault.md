@@ -30,7 +30,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Python 3.7 or later](https://www.python.org/)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
@@ -40,7 +40,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
@@ -50,7 +50,7 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Current Node.js v14 LTS or later](https://nodejs.org/)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 * [A multi-service resource or a resource for a specific service](./cognitive-services-apis-create-account.md)
 
@@ -259,7 +259,7 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 [!INCLUDE [key-vault-cli-authentication](includes/key-vault-cli-authentication.md)]
 
-## Create a python application
+## Create a Python application
 
 Create a new folder named `keyVaultExample`. Then use your preferred code editor to create a file named `program.py` inside the newly created folder. 
 

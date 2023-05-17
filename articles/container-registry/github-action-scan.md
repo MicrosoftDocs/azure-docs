@@ -3,8 +3,6 @@ title: Scan container images using GitHub Actions
 description: Learn how to scan the container images using Container Scan action
 ms.topic: quickstart
 ms.reviewer: jukullam
-ms.service: azure-monitor
-ms.subservice: containers
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -48,9 +46,9 @@ In this example, you'll create a three secrets that you can use to authenticate 
 
     :::image type="content" source="media/github-action-scan/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
 
-1. Select **Secrets** and then **New Secret**.
+1. Select **Security > Secrets and variables > Actions**. 
 
-    :::image type="content" source="media/github-action-scan/azure-secret-add.png" alt-text="Choose to add a secret.":::
+1. Select **New repository secret**.
 
 1. Paste the following values for each secret created with the following values from the Azure portal by navigating to the **Access Keys** in the Container Registry. 
 

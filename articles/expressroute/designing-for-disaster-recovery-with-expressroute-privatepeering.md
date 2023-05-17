@@ -51,13 +51,13 @@ However, if you load balance traffic across geo-redundant parallel paths, regard
 When using different metros for redundancy, you should select the secondary location in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you'll need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increased latency end-to-end.
 
 >[!NOTE]
->Enabling BFD on the ExpressRoute circuits will help with faster link failure detection between Microsoft Enterprise Edge (MSEE) devices and the Customer/Partner Edge routers. However, the overall failover and convergence to redundant site may take up to 180 seconds under some failure conditions and you may experience increased laterncy or performance degradation during this time.  
+>Enabling BFD on the ExpressRoute circuits will help with faster link failure detection between Microsoft Enterprise Edge (MSEE) devices and the Customer/Partner Edge routers. However, the overall failover and convergence to redundant site may take up to 180 seconds under some failure conditions and you may experience increased latency or performance degradation during this time.  
 
 In this article, let's discuss how to address challenges you may face when configuring geo-redundant paths.
 
 ## Small to medium on-premises network considerations
 
-Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid green line indicates preferred path (via ExpressRoute 1) and the dotted one represents stand-by path (via ExpressRoute 2).
+Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid blue line indicates preferred path (via ExpressRoute 1) and the dotted one represents stand-by path (via ExpressRoute 2).
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png" alt-text="Diagram of small to medium size on-premises network considerations.":::
 

@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add RAW media access to your app (Android)
+title: Quickstart - Add raw media access to your app (Android)
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app using Azure Communication Services.
+description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
 
 ms.author: yassirb
@@ -12,26 +12,23 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-## Raw video
-
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services Calling SDK for Android.
+In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for Android.
 
-The Azure Communication Services Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
+The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
 
-This quick start builds upon [QuickStart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
+This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
+## Overview of virtual video streams
 
-## Virtual video stream overview
+Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-Since the app will be generating the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats the app is capable of generating. This is required to allow the Azure Communication Services Calling SDK to pick the best video format configuration given the network conditions at any giving time.
-
-The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is more appropriate for the current network conditions.
+The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is most appropriate for the current network conditions.
 
 ### Supported video resolutions
 
-| Aspect Ratio | Resolution  | Maximum FPS  |
+| Aspect ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
@@ -46,9 +43,11 @@ The app must register a delegate to get notified about when it should start or s
 | 4x3 | QVGA (320x240) | 15 |
 | 4x3 | 212x160 | 15 |
 
-The following is an overview of the steps required to create a virtual video stream.
+### Steps to create a virtual video stream
 
-1. Create an array of `VideoFormat` with the video formats supported by the app. It is fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
+1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. 
+
+   When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```java
     ArrayList<VideoFormat> videoFormats = new ArrayList<VideoFormat>();
@@ -64,14 +63,14 @@ The following is an overview of the steps required to create a virtual video str
     videoFormats.add(format);
     ```
 
-2. Create `RawOutgoingVideoStreamOptions` and set `VideoFormats` with the previously created object.
+2. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
 
     ```java
     RawOutgoingVideoStreamOptions rawOutgoingVideoStreamOptions = new RawOutgoingVideoStreamOptions();
     rawOutgoingVideoStreamOptions.setVideoFormats(videoFormats);
     ```
 
-3. Subscribe to `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream, it's important that you don't send frames if the state is no equal to `OutgoingVideoStreamState.STARTED`.
+3. Subscribe to the `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream. Don't send frames if the state is not equal to `OutgoingVideoStreamState.STARTED`.
 
     ```java
     private OutgoingVideoStreamState outgoingVideoStreamState;
@@ -82,7 +81,9 @@ The following is an overview of the steps required to create a virtual video str
     });
     ```
 
-4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events requiring the app to start or stop producing video frames. In this quick start, `mediaFrameSender` is used as trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events that require the app to start or stop producing video frames. 
+
+   This quickstart uses `mediaFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
     ```java
     private VideoFrameSender mediaFrameSender;
@@ -93,7 +94,7 @@ The following is an overview of the steps required to create a virtual video str
     });
     ```
 
-5. Create an instance of `VirtualRawOutgoingVideoStream` using the `RawOutgoingVideoStreamOptions` we created previously
+5. Create an instance of `VirtualRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```java
     private VirtualRawOutgoingVideoStream virtualRawOutgoingVideoStream;
@@ -101,8 +102,13 @@ The following is an overview of the steps required to create a virtual video str
     virtualRawOutgoingVideoStream = new VirtualRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-7.  Once outgoingVideoStreamState is equal to `OutgoingVideoStreamState.STARTED` create and instance of `FrameGenerator` class this will start a non-UI thread and will send frames, call `FrameGenerator.SetVideoFrameSender` each time we get an updated `VideoFrameSender` on the previous delegate, cast the `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`. For example, cast it to `SoftwareBasedVideoFrameSender` and then call the `send` method according to the number of planes defined by the VideoFormat.
-After that, create the ByteBuffer backing the video frame if needed. Then, update the content of the video frame. Finally, send the video frame to other participants with the `sendFrame` API.
+6. After `outgoingVideoStreamState` is equal to `OutgoingVideoStreamState.STARTED`, create an instance of the `FrameGenerator` class.
+
+   This step starts a non-UI thread and sends frames. It will call `FrameGenerator.SetVideoFrameSender` each time you get an updated `VideoFrameSender` instance on the previous delegate. It will also cast `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
+
+   For example, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, call the `send` method according to the number of planes that `VideoFormat` defines.
+
+   After that, create the byte buffer that backs the video frame if needed. Then, update the content of the video frame. Finally, send the video frame to other participants by using the `sendFrame` API.
 
     ```java
     public class FrameGenerator implements VideoFrameSenderChangedListener {
@@ -214,27 +220,27 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
     }
     ```
 
-## Screen share video stream overview
+## Overview of screen share video streams
 
-Repeat steps `1 to 4` from the previous VirtualRawOutgoingVideoStream tutorial.
+Repeat steps 1 to 4 from the previous [Steps to create a virtual video stream](#steps-to-create-a-virtual-video-stream) procedure.
 
-Since the Android system generates the frames, you must implement your own foreground service to capture the frames and send them through using our Azure Communication Services Calling API
+Because the Android system generates the frames, you must implement your own foreground service to capture the frames and send them by using the Azure Communication Services Calling API.
 
 ### Supported video resolutions
 
-| Aspect Ratio | Resolution  | Maximum FPS  |
+| Aspect ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
 | Anything | Anything | 30 |
 
-The following is an overview of the steps required to create a screen share video stream.
+### Steps to create a screen share video stream
 
-1. Add this permission to your `Manifest.xml` file inside your Android project
+1. Add this permission to your *Manifest.xml* file inside your Android project.
 
     ```xml
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     ```
 
-2. Create an instance of `ScreenShareRawOutgoingVideoStream` using the `RawOutgoingVideoStreamOptions` we created previously
+2. Create an instance of `ScreenShareRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```java
     private ScreenShareRawOutgoingVideoStream screenShareRawOutgoingVideoStream;
@@ -242,8 +248,10 @@ The following is an overview of the steps required to create a screen share vide
     screenShareRawOutgoingVideoStream = new ScreenShareRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-3. Request needed permissions for screen capture on Android, once this method is called Android will call automatically `onActivityResult` containing the request code we've sent and the result of the operation, expect `Activity.RESULT_OK` if the permission has been provided by the user if so attach the screenShareRawOutgoingVideoStream to the call and start your own foreground service to capture the frames.
-    
+3. Request needed permissions for screen capture on Android. After this method is called, Android will automatically call `onActivityResult`, which contains the request code that you sent and the result of the operation.
+
+   Expect `Activity.RESULT_OK` if the user has provided the permission. If so, attach `screenShareRawOutgoingVideoStream` to the call and start your own foreground service to capture the frames.
+
     ```java
     public void GetScreenSharePermissions() {
 
@@ -277,7 +285,7 @@ The following is an overview of the steps required to create a screen share vide
     }
     ```
 
-4. Once you receive a frame on your foreground service send it through using the `VideoFrameSender` provided
+4. After you receive a frame on your foreground service, send it by using the provided `VideoFrameSender` information.
 
     ````java
     public void onImageAvailable(ImageReader reader) {

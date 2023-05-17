@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting Azure AD MFA NPS extension - Azure Active Directory
+title: Troubleshooting Azure AD MFA NPS extension
 description: Get help resolving issues with the NPS extension for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 05/12/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -69,6 +69,8 @@ Sometimes, your users may get messages from Multi-Factor Authentication because 
 | **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now.  |
 | **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
+| **AuthenticationThrottled** | Too many attempts by user in a short period of time. Throttling. | Microsoft may limit repeated authentication attempts that are performed by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes. |
+| **AuthenticationMethodLimitReached** | Authentication Method Limit Reached. Throttling. | Microsoft may limit repeated authentication attempts that are performed by the same user using the same authentication method type in a short period of time, specifically Voice call or SMS. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.|
 
 ## Errors that require support
 
@@ -96,37 +98,12 @@ If your users are [Having trouble with two-step verification](https://support.mi
 
 ### Health check script
 
-The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
+The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option **1** to isolate the cause of the potential issue.
 
 ### Contact Microsoft support
 
 If you need additional help, contact a support professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, the ID of the user who saw the error, and debug logs.
 
-To collect debug logs for support diagnostics, use the following steps on the NPS server:
+To collect debug logs for support diagnostics, run the [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) on the NPS server and choose option **4** to collect logs.
 
-1. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **TRUE**
-2. Open an Administrator command prompt and run these commands:
-
-   ```
-   Mkdir c:\NPS
-   Cd c:\NPS
-   netsh trace start Scenario=NetConnection capture=yes tracefile=c:\NPS\nettrace.etl
-   logman create trace "NPSExtension" -ow -o c:\NPS\NPSExtension.etl -p {7237ED00-E119-430B-AB0F-C63360C8EE81} 0xffffffffffffffff 0xff -nb 16 16 -bs 1024 -mode Circular -f bincirc -max 4096 -ets
-   logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
-   ```
-
-3. Reproduce the issue
-
-4. Stop the tracing with these commands:
-
-   ```
-   logman stop "NPSExtension" -ets
-   netsh trace stop
-   wevtutil epl AuthNOptCh C:\NPS\%computername%_AuthNOptCh.evtx
-   wevtutil epl AuthZOptCh C:\NPS\%computername%_AuthZOptCh.evtx
-   wevtutil epl AuthZAdminCh C:\NPS\%computername%_AuthZAdminCh.evtx
-   Start .
-   ```
-
-5. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **FALSE**
-6. Zip the contents of the C:\NPS folder and attach the zipped file to the support case.
+At the end, zip the contents of the C:\NPS folder and attach the zipped file to the support case.

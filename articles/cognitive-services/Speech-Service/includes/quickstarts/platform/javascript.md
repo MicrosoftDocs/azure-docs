@@ -92,5 +92,3 @@ Alternatively, you could use a require statement:
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
-
-For more information on `require`, see [What is require?](https://nodejs.org/en/knowledge/getting-started/what-is-require/) on the Node.js website.

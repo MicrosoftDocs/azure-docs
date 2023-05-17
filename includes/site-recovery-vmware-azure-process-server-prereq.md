@@ -1,9 +1,9 @@
 ---
-author: rayne-wiselman
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: include
 ms.date: 11/28/2019
-ms.author: raynew
+ms.author: ankitadutta
 ---
 This article assumes that
 

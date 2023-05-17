@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi'
 description: Learn how to configure single sign-on between Azure Active Directory and Boomi.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -134,23 +134,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Boomi company site as an administrator.
 
-1. Navigate to **Company Name** and go to **Set up**.
-
-1. Click the **SSO Options** tab and perform below steps.
+1. Go to the **Settings**, click the **SSO Options** in the security options and perform the below steps.
 
 	![Configure Single Sign-On On App Side](./media/boomi-tutorial/import.png)
 
-	a. Check **Enable SAML Single Sign-On** checkbox.
+	a. Select **Enabled** in **Enable SAML Single Sign-On**.
 
 	b. Click **Import** to upload the downloaded certificate from Azure AD to **Identity Provider Certificate**.
 
-	c. In the **Identity Provider Login URL** textbox, put the value of **Login URL** from Azure AD application configuration window.
+	c. In the **Identity Provider Sign In URL** textbox, paste the value of **Login URL** from Azure AD application configuration window.
 
 	d. For **Federation Id Location**, select the **Federation Id is in FEDERATION_ID Attribute element** radio button.
 
-	e. Copy the **AtomSphere MetaData URL**, go to the **MetaData URL** via the browser of your choice, and save the output to a file. Upload the **MetaData URL** in the **Basic SAML Configuration** section in the Azure portal.
+	e. For **SAML Authentication Context**, select the **Password Protected Transport** radio button.
 
-	f. Click **Save** button.
+	f. Copy the **AtomSphere Sign In URL**, paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+	g. Copy the **AtomSphere MetaData URL**, go to the **MetaData URL** via the browser of your choice, and save the output to a file. Upload the **MetaData URL** in the **Basic SAML Configuration** section in the Azure portal.
+
+	h. Click **Save** button.
 
 ### Create Boomi test user
 
@@ -160,15 +162,11 @@ In order to enable Azure AD users to sign in to Boomi, they must be provisioned 
 
 1. Sign in to your Boomi company site as an administrator.
 
-1. After logging in, navigate to **User Management** and go to **Users**.
-
-	![Screenshot shows the User Management page with Users selected.](./media/boomi-tutorial/user.png "Users")
+1. After logging in, navigate to **User Management** ->**Users**.
 
 1. Click **+**  icon and the **Add/Maintain User Roles** dialog opens.
 
 	![Screenshot shows the + icon selected.](./media/boomi-tutorial/add.png "Users")
-
-	![Screenshot shows the Add / Maintain User Roles where you configure a user.](./media/boomi-tutorial/roles.png "Users")
 
 	a. In the **User e-mail address** textbox, type the email of user like B.Simon@contoso.com.
 

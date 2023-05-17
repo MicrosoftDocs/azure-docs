@@ -1,5 +1,5 @@
 ---
-title: Users and groups in Conditional Access policy - Azure Active Directory
+title: Users and groups in Conditional Access policy
 description: Who are users and groups in an Azure AD Conditional Access policy
 
 services: active-directory
@@ -21,9 +21,6 @@ A Conditional Access policy must include a user, group, or workload identity ass
 
 > [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
-> [!NOTE]
-> Some Conditional Access features are currently in public preview and might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Include users
 
 This list of users typically includes all of the users an organization is targeting in a Conditional Access policy. 
@@ -35,7 +32,7 @@ The following options are available to include when creating a Conditional Acces
 - All users
    - All users that exist in the directory including B2B guests.
 - Select users and groups
-   - Guest or external users (preview)
+   - Guest or external users
       - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users), and multiple selections can be made:
          - B2B collaboration guest users
          - B2B collaboration member users
@@ -97,13 +94,13 @@ If you do find yourself locked out, see [What to do if you're locked out of the 
 
 Conditional Access policies that target external users may interfere with service provider access, for example granular delegated admin privileges [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction). For policies that are intended to target service provider tenants, use the **Service provider user** external user type available in the **Guest or external users** selection options.
 
-## Workload identities (Preview)
+## Workload identities 
 
 A workload identity is an identity that allows an application or service principal access to resources, sometimes in the context of a user. Conditional Access policies can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities aren't covered by policy.
 
 Organizations can target specific workload identities to be included or excluded from policy.
 
-For more information, see the article [Conditional Access for workload identities preview](workload-identity.md).
+For more information, see the article [Conditional Access for workload identities](workload-identity.md).
 
 ## Next steps
 

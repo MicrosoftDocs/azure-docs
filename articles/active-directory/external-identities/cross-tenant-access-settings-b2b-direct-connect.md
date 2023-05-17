@@ -1,11 +1,11 @@
 ---
-title: Configure B2B direct connect cross-tenant access - Azure AD
+title: Configure B2B direct connect cross-tenant access
 description: Use cross-tenant access settings to manage how you collaborate with other Azure AD organizations. Learn how to configure  outbound access to external organizations and inbound access from external Azure AD for B2B direct connect.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 05/05/2023
 
 ms.author: mimart
 author: msmimart
@@ -177,9 +177,18 @@ With inbound settings, you select which external users and groups will be able t
 
    - **Trust hybrid Azure AD joined devices**: Allows your Conditional Access policies to trust hybrid Azure AD joined device claims from an external organization when their users access your resources.
 
-    ![Screenshot showing inbound trust settings](media/cross-tenant-access-settings-b2b-direct-connect/inbound-trust-settings.png)
+    ![Screenshot showing inbound trust settings.](media/cross-tenant-access-settings-b2b-direct-connect/inbound-trust-settings.png)
+
+1. (This step applies to **Organizational settings** only.) Review the consent prompt option:
+
+   - **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**: Select this checkbox if you want to automatically redeem invitations so users from the specified tenant don't have to accept the consent prompt when they access resources in this tenant using B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
+
+    ![Screenshot that shows the inbound suppress consent prompt check box.](../media/external-identities/inbound-consent-prompt-setting.png)
 
 1. Select **Save**.
+
+> [!NOTE]
+> When configuring settings for an organization, you'll notice a **Cross-tenant sync** tab. This tab doesn't apply to your B2B direct connect configuration. Instead, this feature is used by multi-tenant organizations to enable B2B collaboration across their tenants. For more information, see the [multi-tenant organization documentation](../multi-tenant-organizations/index.yml).
 
 ## Modify outbound access settings
 
@@ -254,6 +263,20 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing adding external applications for outbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/outbound-b2b-direct-connect-add-apps.png)
+
+1. Select **Save**.
+
+### To change outbound trust settings
+
+(This section applies to **Organizational settings** only.)
+
+1. Select the **Trust settings** tab.
+
+1. Review the consent prompt option:
+
+   - **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**: Select this checkbox if you want to automatically redeem invitations so users from this tenant don't have to accept the consent prompt when they access resources in the specified tenant using B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
+
+    ![Screenshot that shows the outbound suppress consent prompt check box.](../media/external-identities/outbound-consent-prompt-setting.png)
 
 1. Select **Save**.
 

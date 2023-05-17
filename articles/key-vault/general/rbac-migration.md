@@ -6,27 +6,15 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 
 ---
 # Migrate from vault access policy to an Azure role-based access control permission model
 
-The vault access policy model is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope. 
+Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
-Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
-
-Before migrating to Azure RBAC, it's important to understand its benefits and limitations.
-
-Azure RBAC key benefits over vault access policies:
-- Provides a unified access control model for Azure resources by using the same API across Azure services
-- Centralized access management for administrators - manage all Azure resources in one view
-- Integrated with [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) for time-based access control
-- Deny assignments - ability to exclude security principals at a particular scope. For information, see [Understand Azure Deny Assignments](../../role-based-access-control/deny-assignments.md)
-
-Azure RBAC disadvantages:
-- Latency for role assignments - it can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
-- Limited number of role assignments - Azure RBAC allows only 2000 roles assignments across all services per subscription versus 1024 access policies per Key Vault
+This article provide the information necessary to migrate from a key vault from access policy authorization to an Azure RBAC model.
 
 ## Access policies to Azure roles mapping
 
@@ -35,7 +23,7 @@ Azure RBAC has several Azure built-in roles that you can assign to users, groups
 Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Administrator
 - Key Vault Reader
-- Key Vault Certificate Officer
+- Key Vault Certificates Officer
 - Key Vault Crypto Officer
 - Key Vault Crypto User
 - Key Vault Crypto Service Encryption User
@@ -77,7 +65,7 @@ Access policy predefined permission templates:
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
 
 > [!NOTE]
-> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts for 'Microsoft Azure App Service' global indentity.
 
 ## Assignment scopes mapping  
 
@@ -116,76 +104,30 @@ Using the Azure Policy service, you can govern RBAC permission model migration a
 
 ### Create and assign policy definition for Key Vault Azure RBAC permission model
 1. Navigate to Policy resource
-1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
-1. Select **+ Policy definition** at the top of the page. This button opens to the Policy definition page.
+1. Select **Assignments** under **Authoring** on the left side of the Azure Policy page.
+1. Select **Assign policy** at the top of the page. This button opens to the Policy assignment page.
 1. Enter the following information:
-    - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
-    - The name of the policy definition, e.g., "Key Vault should use Role-Based Access Control (RBAC) permission model"
-    - Select **Use existing** and choose **Key Vault** category
-    - Paste the following JSON code in **POLICY RULE** 
-    ```json
-    {
-	"mode": "Indexed",
-	"policyRule": {
-	  "if": {
-		  "allOf": [
-			{
-			  "field": "type",
-			  "equals": "Microsoft.KeyVault/vaults"
-			},
-			{
-			  "not": {
-				"field": "Microsoft.KeyVault/vaults/createMode",
-				"equals": "recover"
-			  }
-			},
-			{
-			  "anyOf": [
-				{
-				  "field": "Microsoft.KeyVault/vaults/enableRbacAuthorization",
-				  "exists": "false"
-				},
-				{
-				  "field": "Microsoft.KeyVault/vaults/enableRbacAuthorization",
-				  "equals": "false"
-				}
-			  ]
-			}
-		  ]
-		},
-		"then": {
-		  "effect": "[parameters('effect')]"
-		}
-	},
-	"parameters": {
-		"effect": {
-		  "type": "String",
-		  "metadata": {
-			"displayName": "Effect",
-			"description": "Enable or disable the execution of the policy"
-		  },
-		  "allowedValues": [
-			"Audit",
-			"Deny",
-			"Disabled"
-		  ],
-		  "defaultValue": "Audit"
-		}
-	  }
-   }
-    ```
-1. Select **Save**
-1. Select **Assign**
+    - Define the scope of the policy by choosing the subscription and resource group over which the policy will be enforced. Select by clicking the three-dot button at on **Scope** field.
+    - Select the name of the policy definition: "[[Preview]: Azure Key Vault should use RBAC permission model](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5)"
+    - Go to the **Parameters** tab at the top of the page and define the desired effect of the policy (Audit, Deny, or Disabled). 
+1. Fill out any additional fields. Navigate the tabs clicking on **Previous** and **Next** buttons at the bottom of the page.
 1. Select **Review + create**
 1. Select **Create**
 
-Once a new policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
+Once the built-in policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
 
 :::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
 
 For more information, see
-- [Implement a new custom policy](../../governance/policy/tutorials/create-and-manage.md#implement-a-new-custom-policy)
 - [Integrate Azure Key Vault with Azure Policy](azure-policy.md)
+
+## Access Policy to Azure RBAC Comparison Tool
+
+> [!IMPORTANT]
+> This tool is build and maintained by Microsoft Community members and without formal Customer Support Services support.
+> The tool is provided AS IS without warranty of any kind.
+
+[PowerShell tool](https://github.com/Azure/KeyVault-AccessPolicyToRBAC-CompareTool) to compare Key Vault access policies to assigned RBAC roles to help with Access Policy to RBAC Permission Model migration. The tool intent is to provide sanity check when migrating existing Key Vault to RBAC permission model to ensure that assigned roles with underlying data actions cover existing Access Policies.
 
 ## Troubleshooting
 -  Role assignment not working after several minutes - there are situations when role assignments can take longer. It's important to write retry logic in code to cover those cases.

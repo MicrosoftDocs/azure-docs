@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure SoSafe for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SoSafe for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SoSafe.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 30de9f90-482e-43ef-9fcb-f3d4f5eac533
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

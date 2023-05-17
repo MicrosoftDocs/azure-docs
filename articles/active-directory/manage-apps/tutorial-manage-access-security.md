@@ -4,10 +4,12 @@ description: In this tutorial, you learn how to manage access to an application 
 author: omondiatieno
 manager: CelesteDG
 ms.author: jomondi
+ms.reviewer: ergreenl
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.date: 07/18/2022
+ms.custom: enterprise-apps
 
 # Customer intent: As an administrator of an Azure AD tenant, I want to manage access to my applications and make sure they are secure.
 ---

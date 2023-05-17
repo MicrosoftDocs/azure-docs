@@ -1,12 +1,12 @@
 ---
-title: Domain data management services concepts #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use Domain Data Management Services #Required; article description that is displayed in search results. 
-author: marielgherz #Required; your GitHub user alias, with correct capitalization.
-ms.author: marielherzog #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Domain data management services concepts
+description: Learn how to use Domain Data Management Services
+author: marielgherz
+ms.author: marielherzog
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Domain data management service concepts
@@ -42,23 +42,23 @@ OSDU&trade; Technical Standard defines the following types of OSDU&trade; applic
 
 ## Who did we build this for?
 
-**IT Developers** build systems to connect data to domain applications (internal and external – for example, Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Microsoft Energy Data Services helps automate these workflows and eliminates time spent managing updates.
+**IT Developers** build systems to connect data to domain applications (internal and external – for example, Petrel) which enables data managers to deliver projects to geoscientists. The DDMS suite on Azure Data Manager for Energy Preview helps automate these workflows and eliminates time spent managing updates.
 
-**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU&trade; compatible applications (for example, Petrel) connected to Microsoft Energy Data Services.
+**Geoscientists** use domain applications for key Exploration and Production workflows such as Seismic interpretation and Well tie analysis. While these users won't directly interact with the DDMS, their expectations for data performance and accessibility will drive requirements for the DDMS in the Foundation Tier. Azure will enable geoscientists to stream cross domain data instantly in OSDU&trade; compatible applications (for example, Petrel) connected to Azure Data Manager for Energy Preview.
 
 **Data managers** spend a significant number of time fulfilling requests for data retrieval and delivery. The Seismic, Wellbore, and Petrel Data Services enable them to discover and manage data in one place while tracking version changes as derivatives are created.
 
 ## Platform landscape
 
-Microsoft Energy Data Services is an OSDU&trade; compatible product, meaning that its landscape and release model are dependent on OSDU&trade;.
+Azure Data Manager for Energy Preview is an OSDU&trade; compatible product, meaning that its landscape and release model are dependent on OSDU&trade;.
 
-Currently, OSDU&trade; certification and release process are not fully defined yet and this topic should be defined as a part of the Microsoft Energy Data Services Foundation Architecture.
+Currently, OSDU&trade; certification and release process are not fully defined yet and this topic should be defined as a part of the Azure Data Manager for Energy Preview Foundation Architecture.
 
-OSDU&trade; R3 M8 is the base for the scope of the Microsoft Energy Data Services Foundation Private Preview – as a latest stable, tested version of the platform.
+OSDU&trade; R3 M8 is the base for the scope of the Azure Data Manager for Energy Preview Foundation Private Preview – as a latest stable, tested version of the platform.
 
 ## Learn more: OSDU&trade; DDMS community principles
 
-[OSDU&trade; community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU&trade;-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Microsoft Energy Data Services.
+[OSDU&trade; community DDMS Overview](https://community.opengroup.org/osdu/documentation/-/wikis/OSDU&trade;-(C)/Design-and-Implementation/Domain-&-Data-Management-Services#ddms-requirements) provides an extensive overview of DDMS motivation and community requirements from a user, technical, and business perspective. These principles are extended to Azure Data Manager for Energy Preview.
 
 ## DDMS requirements
 

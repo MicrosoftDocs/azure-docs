@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 03/28/2023
 ms.author: greglin
 ms.custom: mvc
 ---
@@ -25,6 +25,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To configure end-to-end TLS with an application gateway, you need a certificate for the gateway. Certificates are also required for the backend servers. The gateway certificate is used to derive a symmetric key in compliance with the TLS protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. 
 
 For end-to-end TLS encryption, the right backend servers must be allowed in the application gateway. To allow this access, upload the public certificate of the backend servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the application gateway. Adding the certificate ensures that the application gateway communicates only with known backend instances. This configuration further secures end-to-end communication.
+
+> [!IMPORTANT]
+> If you receive an error message for the backend server certificate, verify that the frontend certificate Common Name (CN) matches the backend certificate CN. For more information, see [Trusted root certificate mismatch](./application-gateway-backend-health-troubleshooting.md#trusted-root-certificate-mismatch)
 
 To learn more, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
 

@@ -26,25 +26,25 @@ Managed identities for Azure resources provide an automatically managed identity
 
 If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 - An already provisioned Azure Spring Apps instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
-- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
 
 ## Add a system-assigned identity
 
-Creating an app with a system-assigned identity requires setting an additional property on the application.
+Creating an app with a system-assigned identity requires setting another property on the application.
 
 ### [Portal](#tab/azure-portal)
 
@@ -91,17 +91,17 @@ az spring app identity assign \
 
 An app can use its managed identity to get tokens to access other resources protected by Azure Active Directory, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
 
-You may need to [configure the target resource to allow access from your application](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+You may need to [configure the target resource to allow access from your application](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault are rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Azure Spring Apps shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token.  See [How to use VM token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Disable system-assigned identity from an app
 
-Removing a system-assigned identity will also delete it from Azure AD. Deleting the app resource automatically removes system-assigned identities from Azure AD.
+Removing a system-assigned identity also deletes it from Azure AD. Deleting the app resource automatically removes system-assigned identities from Azure AD.
 
 ### [Portal](#tab/azure-portal)
 
-To remove system-assigned managed identity from an app that no longer needs it:
+Use the following steps to remove system-assigned managed identity from an app that no longer needs it:
 
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Apps instance.
 1. Navigate to the desired application and select **Identity**.
@@ -121,9 +121,11 @@ az spring app identity remove \
     --system-assigned
 ```
 
+---
+
 ## Get the client ID from the object ID (principal ID)
 
-Use the following command to get the client ID from the object/principle ID value:
+Use the following command to get the client ID from the object/principal ID value:
 
 ```azurecli
 az ad sp show --id <object-ID> --query appId

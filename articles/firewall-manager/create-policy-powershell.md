@@ -7,7 +7,7 @@ ms.author: victorh
 ms.date: 08/16/2021
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create and update an Azure Firewall policy using Azure PowerShell

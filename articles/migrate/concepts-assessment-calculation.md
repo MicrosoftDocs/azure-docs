@@ -5,7 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 11/24/2022
+ms.custom: engagement-fy23
 ---
 
 # Assessment overview (migrate to Azure VMs)
@@ -23,7 +24,7 @@ An assessment with the Discovery and assessment tool measures the readiness and 
 
 There are three types of assessments you can create using Azure Migrate: Discovery and assessment.
 
-***Assessment Type** | **Details**
+**Assessment Type** | **Details**
 --- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
@@ -115,12 +116,12 @@ Calculations are in the preceding order. A server moves to a later stage only if
 
 Here's what's included in an Azure VM assessment:
 
-**Property** | **Details**
+**Setting** | **Details**
 --- | ---
 **Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br><br> Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China East 2,  China North, China North 2, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, Southeast Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2, JioIndiaCentral, JioIndiaWest, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
 **Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra disk.
-**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br><br>**Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you are looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
-**Azure Reserved VM Instances** | Specifies [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) so that cost estimations in the assessment take them into account.<br><br> When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable.<br><br> Azure Migrate currently supports Azure Reserved VM Instances only for pay-as-you-go offers.
+**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br><br>**Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
+**Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
 **Sizing criteria** | Used to rightsize the Azure VM.<br><br> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
@@ -202,12 +203,12 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 
 If you use performance-based sizing in an Azure VM assessment, the assessment makes sizing recommendations as follows:
 
-- The assessment considers the performance history of the server to identify the VM size and disk type in Azure.
+- The assessment considers the performance (resource utilization) history of the server along with the [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment) to identify the VM size and disk type in Azure.
 
 > [!NOTE] 
 > If you import servers by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
 
-- This method is especially helpful if you've overallocated the on-premises server, utilization is low, and you want to rightsize the Azure VM to save costs.
+- This method is especially helpful if you've overallocated the on-premises server, utilization is low, and you want to right-size the Azure VM to save costs.
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
 
 
@@ -251,7 +252,7 @@ For an Azure VM assessment, assessment tries to find an Azure VM that supports t
 
 After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure.
 
-- Azure Migrate looks at the effective utilized cores and RAM to find a suitable Azure VM size.
+- Azure Migrate looks at the effective utilized cores (including [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment)) and RAM to find a suitable Azure VM size.
 - If no suitable size is found, the server is marked as unsuitable for Azure.
 - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
@@ -288,12 +289,12 @@ This table shows the assessment confidence ratings, which depend on the percenta
 Here are a few reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, please ensure that: 
+- Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
     - For Hyper-V servers, dynamic memory is enabled 
     
-    Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
+    **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
 - Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low.
 

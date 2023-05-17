@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video, ignite-2022
@@ -48,22 +48,48 @@ You could create the same single field index on `name` in the Azure portal:
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per collection.
 
 ### Compound indexes (MongoDB server version 3.6+)
-In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs. 
 
-A compound index or single field indexes for each field in the compound index will result in the same performance for filtering in queries.
+In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs.
 
-Compounded indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the index. 
+A compound index or single field indexes for each field in the compound index results in the same performance for filtering in queries.
 
-For example a compound index containing people.tom.age will work in this case since there's no array on the path:
-```javascript
-{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+Compounded indexes on nested fields aren't supported by default due to limitations with arrays. If your nested field doesn't contain an array, the index works as intended. If your nested field contains an array (anywhere on the path), that value is ignored in the index.
+
+As an example, a compound index containing `people.dylan.age` works in this case since there's no array on the path:
+
+```json
+{
+  "people": {
+    "dylan": {
+      "name": "Dylan",
+      "age": "25"
+    },
+    "reed": {
+      "name": "Reed",
+      "age": "30"
+    }
+  }
+}
 ```
-but won't won't work in this case since there's an array in the path:
-```javascript
-{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+
+This same compound index doesn't work in this case since there's an array in the path:
+
+```json
+{
+  "people": [
+    {
+      "name": "Dylan",
+      "age": "25"
+    },
+    {
+      "name": "Reed",
+      "age": "30"
+    }
+  ]
+}
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
 
 
 > [!NOTE]
@@ -161,7 +187,7 @@ Here's how you can create a wildcard index on all fields:
 
 You can also create wildcard indexes using the Data Explorer in the Azure portal:
 
-:::image type="content" source="/media/indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
+![Add wildcard index in indexing policy editor](./media/indexing/add-wildcard-index.png)
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
@@ -229,7 +255,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 }
 ```
 
-For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the partition key.
+For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the shard key. The first field in the order should be the shard key.
 
 The following commands create a sharded collection ```coll``` (the shard key is ```university```) with a unique index on the fields `student_id` and `university`:
 
@@ -269,7 +295,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
 
 
 ### TTL indexes
@@ -378,7 +404,7 @@ Regardless of the value specified for the **Background** index property, index u
 
 There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
 
-When removing indexes and immediately running queries the have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not provide consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
+When removing indexes and immediately running queries that have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not provide consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
 
 > [!NOTE]
 > You can [track index progress](#track-index-progress).

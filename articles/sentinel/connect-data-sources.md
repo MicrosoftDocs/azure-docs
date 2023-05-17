@@ -3,7 +3,7 @@ title: Microsoft Sentinel data connectors
 description: Learn about supported data connectors, like Microsoft 365 Defender (formerly Microsoft Threat Protection), Microsoft 365 and Office 365, Azure AD, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 07/14/2022
+ms.date: 02/15/2023
 ms.author: yelevin
 ---
 
@@ -70,7 +70,7 @@ Learn which firewalls, proxies, and endpoints connect to Microsoft Sentinel thro
 
 ### Syslog
 
-You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel using the Log Analytics agent for Linux, formerly named the OMS agent. Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The Log Analytics agent receives events from the Syslog daemon over UDP. If a Linux machine is expected to collect a high volume of Syslog events, it sends events over TCP from the Syslog daemon to the agent, and from there to Log Analytics. Learn how to [connect Syslog-based appliances to Microsoft Sentinel](connect-syslog.md).
+You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel using the [Azure Monitor Agent (AMA)](forward-syslog-monitor-agent.md). Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The AMA receives events from the Syslog daemon over UDP. The Syslog daemon forwards events to the agent internally, communicating over UDS (Unix Domain Sockets). The AMA then transmits these events to the Microsoft Sentinel workspace.
 
 Here is a simple flow that shows how Microsoft Sentinel streams Syslog data.
 

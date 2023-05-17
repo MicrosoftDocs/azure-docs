@@ -8,7 +8,7 @@ ms.date: 10/11/2022
 #Customer intent: As a developer, I want to understand what ACR components I need to manage, what components are managed by Microsoft.
 ---
 
-# Support policies for Azure Container Registry(ACR)
+# Support policies for Azure Container Registry (ACR)
 
 This article provides details about Azure Container Registry (ACR) support policies, supported features, and limitations.
 

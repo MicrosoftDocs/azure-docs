@@ -1,6 +1,6 @@
 ---
 
-title: Audit logs in Azure Active Directory | Microsoft Docs
+title: Audit logs in Azure Active Directory
 description: Overview of the audit logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -9,19 +9,18 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/03/2022
+ms.date: 11/04/2022
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 # Audit logs in Azure Active Directory 
 
-As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
+Azure Active Directory (Azure AD) activity logs include audit logs, which is a comprehensive report on every logged event in Azure AD. Changes to applications, groups, users, and licenses are all captured in the Azure AD audit logs.
 
-To support you with this goal, the Azure Active Directory (Azure AD) portal gives you access to three activity logs:
+Two other activity logs are also available to help monitor the health of your tenant:
 
 - **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
-- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
 This article gives you an overview of the audit logs.
@@ -67,9 +66,9 @@ With an application-centric view, you can get answers to questions such as:
  
 ## How do I access it?
 
-The audit activity report is available in all editions of Azure AD. To access the audit logs, you need to have one of the following roles: 
+To access the audit log for a tenant, you must have one of the following roles: 
 
-- Report Reader
+- Reports Reader
 - Security Reader
 - Security Administrator
 - Global Reader
@@ -77,7 +76,7 @@ The audit activity report is available in all editions of Azure AD. To access th
 
 Sign in to the Azure portal and go to **Azure AD** and select **Audit log** from the **Monitoring** section.  
 
-You can also access the audit log through the [Microsoft Graph API](/graph/api/resources/azure-ad-auditlog-overview).
+The audit activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the audit log through the [Microsoft Graph API](/graph/api/resources/azure-ad-auditlog-overview). See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
 
 ## What do the logs show?
 

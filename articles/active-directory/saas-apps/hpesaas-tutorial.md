@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HPE SaaS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with HPE SaaS'
 description: Learn how to configure single sign-on between Azure Active Directory and HPE SaaS.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with HPE SaaS
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.saas.hpe.com`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. Contact [HPE SaaS Client support team](https://www.sas.com/en_us/contact.html) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update this value with the actual Identifier. Contact [HPE SaaS Client support team](https://support.hpe.com/connect/s/?language=en_US) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 

@@ -84,44 +84,70 @@ items:
       href: workspace-connected-experience.md
     - name: Supported regions
       href: workspace-connected-regions.md
+  - name: Connectivity
+    items: 
+    - name: Connectivity architecture
+      href: /azure/azure-sql/database/connectivity-architecture?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Connectivity settings
+      href: /azure/azure-sql/database/connectivity-settings?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Security
     items:
     - name: Overview
       href: sql-data-warehouse-overview-manage-security.md
     - name: Advanced data security
       items:
-      - name: Overview
-        href: /azure/azure-sql/database/azure-defender-for-sql?
+      - name: Microsoft Defender for SQL
+        href: /azure/azure-sql/database/azure-defender-for-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Data discovery & classification
-        href: /azure/azure-sql/database/data-discovery-and-classification-overview?
+        href: /azure/azure-sql/database/data-discovery-and-classification-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Vulnerability assessment
-        href: /azure/azure-sql/database/sql-vulnerability-assessment?
+        href: ../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md
       - name: Advanced Threat Protection
-        href: /azure/azure-sql/database/threat-detection-overview?
+        href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Auditing
-      href: /azure/azure-sql/database/auditing-overview?
+      href: /azure/azure-sql/database/auditing-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Audit log format
+      href: /azure/azure-sql/database/audit-log-format?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Network security
       items:
+      - name: Network access controls
+        href: /azure/azure-sql/database/network-access-controls-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Firewall rules
-        href: /azure/azure-sql/database/firewall-configure?
+        href: /azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Private Link
-        href: /azure/azure-sql/database/private-endpoint-overview?
+        href: /azure/azure-sql/database/private-endpoint-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Virtual network service endpoints
-        href: /azure/azure-sql/database/vnet-service-endpoint-rule-overview?
+        href: /azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Outbound firewall rules 
+        href: /azure/azure-sql/database/outbound-firewall-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: DNS alias
+        href: /azure/azure-sql/database/dns-alias-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Authentication
       items:
       - name: Overview
         href: sql-data-warehouse-authentication.md
-      - name: Azure Active Directory
-        href: /azure/azure-sql/database/authentication-aad-overview?
       - name: Logins and users
-        href: /azure/azure-sql/database/logins-create-manage?
+        href: /azure/azure-sql/database/logins-create-manage?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Use Azure Active Directory
+        href: /azure/azure-sql/database/authentication-aad-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Configure Azure AD auth
+        href: /azure/azure-sql/database/authentication-aad-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Multi-Factor Auth
-        href: /azure/azure-sql/database/authentication-mfa-ssms-overview?
+        href: /azure/azure-sql/database/authentication-mfa-ssms-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Configure multi-factor auth
+        href: /azure/azure-sql/database/authentication-mfa-ssms-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Conditional Access
+        href: /azure/azure-sql/database/conditional-access-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Server principals (logins)
+        href: /azure/azure-sql/database/authentication-azure-ad-logins?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Directory Readers role
+        href: /azure/azure-sql/database/authentication-aad-directory-readers-role?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Azure AD-only authentication
+        href: /azure/azure-sql/database/authentication-azure-ad-only-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Access control
       items:
       - name: Overview
-        href: /azure/azure-sql/database/logins-create-manage?
+        href: /azure/azure-sql/database/logins-create-manage?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Column-level security
         href: column-level-security.md
       - name: Row-level security
@@ -129,11 +155,11 @@ items:
     - name: Data protection
       items:
       - name: Dynamic data masking
-        href: /azure/azure-sql/database/dynamic-data-masking-overview?
+        href: /azure/azure-sql/database/dynamic-data-masking-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Transparent Data Encryption (TDE) overview
-        href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?
+        href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: TDE with Bring Your Own Key
-        href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?
+        href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Data ingestion and preparation
     items:
     - name: Overview
@@ -291,15 +317,27 @@ items:
   - name: Secure
     items:
     - name: Configure Azure AD auth
-      href: /azure/azure-sql/database/authentication-aad-configure?
+      href: /azure/azure-sql/database/authentication-aad-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Create and utilize Azure AD server logins
+      href: /azure/azure-sql/database/authentication-aad-directory-readers-role-tutorial?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Assign Directory Readers role to groups
+      href: /azure/azure-sql/database/authentication-azure-ad-logins-tutorial?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Conditional Access
-      href: /azure/azure-sql/database/conditional-access-configure?
+      href: /azure/azure-sql/database/conditional-access-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Virtual network rules by PowerShell
-      href: /azure/azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create?
+      href: /azure/azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Audit to storage account behind vNet and firewall
+      href: /azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Enable encryption - portal
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
       href: sql-data-warehouse-encryption-tde-tsql.md
+    - name: Configure TDE with BYOK
+      href: /azure/azure-sql/database/transparent-data-encryption-byok-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Rotate TDE BYOK keys
+      href: /azure/azure-sql/database/transparent-data-encryption-byok-key-rotation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Remove TDE protector
+      href: /azure/azure-sql/database/transparent-data-encryption-byok-remove-tde-protector?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Load and prepare data
     items:
     - name: From Azure Data Lake Storage (ADLS)
@@ -307,7 +345,7 @@ items:
     - name: Using Azure Databricks (ADB)
       href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?
     - name: Using Data Factory (ADF)
-      href: ../../data-factory/load-azure-sql-data-warehouse.md?
+      href: ../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Using SQL Server Integration Services (SSIS)
       href: /sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
     - name: Samples
@@ -340,6 +378,12 @@ items:
         href: sql-data-warehouse-query-ssms.md
       - name: sqlcmd
         href: sql-data-warehouse-get-started-connect-sqlcmd.md
+      - name: .NET with Visual Studio
+        href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Use C# .NET to query a database
+        href: /azure/azure-sql/database/connect-query-dotnet-core?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: Use Python to query a database
+        href: /azure/azure-sql/database/connect-query-python?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Workload management
     items:
     - name: Analyze your workload
@@ -401,7 +445,9 @@ items:
   - name: Troubleshoot
     items:
     - name: Connectivity
-      href: sql-data-warehouse-troubleshoot-connectivity.md   
+      href: sql-data-warehouse-troubleshoot-connectivity.md
+    - name: Transient connection errors
+      href: /azure/azure-sql/database/troubleshoot-common-connectivity-issues?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
 - name: Reference
   items:
   - name: Database collation types

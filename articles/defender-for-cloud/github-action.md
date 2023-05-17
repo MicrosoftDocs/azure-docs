@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 09/11/2022
+ms.date: 05/01/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -14,6 +14,7 @@ Security DevOps uses the following Open Source tools:
 
 | Name | Language | License |
 |--|--|--|
+| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Windows Defender, that scans source code and breaks the run if malware has been found | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
@@ -22,6 +23,8 @@ Security DevOps uses the following Open Source tools:
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
 ## Prerequisites
+
+- An Azure subscription If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 - [Connect your GitHub repositories](quickstart-onboard-github.md).
 
@@ -35,7 +38,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. Select a repository on which you want to configure the GitHub action.
+1. Select a repository you want to configure the GitHub action to.
 
 1. Select **Actions**.
 
@@ -56,40 +59,40 @@ Security DevOps uses the following Open Source tools:
     ```yml
     name: MSDO windows-latest
     on:
-      push:
-        branches: [ main ]
-      pull_request:
-        branches: [ main ]
-      workflow_dispatch:
-
-    jobs:
-      sample:
-
-        # MSDO runs on windows-latest and ubuntu-latest.
-        # macos-latest supporting coming soon
-        runs-on: windows-latest
-
-      steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
-
-        # Run analyzers
-        - name: Run Microsoft Security DevOps Analysis
-          uses: microsoft/security-devops-action@preview
-          id: msdo
-
-      # Upload alerts to the Security tab
-      - name: Upload alerts to Security tab
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+          push:
+            branches: [ main ]
+          pull_request:
+            branches: [ main ]
+          workflow_dispatch:
+    
+        jobs:
+          sample:
+    
+            # MSDO runs on windows-latest and ubuntu-latest.
+            # macos-latest supporting coming soon
+            runs-on: windows-latest
+    
+            steps:
+            - uses: actions/checkout@v3
+    
+            - uses: actions/setup-dotnet@v3
+              with:
+                dotnet-version: |
+                  5.0.x
+                  6.0.x
+    
+            # Run analyzers
+            - name: Run Microsoft Security DevOps Analysis
+              uses: microsoft/security-devops-action@preview
+              id: msdo
+    
+            # Upload alerts to the Security tab
+            - name: Upload alerts to Security tab
+              uses: github/codeql-action/upload-sarif@v2
+              with:
+                sarif_file: ${{ steps.msdo.outputs.sarifFile }}
     ```
-        
+ 
     For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)                
 
 1.  Select **Start commit**

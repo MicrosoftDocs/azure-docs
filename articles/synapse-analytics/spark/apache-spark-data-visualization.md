@@ -353,7 +353,7 @@ fig
 
 ### Highcharter
 
-[Highcharter](https://jkunst.com/highcharter/) is a R wrapper for Highcharts Javascript library and its modules.
+[Highcharter](https://jkunst.com/highcharter/) is a R wrapper for Highcharts JavaScript library and its modules.
 
 To install Highcharter, you can use the following command:
 

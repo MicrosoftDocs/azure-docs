@@ -2,10 +2,9 @@
 title: Connect Microsoft 365 Defender data to Microsoft Sentinel| Microsoft Docs
 description: Learn how to ingest incidents, alerts, and raw event data from Microsoft 365 Defender into Microsoft Sentinel.
 author: yelevin
-ms.topic: conceptual
-ms.date: 03/23/2022
 ms.author: yelevin
-ms.service: microsoft-sentinel
+ms.topic: conceptual
+ms.date: 02/01/2023
 ---
 
 # Connect data from Microsoft 365 Defender to Microsoft Sentinel
@@ -20,7 +19,7 @@ For more information about incident integration and advanced hunting event colle
 
 > [!IMPORTANT]
 >
-> The Microsoft 365 Defender connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft 365 Defender connector is now generally available!
 
 ## Prerequisites
 
@@ -30,6 +29,8 @@ For more information about incident integration and advanced hunting event colle
 
 - Your user must have read and write permissions on your Microsoft Sentinel workspace.
 
+- To make any changes to the connector settings, your user must be a member of the same Azure Active Directory tenant with which your Microsoft Sentinel workspace is associated.
+
 ### Prerequisites for Active Directory sync via MDI
 
 - Your tenant must be onboarded to Microsoft Defender for Identity.
@@ -38,7 +39,7 @@ For more information about incident integration and advanced hunting event colle
 
 ## Connect to Microsoft 365 Defender
 
-In Microsoft Sentinel, select **Data connectors**, select **Microsoft 365 Defender (Preview)** from the gallery and select **Open connector page**.
+In Microsoft Sentinel, select **Data connectors**, select **Microsoft 365 Defender** from the gallery and select **Open connector page**.
 
 The  **Configuration** section has three parts:
 

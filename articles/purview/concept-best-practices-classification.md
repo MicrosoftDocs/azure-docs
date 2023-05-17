@@ -1,12 +1,12 @@
 ---
 title: Classification best practices for the Microsoft Purview governance portal
 description: This article provides best practices for classification in the Microsoft Purview governance portal so you can effectively identify sensitive data across your environment.
-author: amberz
-ms.author: amberz
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/15/2023
 ---
 
 # Classification best practices in the Microsoft Purview governance portal
@@ -155,6 +155,7 @@ Here are some considerations to bear in mind as you're defining classifications:
 
 ## Next steps
 
-- [Apply system classification](./apply-classifications.md)
+- [Automatically apply classifications](./apply-classifications.md)
+- [Manually apply classifications](./manually-apply-classifications.md)
 - [Create custom classification](./create-a-custom-classification-and-classification-rule.md)
 

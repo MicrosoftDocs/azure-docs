@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Exium for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Exium for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Exium.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: fb9d03e1-4365-4932-9403-69acfc3b8671
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/14/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

@@ -52,7 +52,7 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
 
     ```console
     npm init -y
-    npm install --save @azure/msal-node @microsoft/microsoft-graph-sdk isomorphic-fetch bootstrap jquery popper.js
+    npm install --save @azure/msal-node @microsoft/microsoft-graph-client isomorphic-fetch bootstrap jquery popper.js
     npm install --save-dev electron@20.0.0
     ```
 

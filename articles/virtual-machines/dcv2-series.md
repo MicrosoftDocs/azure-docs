@@ -5,8 +5,9 @@ author: linuxelf001
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 12/12/2022
 ms.author: raginjup
+ms.reviewer: wwilliams, iamwilliew
 ms.custom: ignite-fall-2021
 ---
 

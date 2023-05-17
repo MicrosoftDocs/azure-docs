@@ -7,7 +7,6 @@ ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
 
 # This article applies to operators, builders, and administrators.
 ---
@@ -23,7 +22,7 @@ IoT Central is supported in multiple languages. You can switch your preferred la
 
 We have support for both dark theme and light theme. While the light theme is the default, you can change the theme by selecting the settings icon on the top navigation bar.
 
-![IoT Central theme picker](media/howto-manage-preferences/settings.png)
+:::image type="content" source="media/howto-manage-preferences/settings.png" alt-text="Screenshot that shows how to access the theme settings." lightbox="media/howto-manage-preferences/settings.png":::
 
 > [!NOTE]
 > The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
@@ -31,4 +30,3 @@ We have support for both dark theme and light theme. While the light theme is th
 ## Change default organization
 
 If your application uses organizations, you can select a default organization to use whenever you need to select an organization. For example, the default organization pre-populates the organization field when you add a new device to your application.
-
