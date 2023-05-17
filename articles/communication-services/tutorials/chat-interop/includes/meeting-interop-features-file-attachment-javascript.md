@@ -21,7 +21,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Goal
 
-1. Be able to render file attachment in the message thread. Each file attachment will have two buttons - "Open" and "Download" respectively.
+1. Be able to render file attachment in the message thread. Each file attachment card has two buttons - "Open" and "Download" respectively.
 2. Be able to render image attachments as inline images.
 
 ## Handle file attachments
@@ -62,7 +62,7 @@ export interface ChatAttachment {
 export type AttachmentType = "teamsInlineImage" | "teamsImage" | "file";
 ```
 
-As an example, this is what `ChatAttachment` might look like for an image attachment and a file attachment:
+As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
 
 ```js
 "attachments": [
@@ -224,9 +224,9 @@ Then you should see the new message being rendered along with file attachments:
 
 In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `teamsImage`, which requires the communication token to retrieve the preview image and full scale image.
 
-Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline images.
+Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline image.
 
-Now you are familiar with how inline images work and it's very easy to render image attachments just like a regular inline image. 
+Now you're familiar with how inline images work and it's easy to render image attachments just like a regular inline image. 
 
 Firstly, we inject an image tag to message content whenever there's an image attachment:
 
@@ -295,7 +295,7 @@ function fetchPreviewImages(attachments) {
     });
 }
 ```
-Note that this function needs a `tokenString` so we need to have a global copy of it and initialize in `init()` as demonstrated in the following code snippet:
+This function needs a `tokenString` so we need to have a global copy of it and initialize in `init()` as demonstrated in the following code snippet:
 
 ```js
 var tokenString = '';
@@ -319,12 +319,12 @@ That's it! Now we have added image attachment support as well. Now let's run the
 
 Now let's send some image attachments from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a sendbox with an image attachment uploaded":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a sendbox with an image attachment uploaded.":::
 
-Upon sending the image attachment, you will notice that it becomes an inline image on the Teams client side:
+Upon sending the image attachment, you notice that it becomes an inline image on the Teams client side:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client shown a message with the image attachment sent to the other participant and it becomes an inline image in the chat thread.":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client shown a message with the image attachment sent to the other participant.":::
 
 Let's go back to our sample app, the same image should be rendered as well:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app shown an incoming message with one inline image rendered":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app shown an incoming message with one inline image rendered.":::
