@@ -106,10 +106,10 @@ async function renderReceivedMessage(e) {
   messages += '<div class="container lighter">' + event.message + '</div>';
 	messagesContainer.innerHTML = messages;
   // get list of attachments and calls renderFileAttachments to construct a file attachment card
-	var attachmentHtml = event.attachments
-		.filter(attachment => attachment.attachmentType === "file")
-		.map(attachment => renderFileAttachments(attachment));
-	messagesContainer.innerHTML += attachmentHtml;
+  var attachmentHtml = event.attachments
+	.filter(attachment => attachment.attachmentType === "file")
+	.map(attachment => renderFileAttachments(attachment));
+  messagesContainer.innerHTML += attachmentHtml;
 }
 
 function renderFileAttachments(attachment) {
@@ -195,19 +195,7 @@ Let's make sure we add some CSS for the attachment card as well:
 
 ```
 
-That's it all we need for handling file attachments. 
-
-## Demo
-
-Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some file attachments from Teams client like this:
-
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
-
-Then you should see the new message being rendered along with file attachments:
-
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown an incoming message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
-
-
+That's it all we need for handling file attachments. Next let's run the code.
 
 ## Run the code 
 
@@ -217,5 +205,105 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
+## Demo
 
+Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID.
+
+Now let's send some file attachments from Teams client like this:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
+
+Then you should see the new message being rendered along with file attachments:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown an incoming message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
+
+
+## Handle image attachments
+
+In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `teamsImage`, which requires the communication token to retrieve the preview image and full scale image.
+
+Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md).
+
+Now you are familiar with how inline images work and it's very easy to render image attachments just like a regular inline image. 
+
+Firstly, we inject an image tag to message content whenever there's an image attachment:
+
+```js
+async function renderReceivedMessage(e) {
+  messages += '<div class="container lighter">' + event.message + '</div>';
+	messagesContainer.innerHTML = messages;
+	
+  // Inject image tag for all image attachments
+  var imageAttachmentHtml = event.attachments
+        .filter(attachment => attachment.attachmentType === "teamsImage")
+	.map(attachment => renderImageAttachments(attachment));
+  messagesContainer.innerHTML += imageAttachmentHtml;
+  
+  // get list of attachments and calls renderFileAttachments to construct a file attachment card
+  var attachmentHtml = event.attachments
+	.filter(attachment => attachment.attachmentType === "file")
+	.map(attachment => renderFileAttachments(attachment));
+  messagesContainer.innerHTML += attachmentHtml;
+  
+  
+   // filter out inline images from attchments
+  const imageAttachments = e.attachments.filter((e) =>
+    e.attachmentType === 'teamsinlineimage' ||  
+    e.attachmentType === "teamsImage");
+  
+  // fetch and render preview images
+  fetchPreviewImages(imageAttachments);
+  
+  // set up onclick event handler to fetch full scale image
+  setImgHandler(card, imageAttachments);
+}
+
+function renderImageAttachments(attachment) {
+   return '<img alt="image" src="" itemscope=\"png\" id="' + attachment.id + '">'
+}
+```
+
+
+
+we need to expand `fetchPreviewImages()` to take on additional `attachmentType` - `teamsImage`. Make these two changes in this function:
+
+```js
+  async function fetchPreviewImages(attachments) {
+    // Change 1
+    if (!attachments.map(attachment => attachment.attachmentType === "teamsInlineImage" || 
+    attachment.attachmentType === "teamsImage").length > 0) {
+      return;
+    }
+    // since each message could contain more than one inline image
+    // we need to fetch them individually 
+    const result = await Promise.all(
+        // Change 2
+        attachments.filter(attachment => attachment.attachmentType === "teamsInlineImage" || 
+                                      attachment.attachmentType === "teamsImage")
+        .map(async (attachment) => {
+          // fetch preview image from its 'previewURL'
+          const response = await fetch(attachment.previewUrl, {
+            method: 'GET',
+            headers: {
+              // the token here should the same one from chat initialization
+              'Authorization': 'Bearer ' + tokenString.token,
+            },
+          });
+          // the response would be in image blob we can render it directly
+          return {
+            id: attachment.id,
+            content: await response.blob(),
+          };
+        }),
+    );
+    result.forEach((imageResult) => {
+      const urlCreator = window.URL || window.webkitURL;
+      const url = urlCreator.createObjectURL(imageResult.content);
+      // look up the image ID and replace its 'src' with object URL
+      document.getElementById(imageResult.id).src = url;
+    });
+  }
+```
+
+That's it! Now we have concluded this tutorial.
 
