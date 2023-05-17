@@ -675,6 +675,15 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-content-safety
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-rest
+    title: REST
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-two-with-js-spx
 # Owner: erhopf
   title: Programming languages
