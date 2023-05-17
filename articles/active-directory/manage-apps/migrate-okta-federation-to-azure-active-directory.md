@@ -244,18 +244,18 @@ After you configure the Okta reverse-federation app, have your users conduct ful
 
 ## Defederate Office 365 domains
 
-When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to MSOnline PowerShell. If you don't already have the MSOnline PowerShell module, download it by entering `install-module MSOnline`.
+When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to Mirosoft Graph PowerShell. If you don't have the Microsoft Graph PowerShell module, download it by entering `install-module MSOnline`.
 
 ```PowerShell
 
 import-module MSOnline
-Connect-Msolservice
-Set-msoldomainauthentication 
+Connect-MgGraph
+New-MgDomainFederationConfiguration 
 -domainname yourdomain.com -authentication managed
 
 ```
 
-After you set the domain to managed authentication, you've successfully defederated your Office 365 tenant from Okta while maintaining user access to the Okta home page.
+After you set the domain to managed authentication, you've defederated your Office 365 tenant from Okta while maintaining user access to the Okta home page.
 
 ## Next steps
 
