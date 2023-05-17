@@ -67,7 +67,7 @@ You might use an Azure proxy to connect your sensor to Defender for IoT in the f
 - Your site is connected to Azure via ExpressRoute
 - Your site is connected to Azure over a VPN
 
-If you already have a proxy configured, continue directly with  [defining the proxy settings on your sensor console](#configure-a-proxy).
+If you already have a proxy configured, continue directly with  [defining the proxy settings on your sensor console](#configure-proxy-settings-on-an-ot-sensor).
 
 If you don't yet haev a proxy configured, use the procedures in this section to set one up in your Azure VNET.
 
@@ -308,7 +308,7 @@ You might connect your sensor to Defender for IoT in Azure using proxy chaining 
 - Your sensor needs a proxy to reach from the OT network to the cloud
 - You want multiple sensors to connect to Azure through a single point
 
-If you already have a proxy configured, continue directly with  [defining the proxy settings on your sensor console](#configure-a-proxy).
+If you already have a proxy configured, continue directly with  [defining the proxy settings on your sensor console](#configure-proxy-settings-on-an-ot-sensor).
 
 If you don't yet have a proxy configured, use the procedures in this section to configure your proxy chaining. 
 

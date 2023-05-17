@@ -57,7 +57,7 @@ For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/
 
 A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS traffic, such as when using services like Zscaler and Palo Alto Prisma. Starting in version 22.3.8, you can upload a client certificate through the OT sensor console.
 
-For more information, see [Configure a proxy](connect-sensors.md#configure-a-proxy).
+For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
 
 ### Download WMI script from OT sensor console
 
