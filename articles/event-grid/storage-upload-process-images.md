@@ -239,6 +239,9 @@ After you deploy and configure the web app, you can test the image upload functi
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`. Then, select the **Upload photos** region to specify and upload a file, or drag a file onto the region. The image disappears if successfully uploaded. The **Generated Thumbnails** section remains empty until we test it later in this tutorial.
 
+> [!NOTE]
+> Run the following command to get the name of the web app: `echo $webapp`
+
 :::image type="content" source="media/storage-upload-process-images/upload-photos.png" alt-text="Screenshot of the page to upload photos in the Image Resizer .NET app.":::
 
 In the sample code, the `UploadFileToStorage` task in the **Storagehelper.cs** file is used to upload the images to the **images** container within the storage account using the [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. The following code sample contains the `UploadFileToStorage` task.
@@ -280,8 +283,13 @@ The following classes and methods are used in the preceding task:
 
 ## Verify the image is shown in the storage account
 
-1. Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers**, then select the **images** container.
-2. Verify the image is shown in the container.
+1. Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account.
+
+    > [!NOTE]
+    > Run the following to get the name of the storage account: `echo $blobStorageAccount`.
+1. On the left menu, in the **Data storage** section, select **Containers**.
+1. Select the **images** blob container.
+1. Verify the image is shown in the container.
 
     :::image type="content" source="media/storage-upload-process-images/images-in-container.png" alt-text="Screenshot of the Container page showing the list of uploaded images.":::
 
