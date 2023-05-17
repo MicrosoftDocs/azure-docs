@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 05/17/2022
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to configure convert-data.
+In this article, you learn how to configure convert-data to convert your existing data to FHIR R4 data using the Azure portal.
 
 ## Customize templates
 

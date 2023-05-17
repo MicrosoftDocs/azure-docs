@@ -1,6 +1,6 @@
 ---
-title: Convert your data to FHIR - Azure Health Data Services
-description: Learn how to use the $convert-data endpoint and custom converter templates to convert data to FHIR in Azure Health Data Services.
+title: Overview of convert-data - Azure Health Data Services
+description: Overview of how to use the $convert-data endpoint and custom converter templates to convert data to FHIR R4 in Azure Health Data Services.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,12 +10,12 @@ ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
-# Convert your data to FHIR
+# Overview of convert-data
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-By using the `$convert-data` custom endpoint in the FHIR service, you can convert health data from various formats to FHIR. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports three types of data conversion: 
+By using the `$convert-data` custom endpoint in the FHIR service, you can convert health data from various formats to FHIR R4 data. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports four types of data conversion: 
 
 * HL7v2 to FHIR R4
 * C-CDA to FHIR R4
