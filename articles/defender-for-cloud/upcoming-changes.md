@@ -142,7 +142,7 @@ The recommendation environment source will be updated from `Azure` to `AzureDevO
 
 The format for resource IDs will be changed from:
 
-```Microsoft.SecurityDevOps/githubConnectors/owners/repos/```
+`Microsoft.SecurityDevOps/githubConnectors/owners/repos/`
 
 To:
 
