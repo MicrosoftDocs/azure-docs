@@ -21,8 +21,12 @@ Target-based scaling  replaces the previous Azure Functions incremental scaling 
 
 The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
+If multiple triggers and trigger types in the same function app are voting to scale out, a sum across them is used to determine the change in desired instances. Scale out requests override scale in. If there are no scale out request but there are scale in requests, then the max scale in request is used to determine the change in desired instances.
+
 > [!NOTE]
 > In order to achieve the most accurate scaling based on metrics, we recommend one target-based triggered function per function app.
+
+
 
 ## Prerequisites
 
