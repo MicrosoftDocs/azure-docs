@@ -240,15 +240,14 @@ Here is a sample configuration of local logging:
 
 When configuring to use localsyslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
 
-- Use [Syslog collection with Container Insights](https://learn.microsoft.com/en-gb/azure/azure-monitor/containers/container-insights-syslog)
+- Use [Syslog collection with Container Insights](./../azure-monitor/containers/container-insights-syslog.md)
 - Connect & explore logs on the worker nodes
-
 
 #### Consuming logs from worker nodes
 
 You can easily consume them by getting access to the worker nodes:
 
-1. Create an SSH connection to the node ([docs](./../aks/node-access#create-the-ssh-connection))
+1. Create an SSH connection to the node ([docs](./../aks/node-access.md#create-the-ssh-connection))
 2. Logs can be found under `host/var/log/syslog`
 
 For example, you can filter all syslogs to just the ones from the self-hosted gateway:
