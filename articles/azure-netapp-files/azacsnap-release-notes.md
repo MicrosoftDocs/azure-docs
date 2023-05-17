@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 05/18/2023
 ms.author: phjensen
 ---
 
@@ -25,6 +25,17 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
 ## May-2023
+
+### AzAcSnap 8a (Build: 1AC55A6)
+
+AzAcSnap 8a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Fix for `-c configure` related changes in AzAcSnap 8.
+    - Improved workflow guidance for better customer experience.
+
+Download the [AzAcSnap 8a](https://aka.ms/azacsnap-8a) installer.
 
 ### AzAcSnap 8 (Build: 1AC279E)
 
