@@ -175,20 +175,4 @@ Notice that after the uploaded image disappears, a copy of the uploaded image is
 
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a general Azure Storage account
-> * Deploy serverless code using Azure Functions
-> * Create a Blob storage event subscription in Event Grid
-
-Advance to part three of the Storage tutorial series to learn how to secure access to the storage account.
-
-> [!div class="nextstepaction"]
-> [Secure access to an applications data in the cloud](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-+ To learn more about Event Grid, see [An introduction to Azure Event Grid](overview.md).
-+ To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps](../azure-functions/functions-twitter-email.md).
-
-[previous-tutorial]: storage-upload-process-images.md
+See other tutorials in the Tutorials section of the table of content (TOC).
