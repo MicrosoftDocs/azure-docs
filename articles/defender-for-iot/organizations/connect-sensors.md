@@ -48,10 +48,10 @@ This section describes how to configure proxy settings on your sensor console.
 
     :::image type="content" source="media/connect-sensors/configure-a-proxy.png" alt-text="Screenshot of the proxy setting page." lightbox="media/connect-sensors/configure-a-proxy.png":::
 
-1. If relevant, select **Client certificate** to upload a proxy authentication certificate for access to an SSL proxy server.
+1. If relevant, select **Client certificate** to upload a proxy authentication certificate for access to an SSL/TLS proxy server.
 
     > [!NOTE]
-    > A client certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma.
+    > A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS traffic, such as when using services like Zscaler and Palo Alto Prisma.
 
 1. Select **Save**.
 
