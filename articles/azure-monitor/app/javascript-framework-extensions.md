@@ -21,8 +21,8 @@ These plugins provide extra functionality and integration with the specific fram
 
 The React plug-in for the Application Insights JavaScript SDK enables:
 
-- Tracking of route changes.
-- React components usage statistics.
+- Tracking of router changes
+- React components usage statistics
 
 ### Get started
 
@@ -30,7 +30,7 @@ Install the npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
+npm install @microsoft/applicationinsights-react-js
 
 ```
 
