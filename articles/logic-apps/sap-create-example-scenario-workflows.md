@@ -213,9 +213,11 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 1. Get the root namespace from the XML IDoc that your workflow receives from SAP by following these steps:
 
-   1. To extract this namespace from the XML document and store the namespace in a local string variable, add the **Initialize variable** action to your workflow.
+   1. To extract this namespace from the XML document and store the namespace in a local string variable, add the **Initialize variable** action.
 
    1. Rename the action's title to **Get namespace for root node in received IDoc**.
+
+   1. Provide a name for the variable, and set the type to **String**.
 
    1. In the action's **Value** parameter, select inside the edit box, open the expression or function editor, and create the following expression using the [`xpath()` function](workflow-definition-language-functions-reference.md#xpath):
 
@@ -223,31 +225,54 @@ The following example workflow shows how to extract individual IDocs from a pack
 
       **Consumption workflow**
 
-      ![Screenshot shows the expression that gets the root node namespace from received IDoc in Consumption workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-consumption.png)
+      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Consumption workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-consumption.png)
 
       **Standard workflow**
 
-      ![Screenshot shows the expression that gets the root node namespace from received IDoc in Standard workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-standard.png)
+      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Standard workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-standard.png)
 
       When you're done, the expression resolves and now appears as the following format:
 
       ![Screenshot shows the resolved expression that gets the root node namespace from received IDoc.](./media/logic-apps-using-sap-connector/get-namespace-expression-resolved.png)
 
-1. To extract an individual IDoc, add a step that creates an array variable and stores the IDoc collection by using another `xpath()` expression:
+1. To extract an individual IDoc by storing the IDoc collection in a local array variable, follow these steps:
 
-   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
+   1. Add another **Initialize variable** action.
 
-   ![Screenshot that shows getting an array of items.](./media/logic-apps-using-sap-connector/get-array.png)
+   1. Rename the action's title to **Get array with IDoc data elements**.
 
-   The array variable makes each IDoc available for your logic app workflow to process individually by enumerating over the collection. In this example, the logic app workflow transfers each IDoc to an SFTP server by using a loop:
+   1. Provide a name for the variable, and set the type to **Array**.
 
-   ![Screenshot that shows sending an IDoc to an SFTP server.](./media/logic-apps-using-sap-connector/loop-batch.png)
+      The array variable makes each IDoc available for your workflow to process individually by enumerating over the collection. 
 
-   Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
+   1. In the action's **Value** parameter, select inside the edit box, open the expression or function editor, and create the following `xpath()` expression:
 
-You can use the quickstart template for this pattern by selecting this template in the workflow designer when you create a new logic app workflow.
+      `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
-![Screenshot that shows selecting a batch logic app template.](./media/logic-apps-using-sap-connector/select-batch-logic-app-template.png)
+      When you're done, the expression resolves and now appears as the following format:
+
+      **Consumption workflow**
+
+      ![Screenshot shows the expression to get an array of IDocs for a Consumption workflow.](./media/logic-apps-using-sap-connector/get-array-idoc-expression-resolved-consumption.png)
+
+      In this example, the following workflow transfers each IDoc to an SFTP server by using a **Control** action named **For each** and the SFTP-SSH action named **Create file**. Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
+
+      ![Screenshot shows sending an IDoc to an SFTP server from a Consumption workflow.](./media/logic-apps-using-sap-connector/get-idoc-loop-batch-consumption.png)
+
+      > [!NOTE]
+      > For Consumption workflows, this pattern is available as a quickstart template, which you can select 
+      > from the template gallery when you create a Consumption logic app resource and blank workflow. Or, 
+      > when the workflow designer is open, on designer toolbar, select **Templates**.
+      >
+      > ![Screenshot that shows selecting the template for getting an IDoc batch.](./media/logic-apps-using-sap-connector/get-idoc-batch-sap-template-consumption.png)
+
+      **Standard workflow**
+
+      ![Screenshot shows the expression to get an array of IDocs for a Standard workflow.](./media/logic-apps-using-sap-connector/get-array-idoc-expression-resolved-standard.png)
+
+      In this example, the following workflow transfers each IDoc to an SFTP server by using a **Control** action named **For each** and the SFTP-SSH action named **Create file**. Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
+
+      ![Screenshot shows sending an IDoc to an SFTP server from a Standard workflow.](./media/logic-apps-using-sap-connector/get-idoc-loop-batch-standard.png)
 
 ---
 
