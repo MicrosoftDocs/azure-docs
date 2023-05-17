@@ -17,7 +17,7 @@ In this tutorial, part three of five, you will migrate your existing nodes to Az
 > * Drain the existing nodes.
 > * Remove the existing nodes using the `az aks delete` command.
 
-If you do not have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitoring.md). In later tutorials, you'll learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
+If you do not have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitor.md). In later tutorials, you'll learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ In this tutorial, you migrated existing nodes to Azure Linux. You learned how to
 > * Drain the existing nodes.
 > * Remove the existing nodes using the `az aks delete` command.
 
-In the next tutorial, you'll learn how to enable telemetry and monitoring for your clusters.
+In the next tutorial, you'll learn how to enable telemetry to monitor  your clusters.
 
 > [!div class="nextstepaction"]
-> [Enable telemetry and monitoring](./tutorial-azure-linux-telemetry-monitoring.md)
+> [Enable telemetry and monitoring](./tutorial-azure-linux-telemetry-monitor.md)

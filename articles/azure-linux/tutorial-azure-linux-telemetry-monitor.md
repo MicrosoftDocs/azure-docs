@@ -1,6 +1,6 @@
 ---
 title: Azure Linux Container Host for AKS tutorial - Enable telemetry and monitoring for the Azure Linux Container Host
-description: In this Azure Linux Container Host for AKS tutorial, you will learn how to enable telemetry and monitoring for the Azure Linux Container Host.
+description: In this Azure Linux Container Host for AKS tutorial, you'll learn how to enable telemetry and monitoring for the Azure Linux Container Host.
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
@@ -10,7 +10,7 @@ ms.date: 04/18/2023
 
 # Tutorial: Enable telemetry and monitoring for your Azure Linux Container Host cluster
 
-In this tutorial, part four of five, you will setup Container Insights to monitor an Azure Linux Container Host cluster. You will  learn how to: 
+In this tutorial, part four of five, you'll set up Container Insights to monitor an Azure Linux Container Host cluster. You'll  learn how to: 
 
 > [!div class="checklist"]
 > * Enable monitoring for an existing cluster.
@@ -29,7 +29,7 @@ In the next and last tutorial, you'll learn how to upgrade your Azure Linux node
 
 ### Use a default Log Analytics workspace
 
-The following step enables monitoring for your Azure Linux Container Host cluster using Azure CLI. In this example, you are not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription. If one does not already exist in the region, the default workspace created will resemble the format *DefaultWorkspace-< GUID >-< Region >*. 
+The following step enables monitoring for your Azure Linux Container Host cluster using Azure CLI. In this example, you aren't required to precreate or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription. If one doesn't already exist in the region, the default workspace created will resemble the format *DefaultWorkspace-< GUID >-< Region >*. 
 
 ```azurecli
 az aks enable-addons -a monitoring -n testAzureLinuxCluster -g testAzureLinuxResourceGroup

@@ -18,7 +18,7 @@ In this tutorial, part two of five, you will learn how to:
 > * Add an Azure Linux node pool.
 > * Check the status of your node pools.
 
-In later tutorials, you'll learn how to migrate nodes to Azure Linux and enable telemetry and monitoring in your clusters.
+In later tutorials, you'll learn how to migrate nodes to Azure Linux and enable telemetry to monitor your clusters.
 
 ## Prerequisites
 
