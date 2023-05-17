@@ -286,7 +286,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  #### System.UInt32
  
- #### Sytem.Management.Automation.PSCredential
+ #### System.Management.Automation.PSCredential
 
  ### OUTPUTS
 
