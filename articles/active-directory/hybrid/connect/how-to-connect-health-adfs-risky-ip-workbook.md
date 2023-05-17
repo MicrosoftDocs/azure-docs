@@ -112,7 +112,7 @@ badPasswordErrorCount + extranetLockoutErrorCount > [TODO: put error count thres
 ```
 
 > [!NOTE]
-> The alert logic means that the alert would be triggered if at least one IP from the extranet lockout error counts, or combined bad password and extranet lockout error counts exceeds the designated thresholds. You can select teh frequency for evaluating the query to detect Risky IPs.
+> The alert logic means that the alert would be triggered if at least one IP from the extranet lockout error counts, or combined bad password and extranet lockout error counts exceeds the designated thresholds. You can select the frequency for evaluating the query to detect Risky IPs.
 
 
 ## FAQ

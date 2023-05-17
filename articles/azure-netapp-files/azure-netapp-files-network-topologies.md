@@ -24,7 +24,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
- You can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features. For more information, see [Configure network features](configure-network-features.md).
+ In supported regions, you can create new volumes or modify existing volumes to use *Standard* or *Basic* network features. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features. For more information, see [Configure network features](configure-network-features.md).
 
 * ***Standard***  
     Selecting this setting enables higher IP limits and standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, and additional connectivity patterns as indicated in this article.
@@ -34,7 +34,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ### Supported regions 
 
-Azure NetApp Files Standard network features are supported for the following regions:
+<a name="regions-standard-network-features"></a>Azure NetApp Files *Standard network features* are supported for the following regions:
 
 *   Australia Central
 *   Australia Central 2
@@ -70,6 +70,25 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   West US
 *   West US 2
 *	West US 3 
+
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+
+*  Australia Central
+*  Australia Central 2
+*  Australia East
+*  Brazil South
+*  Canada Central
+*  East Asia
+*  Germany North
+*  Japan West
+*  Korea Central
+*  North Central US
+*  Norway East
+*  South Africa North
+*  South India
+*  Sweden Central
+*  UAE Central
+*  UAE North
 
 ## Considerations
 
@@ -108,7 +127,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity to volume in a peered VNet (Same region)    |     Yes    |     Yes    |
 |     Connectivity to volume in a peered VNet (Cross region or global peering)    |     Yes*    |     No    |
 |     Connectivity to a volume over ExpressRoute gateway    |     Yes    |     Yes    |
-|     ExpressRoute (ER) FastPath    |     Yes    |     No    |
+|     [ExpressRoute (ER) FastPath](../expressroute/about-fastpath.md)    |     Yes    |     No    |
 |     Connectivity from on-premises to a volume in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
 |     Connectivity from on-premises to a volume in a spoke VNet over VPN gateway    |     Yes    |     Yes    |
 |     Connectivity from on-premises to a volume in a spoke VNet over VPN gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
