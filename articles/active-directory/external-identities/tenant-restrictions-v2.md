@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 05/17/2023
 
 ms.author: mimart
 author: msmimart
@@ -46,21 +46,20 @@ Azure AD offers two versions of tenant restrictions policies:
 
 Tenant restrictions V2 can be scoped to specific users, groups, organizations, or external apps. Apps built on the Windows operating system networking stack are protected, including:
 
-- All Office apps (all versions/release channels)
-- Universal Windows Platform (UWP) .NET applications
-- Microsoft Edge and all websites in Microsoft Edge
+- All Office apps (all versions/release channels).
+- Universal Windows Platform (UWP) .NET applications.
+- Microsoft Edge and all websites in Microsoft Edge.
 - Auth plane protection for all applications that authenticate with Azure AD, including all Microsoft first-party applications and any third-party applications that use Azure AD for authentication.
-- Data plane protection for SharePoint Online, Exchange Online
-- Anonymous access protection for SharePoint Online, OneDrive for business, and Teams (with Federation Controls configured)
-- Authentication and Data plane protection for Microsoft tenant or Consumer accounts
+- Data plane protection for SharePoint Online and Exchange Online.
+- Anonymous access protection for SharePoint Online, OneDrive for business, and Teams (with Federation Controls configured).
+- Authentication and Data plane protection for Microsoft tenant or Consumer accounts.
 
 ### Unsupported scenarios
 
-- Chrome, Firefox and .NET applications such as PowerShell
-- Anonymous blocking to consumer OneDrive account. Customers can work around at proxy level by blocking https://onedrive.live.com/
-- A user accesses a third-party app like Slack using anonymous link or non-Azure AD account.
-- A user copies Azure AD-issued token from home machine to work machine and uses it to access a third-party app like Slack.
-
+- Chrome, Firefox, and .NET applications such as PowerShell.
+- Anonymous blocking to consumer OneDrive account. Customers can work around at proxy level by blocking https://onedrive.live.com/.
+- When a user accesses a third-party app, like Slack, using an anonymous link or non-Azure AD account.
+- When a user copies an Azure AD-issued token from a home machine to a work machine and uses it to access a third-party app like Slack.
 
 ### Comparing Tenant restrictions V1 and V2
 
@@ -68,11 +67,11 @@ The following table compares the features in each version.
 
 |  |Tenant restrictions V1  |Tenant restrictions V2  |
 |----------------------|---------|---------|
-|**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Azure AD control plane.         |     Windows devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud. Tenant restrictions are enforced on resource access, providing data path coverage and protection against token infiltration. For non-Windows devices, the corporate proxy enforces the policy.    |
+|**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Azure AD control plane.         |     Windows devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud. Tenant restrictions are enforced upon resource access, providing data path coverage and protection against token infiltration. For non-Windows devices, the corporate proxy enforces the policy.    |
 |**Malicious tenant requests** | Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.         |    Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.     |
 |**Granularity**           | Limited.        |   Tenant, user, group, and application granularity.      |
 |**Anonymous access**      | Anonymous access to Teams meetings and file sharing is allowed.         |   Anonymous access to Teams meetings is blocked. Access to anonymously shared resources (“Anyone with the link”) is blocked.      |
-|**Microsoft accounts (MSA)**          |Uses a Restrict-MSA header to block access to consumer accounts.         |  Allows control of Microsoft account (MSA and Live ID) authentication on both the identity and data planes. For example, if you enforce tenant restrictions by default, you can create a Microsoft Accounts-specific policy that allows users to access specific apps with their Microsoft Accounts, for example: <br> Microsoft Learn (app ID `18fbca16-2224-45f6-85b0-f7bf2b39b3f3`), or <br> Microsoft Enterprise Skills Initiative (app ID `195e7f27-02f9-4045-9a91-cd2fa1c2af2f`).       |
+|**Microsoft accounts (MSA)**          |Uses a Restrict-MSA header to block access to consumer accounts.         |  Allows control of Microsoft account (MSA and Live ID) authentication on both the identity and data planes. For example, if you enforce tenant restrictions by default, you can create a Microsoft accounts-specific policy that allows users to access specific apps with their Microsoft accounts, for example: <br> Microsoft Learn (app ID `18fbca16-2224-45f6-85b0-f7bf2b39b3f3`), or <br> Microsoft Enterprise Skills Initiative (app ID `195e7f27-02f9-4045-9a91-cd2fa1c2af2f`).       |
 |**Proxy management**      | Manage corporate proxies by adding tenants to the Azure AD traffic allowlist.         |   N/A      |
 |**Platform support**      |Supported on all platforms. Provides only authentication plane protection.        |     Supported on Windows operating systems and Microsoft Edge by adding the tenant restrictions V2 header using Windows Group Policy. This configuration provides both authentication plane and data plane protection.<br></br>On other platforms, like macOS, Chrome browser, and .NET applications, tenant restrictions V2 are supported when the tenant restrictions V2 header is added by the corporate proxy. This configuration provides only authentication plane protection.     |
 |**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
@@ -115,7 +114,7 @@ SharePoint Online supports tenant restrictions v2 on both the authentication pla
 
 #### Authenticated sessions
 
-When tenant restrictions v2 is enabled on a tenant, unauthorized access is blocked during authentication. If a user directly accesses a SharePoint Online resource without an authenticated session, they're prompted to sign in. If the tenant restrictions v2 policy allows access, the user can access the resource; otherwise, access is blocked.
+When tenant restrictions v2 are enabled on a tenant, unauthorized access is blocked during authentication. If a user directly accesses a SharePoint Online resource without an authenticated session, they're prompted to sign in. If the tenant restrictions v2 policy allows access, the user can access the resource; otherwise, access is blocked.
 
 #### Anonymous access
 
@@ -131,7 +130,7 @@ However, OneDrive for consumer accounts (via onedrive.live.com) doesn't support 
 
 ### Tenant restrictions V2 and non-Windows platforms
 
-For non-Windows platforms, you can break and inspect traffic to add the tenant restrictions V2 parameters onto the header via proxy. However, some platforms don't support break and inspect, so tenant restrictions V2 won't work. For these platforms, the following features of Azure AD can provide protection:
+For non-Windows platforms, you can break and inspect traffic to add the tenant restrictions V2 parameters into the header via proxy. However, some platforms don't support break and inspect, so tenant restrictions V2 won't work. For these platforms, the following features of Azure AD can provide protection:
 
 - [Conditional Access: Only allow use of managed/compliant devices](/mem/intune/protect/conditional-access-intune-common-ways-use#device-based-conditional-access)
 - [Conditional Access: Manage access for guest/external users](/microsoft-365/security/office-365-security/identity-access-policies-guest-access)
@@ -148,7 +147,7 @@ To configure tenant restrictions, you'll need the following:
 
 - Azure AD Premium P1 or P2
 - Account with a role of Global administrator or Security administrator
-- Windows devices running Windows 10 or Windows 11 with the latest updates
+- Windows devices running Windows 10, Windows 11, or Windows Server 2022 with the latest updates
 
 ## Step 1: Configure default tenant restrictions V2
 
@@ -294,7 +293,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
 ## Step 3: Enable tenant restrictions on Windows managed devices
 
-After you create a tenant restrictions V2 policy, you can enforce the policy on each Windows 10 and Windows 11 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions V2; domain-joined devices that are managed with Group Policy are also supported.
+After you create a tenant restrictions V2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions V2; domain-joined devices that are managed with Group Policy are also supported.
 
 ### Administrative Templates (.admx) for Windows 10 November 2021 Update (21H2) and Group policy settings
 
@@ -309,7 +308,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
 
 > [!NOTE]
 >
-> - The device must be running Windows 10 or Windows 11 with the latest updates.
+> - The device must be running Windows 10, Windows 11, or Windows Server 2022 with the latest updates.
 
 1. On the Windows computer, press the Windows key, type **gpedit**, and then select **Edit group policy (Control panel)**.
 
@@ -328,7 +327,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
 
 ## Step 4: Set up tenant restrictions V2 on your corporate proxy
 
-Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or Windows 11 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions V2. Although configuring tenant restrictions on your corporate proxy don't provide data plane protection, it does provide authentication plane protection.
+Tenant restrictions V2 policies can't be directly enforced on non-Windows 10, Windows 11, or Windows Server 2022 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions V2. Although configuring tenant restrictions on your corporate proxy don't provide data plane protection, it does provide authentication plane protection.
 
 > [!IMPORTANT]
 > If you've previously set up tenant restrictions, you'll need to stop sending `restrict-msa` to login.live.com. Otherwise, the new settings will conflict with your existing instructions to the MSA login service.
@@ -355,7 +354,7 @@ Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or 
 
 You can use the Windows Firewall feature to block unprotected apps from accessing Microsoft resources via Chrome, Firefox, and .NET applications like PowerShell. The applications that would be blocked/allowed as per the tenant restrictions V2 policy.
 
-For example, if a customer adds PowerShell to their tenant restrictions V2 CIP policy and has graph.microsoft.com in their tenant restrictions V2 policy endpoint list, then PowerShell should be able to access it with firewall enabled
+For example, if a customer adds PowerShell to their tenant restrictions V2 CIP policy and has graph.microsoft.com in their tenant restrictions V2 policy endpoint list, then PowerShell should be able to access it with firewall enabled.
 
 1. On the Windows computer, press the Windows key, type **gpedit**, and then select **Edit group policy (Control panel)**.
 
@@ -373,7 +372,7 @@ After you enable the firewall setting, try signing in using a Chrome browser. Si
 
 ### View tenant restrictions V2 events
 
-You can view events related to tenant restrictions in Event Viewer.
+View events related to tenant restrictions in Event Viewer.
 
 1. In Event Viewer, open **Applications and Services Logs**.
 1. Navigate to **Microsoft** > **Windows** > **TenantRestrictions** > **Operational** and look for events.  
