@@ -34,7 +34,7 @@ In this article, you:
 
 Before you start, make sure you have both a [Microsoft Sentinel workspace](quickstart-onboard.md) and [Microsoft Purview](../purview/create-catalog-portal.md) onboarded, and that your user has the following roles:
 
-- **An Microsoft Purview account [Owner](../role-based-access-control/built-in-roles.md) or [Contributor](../role-based-access-control/built-in-roles.md) role**, to set up diagnostic settings and configure the data connector.
+- **A Microsoft Purview account [Owner](../role-based-access-control/built-in-roles.md) or [Contributor](../role-based-access-control/built-in-roles.md) role**, to set up diagnostic settings and configure the data connector.
 
 - **A [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role**, with write permissions to enable data connector, view the workbook, and create analytic rules.
 
