@@ -50,7 +50,7 @@ landingContent:
           - text: Azure CLI
             url: quickstart-azure-cli.md
           - text: ARM template
-            url: quickstart-ARM-temp.md
+            url: quickstart-azure-resource-manager-template.md
           #- text: Terraform
           #  url: quickstart-terraform.md
 
@@ -66,7 +66,7 @@ landingContent:
           - text: 3. Migrating to Azure Linux
             url: tutorial-azure-linux-migration.md
           - text: 4. Enable telemetry and monitoring
-            url: tutorial-azure-linux-telemetry-monitoring.md
+            url: tutorial-azure-linux-telemetry-monitor.md
           - text: 5. Upgrade Azure Linux nodes
             url: tutorial-azure-linux-upgrade.md
 

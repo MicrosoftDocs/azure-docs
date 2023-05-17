@@ -10,7 +10,7 @@ ms.date: 04/18/2023
 
 # Quickstart: Deploy an Azure Linux Container Host for AKS cluster by using an ARM template
 
-Get started with the Azure Linux Container Host by using an Azure Resource Manager (ARM) template to deploy an Azure Linux Container Host cluster. After installing the prerequisites, you will create a an SSH key pair, review the template, deploy the template and validate it, and then deploy an application.
+Get started with the Azure Linux Container Host by using an Azure Resource Manager (ARM) template to deploy an Azure Linux Container Host cluster. After installing the prerequisites, you'll create a SSH key pair, review the template, deploy the template and validate it, and then deploy an application.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -19,7 +19,7 @@ Get started with the Azure Linux Container Host by using an Azure Resource Manag
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Azure Cloud Shell Quickstart - Bash](/azure/cloud-shell/quickstart).
-   [![Launch Cloud Shell in a new window](./media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   [![Image of Launch Cloud Shell in a new window button.](./media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
   - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -30,12 +30,12 @@ Get started with the Azure Linux Container Host by using an Azure Resource Manag
 
 - If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 - To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../../articles/aks/concepts-identity.md).
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../../articles/aks/concepts-identity.md).
 - To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../articles/role-based-access-control/built-in-roles.md).
 
 ### Create an SSH key pair 
 
-To access AKS nodes, you connect using an SSH key pair (public and private), which you generate using the `ssh-keygen` command. By default, these files are created in the *~/.ssh* directory. Running the `ssh-keygen` command will overwrite any SSH key pair with the same name already existing in the given location.
+To access AKS nodes, you connect using an SSH key pair (public and private), which you generate using the `ssh-keygen` command. By default, these files are created in the *~/.ssh* directory. Running the `ssh-keygen` command overwrites any SSH key pair with the same name already existing in the given location.
 
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
 
@@ -187,7 +187,7 @@ To add Azure Linux to an existing ARM template, you need to add `"osSKU": "Azure
 
 1. Select the following button to sign in to Azure and open a template.
 
-    [![Deploy to Azure](./media/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks-mariner%2Fazuredeploy.json)
+    [![Image of Deploy to Azure button.](./media/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks-mariner%2Fazuredeploy.json)
 
 1. Select or enter the following values.
 
@@ -244,7 +244,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 A [Kubernetes manifest file](../../articles/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests) defines a cluster's desired state, such as which container images to run.
 
-In this quickstart, you will use a manifest to create all objects needed to run the [Azure Vote application](https://github.com/Azure-Samples/azure-voting-app-redis). This manifest includes two Kubernetes deployments:
+In this quickstart, you use a manifest to create all objects needed to run the [Azure Vote application](https://github.com/Azure-Samples/azure-voting-app-redis). This manifest includes two Kubernetes deployments:
 
 * The sample Azure Vote Python applications.
 * A Redis instance.
