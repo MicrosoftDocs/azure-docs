@@ -69,13 +69,13 @@ Before you run the **POST** request, replace `{your-source-container-SAS-URL}` a
 ***PowerShell***
 
 ```powershell
-cmd /c curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+cmd /c curl "{your-document-translator-endpoint}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
 ***command prompt / terminal***
 
 ```curl
-curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+curl "{your-document-translator-endpoint}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
 Upon successful completion: 
