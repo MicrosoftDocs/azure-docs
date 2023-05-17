@@ -490,7 +490,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **Microsoft** as the identity provider.
-1. Under **App registration**->**App registration type**, select **Pick an existing app registration in this directory** and pick the *Azure Functions authentication events API* app registration you [previously created](#step-2-register-a-custom-extension) when registering the custom claims provider.
+1. Under **App registration**->**App registration type**, select **Pick an existing app registration in this directory** and pick the *Azure Functions authentication events API* app registration you [previously created](#step-2-register-a-custom-authentication-extension) when registering the custom claims provider.
 1. Under **Unauthenticated requests**, select **HTTP 401 Unauthorized** as the identity provider.
 1. Unselect the **Token store** option.
 1. Select **Add** to add authentication to your Azure Function.
@@ -512,10 +512,10 @@ If you configured the [Microsoft identity provider](#step-5-protect-your-azure-f
     https://login.microsoftonline.com/{tenantId}/v2.0/.well-known/openid-configuration
     ```
 
-1. Under the **App registration**, enter the application ID (client ID) of the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-extension).
+1. Under the **App registration**, enter the application ID (client ID) of the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
 
 1. Go to your Azure AD tenant in which your custom authentication extension is registered, and select **Azure Active Directory** > **App registrations**.
-    1. Select the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-extension).
+    1. Select the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
     1. Add a description for your client secret.
     1. Select an expiration for the secret or specify a custom lifetime.
