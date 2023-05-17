@@ -10,13 +10,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Topic trigger for Azure Functions
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 Azure Functions can be triggered using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
@@ -29,8 +27,7 @@ There are no templates for triggers in Dapr in the functions tooling today. Star
 
 A C# function can be created using one of the following C# modes:
 
-- [In-process class library](./functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-- [Isolated worker process class library](./dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
+[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
 # [In-process](#tab/in-process)
 
@@ -122,6 +119,9 @@ def main(subEvent) -> None:
     subEvent_json = json.loads(subEvent)
     logging.info("Topic B received a message: " + subEvent_json["data"])
 ```
+
+[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
 ---
 
 ::: zone-end
@@ -214,16 +214,10 @@ Included text: The parameter type supported by the Dapr Topic trigger depends on
 
 ::: zone-end
 
-<!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
-
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
-
-::: zone-end
-
 ## Next steps
+
+Choose one of the following links to review the reference article for a specific Dapr binding type:
+
 - Triggers 
   - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
   - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)

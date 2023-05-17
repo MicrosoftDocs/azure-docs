@@ -10,13 +10,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Secret input binding for Azure Functions
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The input binding allows you to read Dapr data as input to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
@@ -28,8 +26,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 A C# function can be created using one of the following C# modes:
 
-- [In-process class library](./functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-- [Isolated worker process class library](./dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
+[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
 # [In-process](#tab/in-process)
 
@@ -129,6 +126,8 @@ def main (payload, secret) -> None:
         logging.info("Stored secret: Key = " + key + ', Value = '+ secret_dict[key])
 ```
 
+[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -209,16 +208,10 @@ TODO: Need usage content.
 
 ::: zone-end
 
-<!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
-
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
-
-::: zone-end
-
 ## Next steps
+
+Choose one of the following links to review the reference article for a specific Dapr binding type:
+
 - Triggers 
   - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
   - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)

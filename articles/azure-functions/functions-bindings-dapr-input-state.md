@@ -10,13 +10,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr State input binding for Azure Functions
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The input binding allows you to read Dapr data as input to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
@@ -28,8 +26,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 A C# function can be created using one of the following C# modes:
 
-- [In-process class library](./functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-- [Isolated worker process class library](./dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
+[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
 # [In-process](#tab/in-process)
 
@@ -123,6 +120,8 @@ def main(payload, data: str) -> None:
     logging.info(data)
 ```
 
+[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -173,20 +172,30 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
 
-Included text: The parameter type supported by the Dapr State input binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+For the `StateInputBinding` function, you'll run both an `HttpTrigger` and `DaprState` to use the Dapr state input binding. 
+
+You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+- [Dapr JavaScript SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/js/js-client/)
 
 
 ::: zone-end
 
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-Access Dapr State input binding using `context.bindings.daprState`.
+To use a Dapr state input binding, you'll not only define your bindings in a functions.json file and update your application code. 
+
+You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+- [Dapr JavaScript SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/js/js-client/)
 
 ::: zone-end
 
@@ -195,23 +204,21 @@ Access Dapr State input binding using `context.bindings.daprState`.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
 
-Included text: The parameter type supported by the Dapr State input binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr state input binding, you'll define your bindings in a functions.json file and update your application code. 
 
+You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
-::: zone-end
-
-<!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
-
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+- [Dapr Python SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/python/python-client/)
 
 ::: zone-end
 
 ## Next steps
+
+Choose one of the following links to review the reference article for a specific Dapr binding type:
+
 - Triggers 
   - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
   - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
