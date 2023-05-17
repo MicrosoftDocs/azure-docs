@@ -3,6 +3,7 @@ title: Update a delegation
 description: Learn how to update a delegation for a customer previously onboarded to Azure Lighthouse.
 ms.date: 06/22/2022
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ---
 
 # Update a delegation

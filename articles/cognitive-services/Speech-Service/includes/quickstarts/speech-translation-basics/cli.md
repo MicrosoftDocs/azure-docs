@@ -24,7 +24,7 @@ Run the following command to translate speech from the microphone from English t
 spx translate --source en-US --target it --microphone
 ```
 
-Speak into the microphone, and you see the transcription of your translated speech in real time. The Speech CLI stops after a period of silence, 30 seconds, or when you press Ctrl+C.
+Speak into the microphone, and you see the transcription of your translated speech in real-time. The Speech CLI stops after a period of silence, 30 seconds, or when you press Ctrl+C.
 
 ```console
 Connection CONNECTED...

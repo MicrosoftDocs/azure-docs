@@ -35,6 +35,41 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
+Create and assign persistent environment variables for your key and endpoint.
+
+### Environment variables
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+---
+
 ## Create a new Python application
 
 Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
@@ -46,11 +81,11 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
     import requests
     import json
 
-    api_key = "REPLACE_WITH_YOUR_API_KEY_HERE"
-    base_url = "REPLACE_WITH_YOUR_ENDPOINT_HERE"
+    api_key = os.getenv("AZURE_OPENAI_KEY")
+    base_url = os.getenv("AZURE_OPENAI_ENDPOINT") 
     deployment_name ="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE"
 
-    url = base_url + "/openai/deployments/" + deployment_name + "/completions?api-version=2022-12-01"
+    url = base_url + "/openai/deployments/" + deployment_name + "/completions?api-version=2023-05-15"
     prompt = "Once upon a time"
     payload = {        
         "prompt":prompt
@@ -71,7 +106,7 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
     ```
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials. For example, [Azure Key Vault](../../../key-vault/general/overview.md).
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
 
 1. Run the application with the `python` command on your quickstart file:
 
@@ -117,4 +152,4 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 ## Next steps
 
 * Learn more about how to generate the best completion in our [How-to guide on completions](../how-to/completions.md).
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples).

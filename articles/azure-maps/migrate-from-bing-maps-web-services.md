@@ -38,15 +38,11 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Spatial Data Services (SDS)           | [Search] + [Route] + other Azure Services |
 | Time Zone                             | [Time Zone]                               |
 | Traffic Incidents                     | [Traffic Incident Details]                |
-| Elevations                            | <sup>1</sup>                              |
-
-<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 The following service APIs aren't currently available in Azure Maps:
 
 * Optimized Itinerary Routes - Planned. Azure Maps Route API does support traveling salesmen optimization for a single vehicle.
 * Imagery Metadata – Primarily used for getting tile URLs in Bing Maps. Azure Maps has a standalone service for directly accessing map tiles.
-* Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md)
 
 Azure Maps also has these REST web services:
 
@@ -80,7 +76,7 @@ Geocoding is the process of converting an address (like `"1 Microsoft way, Redmo
 Azure Maps provides several methods for geocoding addresses:
 
 * [Free-form address geocoding]: Specify a single address string (like `"1 Microsoft way, Redmond, WA"`) and process the request immediately. This service is recommended if you need to geocode individual addresses quickly.
-* [Structured address geocoding]: Specify the parts of a single address, such as the street name, city, country, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
+* [Structured address geocoding]: Specify the parts of a single address, such as the street name, city, country/region, and postal code and process the request immediately. This service is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
 * [Batch address geocoding]: Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses are geocoded in parallel on the server and when completed the full result set can be downloaded. This service is recommended for geocoding large data sets.
 * [Fuzzy search]: This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category and process the request immediately. This API is recommended for applications where users can search for addresses or points of interest from the same textbox.
 * [Fuzzy batch search]: Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data is processed in parallel on the server and when completed the full result set can be downloaded.
@@ -689,7 +685,6 @@ Learn more about the Azure Maps REST services.
 [POST Route directions]: /rest/api/maps/route/postroutedirections
 [Route]: /rest/api/maps/route
 [Time Zone]: /rest/api/maps/timezone
-[Elevation]: /rest/api/maps/elevation
 
 [Azure Maps Creator]: creator-indoor-maps.md
 [Spatial operations]: /rest/api/maps/spatial

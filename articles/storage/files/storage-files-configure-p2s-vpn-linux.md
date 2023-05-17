@@ -40,7 +40,7 @@ The Azure virtual network gateway can provide VPN connections using several VPN 
 sudo apt update
 sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils unzip
 
-installDir="/etc/"
+INSTALL_DIR="/etc/"
 ```
 
 If the installation fails or you get an error such as **EAP_IDENTITY not supported, sending EAP_NAK**, you might need to install extra plugins:
@@ -57,35 +57,35 @@ The following script will create an Azure virtual network with three subnets: on
 Remember to replace `<region>`, `<resource-group>`, and `<desired-vnet-name>` with the appropriate values for your environment.
 
 ```bash
-region="<region>"
-resourceGroupName="<resource-group>"
-virtualNetworkName="<desired-vnet-name>"
+REGION="<region>"
+RESOURCE_GROUP_NAME="<resource-group>"
+VIRTUAL_NETWORK_NAME="<desired-vnet-name>"
 
-virtualNetwork=$(az network vnet create \
-    --resource-group $resourceGroupName \
-    --name $virtualNetworkName \
-    --location $region \
+VIRTUAL_NETWORK=$(az network vnet create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $VIRTUAL_NETWORK_NAME \
+    --location $REGION \
     --address-prefixes "192.168.0.0/16" \
     --query "newVNet.id" | tr -d '"')
 
-serviceEndpointSubnet=$(az network vnet subnet create \
-    --resource-group $resourceGroupName \
-    --vnet-name $virtualNetworkName \
+SERVICE_ENDPOINT_SUBNET=$(az network vnet subnet create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --vnet-name $VIRTUAL_NETWORK_NAME \
     --name "ServiceEndpointSubnet" \
     --address-prefixes "192.168.0.0/24" \
     --service-endpoints "Microsoft.Storage" \
     --query "id" | tr -d '"')
 
-privateEndpointSubnet=$(az network vnet subnet create \
-    --resource-group $resourceGroupName \
-    --vnet-name $virtualNetworkName \
+PRIVATE_ENDPOINT_SUBNET=$(az network vnet subnet create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --vnet-name $VIRTUAL_NETWORK_NAME \
     --name "PrivateEndpointSubnet" \
     --address-prefixes "192.168.1.0/24" \
     --query "id" | tr -d '"')
 
-gatewaySubnet=$(az network vnet subnet create \
-    --resource-group $resourceGroupName \
-    --vnet-name $virtualNetworkName \
+GATEWAY_SUBNET=$(az network vnet subnet create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --vnet-name $VIRTUAL_NETWORK_NAME \
     --name "GatewaySubnet" \
     --address-prefixes "192.168.2.0/24" \
     --query "id" | tr -d '"')
@@ -95,17 +95,17 @@ gatewaySubnet=$(az network vnet subnet create \
 In order for VPN connections from your on-premises Linux machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate. The following script creates the required certificates.
 
 ```bash
-rootCertName="P2SRootCert"
-username="client"
-password="1234"
+ROOT_CERT_NAME="P2SRootCert"
+USERNAME="client"
+PASSWORD="1234"
 
 mkdir temp
 cd temp
 
 sudo ipsec pki --gen --outform pem > rootKey.pem
-sudo ipsec pki --self --in rootKey.pem --dn "CN=$rootCertName" --ca --outform pem > rootCert.pem
+sudo ipsec pki --self --in rootKey.pem --dn "CN=$ROOT_CERT_NAME" --ca --outform pem > rootCert.pem
 
-rootCertificate=$(openssl x509 -in rootCert.pem -outform der | base64 -w0 ; echo)
+ROOT_CERTIFICATE=$(openssl x509 -in rootCert.pem -outform der | base64 -w0 ; echo)
 
 sudo ipsec pki --gen --size 4096 --outform pem > "clientKey.pem"
 sudo ipsec pki --pub --in "clientKey.pem" | \
@@ -113,12 +113,12 @@ sudo ipsec pki --pub --in "clientKey.pem" | \
         --issue \
         --cacert rootCert.pem \
         --cakey rootKey.pem \
-        --dn "CN=$username" \
-        --san $username \
+        --dn "CN=$USERNAME" \
+        --san $USERNAME \
         --flag clientAuth \
         --outform pem > "clientCert.pem"
 
-openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pem -export -out "client.p12" -password "pass:$password"
+openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pem -export -out "client.p12" -password "pass:$PASSWORD"
 ```
 
 ## Deploy virtual network gateway
@@ -132,23 +132,23 @@ Remember to replace `<desired-vpn-name-here>` with the name you would like for t
 > P2S IKEv2/OpenVPN connections are not supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway, accordingly.
 
 ```azurecli
-vpnName="<desired-vpn-name-here>"
-publicIpAddressName="$vpnName-PublicIP"
+VPN_NAME="<desired-vpn-name-here>"
+PUBLIC_IP_ADDR_NAME="$VPN_NAME-PublicIP"
 
-publicIpAddress=$(az network public-ip create \
-    --resource-group $resourceGroupName \
-    --name $publicIpAddressName \
-    --location $region \
+PUBLIC_IP_ADDR=$(az network public-ip create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $PUBLIC_IP_ADDR_NAME \
+    --location $REGION \
     --sku "Basic" \
     --allocation-method "Dynamic" \
     --query "publicIp.id" | tr -d '"')
 
 az network vnet-gateway create \
-    --resource-group $resourceGroupName \
-    --name $vpnName \
-    --vnet $virtualNetworkName \
-    --public-ip-addresses $publicIpAddress \
-    --location $region \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $VPN_NAME \
+    --vnet $VIRTUAL_NETWORK_NAME \
+    --public-ip-addresses $PUBLIC_IP_ADDR \
+    --location $REGION \
     --sku "VpnGw1" \
     --gateway-typ "Vpn" \
     --vpn-type "RouteBased" \
@@ -156,10 +156,10 @@ az network vnet-gateway create \
     --client-protocol "IkeV2" > /dev/null
 
 az network vnet-gateway root-cert create \
-    --resource-group $resourceGroupName \
-    --gateway-name $vpnName \
-    --name $rootCertName \
-    --public-cert-data $rootCertificate \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --gateway-name $VPN_NAME \
+    --name $ROOT_CERT_NAME \
+    --public-cert-data $ROOT_CERTIFICATE \
     --output none
 ```
 
@@ -167,25 +167,25 @@ az network vnet-gateway root-cert create \
 The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Linux machine. The following script will place the certificates you created in the correct spot and configure the `ipsec.conf` file with the correct values from the configuration file in the downloadable package.
 
 ```azurecli
-vpnClient=$(az network vnet-gateway vpn-client generate \
-    --resource-group $resourceGroupName \
-    --name $vpnName \
+VPN_CLIENT=$(az network vnet-gateway vpn-client generate \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $VPN_NAME \
     --authentication-method EAPTLS | tr -d '"')
 
-curl $vpnClient --output vpnClient.zip
+curl $VPN_CLIENT --output vpnClient.zip
 unzip vpnClient.zip
 
-vpnServer=$(xmllint --xpath "string(/VpnProfile/VpnServer)" Generic/VpnSettings.xml)
-vpnType=$(xmllint --xpath "string(/VpnProfile/VpnType)" Generic/VpnSettings.xml | tr '[:upper:]' '[:lower:]')
-routes=$(xmllint --xpath "string(/VpnProfile/Routes)" Generic/VpnSettings.xml)
+VPN_SERVER=$(xmllint --xpath "string(/VpnProfile/VpnServer)" Generic/VpnSettings.xml)
+VPN_TYPE=$(xmllint --xpath "string(/VpnProfile/VpnType)" Generic/VpnSettings.xml | tr '[:upper:]' '[:lower:]')
+ROUTES=$(xmllint --xpath "string(/VpnProfile/Routes)" Generic/VpnSettings.xml)
 
-sudo cp "${installDir}ipsec.conf" "${installDir}ipsec.conf.backup"
-sudo cp "Generic/VpnServerRoot.cer_0" "${installDir}ipsec.d/cacerts"
-sudo cp "${username}.p12" "${installDir}ipsec.d/private" 
+sudo cp "${INSTALL_DIR}ipsec.conf" "${INSTALL_DIR}ipsec.conf.backup"
+sudo cp "Generic/VpnServerRoot.cer_0" "${INSTALL_DIR}ipsec.d/cacerts"
+sudo cp "${USERNAME}.p12" "${INSTALL_DIR}ipsec.d/private" 
 
 sudo tee -a "${installDir}ipsec.conf" <<EOF
-conn $virtualNetworkName
-    keyexchange=$vpnType
+conn $VIRTUAL_NETWORK_NAME
+    keyexchange=$VPN_TYPE
     type=tunnel
     leftfirewall=yes
     left=%any
@@ -198,10 +198,10 @@ conn $virtualNetworkName
     auto=add
 EOF
 
-echo ": P12 client.p12 '$password'" | sudo tee -a "${installDir}ipsec.secrets" > /dev/null
+echo ": P12 client.p12 '$PASSWORD'" | sudo tee -a "${INSTALL_DIR}ipsec.secrets" > /dev/null
 
 sudo ipsec restart
-sudo ipsec up $virtualNetworkName 
+sudo ipsec up $VIRTUAL_NETWORK_NAME 
 ```
 
 ## Mount Azure file share

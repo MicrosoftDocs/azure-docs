@@ -112,6 +112,27 @@ Continue by updating the relevant setting directly on the OT network sensor. For
 
 Use the following sections to learn more about the individual OT sensor settings available from the Azure portal:
 
+### Active Directory
+
+To configure Active Directory settings from the Azure portal, define values for the following options:
+
+|Name  |Description  |
+|---------|---------|
+|**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.        |
+|**Domain Controller Port**     | The port where your LDAP is configured. For example, use port 636 for LDAPS (SSL) connections.        |
+|**Primary Domain**     | The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
+|**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when adding new sensor users with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
+
+> [!IMPORTANT]
+> When entering LDAP parameters:
+>
+> - Define values exactly as they appear in Active Directory, except for the case.
+> - User lowercase characters only, even if the configuration in Active Directory uses uppercase.
+> - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
+>
+
+To add another Active Directory server, select **+ Add Server** and define those server values.
+
 ### Bandwidth cap
 
 For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
@@ -120,13 +141,25 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 **Minimum required for a stable connection to Azure**: 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
 
+### NTP
+
+To configure an NTP server for your sensor from the Azure portal, define an IP/Domain address of a valid IPv4 NTP server using port 123.
+
 ### Subnet
 
-To define your sensor's subnets, do any of the following:
+To focus the Azure device inventory on devices that are in your IoT/OT scope, you will need to manually edit the subnet list to include only the locally monitored subnets that are in your IoT/OT scope. Once the subnets have been configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets will be displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.
 
-- Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+**To configure your subnets in the Azure portal**:
 
-- Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add more subnets as needed.
+1. In the Azure portal, go to **Sites and sensors** > **Sensor settings**.
+
+1. Under **Subnets**, review the detected subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) on any subnet you want to delete.
+
+1. To modify additional settings, select any subnet and then select **Edit** for the following options:
+
+    - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+
+    - Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
 
 ### VLAN naming
 

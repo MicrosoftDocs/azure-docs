@@ -27,36 +27,61 @@ This step is performed by your deployment teams.
 
 ## Define OT and IoT subnets
 
-Subnet configurations affect how devices are displayed in the sensor's [device maps](how-to-work-with-the-sensor-device-map.md). In the device maps, IT devices are automatically aggregated by subnet, where you can expand and collapse each subnet view to drill down as needed.
+After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, define the sensor's subnet settings directly on the OT sensor console to determine how devices are displayed in the sensor's [device map](how-to-work-with-the-sensor-device-map.md) and the [Azure device inventory](device-inventory.md).
 
-While the OT network sensor automatically learns the subnets in your network, we recommend confirming the learned settings and updating them as needed to optimize your map views.
+- **In the device map**, IT devices are automatically aggregated by subnet, where you can expand and collapse each subnet view to drill down as needed.
+- **In the Azure device inventory**, once the subnets have been configured, use the *Network location* (Public preview) filter to view *local* or *routed* devices as defined in your subnets list. All of the devices associated with the listed subnets will be displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.
 
-Any subnets not listed as subnets are treated as external networks.
+> [!TIP]
+> When you're ready to start managing your OT sensor settings at scale, define subnets from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
+
+While the OT network sensor automatically learns the subnets in your network, we recommend confirming the learned settings and updating them as needed to optimize your map views and device inventory. Any subnets not listed as subnets are treated as external networks.
 
 > [!NOTE]
-> For cloud-connected sensors, you may eventually start configuring OT sensor settings from the Azure portal. Once you start configuring settings from the Azure portal, the **Subnets** pane on the OT sensor is read-only. For more information, see [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md).
+> If sensor settings have already been applied from the Azure portal, the subnet settings on the individual sensor will be read-only and are managed from the Azure portal.
 
-**To define subnets**:
+**To configure your subnets on a locally managed sensor**:
 
-1. Sign into your OT sensor as an **Admin** user and select **System settings > Basic > Subnets**.
+1. Sign into your OT sensor as an Admin user and select **System settings** > **Basic** > **Subnets**.
 
-1. Confirm the current subnets listed and modify settings as needed.
+1. Disable the **Auto subnet learning** setting to manually edit the subnets.
 
-    We recommend giving each subnet a meaningful name to differentiate between IT and OT networks. Subnet names can have up to 60 characters.
+1. Review the discovered subnets list and delete any subnets unrelated to your IoT/OT network scope. We recommend giving each subnet a meaningful name to specify the network role. Subnet names can have up to 60 characters.
+
+    Once the **Auto subnet learning** setting is disabled and the subnet list has been edited to include only the locally monitored subnets that are in your IoT/OT scope, you can filter the Azure device inventory by *Network location* to view only the devices defined as *local*.
 
 1. Use any of the following options to help you optimize your subnet settings:
 
     |Name  |Description  |
     |---------|---------|
-    |**Import subnets**     | Import a .CSV file of subnet definitions        |
+    |**Import subnets**     | Import a .CSV file of subnet definitions. The subnet information is updated with the information that you imported. If you import an empty field, you'll lose the data in that field.       |
     |**Export subnets**     |  Export the currently listed subnets to a .CSV file.       |
-    |**Clear all**     |  Clear all currently defined subnets        |
-    |**Auto subnet learning**     |  Selected by default. Clear this option to define your subnets manually instead of having them be automatically detected by your OT sensor as new devices are detected.     |
+    |**Clear all**     |  Clear all currently defined subnets.      |
+    |**Auto subnet learning**     |  Selected by default. Clear this option to define your subnets manually instead of having them automatically detected by your OT sensor as new devices are detected.     |
     |**Resolve all Internet traffic as internal/private**     | Select to consider all public IP addresses as private, local addresses. If selected, public IP addresses are treated as local addresses, and alerts aren't sent about unauthorized internet activity.  <br><br>This option reduces notifications and alerts received about external addresses.      |
-    |**ICS Subnet**     | Select to define a specific subnet as a separate OT subnet. Selecting this option helps you collapse device maps to a minimum of IT network elements.     |
+    |**ICS subnet**     |   Read-only. ICS/OT subnets are marked automatically when the system recognizes OT activity or protocols. If there is an OT subnet not being recognized, you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics).  |
     |**Segregated**     |   Select to show this subnet separately when displaying the device map according to Purdue level.  |
 
 1. When you're done, select **Save** to save your updates.
+
+### Manually define a subnet as ICS
+
+If you have an OT subnet that is not being marked automatically as an ICS subnet by the sensor, edit the device type for any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be automatically marked by the sensor as an ICS subnet.
+
+> [!NOTE]
+> To manually change the subnet to be marked as ICS, the device type must be changed in device inventory in the OT sensor, and not from the Azure portal.
+
+**To change the device type to manually update the subnet**:
+
+1. Sign in to your OT sensor console and go to **Device inventory**.
+
+1. In the device inventory grid, select a device from the relevant subnet, and then select **Edit** in the toolbar at the top of the page.
+
+1. In the **Type** field, select a device type from the dropdown list that is listed under **ICS** or **IoT**.
+
+The subnet will now be marked as an ICS subnet in the sensor.  
+
+For more information, see [Edit device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details).
 
 ## Customize port and VLAN names
 

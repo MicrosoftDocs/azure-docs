@@ -5,13 +5,13 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 04/19/2022
+ms.date: 05/03/2023
 ms.author: greglin
 ---
 
 # HTTP response codes in Application Gateway
 
-This article lists some HTTP response codes that can be returned by Azure Application Gateway. Common causes and troubleshooting steps are provided to help you determine the root cause. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
+This article gives reasons on why Azure Application Gateway returns specific HTTP response codes. Common causes and troubleshooting steps are provided to help you determine the root cause of error HTTP Response code. HTTP response codes can be returned to a client request whether or not a connection was initiated to a backend target.
 
 ## 3XX response codes (redirection)
 
@@ -44,6 +44,21 @@ HTTP 400 response codes are commonly observed when:
 - Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
 - HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
 - Mutual authentication is configured and unable to properly negotiate.
+- The request is not compliant to RFC. 
+
+Some common reasons for the request to be non-compliant to RFC are: 
+
+| Category | Examples |
+| ---------- | ---------- | 
+| Invalid Host in request line  | Host containing two colons (example.com:**8090:8080**) |
+| Missing Host Header | Request doesn't have Host Header |
+| Presence of malformed or illegal character | Reserved characters are **&,!.** Workaround is to percent code it like %& |
+| Invalid HTTP version | Get /content.css HTTP/**0.3** |
+| Header field name and URI contains non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
+| Missing Content Length header for POST request | Self Explanatory |
+| Invalid HTTP Method | **GET123** /index.html HTTP/1.1 |
+| Duplicate Headers | Authorization:\<base64 encoded content\>,Authorization: \<base64 encoded content\> |
+| Invalid value in Content-Length | Content-Length: **abc**,Content-Length: **-10**|
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
 - Client certificate isn't presented, but mutual authentication is enabled.
@@ -56,9 +71,18 @@ For cases when mutual authentication is configured, several scenarios can lead t
 
 For more information about troubleshooting mutual authentication, see [Error code troubleshooting](mutual-authentication-troubleshooting.md#solution-2).
 
+#### 401 – Unauthorized
+
+An HTTP 401 unauthorized response can be returned when the backend pool is configured with [NTLM](/windows/win32/secauthn/microsoft-ntlm?redirectedfrom=MSDN) authentication.
+There are several ways to resolve this:
+- Allow anonymous access on backend pool.
+- Configure the probe to send the request to another "fake" site that doesn't require NTLM.
+- Not recommended, as this will not tell us if the actual site behind the application gateway is active or not.
+- Configure application gateway to allow 401 responses as valid for the probes: [Probe matching conditions](/azure/application-gateway/application-gateway-probe-overview).
+
 #### 403 – Forbidden
 
-HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client will be presented a 403 forbidden response.
+HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
 
 #### 404 – Page not found
 
@@ -69,11 +93,11 @@ An HTTP 404 response can be returned if a request is sent to an application gate
 
 #### 408 – Request Timeout
 
-An HTTP 408 response can be observed when client requests to the frontend listener of application gateway do not respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when traffic is inspected by virtual appliances, or the client itself becomes overwhelmed.
+An HTTP 408 response can be observed when client requests to the frontend listener of application gateway don't respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when virtual appliance inspects the traffic traffic, or the client itself becomes overwhelmed.
 
 #### 499 – Client closed the connection
 
-An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed when a large response is returned to the client, but the client may have closed or refreshed their browser/application before the server had a chance to finish responding. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. First scenario is when a large response is returned to the client and the client may have closed or refreshed their application before the server finished sending the large response. Second scenario is the timeout on the client side is low and does not wait long enough to receive the response from server. In this case it is better to increase the timeout on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
 
 
 ## 5XX response codes (server error)
@@ -82,7 +106,7 @@ An HTTP 499 response is presented if a client request that is sent to applicatio
 
 #### 500 – Internal Server Error
 
-Azure Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+Azure Application Gateway shouldn't exhibit 500 response codes. Open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 #### 502 – Bad Gateway
 
@@ -98,7 +122,7 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 #### 504 – Gateway timeout
 
-HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response time exceeds the time-out value configured in the Backend Setting.
+Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value which is configured in the Backend Setting.
 
 ## Next steps
 

@@ -41,16 +41,11 @@ To configure update settings on your machines on a single VM, follow these steps
     - **Hot patch** - You can enable [hot patching](../automanage/automanage-hotpatch.md) for Windows Server Azure Edition Virtual Machines (VMs). Hot patching is a new way to install updates on supported *Windows Server Azure Edition* virtual machines that doesn't require a reboot after installation. You can use update management center (preview) to install other patches by scheduling patch installation or triggering immediate patch deployment. You can enable, disable or reset this setting.
 
     - **Patch orchestration** option provides the following:
-
-      - **Automatic by OS (Windows Automatic Updates)** - When the workload running on the VM doesn't have to meet availability targets, the operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
-      - **Azure-orchestrated** - Patch orchestration set to Azure-orchestrated for an Azure VM (not applicable for Arc-enabled server) has two different implications depending on whether customer [schedule](../update-center/scheduled-patching.md#) is attached to it or not.
-      
-        | Patch orchestration type | Description
-        |----------|-------------|
-        |Azure-orchestrated with no schedule attached | Machine is enabled for [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). It implies that the available Critical and Security patches are downloaded and applied automatically on the Azure VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.|
-        |Azure-orchestrated with schedule attached | Patching will happen according to the schedule and [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) will not take effect on the machine. Patch orchestration set to Azure-orchestrated is a necessary pre-condition for enabling schedules. You cannot enable a machine for custom schedule unless you set Patch orchestration to Azure-orchestrated. | 
-
-      - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+    
+      - **Customer Managed Schedules (Preview)**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
+      - **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. (not applicable for Arc-enabled server). The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).(i.e), the patch mode is **AutomaticByPlatform**. There are different implications depending on whether customer schedule is attached to it or not. For more information, see the [user scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
+          - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+      - **Windows Automatic Updates** (AutomaticByOS) - When the workload running on the VM doesn't have to meet availability targets, the operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
       - **Manual updates** - This mode disables Windows automatic updates on VMs. Patches are installed manually or using a different solution.
       - **Image Default** - Only supported for Linux Virtual Machines, this mode uses the default patching configuration in the image used to create the VM.
 

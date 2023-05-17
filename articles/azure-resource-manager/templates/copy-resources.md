@@ -2,6 +2,7 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/07/2021
 ---
 

@@ -1,88 +1,177 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Storage
+title: Migrate applications to use passwordless authentication with Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 12/07/2022
+ms.date: 05/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: csharp
 ---
 
-# Migrate an application to use passwordless connections with Azure Storage
+# Migrate an application to use passwordless connections with Azure Blob Storage
 
-Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. This tutorial explores how to migrate from traditional authentication methods to more secure, passwordless connections.
+[!INCLUDE [storage-passwordless-intro](../../../includes/passwordless/migration-guide/storage-passwordless-intro.md)]
 
-## Security risks associated with Shared Key authorization
-
-The following code example demonstrates how to connect to Azure Storage using a storage account key. When you create a storage account, Azure generates access keys for that account. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. For example, connection strings for storage accounts also use access keys as part of the string. If your application currently uses access keys, consider migrating to passwordless connections using the steps described later in this document.
-
-```csharp
-var blobServiceClient = new BlobServiceClient(
-    new Uri("https://<storage-account-name>.blob.core.windows.net"),
-    new StorageSharedKeyCredential("<storage-account-name>", "<your-access-key>"));
-```
-
-Storage account keys should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
-
-## Migrate to passwordless connections
-
-[!INCLUDE [migrate-to-passwordless-overview](../../../includes/passwordless/migration-guide/migrate-to-passwordless-overview.md)]
-
-## Steps to migrate an app to use passwordless authentication
-
-The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
-
-### Configure roles and users for local development authentication
+## Configure roles and users for local development authentication
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### Sign-in and migrate the app code to use passwordless connections
-
-For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+## Sign-in and migrate the app code to use passwordless connections
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next you need to update your code to use passwordless connections.
+Next, update your code to use passwordless connections.
 
-1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
+## [.NET](#tab/dotnet)
+
+1. To use `DefaultAzureCredential` in a .NET application, install the `Azure.Identity` package:
 
    ```dotnetcli
    dotnet add package Azure.Identity
    ```
 
-1. At the top of your `Program.cs` file, add the following `using` statement:
+1. At the top of your file, add the following code:
 
    ```csharp
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Blob Storage. Update your code to match the following example:
 
    ```csharp
-   // TODO: Update <storage-account-name> placeholder to your account name
+   var credential = new DefaultAzureCredential();
+
    var blobServiceClient = new BlobServiceClient(
-       new Uri("https://<storage-account-name>.blob.core.windows.net"),
-       new DefaultAzureCredential());
+       new Uri($"https://{storageAccountName}.blob.core.windows.net"),
+       credential);
    ```
 
-1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `Client` instance to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
+    client, err := azblob.NewClient(serviceURL, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
+
+## [Java](#tab/java)
+
+1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
+    1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+    1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+
+1. At the top of your file, add the following code:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```java
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .build();
+    String endpoint = 
+        String.format("https://%s.blob.core.windows.net", storageAccountName);
+
+    BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+        .endpoint(endpoint)
+        .credential(credential)
+        .buildClient();
+    ```
+
+## [Node.js](#tab/nodejs)
+
+1. To use `DefaultAzureCredential` in a Node.js application, install the `@azure/identity` package:
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```nodejs
+    import { DefaultAzureCredential } from "@azure/identity";
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```nodejs
+    const credential = new DefaultAzureCredential();
+    
+    const blobServiceClient = new BlobServiceClient(
+      `https://${storageAccountName}.blob.core.windows.net`,
+      credential
+    );    
+    ```
+
+## [Python](#tab/python)
+
+1. To use `DefaultAzureCredential` in a Python application, install the `azure-identity` package:
+    
+    ```bash
+    pip install azure-identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```python
+    credential = DefaultAzureCredential()
+
+    blob_service_client = BlobServiceClient(
+        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
+        credential = credential
+    )
+    ```
+
+---
+
+4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
 
    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
 
-#### Run the app locally
+### Run the app locally
 
 After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allows your app to connect to the Azure service locally.
 
-### Configure the Azure hosting environment
+## Configure the Azure hosting environment
 
 Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Blob Storage using a managed identity.
 
-#### Create the managed identity
+### Create the managed identity
 
 [!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
@@ -90,14 +179,14 @@ Once your application is configured to use passwordless connections and runs loc
 
 You need to configure your web app to use the managed identity you created. Assign the identity to your app using either the Azure portal or the Azure CLI.
 
-# [Azure Portal](#tab/azure-portal-associate)
+# [Azure portal](#tab/azure-portal-associate)
 
 Complete the following steps in the Azure portal to associate an identity with your app. These same steps apply to the following Azure services:
 
 * Azure Spring Apps
 * Azure Container Apps
 * Azure virtual machines
-* Azure Kubernetes Service.
+* Azure Kubernetes Service
 
 1. Navigate to the overview page of your web app.
 1. Select **Identity** from the left navigation.
@@ -119,7 +208,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 
 ---
 
-#### Assign roles to the managed identity
+### Assign roles to the managed identity
 
 Next, you need to grant permissions to the managed identity you created to access your storage account. Grant permissions by assigning a role to the managed identity, just like you did with your local development user.
 
@@ -167,27 +256,9 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-#### Update the application code
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/storage-passwordless-user-assigned-managed-identity.md)]
 
-You need to configure your application code to look for the specific managed identity you created when it is deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
-
-1. On the managed identity overview page, copy the client ID value to your clipboard.
-1. Update the `DefaultAzureCredential` object in the `Program.cs` file of your app to specify this managed identity client ID.
-
-    ```csharp
-    // TODO: Update the <your-storage-account-name> and <your-managed-identity-client-id> placeholders
-    var blobServiceClient = new BlobServiceClient(
-                        new Uri("https://<your-storage-account-name>.blob.core.windows.net"),
-                        new DefaultAzureCredential(
-                            new DefaultAzureCredentialOptions() 
-                            { 
-                                ManagedIdentityClientId = "<your-managed-identity-client-id>" 
-                            }));
-    ```
-
-3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
-
-#### Test the app
+### Test the app
 
 After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the storage account successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 

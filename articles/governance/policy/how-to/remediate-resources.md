@@ -4,8 +4,8 @@ description: This guide walks you through the remediation of resources that are 
 ms.date: 07/29/2022
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Remediate non-compliant resources with Azure Policy
 

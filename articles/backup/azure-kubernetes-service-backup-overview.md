@@ -3,12 +3,12 @@ title: Azure Kubernetes Service backup - Overview
 description: This article gives you an understanding about Azure Kubernetes Service (AKS) backup, the cloud-native process to back up and restore the containerized applications and data running in AKS clusters.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/20/2023
+ms.date: 04/05/2023
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Overview of Azure Kubernetes Service backup using Azure Backup (preview)
+# About Azure Kubernetes Service backup using Azure Backup (preview)
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for cluster state and application data (persistent volumes - CSI driver-based Azure Disks). The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning developer/test environments, or cluster upgrade scenarios. 
 
@@ -49,7 +49,7 @@ AKS backup automatically triggers scheduled backup job that copies the cluster r
 
 Once the backup configuration for an AKS cluster is complete, a backup instance is created in the Backup vault. You can view the backup instance for the cluster under the Backup section in the AKS portal. You can perform any Backup-related operations for the Instance, such as initiating restores, monitoring, stopping protection, and so on, through its corresponding backup instance.
 
-AKS backup also integrates directly with Backup center to help you manage the protection of all your storage accounts centrally along with all other backup supported workloads. The Backup center is a single pane of glass for all your backup requirements, such as monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+AKS backup also integrates directly with Backup center to help you manage the protection of all your AKS clusters centrally along with all other backup supported workloads. The Backup center is a single pane of glass for all your backup requirements, such as monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 AKS backup uses Managed Identity to access other Azure resources. To configure backup of an AKS cluster and to restore from past backup, Backup vault's Managed Identity requires a set of permissions on the AKS cluster and the snapshot resource group where snapshots are created and managed. Currently, the AKS cluster requires a set of permissions on the Snapshot Resource Group. Also, the Backup Extension creates a User Identity and assigns a set of permissions to access the storage account where backups are stored in a blob. You can grant permissions to the Managed Identity using Azure role-based access control (Azure RBAC). Managed Identity is a service principle of a special type that can only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 

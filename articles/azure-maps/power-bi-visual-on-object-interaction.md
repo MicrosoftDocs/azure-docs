@@ -2,8 +2,8 @@
 title: Contextual on-object interaction with Azure Maps Power BI visuals (preview)
 titleSuffix: Azure Maps
 description: How to format elements by selecting the element directly on the map to bring up the available formatting options.
-author: eriklindeman
-ms.author: eriklind
+author: deniseatmicrosoft
+ms.author: limingchen 
 ms.date: 03/13/2023
 ms.topic: how-to
 ms.service: azure-maps

@@ -3,8 +3,8 @@ author: chriswhilar
 title: ACS Web Calling SDK - Web push notifications
 description: Quickstart tutorial for ACS Web Calling SDK push notifications
 ms.service: azure-communication-services
-ms.topic: include
-ms.date: 03/20/2023
+ms.topic: overview
+ms.date: 04/04/2023
 ms.author: chwhilar
 ---
 

@@ -64,7 +64,7 @@ The automatically manage option allows projects to be automatically detected and
 
 Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
 
-Once done, the steps are listed in the screen, which shows how to further configure in the GPC console, or programatically with the gcloud CLI.
+Once done, the steps are listed in the screen, which shows how to further configure in the GPC console, or programmatically with the gcloud CLI.
 
 Once everything has been configured, click next, then 'Verify Now & Save'.
 
@@ -95,7 +95,7 @@ To view status of onboarding after saving the configuration:
 This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
 
 - Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
-- Once done, the steps are listed in the screen to do configure manually in the GPC console, or programatically with the gcloud CLI
+- Once done, the steps are listed in the screen to do configure manually in the GPC console, or programmatically with the gcloud CLI
 - Click Next
 - Click 'Verify Now & Save' 
 - Navigate to newly create Data Collector row under GCP data collectors
