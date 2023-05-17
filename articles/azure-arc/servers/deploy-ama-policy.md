@@ -1,7 +1,7 @@
 ---
 title: How to deploy Azure Monitor Agent using Azure Policy
 description: Learn how to deploy Azure Monitor Agent using Azure Policy.
-ms.date: 05/01/2023
+ms.date: 05/17/2023
 ms.topic: conceptual
 ---
 
@@ -22,7 +22,7 @@ In order for Azure Monitor to work on a machine, it needs to be associated with 
 
 ## Select a Data Collection Rule
 
-Data Collection Rules (DCRs) define specify what data should be collected, how to transform that data, and where to send that data. You need to select (or create) a DCR and specify it within the ARM template you'll use for deploying AMA.
+Data Collection Rules (DCRs) define specify what data should be collected, how to transform that data, and where to send that data. You need to select (or create) a DCR and specify it within the ARM template used for deploying AMA.
 
 Data Collection Rules define the data collection process in Azure Monitor. They specify what data should be collected and where that data should be sent. You'll need to select or create a DCR to be associated with your Policy definition.
 
