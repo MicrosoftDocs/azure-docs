@@ -50,6 +50,7 @@ When processing exclusions the WAF engine will perform a case sensitive/insensit
 | JSON Body | Case Insensitive | Case Sensitive |
 | XML Body | Not Supported | Not Supported |
 | Multipart Body | Case Insensitive | Case Sensitive |
+
 *Depending on your application, the names, and values, of your headers, cookies and query args can be case sensitive or insensitive.
 
 > [!NOTE]
