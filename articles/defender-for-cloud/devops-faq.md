@@ -32,9 +32,9 @@ If you're having issues with Defender for DevOps these frequently asked question
 ### Scan specific folders for secrets in ADO repos with CredScan
 If you want to scan specific folders in Azure DevOps repos with CredScan, you can use:
 env: 
-  credscan_targetdirectory: ‘NameOfFolderToScanForSecrets/’
+  credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
 
-A full ADO YAML file for a pipeline which does CredScan scanning for secrets on a specific folder, could look like this:
+A full ADO YAML file for a pipeline that does CredScan scanning for secrets on a specific folder could look like this:
 ```yml
 trigger:
   branches:
@@ -53,6 +53,7 @@ steps:
       break: false
     env:
       credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+```      
 
 ### I'm getting an error while trying to connect
 
