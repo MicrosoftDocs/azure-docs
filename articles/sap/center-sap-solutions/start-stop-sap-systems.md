@@ -12,8 +12,6 @@ author: lauradolan
 
 # Start and stop SAP systems
 
-
-
 In this how-to guide, you'll learn to start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions*. 
 
 Through the Azure portal, you can start and stop:
@@ -25,8 +23,8 @@ Through the Azure portal, you can start and stop:
     - Single-Server
     - High Availability (HA)
     - Distributed Non-HA
-- SAP systems that run on Windows and Linux operating systems (OS).
-- SAP HA systems that use Linux Pacemaker clustering software and Windows Server Failover Clustering (WSFC). Other certified cluster software isn't currently supported.
+- SAP systems that run on Windows and, RHEL and SUSE Linux operating systems.
+- SAP HA systems that use SUSE and RHEL Pacemaker clustering software and Windows Server Failover Clustering (WSFC). Other certified cluster software isn't currently supported.
 
 ## Prerequisites
 
@@ -36,9 +34,13 @@ Through the Azure portal, you can start and stop:
 - For HA deployments, the HA interface cluster connector for SAP (`sap_vendor_cluster_connector`) must be installed on the ASCS instance. For more information, see the [SUSE connector specifications](https://www.suse.com/c/sap-netweaver-suse-cluster-integration-new-sap_suse_cluster_connector-version-3-0-0/) and [RHEL connector specifications](https://access.redhat.com/solutions/3606101).
 - For HANA Database, Stop operation is initiated only when the cluster maintenance mode is in **Disabled** status. Similarly, Start operation is initiated only when the cluster maintenance mode is in **Enabled** status.
 
+> [!NOTE]
+> When you deploy an SAP system using Azure Center for SAP solutions, RHEL and SUSE cluster connector for highly available systems is already configured on them as part of the SAP software installation process. 
+
 ## Supported scenarios
 The following scenarios are supported when Starting and Stopping SAP systems:
 
+- SAP systems that run on Windows and, RHEL and SUSE Linux operating systems.
 - Stopping and Starting SAP system or individual instances from the VIS resource only stops or starts the SAP application. The underlying VMs are **not** stopped or started.
 - Stopping a highly available SAP system from the VIS resource gracefully stops the SAP instances in the right order and does not result in a failover of Central Services instance.
 - Stopping the HANA Database from the VIS resource results in the entire HANA instance to be stopped. In case of HANA MDC with multiple tenant DBs, the entire instance is stopped and not the specific Tenant DB.
