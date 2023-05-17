@@ -260,7 +260,12 @@ create_monitor:
           # use default threshold from training data baseline
     feature_attribution_drift_signal:
       type: feature_attribution_drift
-      # target_dataset is optional. By default target dataset is the production inference data associated with Azure Machine Learning online depoint
+      target_dataset:
+         dataset:
+            input_dataset:
+               path: azureml:my_model_production_data:1
+               type: mltable
+            dataset_context: model_inputs
       baseline_dataset:
         input_dataset:
           path: azureml:my_model_training_data:1
@@ -270,8 +275,7 @@ create_monitor:
       model_type: classification
       # if no metric_thresholds defined, use the default metric_thresholds
       metric_thresholds:
-        - metric_name: normalized_discounted_cumulative_gain
-          threshold: 0.05
+         threshold: 0.05
   
   alert_notification:
     emails:
@@ -284,60 +288,140 @@ create_monitor:
 You can use the following code for advanced model monitoring setup:
 
 ```python
-#get a handle to the workspace
-from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-
+from azure.identity import InteractiveBrowserCredential
+from azure.ai.ml import Input, MLClient
+from azure.ai.ml.constants import (
+    MonitorFeatureType,
+    MonitorMetricName,
+    MonitorDatasetContext,
+)
 from azure.ai.ml.entities import (
+    AlertNotification,
+    FeatureAttributionDriftSignal,
+    FeatureAttributionDriftMetricThreshold,
+    DataDriftSignal,
+    DataQualitySignal,
+    DataDriftMetricThreshold,
+    DataQualityMetricThreshold,
+    MonitorFeatureFilter,
+    MonitorInputData,
+    MonitoringTarget,
+    MonitorDefinition,
     MonitorSchedule,
     RecurrencePattern,
-    RecurrenceTrigger
-)
-from azure.ai.ml.entities.monitoring import (
-    MonitorSchedule,
-    RecurrencePattern,
-    RecurrenceTrigger
+    RecurrenceTrigger,
+    SparkResourceConfiguration,
+    TargetDataset,
 )
 
+# get a handle to the workspace
 ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
 
-cpu_cluster = ml_client.computes.get("cpu_cluster")
+spark_configuration = SparkResourceConfiguration(
+    instance_type="standard_e4s_v3",
+    runtime_version="3.2"
+)
 
 monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
 
 # training data to be used as baseline dataset
-monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable", path="azureml:my_model_training_data:1"))
+monitor_input_data = MonitorInputData(
+    input_dataset=Input(
+        type="mltable",
+        path="azureml:my_model_training_data:1"
+    ),
+    dataset_context=MonitorDatasetContext.TRAINING,
+)
 
 # create an advanced data drift signal
 features = MonitorFeatureFilter(top_n_feature_importance=20)
-numerical_metric_threshold = DataDriftMetricThreshold(applicable_feature_type="numerical", metric_name="jensen_shannon_distance", threshold=0.01)
-categorical_metric_threshold = DataDriftMetricThreshold(applicable_feature_type="categorical", metric_name="chi_squared_test", threshold=0.02)
-metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
+numerical_metric_threshold = DataDriftMetricThreshold(
+    applicable_feature_type=MonitorFeatureType.NUMERICAL,
+    metric_name=MonitorMetricName.JENSEN_SHANNON_DISTANCE,
+    threshold=0.01
+)
+categorical_metric_threshold = DataDriftMetricThreshold(
+    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
+    metric_name=MonitorMetricName.PEARSONS_CHI_SQUARED_TEST,
+    threshold=0.02
+)
+metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
 
-advanced_data_drift = DataDriftSignal(baseline_dataset=monitor_input_data, features=features, metric_thresholds=metric_thresholds)
+advanced_data_drift = DataDriftSignal(
+    baseline_dataset=monitor_input_data,
+    features=features,
+    metric_thresholds=metric_thresholds
+)
 
 
 # create an advanced data quality signal
 features = ['feature_A', 'feature_B', 'feature_C']
-numerical_metric_threshold = DataQualityMetricThreshold(applicable_feature_type="numerical", metric_name="null_value_rate", threshold=0.01)
-categorical_metric_threshold = DataQualityMetricThreshold(applicable_feature_type="categorical", metric_name="out_of_bound_rate", threshold=0.02)
-metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
+numerical_metric_threshold = DataQualityMetricThreshold(
+    applicable_feature_type=MonitorFeatureType.NUMERICAL,
+    metric_name=MonitorMetricName.NULL_VALUE_RATE,
+    threshold=0.01
+)
+categorical_metric_threshold = DataQualityMetricThreshold(
+    applicable_feature_type=MonitorFeatureType.CATEGORICAL,
+    metric_name=MonitorMetricName.OUT_OF_BOUND_RATE,
+    threshold=0.02
+)
+metric_thresholds = [numerical_metric_threshold, categorical_metric_threshold]
 
-advanced_data_quality = DataQualitySignal(baseline_dataset=monitor_input_data, features=features, metric_thresholds=metric_thresholds, alert_enabled="False")
+advanced_data_quality = DataQualitySignal(
+    baseline_dataset=monitor_input_data,
+    features=features,
+    metric_thresholds=metric_thresholds,
+    alert_enabled=False
+)
 
 # create feature attribution drift signal
-monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable", path="azureml:my_model_training_data:1"), target_column_name="fraud_detected")
+monitor_target_data = TargetDataset(
+    dataset=MonitorInputData(
+        input_dataset=Input(
+            type="mltable",
+            path="azureml:my_model_production_data:1"
+        ),
+        dataset_context=MonitorDatasetContext.MODEL_INPUTS,
+    )
+)
+monitor_baseline_data = MonitorInputData(
+    input_dataset=Input(
+        type="mltable",
+        path="azureml:my_model_training_data:1"
+    ),
+    target_column_name="fraud_detected",
+    dataset_context=MonitorDatasetContext.TRAINING,
+)
 metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.05)
 
-feature_attribution_drift = FeatureAttributionDriftSignal(baseline_dataset=monitor_input_data, model_type="classification", metric_thresholds=metric_thresholds, alert_enabled="False")
+feature_attribution_drift = FeatureAttributionDriftSignal(
+    target_dataset=monitor_target_data,
+    baseline_dataset=monitor_baseline_data,
+    model_type="classification",
+    metric_thresholds=metric_thresholds,
+    alert_enabled=False
+)
 
 # put all monitoring signals in a dictionary
-monitoring_signals = {'data_drift_advanced':advanced_data_drift, 'data_quality_advanced':advanced_data_quality, 'feature_attribution_drift':feature_attribution_drift}
+monitoring_signals = {
+    'data_drift_advanced':advanced_data_drift,
+    'data_quality_advanced':advanced_data_quality,
+    'feature_attribution_drift':feature_attribution_drift
+}
 
 # create alert notification object
-alert_notification = AlertNotification(['abc@example.com', 'def@example.com'])
+alert_notification = AlertNotification(
+    emails=['abc@example.com', 'def@example.com']
+)
 
 # Finally monitor definition
-monitor_definition = MonitorDefinition(compute=cpu_cluster, monitoring_target=monitoring_target, monitoring_signals=monitoring_signals, alert_notification=alert_notification)
+monitor_definition = MonitorDefinition(
+    compute=spark_configuration,
+    monitoring_target=monitoring_target,
+    monitoring_signals=monitoring_signals,
+    alert_notification=alert_notification
+)
 
 recurrence_trigger = RecurrenceTrigger(
     frequency="day",
@@ -345,11 +429,14 @@ recurrence_trigger = RecurrenceTrigger(
     schedule=RecurrencePattern(hours=3, minutes=15)
 )
 
-model_monitor = MonitorSchedule(name="fraud_detection_model_monitoring", 
-                                trigger=recurrence_trigger, 
-                                create_monitor=monitor_definition)
+model_monitor = MonitorSchedule(
+    name="fraud_detection_model_monitoring_complex",
+    trigger=recurrence_trigger,
+    create_monitor=monitor_definition
+)
 
-ml_client.schedules.begin_create_or_update(model_monitor)
+poller = ml_client.schedules.begin_create_or_update(model_monitor)
+created_monitor = poller.result()
 
 ```
 
