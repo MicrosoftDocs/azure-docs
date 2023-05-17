@@ -112,74 +112,37 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B.Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Tulip.
-
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Tulip**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Tulip SSO
 
-1. Log in to your Tulip website as administrator.
+1. Log in to your Tulip website as an Account Owner.
 
 1. Go to the **Settings** -> **SAML** and perform the following steps in the below page.
 
 	![AzureMetadataXML.png](./media/tulip-tutorial/AzureMetadataXML.png)
-
 	a. **Enable SAML Logins**. 
 
 	b. Click on **metadata xml file** to download the **Service Provider metadata file** and use this file to upload in the **Basic SAML Configuration** section in Azure portal.
 
-	c. In the **SSO Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+	c. Upload the Federation Metadata XML file from Azure to Tulip. This will populate the SSO Login, SSO Logout URL and the Certificates.
 
-	d. In the **SSO Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
-
-	e. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificates** textbox.
-
-	f. In the **Attribute Mapping**,
+	d. Verify that the Name, Email and Badge attributes are not null, i.e. enter any unique strings in all three inputs and do a test authentication using the ```Authenticate``` button on the right.
 	
-	 * give the **Name Attribute** value as **displayName**.
+	e. Upon successful authentication, copy/paste the entire claim URL into the appropriate mapping for the name, email and badgeID attributes.
+	
+	* Paste the **Name Attribute** value as **http://schemas.microsoft.com/identity/claims/displayname** or the appropriate claim URL.
 
-	 * give the **Email Attribute** value as **emailAddress**.
+	* Paste the **Email Attribute** value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name** or the appropriate claim URL.
 
-	 * give the **Badge Attribute** value as **badgeID**.
+	* Paste the **Badge Attribute** value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/badgeID** or the appropriate claim URL.
 
-	 * give the **Role Attribute** value as **groups**.
+	* Paste the **Role Attribute** value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/groups** or the appropriate claim URL.
 
-	g. In the **Role Mapping**, map the group's ObjectID with Account Owner.
+	f. Click **Save SAML Configuration**.
 
-	h. Click **Save SAML Configuration**.
-
-### Create Tulip test user
-
-In this section, you create a user called Britta Simon in Tulip. Work with [Tulip support team](mailto:support@tulip.co) to add the users in the Tulip platform. Users must be created and activated before you use single sign-on.
-
-## Test SSO 
-
-In this section, you test your Azure AD single sign-on configuration with following options.
-
-* Click on Test this application in Azure portal and you should be automatically signed in to the Tulip for which you set up the SSO.
-
-* You can use Microsoft My Apps. When you click the Tulip tile in the My Apps, you should be automatically signed in to the Tulip for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
 Once you configure Tulip you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+
+Please reach out to support@tulip.co for any further questions!
