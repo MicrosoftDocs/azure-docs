@@ -35,22 +35,22 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
 
 - The blob container provided as input during installation of the backup extension should be in the same region and subscription as that of the AKS cluster.
 
-- The backup vault and the AKS cluster should be in the same region and subscription.
+- The Backup vault and the AKS cluster should be in the same region and subscription.
 
-- Azure Backup provides operational (snapshot) tier backup of AKS clusters with support for multiple backups per day. The backups aren't copied to the backup vault.
+- Azure Backup provides operational (snapshot) tier backup of AKS clusters with support for multiple backups per day. The backups aren't copied to the Backup vault.
 
 - Currently, the modification of a backup policy and the modification of a snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
 
 - AKS clusters and backup extension pods should be in a running state before you perform any backup and restore operations. This state includes deletion of expired recovery points.
 
-- For successful backup and restore operations, the backup vault's managed identity requires role assignments. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
+- For successful backup and restore operations, the Backup vault's managed identity requires role assignments. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 
 - Here are the AKS backup limits:
 
   | Setting | Limit |
   | --- | --- |
-  | Number of backup policies per backup vault | 5,000 |
-  | Number of backup instances per backup vault | 5,000 |
+  | Number of backup policies per Backup vault | 5,000 |
+  | Number of backup instances per Backup vault | 5,000 |
   | Number of on-demand backups allowed in a day per backup instance | 10 |
   | Number of allowed restores per backup instance in a day | 10 |
 
