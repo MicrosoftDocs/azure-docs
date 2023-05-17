@@ -1,0 +1,137 @@
+### YamlMime:Hub 
+
+title: Azure networking security documentation 
+summary: Learn about the various Azure networking security services available that provide security for your resources in Azure. 
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure networking security documentation
+  description: Azure networking security services provide security for your resources in Azure. 
+  ms.service: firewall
+  ms.topic: hub-page
+  ms.collection:
+  author: vhorne
+  ms.author: victorh
+  manager: kumudD
+  ms.date: 05/17/2023
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: Azure network security overview 
+      itemType: overview # controls the icon image and super-title text 
+      url: ../../security/fundamentals/network-overview.md
+    - title: What's new in Azure Networking? 
+      itemType: whats-new 
+      url: https://azure.microsoft.com/updates/?category=networking
+    - title: 2022 holiday DDoS protection guide
+      itemType: concept
+      url: https://www.microsoft.com/security/blog/2022/11/15/2022-holiday-ddos-protection-guide
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Azure Networking blogs
+      itemType: concept
+      url: https://azure.microsoft.com/blog/topics/networking/
+    - title: Azure Networking Solutions
+      itemType: deploy
+      url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 4 sections
+  sections:
+    - title: Secure your perimeter  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Virtual network
+          links:
+            - text: What is Azure Virtual Network?
+              url: ../virtual-network/virtual-networks-overview.md
+            - text: Create a virtual network
+              url: ../virtual-network/quick-create-portal.md
+            - text: See more
+              url: ../virtual-network/index.yml
+    - title: Secure your virtual networks  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Network load balancer
+          links:
+            - text: What is Azure Load Balancer?
+              url: ../load-balancer/load-balancer-overview.md
+            - text: Load balance internet traffic to VMs
+              url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
+            - text: See more
+              url: ../load-balancer/index.yml
+    - title: Protect your apps  # < 60 chars (optional)
+      items:
+        # Card
+        - title: Network firewall
+          links:
+            - text: What is Azure Firewall?
+              url: ../firewall/overview.md
+            - text: Deploy and configure Azure Firewall
+              url: ../firewall/tutorial-firewall-deploy-portal.md
+            - text: See more
+              url: ../firewall/index.yml
+        # Card
+        - title: DDoS protection
+          links:
+            - text: What is Azure DDoS Protection?
+              url: ../ddos-protection/ddos-protection-overview.md
+            - text: Create DDoS Network Protection
+              url: ../ddos-protection/manage-ddos-protection.md
+            - text: Create DDoS IP Protection
+              url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
+            - text: See more
+              url: ../ddos-protection/index.yml
+        # Card
+        - title: Web application firewall
+          links:
+            - text: What is Azure web application firewall?
+              url: ../web-application-firewall/overview.md
+            - text: WAF on Azure Application Gateway
+              url: ../web-application-firewall/ag/ag-overview.md
+            - text: WAF on Azure Front Door Service
+              url: ../web-application-firewall/afds/afds-overview.md  
+            - text: See more
+              url: ../web-application-firewall/index.yml
+        # Card
+        - title: Private access to a service
+          links:
+            - text: What is Azure Private Link?
+              url: ../private-link/private-link-overview.md
+            - text: What is Azure private endpoint?
+              url: ../private-link/private-endpoint-overview.md
+            - text: See more
+              url: ../private-link/index.yml
+        # Card
+        - title: Secure access to Azure VMs
+          links:
+            - text: What is Azure Bastion?
+              url: ../bastion/bastion-overview.md
+            - text:  Create an Azure Bastion host
+              url: ../bastion/tutorial-create-host-portal.md
+            - text: See more
+              url: ../bastion/index.yml
+        # Card
+        - title: Network security management
+          links:
+            - text: What is Azure Firewall Manager?
+              url: ../firewall-manager/overview.md
+            - text: Secure your virtual WAN using Azure Firewall Manager
+              url: ../firewall-manager/secure-cloud-network.md
+            - text: See more
+              url: ../firewall-manager/index.yml
+    - title: Secure your virtual machines # < 60 chars (optional)
+      items:
+        # Card
+        - title: Monitor and repair network health
+          links:
+            - text: What is Network Watcher?
+              url: ../network-watcher/network-watcher-monitoring-overview.md
+            - text: Diagnose VM traffic filter problem
+              url: ../network-watcher/diagnose-vm-network-traffic-filtering-problem.md
+            - text: See more
+              url: ../network-watcher/index.yml
