@@ -40,6 +40,7 @@ The following parameters are available to customize the Recognize function:
 | Tone | String | Not set | The tone to recognize if user decides to press a number instead of using speech. | Optional |
 | Label | String | Not set | The key value for recognition. | Required |
 | Language | String | En-us | The language that will be used for recognizing speech. | Optional |
+| EndSilenceTimeout| TimeSpan | 0.5 seconds | The final pause of the speaker used to detect the final result that gets generated as speech. | Optional |
 
 >[!NOTE] 
 >In situations where both dtmf and speech are in the recognizeInputsType, the recognize action will action on the first input type received, i.e. if the user presses a keypad number first then the recognize action will consider it a dtmf event and continue listening for dtmf tones. If the user speaks first then the recognize action will consider it a speech recognition and listen for voice input. 
