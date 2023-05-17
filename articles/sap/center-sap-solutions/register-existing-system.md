@@ -1,5 +1,5 @@
 ---
-title: Register existing SAP system (preview)
+title: Register existing SAP system 
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through the Azure portal. You can visualize, manage, and monitor your existing SAP system through Azure Center for SAP solutions.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -10,11 +10,9 @@ author: lauradolan
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
 
-# Register existing SAP system (preview)
+# Register existing SAP system
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
 
-[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 In this how-to guide, you'll learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 

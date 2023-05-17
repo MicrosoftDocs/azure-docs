@@ -7,7 +7,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Locale (BCP-47) | Language | Text-to-speech voices |
+| Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA-AdriNeural`<sup>2</sup> (Female)<br/>`af-ZA-WillemNeural`<sup>2</sup> (Male) |
 | `am-ET` | Amharic (Ethiopia) | `am-ET-AmehaNeural`<sup>2</sup> (Male)<br/>`am-ET-MekdesNeural`<sup>2</sup> (Female) |
