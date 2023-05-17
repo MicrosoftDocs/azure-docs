@@ -215,7 +215,7 @@
                   displayName: auto ML, time series, forecasting, deep learning, TCN
                   href: concept-automl-forecasting-deep-learning.md
                 - name: Forecasting at scale
-                  displayName: auto ML, time series, forecasting, scalability, large data
+                  displayName: auto ML, time series, forecasting, scalability, large data, many models, distributed training
                   href: concept-automl-forecasting-at-scale.md
                 - name: Model sweeping and selection
                   displayName: auto ML, time series, forecasting, model selection, sweeping

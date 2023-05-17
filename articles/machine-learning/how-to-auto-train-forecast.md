@@ -112,6 +112,7 @@ forecasting_job.set_limits(
 ```
 
 ### Forecasting job settings
+
 Forecasting tasks have many settings that are specific to forecasting. Use the [set_forecast_settings](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) method of a ForecastingJob to configure these settings. In the following example, we provide the name of the time column in the training data and set the forecast horizon: 
 
 ```python

@@ -2,8 +2,8 @@
 title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 using Azure Machine Learning automated ML.
-ms.author: shoja
-author: shouryaj
+ms.author: rasavage
+author: ericwrightatwork
 ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
@@ -456,7 +456,7 @@ To use distributed training for classification, you need to set the `training_mo
 
 Property | Description
 -- | --
-training_mode | Indicates training model; distributed or non-distributed. Defaults to non-distributed.
+training_mode | Indicates training mode; distributed or non-distributed. Defaults to non-distributed.
 max_nodes | The number of nodes to use for training by each AutoML trial
 
 The following code samples shows an example of these settings for a classification job:
@@ -470,7 +470,7 @@ classification_job.set_training(
     training_mode=TabularTrainingMode.DISTRIBUTED
 )
 
-# Distribute training across 4 nodes
+# Distribute training across 4 nodes for each trial
 classification_job.set_limits(
     max_nodes=4,
     # other limit settings
@@ -479,11 +479,12 @@ classification_job.set_limits(
 
 ### Forecasting
 
-To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). To use distributed training for forecasting, you need to set set the `training_mode`,`max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
+To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). To use distributed training for forecasting, you need to set set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
 
 Property | Description
 -- | --
-training_mode | Indicates training model; distributed or non-distributed. Defaults to non-distributed.
+training_mode | Indicates training mode; distributed or non-distributed. Defaults to non-distributed.
+enable_dnn_training | Flag to enable deep neural network
 max_concurrent_trials | This is the maximum number of trial models to train in parallel. Defaults to 1.
 max_nodes | The total number of nodes to use for training. For forecasting, each trial model is trained using $\text{max}\left(2, \text{floor}( \text{max\_nodes} / \text{max\_concurrent\_trials}) \right)$ nodes.
 
@@ -494,6 +495,7 @@ from azure.ai.ml.constants import TabularTrainingMode
 
 # Set the training mode to distributed
 forecasting_job.set_training(
+    enable_dnn_training=True,
     allowed_training_algorithms=["tcn_forecaster"],
     training_mode=TabularTrainingMode.DISTRIBUTED
 )

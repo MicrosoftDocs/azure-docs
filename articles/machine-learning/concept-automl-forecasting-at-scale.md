@@ -14,7 +14,7 @@ ms.date: 05/16/2023
 show_latex: true
 ---
 
-# Forecasting at scale
+# Forecasting at scale: many models and distributed training
 
 This article is about training forecasting models on large quantities of historical data. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
@@ -28,7 +28,7 @@ The many models [components](concept-component.md) in AutoML enable you to train
 
 The many models training component applies AutoML's [model sweeping and selection](concept-automl-forecasting-sweeping.md) independently to each store in this example. This model independence aids scalability and can benefit model accuracy especially when the stores have diverging sales dynamics. However, a single model approach may yield more accurate forecasts when there are common sales dynamics. See the [distributed DNN training](#distributed-dnn-training) section for more details on that case.
 
-You can configure the data partitioning, the [AutoML settings](how-to-auto-train-forecast.md#configure-experiment) for the models, and the degree of parallelism for many models training jobs. For examples, see our guide on [many models components](how-to-auto-train-forecast.md#forecasting-at-scale-many-models).        
+You can configure the data partitioning, the [AutoML settings](how-to-auto-train-forecast.md#configure-experiment) for the models, and the degree of parallelism for many models training jobs. For examples, see our guide section on [many models components](how-to-auto-train-forecast.md#forecasting-at-scale-many-models).        
 
 ## Hierarchical time series forecasting
 
@@ -49,7 +49,7 @@ AutoML supports the following for hierarchical time series (HTS):
 * **Retrieving quantile/probabilistic forecasts for levels at or "below" the training level**. Current modeling capabilities support disaggregation of probabilistic forecasts.
 
 HTS components in AutoML are built on top of [many models](#many-models), so HTS shares the scalable properties of many models. 
-For examples, see our guide on [HTS components](how-to-auto-train-forecast.md#forecasting-at-scale-hierarchical-time-series).
+For examples, see our guide section on [HTS components](how-to-auto-train-forecast.md#forecasting-at-scale-hierarchical-time-series).
 
 ## Distributed DNN training
 
@@ -57,7 +57,7 @@ Data scenarios featuring large amounts of historical observations and/or large n
 
 Distributed DNN training achieves scalability using a partitioning algorithm that respects time series boundaries. During training, the DNN dataloader loads just what it needs to complete an iteration of back-propagation; the whole dataset is never read into memory. The partitions are further distributed across multiple compute cores (usually GPUs) on possibly multiple nodes to accelerate training. Coordination across computes is provided by the [Horovod](https://horovod.ai/) framework.
 
-# Next steps
+## Next steps
 
 * Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
 * Learn about [how AutoML uses machine learning to build forecasting models](./concept-automl-forecasting-methods.md).
