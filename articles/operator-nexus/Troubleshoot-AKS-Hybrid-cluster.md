@@ -30,7 +30,7 @@ If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the 
  1. Network fabric controller and resource group
  1. Network fabric instances and resource group
  1. AKS-Hybrid cluster name and resource group
- 1. CLI, Bicep or Azure Resource Manager (ARM) template used to create or attempt creation
+ 1. Prepare CLI commands, Bicep templates and/or Azure Resource Manager (ARM) templates that will be used for resource creation
 
 ## What does an unhealthy AKS-Hybrid cluster look like?
 
@@ -55,15 +55,15 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
 
 ### Network fabric resources
 
- - the fabric is preconfigured with the vlans that is required for cloudservicesnetworks in the range 300-349
+ - each Network Cloud cluster can support up to 200 cloudservicesnetworks
  - the fabric must be configured with an l3isolationdomain and l3 internal network for use with the defaultcninetwork
-   - the vlan must be in the range 500-599 (this limitation is intended to be removed in a future release)
+   - the vlan range can be > 1000 for defaultcninetwork
    - the l3isolationdomain must be successfully enabled
 
 ### Network cloud resources 
 
  - the cloudservicesnetwork must be created
- - extended-location of the cluster associated with the cluster should be matches with cluster.
+ - use correct Hybrid AKS extended location which can be referred from the respective site cluster while creating the AKS-Hybrid resources. 
  - the defaultcninetwork must be created with an ipv4prefix and vlan that matches an existing l3isolationdomain
    - the ipv4prefix used must be unique across all defaultcninetworks and l3networks
  - the networks must have Provisioning state: Succeeded
@@ -112,7 +112,7 @@ At a high level, the steps to create isolation domains are as follows
 - add one external network (optional, if northbound connectivity is required)
 - enable the l3isolationdomain using 
  ```bash
-  az nf l3domain update-admin-state--state Enable
+  az nf l3domain update-admin-state --resource-group "RESOURCE_GROUP_NAME" --resource-name "L3ISOLATIONDOMAIN_NAME" --state "Enable"
   ```
 
 It's important to check that the fabric resources do achieve an administrativeState of Enabled, and that the provisioningState is Succeeded. If the 'update-admin-state' step is skipped or unsuccessful, the networks are unable to operate
