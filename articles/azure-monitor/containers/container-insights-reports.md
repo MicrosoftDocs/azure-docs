@@ -10,7 +10,7 @@ ms.reviewer: aul
 Reports in Container insights are recommended out-of-the-box for [Azure workbooks](../visualize/workbooks-overview.md). This article describes the different workbooks that are available and how to access them.
 
 ## View workbooks
-On the **Azure Monitor** menu in the Azure portal, select **Containers**. In the **Monitoring** section, select **Insights**, choose a particular cluster, and then select the **Reports** tab.
+On the **Azure Monitor** menu in the Azure portal, select **Containers**. In the **Monitoring** section, select **Insights**, choose a particular cluster, and then select the **Reports** tab. You can also view them from the [workbook gallery](../visualize/workbooks-overview.md#the-gallery) in Azure Monitor.
 
 [![Screenshot that shows the Reports page.](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
@@ -31,7 +31,7 @@ The liveness probe failures analyzer shows which liveness probes have failed rec
 ### Event Anomaly
 The **event anomaly** analyzer groups similar events together for easier analysis. It also shows which event groups have recently increased in volume. Events in the list are grouped based on common phrases. For example, two events with messages *"pod-abc-123 failed, can not pull image"* and *"pod-def-456 failed, can not pull image"* would be grouped together. The **Spikiness** column rates which events have occurred more recently. For example, if Events A and B occurred on average 10 times a day in the last month, but event A occurred 1,000 times yesterday while event B occurred 2 times yesterday, then event A would have a much higher spikiness rating than B.
 
-:::image type="content" source="media/container-insights-analyze/container-optimization-workbook.png" alt-text="Screenshot of event anomaly analyzer in Container Optimization Workbook" lightbox="media/container-insights-analyze/container-optimization-workbook.png":::
+:::image type="content" source="media/container-insights-analyze/container-optimization-workbook-event-anomaly.png" alt-text="Screenshot of event anomaly analyzer in Container Optimization Workbook" lightbox="media/container-insights-analyze/container-optimization-workbook-event-anomaly.png":::
 
 ### Container optimizer
 The **container optimizer** analyzer shows containers with excessive cpu and memory limits and requests. Each tile can represent multiple containers with the same spec. For example, if a deployment creates 100 identical pods each with a container C1 and C2, then there will be a single tile for all C1 containers and a single tile for all C2 containers. Containers with set limits and requests are color-coded in a gradient from green to red. 

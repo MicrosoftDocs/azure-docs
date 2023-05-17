@@ -8,15 +8,10 @@ ms.reviewer: viviandiec
 
 # Monitor your Kubernetes cluster performance with Container insights
 
-Use the performance charts and health status in Container insights to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment from two perspectives. You can monitor directly from the cluster. You can also view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when you're monitoring a specific AKS cluster.
+Use the workbooks, performance charts, and health status in Container insights to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment.
 
 This article helps you understand the two perspectives and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 
-For information about how to enable Container insights, see [Onboard Container insights](container-insights-onboard.md).
-
-Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. 
-
-With this view, you can immediately understand cluster health. From here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time.
 
 The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described in [Features of Container insights](container-insights-overview.md#features-of-container-insights) in the overview article.
 
@@ -27,8 +22,9 @@ Workbooks combine text, log queries, metrics, and parameters into rich interac
 
 
 ## Multi-cluster view from Azure Monitor
+Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters deployed across resource groups in your subscriptions. It also shows clusters discovered across all environments that aren't monitored by the solution. With this view, you can immediately understand cluster health and then drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring from the view.
 
-To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
+To access the multi-cluster view, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.
 
 :::image type="content" source="./media/container-insights-analyze/azmon-containers-multiview.png" alt-text="Screenshot that shows an Azure Monitor multi-cluster dashboard example." lightbox="media/container-insights-analyze/azmon-containers-multiview.png":::
 
@@ -69,7 +65,7 @@ The following table provides a breakdown of the calculation that controls the he
 |-------|-------|-----------------|
 |**User pod**| Healthy<br>Warning<br>Critical<br>Unknown |100%<br>90 - 99%<br><90%<br>Not reported in last 30 minutes |
 |**System pod**| Healthy<br>Warning<br>Critical<br>Unknown |100%<br>N/A<br>100%<br>Not reported in last 30 minutes |
-|**Node** | Healthy<br>Warning<br>Critical<br>Unknown | <br>>85%<br>60 - 84%<br><60%<br>Not reported in last 30 minutes |
+|**Node** | Healthy<br>Warning<br>Critical<br>Unknown | >85%<br>60 - 84%<br><60%<br>Not reported in last 30 minutes |
 
 From the list of clusters, you can drill down to the **Cluster** page by selecting the name of the cluster. Then go to the **Nodes** performance page by selecting the rollup of nodes in the **Nodes** column for that specific cluster. Or, you can drill down to the **Controllers** performance page by selecting the rollup of the **User pods** or **System pods** column.
 
