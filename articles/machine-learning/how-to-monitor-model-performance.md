@@ -128,7 +128,7 @@ from azure.ai.ml.entities import (
     SparkResourceConfiguration,
 )
 
-#get a handle to the workspace
+# get a handle to the workspace
 ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
 
 spark_configuration = SparkResourceConfiguration(
