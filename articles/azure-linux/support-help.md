@@ -16,7 +16,7 @@ Here are suggestions for where you can get help when developing your solutions w
 
 :::image type="icon" source="./media/logos/doc-logo.png" alt-text="":::
 
-We have supporting documentation explaining how to determine, diagnose, and fix issues that you might encounter when using the Azure Linux Container Host. Use this articles to troubleshoot deployment failures, security-related problems, connection issues and more.
+We have supporting documentation explaining how to determine, diagnose, and fix issues that you might encounter when using the Azure Linux Container Host. Use this article to troubleshoot deployment failures, security-related problems, connection issues and more.
 
 For a full list of self help troubleshooting content, see the Azure Linux Container Host troubleshooting documentation:
 - [Package upgrade](./troubleshoot-packages.md)
@@ -45,7 +45,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 - To sign up for a new Azure Support Plan, [compare support plans](https://azure.microsoft.com/support/plans/) and select the plan that works for you.
 
-## Create a Github issue
+## Create a GitHub issue
 
 :::image type="icon" source="./media/logos/github-logo.png" alt-text="":::
 
