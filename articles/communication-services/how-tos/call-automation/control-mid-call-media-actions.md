@@ -71,7 +71,7 @@ When your application sends these DTMF tones, you'll receive event updates. You 
 
 Example of *SendDtmfCompleted* event
 ### [csharp](#tab/csharp)
-``` chsarp
+``` csharp
 if (@event is SendDtmfCompleted completed)
 {
     logger.LogInformation("Send dtmf succeeded: context={context}",
