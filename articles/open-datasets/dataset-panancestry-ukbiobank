@@ -22,7 +22,7 @@ This dataset includes approximately 756 TB of data, and is updated monthly durin
 
 ## Storage location
 
-This dataset is stored in the West US 2 and West Central US Azure regions. We recommend locating compute resources in West US 2 or West Central US for affinity.
+This dataset is stored in the East US Azure region. We recommend locating compute resources in East US for affinity.
 
 ## Data Access
 
