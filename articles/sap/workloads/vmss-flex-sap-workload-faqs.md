@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/16/2023
+ms.date: 05/17/2023
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
@@ -17,13 +17,13 @@ Get answers to frequently asked questions about Virtual Machine Scale Sets for S
 
 ## SAP workload deployment
 
-### How to create flexible virtual machine scale set without VM profile from Azure portal?
+### How to create flexible virtual machine scale set without a scaling profile from Azure portal?
 
-Currently, it's not possible to create flexible virtual machine scale set without a VM profile through the Azure portal. However, you can use an alternative client to [create a scale set without a VM profile](./vmss-flex-sap-deployment-guide.md#configuration-of-flexible-virtual-machine-scale-set-without-vm-profile).
+Currently, it's not possible to create flexible virtual machine scale set without a scaling profile through the Azure portal. However, you can use an alternative client to [create a scale set without a scaling profile](./vmss-flex-sap-deployment-guide.md#configuration-of-flexible-virtual-machine-scale-set-without-vm-profile).
 
-### Can I create flexible scale set with scaling or VM profile for SAP workload to use autoscaling feature for SAP application servers?
+### Can I create flexible scale set with scaling or scaling profile for SAP workload to use autoscaling feature for SAP application servers?
 
-Use of flexible scale set with scaling or VM profile isn't recommended, as the scaling feature doesn't work out-of-the-box for SAP workload. Currently, virtual machines scale set with flexible orchestration can only be used as a deployment framework for SAP workload.
+Use of flexible scale set with scaling profile isn't recommended, as the scaling feature doesn't work out-of-the-box for SAP workload. Currently, virtual machines scale set with flexible orchestration can only be used as a deployment framework for SAP workload.
 
 ### Does setting FD=1 for flexible scale set zonal deployment imply that all VMs within the scale set would belong to a single fault domain?
 
@@ -39,7 +39,7 @@ For new SAP deployment in flexible scale set with FD=1, VMs deployed within the 
 
 ### What are the limitations of assigning capacity reservation to VMs deployed in flexible scale set?
 
-If you're deploying VMs in flexible scale set without a VM profile for SAP workloads, it's not possible to assign capacity reservation group at the scale set level. Attempting to do so would result in deployment failure. Instead, you would need to enable capacity reservation for each individual VM. For more information, see the [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
+If you're deploying VMs in flexible scale set without a scaling profile for SAP workloads, it's not possible to assign capacity reservation group at the scale set level. Attempting to do so would result in deployment failure. Instead, you would need to enable capacity reservation for each individual VM. For more information, see the [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
 
 ## High Availability and Disaster Recovery of SAP workload
 
@@ -47,7 +47,7 @@ If you're deploying VMs in flexible scale set without a VM profile for SAP workl
 
 You can use [PowerShell](../../site-recovery/azure-to-azure-powershell.md) to set up Azure Site Recovery for disaster recovery of VMs that are deployed in a flexible scale set. Currently, it's the only method available to configure disaster recovery for VMs deployed in scale set.
 
-### To configure fence agent for high availability SAP workload, how to enable system managed identity on the VMs deployed in flexible scale set without VM profile?
+### To configure fence agent for high availability SAP workload, how to enable system managed identity on the VMs deployed in flexible scale set without a scaling profile?
 
 You can enable system managed identity at the VM level after a VM is manually deployed in the scale set.
 
