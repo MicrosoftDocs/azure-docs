@@ -188,30 +188,30 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 ## Create an app in your Azure Spring Apps instance
 
-You can create an app in either standard consumption or dedicated workload profiles.
+The following sections show you how to create an app in either the standard consumption or dedicated workload profiles.
 
 > [!IMPORTANT]
 > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-### Create an app with consumption workload profile
+### Create an app with the consumption workload profile
 
 Use the following command to create an app in the Azure Spring Apps instance:
 
-   ```azurecli
-   az spring app create \
-       --service ${AZURE_SPRING_APPS_INSTANCE} \
-       --name ${APP_NAME} \
-       --cpu 1 \
-       --memory 2 \
-       --min-replicas 2 \
-       --max-replicas 2 \
-       --runtime-version Java_17 \
-       --assign-endpoint true
-   ```
+```azurecli
+az spring app create \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME} \
+    --cpu 1 \
+    --memory 2 \
+    --min-replicas 2 \
+    --max-replicas 2 \
+    --runtime-version Java_17 \
+    --assign-endpoint true
+```
 
-### Create an app with dedicated workload profile
+### Create an app with the dedicated workload profile
 
-Dedicated workload profiles support running apps with customized hardware and increased cost predictability using Dedicated workload profiles.
+Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 
 Use the following command to create a dedicated workload profile:
 
@@ -224,7 +224,7 @@ az containerapp env workload-profile set \
     --max-nodes 2
 ```
 
-Use the following command to create an app with the dedicated workload profile:
+Then, use the following command to create an app with the dedicated workload profile:
 
 ```azurecli
 az spring app create \
@@ -241,7 +241,7 @@ az spring app create \
 
 ## Bind the Service Bus to Azure Spring Apps and deploy the app
 
-Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
+You've now created both the Service Bus and the app in Azure Spring Apps, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
 
 1. Get the Service Bus's connection string by using the following command:
 

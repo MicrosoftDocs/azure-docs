@@ -16,7 +16,7 @@ ms.date: 05/07/2023
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to create a managed identity for an Azure Spring Apps app and use it to invoke HTTP triggered Functions.
+This article shows you how to create a managed identity for an app hosted in Azure Spring Apps and use it to invoke HTTP triggered Functions.
 
 Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By using this built-in authentication capability along with Managed Identities for Azure Spring Apps, you can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
 
@@ -164,7 +164,7 @@ az spring app create \
     --assign-identity
 ```
 
-## Build sample Spring Boot app to invoke the Function
+## Build a sample Spring Boot app to invoke the Function
 
 This sample invokes the HTTP triggered function by first requesting an access token from the MSI endpoint and using that token to authenticate the function HTTP request. For more information, see the [Get a token using HTTP](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) section of [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 

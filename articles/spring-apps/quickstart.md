@@ -47,16 +47,16 @@ At the end of this quickstart, you have a working Spring app running on Azure Sp
 ::: zone pivot="sc-consumption-plan"
 
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption and dedicated plan by using the following command.
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption and dedicated plan by using the following command:
 
-  ```azurecli
+  ```azurecli-interactive
   az extension remove --name spring && \
   az extension add --name spring
   ```
 
-- Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`
+- Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
 
-  ```azurecli
+  ```azurecli-interactive
   az extension add --name containerapp --upgrade
   az provider register --namespace Microsoft.App
   az provider register --namespace Microsoft.OperationalInsights
@@ -73,23 +73,23 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../storage/common/storage-introduction.md) 
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 
-   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure Portal alert that no storage is mounted in the Azure Cloud Shell with the Create Storage button highlighted." lightbox="media/quickstart/azure-storage-subscription.png":::
+   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure portal alert that no storage is mounted in the Azure Cloud Shell." lightbox="media/quickstart/azure-storage-subscription.png":::
 
-1. After you sign in successfully, use the following command to display a list of your subscriptions.
+1. After you sign in successfully, use the following command to display a list of your subscriptions:
 
    ```azurecli-interactive
    az account list --output table
    ```
 
-1. Use the following command to set your default subscription.
+1. Use the following command to set your default subscription:
 
    ```azurecli-interactive
    az account set --subscription <subscription-ID>
    ```
 
-1. Define variables for this quickstart with the names of your resources and desired settings.
+1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
 
    ```azurecli-interactive
    LOCATION="<region>"
@@ -99,7 +99,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    APP_NAME="<Spring-app-name>"
    ```
 
-1. Use the following command to create a resource group.
+1. Use the following command to create a resource group:
 
    ```azurecli-interactive
    az group create \
@@ -140,15 +140,14 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ## Create an app in your Azure Spring Apps instance
 
-An app is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](concept-understand-app-and-deployment.md)
-
-Apps run in an Azure Spring Apps service instance, or simply service instance, as shown in the following diagram.
+An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
-You can create an app in either standard consumption or dedicated workload profiles. See [Azure Spring Apps pricing](../container-apps/workload-profiles-overview.md) and [pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+You can create an app in either standard consumption or dedicated workload profiles.
 
-**Important: Consumption workload profile has a pay-as-you-go billing model with no starting cost while you are billed for the dedicated workload profile based on resource provisioned.**
+> [!IMPORTANT]
+> The consumption workload profile has a pay-as-you-go billing model with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 ### Create an app with consumption workload profile
 
@@ -172,14 +171,21 @@ Azure Spring Apps creates an empty welcome application and provides its URL in t
 
 ### Create an app with dedicated workload profile
 
-Dedicated workload profiles support run apps with customized hardware and increased cost predictability using Dedicated workload profiles. Use the following command to Create a dedicated workload profile:
+Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 
-```azurecli
-az containerapp env workload-profile set -g ${RESOURCE_GROUP} -n ${MANAGED_ENVIRONMENT}
-   --workload-profile-name my-wlp --workload-profile-type D4 --min-nodes 1 --max-nodes 2
+Use the following command to create a dedicated workload profile:
+
+```azurecli-interactive
+az containerapp env workload-profile set \
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${MANAGED_ENVIRONMENT} \
+    --workload-profile-name my-wlp \
+    --workload-profile-type D4 \
+    --min-nodes 1 \
+    --max-nodes 2
 ```
 
-And use the following command to create an app with the dedicated workload profile:
+Then, use the following command to create an app with the dedicated workload profile:
 
 ```azurecli-interactive
 az spring app create \
@@ -204,7 +210,7 @@ Use the following steps to clone the Spring Boot sample project.
    git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
-1. Use the following command to move to the project folder.
+1. Use the following command to move to the project folder:
 
    ```azurecli-interactive
    cd gs-spring-boot/complete
@@ -218,7 +224,7 @@ Use the following steps to clone the Spring Boot sample project.
 
 ## Deploy the local app to Azure Spring Apps
 
-Use the following command to deploy the *.jar* file for the app.
+Use the following command to deploy the *.jar* file for the app:
 
 ```azurecli-interactive
 az spring app deploy \
@@ -254,21 +260,21 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an Azure Storage instance with your subscription to persist files across sessions. For more information, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 
-   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure Portal alert that no storage is mounted in the Azure Cloud Shell with the Create Storage button highlighted." lightbox="media/quickstart/azure-storage-subscription.png":::
+   :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of an Azure portal alert that no storage is mounted in the Azure Cloud Shell." lightbox="media/quickstart/azure-storage-subscription.png":::
 
-1. After you sign in successfully, use the following command to display a list of your subscriptions.
+1. After you sign in successfully, use the following command to display a list of your subscriptions:
 
    ```azurecli-interactive
    az account list --output table
    ```
 
-1. Use the following command to set your default subscription.
+1. Use the following command to set your default subscription:
 
    ```azurecli-interactive
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to create a resource group.
+1. Use the following command to create a resource group:
 
    ```azurecli-interactive
    az group create \
@@ -276,7 +282,7 @@ Use the following steps to create an Azure Spring Apps service instance.
        --location eastus
    ```
 
-1. Use the following command to create an Azure Spring Apps service instance.
+1. Use the following command to create an Azure Spring Apps service instance:
 
    ```azurecli-interactive
    az spring create \
@@ -288,7 +294,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 ## Create an app in your Azure Spring Apps instance
 
-An [*App*](concept-understand-app-and-deployment.md) is an abstraction of one business app. Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
+An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
 :::image type="content" source="media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance.":::
 
@@ -312,7 +318,7 @@ Use the following steps to clone the Spring Boot sample project.
    git clone -b boot-2.7 https://github.com/spring-guides/gs-spring-boot.git
    ```
 
-1. Use the following command to move to the project folder.
+1. Use the following command to move to the project folder:
 
    ```azurecli-interactive
    cd gs-spring-boot/complete
@@ -326,7 +332,7 @@ Use the following steps to clone the Spring Boot sample project.
 
 ## Deploy the local app to Azure Spring Apps
 
-Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows).
+Use the following command to deploy the *.jar* file for the app (*target/spring-boot-complete-0.0.1-SNAPSHOT.jar* on Windows):
 
 ```azurecli-interactive
 az spring app deploy \

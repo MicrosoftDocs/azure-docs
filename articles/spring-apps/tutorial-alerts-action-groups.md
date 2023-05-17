@@ -16,7 +16,9 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+
+This article describes how to monitor Spring app resources using alerts and action groups.
 
 Azure Spring Apps alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
 
@@ -30,13 +32,15 @@ There are two steps to set up an alert pipeline:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - A deployed Azure Spring Apps instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md) to get started.
 
-The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of an Azure Spring Apps instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
+## Set up Action Groups and Alerts
 
-Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the left pane, then select **Manage actions**:
+The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the navigation pane of an Azure Spring Apps instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
+
+Navigate from a resource group to your Azure Spring Apps instance. Select **Alerts** in the navigation pane, then select **Manage actions**:
 
 :::image type="content" source="media/alerts-action-groups/action-1-a.png" alt-text="Screenshot of the Azure portal showing the Alerts page with Manage actions highlighted." lightbox="media/alerts-action-groups/action-1-a.png":::
 
-## Set up Action Group
+### Set up an Action Group
 
 To begin the procedure to initialize a new **Action Group**, select **Add action group**.
 
@@ -60,7 +64,7 @@ On the **Add action group** page:
 
    :::image type="content" source="media/alerts-action-groups/action-2.png" alt-text="Screenshot of the Azure portal showing the Add action group page with the Action type pane open." lightbox="media/alerts-action-groups/action-2.png":::
 
-## Set up Alert
+### Set up an Alert
 
 The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure functions, and so forth. The following steps configure an **Alert**.
 

@@ -61,7 +61,7 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
      - Select **Create new** to create a new Azure Container Apps environment, or select an existing environment from the dropdown menu.
 
-     :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png":::
+       :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Create page." lightbox="media/quickstart-provision-standard-consumption-service-instance/select-azure-container-apps-environment.png":::
 
 1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and choose **Consumption and Dedicated workload profiles** for the **Plan**.
 
@@ -134,7 +134,7 @@ You can create the Azure Container Apps environment in one of two ways:
        --enable-workload-profiles
    ```
 
-1. At this point, you have created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment by the following command:
+1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment by using the following command:
 
    ```azurecli
    az containerapp env workload-profile set \

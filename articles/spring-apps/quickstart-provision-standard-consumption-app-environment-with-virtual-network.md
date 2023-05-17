@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise  
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network. An Azure Container Apps environment creates a secure boundary around a group of applications. Applications deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
@@ -48,11 +48,11 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
 
-   :::image type="content" source="media/quicktart-provision-app-environment-with-virtual-network/azure-spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="media/quickstart-provision-app-environment-with-virtual-network/azure-spring-apps-start.png":::
+   :::image type="content" source="media/quicktart-provision-app-environment-with-virtual-network/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="media/quickstart-provision-app-environment-with-virtual-network/azure-spring-apps-start.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="media/quickstart-provision-app-environment-with-virtual-network/azure-spring-apps-create.png":::
+   :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps page with the Create button highlighted." lightbox="media/quickstart-provision-app-environment-with-virtual-network/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -72,11 +72,11 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
      - Select **Create new** to create a new Azure Container Apps environment or select an existing environment from the dropdown menu.
 
-   :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing the Create Container Apps environment page with Consumption and Dedicated workload profiles selected for the plan." lightbox="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png":::
+   :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps environment page with Consumption and Dedicated workload profiles selected for the plan." lightbox="media/quickstart-provision-app-environment-with-virtual-network/select-azure-container-apps-environment.png":::
 
 1. Fill out the **Basics** form on the **Create Container Apps environment** page. Use the default value `asa-standard-consumption-app-env` for the **Environment name** and choose **Consumption and Dedicated workload profiles** for the **Plan**.
 
-   :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png" alt-text="Screenshot of Azure portal showing Create Container Apps environment page with the Basics tab selected." lightbox="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png":::
+   :::image type="content" source="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps environment page with the Basics tab selected." lightbox="media/quickstart-provision-app-environment-with-virtual-network/create-azure-container-apps-environment.png":::
 
 1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. If you wish to add a dedicated workload profile to the same Azure Container Apps environment, you can select the **Workload profiles** tab and then select **Add workload profile**.
 
