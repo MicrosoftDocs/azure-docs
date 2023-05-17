@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 05/23/2023
+ms.date: 05/24/2023
 ---
 
 # Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS)
