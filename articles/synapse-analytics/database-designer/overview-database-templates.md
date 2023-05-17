@@ -7,7 +7,7 @@ ms.reviewer: wiassaf
 ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 05/17/2023
 ms.custom: template-overview, ignite-fall-2021
 ---
 
