@@ -13,7 +13,7 @@
         - name: Use the Azure CLI
           href: quickstart-azure-cli.md
         - name: Use the ARM template
-          href: quickstart-ARM-temp.md
+          href: quickstart-azure-resource-manager-template.md
         #- name: Use Terraform
         #  href: quickstart-terraform.md
 - name: Tutorials
