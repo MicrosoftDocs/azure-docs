@@ -5,7 +5,7 @@ description: Learn to migrate existing applications away from Shared Key authori
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 04/05/2023
+ms.date: 05/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -40,16 +40,46 @@ Next, update your code to use passwordless connections.
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Blob Storage. Update your code to match the following example:
 
    ```csharp
    var credential = new DefaultAzureCredential();
 
-   // TODO: Update the <storage-account-name> placeholder.
    var blobServiceClient = new BlobServiceClient(
-       new Uri("https://<storage-account-name>.blob.core.windows.net"),
+       new Uri($"https://{storageAccountName}.blob.core.windows.net"),
        credential);
    ```
+
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `Client` instance to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
+    client, err := azblob.NewClient(serviceURL, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
 
 ## [Java](#tab/java)
 
@@ -63,17 +93,18 @@ Next, update your code to use passwordless connections.
     import com.azure.identity.DefaultAzureCredentialBuilder;
     ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
 
     ```java
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
+    String endpoint = 
+        String.format("https://%s.blob.core.windows.net", storageAccountName);
 
-    // TODO: Update the <storage-account-name> placeholder.
     BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-            .endpoint("https://<storage-account-name>.blob.core.windows.net")
-            .credential(credential)
-            .buildClient();
+        .endpoint(endpoint)
+        .credential(credential)
+        .buildClient();
     ```
 
 ## [Node.js](#tab/nodejs)
@@ -87,17 +118,16 @@ Next, update your code to use passwordless connections.
 1. At the top of your file, add the following code:
 
     ```nodejs
-    const { DefaultAzureCredential } = require("@azure/identity");
+    import { DefaultAzureCredential } from "@azure/identity";
     ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
 
     ```nodejs
     const credential = new DefaultAzureCredential();
     
-    // TODO: Update the <storage-account-name> placeholder.
     const blobServiceClient = new BlobServiceClient(
-      "https://<storage-account-name>.blob.core.windows.net",
+      `https://${storageAccountName}.blob.core.windows.net`,
       credential
     );    
     ```
@@ -116,17 +146,17 @@ Next, update your code to use passwordless connections.
     from azure.identity import DefaultAzureCredential
     ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
 
     ```python
     credential = DefaultAzureCredential()
 
-    # TODO: Update the <storage-account-name> placeholder.
     blob_service_client = BlobServiceClient(
-        account_url = "https://<storage-account-name>.blob.core.windows.net",
+        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
         credential = credential
     )
     ```
+
 ---
 
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
@@ -226,54 +256,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-### Update the application code
-
-You need to configure your application code to look for the specific managed identity you created when it's deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
-
-1. On the managed identity overview page, copy the client ID value to your clipboard.
-1. Update the `DefaultAzureCredential` object to specify this managed identity client ID:
-
-    ## [.NET](#tab/dotnet)
-    
-    ```csharp
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    var credential = new DefaultAzureCredential(
-        new DefaultAzureCredentialOptions
-        {
-            ManagedIdentityClientId = "<managed-identity-client-id>"
-        });
-    ```
-
-    ## [Java](#tab/java)
-    
-    ```java
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .managedIdentityClientId("<managed-identity-client-id>")
-        .build();
-    ```
-    
-    ## [Node.js](#tab/nodejs)
-    
-    ```nodejs
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    const credential = new DefaultAzureCredential({
-      managedIdentityClientId: "<managed-identity-client-id>"
-    });
-    ```
-    
-    ## [Python](#tab/python)
-    
-    ```python
-    # TODO: Update the <managed-identity-client-id> placeholder.
-    credential = DefaultAzureCredential(
-        managed_identity_client_id = "<managed-identity-client-id>"
-    )
-    ```
-
-    ---
-
-3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/storage-passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 
