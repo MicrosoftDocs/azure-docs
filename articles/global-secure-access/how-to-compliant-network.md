@@ -60,6 +60,8 @@ To enable the required setting to allow the compliant network check, an administ
 
 The following example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network.
 
+:::image type="content" source="media/how-to-compliant-network/all-network-access-locations.png" alt-text="Screenshot showing a Conditional Access policy highlighting the All Network Access locations of my tenant location." lightbox="media/how-to-compliant-network/all-network-access-locations.png":::
+
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
@@ -67,7 +69,7 @@ The following example shows a Conditional Access policy that requires Exchange O
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Cloud apps or actions** > **Include**, and select **Select apps**.
+1. Under **Target resources** > **Include**, and select **Select apps**.
    1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**

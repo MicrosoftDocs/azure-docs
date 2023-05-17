@@ -12,11 +12,13 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: mamkumar
 ---
-# Traffic profiles as a Conditional Access target resource
+# Traffic profiles as a target resource in Conditional Access 
 
-Using Global Secure Access traffic profiles in Conditional Access policy configuration provides administrators with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy at the first attempt of access to the network. Targeting these traffic profiles allows consistent application of policy no matter if the application supports Conditional Access natively or not. For example, applications that may only support basic authentication can now be targeted behind a traffic profile.
+In addition to sending traffic to ZTNA adminca can use CA to secure acces to these profiles. They can do this through options like requiring MFA, compliant device, or sign in risk.
 
-This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](how-to-configure-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365 with these policies. Users can acquire a token to access these configured endpoints or traffic profiles only when they satisfy the required Conditional Access policies. 
+Conditional Access on traffic profiles provides admnis with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy to manage access to the network. Using traffic profiles allows consistent application of policy. For example, applications that may only support basic authentication can now be protected behind a traffic profile.
+
+This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](how-to-configure-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365, private, or internet with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
 
 ## Prerequisites
 
@@ -25,11 +27,13 @@ This functionality allows administrators to consistently enforce Conditional Acc
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
-* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md).
+* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md).
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
 The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, or hybrid Azure AD join when accessing Microsoft 365 traffic.
+
+:::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -37,7 +41,9 @@ The following example policy targets all users except for your break-glass accou
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Under **Exclude**:
+      1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+      1. Select **Guest or external users** and select all checkboxes.
 1. Under **Target Resources** > **Network Access (Preview)***.
    1. Choose **M365 traffic**.
 1. Under **Access controls** > **Grant**.
@@ -47,7 +53,12 @@ The following example policy targets all users except for your break-glass accou
 
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
-## Try your Conditional Access policy targeting the Microsoft 365 traffic profile
+## User experience
 
-Sign in to a machine with the Global Secure Access client installed, configured, and running.
+When users sign in to a machine with the Global Secure Access client installed, configured, and running they may be prompted to sign in. Looking at the system tray icon for the Global Secure Access client you will note a red circle indicating it is signed out or not running.
 
+:::image type="content" source="media/how-to-target-resource/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
+
+When a user signs in the Global Secure Access Client will have a green circle that is is signed in and the client is running.
+
+:::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
