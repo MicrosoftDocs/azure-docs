@@ -16,6 +16,9 @@ ms.custom: mode-other
 ## Add file attachment support
 The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive file attachment sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
 The Chat SDK for JavaScript provides `previewUrl` and `url` for each file attachment. Specifically, `url` provides a direct download URL to the file. While `previewUrl` provides a link to a webpage on SharePoint where the user can see the content of the file, edit the file and download the file if permission allows. 
 
 You should be aware of couple constraints that come with this feature:
@@ -24,12 +27,15 @@ You should be aware of couple constraints that come with this feature:
 2. We currently only support the following file permissions:
    - "Anyone", and
    - "People you choose" (with email address)
-   The Teams user sending the file should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
+
+   The Teams user should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
 3. The direct download URL (`url`) might be inaccessible if file is protected (files with restricted permissions such as file being password protected or shared with a specific email address owner)
 
-Note that Microsoft Teams renders image attachments as inline images in the Teams client. Developers that wanted to achieve the same behavior are expected to use the `AttachmentType` of `teamsImage` with logic that converts image attachments.
+In addition to regular files (with `AttachmentType` of `file`), the Chat SDK for JavaScript also provides the `AttachmentType` of `teamsImage` for image attachments so that you can use it to mirrow the behavior of how Microsoft Teams client converts image attachment to inline images in the UI layer. See section "Image Attachment Handling" for more info. 
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+Please note that images added via "Upload from this device" will be rendered on Teams side, and Chat SDK for JavaScript would be returning such attachments as `teamsImage`. For images uploaded via "Attach cloud files" however, they would be treated as regular files on the Teams side, and therefore Chat SDK for JavaScript would be returning such attachments as `file`.
+
+Please also note that only files uploaded via "drag-and-drop" or via attachment menu of "Upload from this device" and "Attach cloud files" are supported. Some messages with embedded media (such as video clips, audio messages, weather cards, etc.) are adaptive cards, which currently is not supported by the Chat SDK for JavaScript.
 
 [!INCLUDE [Teams File Attachment Interop with JavaScript SDK](./includes/meeting-interop-features-file-attachment-javascript.md)]
 
