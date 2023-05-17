@@ -11,8 +11,7 @@ ms.author: wellee
 ---
 # How to configure Virtual WAN Hub routing intent and routing policies
 
->[!NOTE] 
-> The rollout for routing intent capabilities to support inter-region traffic is currently underway. Inter-region capabilities may not be immediately available.
+
 
 Virtual WAN Hub routing intent allows you to set up simple and declarative routing policies to send traffic to bump-in-the-wire security solutions like Azure Firewall, Network Virtual Appliances or software-as-a-service (SaaS) solutions deployed within the Virtual WAN hub.
 
