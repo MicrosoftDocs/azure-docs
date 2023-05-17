@@ -102,7 +102,7 @@ const { statusCode, item, activitId, etag} = await item.delete();
 
 ## Next steps
 
-Now that you've created various items, use the next guide to read an item.
+Now that you've created various items, use the next guide to query for item.
 
 > [!div class="nextstepaction"]
 > [Read an item](how-to-javascript-read-item.md)
