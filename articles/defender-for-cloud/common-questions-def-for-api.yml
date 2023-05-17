@@ -18,8 +18,8 @@ sections:
       - question: # Is Defender for APIs available in my region?
         answer: # Please review the list of supported regions in [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction).
 
-     - question: # I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
-       answer: # If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found on the [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction) page.
+      - question: # I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page?
+        answer: # If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found on the [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction) page.
  
   - name: # Name of second section. Omit if you only have a few questions. 
 # The first name value is ignored and your questions become H2 level. 
