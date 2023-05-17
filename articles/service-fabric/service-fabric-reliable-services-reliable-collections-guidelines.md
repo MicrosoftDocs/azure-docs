@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 05/17/2023
 ---
 
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
