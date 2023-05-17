@@ -2,12 +2,12 @@
 title: "Quickstart: Build and deploy your app from a repository to Azure Container Apps"
 description: Build your container app from a local or GitHub source repository and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 03/29/2023
-ms.author: v-bcatherine
+ms.author: v-laleonard
 zone_pivot_groups: container-apps-image-build-from-repo
 ---
 

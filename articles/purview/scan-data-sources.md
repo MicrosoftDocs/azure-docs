@@ -38,8 +38,10 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 >[!IMPORTANT]
 > These are the general steps for creating a scan, but you should refer to [the source page](microsoft-purview-connector-overview.md) for source-specific prerequistes and scanning instructions.
 
+1. Open the Microsoft Purview governance portal by:
 
-1. In the [Azure portal](https://portal.azure.com), open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal** button.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
    :::image type="content" source="./media/scan-data-sources/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 

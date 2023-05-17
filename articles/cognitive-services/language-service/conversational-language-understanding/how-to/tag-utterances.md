@@ -97,6 +97,11 @@ To delete an entity:
 
 In CLU, use Azure OpenAI to suggest utterances to add to your project using GPT models. You first need to get access and create a resource in Azure OpenAI. You'll then need to create a deployment for the GPT models. Follow the pre-requisite steps [here](../../../openai/how-to/create-resource.md).
 
+Before you get started, the suggest utterances feature is only available if your Language resource is in the following regions:
+* East US
+* South Central US
+* West Europe
+
 In the Data Labeling page: 
 
 1. Click on the **Suggest utterances** button. A pane will open up on the right side prompting you to select your Azure OpenAI resource and deployment. 

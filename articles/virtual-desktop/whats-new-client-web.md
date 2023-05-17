@@ -1,7 +1,7 @@
 ---
 title: What's new in the Remote Desktop Web client for Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop Web client for Azure Virtual Desktop
-ms.topic: conceptual
+ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 01/25/2023

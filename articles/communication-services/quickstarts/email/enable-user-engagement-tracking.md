@@ -42,8 +42,7 @@ You can now subscribe to Email User Engagement operational logs - provides infor
 
 ## Next steps
 
-* [Get started with log analytics in Azure Communication Service](../../concepts/logging-and-diagnostics.md)
-
+- Access logs for [Email Communication Service](../../concepts/analytics/logs/email-logs.md).
 
 The following documents may be interesting to you:
 

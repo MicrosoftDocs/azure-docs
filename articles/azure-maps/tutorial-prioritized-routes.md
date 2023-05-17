@@ -338,7 +338,6 @@ The next tutorial demonstrates the process of creating a simple store locator us
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setCamera_CameraOptions___CameraBoundsOptions___AnimationOptions_
 [MapControlCredential]: /javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential
 [Azure Maps Route Directions API]: /javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-
-[Truck Route]: https://samples.azuremaps.com/?sample=car-vs-truck-route
+[Truck Route]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/main/Samples/Tutorials/Truck%20Route
 [Multiple routes by mode of travel]: https://samples.azuremaps.com/?sample=multiple-routes-by-mode-of-travel
-[Data-driven style expressions]: data-driven-style-expressions-web-sdk.md
 [URI Parameters for Post Route Directions]: /rest/api/maps/route/postroutedirections#uri-parameters

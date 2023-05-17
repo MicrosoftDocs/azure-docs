@@ -31,7 +31,7 @@ This section provides examples of using Azure CLI to produce tail logs. To avoid
 
 ```azurecli
 az config set defaults.group=<service-group-name>
-az config set defaults.spring-cloud=<service-instance-name>
+az config set defaults.spring=<service-instance-name>
 ```
 
 The resource group and service name are omitted in the following examples.

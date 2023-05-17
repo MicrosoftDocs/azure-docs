@@ -16,7 +16,7 @@ ms.custom:
 
 Image Analysis 4.0 allows you to train a custom model using your own training images. By manually labeling your images, you can train a model to apply custom tags to the images (image classification) or detect custom objects (object detection). Image Analysis 4.0 models are especially effective at few-shot learning, so you can get accurate models with less training data.
 
-This guide shows you how to create and train a custom image classification model. The few differences between this and object detection models are noted.
+This guide shows you how to create and train a custom image classification model. The few differences between training an image classification model and object detection model are noted.
 
 ## Prerequisites
 
@@ -468,5 +468,5 @@ The API call returns an **ImageAnalysisResult** JSON object, which contains all 
 
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze Image 4.0 API, so you can call your custom model from an application using REST or library SDKs.
 
-* [Call the Analyze Image API](./call-analyze-image-40.md#use-a-custom-model)
 * See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.
+* [Call the Analyze Image API](./call-analyze-image-40.md). Note the sections [Set model name when using a custom model](./call-analyze-image-40.md#set-model-name-when-using-a-custom-model) and [Get results using custom model](./call-analyze-image-40.md#get-results-using-custom-model).

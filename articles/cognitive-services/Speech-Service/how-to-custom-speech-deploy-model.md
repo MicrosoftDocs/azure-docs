@@ -15,10 +15,10 @@ zone_pivot_groups: speech-studio-cli-rest
 
 # Deploy a Custom Speech model
 
-In this article, you'll learn how to deploy an endpoint for a Custom Speech model. With the exception of [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.  
+In this article, you'll learn how to deploy an endpoint for a Custom Speech model. With the exception of [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.
 
-> [!NOTE]
-> You pay to use Custom Speech models, but you are not charged for training a model. Usage includes hosting of your deployed custom endpoint in addition to using the endpoint for speech-to-text. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> [!TIP]
+> A hosted deployment endpoint isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 You can deploy an endpoint for a base or custom model, and then [update](#change-model-and-redeploy-endpoint) the endpoint later to use a better trained model.
 
@@ -117,7 +117,7 @@ spx help csr endpoint
 
 ::: zone pivot="rest-api"
 
-To create an endpoint and deploy a model, use the [Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create an endpoint and deploy a model, use the [Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `model` property to the URI of the model that you want deployed to the endpoint. 
@@ -251,7 +251,7 @@ spx help csr endpoint
 
 ::: zone pivot="rest-api"
 
-To redeploy the custom endpoint with a new model, use the [Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To redeploy the custom endpoint with a new model, use the [Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `model` property to the URI of the model that you want deployed to the endpoint.
 
@@ -334,7 +334,7 @@ The location of each log file with more details are returned in the response bod
 
 ::: zone pivot="rest-api"
 
-To get logs for an endpoint, start by using the [Endpoints_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+To get logs for an endpoint, start by using the [Endpoints_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEndpointId` with your endpoint ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

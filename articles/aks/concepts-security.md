@@ -158,7 +158,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: ./managed-aad.md
+[aks-aad]: ./managed-azure-ad.md
 [aks-add-np-containerd]: learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md

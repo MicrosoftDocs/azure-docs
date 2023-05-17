@@ -327,7 +327,7 @@ Before you can set up your function app to use Azure AD authentication, you need
 
 #### Find the tenant ID for your Azure AD
 
-To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
+To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use **Fabrikam** as the example tenant.
 

@@ -14,7 +14,7 @@ ms.custom: template-concept, engagement-fy23
 # Azure networking services overview
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Select any of the following key capabilities to learn more about them:
-- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, Route Server, and Azure Bastion.
+- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, Azure Virtual Network Manager, Route Server, and Azure Bastion.
 - [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Load Balancer, Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
 - [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
 - [**Network monitoring**](#monitor): Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
@@ -26,7 +26,7 @@ This section describes services that provide connectivity between Azure resource
 ### <a name="vnet"></a>Virtual network
 Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. You can use VNets to:
 - **Communicate between Azure resources**: You can deploy virtual machines, and several other types of Azure resources to a virtual network, such as Azure App Service Environments, the Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy into a virtual network, see [Virtual network service integration](../../virtual-network/virtual-network-for-azure-services.md).
-- **Communicate between each other**: You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering. The virtual networks you connect can be in the same, or different, Azure regions. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
+- **Communicate between each other**: You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering or Azure Virtual Network Manager. The virtual networks you connect can be in the same, or different, Azure regions. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) and [Azure Virtual Network Manager](../../virtual-network-manager/overview.md).
 - **Communicate to the internet**: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](../../virtual-network/ip-services/virtual-network-public-ip-address.md) or public [Load Balancer](../../load-balancer/load-balancer-overview.md) to manage your outbound connections.
 - **Communicate with on-premises networks**: You can connect your on-premises computers and networks to a virtual network using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
@@ -77,6 +77,10 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 For more information, see [What is virtual network NAT gateway?](../../virtual-network/nat-gateway/nat-overview.md)
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
+
+### <a name="avnm"></a>Azure Virtual Network Manager
+
+Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. For more information, see [What is Azure Virtual Network Manager?](../../virtual-network-manager/overview.md).
 
 ### <a name="routeserver"></a>Route Server
 
