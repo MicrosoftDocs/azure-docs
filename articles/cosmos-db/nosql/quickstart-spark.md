@@ -427,9 +427,10 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
        .mode("APPEND")
        .save()
     ```
+--- 
 
   > [!TIP]
-  > In this quickstart example credentials are assigned to variables in clear-text, but for security we recommend the usage of secrets. Review instructions on how to secure credentials in Azure Synapse Apache Spark with [linked services using the TokenLibrary](../../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md). Or if using Databricks, review how to create an [Azure Key Vault backed secret scope](../../databricks/security/secrets/secret-scopes.md#--create-an-azure-key-vault-backed-secret-scope) or a [Databricks backed secret scope](../../databricks/security/secrets/secret-scopes.md#create-a-databricks-backed-secret-scope). For configuring secrets, review how to [add secrets to your Spark configuration](../../databricks/security/secrets/secrets.md#read-a-secret).
+  > In this quickstart example credentials are assigned to variables in clear-text, but for security we recommend the usage of secrets. Review instructions on how to secure credentials in Azure Synapse Apache Spark with [linked services using the TokenLibrary](../../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md). Or if using Databricks, review how to create an [Azure Key Vault backed secret scope](https://learn.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope) or a [Databricks backed secret scope](https://learn.microsoft.com/azure/databricks/security/secrets/secret-scopes#create-a-databricks-backed-secret-scope). For configuring secrets, review how to [add secrets to your Spark configuration](https://learn.microsoft.com/azure/databricks/security/secrets/secrets#read-a-secret).
 
 1. Create a role using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `SparkConnectorAAD` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
 
@@ -505,7 +506,6 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
 
 1. Now that you have created an AAD application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
 
---- 
 
 ## Migrate to Spark 3 Connector
 
