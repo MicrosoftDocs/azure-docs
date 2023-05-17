@@ -30,7 +30,7 @@ If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the 
  1. Network fabric controller and resource group
  1. Network fabric instances and resource group
  1. AKS-Hybrid cluster name and resource group
- 1. Prepare CLI commands, Bicep templates and/or Azure Resource Manager (ARM) templates that will be used for resource creation
+ 1. Prepare CLI commands, Bicep templates and/or Azure Resource Manager (ARM) templates that are used for resource creation
 
 ## What does an unhealthy AKS-Hybrid cluster look like?
 
@@ -63,7 +63,7 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
 ### Network cloud resources 
 
  - the cloudservicesnetwork must be created
- - use correct Hybrid AKS extended location which can be referred from the respective site cluster while creating the AKS-Hybrid resources. 
+ - use correct Hybrid AKS extended location, which can be referred from the respective site cluster while creating the AKS-Hybrid resources. 
  - the defaultcninetwork must be created with an ipv4prefix and vlan that matches an existing l3isolationdomain
    - the ipv4prefix used must be unique across all defaultcninetworks and l3networks
  - the networks must have Provisioning state: Succeeded
