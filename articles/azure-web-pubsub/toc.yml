@@ -94,7 +94,7 @@
     - name: Integrate
       items: 
         - name: App Service
-          href: integrate-app-service.md
+          href: howto-integrate-app-service.md
         - name: Azure Functions
           href: integrate-azure-functions.md
         - name: Static Web Apps
