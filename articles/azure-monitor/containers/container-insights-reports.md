@@ -26,12 +26,12 @@ The liveness probe failures analyzer shows which liveness probes have failed rec
 - Total: counts liveness probe failures over the entire time range
 - Controller Total: counts liveness probe failures from all containers managed by a controller
 
-:::image type="content" source="media/container-insights-analyze/container-optimization-workbook-liveness-probe.png" alt-text="Screenshot of Container Optimization Workbook" lightbox="media/container-insights-analyze/container-optimization-workbook-liveness-probe.png":::
+:::image type="content" source="media/container-insights-reports/container-optimization-workbook-liveness-probe.png" alt-text="Screenshot of Container Optimization Workbook" lightbox="media/container-insights-reports/container-optimization-workbook-liveness-probe.png":::
 
 ### Event Anomaly
 The **event anomaly** analyzer groups similar events together for easier analysis. It also shows which event groups have recently increased in volume. Events in the list are grouped based on common phrases. For example, two events with messages *"pod-abc-123 failed, can not pull image"* and *"pod-def-456 failed, can not pull image"* would be grouped together. The **Spikiness** column rates which events have occurred more recently. For example, if Events A and B occurred on average 10 times a day in the last month, but event A occurred 1,000 times yesterday while event B occurred 2 times yesterday, then event A would have a much higher spikiness rating than B.
 
-:::image type="content" source="media/container-insights-analyze/container-optimization-workbook-event-anomaly.png" alt-text="Screenshot of event anomaly analyzer in Container Optimization Workbook" lightbox="media/container-insights-analyze/container-optimization-workbook-event-anomaly.png":::
+:::image type="content" source="media/container-insights-reports/container-optimization-workbook-event-anomaly.png" alt-text="Screenshot of event anomaly analyzer in Container Optimization Workbook" lightbox="media/container-insights-reports/container-optimization-workbook-event-anomaly.png":::
 
 ### Container optimizer
 The **container optimizer** analyzer shows containers with excessive cpu and memory limits and requests. Each tile can represent multiple containers with the same spec. For example, if a deployment creates 100 identical pods each with a container C1 and C2, then there will be a single tile for all C1 containers and a single tile for all C2 containers. Containers with set limits and requests are color-coded in a gradient from green to red. 
@@ -43,7 +43,7 @@ Tiles use the following colors:
 - gray: unset limits or requests
 
 
-:::image type="content" source="media/container-insights-analyze/container-optimization-workbook-container-optimizer.png" alt-text="Screenshot of container optimizer analyzer in the Container Optimization Workbook" lightbox="media/container-insights-analyze/container-optimization-workbook-container-optimizer.png":::
+:::image type="content" source="media/container-insights-reports/container-optimization-workbook-container-optimizer.png" alt-text="Screenshot of container optimizer analyzer in the Container Optimization Workbook" lightbox="media/container-insights-reports/container-optimization-workbook-container-optimizer.png":::
 
 
 ## Node Monitoring workbooks
