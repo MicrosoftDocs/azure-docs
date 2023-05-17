@@ -161,9 +161,9 @@ As a part of the migration, source code management system specific recommendatio
 -	Azure DevOps repositories should have secret scanning findings resolved (preview)
 -	Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
 
-Customers that rely on the `resourceID` to query DevOps recommendation data, will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud. 
+Customers that rely on the `resourceID` to query DevOps recommendation data will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud. 
 
-Queries will need to be updated to reflect both the old and new to show both, for example, total over time.  
+Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.  
 
 The recommendations page's experience will have minimal impact and deprecated assessments may continue to show for a maximum of 14 days if new scan results are not submitted.  
 
