@@ -13,7 +13,7 @@ After you onboard Microsoft Sentinel into your workspace, you can use data conne
 
 You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration-for-data-connectors) to connect your data sources with Microsoft Sentinel.
 
-The Microsoft Sentinel **Data connectors** page shows the list of active or custom connectors and their status in your workspace. 
+The Microsoft Sentinel **Data connectors** page shows the list of connectors installed in your workspace and their status. 
 
 :::image type="content" source="media/collect-data/collect-data-page.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/collect-data/collect-data-page.png":::
 
