@@ -31,11 +31,11 @@ You should be aware of couple constraints that come with this feature:
    The Teams user should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
 3. The direct download URL (`url`) might be inaccessible if file is protected (files with restricted permissions such as file being password protected or shared with a specific email address owner)
 
-In addition to regular files (with `AttachmentType` of `file`), the Chat SDK for JavaScript also provides the `AttachmentType` of `teamsImage` for image attachments so that you can use it to mirrow the behavior of how Microsoft Teams client converts image attachment to inline images in the UI layer. See section "Image Attachment Handling" for more info. 
+In addition to regular files (with `AttachmentType` of `file`), the Chat SDK for JavaScript also provides the `AttachmentType` of `teamsImage` for image attachments so that you can use it to mirror the behavior of how Microsoft Teams client converts image attachment to inline images in the UI layer. See section "Image Attachment Handling" for more info. 
 
-Please note that images added via "Upload from this device" will be rendered on Teams side, and Chat SDK for JavaScript would be returning such attachments as `teamsImage`. For images uploaded via "Attach cloud files" however, they would be treated as regular files on the Teams side, and therefore Chat SDK for JavaScript would be returning such attachments as `file`.
+Note that images added via "Upload from this device" renders on Teams side, and Chat SDK for JavaScript would be returning such attachments as `teamsImage`. For images uploaded via "Attach cloud files" however, they would be treated as regular files on the Teams side, and therefore Chat SDK for JavaScript would be returning such attachments as `file`.
 
-Please also note that only files uploaded via "drag-and-drop" or via attachment menu of "Upload from this device" and "Attach cloud files" are supported. Some messages with embedded media (such as video clips, audio messages, weather cards, etc.) are adaptive cards, which currently is not supported by the Chat SDK for JavaScript.
+Also note that only files uploaded via "drag-and-drop" or via attachment menu of "Upload from this device" and "Attach cloud files" are supported. Some messages with embedded media (such as video clips, audio messages, weather cards, etc.) are adaptive card, which currently isn't supported.
 
 [!INCLUDE [Teams File Attachment Interop with JavaScript SDK](./includes/meeting-interop-features-file-attachment-javascript.md)]
 
