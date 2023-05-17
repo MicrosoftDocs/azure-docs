@@ -14,7 +14,7 @@ ms.author: junbchen
 
 The following reference describes the supported properties of `AzureAppConfigurationProvider` object in the Azure App Configuration Kubernetes Provider.
 
-## Supported properties
+## Properties
 
 Following is the references of properties that user can specify in `spec` of `AzureAppConfigurationProvider`.
 
@@ -25,32 +25,28 @@ Following is the references of properties that user can specify in `spec` of `Az
 |auth|The authentication method to access Azure App Configuration |false|object|
 |keyValues|The rule of retrieving the key-values from the Azure App Configuration store|false|object|
 
-`spec.endpoint` is required. It should be in the format of `https://<yourappconfig>.azconfig.io`.
-
-`spec.target` is required and has the following child property.
+The `spec.target` property has the following child property.
 
 |Name|Description| Required|type|
 |---|---|---|---|
 |configMapName|The name of destination configMap| true| string|
 
-`spec.auth` is optional. Leave it not presence or empty, the system assigned managed identity would be used by default. It allows one of the following child properties.
+If the `spec.auth` property is not set, the system-assigned managed identity will be used. It has the following child properties.
 
 |Name|Description| Required|type|
 |---|---|---|---|
-|managedIdentityClientId|System assigned or user-assigned managed identity client ID| conditional|string|
-|servicePrincipalReference|Name of Secret, which contains the credentials used for service principal authentication|conditional|string|
+|managedIdentityClientId|Client ID of system-assigned or user-assigned managed identity|false|string|
+|servicePrincipalReference|Name of the Kubernetes Secret, which contains the credentials used for service principal authentication|false|string|
 
-`spec.keyValues` is optional and has the following child properties.
+The `spec.keyValues` has the following child properties.
 
 |Name|Description|Required|type|
 |---|---|---|---|
-|trimKeyPrefixes|List of key prefixes that to be trimmed| false| string array|
-|selectors|List of selectors for getting a subset of key-values|false|object array|
-|keyVaults|Settings for resolving the key vault reference content type items|conditional|object|
+|selectors|List of selectors for key-value filtering|false|object array|
+|trimKeyPrefixes|List of key prefixes to be trimmed|false|string array|
+|keyVaults|Settings for Key Vault references|conditional|object|
 
-`spec.keyValues.trimKeyPrefixes` is an optional string array. Not specifying `spec.keyValues.trimKeyPrefixes` means that no key prefix would be trimmed. If the prefix of a key matches any item in trimKeyPrefixes, it would be trimmed.
-
-`spec.keyValues.selectors` is an optional *selector* array.  Not specifying `spec.keyValues.selectors` means that all key-values with `(no label)` label are retrieved. Following properties can be set in each *selector*, note `keyFilter` is required. 
+If the `spec.keyValues.selectors` property is not set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
 |Name|Description|Required|type|
 |---|---|---|---|
@@ -101,11 +97,11 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
-    name: appconfigurationprovider-sample
-    namespace: appconfig-sample
+      name: appconfigurationprovider-sample
+      namespace: appconfig-sample
     spec:
-    endpoint: https://<yourappconfig>.azconfig.io
-    target:
+      endpoint: https://<yourappconfig>.azconfig.io
+      target:
         configMapName: configmap-name-to-create
     ```
 
@@ -117,13 +113,13 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
-    name: appconfigurationprovider-sample
-    namespace: appconfig-sample
+      name: appconfigurationprovider-sample
+      namespace: appconfig-sample
     spec:
-    endpoint: https://<yourappconfig>.azconfig.io
-    target:
+      endpoint: https://<yourappconfig>.azconfig.io
+      target:
         configMapName: configmap-name-to-create
-    auth:
+      auth:
         managedIdentityClientId: <your-managed-identity-client-id>
     ```
 
@@ -135,13 +131,13 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
-    name: appconfigurationprovider-sample
-    namespace: appconfig-sample
+      name: appconfigurationprovider-sample
+      namespace: appconfig-sample
     spec:
-    endpoint: https://<yourappconfig>.azconfig.io
-    target:
+      endpoint: https://<yourappconfig>.azconfig.io
+      target:
         configMapName: configmap-name-to-create
-    auth:
+      auth:
         servicePrincipalReference: <your-service-principal-secret-name>
     ```
 
@@ -149,33 +145,10 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
     > 1. Service Principal is the only authentication method that support authenticating Azure App Configuration in non-AKS cluster at this moment.
     > 2. Only one authentication method can be set in `auth` field, specifying more than one authentication method is not allowed
 
-### Keep data up-to-date when key-values are updated in Azure AppConfiguration
-
-Currently, since the provider doesn't support dynamic configuration, if you update the configuration in Azure App Configuration, the data in ConfigMap or Secret wouldn't be updated automatically, you have three options to update the ConfigMap accordingly.
-- Option 1: Delete and redeploy that AzureAppConfigurationProvider.
-- Option 2: Delete the ConfigMap, it generates a new one.
-- Option 3: Set a dedicated annotation in the AzureAppConfigurationProvider, trigger settings update in ConfigMap via updating the value of that annotation
-
-For example, set an annotation `dynamic/timestamp` with a time stamp, just need to refresh it to the current time to trigger a setting update in ConfigMap:
-
-``` yaml
-apiVersion: azconfig.io/v1beta1
-kind: AzureAppConfigurationProvider
-metadata:
-  name: appconfigurationprovider-sample
-  namespace: appconfig-sample
-  annotations:
-    dynamic/timestamp: 2023-01-01T00:00:00.000
-spec:
-  endpoint: https://<yourappconfig>.azconfig.io
-  target:
-    configMapName: configmap-name-to-create
-```
-
 ### Select a set of key-values from Azure App Configuration
 You can set the `selectors` field to determine the set of key-values you would like to get from Azure App Configuration. 
 
-This sample constructs all key-values with `(no label)` into the target ConfigMap:
+This sample constructs all key-values with no label into the target ConfigMap:
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
