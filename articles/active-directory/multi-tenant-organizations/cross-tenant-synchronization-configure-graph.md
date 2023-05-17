@@ -510,15 +510,24 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     $ServicePrincipalId = "<ServicePrincipalId>"
     ```
 
-1. In the source tenant, use the [Test-MgServicePrincipalSynchronizationJobCredentials](/powershell/module/microsoft.graph.applications/test-mgserviceprincipalsynchronizationjobcredentials?view=graph-powershell-beta&preserve-view=true&branch=main) command to test the connection to the target tenant and validate the credentials.
+1. In the source tenant, use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest) command to test the connection to the target tenant and validate the credentials.
 
     ```powershell
-    $JobId = <JobId>
-    $Credentials = @(
-        [pscustomobject]@{"Key"="CompanyId"; "Value"=$TargetTenantId}
-        [pscustomobject]@{"Key"="AuthenticationType"; "Value"="SyncPolicy"}
-    )
-    Test-MgServicePrincipalSynchronizationJobCredentials -ServicePrincipalId $ServicePrincipalId -SynchronizationJobId $JobId -Credentials $Credentials
+    $Params = @{
+        "useSavedCredentials" = $false
+        "templateId" = "Azure2Azure"
+        "credentials" = @(
+            @{
+                "key" = "CompanyId"
+                "value" = $TargetTenantId
+            }
+            @{
+                "key" = "AuthenticationType"
+                "value" = "SyncPolicy"
+            }
+        )
+    }
+    Invoke-MgGraphRequest -Method POST -Uri "https://graph.microsoft.com/beta/servicePrincipals/$ServicePrincipalId/synchronization/jobs/validateCredentials" -Body $Params
     ```
 ::: zone-end
 
