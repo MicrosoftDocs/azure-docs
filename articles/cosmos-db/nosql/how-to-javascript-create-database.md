@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 07/06/2022
-ms.custom: devx-track-js, devguide-csharp, cosmos-db-dev-journey
+ms.date: 05/17/2023
+ms.custom: devx-track-js, cosmos-db-dev-journey
 ---
 
 # Create a database in Azure Cosmos DB for NoSQL using JavaScript
@@ -36,16 +36,16 @@ Once created, the URI for a database is in this format:
 Once you create the [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient), use the client to create a [Database](/javascript/api/@azure/cosmos/database) from two different calls:
 
 * [createIfNotExists](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) - Creates a database if it doesn't exist. If it does exist, return database.
-* [create](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-create) - Creates a database if it doesn't already exist. If it does exist, return error.
+* [create](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-create) - Creates a database if it doesn't already exist. If it does exist, return error statusCode.
 
 ```javascript
 const databaseName = 'myDb';
 
 // Create or get existing database
-const {statusCode, database} = await client.databases.createIfNotExists({ id: databaseName });
+const {statusCode, database } = await client.databases.createIfNotExists({ id: databaseName });
 
-// Create or return error
-const {statusCode, database} = await client.databases.create({ id: databaseName });
+// Create or return error status code
+const {statusCode, database } = await client.databases.create({ id: databaseName });
 ```
 
 The statusCode is an HTTP response code. A successful response is in the 200-299 range.
