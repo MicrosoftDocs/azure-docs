@@ -25,18 +25,18 @@ HTTP connector is available in all workflow templates.
 >[!NOTE]
 > To create or edit a workflow, you need the [workflow admin role](catalog-permissions.md) in Microsoft Purview. You can also contact the workflow admin in your collection, or reach out to your collection administrator, for permissions.
 
-1. To add a HTTP connector, click on the **+** icon in the template where you want to add and select HTTP connector.
+1. To add an HTTP connector, click on the **+** icon in the template where you want to add and select HTTP connector.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-connector.png" alt-text="Screenshot of how to add HTTP connector.":::
 
-1. Once you select HTTP connector, you will see the following parameters:
+1. Once you select HTTP connector, you see the following parameters:
     1. Host - Request URL you want to call when this connector is executed.
-    1. Method - Select one of the following methods. GET, PUT, PATCH, POST and DELETE. These correspond to create, read, update and delete operations.
+    1. Method - Select one of the following methods. GET, PUT, PATCH, POST and DELETE. These methods correspond to create, read, update and delete operations.
     1. Path - Optionally you can enter request URL Path. You can use dynamic content for this parameter.
     1. Headers - Optionally, you can enter HTTP headers. HTTP headers let the client and the server pass additional information with an HTTP request or response
     1. Queries - Optionally, you can pass queries. 
     1. Body - Optionally, you can pass HTTP body while invoking the URL
-    1. Authentication - HTTP connector is integrated with Purview credentials. Depending on the URL you may invoke the endpoint with None (no authentication) or you can use credentials to create a basic authentication. To learn more about credentials see the [Microsoft Purview credentials article](manage-credentials.md).
+    1. Authentication - HTTP connector is integrated with Purview credentials. Depending on the URL, you may invoke the endpoint with None (no authentication) or you can use credentials to create a basic authentication. To learn more about credentials see the [Microsoft Purview credentials article](manage-credentials.md).
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-properties.png" alt-text="Screenshot of how to add HTTP connector properties.":::
 
@@ -44,7 +44,7 @@ HTTP connector is available in all workflow templates.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-settings.png" alt-text="Screenshot of how to add HTTP connector settings."::: 
 
-1. You will be now presented with the settings for HTTP connector and you can turn secure inputs and outputs OFF.
+1. You are now presented with the settings for HTTP connector and you can turn secure inputs and outputs OFF.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-secure.png" alt-text="Screenshot of how to add HTTP connector secure input and outputs.":::
     
@@ -54,12 +54,12 @@ The parse JSON action in workflows allows you to take an incoming JSON from HTTP
 
 The parse JSON action is available in all workflows.
 
-:::image type="content" source="./media/how-to-use-workflow-http-connector/parse-json-action.png" alt-text="Screenshot of the workflows parse JSON action, showing its paramaters filled out with sample data.":::
+:::image type="content" source="./media/how-to-use-workflow-http-connector/parse-json-action.png" alt-text="Screenshot of the workflows parse JSON action, showing its parameters filled out with sample data.":::
 
 The parse JSON action has two parameters:
 
-- Content - this will be a variable that should contain the JSON you want to parse.
-- Schema - this should be the schema of the incoming JSON, which will allow the workflow to parse the incoming information. You can supply your own, or use the **Generate from sample** button. If you generate from a sample, you'll enter a sample JSON payload and a schema will be automatically generated for you.
+- Content - a variable that should contain the JSON you want to parse.
+- Schema - the schema of the incoming JSON, which allowsthe workflow to parse the incoming information. You can supply your own, or use the **Generate from sample** button. If you generate from a sample, you'll enter a sample JSON payload and a schema will be automatically generated for you.
 
 Actions and connectors in the workflow after the parse JSON action will be able to use the values extracted from the JSON by selecting **Add dynamic content** for any parameters.
 
