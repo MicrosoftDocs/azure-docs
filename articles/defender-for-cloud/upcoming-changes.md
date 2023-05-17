@@ -147,7 +147,7 @@ The format for resource IDs will be changed from:
 To:
 
 `Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos`
-```Microsoft.Security/securityConnectors/devops/gitHubOwners/repos```
+`Microsoft.Security/securityConnectors/devops/gitHubOwners/repos`
 
 As a part of the migration, source code management system specific recommendations will be created for security findings:
 -	GitHub repositories should have code scanning findings resolved (preview)
