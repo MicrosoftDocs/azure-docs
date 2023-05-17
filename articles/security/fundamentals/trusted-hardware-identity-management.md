@@ -23,9 +23,7 @@ THIM defines the Azure security baseline for Azure confidential computing (ACC) 
 
 ### How do I use THIM with Intel processors?
 
-To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/validation collateral. All or parts of this collateral must be fetched from THIM. You can fetch it by using the Intel Quote Provider Library (QPL) or the Azure Data Center Attestation Primitives (DCAP) client library.
-
-To learn more on how to use Intel QPL with THIM, see [How do I use the Intel Quote Provider Library (QPL) with THIM?](#how-do-i-use-the-intel-quote-provider-library-qpl-with-thim). To learn more on how to use Azure DCAP with THIM, see [What is the Azure DCAP library?](#what-is-the-azure-dcap-library).
+To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/validation collateral. All or parts of this collateral must be fetched from THIM. You can fetch it by using the [Intel Quote Provider Library (QPL)](#how-do-i-use-intel-qpl-with-thim) or the [Azure Data Center Attestation Primitives (DCAP) client library](#what-is-the-azure-dcap-library).
 
 ### The "next update" date of the Azure-internal caching service API that Azure Attestation uses seems to be out of date. Is it still in operation and can I use it?
 
@@ -33,7 +31,7 @@ The `tcbinfo` field contains the TCB information. The THIM service provides olde
 
 The Open Enclave SDK and Azure Attestation don't look at the `nextUpdate` date, however, and will pass attestation.
 
-### What is the Azure DCAP Library?
+### What is the Azure DCAP library?
 
 The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM service. Fetching collateral directly from the THIM service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
 
@@ -47,7 +45,7 @@ Use the following links to download the packages:
 
 ### Why do THIM and Intel have different baselines?
 
-THIM and Intel provide different baseline levels of the trusted computing base. Although customers can view Intel as having the latest baselines, this approach calls for the customers to ensure that all the requirements are satisfied. It can lead to a breakage if customers haven't updated to the specified requirements.
+THIM and Intel provide different baseline levels of the trusted computing base. When customers assume that Intel has the latest baselines, they must ensure that all the requirements are satisfied. This approach can lead to a breakage if customers haven't updated to the specified requirements.
 
 THIM takes a slower approach to updating the TCB baseline, so customers can make the necessary changes at their own pace. Although this approach provides an older TCB baseline, customers won't experience a breakage if they haven't met the requirements of the new TCB baseline. This is why the TCB baseline from THIM is a different version from Intel's baseline. We want to empower customers to meet the requirements of the new TCB baseline at their pace, instead of forcing them to update and causing a disruption that would require reprioritization of workstreams.
 
@@ -61,18 +59,18 @@ To retrieve the certificate, you must install the [Azure DCAP library](#what-is-
 
 Customers might want the flexibility to use Intel QPL to interact with THIM without having to download another dependency from Microsoft (that is, the Azure DCAP client library). Customers who want to use Intel QPL with the THIM service must adjust the Intel QPL configuration file, *sgx_default_qcnl.conf*.
 
-The quote generation/verification collateral that's used to generate the Intel SGX or Intel TDX quotes can be split into the PCK certificate and all other quote generation/verification collateral. Customers have the following options to retrieve the two parts:
+The quote generation/verification collateral that's used to generate the Intel SGX or Intel TDX quotes can be split into:
 
-- Retrieve the PCK certificate: Customers must use a THIM endpoint.
-- Retrieve other quote generation/verification collateral: Customers can either use a THIM endpoint or an Intel Provisioning Certification Service (PCS) endpoint.
+- The PCK certificate. To retrieve it, customers must use a THIM endpoint.
+- All other quote generation/verification collateral. To retrieve it, customers can either use a THIM endpoint or an Intel Provisioning Certification Service (PCS) endpoint.
 
 The Intel QPL configuration file (*sgx_default_qcnl.conf*) contains three keys for defining the collateral endpoints. The `pccs_url` key defines the endpoint that's used to retrieve the PCK certificates. The `collateral_service` key can define the endpoint that's used to retrieve all other quote generation/verification collateral. If the `collateral_service` key is not defined, all quote verification collateral is retrieved from the endpoint defined with the `pccs_url` key.
 
-The following table lists how these keys can be set.
+The following table shows how these keys can be set.
 
 | Name | Possible endpoints |
 | -- | -- |
-| `pccs_url` | THIM endpoint: `https://global.acccache.azure.net/sgx/certification/v3` |
+| `pccs_url` | THIM endpoint: `https://global.acccache.azure.net/sgx/certification/v3`. |
 | `collateral_service` | THIM endpoint (`https://global.acccache.azure.net/sgx/certification/v3`) or Intel PCS endpoint. The [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) file always lists the most up-to-date endpoint in the `collateral_service` key. |
 
 The following code snippet is from an example of an Intel QPL configuration file:
@@ -162,7 +160,7 @@ curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: 
 | Name | Description |
 |--|--|
 | `200 OK` | Lists available collateral in the HTTP body within JSON format |
-| `Other Status Codes` | Error response that describes why the operation failed |
+| `Other Status Codes` | Describes why the operation failed |
 
 #### Definitions
 
@@ -170,13 +168,13 @@ curl GET "http://169.254.169.254/metadata/THIM/amd/certification" -H "Metadata: 
 |--|--|
 | `VcekCert` | X.509v3 certificate as defined in RFC 5280 |
 | `tcbm` | Trusted computing base |
-| `certificateChain` | Includes the AMD SEV Key (ASK) and AMD Root Key (ARK) certificates |
+| `certificateChain` | AMD SEV Key (ASK) and AMD Root Key (ARK) certificates |
 
 ### How do I request AMD collateral in an Azure Kubernetes Service Container on a CVM node?
 
 Follow these steps to request AMD collateral in a confidential container:
 
-1. Start by creating an Azure Kubernetes Service (AKS) cluster on a CVM node or adding a CVM node pool to the existing cluster:
+1. Start by creating an Azure Kubernetes Service (AKS) cluster on a CVM node or by adding a CVM node pool to an existing cluster:
     - Create an AKS cluster on a CVM node:
        1. Create a resource group in one of the CVM supported regions:
 
