@@ -133,7 +133,7 @@ To generate configurations and deploy the app, follow these steps:
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
-                   <appName>customers-service</appName>
+                   <appName>hellospring</appName>
    ```
 
    The POM file now contains the plugin dependencies and configurations.

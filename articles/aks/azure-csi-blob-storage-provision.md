@@ -3,7 +3,7 @@ title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 03/23/2023
+ms.date: 05/02/2023
 
 ---
 
@@ -23,6 +23,10 @@ For more information on Kubernetes volumes, see [Storage options for application
 - If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
 
 - [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
+
+- Regarding the support for Azure DataLake storage account when using blobfuse mount
+   - To create an ADLS account using the driver in dynamic provisioning, you need to specify `isHnsEnabled: "true"` in the storage class parameters.
+   - To enable blobfuse access to an ADLS account in static provisioning, you need to specify the mount option `--use-adls=true` in the persistent volume.
 
 ## Dynamically provision a volume
 
@@ -145,7 +149,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     test.txt
     ```
 
@@ -179,7 +183,7 @@ In this example, the following manifest configures mounting a Blob storage conta
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     storageclass.storage.k8s.io/blob-nfs-premium created
     ```
 
@@ -220,7 +224,7 @@ In this example, the following manifest configures using blobfuse and mounts a B
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     storageclass.storage.k8s.io/blob-fuse-premium created
     ```
 
@@ -268,13 +272,13 @@ When you create an Azure Blob storage resource for use with AKS, you can create 
 
 For this article, create the container in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**:
 
-```azurecli
+```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
 The output of the command resembles the following example:
 
-```azurecli
+```azurecli-interactive
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
@@ -487,7 +491,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 
     The output from the command resembles the following example:
 
-    ```bash
+    ```output
     Filesystem      Size  Used Avail Use% Mounted on
     ...
     blobfuse         14G   41M   13G   1% /mnt/blob

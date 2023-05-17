@@ -85,13 +85,15 @@ This table contains the parameters stored in the sap-parameters.yaml file, most 
 > | `bom_base_name`           | The name of the SAP Application Bill of Materials file                                                           | Required   |
 > | `sap_sid`                 | The SID of the SAP application                                                                                   | Required   |
 > | `scs_high_availability`   | Defines if the Central Services is deployed highly available                                                     | Required   |
-> | `scs_instance_number`     | Defines the instance number for ASCS                                                                             | Required   |
-> | `scs_lb_ip`               | IP address of ASCS instance                                                                                      | Required   |
-> | `ers_instance_number`     | Defines the instance number for ERS                                                                              | Required   |
-> | `ers_lb_ip`               | IP address of ERS instance                                                                                       | Required   |
-> | `pas_instance_number`     | Defines the instance number for PAS                                                                              | Required   |
+> | `scs_instance_number`     | Defines the instance number for ASCS                                                                             | Optional   |
+> | `scs_lb_ip`               | IP address of ASCS instance                                                                                      | Optional   |
+> | `scs_virtual_hostname`    | The host name of the ASCS instance                                                                               | Optional   |
+> | `ers_instance_number`     | Defines the instance number for ERS                                                                              | Optional   |
+> | `ers_lb_ip`               | IP address of ERS instance                                                                                       | Optional   |
+> | `ers_virtual_hostname`    | The host name of the ERS instance                                                                                | Optional   |
+> | `pas_instance_number`     | Defines the instance number for PAS                                                                              | Optional   |
 > | `web_sid`                 | The SID for the Web Dispatcher                                                                                   | Required if web dispatchers are deployed  |
-> | `scs_clst_lb_ip`          | IP address of Windows Cluster service                                                                            | Required   |
+> | `scs_clst_lb_ip`          | IP address of Windows Cluster service                                                                            | Optional   |
 
 ### Database Tier
 
@@ -101,9 +103,9 @@ This table contains the parameters stored in the sap-parameters.yaml file, most 
 > | `db_sid`                  | The SID of the SAP database                                                                                      | Required   |
 > | `db_instance_number`      | Defines the instance number for the database                                                                     | Required   |
 > | `db_high_availability`    | Defines if the database is deployed highly available                                                             | Required   |
-> | `db_lb_ip`                | IP address of the database load balancer                                                                         | Required   |
+> | `db_lb_ip`                | IP address of the database load balancer                                                                         | Optional   |
 > | `platform`                | The database platform. Valid values are: ASE, DB2, HANA, ORACLE, SQLSERVER                                       | Required   |
-> | `db_clst_lb_ip`           | IP address of database cluster for Windows                                                                       | Required   |
+> | `db_clst_lb_ip`           | IP address of database cluster for Windows                                                                       | Optional   |
 
 ### NFS
 

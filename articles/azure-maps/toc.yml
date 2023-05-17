@@ -163,8 +163,6 @@ items:
       href: how-to-render-custom-data.md
     - name: Request real-time and forecasted weather data
       href: how-to-request-weather-data.md
-    - name: Request elevation data
-      href: how-to-request-elevation-data.md
   - name: Develop with the REST SDK
     items:
     - name: REST SDK Developer Guide
@@ -419,8 +417,6 @@ items:
       href: /rest/api/maps/data-v2
     - name: Data Registry
       href: /rest/api/maps/data-registry
-    - name: Elevation
-      href: /rest/api/maps/elevation
     - name: Geolocation
       href: /rest/api/maps/geolocation
     - name: Render

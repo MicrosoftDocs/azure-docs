@@ -37,7 +37,7 @@ Auth0AM_CL
 
 To integrate with Auth0 Access Management (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **API token** is required. [See the documentation to learn more about API token](https://auth0.com/docs/secure/tokens/access-tokens/get-management-api-access-tokens-for-production)
 
 
@@ -48,7 +48,7 @@ To integrate with Auth0 Access Management (using Azure Function) make sure you h
    >  This connector uses Azure Functions to connect to the Auth0 Management APIs to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the Auth0 Management API**
@@ -56,7 +56,7 @@ To integrate with Auth0 Access Management (using Azure Function) make sure you h
  Follow the instructions to obtain the credentials.
 
 1. In Auth0 Dashboard, go to **Applications > Applications**.
-2. Select your Application.
+2. Select your Application. This should be a "Machine-to-Machine" Application configured with at least **read:logs** and **read:logs_users** permissions.
 3. Copy **Domain, ClientID, Client Secret**
 
 
@@ -86,7 +86,7 @@ Use the following step-by-step instructions to deploy the Auth0 Access Managemen
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-Auth0AccessManagement-azuredeploy) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

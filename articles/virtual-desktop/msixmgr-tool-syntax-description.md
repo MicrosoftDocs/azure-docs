@@ -18,7 +18,7 @@ Before you can follow the instructions in this article, you'll need to do the fo
 - [Download the MSIXMGR tool](https://aka.ms/msixmgr)
 - Get an MSIX-packaged application (.MSIX file)
 - Get administrative permissions on the machine where you'll create the MSIX image 
-- [Set up MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
+- [Set up MSIXMGR tool](app-attach-msixmgr.md)
 
 ## Parameters
 
@@ -104,23 +104,20 @@ msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\
 
 To unpack a package into a VHDX disk image:
 
-> [!NOTE]
-> If you're using VHD or VHDX, we recommend the size is four times the size of MSIX package.
-
 ```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -vhdSize 200 -filetype VHDX -rootDirectory apps
+msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp\myapp.vhdx" -applyACLs -create -filetype VHDX -rootDirectory apps
 ```
 
 To unpack a package into a CIM disk image:
 
 ```
-msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps
+msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp\myapp.vhdx" -applyACLs -create -filetype CIM -rootDirectory apps
 ```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs` |
-|-create|Creates a new image with the specified -filetype and unpacks the packages to that image. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX -vhdSize 200` |
+|-create|Creates a new image with the specified -filetype and unpacks the packages to that image. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX` |
 |-fileType|The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. This is a required parameter when unpacking to CIM files. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType CIM -rootDirectory apps` |
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files. |`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps` |
 |-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores).|`msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs`|
@@ -175,11 +172,13 @@ msixmgr.exe -?
 
 To learn more about MSIX app attach, check out these articles:
 
-- [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach)
-- [Set up MSIX app attach with the Azure portal](/azure/virtual-desktop/app-attach-azure-portal)
-- [Set up MSIX app attach using PowerShell](/azure/virtual-desktop/app-attach-powershell)
-- [Create PowerShell scripts for MSIX app attach](/azure/virtual-desktop/app-attach)
-- [Prepare an MSIX image for Azure Virtual Desktop](/azure/virtual-desktop/app-attach-image-prep)
-- [Set up a file share for MSIX app attach](/azure/virtual-desktop/app-attach-file-share)
+- [Using the MSIXMGR tool](app-attach-msixmgr.md)
+- [What's new in the MSIXMGR tool](whats-new-msixmgr.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
+- [Set up MSIX app attach with the Azure portal](app-attach-azure-portal.md)
+- [Set up MSIX app attach using PowerShell](app-attach-powershell.md)
+- [Create PowerShell scripts for MSIX app attach](app-attach.md)
+- [Prepare an MSIX image for Azure Virtual Desktop](app-attach-image-prep.md)
+- [Set up a file share for MSIX app attach](app-attach-file-share.md)
 
-If you have questions about MSIX app attach, see our [App attach FAQ](/azure/virtual-desktop/app-attach-faq) and [App attach glossary](/azure/virtual-desktop/app-attach-glossary).
+If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.yml) and [App attach glossary](app-attach-glossary.md).

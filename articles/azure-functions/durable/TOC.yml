@@ -150,6 +150,8 @@
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
+    - name: Upgrade to Node.js model v4
+      href: durable-functions-node-model-upgrade.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -174,6 +176,8 @@
     items:
     - name: Upgrade Durable Functions extension version
       href: durable-functions-extension-upgrade.md
+    - name: Durable Functions Troubleshooting Guide
+      href: durable-functions-troubleshooting-guide.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

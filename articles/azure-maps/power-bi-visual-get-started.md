@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: This article, discusses how to use Azure Maps Power BI visual.
+description: This article discusses how to use Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
 ms.date: 11/29/2021

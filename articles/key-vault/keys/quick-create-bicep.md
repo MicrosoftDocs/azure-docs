@@ -75,8 +75,9 @@ resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   location: location
   properties: {
     accessPolicies:[]
-    enableRbacAuthorization: false
-    enableSoftDelete: false
+    enableRbacAuthorization: true
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
     enabledForDeployment: false
     enabledForDiskEncryption: false
     enabledForTemplateDeployment: false

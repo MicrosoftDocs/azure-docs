@@ -45,23 +45,31 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | Dec 2022 |
-| 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | Apr 2023 |
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | Jul 2023
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | May 2023 | Jun 2023 | Jun 2024
 
+## AKS Components Breaking Changes by Version
+
+Note important changes to make, before you upgrade to any of the available minor versions per below. 
+
+|AKS Component/Add on | v1.24  | v1.25 | v1.26 |
+|--------------|-------------------|-----------------------------------------------------------|---------------------------------------------------------------------------|
+| Overlay VPA | 0.11.0, no breaking changes |0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)|0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)
+|OS Images (Ubuntu)| Ubuntu 18.04 by default with cgroupv1 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br> If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br>If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
+
+
 ## Alias minor version
 
 > [!NOTE]
-> Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220201 or above. Use `az upgrade` to install the latest version of the CLI.
+> Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220401 or above. Use `az upgrade` to install the latest version of the CLI.
 
-With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
+AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#using-cluster-auto-upgrade).
+When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` doesn't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` triggers an upgrade to the latest GA `1.15` patch.
 
-To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
+To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
 
 ```
 {
@@ -83,6 +91,8 @@ AKS defines a generally available (GA) version as a version available in all reg
 
 AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
+AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". For more information, see [platform support policy](#platform-support-policy).
+
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -94,9 +104,7 @@ New minor version    |    Supported Version List
 -----------------    |    ----------------------
 1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
 
-Where ".letter" is representative of patch versions.
-
-When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and removed. For example, if the current supported version list is:
+When a new minor version is introduced, the oldest supported minor version and patch releases are deprecated and removed. For example, the current supported version list is:
 
 ```
 1.17.a
@@ -127,6 +135,41 @@ New Supported Version List
 ----------------------
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
+
+## Platform support policy
+
+Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers will only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components will not be supported. 
+
+Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 will be considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then be auto-upgraded to v1.26.
+
+AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+
+This table outlines support guidelines for Community Support compared to Platform support.
+
+| Support category | Community Support (N-2) | Platform Support (N-3) | 
+|---|---|---|
+| Upgrades from N-3 to a supported version| Supported | Supported|
+| Platform (Azure) availability | Supported | Supported|
+| Node pool scaling| Supported | Supported|
+| VM availability| Supported | Supported|
+| Storage, Networking related issues| Supported | Supported with the exception of bug fixes and retired components |
+| Start/stop | Supported | Supported|
+| Rotate certificates | Supported | Supported|
+| Infrastructure SLA| Supported | Supported|
+| Control Plane SLA| Supported | Supported|
+| Platform (AKS) SLA| Supported | Not supported|
+| Kubernetes components (including Add-ons) | Supported | Not supported|
+| Component updates | Supported | Not supported|
+| Component hotfixes | Supported | Not supported|
+| Applying bug fixes | Supported | Not supported|
+| Applying security patches | Supported | Not supported|
+| Kubernetes API support | Supported | Not supported|
+| Cluster or node pool creation| Supported | Not supported|
+| Node pool snapshot| Supported | Not supported|
+| Node image upgrade| Supported | Not supported|
+
+ > [!NOTE]
+  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components will not be supported for N-3. For further support, see [Support and troubleshooting for AKS](./aks-support-help.md).
 
 ### Supported `kubectl` versions
 
