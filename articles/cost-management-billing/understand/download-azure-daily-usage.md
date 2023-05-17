@@ -75,7 +75,7 @@ Use the following information to download usage for billed charges. The same ste
 1. In the context menu, select **Prepare Azure usage file**. A notification message appears stating that the usage file is being prepared.
 1. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
 
-To view the discount in the usage file:
+#### Calculate discount in the usage file
 
 The usage file shows the following per-consumption line items:
 
