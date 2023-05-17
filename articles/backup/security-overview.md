@@ -85,7 +85,7 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 
 ## Compliance with standardized security requirements
 
-To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
+To help organizations comply with national/regional and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
 
 ## Next steps
 

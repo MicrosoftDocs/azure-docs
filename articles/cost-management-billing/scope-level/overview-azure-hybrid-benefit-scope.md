@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/28/2023
+ms.date: 05/03/2023
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -23,7 +23,10 @@ To use centrally managed licenses, you must have a specific role assigned to you
 
 - Enterprise Agreement
     - Enterprise Administrator  
-        If you're not an Enterprise admin, your organization must assign you that role with full access. For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
+        If you're not an Enterprise admin, you need to contact one and either:
+        - Have them give you the enterprise administrator role with full access.
+        - Contact your Microsoft account team to have them identify your primary enterprise administrator.  
+        For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
 - Microsoft Customer Agreement
     - Billing account owner
     - Billing account contributor

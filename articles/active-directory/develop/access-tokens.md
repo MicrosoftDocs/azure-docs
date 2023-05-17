@@ -174,7 +174,7 @@ The default lifetime of an access token is variable. When issued, the Microsoft 
 
 Tenants that don't use Conditional Access have a default access token lifetime of two hours for clients such as Microsoft Teams and Microsoft 365.
 
-Adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to reauthenticate (either silently or interactively). To override the default access token lifetime variation, use [Configurable token lifetime (CTL)](active-directory-configurable-token-lifetimes.md).
+Adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to reauthenticate (either silently or interactively). To override the default access token lifetime variation, use [Configurable token lifetime (CTL)](configurable-token-lifetimes.md).
 
 Apply default token lifetime variation to organizations that have Continuous Access Evaluation (CAE) enabled. Apply default token lifetime variation even if the organizations use CTL policies. The default token lifetime for long lived token lifetime ranges from 20 to 28 hours. When the access token expires, the client must use the refresh token to silently acquire a new refresh token and access token.
 
@@ -249,7 +249,7 @@ Refresh tokens are invalidated or revoked at any time, for different reasons. Th
 
 ### Token timeouts
 
-Organizations can use [token lifetime configuration](active-directory-configurable-token-lifetimes.md) to alter the lifetime of refresh tokens Some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
+Organizations can use [token lifetime configuration](configurable-token-lifetimes.md) to alter the lifetime of refresh tokens Some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
 
 - MaxInactiveTime: Specifies the amount of time that a token can be inactive.
 - MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor is set to something other than their default (Until-revoked), the user must reauthenticate after the time set in the MaxAgeSession*. Examples:
@@ -266,8 +266,7 @@ The server possibly revokes refresh tokens due to a change in credentials, or du
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User revokes their refresh tokens by using [PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
-| Admin revokes all refresh tokens for a user by using [PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
+| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 #### Non-password-based

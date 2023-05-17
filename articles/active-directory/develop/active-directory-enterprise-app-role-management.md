@@ -164,4 +164,4 @@ To delete an existing role, perform the following steps:
 
 ## Next steps
 
-- For information about customizing claims, see [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md).
+- For information about customizing claims, see [Customize claims issued in the SAML token for enterprise applications](saml-claims-customization.md).

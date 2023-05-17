@@ -1,6 +1,14 @@
-The table below shows a mapping relationship between X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet) and IPA alphabets. The X-SAMPA symbols are shown at left, with the corresponding IPA symbols to the right.
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
 
 When using X-SAMPA phone symbols `'` and `"`, it’s important to avoid conflicts with the wrapper symbol. If the X-SAMPA string contains phone `'`, we recommend using phone `_j` instead. If you don’t want to replace the phone `'`, you need to use double quotes `"` as a wrapper. Similarly, if the X-SAMPA string contains phone `"`, then double quotes shouldn't be used as a wrapper, and you must use the single quote `'` as a wrapper. Otherwise, it will cause an error.
+
+The table below shows a mapping relationship between X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet) and IPA alphabets. The X-SAMPA symbols are shown at left, with the corresponding IPA symbols to the right.
 
 ```txt
 x-sampa (L)  ipa (R)
