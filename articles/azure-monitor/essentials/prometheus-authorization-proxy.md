@@ -58,7 +58,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
    Select the **Data collection rule** on the workspace Overview tab, then select **JSON view** to see the **Resource ID**.
 
  
-   :::image type="content" source="./media/aad-authorization-proxy/workspace-overview.png" lightbox="./media/aad-authorization-proxy/workspace-overview.png" alt-text="A screenshot showing the overview page for an Azure Monitor workspace.":::
+   :::image type="content" source="./media/prometheus-authorization-proxy/workspace-overview.png" lightbox="./media/prometheus-authorization-proxy/workspace-overview.png" alt-text="A screenshot showing the overview page for an Azure Monitor workspace.":::
 
 1. Assign the `Monitoring Metrics Publisher` role to the managed identity's `clientId` so that it can write to the Azure Monitor workspace data collection rule.
 
@@ -217,11 +217,11 @@ To query your Azure Monitor workspace, follow the steps below:
 1. From your Azure Monitor workspace, select **Workbooks** .
 
 1. Select the **Prometheus Explorer** tile.
-    :::image type="content" source="./media/aad-authorization-proxy/workspace-workbooks.png" lightbox="./media/aad-authorization-proxy/workspace-workbooks.png" alt-text="A screenshot showing the workbooks gallery for an Azure Monitor workspace.":::
+    :::image type="content" source="./media/prometheus-authorization-proxy/workspace-workbooks.png" lightbox="./media/prometheus-authorization-proxy/workspace-workbooks.png" alt-text="A screenshot showing the workbooks gallery for an Azure Monitor workspace.":::
 1. On the explorer page, enter *up* into the query box.
 1. Select the **Grid** tab to see the results.
 1. Check the **cluster** column to see if from your cluster are displayed.
-    :::image type="content" source="./media/aad-authorization-proxy/prometheus-explorer.png" lightbox="./media/aad-authorization-proxy/prometheus-explorer.png" alt-text="A screenshot showing the Prometheus explorer query page.":::
+    :::image type="content" source="./media/prometheus-authorization-proxy/prometheus-explorer.png" lightbox="./media/prometheus-authorization-proxy/prometheus-explorer.png" alt-text="A screenshot showing the Prometheus explorer query page.":::
 
 
 ## [Query metrics example](#tab/query-metrics-example)

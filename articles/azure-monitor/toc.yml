@@ -479,6 +479,9 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
+      - name: Azure Active Directory authorization proxy
+        displayName: Prometheus
+        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview
