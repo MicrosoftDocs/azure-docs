@@ -120,7 +120,7 @@ Users might experience single sign-on issues with applications that depend on Az
 
 ### Workaround
 
-Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the Azure portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using PowerShell. See, [Get-AzureADUser](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0&preserve-view=true). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. After you verify the new UPN appears in the Azure portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can verify using Microsoft Graph PowerShell. See, [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser). After users sign in with a new UPN, references to the old UPN might appear on the **Access work or school** Windows setting.
 
    ![Screenshot of User-1 and Other-user domains, on the sign-in screen.](./media/howto-troubleshoot-upn-changes/other-user.png)
 
