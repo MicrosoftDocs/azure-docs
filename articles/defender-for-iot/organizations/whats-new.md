@@ -20,7 +20,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client certificates](#proxy-support-for-client-certificates) <br><br> **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### Proxy support for client certificates
+
+A client certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma. Now you can upload a client certificate through the OT sensor console.
+
+For more information, see [Configure a proxy](connect-sensors.md#configure-a-proxy)
 
 ### Configure Active Directory and NTP settings in the Azure portal
 

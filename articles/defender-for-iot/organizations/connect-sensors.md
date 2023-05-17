@@ -33,9 +33,6 @@ This step is performed by your deployment and connectivity teams.
 
 This section describes how to configure proxy settings on your sensor console.
 
-> [!NOTE]
-> An intermediate certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma.
-
 **To define proxy settings on your sensor console:**
 
 1. Sign into your OT sensor and select **System settings > Sensor Network Settings**.
@@ -52,6 +49,9 @@ This section describes how to configure proxy settings on your sensor console.
     :::image type="content" source="media/connect-sensors/configure-a-proxy.png" alt-text="Screenshot of the proxy setting page." lightbox="media/connect-sensors/configure-a-proxy.png":::
 
 1. If relevant, select **Client certificate** to upload a proxy authentication certificate for access to an SSL proxy server.
+
+    > [!NOTE]
+    > A client certificate is required for proxy servers that inspect SSL traffic, such as when using services like Zscaler and Palo Alto Prisma.
 
 1. Select **Save**.
 
