@@ -116,6 +116,9 @@ To create a dataset and connect it to an existing project, use the [Datasets_Cre
 - Set the required `contentUrl` property. This is the location of the dataset.
 
     > [!NOTE]
+    > The `contentUrl` parameter should be an URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction are not supported. 
+
+    > [!NOTE]
     > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). 
 
 - Set the required `locale` property. The dataset locale must match the locale of the project. The locale can't be changed later. 
