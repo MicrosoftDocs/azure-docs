@@ -67,11 +67,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
 
-   :::image type="content" source="../../media/quickstart-template/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-template/search-azure-spring-apps-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-microservice-apps/search-azure-spring-apps-service.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="../../media/quickstart-template/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-template/azure-spring-apps-create.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -87,7 +87,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
 
-   :::image type="content" source="../../media/quickstart-template/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-template/standard-plan-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png":::
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
 
@@ -95,7 +95,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/spring-petclinic/spring-petclinic-microservices-config.git* as **URI**, enter *main* as **Label**, select **Validate**.
 
-   :::image type="content" source="../../media/quickstart-template/validate-config-server.png" alt-text="Screenshot of Azure portal showing config server for Azure Spring Apps instance" lightbox="../../media/quickstart-template/validate-config-server.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of Azure portal showing config server for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 

@@ -52,7 +52,7 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 According to the content echoed by the deployment, open the URL exposed by the app `api-gateway`, for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application-screenshot.jpg" alt-text="Screenshot of PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-screenshot.jpg":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-screenshot.png" alt-text="Screenshot of PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-screenshot.png":::
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
@@ -63,7 +63,7 @@ According to the content echoed by the deployment, open the URL exposed by the a
 
 For more information, see the following articles:
 
-- [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview)
+- [Azure Developer CLI](https://aka.ms/azure-dev/overview)
 - [Simple Todo Event Driven App](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application)
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 - [Spring on Azure](/azure/developer/java/spring/)

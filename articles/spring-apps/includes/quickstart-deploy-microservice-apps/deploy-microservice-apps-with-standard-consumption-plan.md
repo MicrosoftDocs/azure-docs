@@ -10,7 +10,7 @@ ms.date: 02/09/2022
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Standard consumption plan.
 
-[!INCLUDE [deploy-template-with-basic-standard-plan](includes/quickstart-template/deploy-template-with-standard-consumption-plan.md)]
+[!INCLUDE [deploy-template-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-template-with-standard-consumption-plan.md)]
 
 -->
 
@@ -36,11 +36,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance,
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
 
-   :::image type="content" source="../../media/quickstart-template/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-template/search-azure-spring-apps-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-microservice-apps/search-azure-spring-apps-service.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="../../media/quickstart-template/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-template/azure-spring-apps-create.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -59,75 +59,6 @@ The main resources you need to run this sample is an Azure Spring Apps instance,
    [**Provide the standard consumption plan creation screenshot here**]
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
-
-### Provision an instance of Azure {Service 1}
-
-1. In the search box, search for *Azure {Service 1}*, and then select **Azure {Service 1}** in the results.
-
-   :::image type="content" source="../../media/quickstart-template/search-service-1.png" alt-text="Screenshot of Azure portal showing {Service 1} in search results, with {Service 1} highlighted in the search bar and in the results." lightbox="../../media/quickstart-template/search-service-1.png":::
-
-1. On the {Service 1} page, select **Create**.
-
-   :::image type="content" source="../../media/quickstart-template/service-1-create.png" alt-text="Screenshot of Azure portal showing {Service 1} page with the Create button highlighted." lightbox="../../media/quickstart-template/service-1-create.png":::
-
-1. Fill out the **Basics** form on the {Service 1} **Create** page using the following guidelines:
-
-    - **Project Details**:
-
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
-
-    - **XXX Details**:
-
-        - **xxx**: Create the xxx name for the {Service 1} instance.
-        - **xxx**: Select `xxx` type.
-
-   
-    [**Provide the {service 1} creation screenshot here**]
-
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the {Service 1} instance.
-
-1. Select **Go to resource** to go to the **{Service 1}** page.
-
-1. Select **xxx** in the left navigational menu, select **xxx**.
-
-1. On the **xxx** page, do ba la ba la.
-
-   [**Provide the sub function of {service 1} creation screenshot here**]
-
-### Provision an instance of Azure {Service 2}
-
-1. In the search box, search for *Azure {Service 2}*, and then select **Azure {Service 2}** in the results.
-
-   :::image type="content" source="../../media/quickstart-template/search-service-1.png" alt-text="Screenshot of Azure portal showing {Service 1} in search results, with {Service 1} highlighted in the search bar and in the results." lightbox="../../media/quickstart-template/search-service-1.png":::
-
-1. On the {Service 2} page, select **Create**.
-
-   :::image type="content" source="../../media/quickstart-template/service-1-create.png" alt-text="Screenshot of Azure portal showing {Service 1} page with the Create button highlighted." lightbox="../../media/quickstart-template/service-1-create.png":::
-
-1. Fill out the **Basics** form on the {Service 2} **Create** page using the following guidelines:
-
-    - **Project Details**:
-
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
-
-    - **XXX Details**:
-
-        - **xxx**: Create the xxx name for the {Service 2} instance.
-        - **xxx**: Select `xxx` type.
-
-    [**Provide the {service 2} creation screenshot here**]
-
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the {Service 2} instance.
-
-1. Select **Go to resource** to go to the **{Service 2}** page.
-
-1. Select **xxx** in the left navigational menu, select **xxx**.
-
-1. On the **xxx** page, do ba la ba la.
-
-   [**Provide the sub function of {service 2} creation screenshot here**]
 
 ## Deploy the app to Azure Spring Apps
 
