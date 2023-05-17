@@ -26,7 +26,7 @@ This article describes how to configure a SAML application to receive tokens wit
 Before configuring a SAML application to receive tokens with external claims, first follow these sections:
 
 - [Create a custom claims provider API](custom-extension-get-started.md#step-1-create-an-azure-function-app)
-- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-extension)
+- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension)
 
 ## Configure a SAML application that receives enriched tokens
 
@@ -66,7 +66,7 @@ Attributes that return by your custom claims provider API aren't automatically i
 
 1. Select on **Configure** for **Custom claims provider**.
 
-1. Select the custom authentication extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-extension) in the **Custom claims provider** dropdown.  Select **Save**.
+1. Select the custom authentication extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension) in the **Custom claims provider** dropdown.  Select **Save**.
 
 1. Select **Add new claim** to add a new claim.
 
