@@ -187,14 +187,14 @@
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
-    - name: Security alerts
-      items:
-      - name: About security alerts and incidents
-        displayName: security, alerts, classification, incident, threat, detection, analytics, 
-        href: alerts-overview.md
-      - name: Security alerts reference list
-        displayName: alerts, mitre
-        href: alerts-reference.md
+  - name: Security alerts
+    items:
+    - name: About security alerts and incidents
+      displayName: security, alerts, classification, incident, threat, detection, analytics, 
+      href: alerts-overview.md
+    - name: Security alerts reference list
+      displayName: alerts, mitre
+      href: alerts-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
