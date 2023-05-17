@@ -566,28 +566,12 @@ Follow the steps below to setup the Azure Developer CLI and provision and deploy
 
 1. Run the `azd auth login` command to sign-in to Azure.
 
-    ### [Flask](#tab/flask)
-    
-    ```bash
-    azd auth login
-    ```
-    
-    ### [Django](#tab/django)
-    
     ```bash
     azd auth login
     ```
 
 1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to select the desired subscription and location to deploy to.
 
-    ### [Flask](#tab/flask)
-    
-    ```bash
-    azd up
-    ```
-    
-    ### [Django](#tab/django)
-    
     ```bash
     azd up
     ```
