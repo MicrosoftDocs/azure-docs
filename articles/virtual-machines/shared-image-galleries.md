@@ -6,9 +6,8 @@ ms.author: saraic
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.custom: devx-track-azurepowershell
-ms.date: 07/18/2022
+ms.date: 04/18/2023
 ms.reviewer: cynthn
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -71,17 +70,17 @@ Image definition contains metadata of the image to allow grouping of images that
  - Accelerated Networking: Image supports Accelerated Networking
 
 -Architecture
- - x64 or ARM64 [Architecture](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+ - x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 -SecurityType
  - TrustedLaunch - Image is capable of creating Trusted VMs 
  - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
- - [Confidential VM](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-images) - Image capable of creating Confidential VMs
- - [ConfidentialVMSupported](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
- - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) Trusted VM (or) Confidential VM
+ - [Confidential VM](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) - Image capable of creating Confidential VMs
+ - [ConfidentialVMSupported](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
+ - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) [Trusted VM](trusted-launch.md) (or) Confidential VM
 
 -Examples
- - CLI examples for adding [Image Definition features](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+ - CLI examples for adding [Image Definition features](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 ## Image versions
 
@@ -128,15 +127,13 @@ Image version:
 
 ## Sharing
 
-There are three main ways to share an Azure Compute Gallery, depending on who you want to share with:
+There are three main ways to share images an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-|[Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
-| [Everyone](./share-gallery-community.md) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
-
-
+| Sharing with: | People | Groups | Service Principal | All users in a specific subscription (or) tenant | Publicly with all users in Azure |
+|---|---|---|---|---|---|
+| [RBAC Sharing](./share-gallery.md) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
 ## Shallow replication 
 

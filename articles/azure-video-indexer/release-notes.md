@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 03/22/2023
+ms.date: 04/25/2023
 ms.author: juliako
 ---
 
@@ -13,15 +13,49 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## Important notice
+## May 2023
 
-[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+### API breaking change
+
+We're introducing a change in behavior that may break your existing query logic. The change is in the **List** and **Search** APIs, find a detailed change between the current and the new behavior in a table that follows. You may need to update your code to utilize the [new APIs](https://api-portal.videoindexer.ai/).
+ 
+|API	|Current|New|The breaking change|
+|---|---|---|---|
+|List Videos|•	List all videos/projects according to 'IsBase' boolean parameter. If 'IsBase' is not defined, list both.<br/>•	Returns videos in all states (In progress/Proccessed/Failed).	|•	List Videos API will Return only videos (with paging) in all states.<br/>•	List Projects API will return only projects (with paging).|• List videos API was divided into two new API’s **List Videos** and **List Projects**<br/>•	The 'IsBase' parameter no longer has a meaning. |
+|Search Videos|•	Search all videos/projects according to 'IsBase' boolean parameter. If 'IsBase' is not defined, search both. <br/>•	Search videos in all states (In progress/Proccessed/Failed). |Search only processed videos.|•	Search Videos API will only search videos and not projects.<br/>•	The 'IsBase' parameter no longer has a meaning.<br/>•	Search Videos API will only search Processed videos (and not Failed/InProgress ones.)|
+
+### Support for HTTP/2
+
+Added support for HTTP/2 for our [Data Plane API](https://api-portal.videoindexer.ai/). [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) offers several benefits over HTTP/1.1, which continues to be supported for backwards compatibility. One of the main benefits of HTTP/2 is increased performance, better reliability and reduced system resource requirements over HTTP/1.1. With this change we now support HTTP/2 for both the Video Indexer [Portal](https://videoindexer.ai/) and our Data Plane API. We advise to update your code to take advantage of this change.
+
+### Topics insight improvements 
+
+We now support all five levels of IPTC ontology. 
+
+## April 2023
+
+### Resource Health support
+
+Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Azure Video Indexer resources. Azure Resource Health also helps with diagnosing and solving problems and you can set alerts to be notified whenever your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
+
+### The animation character recognition model has been retired
+
+The **animation character recognition** model has been retired on March 1st, 2023. For any related issues, [open a support ticket via the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+### Excluding sensitive AI models
+
+Following the Microsoft Responsible AI agenda, Azure Video Indexer now allows you to exclude specific AI models when indexing media files. The list of sensitive AI models includes: face detection, observed people, emotions, labels identification.
+
+This feature is currently available through the API, and is available in all presets except the Advanced preset.
+
+### Observed people tracing improvements  
+
+For more information, see [Considerations and limitations when choosing a use case](observed-matched-people.md#considerations-and-limitations-when-choosing-a-use-case).
 
 ## March 2023
 
@@ -684,7 +718,7 @@ Status code 409 will now be returned from [Re-Index Video](https://api-portal.vi
     Azure Video Indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal.
 * New languages supported for speech-to-text (STT)
 
-    Azure Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    Azure Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK regional language (en-GB), and English Australian regional language (en-AU).
 
     For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
 

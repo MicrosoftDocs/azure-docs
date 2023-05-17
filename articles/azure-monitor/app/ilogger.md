@@ -2,14 +2,14 @@
 title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 04/24/2023
 ms.devlang: csharp
 ms.reviewer: casocha
 ---
 
 # Application Insights logging with .NET
 
-In this article, you'll learn how to capture logs with Application Insights in .NET apps by using the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] provider package. If you use this provider, you can query and analyze your logs by using the Application Insights tools.
+In this article, you learn how to capture logs with Application Insights in .NET apps by using the [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai] provider package. If you use this provider, you can query and analyze your logs by using the Application Insights tools.
 
 [nuget-ai]: https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights
 [nuget-ai-ws]: https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService
@@ -114,7 +114,7 @@ namespace WebApplication
 
 ---
 
-With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, `ApplicationInsightsLoggerProvider` will provide them. Logged messages or exceptions will be sent to Application Insights. 
+With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, `ApplicationInsightsLoggerProvider` provides them. Logged messages or exceptions are sent to Application Insights. 
 
 Consider the following example controller:
 
@@ -139,7 +139,7 @@ public class ValuesController : ControllerBase
 }
 ```
 
-For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
+For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging) and [What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?](#what-application-insights-telemetry-type-is-produced-from-ilogger-logs-where-can-i-see-ilogger-logs-in-application-insights).
 
 ## Console application
 
@@ -241,8 +241,22 @@ namespace ConsoleApp
 
 ---
 
+For more information, see [What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?](#what-application-insights-telemetry-type-is-produced-from-ilogger-logs-where-can-i-see-ilogger-logs-in-application-insights).
+
 ## Frequently asked questions
 
+### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
+
+`ApplicationInsightsLoggerProvider` captures `ILogger` logs and creates `TraceTelemetry` from them. If an `Exception` object is passed to the `Log` method on `ILogger`, `ExceptionTelemetry` is created instead of `TraceTelemetry`. 
+
+These telemetry items can be found in the same places as any other `TraceTelemetry` or `ExceptionTelemetry` items for Application Insights, including the Azure portal, analytics, or the Visual Studio local debugger.
+
+If you prefer to always send `TraceTelemetry`, use this snippet:
+
+```csharp
+builder.AddApplicationInsights(
+    options => options.TrackExceptionsAsExceptionTelemetry = false);
+```
 ### Why do some ILogger logs not have the same properties as others?
 
 Application Insights captures and sends `ILogger` logs by using the same `TelemetryConfiguration` information that's used for every other telemetry. But there's an exception. By default, `TelemetryConfiguration` isn't fully set up when you log from *Program.cs* or *Startup.cs*. Logs from these places won't have the default configuration, so they won't be running all `TelemetryInitializer` instances and `TelemetryProcessor` instances.
@@ -268,19 +282,6 @@ public class MyController : ApiController
 
 > [!NOTE]
 > If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
-
-### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
-
-`ApplicationInsightsLoggerProvider` captures `ILogger` logs and creates `TraceTelemetry` from them. If an `Exception` object is passed to the `Log` method on `ILogger`, `ExceptionTelemetry` is created instead of `TraceTelemetry`. 
-
-These telemetry items can be found in the same places as any other `TraceTelemetry` or `ExceptionTelemetry` items for Application Insights, including the Azure portal, analytics, or the Visual Studio local debugger.
-
-If you prefer to always send `TraceTelemetry`, use this snippet:
-
-```csharp
-builder.AddApplicationInsights(
-    options => options.TrackExceptionsAsExceptionTelemetry = false);
-```
 
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 

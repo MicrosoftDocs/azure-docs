@@ -10,9 +10,9 @@ ms.author: jsuri
 
 # Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)
 
-This article describes the prerequisites for Azure Kubernetes Sercuce (AKS) backup.
+This article describes the prerequisites for Azure Kubernetes Service (AKS) backup.
 
-Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster. 
+Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster.
 
 ## Backup Extension
 
@@ -59,14 +59,14 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity).
+- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
   >[!Note]
   >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 
-- Install Backup Extension on the AKS clusters following the [required FQDN/application rules](../aks/limit-egress-traffic.md#required-fqdn--application-rules-6).
+- Install Backup Extension on the AKS clusters following the [required FQDN/application rules](../aks/outbound-rules-control-egress.md).
 
 - If you've any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
 

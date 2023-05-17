@@ -1,24 +1,24 @@
 ---
-title: Connect to Azure Virtual Desktop with the Remote Desktop Microsoft Store client - Azure Virtual Desktop
-description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop Microsoft Store client.
+title: Connect to Azure Virtual Desktop with the Remote Desktop app for Windows - Azure Virtual Desktop
+description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop app for Windows.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: daknappe
 ---
 
-# Connect to Azure Virtual Desktop with the Remote Desktop Microsoft Store client
+# Connect to Azure Virtual Desktop with the Remote Desktop app for Windows
 
-The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop Microsoft Store client.
+The Microsoft Remote Desktop app is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop app for Windows.
 
 > [!IMPORTANT]
-> We're no longer updating the Microsoft Store client with new features.
+> We're no longer updating the Remote Desktop app for Windows with new features.
 >
-> For the best Azure Virtual Desktop experience that includes the latest features and fixes, we recommend you download the [Remote Desktop client for Windows](connect-windows.md) instead.
+> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Azure Virtual Desktop Store app for Windows](connect-windows-azure-virtual-desktop-app.md) instead.
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
-If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop Microsoft Store client](/windows-server/remote/remote-desktop-services/clients/windows).
+If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop app for Windows](/windows-server/remote/remote-desktop-services/clients/windows).
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ Before you can access your resources, you'll need to meet the prerequisites:
 
 - A device running Windows 11 or Windows 10.
 
-- Download and install the Remote Desktop client from the [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709).
+- Download and install the Remote Desktop app from the [Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709).
 
 ## Subscribe to a workspace
 
-A workspace combines all the desktops and applications that have been made available to you by your admin. To be able to see these in the Remote Desktop client, you need to subscribe to the workspace by following these steps:
+A workspace combines all the desktops and applications that have been made available to you by your admin. To be able to see these in the Remote Desktop app, you need to subscribe to the workspace by following these steps:
 
 1. Open the **Remote Desktop** app on your device.
 
@@ -63,4 +63,4 @@ Once you've subscribed to a workspace, its content will update automatically reg
 
 ## Next steps
 
-To learn more about the features of the Remote Desktop client for Windows from the Microsoft Store, check out [Use features of the Remote Desktop client for Windows (Microsoft Store) when connecting to Azure Virtual Desktop](client-features-microsoft-store.md).
+To learn more about the features of the Remote Desktop app for Windows, check out [Use features of the Remote Desktop app for Windows when connecting to Azure Virtual Desktop](client-features-microsoft-store.md).

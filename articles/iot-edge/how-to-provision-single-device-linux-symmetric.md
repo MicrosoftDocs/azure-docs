@@ -5,8 +5,9 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 1/31/2023
+ms.date: 04/25/2023
 ms.author: patricka
+ms.reviewer: mattmcinnes
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys

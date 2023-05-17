@@ -72,7 +72,7 @@ It takes about 5 minutes to finish the resource provisioning.
 1. Update Azure CLI with the Azure Spring Apps extension by using the following command:
 
    ```azurecli
-   az extension update --name spring-cloud
+   az extension add --upgrade --name spring
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription by using the following command:
@@ -96,7 +96,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
    ```azurecli
    az group create --name <resource-group-name>
-   az spring-cloud create \
+   az spring create \
        --resource-group <resource-group-name> \
        --name <service-instance-name> \
        --sku enterprise
@@ -107,7 +107,7 @@ It takes about 5 minutes to finish the resource provisioning.
 1. Set your default resource group name and Spring Cloud service name using the following command:
 
    ```azurecli
-   az config set defaults.group=<resource-group-name> defaults.spring-cloud=<service-instance-name>
+   az config set defaults.group=<resource-group-name> defaults.spring=<service-instance-name>
    ```
 
 ---
@@ -120,14 +120,14 @@ The app creation steps are the same as Standard Tier.
 
    ```azurecli
    az account set --subscription=<your-subscription-id>
-   az configure --defaults group=<your-resource-group-name> spring-cloud=<your-service-name>
+   az configure --defaults group=<your-resource-group-name> spring=<your-service-name>
    ```
 
 1. To create the two core applications for PetClinic, `api-gateway` and `customers-service`, use the following commands:
 
    ```azurecli
-   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
-   az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
+   az spring app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
+   az spring app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
 ## Use Application Configuration Service for external configuration
@@ -170,7 +170,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 To set the default repository, use the following command:
 
 ```azurecli
-az spring-cloud application-configuration-service git repo add \
+az spring application-configuration-service git repo add \
     --name default \
     --patterns api-gateway,customers-service \
     --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
@@ -200,8 +200,8 @@ The list under **App name** will show the apps bound with Application Configurat
 To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands:
 
 ```azurecli
-az spring-cloud application-configuration-service bind --app api-gateway
-az spring-cloud application-configuration-service bind --app customers-service
+az spring application-configuration-service bind --app api-gateway
+az spring application-configuration-service bind --app customers-service
 ```
 
 ---
@@ -237,8 +237,8 @@ The list under **App name** shows the apps bound with Tanzu Service Registry.
 To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands:
 
 ```azurecli
-az spring-cloud service-registry bind --app api-gateway
-az spring-cloud service-registry bind --app customers-service
+az spring service-registry bind --app api-gateway
+az spring service-registry bind --app customers-service
 ```
 
 ---
@@ -275,11 +275,11 @@ To build locally, use the following steps:
 1. Deploy the JAR files built in the previous step using the following commands:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name api-gateway \
        --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar \
        --config-file-patterns api-gateway
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name customers-service \
        --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar \
        --config-file-patterns customers-service
@@ -288,7 +288,7 @@ To build locally, use the following steps:
 1. Query the application status after deployment by using the following command:
 
    ```azurecli
-   az spring-cloud app list --output table
+   az spring app list --output table
    ```
 
    This command produces output similar to the following example:
@@ -326,7 +326,7 @@ To check or update the current settings in Application Insights, use the followi
 To create an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding create \
+az spring build-service builder buildpack-binding create \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
@@ -339,7 +339,7 @@ az spring-cloud build-service builder buildpack-binding create \
 To list all buildpack bindings, and find Application Insights bindings for the type `ApplicationInsights`, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding list \
+az spring build-service builder buildpack-binding list \
     --resource-group <your-resource-group-name> \
     --service <your-service-resource-name> \
     --builder-name <your-builder-name>
@@ -348,7 +348,7 @@ az spring-cloud build-service builder buildpack-binding list \
 To replace an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding set \
+az spring build-service builder buildpack-binding set \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
@@ -361,7 +361,7 @@ az spring-cloud build-service builder buildpack-binding set \
 To get an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding show \
+az spring build-service builder buildpack-binding show \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
@@ -371,7 +371,7 @@ az spring-cloud build-service builder buildpack-binding show \
 To delete an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding delete \
+az spring build-service builder buildpack-binding delete \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
