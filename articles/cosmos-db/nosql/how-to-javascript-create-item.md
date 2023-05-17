@@ -58,7 +58,7 @@ When referencing the item using a URI, use the system-generated *resource identi
 
 ## Create an item
 
-Create an item with the container's [items](/javascript/api/@azure/cosmos/container#@azure-cosmos-container-items) object using the [create](javascript/api/@azure/cosmos/items) method.
+Create an item with the container's [items](/javascript/api/@azure/cosmos/container#@azure-cosmos-container-items) object using the [create](/javascript/api/@azure/cosmos/items) method.
 
 ```javascript
 const { statusCode, item, resource, activitId, etag} = await container.items.create({ 
@@ -105,4 +105,4 @@ const { statusCode, item, activitId, etag} = await item.delete();
 Now that you've created various items, use the next guide to query for item.
 
 > [!div class="nextstepaction"]
-> [Read an item](how-to-javascript-read-item.md)
+> [Read an item](how-to-javascript-query-items.md)

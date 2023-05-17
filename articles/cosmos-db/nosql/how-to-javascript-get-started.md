@@ -11,46 +11,44 @@ ms.date: 07/06/2022
 ms.custom: cosmos-db-dev-journey, devx-track-azurepowershell, devx-track-js
 ---
 
-# Get started with Azure Cosmos DB for NoSQL using .NET
+# Get started with Azure Cosmos DB for NoSQL using JavaScript
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-This article shows you how to connect to Azure Cosmos DB for NoSQL using the .NET SDK. Once connected, you can perform operations on databases, containers, and items.
+This article shows you how to connect to Azure Cosmos DB for NoSQL using the JavaScript SDK. Once connected, you can perform operations on databases, containers, and items.
 
-[Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) | [Samples](samples-dotnet.md) | [API reference](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+[Package (npm)](https://www.npmjs.com/package/@azure/cosmos) | [Samples](samples-nodejs.md) | [API reference](/javascript/api/@azure/cosmos) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/cosmos) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
-- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Node.js LTS](https://nodejs.org/)
 - [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
-## Set up your project
+## Set up your local project
 
-### Create the .NET console application
+1. Create a new directory for you JavaScript project in a bash shell.
 
-Create a new .NET application by using the [``dotnet new``](/dotnet/core/tools/dotnet-new) command with the **console** template.
+    ```bash
+    mkdir cosmos-db-nosql-javascript-samples && cd ./cosmos-db-nosql-javascript-samples
+    ```
 
-```dotnetcli
-dotnet new console
-```
+1. Create a new JavaScript application by using the [``npm init``](/dotnet/core/tools/dotnet-new) command with the **console** template.
 
-Import the [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) NuGet package using the [``dotnet add package``](/dotnet/core/tools/dotnet-add-package) command.
+    ```bash
+    npm init -y
+    ```
+    
+1. Install the required dependency for the Azure Cosmos DB for NoSQL JavaScript SDK.
 
-```dotnetcli
-dotnet add package Microsoft.Azure.Cosmos
-```
-
-Build the project with the [``dotnet build``](/dotnet/core/tools/dotnet-build) command.
-
-```dotnetcli
-dotnet build
-```
-
+    ```bash
+    npm install @azure/cosmos
+    ```
+    
 ## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
-To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to an API for NoSQL account using the **CosmosClient** class:
+To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/javascript/api/@azure/cosmos/cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to an API for NoSQL account using the **CosmosClient** class:
 
 - [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
 - [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
@@ -73,7 +71,7 @@ The most common constructor for **CosmosClient** has two parameters:
 
     ```azurecli-interactive
     # Variable for resource group name
-    resourceGroupName="msdocs-cosmos-dotnet-howto-rg"
+    resourceGroupName="msdocs-cosmos-javascript-howto-rg"
     ```
 
 1. Use the [``az cosmosdb list``](/cli/azure/cosmosdb#az-cosmosdb-list) command to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *accountName* shell variable.
@@ -115,7 +113,7 @@ The most common constructor for **CosmosClient** has two parameters:
 
     ```azurepowershell-interactive
     # Variable for resource group name
-    $RESOURCE_GROUP_NAME = "msdocs-cosmos-dotnet-howto-rg"
+    $RESOURCE_GROUP_NAME = "msdocs-cosmos-javascript-howto-rg"
     ```
 
 1. Use the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *ACCOUNT_NAME* shell variable.
@@ -159,7 +157,7 @@ The most common constructor for **CosmosClient** has two parameters:
 ##### [Portal](#tab/azure-portal)
 
 > [!TIP]
-> For this guide, we recommend using the resource group name ``msdocs-cosmos-dotnet-howto-rg``.
+> For this guide, we recommend using the resource group name ``msdocs-cosmos-javascript-howto-rg``.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -197,7 +195,9 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables as parameters.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/101-client-endpoint-key/Program.cs" id="endpoint_key" highlight="3-4":::
+```javascript
+
+```
 
 ### Connect with a connection string
 
@@ -264,7 +264,7 @@ Another constructor for **CosmosClient** only contains a single parameter:
 ##### [Portal](#tab/azure-portal)
 
 > [!TIP]
-> For this guide, we recommend using the resource group name ``msdocs-cosmos-dotnet-howto-rg``.
+> For this guide, we recommend using the resource group name ``msdocs-cosmos-javascript-howto-rg``.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -295,7 +295,9 @@ export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
 
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/102-client-connection-string/Program.cs" id="connection_string" highlight="3":::
+```javascript
+
+```
 
 ### Connect using the Microsoft Identity Platform
 
@@ -307,26 +309,21 @@ To connect to your API for NoSQL account using the Microsoft Identity Platform a
 | Azure | Managed identity |
 | Servers or clients outside of Azure | Service principal |
 
-#### Import Azure.Identity
+#### Import @azure/identity
 
-The **Azure.Identity** NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
+The **@azure/identity** npm package contains core authentication functionality that is shared among all Azure SDK libraries.
 
-Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) NuGet package using the ``dotnet add package`` command.
+1. Import the [@azure/identity](https://www.npmjs.com/package/@azure/identity) npm package using the ``npm install`` command.
 
-```dotnetcli
-dotnet add package Azure.Identity
-```
+    ```bash
+    npm install @azure/identity
+    ```
 
-Rebuild the project with the ``dotnet build`` command.
+1. In your code editor, add the dependencies.
 
-```dotnetcli
-dotnet build
-```
-
-In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/103-client-default-credential/Program.cs" id="using_identity_directives":::
-
+    ```javascript
+    const { DefaultAzureCredential } = require("@azure/identity");
+    ```
 #### Create CosmosClient with default credential implementation
 
 If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) instance.
