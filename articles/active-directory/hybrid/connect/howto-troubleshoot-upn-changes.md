@@ -1,11 +1,11 @@
 ---
-title: Plan and troubleshoot Azure User Principal name (UPN) changes
-description: Understand known issues and mitigations for UPN changes
+title: Plan and troubleshoot User Principal Name changes in Azure Active Directory
+description: Understand known issues and mitigations for User Principal Name (UPN) changes
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 05/17/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
