@@ -247,7 +247,7 @@ When configuring to use localsyslog on Azure Kubernetes Service, you can choose 
 
 You can easily consume them by getting access to the worker nodes:
 
-1. Create an SSH connection to the node ([docs](./../aks/node-access.md#create-the-ssh-connection))
+1. Create an SSH connection to the node ([docs](./../aks/node-access.md))
 2. Logs can be found under `host/var/log/syslog`
 
 For example, you can filter all syslogs to just the ones from the self-hosted gateway:
