@@ -1,5 +1,5 @@
 ---
-title: Planned maintenance for ExpressRoute
+title: Planned maintenance guidance for ExpressRoute
 description: Learn how to plan for ExpressRoute maintenance events.
 author: duongau
 ms.author: duau
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/10/2023
 ---
 
-# Planned maintenance for ExpressRoute
+# Planned maintenance guidance for ExpressRoute
 
 ExpressRoute circuits and Direct Ports are configured with a primary and a secondary connection to Microsoft Enterprise Edge (MSEE) devices at Microsoft peering locations. These connections are established on physically different devices to offer reliable connectivity from on-premises to your Azure resources if there are planned or unplanned events.
 
