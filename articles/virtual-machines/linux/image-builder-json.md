@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Image Builder Bicep file or ARM JSON template
-description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
+title: Create an Azure Image Builder Bicep file or ARM template JSON template
+description: Learn how to create a Bicep file or ARM template JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
@@ -11,11 +11,11 @@ ms.subservice: image-builder
 ms.custom: references_regions, devx-track-bicep
 ---
 
-# Create an Azure Image Builder Bicep or ARM JSON template
+# Create an Azure Image Builder Bicep or ARM template JSON template
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-Azure Image Builder uses a Bicep file or an ARM JSON template file to pass information into the Image Builder service. In this article we'll go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
+Azure Image Builder uses a Bicep file or an ARM template JSON template file to pass information into the Image Builder service. In this article we go over the sections of the files, so you can build your own. For latest API versions, see [template reference](/azure/templates/microsoft.virtualmachineimages/imagetemplates?tabs=bicep&pivots=deployment-language-bicep). To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 The basic format is:
 
@@ -157,7 +157,7 @@ The location is the region where the custom image is created. The following regi
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/MooncakePublicPreview` to access the Azure Image Builder public preview in the China North 3 region.
 
-To access the Azure VM Image Builder public preview in the Fairfax regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
+To access the Azure VM Image Builder public preview in the Azure Government regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -305,7 +305,7 @@ To learn more, see:
 
 Maximum duration to wait while building the image template (includes all customizations, validations, and distributions).
 
-If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you'll see an error similar to:
+If you don't specify the property or set the value to 0, the default value is used, which is 240 minutes or four hours. The minimum value is 6 minutes, and the maximum value is 960 minutes or 16 hours. When the timeout value is hit (whether or not the image build is complete), you see an error similar to:
 
 ```text
 [ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
@@ -939,7 +939,7 @@ replicationRegions: [
 
 #### Distribute: targetRegions
 
-The following JSON is an example of how to use the targetRegions field to distribute to a Azure Compute Gallery.
+The following JSON is an example of how to use the targetRegions field to distribute to an Azure Compute Gallery.
 
 # [JSON](#tab/json)
 ```json
@@ -1008,12 +1008,12 @@ Distribute properties for galleries:
 - **runOutputName** – unique name for identifying the distribution.
 - **artifactTags** - optional user specified key\value tags.
 - **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions mean an increase of build time, as the build doesn't complete until the replication has completed. This field is deprecated as of API version 2022-07-01, please use `targetRegions` when distributing a "SharedImage" type.
-- **targetRegions** -  an array of regions for replication. It is newly introduced as part of the [2022-07-01 API](../../virtual-machines/image-builder-api-update-release-notes.md#version-2022-07-01) and applies only to the `SharedImage` type distribute.
+- **targetRegions** -  an array of regions for replication. It's newly introduced as part of the [2022-07-01 API](../../virtual-machines/image-builder-api-update-release-notes.md#version-2022-07-01) and applies only to the `SharedImage` type distribute.
 - **excludeFromLatest** (optional) - allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) - AIB supports specifying these types of storage for the image version that is to be created:
 
   - "Standard_LRS"
-  - "Standard_ZRS"","
+  - "Standard_ZRS","
 
 
 > [!NOTE]
@@ -1024,7 +1024,7 @@ Distribute properties for galleries:
 
 ## versioning
 
-The **versioning** property is for the `sharedImage` distribute type only. It is an enum with two possible values:
+The **versioning** property is for the `sharedImage` distribute type only. It's an enum with two possible values:
 - **latest** - New strictly increasing schema per design
 - **source** - Schema based upon the version number of the source image.
 
@@ -1144,7 +1144,7 @@ VHD distribute properties:
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder. Azure Image Builder only supports generalized images as source images, specialized images are not supported at this time.
+The `source` section contains information about the source image that will be used by Image Builder. Azure Image Builder only supports generalized images as source images, specialized images aren't supported at this time.
 
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 
@@ -1288,7 +1288,7 @@ source: {
 ```
 
 ---
-- imageVersionId - ARM resource id of the image version. When image version name is 'latest', the version is evaluated when the image build takes place. The `imageVersionId` should be the `ResourceId` of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
+- imageVersionId - ARM template resource ID of the image version. When image version name is 'latest', the version is evaluated when the image build takes place. The `imageVersionId` should be the `ResourceId` of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 
 The following JSON sets the source image as an image stored in a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing).
@@ -1342,7 +1342,7 @@ properties: {
 
 SharedImageVersion properties:
 
-**imageVersionId** - ARM resource id of the image version. When the image version name is 'latest', the version is evaluated when the image build takes place.
+**imageVersionId** - ARM template resource ID of the image version. When the image version name is 'latest', the version is evaluated when the image build takes place.
 
 
 ## Properties: stagingResourceGroup
@@ -1610,7 +1610,7 @@ By default, Image Builder doesn't change the size of the image, it uses the size
 
 ### vnetConfig (optional)
 
-If you don't specify any VNet properties, Image Builder will create its own VNet, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM. If you don't want to have a Public IP or you want Image Builder to have access to your existing VNet resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNet. For more information, review the [networking documentation](image-builder-networking.md).
+If you don't specify any VNet properties, Image Builder creates its own VNet, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM. If you don't want to have a Public IP or you want Image Builder to have access to your existing VNet resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNet. For more information, review the [networking documentation](image-builder-networking.md).
 
 # [JSON](#tab/json)
 
