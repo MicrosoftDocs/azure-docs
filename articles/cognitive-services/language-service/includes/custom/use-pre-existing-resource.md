@@ -50,8 +50,8 @@ Make sure to enable **Custom text classification / Custom Named Entity Recogniti
 4. Connect your storage account
 5. Click **Apply**
 
->[!Important]
-> * Make sure that your **Language resource** has **storage blob data contributor** role assigned on the storage account you are connecting.
+> [!IMPORTANT]
+> Make sure that your **Language resource** has **storage blob data contributor** role assigned on the storage account you are connecting.
 
 ### Set roles for your Azure Language resource and storage account
 
