@@ -7,7 +7,7 @@ metadata:
   ms.service: application-gateway
   ms.subservice: traffic-controller
   ms.topic: article
-  ms.date: 5/1/2023
+  ms.date: 05/17/2023
   ms.author: greglin
     
 title: Frequently asked questions about Traffic Controller
@@ -31,3 +31,4 @@ sections:
 
       - question: Can I configure TLS protocol versions?
         answer: No. Traffic Controller supports TLS 1.2. SSL 2.0, 3.0, TLS 1.0, and TLS 1.1 are disabled and non-configurable.
+        
