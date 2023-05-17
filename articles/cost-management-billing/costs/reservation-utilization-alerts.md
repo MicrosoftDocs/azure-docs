@@ -52,7 +52,7 @@ The following table explains the fields in the alert rule form.
 | --- | --- | --- | --- |
 | Alert type|Mandatory | The type of alert that you want to create. | Reservation utilization |
 | Services | Optional | Select if you want to filter the alert rule for any specific reservation type. **Note**: If you haven’t applied a filter, then the alert rule monitors all available services by default. |Virtual machine, SQL Database, and so on. |
-| Reservations | Optional Select if you want to filter the alert rule for any specific reservations. **Note**: If you haven’t  applied a filter, then the alert rule monitors all available reservations by default. | Contoso\_Sub\_alias-SQL\_Server\_Standard\_Edition. |
+| Reservations | Optional | Select if you want to filter the alert rule for any specific reservations. **Note**: If you haven’t  applied a filter, then the alert rule monitors all available reservations by default. | Contoso\_Sub\_alias-SQL\_Server\_Standard\_Edition. |
 | Utilization percentage | Mandatory | When any of the reservations have a utilization that is less than the target percentage, then the alert notification is sent. | Utilization is less than 95% |
 | Time grain | Mandatory | Choose the time over which reservation utilization value should be averaged. For example, if you choose Last 7-days, then the alert rule evaluates the last 7-day average reservation  utilization of all reservations. **Note**: Last day reservation utilization is subject to change because the usage data refreshes. So, Cost Management relies on the last 7-day or 30-day averaged utilization, which is more accurate. | Last 7-days, Last 30-days|
 | Start on | Mandatory | The start date for the alert rule. | Current or any future date |
