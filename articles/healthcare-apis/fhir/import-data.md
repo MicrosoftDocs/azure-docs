@@ -9,6 +9,7 @@ ms.date: 06/06/2022
 ms.author: kesheth
 ---
 
+
 # Bulk-import FHIR data
 
 The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
