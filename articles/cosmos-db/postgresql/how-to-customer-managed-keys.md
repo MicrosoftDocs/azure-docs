@@ -6,7 +6,7 @@ author: akashraokm
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 05/16/2023
 ---
 # Enable data encryption with customer-managed keys (preview) in Azure Cosmos DB for PostgreSQL
 
