@@ -128,6 +128,7 @@ With Agentless Container Posture capabilities available in Defender CSPM, the a
 
 The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
+
 Security DevOps recommendations impacted:
 -	Code repositories should have code scanning findings resolved (preview)
 -	Code repositories should have secret scanning findings resolved (preview)
