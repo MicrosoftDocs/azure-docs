@@ -59,7 +59,6 @@ Use the following steps to prepare the sample locally.
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
-
 ::: zone pivot="sc-consumption-plan"
 
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
@@ -220,7 +219,7 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
 
 ::: zone pivot="sc-standard"
 
-1. Use the following command to create your Azure Spring Apps instance.
+1. Use the following command to create your Azure Spring Apps instance:
 
    ```azurecli
    az spring create \
@@ -231,7 +230,7 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
 
 ::: zone pivot="sc-enterprise"
 
-1. Use the following command to create your Azure Spring Apps instance.
+1. Use the following command to create your Azure Spring Apps instance:
 
    ```azurecli
    az spring create \
@@ -244,6 +243,7 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
 1. Create an app in the Azure Spring Apps instance by using the following command:
 
 ::: zone pivot="sc-consumption-plan,sc-standard"
+
    ```azurecli
    az spring app create \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
@@ -251,15 +251,18 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
        --runtime-version Java_17 \
        --assign-endpoint true
    ```
+
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
+
    ```azurecli
    az spring app create \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
        --assign-endpoint true
    ```
+
 ::: zone-end
 
 ## Bind the Service Bus to Azure Spring Apps and deploy the app
