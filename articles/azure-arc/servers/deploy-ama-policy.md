@@ -1,13 +1,13 @@
 ---
-title: How to deploy Azure Monitor Agent using Azure Policy
-description: Learn how to deploy Azure Monitor Agent using Azure Policy.
+title: How to deploy and configure Azure Monitor Agent using Azure Policy
+description: Learn how to deploy and configure Azure Monitor Agent using Azure Policy.
 ms.date: 05/17/2023
 ms.topic: conceptual
 ---
 
-# Deploy Azure Monitor Agent using Azure Policy
+# Deploy and configure Azure Monitor Agent using Azure Policy
 
-This article covers how to deploy the Azure Monitor Agent (AMA) to Arc-enabled servers through Azure Policy using a custom Policy definition. Using Azure Policy ensures that Azure Monitor is running on your selected Arc-enabled servers, and automatically install the Azure Monitor Agent on newly added Arc resources.
+This article covers how to deploy and configure the Azure Monitor Agent (AMA) to Arc-enabled servers through Azure Policy using a custom Policy definition. Using Azure Policy ensures that Azure Monitor is running on your selected Arc-enabled servers, and automatically install the Azure Monitor Agent on newly added Arc resources.
 
 Deploying the Azure Monitor Agent through a custom Policy definition involves two main steps:
 
@@ -18,7 +18,6 @@ Deploying the Azure Monitor Agent through a custom Policy definition involves tw
 In this scenario, the Policy definition is used to verify that the AMA is installed on your Arc-enabled servers. It will also install the AMA on newly added machines or on existing machines that don't have the AMA installed.
 
 In order for Azure Monitor to work on a machine, it needs to be associated with a Data Collection Rule. Therefore, you'll need to include the resource ID of the DCR when you create your Policy definition.
-
 
 ## Select a Data Collection Rule
 

@@ -111,7 +111,7 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
-    - name: Deploy Azure Monitor Agent using Azure Policy
+    - name: Deploy and configure Azure Monitor Agent using Azure Policy
       href: deploy-ama-policy.md
     - name: Organize and inventory servers
       href: organize-inventory-servers.md
