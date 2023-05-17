@@ -29,8 +29,8 @@ The following parameters are available to customize the Recognize function:
 | Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This is the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS waits for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action waits for input before considering it a timeout. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
-| RecognizeInputsType | Enum | dtmf | Type of input to be recognized. Options are dtmf, choices and speech. | Required |
-| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices)| Initial silence timeout adjusts how much nonspeech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
+| RecognizeInputsType | Enum | dtmf | Type of input to be recognized. Options are dtmf, choices, speech and speechordtmf. | Required |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices) <br/>**Max:** 20 seconds (Speech)| Initial silence timeout adjusts how much nonspeech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
@@ -40,6 +40,7 @@ The following parameters are available to customize the Recognize function:
 | Tone | String | Not set | The tone to recognize if user decides to press a number instead of using speech. | Optional |
 | Label | String | Not set | The key value for recognition. | Required |
 | Language | String | En-us | The language that is used for recognizing speech. | Optional |
+| EndSilenceTimeout| TimeSpan | 0.5 seconds | The final pause of the speaker used to detect the final result that gets generated as speech. | Optional |
 
 >[!NOTE] 
 >In situations where both dtmf and speech are in the recognizeInputsType, the recognize action will action on the first input type received, i.e. if the user presses a keypad number first then the recognize action will consider it a dtmf event and continue listening for dtmf tones. If the user speaks first then the recognize action will consider it a speech recognition and listen for voice input. 
@@ -152,6 +153,7 @@ Logger.logMessage(
 
  Response<Void> response = callMedia.startRecognizingWithResponse(recognizeOptions, Context.NONE);
 ```
+When `SpeechorDtmf` option is used for recognize, the recognize action will pick up on which ever method the participant uses first. If the participant uses DTMF, then the Recognize action will use DTMF tones as the method of recognition. If speech is detected then the recognize action will continue to use speech as the method of recognition. 
 
 **Note:** If parameters aren't set, the defaults are applied where possible.
 
@@ -171,11 +173,11 @@ if (callEvent instanceof RecognizeCompleted) {
                     String LabelDetected = collectChoiceResult.getLabel();
                     String PhraseDetected = collectChoiceResult.getRecognizedPhrase();
                 }
-                else if(recognizeResult instanceof CollectTonesResult)
+                else if(recognizeResult instanceof DtmfResult)
                 {
                     // Take action on collect tones
-                    CollectTonesResult collectTonesResult = (CollectTonesResult) recognizeResult;
-                    List<DtmfTone> tones = collectTonesResult.getTones();
+                    DtmfResult dtmfResult = (DtmfResult) recognizeResult;
+                    List<DtmfTone> tones = dtmfResult.getTones();
                 }
                 else if(recognizeResult instanceof SpeechResult)
                 {
