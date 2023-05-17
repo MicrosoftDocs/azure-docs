@@ -36,14 +36,11 @@ export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
   message: string;
 
   /**
-   * Metadata of the message.
-   */
-  metadata: Record<string, string>;
-
-  /**
    * Chat message attachment.
    */
   attachments?: ChatAttachment[];
+  
+  ...
 }
 
 export interface ChatAttachment {
@@ -117,21 +114,21 @@ async function renderReceivedMessage(e) {
 
 function renderFileAttachments(attachment) {
 	return '<div class="attachment-container">' + 
-               '<p class="attachment-type">' + attachment.contentType + '</p>' + 
-           '<img class="attachment-icon" alt="attachment file icon" />' +
-           '<div>' +
-              '<p>' + attachment.name + '</p>' +
-              '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
-              '<a href=' + attachment.url + ' target="_blank" rel="noreferrer">Download</a>' + 
-          '</div>' +
-			  '</div>';
+			'<p class="attachment-type">' + attachment.contentType + '</p>' + 
+			'<img class="attachment-icon" alt="attachment file icon" />' +
+			'<div>' +
+			      '<p>' + attachment.name + '</p>' +
+			      '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
+			      '<a href=' + attachment.url + ' target="_blank" rel="noreferrer">Download</a>' + 
+			'</div>' +
+	        '</div>';
 }
 
 ```
 
 Let's make sure we add some CSS for the attachment card as well:
 
-```
+```css
   /* let's make chat popup scrollable */
   .chat-popup {
 
@@ -198,9 +195,17 @@ Let's make sure we add some CSS for the attachment card as well:
 
 ```
 
-That's it all we need for handling file attachments. Next, let's take a look of how we can handle image attachments.
+That's it all we need for handling file attachments. 
 
-## Handle image attachments
+## Demo
+
+Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some file attachments from Teams client like this:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
+
+Then you should see the new message being rendered along with file attachments:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown an incoming message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
 
 
 
@@ -211,15 +216,6 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
-
-## Demo
-Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some file attachments from Teams client like this:
-
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
-
-Then you should see the new message being rendered along with file attachments:
-
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown an incoming message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
 
 
 
