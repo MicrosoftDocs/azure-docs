@@ -6,20 +6,12 @@ ms.subservice: baremetal-epic
 ms.date: 04/01/2023
 ---
 
-#  Overview h1
+# Overview 
 
-nstall on the machines.
+Epic Systems Corporation (Epic) is a leader in Electronic Health Record (EHR) software for midsize and large medical groups, hospitals, and integrated healthcare organizations. 
+Most of the world’s largest health care providers need a highly performant Epic cloud solution. 
 
->[!NOTE]
->Remember, BareMetal Infrastructure is a BYOL model.
-
-The available Linux OS versions are:
-- Red Hat Enterprise Linux (RHEL)
-- SUSE Linux Enterprise Server (SLES)
-
-## Overview h2
-
-
+Microsoft Azure Large instances for Epic offers a perfect solution to run EHR software systems ensuring availability, scalability and reliability of mission critical systems on Azure cloud with optimal performance. 
 
 ## Next steps
 

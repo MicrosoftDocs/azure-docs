@@ -6,20 +6,9 @@ ms.subservice: baremetal-epic
 ms.date: 04/01/2023
 ---
 
-#  Solution design h1
+#  Solution design 
 
-nstall on the machines.
-
->[!NOTE]
->Remember, BareMetal Infrastructure is a BYOL model.
-
-The available Linux OS versions are:
-- Red Hat Enterprise Linux (RHEL)
-- SUSE Linux Enterprise Server (SLES)
-
-## Solutin design h2
-
-
+Content pending
 
 ## Next steps
 
