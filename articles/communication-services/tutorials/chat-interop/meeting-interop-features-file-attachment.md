@@ -21,7 +21,7 @@ The Chat SDK for JavaScript provides `previewUrl` and `url` for each file attach
 You should be aware of couple constraints that come with this feature:
 
 1. The Teams admin of the sender's tenant could have impose policies that limits or disable this feature entirely. For example, the Teams admin could disable certain permissions (such as "Anyone") that could cause the file attachment URLs (`previewUrl` and `Url`) to be inaccessible. 
-2. Due to the nature of ACS users, we currently only support the following file permissions:
+2. We currently only support the following file permissions:
    - "Anyone", and
    - "People you choose" (with email adress)
    The Teams user sending the file should be made aware of that all other permissions (such as "People in your organization") are not supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
