@@ -54,7 +54,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 2. 	Press the **+Add** button on the left hand panel in order to add a new administrator to the list. Choose **Add System** and enter the name of the system.   
 
 > [!NOTE]
-> The admininistrator user in SAP Cloud Platform Identity Authentication must be of type **System**. Creating a normal administrator user can lead to *unauthorized* errors while provisioning.   
+> The administrator user in SAP Cloud Platform Identity Authentication must be of type **System**. Creating a normal administrator user can lead to *unauthorized* errors while provisioning.   
 
 3.	Under Configure Authorizations, switch on the toggle button against **Manage Users**.
 
