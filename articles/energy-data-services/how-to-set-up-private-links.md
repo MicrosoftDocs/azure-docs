@@ -49,10 +49,18 @@ Use the following steps to create a private endpoint while provisioning a new Az
     |Location| Select the region where you want to deploy the private endpoint|
     |Name| Enter a name for your private endpoint. The name must be unique|
     |Target sub-resource| **Azure Data Manager for Energy** by default|
-    |**Networking**|
+
+    **Networking:**
+
+    |Setting| Value|
+    |--------|-----|
     |Virtual network| Select the virtual network in which you want to deploy your private endpoint|
     |Subnet| Select the subnet|
-    **Private DNS integration**
+
+    **Private DNS integration:**
+
+    |Setting| Value|
+    |--------|-----|
     |Integrate with private DNS zone| Leave the default value - **Yes**|
     |Private DNS zone| Leave the default value|
 
