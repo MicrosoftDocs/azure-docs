@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 05/15/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,28 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## May 2023 
+
+* [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
+
+    Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Azure Virtual Network (VNet) experience through various security and connectivity features that are available on Azure VNets to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
+    * Increased number of client IPs in a virtual network (including immediately peered VNets) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on Azure NetApp Files delegated subnets
+    * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to and from Azure NetApp Files delegated subnets
+    * Connectivity over Active/Active VPN gateway setup
+    * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files   
+
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
+
+    Version 8 of the AzAcSnap tool is now generally available. [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases in Linux environments. AzAcSnap 8 introduces the following new capabilities and improvements: 
+
+    * Restore change -  ability to revert volume for Azure NetApp Files 
+    * New global settings file (`.azacsnaprc`) to control behavior of `azacsnap` 
+    * Logging enhancements for failure cases and new "mainlog" for summarized monitoring 
+    * Backup (`-c backup`) and Details (`-c details`) fixes  
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
 
 * [Single-file snapshot restore](snapshots-restore-file-single.md) is now generally available (GA)
 

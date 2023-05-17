@@ -3,10 +3,9 @@ title: Frequently asked questions about the MedTech service - Azure Health Data 
 description: Learn about the MedTech service frequently asked questions.
 services: healthcare-apis
 author: msjasteppe
-ms.custom: references_regions
 ms.service: healthcare-apis
-ms.topic: reference
-ms.date: 04/28/2023
+ms.topic: faq
+ms.date: 05/15/2023
 ms.author: jasteppe
 ---
 
@@ -84,7 +83,7 @@ To learn about the MedTech service open-source projects, see [Open-source projec
 
 ## Next steps
 
-In this article, you learned about the MedTech service frequently asked questions (FAQs)
+In this article, you learned about the MedTech service frequently asked questions (FAQs).
 
 For an overview of the MedTech service, see
 
