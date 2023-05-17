@@ -2,11 +2,11 @@
 title: Use Azure Firewall to route a multi hub and spoke topology 
 description: Learn how you can deploy Azure Firewall to route a multi hub and spoke topology.
 services: firewall
-author: vhorne
+author: maurojasmsft
 ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/16/2023
-ms.author: victorh
+ms.author: maroja
 ---
 
 # Use Azure Firewall to route a multi hub and spoke topology
