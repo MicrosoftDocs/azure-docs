@@ -42,7 +42,7 @@ Device Provisioning Service stores customer data in the region where you deploye
 
 By default, DPS leverages [cross-region replication](../availability-zones/cross-region-replication-azure.md) to enable automatic failover. Microsoft-initiated failover is exercised by Microsoft in rare situations when an entire region goes down to failover all the DPS instances from the affected region to its corresponding secondary region. Microsoft reserves the right to determine when this option will be exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
 
-Customers that have DPS deployed in Southeast Asia, East Asia, and Brazil South can opt-out of automatic failover, in which case the customer data stays in the primary region and isn't replicated to a secondary region.
+Customers that have DPS deployed in Southeast Asia and Brazil South can opt-out of automatic failover, in which case the customer data stays in the primary region and isn't replicated to a secondary region.
 
 ## Disable disaster recovery
 
