@@ -26,8 +26,9 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
 |                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
-|                   | [Receive file attachment](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
-|                   | Send file attachment                                                                                                        | ❌ |
+|                   | Send inline images                                                                                                        | ❌ |
+|                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
+|                   | Send file attachments                                                                                                        | ❌ |
 |                   | Send and receive Giphy                                                                                              | ❌ |
 |                   | Send messages with high priority                                                                                    | ❌ |
 |                   | Receive messages with high priority                                                                                 | ✔️ |
