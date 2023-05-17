@@ -89,7 +89,7 @@ You can define client library configuration options when uploading a blob. These
 
 ### Specify transfer validation options on upload
 
-You can specify transfer validation options to help ensure that data is uploaded properly and hasn't been tampered with during transit. The following code example shows how to create a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) object and specify an algorithm for generating a checksum. The checksum is then used to verify data integrity for the uploaded content.
+You can specify transfer validation options to help ensure that data is uploaded properly and hasn't been tampered with during transit. The following code example shows how to create a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) object and specify an algorithm for generating a checksum. The checksum is then used by the service to verify data integrity for the uploaded content.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithChecksum":::
 
@@ -104,7 +104,7 @@ The following table shows the available options for the checksum algorithm, as d
 
 ### Set a blob's access tier on upload
 
-You can set the access tier for a blob by using the [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) object. The following code example shows how to set the access tier when uploading a blob:
+You can set a blob's access tier on upload by using the [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) class. The following code example shows how to set the access tier when uploading a blob:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithAccessTier":::
 
