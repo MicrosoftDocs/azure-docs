@@ -106,20 +106,94 @@ chatClient.on("chatMessageReceived", (e) => {
 });
 
 async function renderReceivedMessage(e) {
-  const messageContent = e.message;
+  messages += '<div class="container lighter">' + event.message + '</div>';
+	messagesContainer.innerHTML = messages;
+  // get list of attachments and calls renderFileAttachments to construct a file attachment card
+	var attachmentHtml = event.attachments
+		.filter(attachment => attachment.attachmentType === "file")
+		.map(attachment => renderFileAttachments(attachment));
+	messagesContainer.innerHTML += attachmentHtml;
+}
 
-  const card = document.createElement('div');
-  card.className = 'container lighter';
-  card.innerHTML = messageContent;
-  
-  messagesContainer.appendChild(card);
-  
-  // filter out inline images from attchments
-  const imageAttachments = e.attachments.filter((e) =>
-    e.attachmentType.toLowerCase() === 'file');
-  
-  // fetch and render preview images
-  fetchPreviewImages(imageAttachments);
+function renderFileAttachments(attachment) {
+	return '<div class="attachment-container">' + 
+               '<p class="attachment-type">' + attachment.contentType + '</p>' + 
+           '<img class="attachment-icon" alt="attachment file icon" />' +
+           '<div>' +
+              '<p>' + attachment.name + '</p>' +
+              '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
+              '<a href=' + attachment.url + ' target="_blank" rel="noreferrer">Download</a>' + 
+          '</div>' +
+			  '</div>';
+}
+
+```
+
+Let's make sure we add some CSS for the attachment card as well:
+
+```
+  /* let's make chat popup scrollable */
+  .chat-popup {
+
+     ...
+
+     max-height: 650px;
+     overflow-y: scroll;
+}
+
+ .attachment-container {
+     overflow: hidden;
+     background: #f3f2f1;
+     padding: 20px;
+     margin: 0;
+     border-radius: 10px;
+}
+ .attachment-container img {
+     width: 50px;
+     height: 50px;
+     float: left;
+     margin: 0;
+}
+ .attachment-container p {
+     font-weight: 700;
+     margin: 0 5px 20px 0;
+}
+ .attachment-container {
+     display: grid;
+     grid-template-columns: 100px 1fr;
+     margin-top: 5px;
+}
+ .attachment-icon {
+     content: url("data:image/svg+xml;base64, ...");
+}
+ .attachment-container a {
+     background-color: #dadada;
+     color: black;
+     font-size: 12px;
+     padding: 10px;
+     border: none;
+     cursor: pointer;
+     border-radius: 5px;
+     text-align: center;
+     margin-right: 10px;
+     text-decoration: none;
+     margin-top: 10px;
+}
+ .attachment-container a:hover {
+     background-color: black;
+     color: white;
+}
+ .attachment-type {
+     position: absolute;
+     color: black;
+     border: 2px solid black;
+     background-color: white;
+     margin-top: 50px;
+     font-family: sans-serif;
+     font-weight: 400;
+     padding: 2px;
+     text-transform: uppercase;
+     font-size: 8px;
 }
 
 ```
@@ -127,7 +201,6 @@ async function renderReceivedMessage(e) {
 That's it all we need for handling file attachments. Next, let's take a look of how we can handle image attachments.
 
 ## Handle image attachments
-
 
 
 
@@ -142,16 +215,11 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ## Demo
 Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some file attachments from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
 
-Then you should see the new message being rendered along with preview images:
+Then you should see the new message being rendered along with file attachments:
 
-:::image type="content" source="../../media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented":::
-
-Upon clicking the preview image by the ACS user, an overlay would be shown with the full scale image sent by the Teams user:
-
- :::image type="content" source="../../media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented":::
-
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown an incoming message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
 
 
 
