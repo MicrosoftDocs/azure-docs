@@ -47,16 +47,16 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node OS auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. You can't change node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to set the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`. 
+If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node OS auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. You can't change node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to set the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
-The nodeosupgradechannel isn't supported on Windows OS nodepools. Mariner support is now rolled out and is expected to be available in all regions soon. 
+The `nodeosupgradechannel` isn't supported on Windows OS node pools. Azure Linux support is now rolled out and is expected to be available in all regions soon.
 
 ## Using node OS auto-upgrade
 
 Automatically completed upgrades are functionally the same as manual upgrades. The selected channel determines the timing of upgrades. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. By default, a cluster's node OS auto-upgrade channel is set to `Unmanaged`.
 
 > [!NOTE]
-> Node OS image auto-upgrade won't affect the cluster's Kubernetes version, but it still still requires the cluster to be in a supported version to function properly.
+> Node OS image auto-upgrade won't affect the cluster's Kubernetes version, but it still requires the cluster to be in a supported version to function properly.
 > When changing channels to `NodeImage` or `SecurityPatch`, the unattended upgrades will only be disabled when the image gets applied in the next cycle and not immediately.
 
 The following upgrade channels are available:

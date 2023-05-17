@@ -21,6 +21,9 @@ This article helps you provision nodes with schedulable GPUs on new and existing
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+> [!NOTE]
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
+
 ## Get the credentials for your cluster
 
 * Get the credentials for your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following example command gets the credentials for the *myAKSCluster* in the *myResourceGroup* resource group:
