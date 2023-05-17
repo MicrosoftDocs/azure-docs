@@ -35,9 +35,9 @@ The following diagram shows the architecture of the system:
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 ::: zone pivot="sc-consumption-plan"
-- Use the following commands to install the Azure Container Apps extension for the Azure CLI, and to register the required namespaces.
+- Azure Container Apps extension for the Azure CLI. Use the following commands to register the required namespaces.
 
   ```azurecli
   az extension add --name containerapp --upgrade
@@ -56,9 +56,9 @@ The following diagram shows the architecture of the system:
 
 ## Clone and run the sample project locally
 
-Use the following steps to clone and run the app locally. The sample project is available on GitHub.
+Use the following steps to clone and run the app locally.
 
-1. Use the following command to clone the sample project:
+1. Use the following command to clone the sample project from GitHub:
 
    ```bash
    git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
@@ -134,13 +134,13 @@ Use the following steps to create a new resource group.
    az configure --defaults location=${LOCATION}
    ```
 
-1. Set the default subscription. Use the following command to first list all available subscriptions:
+1. To set the default subscription, use the following command to list all available subscriptions to determine the subscription ID to use.
 
    ```azurecli
    az account list --output table
    ```
 
-1. Choose a subscription from the list, and the set it as the default subscription with the following command:
+1. Use the following command to set the default subscription:
 
    ```azurecli
    az account set --subscription <subscription-ID>
@@ -164,7 +164,7 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 ::: zone pivot="sc-consumption-plan"
 
-An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same log analytics workspace. For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md). 
+An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same log analytics workspace. For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 1. Use the following command to create the environment:
 
