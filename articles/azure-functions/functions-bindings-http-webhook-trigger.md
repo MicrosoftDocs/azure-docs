@@ -923,8 +923,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 ```
 
 # [v1](#tab/python-v1)
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+
 ```json
 {
     "type": "table",
@@ -935,9 +934,19 @@ The following configuration shows how the `{id}` parameter is passed to the bind
     "rowKey": "{id}"
 }
 ```
-::: zone-end
-::: zone pivot="programming-language-python"  
 ---
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell"  
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
 ::: zone-end
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
