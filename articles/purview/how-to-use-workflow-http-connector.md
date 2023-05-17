@@ -59,7 +59,7 @@ The parse JSON action is available in all workflows.
 The parse JSON action has two parameters:
 
 - Content - a variable that should contain the JSON you want to parse.
-- Schema - the schema of the incoming JSON, which allowsthe workflow to parse the incoming information. You can supply your own, or use the **Generate from sample** button. If you generate from a sample, you'll enter a sample JSON payload and a schema will be automatically generated for you.
+- Schema - the schema of the incoming JSON, which allows the workflow to parse the incoming information. You can supply your own, or use the **Generate from sample** button. If you generate from a sample, you'll enter a sample JSON payload and a schema will be automatically generated for you.
 
 Actions and connectors in the workflow after the parse JSON action will be able to use the values extracted from the JSON by selecting **Add dynamic content** for any parameters.
 
