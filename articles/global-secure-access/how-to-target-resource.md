@@ -14,9 +14,9 @@ ms.reviewer: mamkumar
 ---
 # Traffic profiles as a target resource in Conditional Access 
 
-In addition to sending traffic to ZTNA adminca can use CA to secure acces to these profiles. They can do this through options like requiring MFA, compliant device, or sign in risk.
+In addition to sending traffic to Global Secure Access, administrators can use Conditional Access policies to secure traffic profiles. They can mix and match controls as needed like requiring multifactor authentication, requiring a compliant device, or defining maximum sign in risk.
 
-Conditional Access on traffic profiles provides admnis with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy to manage access to the network. Using traffic profiles allows consistent application of policy. For example, applications that may only support basic authentication can now be protected behind a traffic profile.
+Conditional Access on traffic profiles provides administrators with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy to manage access to the network. Using traffic profiles allows consistent application of policy. For example, applications that may only support basic authentication can now be protected behind a traffic profile.
 
 This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](how-to-configure-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365, private, or internet with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
 
@@ -55,10 +55,10 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 ## User experience
 
-When users sign in to a machine with the Global Secure Access client installed, configured, and running they may be prompted to sign in. Looking at the system tray icon for the Global Secure Access client you will note a red circle indicating it is signed out or not running.
+When users sign in to a machine with the Global Secure Access client installed, configured, and running they may be prompted to sign in. Looking at the system tray icon for the Global Secure Access client you see a red circle indicating it's signed out or not running.
 
 :::image type="content" source="media/how-to-target-resource/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
 
-When a user signs in the Global Secure Access Client will have a green circle that is is signed in and the client is running.
+When a user signs in the Global Secure Access Client has a green circle that you're signed in, and the client is running.
 
 :::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
