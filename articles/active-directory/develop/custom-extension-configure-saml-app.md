@@ -66,7 +66,7 @@ Attributes that return by your custom claims provider API aren't automatically i
 
 1. Select on **Configure** for **Custom claims provider**.
 
-1. Select the custom extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-extension) in the **Custom claims provider** dropdown.  Select **Save**.
+1. Select the custom authentication extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-extension) in the **Custom claims provider** dropdown.  Select **Save**.
 
 1. Select **Add new claim** to add a new claim.
 
