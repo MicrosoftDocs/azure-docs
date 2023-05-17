@@ -138,7 +138,7 @@ Security DevOps recommendations impacted:
 -	GitHub repositories should have Dependabot scanning enabled (preview)
 -	GitHub repositories should have secret scanning enabled (preview)
 
-The recommendation environment source will be updated from “Azure” to "AzureDevOps" or “GitHub”. 
+The recommendation environment source will be updated from `Azure` to `AzureDevOps` or `GitHub`. 
 
 The format for resource IDs will be changed from:
 
