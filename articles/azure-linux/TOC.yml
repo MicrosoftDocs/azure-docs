@@ -25,7 +25,7 @@
     - name: 3 - Migrating to Azure Linux
       href: tutorial-azure-linux-migration.md
     - name: 4 - Enable telemetry and monitoring
-      href: tutorial-azure-linux-telemetry-monitoring.md
+      href: tutorial-azure-linux-telemetry-monitor.md
     - name: 5 - Upgrade Azure Linux nodes
       href: tutorial-azure-linux-upgrade.md
 - name: Concepts
