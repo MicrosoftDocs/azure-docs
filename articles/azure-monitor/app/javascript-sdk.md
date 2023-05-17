@@ -50,16 +50,20 @@ Use the following steps to enable Application Insights:
    // useXhr: 1,
    crossOrigin: "anonymous",
    // onInit: null,
-   cfg: { // Application Insights Configuration
+   cfg: { 
     connectionString: "YOUR_CONNECTION_STRING"
    }});
    </script>
    ```
 
-1. (Optional) Add or update [SDK Loader Script configuration](#sdk-loader-script-configuration) to optimize the loading of your web page.
-   > [!NOTE]
-   > Use the `name`, `Id`, `useXhr` parameters because SDK scrape may lead to a loading failure when the HTML page attempts to load.
-1. (Optional) Add [SDK configuration](#sdk-configuration), which is passed to the Application Insights SDK during initialization.
+1. (Optional) Add or update optional [SDK Loader Script configuration](#sdk-loader-script-configuration), depending on if you need to optimize the loading of your web page or resolve loading errors.
+
+   :::image type="content" source="media/javascript-sdk/sdk-loader-script-configuration.png" alt-text="Screenshot of the SDK Loader Script. The parameters for configuring the SDK Loader Script are highlighted." lightbox="media/javascript-sdk/sdk-loader-script-configuration.png":::
+
+1. (Optional) Add optional [SDK configuration](#sdk-configuration), which is passed to the Application Insights JavaScript SDK during initialization.
+
+   :::image type="content" source="media/javascript-sdk/sdk-loader-script-sdk-configuration.png" alt-text="Screenshot of the SDK Loader Script. The cfg object, which is used to configure the Application Insights JavaScript SDK, is highlighted." lightbox="media/javascript-sdk/sdk-loader-script-sdk-configuration.png":::
+
 1. Add your connection string:
 
    1. Navigate to the **Overview** pane of your Application Insights resource.
@@ -78,11 +82,11 @@ Use the following steps to enable Application Insights:
    | Name | Type | Required? | Description
    |------|------|-----------|------------
    | src | string | Required | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
-   | name | string | Optional | The global name for the initialized SDK, defaults to appInsights. So ```window.appInsights``` is a reference to the initialized instance. Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct snippet skeleton, and proxy methods are initialized and updated.
-   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. The default value is 0ms after timeout. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
-   | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. Reporting first attempts to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
-   | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. When not defined (the default), no crossOrigin attribute is added. Recommended values aren't defined (the default); ""; or "anonymous" (For all valid values see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation)
-   | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). It's passed one argument, which is a reference to the sdk instance that it's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script). |
+   | name | string | Optional | The global name for the initialized SDK. Use this setting if you need to initialize two different SDKs at the same time.<br><br>The default value is appInsights, so ```window.appInsights``` is a reference to the initialized instance.<br><br> Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct SDK Loader Script skeleton, and proxy methods are initialized and updated.
+   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. Use this setting when the HTML page is failing to load because the SDK Loader Script is loading at the wrong time.<br><br>The default value is 0ms after timeout. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
+   | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. For example, this setting is useful when the SDK Loader Script is preventing the HTML page from loading, causing fetch() to be unavailable.<br><br>Reporting first attempts to use fetch() if available and then fallback to XHR. Set this setting to `true` to bypass the fetch check. This setting is only required if your application is being used in an environment where fetch would fail to send the failure events such as if the SDK Loader Script isn't loading successfully.
+   | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. Use this setting when you need to provide support for CORS. When not defined (the default), no crossOrigin attribute is added. Recommended values are not defined (the default), "", or "anonymous". For all valid values, see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation.
+   | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script). |
 
 #### JavaScript telemetry initializers
 
@@ -92,7 +96,7 @@ See [JavaScript telemetry initializers](./api-filtering-sampling.md#javascript-t
 
    | Name | Type | Required? | Description
    |------|------|-----------|------------
-   | cfg | object | Required | The required connection string and optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) passed to the Application Insights SDK during initialization.
+   | cfg | object | Required | The required connection string and optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) passed to the Application Insights JavaScript SDK during initialization.
 
 ### [npm Package](#tab/npmpackage)
 
