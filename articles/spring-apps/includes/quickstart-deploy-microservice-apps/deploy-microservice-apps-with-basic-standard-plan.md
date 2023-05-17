@@ -14,8 +14,6 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-### [Azure portal](#tab/Azure-portal)
-
 ## Clone and run the sample project locally
 
 Use the following steps to prepare the sample locally.
@@ -105,11 +103,11 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 1. Since Azure Spring Apps will use the name of the app as the service name of the built-in eureka service, the Maven plugin for Azure Spring Apps extracts the artifact id in the pom file as the app name by default, so it needs to be consistent with the spring.application.name of each module. Update the artifact id of each submodule to a non `spring-petclinic-` prefix. The detailed changes are as follows:
 
-   - Update the artifact id of the `spring-petclinic-customers-service` module to `customers-service`.
-   - Update the artifact id of the `spring-petclinic-vets-service` module to `vets-service`.
-   - Update the artifact id of the `spring-petclinic-visits-service` module to `visits-service`.
-   - Update the artifact id of the `spring-petclinic-api-gateway` module to `api-gateway`.
-   - Update the artifact id of the `spring-petclinic-admin-server` module to `admin-server`.
+   - Update the artifact id `spring-petclinic-customers-service` to `customers-service`.
+   - Update the artifact id `spring-petclinic-vets-service` to `vets-service`.
+   - Update the artifact id `spring-petclinic-visits-service` to `visits-service`.
+   - Update the artifact id `spring-petclinic-api-gateway` to `api-gateway`.
+   - Update the artifact id `spring-petclinic-admin-server` to `admin-server`.
 
 1. Navigate to the sample project directory and execute the following command to config the apps in Azure Spring Apps:
 
@@ -149,104 +147,3 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    [INFO] Getting public url of app(api-gateway)...
    [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
    ```
-
-### [Azure Developer CLI](#tab/Azure-Developer-CLI)
-
-Install the [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.
-
-### Initialize the project
-
-Use AZD to initialize the {application type} application from the Azure Developer CLI templates.
-
-1. Open a terminal, create a new empty folder, and change into it.
-1. Run the following command to initialize the project.
-
-    ```bash
-    azd init --template https://github.com/Azure-Samples/spring-petclinic-microservices.git
-    ```
-
-    Command interaction description:
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Please enter a new environment name**: Provide an environment name, which will be used as a suffix for the resource group that will be created to hold all Azure resources. This name should be unique within your Azure subscription.
-
-    The console outputs messages similar to the following:
-
-    ```text
-    Initializing a new project (azd init)
-
-    (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: D:\samples\xxx-app
-    
-      Please enter a new environment name: wingtiptoy
-    
-      Please enter a new environment name: wingtiptoy
-    
-    SUCCESS: New project initialized!
-    You can view the template code in your directory: D:\samples\xxx-app
-    Learn more about running 3rd party code on our DevHub: https://learn.microsoft.com/azure/developer/azure-developer-cli/azd-templates#guidelines-for-using-azd-templates
-    ```
-
-## Deploy the app to Azure Spring Apps
-
-Use AZD to package the app, provision the Azure resources required by the {application type} application and then deploy to Azure Spring Apps.
-
-1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
-
-   ```bash
-   azd auth login
-   ```
-
-1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
-
-   ```bash
-   azd up
-   ```
-
-   Command interaction description:
-   
-   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
-
-   > [!NOTE]
-   > 1. This template may only be used with the following Azure locations:
-   >    - Australia East
-   >    - Brazil South
-   >    - Canada Central
-   >    - Central US
-   >    - East Asia
-   >    - East US
-   >    - East US 2
-   >    - Germany West Central
-   >    - Japan East
-   >    - Korea Central
-   >    - North Central US
-   >    - North Europe
-   >    - South Central US
-   >    - UK South
-   >    - West Europe
-   >    - West US
-   >    
-   >    If you attempt to use the template with an unsupported region, the provision step will fail.
-   > 
-   > 2. The `Basic` plan of Azure Spring Apps is used by default. If you want to use the `Standard` plan, 
-   >    you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
-   >
-   >    ```text
-   >    sku: {
-   >      name: 'S0'
-   >      tier: 'Standard'
-   >    }
-   >    ```
-
-   The console outputs messages similar to the following:
-
-   ```text
-   SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<>your-subscription-id/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
-   ```
-
-> [!NOTE]
-> This may take a while to complete as it executes three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). You will see a progress indicator as it packages, provisions and deploys your application. See more details from [Azure-Samples/ASA-Samples-XXX-XXX-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
-
----

@@ -39,23 +39,6 @@ items:
       href: quickstart-standard-consumption-custom-domain.md
     - name: Analyze logs and metrics
       href: quickstart-analyze-logs-and-metrics-standard-consumption.md
-  - name: Run apps on Basic/Standard tier
-    expanded: true
-    items:
-    - name: Introduction to PetClinic sample
-      href: quickstart-sample-app-introduction.md
-    - name: Provision a service instance
-      href: quickstart-provision-service-instance.md
-    - name: Set up Config Server
-      href: quickstart-setup-config-server.md
-    - name: Build and deploy apps
-      href: quickstart-deploy-apps.md
-    - name: Set up Log Analytics
-      href: quickstart-setup-log-analytics.md
-    - name: Use logs, metrics and tracing
-      href: quickstart-logs-metrics-tracing.md
-    - name: Integrate with Azure Database for MySQL
-      href: quickstart-integrate-azure-database-mysql.md
   - name: Run apps on Enterprise tier
     items:
     - name: Introduction to Fitness Store sample
@@ -87,6 +70,12 @@ items:
       href: quickstart-deploy-infrastructure-vnet-terraform.md
 - name: Tutorials
   items:
+    - name: Set up Log Analytics
+      href: quickstart-setup-log-analytics.md
+    - name: Use logs, metrics and tracing
+      href: quickstart-logs-metrics-tracing.md
+    - name: Integrate with Azure Database for MySQL
+      href: quickstart-integrate-azure-database-mysql.md
     - name: Alerts and action groups
       href: tutorial-alerts-action-groups.md
     - name: Circuit Breaker Dashboard

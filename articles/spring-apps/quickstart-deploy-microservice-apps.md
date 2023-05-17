@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.date: 03/21/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
-zone_pivot_groups: spring-apps-plan-selection
 ---
 
 # Quickstart: Deploy microservice applications to Azure Spring Apps
@@ -17,6 +16,8 @@ zone_pivot_groups: spring-apps-plan-selection
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ❌ Standard consumption (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article explains how to deploy microservice applications to Azure Spring Apps using the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices). The **Pet Clinic** sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application.
 
@@ -30,23 +31,7 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 [!INCLUDE [quickstart-two-options](includes/quickstart-two-options.md)]
 
-::: zone pivot="sc-consumption-plan"
-
-[!INCLUDE [deploy-microservice-apps-with-standard-consumption-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-standard-consumption-plan.md)]
-
-::: zone-end
-
-::: zone pivot="sc-standard"
-
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-[!INCLUDE [deploy-microservice-apps-with-enterprise-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-enterprise-plan.md)]
-
-::: zone-end
 
 ## Validate the microservice applications
 
@@ -59,11 +44,16 @@ According to the content echoed by the deployment, open the URL exposed by the a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
+> [Quickstart: Set up Log Analytics](./quickstart-setup-log-analytics.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Use logs, metrics and tracing](./quickstart-logs-metrics-tracing.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Integrate with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
 
 For more information, see the following articles:
 
-- [Azure Developer CLI](https://aka.ms/azure-dev/overview)
 - [Simple Todo Event Driven App](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application)
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 - [Spring on Azure](/azure/developer/java/spring/)
