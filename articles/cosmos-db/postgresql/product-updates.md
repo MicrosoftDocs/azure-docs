@@ -27,7 +27,8 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * General availability: [Pgvector extension](howto-use-pgvector.md) enabling vector storage is now fully supported on Azure Cosmos DB for Postgres.
 * General availability: [Latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.20, 12.15, 13.11, 14.8, and 15.3) are now available in all supported regions.
 * General availability: [Citus 11.3](https://www.citusdata.com/updates/v11-3/) is now supported on PostgreSQL 13, 14, and 15.
-	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade. 
+	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
+* General availability: PgBouncer version 1.19.0 is now supported for all [PostgreSQL versions](reference-versions.md#postgresql-versions) in all [supported regions](./resources-regions.md) 	
 * General availability: Clusters are now always provisioned with the latest Citus version supported for selected PostgreSQL version.
 	* See [this page](./reference-extensions.md#citus-extension) for the latest supported Citus versions.
 	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
