@@ -41,6 +41,9 @@ There are two ways to add the NVIDIA device plugin:
 
 ### Update your cluster to use the AKS GPU image (preview)
 
+> [!NOTE]
+> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
+
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
