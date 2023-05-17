@@ -7,7 +7,7 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As a Modeling and Simulation Workbench chamber user, I want to export data from my chamber
+# Customer intent: As a Modeling and Simulation Workbench Chamber User, I want to export data from my chamber
 ---
 
 # How to export data from an Azure Modeling and Simulation Workbench chamber

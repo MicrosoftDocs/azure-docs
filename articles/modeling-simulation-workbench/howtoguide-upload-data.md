@@ -7,7 +7,7 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As a Modeling and Simulation Workbench chamber user, I want to import data into my chamber
+# Customer intent: As a Modeling and Simulation Workbench Chamber User, I want to import data into my chamber
 ---
 
 # How to import data into an Azure Modeling and Simulation Workbench chamber
