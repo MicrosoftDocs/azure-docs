@@ -88,7 +88,7 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Application integration guidance
+    - name: Integrate SaaS applications
       href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
@@ -140,7 +140,7 @@
         href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate an AD FS app to Azure
+      - name: Migrate an AD FS app to Azure AD
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
@@ -163,7 +163,11 @@
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
       - name: Cloudflare
-        href: cloudflare-azure-ad-integration.md
+        items:
+        - name: Configure Cloudflare with Azure AD
+          href: cloudflare-azure-ad-integration.md
+        - name: Configure Conditional Access policies in Cloudflare Access
+          href: cloudflare-conditional-access-policies.md
       - name: Datawiza
         items:
         - name: Integrate Datawiza with Azure AD
@@ -209,7 +213,7 @@
               - name: SSL-VPN
                 href: f5-aad-password-less-vpn.md  
               - name: B2C
-                href: ../../active-directory-b2c/partner-f5.md
+                href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on

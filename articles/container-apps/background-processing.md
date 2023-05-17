@@ -141,7 +141,7 @@ Now you can create the message queue.
 
 ```azurecli
 az storage queue create \
-  --name 'myqueue" \
+  --name "myqueue" \
   --account-name $STORAGE_ACCOUNT_NAME \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
@@ -190,12 +190,10 @@ Create a file named *queue.json* and paste the following configuration code into
             "type": "String"
         },
         "environment_name": {
-            "defaultValue": "",
             "type": "String"
         },
         "queueconnection": {
-            "defaultValue": "",
-            "type": "String"
+            "type": "secureString"
         }
     },
     "variables": {},

@@ -35,7 +35,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
     // shouldn’t be necessary as it’s true by default
     options.RefreshOnIssuerKeyNotFound = true;
     …
-};
+});
 ```
 
 ## ASP.NET/ OWIN

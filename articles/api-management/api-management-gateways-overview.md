@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 02/22/2023
 ms.author: danlep
 ---
 
@@ -74,6 +74,9 @@ The following table compares features available in the managed gateway versus th
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
+| **HTTP/2** (Client-to-gateway) |  ❌ | ❌ | ✔️ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ | 
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
@@ -84,18 +87,18 @@ The following table compares features available in the managed gateway versus th
 | API | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [OpenAPI specification](import-api-from-oas.md) |  ✔️ | ✔️ | ✔️ |
-| [WSDL specification)](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
+| [WSDL specification](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
 | WADL specification |  ✔️ | ✔️ | ✔️ |
 | [Logic App](import-logic-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
-| [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️<sup>1</sup> | ❌ |
-| [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ❌ | ❌ |
-| [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ | ❌ |
+| [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 
-<sup>1</sup> GraphQL subscriptions aren't supported in the Consumption tier.
+<sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported in the Consumption tier.
 
 ### Policies
 
@@ -104,9 +107,9 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
 | [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
-| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
+| [GraphQL resolvers](api-management-policies.md#graphql-resolver-policies) and [GraphQL validation](api-management-policies.md#validation-policies)|  ✔️ | ✔️ | ❌ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ | ❌ |
 | [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
-| [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>

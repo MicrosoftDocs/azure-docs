@@ -6,8 +6,8 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
-ms.date: 06/30/2022
+ms.topic: include
+ms.date: 04/05/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 keywords: 
@@ -134,7 +134,7 @@ openai.api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 openai.api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE" 
 openai.api_type = 'azure'
 # The API version may change in the future.
-openai.api_version = '2022-06-01-preview'
+openai.api_version = '2023-05-15'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'
@@ -236,6 +236,8 @@ print(f'Found {len(result)} fine-tune jobs.')
 ## Deploy a customized model
 
 When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the FineTune.retrieve() method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
@@ -343,6 +345,8 @@ The result file is a CSV file containing a header row and a row for each trainin
 When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
 
 ### Delete your model deployment
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 You can use various methods to delete the deployment for your customized model:
 

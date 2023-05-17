@@ -49,13 +49,13 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '1.0.0-beta2'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta.3'
     end
     ```
 
 1. Run `pod install --repo-update`.
 
-1. In Xcode, open the generated *.xcworkspace* file.
+1. In Xcode, open the generated *xcworkspace* file.
 
 ### Turn off Bitcode
 

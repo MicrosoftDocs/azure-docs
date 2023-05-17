@@ -26,13 +26,14 @@ Before you begin, have the following tools and services:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
 
 When setting up your project, you'll download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
 
 Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.1 as minimum requirements.
+
 ## Set up your project
 
 Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time.
@@ -57,7 +58,7 @@ After the project is created, add the client library. The [Azure.Search.Document
 
 1. Start Visual Studio and create a .NET Core console application.
 
-1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
+1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**.
 
 1. Select **Browse**.
 
@@ -157,7 +158,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
    + `SearchableField` must be a string, and is always searchable and retrievable. Other attributes are off by default, but can be enabled. Because this field type is searchable, it supports synonyms and the full complement of analyzer properties. For more information, see the [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) in source code.
 
-   Whether you use the basic `SearchField` API or either one of the helper models, you must explicitly enable filter, facet, and sort attributes. For example, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable), and [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) must be explicitly attributed, as shown in the sample above. 
+   Whether you use the basic `SearchField` API or either one of the helper models, you must explicitly enable filter, facet, and sort attributes. For example, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable), and [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) must be explicitly attributed, as shown in the sample above.
 
 1. Add a second empty class definition to your project: **Address.cs**.  Copy the following code into the class.
 
@@ -212,7 +213,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
 Azure Cognitive Search searches over content stored in the service. In this step, you'll load JSON documents that conform to the hotel index you just created.
 
-In Azure Cognitive Search, search documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. 
+In Azure Cognitive Search, search documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself.
 
 When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object. An `IndexDocumentsBatch` object contains a collection of [Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions), each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
@@ -404,7 +405,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
         WriteDocuments(response);
     ```
 
-1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there's no relevance score associated with a filter query. 
+1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there's no relevance score associated with a filter query.
 
     ```csharp
     // Query 2
@@ -443,7 +444,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     WriteDocuments(response);
     ```
 
-1. The fourth query demonstrates facets, which can be used to structure a faceted navigation structure. 
+1. The fourth query demonstrates facets, which can be used to structure a faceted navigation structure.
 
    ```csharp
     // Query 4
@@ -485,6 +486,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     var autoresponse = srchclient.Autocomplete("sa", "sg");
     WriteDocuments(autoresponse);
    ```
+
 1. Add **RunQueries** to Main().
 
     ```csharp
@@ -503,7 +505,7 @@ Full text search and filters are performed using the [SearchClient.Search](/dotn
 
 ## Run the program
 
-Press F5 to rebuild the app and run the program in its entirety. 
+Press F5 to rebuild the app and run the program in its entirety.
 
 Output includes messages from [Console.WriteLine](/dotnet/api/system.console.writeline), with the addition of query information and results.
 
@@ -513,7 +515,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 ## Next steps
 

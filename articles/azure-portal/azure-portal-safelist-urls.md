@@ -22,6 +22,10 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 
 ### [Public Cloud](#tab/public-cloud)
 
+> [!TIP]
+> The service tags required to access the Azure portal (including authentication and resource listing) are **AzureActiveDirectory**, **AzureResourceManager**, and **AzureFrontDoor.Frontend**. Access to other services may require additional permissions, as described below.  
+> However, there is a possibility that unnecessary communication other than communication to access the portal may also be allowed. If granular control is required, FQDN-based access control such as Azure Firewall is required.
+
 #### Azure portal authentication
 
 ```
@@ -76,6 +80,7 @@ asazure.windows.net (Analysis Services)
 bastion.azure.com (Azure Bastion Service)
 batch.azure.com (Azure Batch Service)
 catalogapi.azure.com (Azure Marketplace)
+catalogartifact.azureedge.net (Azure Marketplace)
 changeanalysis.azure.com (Change Analysis)
 cognitiveservices.azure.com (Cognitive Services)
 config.office.com (Microsoft Office)

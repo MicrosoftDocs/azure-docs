@@ -232,7 +232,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Sweden                                 |                ✓                  |         ✓         |     ✓      |
 | Switzerland                            |                ✓                  |         ✓         |     ✓      |
 | Tajikistan                             |                ✓                  |                   |             |
-| Turkey                                 |                ✓                  |         ✓         |     ✓      |
+| Türkiye                                |                ✓                  |         ✓         |     ✓      |
 | Turkmenistan                           |                ✓                  |                   |             |
 | Ukraine                                |                ✓                  |         ✓         |             |
 | United Kingdom                         |                ✓                  |         ✓         |     ✓      |

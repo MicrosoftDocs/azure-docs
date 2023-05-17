@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -166,13 +165,13 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
+| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), United Kingdom (-uk), India (-in)|
 | &bullet; Spanish (es) |Spain (es)|
 | &bullet; German (de) | Germany (de)|
 | &bullet; French (fr) | France (fr) |
 | &bullet; Italian (it) | Italy (it)|
 | &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
-| &bullet; Dutch (de) | Netherlands (de)|
+| &bullet; Dutch (nl) | Netherlands (nl)|
 
 ## Field extraction
 

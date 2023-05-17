@@ -43,6 +43,8 @@
   - name: ARM template
     displayName: Resource Manager 
     href: search-get-started-arm.md
+  - name: Terraform
+    href: search-get-started-terraform.md
 - name: Tutorials
   items:
   - name: Add search to static web apps
@@ -228,6 +230,8 @@
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
+      - name: Connect to a SQL managed instance private endpoint
+        href: search-indexer-how-to-access-private-sql.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
@@ -238,7 +242,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
+      - name: Security filters with Azure AD
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:

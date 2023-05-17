@@ -104,9 +104,10 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you have a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
 
-For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
+* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
+* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
 
 ### Why I see 'Advertised public prefixes' status as 'Validation needed', while configuring Microsoft peering?
 
@@ -134,6 +135,11 @@ We don't set a limit on the amount of data transfer. Refer to [pricing details](
 Supported bandwidth offers:
 
 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
+
+### What's the maximum MTU supported?
+
+ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
+See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
 
 ### Which service providers are available?
 
@@ -185,7 +191,7 @@ If your service provider can establish two Ethernet virtual circuits over the ph
 
 No. We don't support layer 2 connectivity extensions into Azure.
 
-### Can I've more than one ExpressRoute circuit in my subscription?
+### Can I have more than one ExpressRoute circuit in my subscription?
 
 Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit is set to 50. You can contact Microsoft Support to increase the limit, if needed.
 
@@ -302,6 +308,12 @@ You should experience minimal to no impact during maintenance if you operate you
 ### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
 
 You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is composed of multiple instances and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself won't experience any downtime.
+
+### Why are certain ports opened on my ExpressRoute gateway?
+
+They're required for Azure infrastructure to communicate. They're protected by Azure certificates. Without proper certificates, you can't establish a connection to the ports. 
+
+An ExpressRoute gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
 ## ExpressRoute SKU scope access
 

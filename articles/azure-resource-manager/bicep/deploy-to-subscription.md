@@ -2,6 +2,7 @@
 title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope. It shows how to create a resource group.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 11/22/2021
 ---
 

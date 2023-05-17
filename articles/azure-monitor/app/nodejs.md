@@ -174,11 +174,33 @@ appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cl
 appInsights.start();
 ```
 
-### Automatic web snippet injection (preview)
+### Automatic web Instrumentation[Preview]
 
-You can use automatic web snippet injection to enable [Application Insights usage experiences](usage-overview.md) and browser diagnostic experiences with a simple configuration. It's an easier alternative to manually adding the JavaScript snippet or npm package to your JavaScript web code.
+ Automatic web Instrumentation can be enabled for node server via configuration 
 
-For node server with configuration, set `enableAutoWebSnippetInjection` to `true`. Alternatively, set the environment variable as `APPLICATIONINSIGHTS_WEB_SNIPPET_ENABLED = true`. Automatic web snippet injection is available in Application Insights Node.js SDK version 2.3.0 or greater. For more information, see [Application Insights Node.js GitHub Readme](https://github.com/microsoft/ApplicationInsights-node.js#automatic-web-snippet-injectionpreview).
+```javascript
+let appInsights = require("applicationinsights");
+appInsights.setup("<connection_string>")
+    .enableWebInstrumentation(true)
+    .start();
+```
+
+or by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_ENABLED = true`.
+
+Web Instrumentation will be enabled on node server responses when all of the following requirements are met:
+
+- Response has status code `200`.
+- Response method is `GET`.
+- Sever response has `Content-Type` html.
+- Server response contains both `<head>` and `</head>` Tags.
+- If response is compressed, it must have only one `Content-Encoding` type, and encoding type must be one of `gzip`, `br` or `deflate`.
+- Response does not contain current /backup web Instrumentation CDN endpoints.  (current and backup Web Instrumentation CDN endpoints [here](https://github.com/microsoft/ApplicationInsights-JS#active-public-cdn-endpoints))
+
+web Instrumentation CDN endpoint can be changed by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_SOURCE = "web Instrumentation CDN endpoints"`.
+web Instrumentation connection string can be changed by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_CONNECTION_STRING = "web Instrumentation connection string"`
+
+> [!Note] 
+> Web Instrumentation may slow down server response time, especially when response size is large or response is compressed. For the case in which some middle layers are applied, it may result in web Instrumentation not working and original response will be returned.
 
 ### Automatic third-party instrumentation
 
@@ -429,6 +451,29 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | samplingPercentage              | The percentage of telemetry items tracked that should be transmitted. (Default is `100`.)                      |
 | correlationIdRetryIntervalMs    | The time to wait before retrying to retrieve the ID for cross-component correlation. (Default is `30000`.)     |
 | correlationHeaderExcludedDomains| A list of domains to exclude from cross-component correlation header injection. (Default. See [Config.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts).)|
+
+## How do I customize logs collection?
+
+By default, Application Insights Node.js SDK logs at warning level to console.
+
+To spot and diagnose issues with Application Insights, "Self-diagnostics" can be enabled. This means collection of internal logging from the Application Insights Node.js SDK.
+
+The following code demonstrates how to enable debug logging as well as generate telemetry for internal logs.
+
+```
+let appInsights = require("applicationinsights");
+appInsights.setup("<YOUR_CONNECTION_STRING>")
+    .setInternalLogging(true, true) // Enable both debug and warning logging
+    .setAutoCollectConsole(true, true) // Generate Trace telemetry for winston/bunyan and console logs
+    .start();
+    
+Logs could be put into local file using APPLICATIONINSIGHTS_LOG_DESTINATION environment variable, supported values are file and file+console, a file named applicationinsights.log will be generated on tmp folder by default, including all logs, /tmp for *nix and USERDIR\\AppData\\Local\\Temp for Windows. Log directory could be configured using APPLICATIONINSIGHTS_LOGDIR environment variable.
+
+process.env.APPLICATIONINSIGHTS_LOG_DESTINATION = "file+console";
+process.env.APPLICATIONINSIGHTS_LOGDIR = "C:\\applicationinsights\\logs";
+
+// Application Insights SDK setup....
+```
 
 ## Troubleshooting
 

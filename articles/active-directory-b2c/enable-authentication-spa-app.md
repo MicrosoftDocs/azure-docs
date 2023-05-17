@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 06/25/2021
+ms.topic: how-to
+ms.date: 03/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -93,7 +93,7 @@ app.listen(port, () => {
 
 ## Step 4: Create the SPA user interface
 
-Add the SAP app `index.html` file. This file implements a user interface that's built with a Bootstrap framework, and it imports script files for configuration, authentication, and web API calls.
+Add the SPA app `index.html` file. This file implements a user interface that's built with a Bootstrap framework, and it imports script files for configuration, authentication, and web API calls.
 
 The resources referenced by the *index.html* file are detailed in the following table: 
 

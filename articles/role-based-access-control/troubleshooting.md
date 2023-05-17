@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 02/17/2023
+ms.date: 04/19/2023
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -28,9 +28,6 @@ When you try to assign a role, you get the following error message:
 **Cause**
 
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
-
-> [!NOTE]
-> For specialized clouds, such as Azure Government and Azure China 21Vianet, the limit is **2000** role assignments per subscription.
 
 **Solution**
 
@@ -293,13 +290,11 @@ You recently added or updated a role assignment, but the changes aren't being de
 
 **Cause 1**
 
-Azure Resource Manager sometimes caches configurations and data to improve performance. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
+Azure Resource Manager sometimes caches configurations and data to improve performance.
 
 **Solution 1**
 
-If you're using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you're making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
-
-If you're add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you're using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you're making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 **Cause 2**
 
@@ -308,6 +303,30 @@ You added managed identities to a group and assigned a role to that group. The b
 **Solution 2**
 
 It can take several hours for changes to a managed identity's group or role membership to take effect. For more information, see [Limitation of using managed identities for authorization](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
+
+### Symptom - Role assignment changes at management group scope are not being detected
+
+You recently added or updated a role assignment at management group scope, but the changes are not being detected.
+
+**Cause**
+
+Azure Resource Manager sometimes caches configurations and data to improve performance.
+
+**Solution**
+
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you add or remove a built-in role assignment at management group scope and the built-in role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane. Custom roles with `DataActions` can't be assigned at the management group scope.
+
+### Symptom - Role assignments for management group changes are not being detected
+
+You created a new child management group and the role assignment on the parent management group is not being detected for the child management group.
+
+**Cause**
+
+Azure Resource Manager sometimes caches configurations and data to improve performance.
+
+**Solution**
+
+It can take up to 10 minutes for the role assignment for the child management group to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 ### Symptom - Removing role assignments using PowerShell takes several minutes
 
@@ -391,7 +410,7 @@ When you try to create or update a custom role, you can't add more than one mana
 
 **Cause**
 
-You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+You can define only one management group in `AssignableScopes` of a custom role.
 
 **Solution**
 

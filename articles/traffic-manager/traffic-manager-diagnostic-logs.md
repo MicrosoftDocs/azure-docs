@@ -3,13 +3,12 @@ title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
 author: greg-lindsay
-
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Enable resource logging in Azure Traffic Manager
@@ -23,7 +22,7 @@ Azure Traffic Manager resource logs can provide insight into the behavior of the
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. 
-If you run PowerShell from your computer, you need the Azure PowerShell module, 1.0.0 or later. You can run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure.
+If you run PowerShell from your computer, you need the Azure PowerShell module, 1.0.0 or later. You can run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure.
 
 1. **Retrieve the Traffic Manager profile:**
 

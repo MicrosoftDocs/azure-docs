@@ -17,8 +17,6 @@ zone_pivot_groups: drawing-package-version
 
 You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package].
 
-For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide].
-
 ## Prerequisites
 
 The drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software.
@@ -61,7 +59,7 @@ The [Conversion service] does the following on each DWG file:
   - Walls
   - Vertical penetrations
 - Produces a *Facility* feature.  
-- Produces a minimal set of default Category features to be referenced by other features:
+- Produces a minimal set of default Category features referenced by other features:
   - room
   - structure
   - wall
@@ -71,7 +69,7 @@ The [Conversion service] does the following on each DWG file:
 
 ## DWG file requirements
 
-A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels will have three DWG files in the drawing package.
+A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels has three DWG files in the drawing package.
 
 Each DWG file must adhere to the following requirements:
 
@@ -89,32 +87,32 @@ Each DWG layer must adhere to the following rules:
 - Self-intersecting polygons are permitted, but are automatically repaired. When they repaired, the [Conversion service] raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
 - Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities aren't supported on the wall layer.
 
-The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Conversion service] ignores those entities.  
+The following table outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Conversion service] ignores those entities.  
 
 | Layer | Entity types | Converted Features |
 | :----- | :-------------------| :-------
-| [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Levels
-| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle, Ellipse (closed) |  Units and Vertical penetrations
-| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle, Ellipse (closed), Structures |
-| [Door](#door-layer) | Polygon, PolyLine, Line, CircularArc, Circle | Openings
-| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Zones
+| [Exterior](#exterior-layer) | POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed) | Levels
+| [Unit](#unit-layer) |  POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed) |  Units and Vertical penetrations
+| [Wall](#wall-layer)  | POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed), Structures |
+| [Door](#door-layer) | POLYGON, POLYLINE, LINE, CIRCULARARC, CIRCLE | Openings
+| [Zone](#zone-layer) | POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed) | Zones
 | [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more information, see the [UnitLabel layer](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more information, see the [ZoneLabel layer](#zonelabel-layer).
 
-The sections below describe the requirements for each layer.
+The following sections describe the requirements for each layer.
 
 ### Exterior layer
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred to as the *exterior* layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-feature-stateset.md) will contain only one level feature for each DWG file. Additionally:
+No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-feature-stateset.md) contains only one level feature for each DWG file. Additionally:
 
-- Exteriors must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
+- Exteriors must be drawn as POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed).
 - Exteriors may overlap, but are dissolved into one geometry.
 - Resulting level feature must be at least 4 square meters.
 - Resulting level feature must not be greater 400,000 square meters.
 
-If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
+If the layer contains multiple overlapping PolyLines, they're dissolved into a single Level feature. Instead, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
 You can see an example of the Exterior layer as the outline layer in the [sample drawing package].
 
@@ -124,7 +122,7 @@ The DWG file for each level defines a layer containing units. Units are navigabl
 
 The Units layer should adhere to the following requirements:
 
-- Units must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
+- Units must be drawn as POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed).
 - Units must fall inside the bounds of the facility exterior perimeter.
 - Units must not partially overlap.
 - Units must not contain any self-intersecting geometry.
@@ -137,7 +135,7 @@ You can see an example of the Units layer in the [sample drawing package].
 
 The DWG file for each level can contain a layer that defines the physical extents of walls, columns, and other building structure.
 
-- Walls must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
+- Walls must be drawn as POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed).
 - The wall layer or layers should only contain geometry that's interpreted as building structure.
 
 You can see an example of the Walls layer in the [sample drawing package].
@@ -146,7 +144,7 @@ You can see an example of the Walls layer in the [sample drawing package].
 
 You can include a DWG layer that contains doors. Each door must overlap the edge of a unit from the Unit layer.
 
-Door openings in an Azure Maps dataset are represented as a single-line segment that overlaps multiple unit boundaries. The following images show how Azure Maps converts door layer geometry into opening features in a dataset..
+Door openings in an Azure Maps dataset are represented as a single-line segment that overlaps multiple unit boundaries. The following images show how Azure Maps converts door layer geometry into opening features in a dataset.
 
 ![Four graphics that show the steps to generate openings](./media/drawing-requirements/opening-steps.png)
 
@@ -154,7 +152,7 @@ Door openings in an Azure Maps dataset are represented as a single-line segment 
 
 The DWG file for each level can contain a Zone layer that defines the physical extents of zones. A zone is a non-navigable space that can be named and rendered. Zones can span multiple levels and are grouped together using the zoneSetId property.
 
-- Zones must be drawn as Polygon, PolyLine (closed), or Ellipse (closed).
+- Zones must be drawn as POLYGON, POLYLINE (closed), or ELLIPSE (closed).
 - Zones can overlap.
 - Zones can fall inside or outside the facility's exterior perimeter.
 
@@ -263,7 +261,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |`unitName`|string|true|Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layers. |
-|`categoryName`|string|false|Purpose of the unit. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json).|
+|`categoryName`|string|false|Purpose of the unit. A list of values that the provided rendering styles can make use of is documented in [categories.json](https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json).|
 |`occupants`|array of directoryInfo objects |false    |List of occupants for the unit. |
 |`nameAlt`|string|false|Alternate name of the unit. |
 |`nameSubtitle`|string|false|Subtitle of the unit. |
@@ -272,7 +270,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`. The value is case-sensitive.|
 | `nonPublic` | bool | false | Indicates if the unit is open to the public. |
 | `isRoutable` | bool | false | When this property is set to `false`, you can't go to or through the unit. The default value is `true`. |
-| `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit won't be reachable by a navigating agent.|
+| `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit isn't reachable by a navigating agent.|
 
 ### `zoneProperties`
 
@@ -281,14 +279,14 @@ The `zoneProperties` object contains a JSON array of zone properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |zoneName |string |true |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer of the zone.  |
-|categoryName| string| false |Purpose of the zone. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json).|
+|categoryName| string| false |Purpose of the zone. A list of values that the provided rendering styles can make use of is documented in [categories.json](https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json).|
 |zoneNameAlt| string| false |Alternate name of the zone.  |
 |zoneNameSubtitle| string | false |Subtitle of the zone. |
 |zoneSetId| string | false | Set ID to establish a relationship among multiple zones so that they can be queried or selected as a group. For example, zones that span multiple levels. |
 
 ### Sample drawing package manifest
 
-Below is the manifest file for the sample drawing package. Go to the [Sample drawing package] for Azure Maps Creator on GitHub to download the entire package.
+The following is the manifest file for the sample drawing package. Go to the [Sample drawing package] for Azure Maps Creator on GitHub to download the entire package.
 
 #### Manifest file
 
@@ -421,9 +419,9 @@ Below is the manifest file for the sample drawing package. Go to the [Sample dra
 
 :::zone pivot="drawing-package-v2"
 
-You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service v2]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the [sample drawing package v2].
+You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the [sample drawing package v2].
 
-For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide].
+For a guide on how to prepare your drawing package, see [Drawing Package Guide].
 
 ## Changes and Revisions
 
@@ -436,7 +434,7 @@ The drawing package includes drawings saved in DWG format, which is the native f
 
 You can choose any CAD software to produce the drawings in the drawing package.
 
-The [Conversion service v2] converts the drawing package into map data. The Conversion service works with the AutoCAD DWG file format AC1032.
+The [Conversion service] converts the drawing package into map data. The Conversion service works with the AutoCAD DWG file format AC1032.
 
 ## Glossary of terms
 
@@ -490,15 +488,15 @@ One or more DWG layer(s) can be mapped to a user defined feature class. One inst
 
 - All layers should be separated to represent different feature types of the facility.
 - All entities must fall inside the bounds of the level perimeter.
-- Supported AutoCAD entity types: text, mtext, point, arc, circle, line, polyline, ellipse. 
+- Supported AutoCAD entity types: TEXT, MTEXT, POINT, ARC, CIRCLE, LINE, POLYLINE, ELLIPSE.
 
 ### Feature class properties
 
 Text entities that fall within the bounds of a closed shape can be associated to that feature as a property. For example, a room feature class might have text that describes the room name and another the room type [sample drawing package v2]. Additionally:
 
-- Only TEXT and MTEXT entities will be associated to the feature as a property. All other entity types will be ignored.
-- TEXT and MTEXT justification point must fall within the bounds of the closed shape.
-- If more than one TEXT property is within the bounds of the closed shape and both are mapped to one property, one will randomly be selected.
+- Only TEXT and MTEXT entities are associated to the feature as a property. All other entity types are ignored.
+- The TEXT and MTEXT justification point must fall within the bounds of the closed shape.
+- If more than one TEXT property is within the bounds of the closed shape and both are mapped to one property, one is randomly selected.
 
 ### Facility level
 
@@ -506,24 +504,24 @@ The DWG file for each level must contain a layer to define that level's perimete
 
 No matter how many entity drawings are in the level perimeter layer, the resulting facility dataset contains only one level feature for each DWG file. Additionally:
 
-- Level perimeters must be drawn as Polygon, Polyline (closed), Circle, or Ellipse (closed).
+- Level perimeters must be drawn as POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed).
 - Level perimeters may overlap but are dissolved into one geometry.
 - The resulting level feature must be at least 4 square meters.
 - The resulting level feature must not be greater than 400,000 square meters.
 
-If the layer contains multiple overlapping Polylines, the Polylines are dissolved into a single Level feature. Instead, if the layer contains
-multiple nonoverlapping Polylines, the resulting Level feature has a multi-polygonal representation.
+If the layer contains multiple overlapping POLYLINES, they're combined into a single Level feature. Instead, if the layer contains
+multiple nonoverlapping POLYLINES, the resulting Level feature has a multi-polygonal representation.
 
-You can see an example of the Level perimeter layer as the 'GROS$' layer in the [sample drawing package v2].
+You can see an example of the Level perimeter layer as the `GROS$` layer in the [sample drawing package v2].
 
 ## Manifest file requirements
 
 The drawing package must contain a manifest file at the root level and the file must be named **manifest.json**. It describes the DWG files
-allowing the  [Conversion service v2] to parse their content. Only the files identified by the manifest are used. Files that are in the drawing package, but aren't properly listed in the manifest, are ignored.
+allowing the  [Conversion service] to parse their content. Only the files identified by the manifest are used. Files that are in the drawing package, but aren't properly listed in the manifest, are ignored.
 
 The file paths in the buildingLevels object of the manifest file must be relative to the root of the drawing package. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is *Basement.dwg*. A DWG file for level 2 is named as *level_2.dwg*. Filenames can't contain spaces, you can use an underscore to replace any spaces.
 
-Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for the 2023-03-01-preview [Conversion service v2].
+Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for the 2023-03-01-preview [Conversion service].
 
 > [!NOTE]
 > Unless otherwise specified, all string properties are limited to one thousand characters.
@@ -533,9 +531,9 @@ Although there are requirements when you use the manifest objects, not all objec
 | Property       | Type                          | Required | Description                                                                             |
 |----------------|-------------------------------|----------|-----------------------------------------------------------------------------------------|
 | `version`      | number                        | TRUE     | Manifest schema version. Currently version 2.0                                          |
-|`buildingLevels`| [BuildingLevels](#buildinglevels) object       | TRUE     | Specifies the levels of the facility and the files containing the design of the levels. |
+|`buildingLevels`| [BuildingLevels] object       | TRUE     | Specifies the levels of the facility and the files containing the design of the levels. |
 |`featureClasses`|Array of [featureClass] objects| TRUE     | List of feature class objects that define how layers are read from the DWG drawing file.|
-| `georeference` |[Georeference](#georeference) object| FALSE | Contains numerical geographic information for the facility drawing.                   |
+| `georeference` |[Georeference] object          | FALSE    | Contains numerical geographic information for the facility drawing.                     |
 | `facilityName` | string                        | FALSE    | The name of the facility.                                                               |
 
 The next sections detail the requirements for each object.
@@ -568,7 +566,7 @@ The next sections detail the requirements for each object.
 
 | Property     | Type      | Required | Description                 |
 |--------------|-----------|----------|-----------------------------|
-| `dwgLayers` | Array of strings | TRUE | The name of each layer that defines the feature class property. Each entity on the specified layer is converted to a property. Only the DWG `TEXT` and `MTEXT` entities are converted to properties. All other entities are ignored.  |
+| `dwgLayers` | Array of strings | TRUE | The name of each layer that defines the feature class property. Each entity on the specified layer is converted to a property. Only the DWG TEXT and MTEXT entities are converted to properties. All other entities are ignored.  |
 |`featureClassPropertyName`| String | TRUE | Name of the feature class property, for example, spaceName or spaceUseType.|
 
 #### georeference
@@ -669,8 +667,10 @@ The JSON in this example shows the manifest file for the sample drawing package.
 
 ## Next steps
 
+For a guide on how to prepare your drawing package, see the drawing package guide.
+
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)
+> [Drawing Package Guide]
 
 Learn more by reading:
 
@@ -678,15 +678,15 @@ Learn more by reading:
 > [Creator for indoor maps](creator-indoor-maps.md)
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
-[Conversion service]: /rest/api/maps/v2/conversion
 [Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
-[Conversion Drawing Package Guide]: drawing-package-guide.md
+[Drawing Package Guide]: drawing-package-guide.md
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
 [OSM Opening Hours]: https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification
 
 <!--------------------- Drawing Package v2 links--------------------------------------------------->
-[Conversion service v2]: https://aka.ms/creator-conversion
+[Conversion service]: https://aka.ms/creator-conversion
 [sample drawing package v2]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0
-[Georeference]: drawing-package-guide.md#georeference
+[Georeference]: #georeference
 [featureClass]: #featureclass
 [featureClassProperty]: #featureclassproperty
+[BuildingLevels]: #buildinglevels

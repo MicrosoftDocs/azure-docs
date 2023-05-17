@@ -2,8 +2,8 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 03/15/2023
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell3
+ms.date: 04/05/2023
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -14,6 +14,9 @@ ms.author: jsuri
 Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM.
 
 This is supported both for Enhanced Policy (preview) as well as Standard Policy.          This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation. This further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to both restore from snapshots and the vault.
+
+>[!Important]
+> [Enhanced policy](backup-azure-vms-enhanced-policy.md) now supports protecting Ultra SSD (preview). To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).
 
 >[!Note]
 >- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
@@ -26,7 +29,7 @@ This solution is useful particularly in the following scenarios:
 1. If you have critical data to be backed up in only one disk, or a subset of the disks and don’t want to back up the rest of the disks attached to a VM to minimize the backup storage costs.
 2. If you've other backup solutions for part of your VM or data. For example, if you back up your databases or data using a different workload backup solution and you want to use Azure VM level backup for the rest of the data or disks to build an efficient and  robust system using the best capabilities available.
 
-3. If you're using [Enhanced policy](backup-azure-vms-enhanced-policy.md), you can use this solution to exclude unsupported disks (Ultra Disks, Shared Disks) and configure a VM for backup. 
+3. If you're using [Enhanced policy](backup-azure-vms-enhanced-policy.md), you can use this solution to exclude unsupported disks (Shared Disks) and configure a VM for backup. 
 
 Using PowerShell, Azure CLI, or Azure portal, you can configure selective disk backup of the Azure VM. Using a script, you can include or exclude data disks using their *LUN numbers*. The ability to configure selective disks backup via the Azure portal is limited to the *Backup OS Disk* only for the Standard policy, but can be configured for all data disks for Enhanced policy.
 
@@ -337,7 +340,7 @@ Selective disks backup functionality for Standard policy isn't supported for cla
 
 The restore options to **Create new VM** and **Replace existing** aren't supported for the VM for which selective disks backup functionality is enabled.
 
-Currently, Azure VM backup doesn't support VMs with ultra-disks or shared disks attached to them. Selective disk backup for Standard policy can't be used to in such cases, which exclude the disk and backup the VM. You can use selective disk backup with Enhanced policy to exclude these disks and configure backup.
+Currently, Azure VM backup doesn't support VMs with shared disks attached to them. Selective disk backup for Standard policy can't be used to in such cases, which exclude the disk and backup the VM. You can use selective disk backup with Enhanced policy to exclude these disks and configure backup.
 
 If you use disk exclusion or selective disks while backing up Azure VM, _[stop protection and retain backup data](backup-azure-manage-vms.md#stop-protection-and-retain-backup-data)_. When resuming backup for this resource, you need to set up disk exclusion settings again.
 
@@ -379,9 +382,9 @@ If you're using standard policy, the Selective disk backup features let you save
 
 If you're using Enhanced policy, the snapshot is taken only for the OS disk and the data disks that you've included.
 
-### I can't configure backup for the Azure virtual machine by excluding ultra disk or shared disks attached to the VM
+### I can't configure backup for the Azure virtual machine by excluding shared disks attached to the VM
 
-If you're using Standard policy, Azure VM backup doesn't support VMs with ultra-disk or shared disk attached to them and it is not possible to exclude them with selective disk backup and then configure backup.
+If you're using Standard policy, Azure VM backup doesn't support VMs with shared disk attached to them and it is not possible to exclude them with selective disk backup and then configure backup.
 
 If you're using Enhanced policy, you can exclude the unsupported disks from the backup via selective disk backup (in the Azure portal, CLI, PowerShell, and so on), and configure backup for the VM.
 

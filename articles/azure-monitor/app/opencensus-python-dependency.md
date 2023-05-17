@@ -81,7 +81,7 @@ conn.close()
 Track your outgoing Django requests with the OpenCensus `django` integration.
 
 > [!NOTE]
-> The only outgoing Django requests that are tracked are calls made to a database. For requests made to the Django application, see [incoming requests](./opencensus-python-request.md#tracking-django-applications).
+> The only outgoing Django requests that are tracked are calls made to a database. For requests made to the Django application, see [incoming requests](./opencensus-python-request.md#track-django-applications).
 
 Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/) and add the following line to the `MIDDLEWARE` section in the Django `settings.py` file.
 

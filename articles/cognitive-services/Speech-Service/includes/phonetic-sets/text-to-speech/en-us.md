@@ -1,11 +1,19 @@
-#### English suprasegmentals
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+#### Suprasegmentals for English
 
 |Example&nbsp;1 (onset for consonant, word-initial for vowel)|Example&nbsp;2 (intervocalic for consonant, word-medial nucleus for vowel)|Example&nbsp;3 (coda for consonant, word-final for vowel)|Comments|
 |--|--|--|--|
 | :::no-loc text="burger":::  /b er **1** r - g ax r/ | :::no-loc text="falafel":::  /f ax - l aa **1** - f ax  l/ | :::no-loc text="guitar":::  /g ih - t aa **1** r/ | The Speech service phone set puts stress after the vowel of the stressed syllable. |
 | :::no-loc text="inopportune"::: /ih **2** - n aa - p ax r - t uw 1 n/ | :::no-loc text="dissimilarity":::  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | :::no-loc text="workforce"::: /w er 1 r k - f ao **2** r s/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable. |
 
-#### English vowels
+#### Vowels for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1     | Example&nbsp;2 | Example&nbsp;3                   |
 |--------|-------|----------|---------------|-----------|-----------------------------|
@@ -26,7 +34,7 @@
 | y uw   | `ju`  | 6,7      | **Yu**ma      | h**u**man | f**ew**                     |
 | ax     | `ə`   | 1        | **a**go       | wom**a**n | are**a**                    |
 
-#### English R-colored vowels
+#### R-colored vowels for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1    | Example&nbsp;2      | Example&nbsp;3  |
 |--------|-------|----------|--------------|----------------|------------|
@@ -40,14 +48,14 @@
 | er r   | `ɝ`   | 5        | **ear**th    | b**ir**d       | f**ur**    |
 | ax r   | `ɚ`   | 1        |              | all**er**gy    | supp**er** |
 
-#### English semivowels
+#### Semivowels for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1           | Example&nbsp;2  | Example&nbsp;3 |
 |--------|-------|----------|---------------------|------------|-----------|
 | w      | `w`   | 7        | **w**ith, s**ue**de | al**w**ays |           |
 | y      | `j`   | 6        | **y**ard, f**e**w   | on**i**on  |           |
 
-#### English aspirated oral stops
+#### Aspirated oral stops for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1 | Example&nbsp;2   | Example&nbsp;3  |
 |--------|-------|----------|-----------|-------------|------------|
@@ -58,7 +66,7 @@
 | k      | `k`   | 20       | **c**ut   | sla**ck**er | Ira**q**   |
 | g      | `g`   | 20       | **g**o    | a**g**o     | dra**g**   |
 
-#### English nasal stops
+#### Nasal stops for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1        | Example&nbsp;2  | Example&nbsp;3   |
 |--------|-------|----------|------------------|------------|-------------|
@@ -66,7 +74,7 @@
 | n      | `n`   | 19       | **n**o, s**n**ow | te**n**t   | chicke**n** |
 | ng     | `ŋ`   | 20       |                  | li**n**k   | s**ing**    |
 
-#### English fricatives
+#### Fricatives for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1   | Example&nbsp;2        | Example&nbsp;3  |
 |--------|-------|----------|-------------|------------------|------------|
@@ -80,14 +88,14 @@
 | zh     | `ʒ`   | 16       | **J**acques | plea**s**ure     | gara**g**e |
 | h      | `h`   | 12       | **h**elp    | en**h**ance      | a-**h**a!  |
 
-#### English affricates
+#### Affricates for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1 | Example&nbsp;2    | Example&nbsp;3  |
 |--------|-------|----------|-----------|--------------|------------|
 | ch     | `tʃ`  | 19,16    | **ch**in  | fu**t**ure   | atta**ch** |
 | jh     | `dʒ`  | 19,16    | **j**oy   | ori**g**inal | oran**g**e |
 
-#### English approximants
+#### Approximants for English
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1          | Example&nbsp;2  | Example&nbsp;3 |
 |--------|-------|----------|--------------------|------------|-----------|
@@ -95,4 +103,4 @@
 | r      | `ɹ`   | 13       | **r**ed, b**r**ing | bo**rr**ow | ta**r**   |
 
 > [!NOTE]
-> `en-CA` locale doesn't support SAPI phones now.
+> `en-CA` locale doesn't support SAPI phones.
