@@ -22,7 +22,6 @@ Use the following steps to prepare the sample locally.
 
    ```bash
    git clone https://github.com/spring-petclinic/spring-petclinic-microservices.git
-   git clone https://github.com/spring-petclinic/spring-petclinic-microservices-config.git
    ```
 
 1. Use the following commands to build the sample project:
@@ -32,25 +31,24 @@ Use the following steps to prepare the sample locally.
    ./mvnw clean package -DskipTests
    ```
 
-1. Use the following command to start the Config Server. Be sure to replace the placeholder value with your local git config repository path.
+1. Use the following command to start the Config Server.
    ```bash
-   GIT_REPO=<local path for spring-petclinic-microservices-config>
-   java -jar spring-petclinic-config-server/target/spring-petclinic-config-server-3.0.2.jar
+   mvnw -f spring-petclinic-config-server/pom.xml spring-boot:run
    ```
 
 1. Use the following command to start the Discovery Server.
    ```bash
-   java -jar spring-petclinic-discovery-server/target/spring-petclinic-discovery-server-3.0.2.jar
+   mvnw -f spring-petclinic-discovery-server/pom.xml spring-boot:run
    ```
 
 1. Execute the following commands respectively to start other applications.
 
    ```bash
-   java -jar spring-petclinic-customers-service/target/spring-petclinic-customers-service-3.0.2.jar
-   java -jar spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.2.jar
-   java -jar spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.2.jar
-   java -jar spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-3.0.2.jar
-   java -jar spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.2.jar
+   mvnw -f spring-petclinic-customers-service/pom.xml spring-boot:run
+   mvnw -f spring-petclinic-vets-service/pom.xml spring-boot:run
+   mvnw -f spring-petclinic-visits-service/pom.xml spring-boot:run
+   mvnw -f spring-petclinic-api-gateway/pom.xml spring-boot:run
+   mvnw -f spring-petclinic-admin-server/pom.xml spring-boot:run
    ```
 
 1. Go to `http://localhost:8080` in your browser to access the PetClinic.
