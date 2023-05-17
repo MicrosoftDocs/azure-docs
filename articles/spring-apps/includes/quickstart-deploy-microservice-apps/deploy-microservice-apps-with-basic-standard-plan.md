@@ -101,13 +101,13 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
 
-1. Since Azure Spring Apps will use the name of the app as the service name of the built-in eureka service, the Maven plugin for Azure Spring Apps extracts the artifact id in the pom file as the app name by default, so it needs to be consistent with the spring.application.name of each module. Update the artifact id of each submodule to a non `spring-petclinic-` prefix. The detailed changes are as follows:
+1. Since Azure Spring Apps uses the name of the app as the service name of the built-in eureka service, the Maven plugin for Azure Spring Apps extracts the artifact ID in the POM file as the app name by default, so it needs to be consistent with the `spring.application.name` of each module. Update the artifact id of each submodule to a non `spring-petclinic-` prefix. The detailed changes are as follows:
 
-   - Update the artifact id `spring-petclinic-customers-service` to `customers-service`.
-   - Update the artifact id `spring-petclinic-vets-service` to `vets-service`.
-   - Update the artifact id `spring-petclinic-visits-service` to `visits-service`.
-   - Update the artifact id `spring-petclinic-api-gateway` to `api-gateway`.
-   - Update the artifact id `spring-petclinic-admin-server` to `admin-server`.
+   - Update the artifact ID `spring-petclinic-customers-service` to `customers-service`.
+   - Update the artifact ID `spring-petclinic-vets-service` to `vets-service`.
+   - Update the artifact ID `spring-petclinic-visits-service` to `visits-service`.
+   - Update the artifact ID `spring-petclinic-api-gateway` to `api-gateway`.
+   - Update the artifact ID `spring-petclinic-admin-server` to `admin-server`.
 
 1. Navigate to the sample project directory and execute the following command to config the apps in Azure Spring Apps:
 
@@ -118,12 +118,12 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    Command interaction description:
    - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Exclude `spring-petclinic-config-server` and `spring-petclinic-discovery-server`, others need to be configured, enter `1,2,3,4,7`.
    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you just created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you just created, If you use the default number, press Enter directly.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
+   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
    - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter `5` for `api-gateway`.
-   - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration will not be saved in the pom files.
+   - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration won't be saved in the POM files.
 
-1. Build the sample project by using the following commands. Skip this step if does not update the Maven plugin configuration.
+1. Build the sample project by using the following commands. Skip this step if doesn't update the Maven plugin configuration.
 
    ```bash
    ./mvnw clean package -DskipTests
