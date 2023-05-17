@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/03/2022
+ms.date: 05/17/2023
 ms.author: greglin
 
 ---
@@ -70,11 +70,11 @@ For Application Gateway, the following metrics are available:
 
 - **Bytes received**
 
-   Count of bytes received by the Application Gateway from the clients
+   Count of bytes received by the Application Gateway from the clients. (Reported based on the request "content size" only. It doesn't account for TLS negotiations overhead, TCP/IP packet headers, or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Bytes sent**
 
-   Count of bytes sent by the Application Gateway to the clients
+   Count of bytes sent by the Application Gateway to the clients. (Reported based on the response "content size" only. It doesn't account for TCP/IP packet headers or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Client TLS protocol**
 
@@ -115,7 +115,7 @@ For Application Gateway, the following metrics are available:
 
 - **Throughput**
 
-   Number of bytes per second the Application Gateway has served
+   Number of bytes per second the Application Gateway has served. (Reported based on the "content size" only. It doesn't account for TLS negotiations overhead, TCP/IP packet headers, or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Total Requests**
 
