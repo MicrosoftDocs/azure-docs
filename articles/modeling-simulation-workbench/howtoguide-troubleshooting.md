@@ -22,16 +22,16 @@ ms.date: 01/01/2023
 
 ## Remote desktop connection troubleshooting
 
-### Access error
+### Remote desktop access error
 
 If you get a *not authorized* error while accessing the remote desktop dashboard URL, it indicates possible issues with your network access. Review the chamber connector networking setup.
 
 - If connector is configured for Azure ExpressRoute or VPN gateway, you need to be accessing the remote desktop dashboard URL from a computer in that network.
 - if connector is configured for Public IP, you need to be accessing the remote desktop dashboard URL from an IP address that has been allow-listed for the connector.
 
-### Blue sign in screen
+### Remote desktop sign in errors
 
-If you see a blue sign-in screen when navigating to your chamber's remote desktop dashboard URL, the single sign-on authentication configuration isn't set up properly.
+If you see a blue sign-in screen when navigating to your chamber's remote desktop dashboard URL, the single sign-on authentication configuration isn't set up properly. If you see a grey screen when trying to connect to a workload, either your workload is not in the running state, or the user provisioning failed for that user.
 
 #### Failing for all users
 
@@ -50,13 +50,28 @@ If you see a blue sign-in screen when navigating to your chamber's remote deskto
 
 1. Ensure your user has been provisioned as a Chamber User or a Chamber Admin on the **chamber** resource. Not a parent resource with inherited permission, but IAM role set directly for that chamber.
 1. Ensure your user has a valid email set for their Azure AD profile, and they log into Azure AD with alias that matches their alias for their email. For example,  John Doe at Contoso with alias of _johnd_ should sign in to Azure AD using _johnd_ alias, where their email is johnd@contoso.com. Not logging in with _johndoe_ or any other variation.
-1. If it's still not working, try a *refresh*.
+1. Validate your folder permission settings are correct within your chamber. User provisioning may not work properly if the folder permission settings aren't correct.
+
+     ```text
+      /mount/sharedhome/<useralias>/.ssh folder: 700 (drwx------)
+      /mount/sharedhome/<useralias>/.ssh/ public key (.pub or authorized_keys file): 644 (-rw-r--r--)
+      /mount/sharedhome/<useralias>/.ssh/ private key (id_rsa): 600 (-rw-------)
+     ```
+
+1. If it's still not working, try a *refresh* by reprovisioning the user. When removing user role assignment, the /mount/sharedhome/\<useralias\> folder is removed. Make sure data is backed up if necessary before removing user role assignment.
     1. Remove user's Chamber Admin or Chamber User role assignment at chamber level.
     1. *Wait 5 minutes*.
     1. For this user, add their role assignment at chamber level.
     1. *Wait 5 minutes*.
     1. Have them try to sign in again.
 1. Clear browser cache and attempt new sign in to the desktop dashboard URL, or try with a different browser. If cache was properly cleared, or attempting sign in first time with a new browser, you should see your organizations sign-in Azure AD prompt. OAuth credentials are cached and sometimes a fresh sign in can get around any issues with the cached credentials.
+
+### License error
+
+If you receive an error that all licenses are in use for the remote desktop tool, that means your remote desktop licenses are all in use.
+
+1. Contact your Microsoft account representative to get remote desktop licenses more licenses.
+1. Or, ask somebody on your team to sign out of their session, so that frees up opportunity for you to sign in.
 
 ## License server troubleshooting
 

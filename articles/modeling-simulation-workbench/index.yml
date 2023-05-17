@@ -29,7 +29,7 @@ landingContent:
           - text: Workbench
             url: ./concept-workbench.md
           - text: User Personas
-            url: ./concept-chamber.md
+            url: ./concept-user-personas.md
           - text: Chambers
             url: ./concept-chamber.md
           - text: Connectors
