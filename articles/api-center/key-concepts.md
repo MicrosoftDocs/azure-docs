@@ -18,7 +18,7 @@ This article goes into more detail about key concepts of [Azure API Center](over
 ## API
 
 A top-level logical entity in API Center that represents any real-world API:
-* Any type (including REST, GraphQL, and gRPC)
+* Any type (including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook)
 * Any lifecycle stage (such as design, development, or production)
 * In any deployment location (Azure or other clouds, on-premises)
 * Managed by any API management solution (such as Azure [API Management](../api-management/api-management-key-concepts.md) or solutions from other providers), or unmanaged
@@ -39,7 +39,7 @@ In API Center, a deployment identifies a specific environment used for the runti
 
 ## Metadata schema
 
-Each API Center provides a metadata schema to organize and structure assets using common properties. Metadata properties can be used for searching and filtering and to enforce governance standards. API Center natively provides several common, built-in metadata properties such as "API type"; others can be custom-defined. For example, define a basic "Line of business" property of type string, or a complex property represented with an object. Apply metadata properties when creating or updating assets in API Center.
+In each API Center, you can create a metadata schema to describe metadata properties available to apply to your APIs and others assets. Metadata properties can be used for searching and filtering and to enforce governance standards. The custom properties you define in the metadata schema augment several built-in properties such as "API type". API Center supports properties of type array, boolean, number, object, predefined choices, and string. Apply metadata properties when creating or updating assets in API Center.
 
 API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
 
