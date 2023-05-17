@@ -44,7 +44,7 @@ To learn more, about privacy and terms of use related to the Azure Maps Power BI
 There are a few considerations and requirements for the Azure Maps Power BI visual:
 
 - The Azure Maps Power BI visual must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual isn't available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
-- The data set must have fields that contain **latitude** and **longitude** information.
+- The data set must have fields that contain **latitude** and **longitude**, or **location** information.
 
 ## Use the Azure Maps Power BI visual
 
@@ -89,8 +89,9 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 | Field     | Description  |
 |-----------|--------------|
-| Latitude  | The field used to specify the latitude value of the data points. Latitude values should be between -90 and 90 in decimal degrees format.  |
-| Longitude | The field used to specify the longitude value of the data points. Longitude values should be between -180 and 180 in decimal degrees format.  |
+| Location  | One or more location related fields such as address, city, state, country, zip code. Supports geo-hierarchy drill down. Can not by used if `Latitude` and `Longitude` fields are set. |
+| Latitude  | The field used to specify the latitude value of the data points. Latitude values should be between -90 and 90 in decimal degrees format. Can not by used if `Location` field set. |
+| Longitude | The field used to specify the longitude value of the data points. Longitude values should be between -180 and 180 in decimal degrees format. Can not by used if `Location` field set. |
 | Legend    | The field used to categorize the data and assign a unique color for data points in each category. When this bucket is filled, a **Data colors** section will appear in the **Format** pane that allows adjustments to the colors. |
 | Size      | The measure used for relative sizing of data points on the map.   |
 | Tooltips  | Other data fields to display in tooltips when shapes are hovered. |
@@ -148,6 +149,8 @@ The Azure Maps Power BI visual is available in the following services and applic
 | Power BI Embedded                        | No           |
 | Power BI service embedding (PowerBI.com) | Yes          |
 
+When the `Location` field is used, only the first 3,500 rows of data will be geocoded and displayed on the map. When `Latitude` and `Longitude` fields are used the first 30,000 rows will be displayed.
+
 **Where is Azure Maps available?**
 
 At this time, Azure Maps is currently available in all countries and regions except:
@@ -164,11 +167,7 @@ See this documentation for information on [Azure Maps Web SDK supported browsers
 
 **How many data points can I visualize?**
 
-This visual supports up to 30,000 data points.
-
-**Can addresses or other location strings be used in this visual?**
-
-The initial preview of this visual only supports latitude and longitude values in decimal degrees. A future update will add support for addresses and other location strings.
+This visual supports up to 30,000 data points when using `Latitude` and `Longitude` fields. 3,500 when using the `Location` field.
 
 ## Next steps
 
