@@ -35,6 +35,7 @@ env:
   credscan_targetdirectory: ‘NameOfFolderToScanForSecrets/’
 
 A full ADO YAML file for a pipeline which does CredScan scanning for secrets on a specific folder, could look like this:
+```yml
 trigger:
   branches:
     include:
@@ -52,7 +53,6 @@ steps:
       break: false
     env:
       credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
-
 
 ### I'm getting an error while trying to connect
 
