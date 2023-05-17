@@ -32,24 +32,23 @@ A C# function can be created using one of the following C# modes:
 # [In-process](#tab/in-process)
 
 ```csharp
-[FunctionName("PrintTopicMessage")]
+[FunctionName("TransferEventBetweenTopics")]
 public static void Run(
-    [DaprTopicTrigger("%PubSubName%", Topic = "B")] CloudEvent subEvent,
+    [DaprTopicTrigger("%PubSubName%", Topic = "A")] CloudEvent subEvent,
+    [DaprPublish(PubSubName = "%PubSubName%", Topic = "B")] out DaprPubSubEvent pubEvent,
     ILogger log)
 {
-    log.LogInformation("C# function processed a PrintTopicMessage request from the Dapr Runtime.");
-    log.LogInformation($"Topic B received a message: {subEvent.Data}.");
+    log.LogInformation("C# function processed a TransferEventBetweenTopics request from the Dapr Runtime.");
+
+
+    pubEvent = new DaprPubSubEvent("Transfer from Topic A: " + subEvent.Data);
 }
 ```
 
  
 # [Isolated process](#tab/isolated-process)
 
-More samples for the Dapr topic trigger are available in the [GitHub repository](todo).
-<!--
-
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/PrintTopicMessage.cs" range="8-26"::: 
--->
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/TransferEventBetweenTopics.cs" range="8-30"::: 
 
 ---
 
@@ -129,11 +128,10 @@ def main(subEvent) -> None:
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprTopicTrigger] to trigger a Dapr input binding, which supports the following properties.
+In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprTopicTrigger` to trigger a Dapr pub/sub binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -141,9 +139,6 @@ In [C# class libraries], use the [DaprTopicTrigger] to trigger a Dapr input bind
 | **Topic** | The name of the Dapr topic. | 
 
 # [Isolated process](#tab/isolated-process)
-
-C# attribute information for the trigger goes here with an intro sentence. 
-TODO: table has in-proc parameters - need out-of-proc
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -178,20 +173,8 @@ TODO: Need usage content.
 
 Included text: The parameter type supported by the Dapr Topic trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
- 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-
----
-
 ::: zone-end
 
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
 See the [Example section](#example) for complete examples.

@@ -32,26 +32,23 @@ A C# function can be created using one of the following C# modes:
 # [In-process](#tab/in-process)
 
 ```csharp
-[FunctionName("RetrieveOrder")]
+[FunctionName("CreateNewOrder")]
 public static void Run(
-    [DaprServiceInvocationTrigger] object args,
-    [DaprState("%StateStoreName%", Key = "order")] string data,
+    [DaprServiceInvocationTrigger] JObject payload,
+    [DaprState("%StateStoreName%", Key = "order")] out JToken order,
     ILogger log)
 {
-    log.LogInformation("C# function processed a RetrieveOrder request from the Dapr Runtime.");
-    // print the fetched state value
-    log.LogInformation(data);
+    log.LogInformation("C# function processed a CreateNewOrder request from the Dapr Runtime.");
+
+    // payload must be of the format { "data": { "value": "some value" } }
+    order = payload["data"];
 }
 ```
 
 # [Isolated process](#tab/isolated-process)
 
-More samples for the Dapr service invocation trigger are available in the [GitHub repository](todo).
-
-<!--
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/TransferEventBetweenTopics.cs" range="8-30"::: 
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/CreateNewOrder.cs" range="8-32"::: 
  
--->
 
 ---
 
@@ -126,11 +123,10 @@ def main(payload, data: str) -> None:
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprServiceInvocationTrigger] to trigger a Dapr input binding, which supports the following properties.
+In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprServiceInvocationTrigger` to trigger a Dapr service invocation binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -138,8 +134,7 @@ In [C# class libraries], use the [DaprServiceInvocationTrigger] to trigger a Dap
 
 # [Isolated process](#tab/isolated-process)
 
-C# attribute information for the trigger goes here with an intro sentence. 
-TODO: table has in-proc parameters - need out-of-proc
+The following table explains the parameters for the `DaprServiceInvocationTrigger`.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -171,19 +166,8 @@ TODO: Need usage content.
 
 Included text: The parameter type supported by the Dapr Service Invocation trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
- 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
----
-
 ::: zone-end
 
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
 See the [Example section](#example) for complete examples.

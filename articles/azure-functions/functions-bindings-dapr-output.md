@@ -47,12 +47,9 @@ public static async Task Run(
 
 # [Isolated process](#tab/isolated-process)
 
-More samples for the Dapr output invoke binding are available in the [GitHub repository](todo).
+More samples for the Dapr output invoke binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/blob/master/samples/dotnet-isolated-azurefunction/OutputBinding).
 
-<!--
-
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/SendMessageToKafka.cs" range="8-39"::: 
--->
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/SendMessageToKafka.cs" range="8-39"::: 
 
 ---
 
@@ -129,11 +126,10 @@ def main(args, messages: func.Out[bytes]) -> None:
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the `HttpTrigger` to trigger a Dapr Binding output binding, which supports the following properties.
+In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprBinding` to trigger a Dapr output binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -143,9 +139,7 @@ In [C# class libraries], use the `HttpTrigger` to trigger a Dapr Binding output 
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for the `DaprBinding`.
-
-TODO: table has in-proc parameters - need out-of-proc
+The following table explains the parameters for the `DaprBindingOutput`.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -180,20 +174,8 @@ The parameter type supported by the Dapr Binding output binding depends on the F
 
 TODO: Need usage content. 
 
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
- 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-
----
-
 ::: zone-end
 
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
 See the [Example section](#example) for complete examples.

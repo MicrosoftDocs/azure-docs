@@ -45,12 +45,10 @@ public static IActionResult Run(
 
 # [Isolated process](#tab/isolated-process)
 
-More samples for the Dapr input state binding are available in the [GitHub repository](todo).
+More samples for the Dapr input state binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction/InputBinding).
 
-<!--
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/StateInputBinding.cs" range="8-26"::: 
 
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/StateInputBinding.cs" range="8-26"::: 
--->
 ---
 
 ::: zone-end 
@@ -127,11 +125,10 @@ def main(payload, data: str) -> None:
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprState] to trigger a Dapr input binding, which supports the following properties.
+In [C# class libraries](./functions-dotnet-class-library.md), use `DaprState` to trigger a Dapr input binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -140,9 +137,7 @@ In [C# class libraries], use the [DaprState] to trigger a Dapr input binding, wh
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for `DaprState`.
-
-TODO: table has in-proc parameters - need out-of-proc
+The following table explains the parameters for `DaprStateInput`.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -195,7 +190,7 @@ You'll also need to set up a Dapr state store component. You can learn more abou
 
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
-- [Dapr JavaScript SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/js/js-client/)
+- [Dapr .NET SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/dotnet/dotnet-client/)
 
 ::: zone-end
 

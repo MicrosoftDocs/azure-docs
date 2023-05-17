@@ -44,13 +44,8 @@ public static void Run(
  
 # [Isolated process](#tab/isolated-process)
 
-More samples for the Dapr input binding trigger are available in the [GitHub repository](todo).
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/ConsumeMessageFromKafka.cs" range="8-29"::: 
 
-<!--
-
-:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/ConsumeMessageFromKafka.cs" range="8-29"::: 
-
--->
 ---
 
 ::: zone-end 
@@ -126,11 +121,10 @@ def main(triggerData: str) -> None:
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr input binding, which supports the following properties.
+In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprBindingTrigger` to trigger a Dapr input binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -138,7 +132,7 @@ In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr input bi
 
 # [Isolated process](#tab/isolated-process)
 
-TODO: table has in-proc parameters - need out-of-proc
+The following table explains the parameters for the `DaprBindingTrigger`.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -169,20 +163,8 @@ See the [Example section](#example) for complete examples.
 ## Usage
 The parameter type supported by the Dapr Input Binding trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
- 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-
----
-
 ::: zone-end
 
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
 See the [Example section](#example) for complete examples.

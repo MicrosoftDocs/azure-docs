@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-functions-dapr-extension",
+      "url": "https://github.com/Azure/azure-functions-dapr-extension",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-docs-snippets-pr",
       "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
       "branch": "main",
