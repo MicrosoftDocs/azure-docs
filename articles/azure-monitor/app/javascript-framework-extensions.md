@@ -57,6 +57,15 @@ var appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
+
+// To instrument various React components usage tracking, apply the `withAITracking` higher-order
+// component function.
+
+class MyComponent extends React.Component {
+    ...
+}
+
+export default withAITracking(reactPlugin, MyComponent);
 ```
 
 Wrap your component with the higher-order component function to enable Application Insights on it:
@@ -274,19 +283,21 @@ Check out the [Application Insights React demo](https://github.com/microsoft/app
 
 ### React Native plugin for Application Insights JavaScript SDK
 
-The React Native plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
+The React Native plugin for Application Insights JavaScript SDK collects device information. By default, this plugin automatically collects:
 
 - **Unique Device ID** (Also known as Installation ID.)
-- **Device Model Name** (Such as iPhone X, Samsung Galaxy Fold, Huawei P30 Pro etc.)
+- **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
 - **Device Type** (For example, handset, tablet, etc.)
 
 ### Requirements
 
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/), therefore it doesn't work with Create React Native App.
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App.
 
 ### Getting started
 
-Install and link the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+By default, this plugin relies on the [`react-native-device-info` package](https://github.com/react-native-device-info/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+
+Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
 
 ```zsh
 
@@ -304,18 +315,91 @@ To use this plugin, you need to construct the plugin and add it as an `extension
 
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 
 var RNPlugin = new ReactNativePlugin();
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        disableDeviceCollection: true,
         extensions: [RNPlugin]
     }
 });
 appInsights.loadAppInsights();
 
 ```
+
+#### Disabling automatic device info collection
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        disableDeviceCollection: true,
+        extensions: [RNPlugin]
+    }
+});
+appInsights.loadAppInsights();
+```
+
+#### Using your own device info collection class
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+// Simple inline constant implementation
+const myDeviceInfoModule = {
+    getModel: () => "deviceModel",
+    getDeviceType: () => "deviceType",
+    // v5 returns a string while latest returns a promise
+    getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
+};
+
+var RNPlugin = new ReactNativePlugin();
+RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
+
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        extensions: [RNPlugin]
+    }
+});
+
+appInsights.loadAppInsights();
+```
+
+### IDeviceInfoModule
+
+Interface to abstract how the plugin can access the Device Info. This interface is a stripped down version of the `react-native-device-info` interface and is mostly supplied for testing.
+
+```typescript
+export interface IDeviceInfoModule {
+    /**
+     * Returns the Device Model
+     */
+    getModel: () => string;
+
+    /**
+     * Returns the device type
+     */
+    getDeviceType: () => string;
+
+    /**
+     * Returns the unique Id for the device. To support both the current version and previous
+     * versions react-native-device-info, this may return either a `string` or `Promise<string>`.
+     * When a promise is returned, the plugin will "wait" for the promise to `resolve` or `reject`
+     * before processing any events. This WILL cause telemetry to be BLOCKED until either of these
+     * states, so when returning a Promise, it MUST `resolve` or `reject`. Tt can't just never resolve.
+     * There is a default timeout configured via `uniqueIdPromiseTimeout` to automatically unblock
+     * event processing when this issue occurs.
+     */
+    getUniqueId: () => Promise<string> | string;
+}
+```
+
+If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
 
 ### Enable Correlation
 
@@ -348,12 +432,13 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 Install npm package:
 
 ```bash
-npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
+npm install @microsoft/applicationinsights-angularplugin-js
 ```
 
 ### Basic usage
 
 Set up an instance of Application Insights in the entry component in your app:
+
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -362,6 +447,13 @@ import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
 import { Router } from '@angular/router';
+
+//-------------------------------------------------------------------------
+// Note: If you also want to use the ErrorService, you MUST include
+// either the '@microsoft/applicationinsights-web' or include the
+// `@microsoft/applicationinsights-analytics-js' extension. If you don't,
+// then unhandled errors caught by the error service will not be sent.
+//-------------------------------------------------------------------------
 
 @Component({
   selector: 'app-root',
@@ -385,10 +477,21 @@ export class AppComponent {
 }
 ```
 
-To track uncaught exceptions, setup ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the @microsoft/applicationinsights-analytics-js extension which is also include in the that your MUST include the @microsoft/applicationinsights-web Sku. For uncaught exceptions to be tracked, your project must be initialized to include the analytics package. Otherwise, unhandled errors caught by the error service will not be sent.
 
 ```js
 import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+//-------------------------------------------------------------------------
+// Note: The Errorservice has an implicit dependency on the
+// `@microsoft/applicationinsights-analytics-js' extension, which is included
+// with the '@microsoft/applicationinsights-web' module. If the analytics 
+// extension is not included during initialization of the SDK this Error Service
+// will not be able to send any caught unhandled errors.
+//-------------------------------------------------------------------------
 
 @NgModule({
   ...
@@ -401,6 +504,29 @@ import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applica
   ...
 })
 export class AppModule { }
+```
+
+To chain more custom error handlers, create custom error handlers that implement IErrorService:
+
+```javascript
+import { IErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+export class CustomErrorHandler implements IErrorService {
+    handleError(error: any) {
+        ...
+    }
+}
+```
+
+And pass errorServices array through extensionConfig:
+
+```javascript
+extensionConfig: {
+        [angularPlugin.identifier]: {
+          router: this.router,
+          errorServices: [new CustomErrorHandler()]
+        }
+      }
 ```
 
 ### Enable Correlation
