@@ -22,7 +22,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 ## Goal
 
 1. Be able to render file attachment in the message thread. Each file attachment will have two buttons - "Open" and "Download" respectively.
-2. Be able to render image attachment.
+2. Be able to render image attachments as inline images.
 
 ## Handle file attachments
 
@@ -102,26 +102,28 @@ chatClient.on("chatMessageReceived", (e) => {
   }
 });
 
-async function renderReceivedMessage(e) {
-  messages += '<div class="container lighter">' + event.message + '</div>';
-	messagesContainer.innerHTML = messages;
-  // get list of attachments and calls renderFileAttachments to construct a file attachment card
-  var attachmentHtml = event.attachments
-	.filter(attachment => attachment.attachmentType === "file")
-	.map(attachment => renderFileAttachments(attachment));
-  messagesContainer.innerHTML += attachmentHtml;
+async function renderReceivedMessage(event) {
+    messages += '<div class="container lighter">' + event.message + '</div>';
+    messagesContainer.innerHTML = messages;
+
+    // get list of attachments and calls renderFileAttachments to construct a file attachment card
+    var attachmentHtml = event.attachments
+        .filter(attachment => attachment.attachmentType === "file")
+        .map(attachment => renderFileAttachments(attachment))
+        .join('');
+    messagesContainer.innerHTML += attachmentHtml;
 }
 
 function renderFileAttachments(attachment) {
-	return '<div class="attachment-container">' + 
-			'<p class="attachment-type">' + attachment.contentType + '</p>' + 
-			'<img class="attachment-icon" alt="attachment file icon" />' +
-			'<div>' +
-			      '<p>' + attachment.name + '</p>' +
-			      '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
-			      '<a href=' + attachment.url + ' target="_blank" rel="noreferrer">Download</a>' + 
-			'</div>' +
-	        '</div>';
+    return '<div class="attachment-container">' +
+        '<p class="attachment-type">' + attachment.contentType + '</p>' +
+        '<img class="attachment-icon" alt="attachment file icon" />' +
+        '<div>' +
+        '<p>' + attachment.name + '</p>' +
+        '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
+        '<a href=' + attachment.url + ' target="_blank" rel="noreferrer">Download</a>' +
+        '</div>' +
+        '</div>';
 }
 
 ```
@@ -205,7 +207,7 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-## Demo
+## File Attachment Demo
 
 Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID.
 
@@ -222,88 +224,107 @@ Then you should see the new message being rendered along with file attachments:
 
 In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `teamsImage`, which requires the communication token to retrieve the preview image and full scale image.
 
-Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md).
+Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline images.
 
 Now you are familiar with how inline images work and it's very easy to render image attachments just like a regular inline image. 
 
 Firstly, we inject an image tag to message content whenever there's an image attachment:
 
 ```js
-async function renderReceivedMessage(e) {
-  messages += '<div class="container lighter">' + event.message + '</div>';
-	messagesContainer.innerHTML = messages;
-	
-  // Inject image tag for all image attachments
-  var imageAttachmentHtml = event.attachments
+async function renderReceivedMessage(event) {
+    messages += '<div class="container lighter">' + event.message + '</div>';
+    messagesContainer.innerHTML = messages;
+
+    // Inject image tag for all image attachments
+    var imageAttachmentHtml = event.attachments
         .filter(attachment => attachment.attachmentType === "teamsImage")
-	.map(attachment => renderImageAttachments(attachment));
-  messagesContainer.innerHTML += imageAttachmentHtml;
-  
-  // get list of attachments and calls renderFileAttachments to construct a file attachment card
-  var attachmentHtml = event.attachments
-	.filter(attachment => attachment.attachmentType === "file")
-	.map(attachment => renderFileAttachments(attachment));
-  messagesContainer.innerHTML += attachmentHtml;
-  
-  
-   // filter out inline images from attchments
-  const imageAttachments = e.attachments.filter((e) =>
-    e.attachmentType === 'teamsinlineimage' ||  
-    e.attachmentType === "teamsImage");
-  
-  // fetch and render preview images
-  fetchPreviewImages(imageAttachments);
-  
-  // set up onclick event handler to fetch full scale image
-  setImgHandler(card, imageAttachments);
+        .map(attachment => renderImageAttachments(attachment))
+        .join('');
+    messagesContainer.innerHTML += imageAttachmentHtml;
+
+    // get list of attachments and calls renderFileAttachments to construct a file attachment card
+    var attachmentHtml = event.attachments
+        .filter(attachment => attachment.attachmentType === "file")
+        .map(attachment => renderFileAttachments(attachment))
+        .join('');
+    messagesContainer.innerHTML += attachmentHtml;
+
+    // filter out inline images from attchments
+    const imageAttachments = event.attachments.filter((attachment) =>
+        attachment.attachmentType === 'teamsinlineimage' ||
+        attachment.attachmentType === "teamsImage");
+
+    // fetch and render preview images
+    fetchPreviewImages(imageAttachments);
 }
 
 function renderImageAttachments(attachment) {
-   return '<img alt="image" src="" itemscope=\"png\" id="' + attachment.id + '">'
+    return '<img alt="image" src="" itemscope=\"png\" id="' + attachment.id + '" max-width="200px">'
 }
 ```
 
 
-
-we need to expand `fetchPreviewImages()` to take on additional `attachmentType` - `teamsImage`. Make these two changes in this function:
+Now let's borrow `fetchPreviewImages()` from the [tutorial](../meeting-interop-features-inline-image.md) and we should be able to use it as is without any changes:
 
 ```js
-  async function fetchPreviewImages(attachments) {
-    // Change 1
-    if (!attachments.map(attachment => attachment.attachmentType === "teamsInlineImage" || 
-    attachment.attachmentType === "teamsImage").length > 0) {
-      return;
+function fetchPreviewImages(attachments) {
+    if (!attachments.length > 0) {
+        return;
     }
-    // since each message could contain more than one inline image
-    // we need to fetch them individually 
-    const result = await Promise.all(
-        // Change 2
-        attachments.filter(attachment => attachment.attachmentType === "teamsInlineImage" || 
-                                      attachment.attachmentType === "teamsImage")
-        .map(async (attachment) => {
-          // fetch preview image from its 'previewURL'
-          const response = await fetch(attachment.previewUrl, {
-            method: 'GET',
-            headers: {
-              // the token here should the same one from chat initialization
-              'Authorization': 'Bearer ' + tokenString.token,
-            },
-          });
-          // the response would be in image blob we can render it directly
-          return {
-            id: attachment.id,
-            content: await response.blob(),
-          };
+    Promise.all(
+        attachments.map(async (attachment) => {
+            const response = await fetch(attachment.previewUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + tokenString,
+                },
+            });
+            return {
+                id: attachment.id,
+                content: await response.blob(),
+            };
         }),
-    );
-    result.forEach((imageResult) => {
-      const urlCreator = window.URL || window.webkitURL;
-      const url = urlCreator.createObjectURL(imageResult.content);
-      // look up the image ID and replace its 'src' with object URL
-      document.getElementById(imageResult.id).src = url;
+    ).then((result) => {
+        result.forEach((imageRef) => {
+            const urlCreator = window.URL || window.webkitURL;
+            const url = urlCreator.createObjectURL(imageRef.content);
+            document.getElementById(imageRef.id).src = url;
+        });
+    }).catch((e) => {
+        console.log('error fetching preview images');
     });
-  }
+}
+```
+Note that this function needs a `tokenString` so we need to have a global copy of it and initialize in `init()` as demonstrated in the following code snippet:
+
+```js
+var tokenString = '';
+
+async function init() {
+    ...
+    const {
+        token,
+        expiresOn
+    } = tokenResponse;
+    
+    tokenString = token;
+    ...
+}
 ```
 
-That's it! Now we have concluded this tutorial.
+That's it! Now we have added image attachment support as well. Now let's run the code and see it in action!
 
+
+## Image Attachment Demo
+
+Now let's send some image attachments from Teams client like this:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a sendbox with an image attachment uploaded":::
+
+Upon sending the image attachment, you will notice that it becomes an inline image on the Teams client side:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client shown a message with the image attachment sent to the other participant and it becomes an inline image in the chat thread.":::
+
+Let's go back to our sample app, the same image should be rendered as well:
+
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app shown an incoming message with one inline image rendered":::
