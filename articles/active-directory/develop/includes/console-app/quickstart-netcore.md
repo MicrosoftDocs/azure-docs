@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 12/08/2022
+ms.date: 03/13/2023
 ms.author: owenrichards
 ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-other
@@ -73,7 +73,7 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
 1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
 
    ```json
-   "Tenant": "Enter_the_Tenant_Id_Here",
+   "TenantId": "Enter_the_Tenant_Id_Here",
    "ClientId": "Enter_the_Application_Id_Here",
    "ClientSecret": "Enter_the_Client_Secret_Here"
    ```
@@ -120,64 +120,93 @@ In that code:
 
 - `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
-A list of users in Azure Active Directory should be displayed as a result.
+The number of users in Azure Active Directory should be displayed as a result.
 
-This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it is recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
+This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it's recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
 
 ## More information
 
 This section provides an overview of the code required to sign in users. The overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing .NET Core console application.
 
-### MSAL.NET
+### Microsoft.Identity.Web.MicrosoftGraph
 
-Microsoft Authentication Library (MSAL, in the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) package) is the library that's used to sign in users and request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](../../v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials).
+Microsoft Identity Web (in the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) package) is the library that's used to request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](../../v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials). Given the daemon app in this quickstart calls Microsoft Graph, you install the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) package, which handles automatically authenticated requests to Microsoft Graph (and references itself Microsoft.Identity.Web.TokenAcquisition)
 
- MSAL.NET can be installed by running the following command in the Visual Studio Package Manager Console:
+Microsoft.Identity.Web.MicrosoftGraph can be installed by running the following command in the Visual Studio Package Manager Console:
 
 ```dotnetcli
-dotnet add package Microsoft.Identity.Client
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
-### MSAL initialization
+### Application initialization
 
-Add the reference for MSAL by adding the following code:
+Add the reference for Microsoft.Identity.Web by adding the following code:
 
 ```csharp
-using Microsoft.Identity.Client;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Graph;
+using Microsoft.Identity.Abstractions;
+using Microsoft.Identity.Web;
 ```
 
-Then, initialize MSAL with the following:
+Then, initialize the app with the following code:
 
 ```csharp
-IConfidentialClientApplication app;
-app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
-                                          .WithClientSecret(config.ClientSecret)
-                                          .WithAuthority(new Uri(config.Authority))
-                                          .Build();
+// Get the Token acquirer factory instance. By default it reads an appsettings.json
+// file if it exists in the same folder as the app (make sure that the 
+// "Copy to Output Directory" property of the appsettings.json file is "Copy if newer").
+TokenAcquirerFactory tokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance();
+
+// Configure the application options to be read from the configuration
+// and add the services you need (Graph, token cache)
+IServiceCollection services = tokenAcquirerFactory.Services;
+services.AddMicrosoftGraph();
+// By default, you get an in-memory token cache.
+// For more token cache serialization options, see https://aka.ms/msal-net-token-cache-serialization
+
+// Resolve the dependency injection.
+var serviceProvider = tokenAcquirerFactory.Build();
+```
+
+This code uses the configuration defined in the appsettings.json file:
+
+```json
+{
+  "AzureAd": {
+  "Instance": "https://login.microsoftonline.com/",
+  "TenantId": "[Enter here the tenantID or domain name for your Azure AD tenant]",
+  "ClientId": "[Enter here the ClientId for your application]",
+  "ClientCredentials": [
+  {
+    "SourceType": "ClientSecret",
+    "ClientSecret": "[Enter here a client secret for your application]"
+  }
+ ]
+}
+}
 ```
 
  | Element | Description |
  |---------|---------|
- | `config.ClientSecret` | The client secret created for the application in the Azure portal. |
- | `config.ClientId` | The application (client) ID for the application registered in the Azure portal. You can find this value on the app's **Overview** page in the Azure portal. |
- | `config.Authority`    | (Optional) The security token service (STS) endpoint for the user to authenticate. It's usually `https://login.microsoftonline.com/{tenant}` for the public cloud, where `{tenant}` is the name of your tenant or your tenant ID.|
+ | `ClientSecret` | The client secret created for the application in the Azure portal. |
+ | `ClientId` | The application (client) ID for the application registered in the Azure portal. This value can be found on the app's **Overview** page in the Azure portal. |
+ | `Instance`    | (Optional) The security token service (STS) could instance endpoint for the app to authenticate. It's usually `https://login.microsoftonline.com/` for the public cloud.|
+ | `TenantId`    |  Name of the tenant or the tenant ID.|
 
-For more information, see the [reference documentation for `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication).
+For more information, see the [reference documentation for `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.web.tokenacquirerfactory).
 
-### Requesting tokens
+### Calling Microsoft Graph
 
 To request a token by using the app's identity, use the `AcquireTokenForClient` method:
 
 ```csharp
-result = await app.AcquireTokenForClient(scopes)
-                  .ExecuteAsync();
+GraphServiceClient graphServiceClient = serviceProvider.GetRequiredService<GraphServiceClient>();
+var users = await graphServiceClient.Users
+              .Request()
+              .WithAppOnly()
+              .GetAsync();
 ```
-
-|Element| Description |
-|---------|---------|
-| `scopes` | Contains the requested scopes. For confidential clients, this value should use a format similar to `{Application ID URI}/.default`. This format indicates that the requested scopes are the ones that are statically defined in the app object set in the Azure portal. For Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`. For custom web APIs, `{Application ID URI}` is defined in the Azure portal, under **Application Registration (Preview)** > **Expose an API**. |
-
-For more information, see the [reference documentation for `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient).
 
 [!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 

@@ -37,7 +37,7 @@ In your compute client, retrieve the sessionID for the Elastic SAN volumes you'd
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to disconnect an Elastic SAN volume.
 
 ```
-iscsicli RemovePersistentTarget $yourStorageTargetIQN $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
+iscsicli RemovePersistentTarget ROOT\ISCSIPRT\0000_0 $yourStorageTargetIQN -1 $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
 
 iscsicli LogoutTarget <sessionID>
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/25/2022
+ms.date: 04/28/2023
 ms.author: henrymbugua
 ms.reviewer: joarroyo
 ms.custom: aaddev, devx-track-js
@@ -17,13 +17,13 @@ ms.custom: aaddev, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow
 
-In this tutorial, you build an Angular single-page application (SPA) that signs in users and calls the Microsoft Graph API by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for Angular v2.
+In this tutorial, you'll build an Angular single-page application (SPA) that signs in users and calls the Microsoft Graph API by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for Angular v2.
 
 In this tutorial:
 
 > [!div class="checklist"]
-> * Create an Angular project with `npm`
 > * Register the application in the Azure portal
+> * Create an Angular project with `npm`
 > * Add code to support user sign-in and sign-out
 > * Add code to call Microsoft Graph API
 > * Test the app
@@ -54,42 +54,56 @@ This tutorial uses the following libraries:
 
 You can find the source code for all of the MSAL.js libraries in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
+## Register the application and record identifiers
+
+To complete registration, provide the application a name, specify the supported account types, and add a redirect URI. Once registered, the application **Overview** pane displays the identifiers needed in the application source code.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations > New registration**.
+1. Enter a **Name** for the application, such as *Angular-SPA-auth-code*.
+1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
+1. Under **Redirect URI (optional)**, use the drop-down menu to select **Single-page-application (SPA)** and enter `http://localhost:4200` into the text box.
+1. Select **Register**.
+1. The application's **Overview** pane is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
+
 ## Create your project
 
-Once you have [Node.js](https://nodejs.org/en/download/) installed, open up a terminal window and then run the following commands to generate a new Angular application:
+1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
+1. Open a new terminal by selecting **Terminal** > **New Terminal**.
+    1. You may need to switch terminal types. Select the down arrow next to the **+** icon in the terminal and select **Command Prompt**. 
+1. Run the following commands to create a new Angular project with the name *msal-angular-tutorial*, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
 
-```bash
-npm install -g @angular/cli                         # Install the Angular CLI
-ng new msal-angular-tutorial --routing=true --style=css --strict=false    # Generate a new Angular app
-cd msal-angular-tutorial                            # Change to the app directory
-npm install @angular/material @angular/cdk          # Install the Angular Material component library (optional, for UI)
-npm install @azure/msal-browser @azure/msal-angular # Install MSAL Browser and MSAL Angular in your application
-ng generate component home                          # To add a home page
-ng generate component profile                       # To add a profile page
-```
+    ```cmd
+    npm install -g @angular/cli                        
+    ng new msal-angular-tutorial --routing=true --style=css --strict=false 
+    cd msal-angular-tutorial                           
+    npm install @angular/material @angular/cdk          
+    npm install @azure/msal-browser @azure/msal-angular 
+    ng generate component home                          
+    ng generate component profile 
+    ```
 
-## Register your application
+## Configure the application and edit the base UI
 
-Follow the [instructions to register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
-
-On the app **Overview** page of your registration, note the **Application (client) ID** value for later use.
-
-Register your **Redirect URI** value as **http://localhost:4200/** and type as 'SPA'.
-
-## Configure the application
-
-1. In the *src/app* folder, edit *app.module.ts* and add `MsalModule` and `MsalInterceptor` to `imports` as well as the `isIE` constant. Your code should look like this:
+1. Open *src/app/app.module.ts*. The `MsalModule` and `MsalInterceptor` need to be added to `imports` along with the `isIE` constant. You'll also add the material modules. Replace the entire contents of the file with the following snippet:
 
     ```javascript
     import { BrowserModule } from '@angular/platform-browser';
+	  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     import { NgModule } from '@angular/core';
+
+    import { MatButtonModule } from '@angular/material/button';
+    import { MatToolbarModule } from '@angular/material/toolbar';
+    import { MatListModule } from '@angular/material/list';
 
     import { AppRoutingModule } from './app-routing.module';
     import { AppComponent } from './app.component';
     import { HomeComponent } from './home/home.component';
     import { ProfileComponent } from './profile/profile.component';
 
-    import { MsalModule } from '@azure/msal-angular';
+    import { MsalModule, MsalRedirectComponent} from '@azure/msal-angular';
     import { PublicClientApplication } from '@azure/msal-browser';
 
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -102,7 +116,11 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
       ],
       imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatListModule,
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here', // Application (client) ID from the app registration
@@ -116,23 +134,19 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
         }), null, null)
       ],
       providers: [],
-      bootstrap: [AppComponent]
+      bootstrap: [AppComponent, MsalRedirectComponent]
     })
     export class AppModule { }
     ```
 
-    Replace these values:
+1. Replace the following values with the values obtained from the Azure portal. For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
+    - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
+    - `authority` - This is composed of two parts:
+        - The *Instance* is endpoint of the cloud provider. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+        - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    - `redirectUri` -  the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. Replace `Enter_the_Redirect_Uri_Here` with `http://localhost:4200`.
 
-    |Value name|About|
-    |---------|---------|
-    |Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
-    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
-    |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
-    |Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
-
-    For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
-
-2. Add routes to the home and profile components in the *src/app/app-routing.module.ts*. Your code should look like the following:
+1. Open *src/app/app-routing.module.ts* and add routes to the *home* and *profile* components. Replace the entire contents of the file with the following snippet:
 
     ```javascript
     import { NgModule } from '@angular/core';
@@ -164,9 +178,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     export class AppRoutingModule { }
     ```
 
-## Replace base UI
-
-1. Replace the placeholder code in *src/app/app.component.html* with the following:
+1. Open *src/app/app.component.html* and replace the existing code with the following:
 
     ```HTML
     <mat-toolbar color="primary">
@@ -185,59 +197,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     </div>
     ```
 
-2. Add material modules to *src/app/app.module.ts*. Your `AppModule` should look like this:
-
-    ```javascript
-    import { BrowserModule } from '@angular/platform-browser';
-    import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-    import { NgModule } from '@angular/core';
-
-    import { MatButtonModule } from '@angular/material/button';
-    import { MatToolbarModule } from '@angular/material/toolbar';
-    import { MatListModule } from '@angular/material/list';
-
-    import { AppRoutingModule } from './app-routing.module';
-    import { AppComponent } from './app.component';
-    import { HomeComponent } from './home/home.component';
-    import { ProfileComponent } from './profile/profile.component';
-
-    import { MsalModule } from '@azure/msal-angular';
-    import { PublicClientApplication } from '@azure/msal-browser';
-
-    const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
-
-    @NgModule({
-      declarations: [
-        AppComponent,
-        HomeComponent,
-        ProfileComponent
-      ],
-      imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        MatButtonModule,
-        MatToolbarModule,
-        MatListModule,
-        MsalModule.forRoot( new PublicClientApplication({
-          auth: {
-            clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
-            redirectUri: 'Enter_the_Redirect_Uri_Here'
-          },
-          cache: {
-            cacheLocation: 'localStorage',
-            storeAuthStateInCookie: isIE, 
-          }
-        }), null, null)
-      ],
-      providers: [],
-      bootstrap: [AppComponent]
-    })
-    export class AppModule { }
-    ```
-
-3. (OPTIONAL) Add CSS to *src/style.css*:
+1. Open *src/style.css* to define the CSS:
 
     ```css
     @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
@@ -247,7 +207,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
     .container { margin: 1%; }
     ```
 
-4. (OPTIONAL) Add CSS to *src/app/app.component.css*:
+4. Open *src/app/app.component.css* to add CSS styling to the application:
 
     ```css
     .toolbar-spacer {
@@ -259,13 +219,9 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
       }
     ```
 
-## Sign in a user
+## Sign in using pop-ups
 
-Add the code from the following sections to invoke login using a pop-up window or a full-frame redirect: 
-
-### Sign in using pop-ups
-
-1. Change the code in *src/app/app.component.ts* to the following to sign in a user using a pop-up window:
+1. Open *src/app/app.component.ts* and replace the contents of the file to the following to sign in a user using a pop-up window:
 
     ```javascript
     import { MsalService } from '@azure/msal-angular';
@@ -304,64 +260,19 @@ Add the code from the following sections to invoke login using a pop-up window o
     }
     ```
 
-> [!NOTE]
-> The rest of this tutorial uses the `loginRedirect` method with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md) related to the handling of pop-up windows by Internet Explorer.
+## Sign in using redirects
 
-### Sign in using redirects
-
-1. Update *src/app/app.module.ts* to bootstrap the `MsalRedirectComponent`. This is a dedicated redirect component which will handle redirects. Your code should now look like this:
+1. Update *src/app/app.module.ts* to bootstrap the `MsalRedirectComponent`. This is a dedicated redirect component, which handles redirects. Change the `MsalModule` import and `AppComponent` bootstrap to resemble the following:
 
     ```javascript
-    import { BrowserModule } from '@angular/platform-browser';
-    import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-    import { NgModule } from '@angular/core';
-
-    import { MatButtonModule } from '@angular/material/button';
-    import { MatToolbarModule } from '@angular/material/toolbar';
-    import { MatListModule } from '@angular/material/list';
-
-    import { AppRoutingModule } from './app-routing.module';
-    import { AppComponent } from './app.component';
-    import { HomeComponent } from './home/home.component';
-    import { ProfileComponent } from './profile/profile.component';
-
+    ...
     import { MsalModule, MsalRedirectComponent } from '@azure/msal-angular'; // Updated import
-    import { PublicClientApplication } from '@azure/msal-browser';
-
-    const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
-
-    @NgModule({
-      declarations: [
-        AppComponent,
-        HomeComponent,
-        ProfileComponent
-      ],
-      imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        MatButtonModule,
-        MatToolbarModule,
-        MatListModule,
-        MsalModule.forRoot( new PublicClientApplication({
-          auth: {
-            clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
-            redirectUri: 'Enter_the_Redirect_Uri_Here'
-          },
-          cache: {
-            cacheLocation: 'localStorage',
-            storeAuthStateInCookie: isIE,
-          }
-        }), null, null)
-      ],
-      providers: [],
+    ...
       bootstrap: [AppComponent, MsalRedirectComponent] // MsalRedirectComponent bootstrapped here
-    })
-    export class AppModule { }
+    ...
     ```
 
-2. Add the `<app-redirect>` selector to *src/index.html*. This selector is used by the `MsalRedirectComponent`. Your *src/index.html* should look like this:
+2. Open *src/index.html* and replace the entire contents of the file with the following snippet, which adds the `<app-redirect>` selector:
 
     ```HTML
     <!doctype html>
@@ -380,7 +291,7 @@ Add the code from the following sections to invoke login using a pop-up window o
     </html>
     ```
 
-3. Replace the code in *src/app/app.component.ts* with the following to sign in a user using a full-frame redirect:
+3. Open *src/app/app.component.ts* and replace the code with the following to sign in a user using a full-frame redirect:
 
     ```javascript
     import { MsalService } from '@azure/msal-angular';
@@ -412,7 +323,7 @@ Add the code from the following sections to invoke login using a pop-up window o
     }
     ```
 
-4. Replace existing code in *src/app/home/home.component.ts* to subscribe to the `LOGIN_SUCCESS` event. This will allow you to access the result from the successful login with redirect. Your code should look like this:
+4. Navigate to *src/app/home/home.component.ts* and replace the entire contents of the file with the following snippet to subscribe to the `LOGIN_SUCCESS` event:
 
     ```javascript
     import { Component, OnInit } from '@angular/core';
@@ -442,7 +353,7 @@ Add the code from the following sections to invoke login using a pop-up window o
 
 ## Conditional rendering
 
-In order to render certain UI only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in and interaction has completed.
+In order to render certain User Interface (UI) only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in, and interaction has completed.
 
 1. Add the `MsalBroadcastService` to *src/app/app.component.ts* and subscribe to the `inProgress$` observable to check if interaction is complete and an account is signed in before rendering UI. Your code should now look like this:
 
@@ -549,13 +460,11 @@ In order to render certain UI only for authenticated users, components have to s
     </div>
     ```
 
-## Guarding routes
+## Implement Angular Guard
 
-### Angular Guard
+The `MsalGuard` class is one you can use to protect routes and require authentication before accessing the protected route. The following steps add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user doesn't sign in using the `Login` button, if they try to access the `Profile` route or select the `Profile` button, the `MsalGuard` prompts the user to authenticate via pop-up or redirect before showing the `Profile` page.
 
-MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. The steps below add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via pop-up or redirect before showing the `Profile` page.
-
-`MsalGuard` is a convenience class you can use improve the user experience, but it should not be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server does not return any data the user should not access.
+`MsalGuard` is a convenience class you can use to improve the user experience, but it shouldn't be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server doesn't return any data the user shouldn't access.
 
 1. Add the `MsalGuard` class as a provider in your application in *src/app/app.module.ts*, and add the configurations for the `MsalGuard`. Scopes needed for acquiring tokens later can be provided in the `authRequest`, and the type of interaction for the Guard can be set to `Redirect` or `Popup`. Your code should look like the following:
 
@@ -708,7 +617,7 @@ MSAL Angular provides `MsalGuard`, a class you can use to protect routes and req
 
 MSAL Angular provides an `Interceptor` class that automatically acquires tokens for outgoing requests that use the Angular `http` client to known protected resources.
 
-1. Add the `Interceptor` class as a provider to your application in *src/app/app.module.ts*, with its configurations. Your code should now look like this:
+1. Add the `Interceptor` class as a provider to your application in *src/app/app.module.ts*, with its configurations. Your code should now look like the following:
 
     ```javascript
     import { BrowserModule } from '@angular/platform-browser';
@@ -788,12 +697,9 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
     * `["<Application ID URL>/scope"]` for custom web APIs (that is, `api://<Application ID>/access_as_user`)
     
     Modify the values in the `protectedResourceMap` as described here:
+    - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with. For the **global** Microsoft Graph API endpoint, replace this string with `https://graph.microsoft.com`. For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
-    |Value name| About|
-    |----------|------|
-    |`Enter_the_Graph_Endpoint_Here`| The instance of the Microsoft Graph API the application should communicate with. For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`. For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.|
-
-2. Replace the code in *src/app/profile/profile.component.ts* to retrieve a user's profile with an HTTP request:
+2. Replace the code in *src/app/profile/profile.component.ts* to retrieve a user's profile with an HTTP request, and replace the `GRAPH_ENDPOINT` with the Microsoft Graph endpoint:
 
     ```JavaScript
     import { Component, OnInit } from '@angular/core';
@@ -833,7 +739,7 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
     }
     ```
 
-3. Replace the UI in *src/app/profile/profile.component.html* to display profile information: 
+3. Replace the UI in *src/app/profile/profile.component.html* to display profile information:
 
     ```HTML
     <div>
@@ -846,198 +752,193 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
 
 ## Sign out
 
-Update the code in *src/app/app.component.html* to conditionally display a `Logout` button:
+1. Update the code in *src/app/app.component.html* to conditionally display a `Logout` button:
 
-```HTML
-<mat-toolbar color="primary">
-  <a class="title" href="/">{{ title }}</a>
-
-  <div class="toolbar-spacer"></div>
-
-  <a mat-button [routerLink]="['profile']">Profile</a>
-
-  <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
-  <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
-
-</mat-toolbar>
-<div class="container">
-  <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
-  <router-outlet *ngIf="!isIframe"></router-outlet>
-</div>
-```
+    ```HTML
+    <mat-toolbar color="primary">
+      <a class="title" href="/">{{ title }}</a>
+    
+      <div class="toolbar-spacer"></div>
+    
+      <a mat-button [routerLink]="['profile']">Profile</a>
+    
+      <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
+      <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
+    
+    </mat-toolbar>
+    <div class="container">
+      <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+      <router-outlet *ngIf="!isIframe"></router-outlet>
+    </div>
+    ```
 
 ### Sign out using redirects
 
-Update the code in *src/app/app.component.ts* to sign out a user using redirects:
+1. Update the code in *src/app/app.component.ts* to sign out a user using redirects:
 
-```javascript
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'msal-angular-tutorial';
-  isIframe = false;
-  loginDisplay = false;
-  private readonly _destroying$ = new Subject<void>();
-
-  constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
-
-  ngOnInit() {
-    this.isIframe = window !== window.parent && !window.opener;
-
-    this.broadcastService.inProgress$
-    .pipe(
-      filter((status: InteractionStatus) => status === InteractionStatus.None),
-      takeUntil(this._destroying$)
-    )
-    .subscribe(() => {
-      this.setLoginDisplay();
+    ```javascript
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+    import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
+    import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+    import { Subject } from 'rxjs';
+    import { filter, takeUntil } from 'rxjs/operators';
+    
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
     })
-  }
-
-  login() {
-    if (this.msalGuardConfig.authRequest){
-      this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
-    } else {
-      this.authService.loginRedirect();
+    export class AppComponent implements OnInit, OnDestroy {
+      title = 'msal-angular-tutorial';
+      isIframe = false;
+      loginDisplay = false;
+      private readonly _destroying$ = new Subject<void>();
+    
+      constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+    
+      ngOnInit() {
+        this.isIframe = window !== window.parent && !window.opener;
+    
+        this.broadcastService.inProgress$
+        .pipe(
+          filter((status: InteractionStatus) => status === InteractionStatus.None),
+          takeUntil(this._destroying$)
+        )
+        .subscribe(() => {
+          this.setLoginDisplay();
+        })
+      }
+    
+      login() {
+        if (this.msalGuardConfig.authRequest){
+          this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
+        } else {
+          this.authService.loginRedirect();
+        }
+      }
+    
+      logout() { // Add log out function here
+        this.authService.logoutRedirect({
+          postLogoutRedirectUri: 'http://localhost:4200'
+        });
+      }
+    
+      setLoginDisplay() {
+        this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+      }
+    
+      ngOnDestroy(): void {
+        this._destroying$.next(undefined);
+        this._destroying$.complete();
+      }
     }
-  }
-
-  logout() { // Add log out function here
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-  }
-
-  setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
-
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
-  }
-}
-```
+    ```
 
 ### Sign out using pop-ups
 
-Update the code in *src/app/app.component.ts* to sign out a user using pop-ups:
+1. Update the code in *src/app/app.component.ts* to sign out a user using pop-ups:
 
-```javascript
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'msal-angular-tutorial';
-  isIframe = false;
-  loginDisplay = false;
-  private readonly _destroying$ = new Subject<void>();
-
-  constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
-
-  ngOnInit() {
-    this.isIframe = window !== window.parent && !window.opener;
-
-    this.broadcastService.inProgress$
-    .pipe(
-      filter((status: InteractionStatus) => status === InteractionStatus.None),
-      takeUntil(this._destroying$)
-    )
-    .subscribe(() => {
-      this.setLoginDisplay();
+    ```javascript
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+    import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
+    import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
+    import { Subject } from 'rxjs';
+    import { filter, takeUntil } from 'rxjs/operators';
+    
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
     })
-  }
-
-  login() {
-    if (this.msalGuardConfig.authRequest){
-      this.authService.loginPopup({...this.msalGuardConfig.authRequest} as PopupRequest)
-        .subscribe({
-          next: (result) => {
-            console.log(result);
-            this.setLoginDisplay();
-          },
-          error: (error) => console.log(error)
+    export class AppComponent implements OnInit, OnDestroy {
+      title = 'msal-angular-tutorial';
+      isIframe = false;
+      loginDisplay = false;
+      private readonly _destroying$ = new Subject<void>();
+    
+      constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+    
+      ngOnInit() {
+        this.isIframe = window !== window.parent && !window.opener;
+    
+        this.broadcastService.inProgress$
+        .pipe(
+          filter((status: InteractionStatus) => status === InteractionStatus.None),
+          takeUntil(this._destroying$)
+        )
+        .subscribe(() => {
+          this.setLoginDisplay();
+        })
+      }
+    
+      login() {
+        if (this.msalGuardConfig.authRequest){
+          this.authService.loginPopup({...this.msalGuardConfig.authRequest} as PopupRequest)
+            .subscribe({
+              next: (result) => {
+                console.log(result);
+                this.setLoginDisplay();
+              },
+              error: (error) => console.log(error)
+            });
+        } else {
+          this.authService.loginPopup()
+            .subscribe({
+              next: (result) => {
+                console.log(result);
+                this.setLoginDisplay();
+              },
+              error: (error) => console.log(error)
+            });
+        }
+      }
+    
+      logout() { // Add log out function here
+        this.authService.logoutPopup({
+          mainWindowRedirectUri: "/"
         });
-    } else {
-      this.authService.loginPopup()
-        .subscribe({
-          next: (result) => {
-            console.log(result);
-            this.setLoginDisplay();
-          },
-          error: (error) => console.log(error)
-        });
+      }
+    
+      setLoginDisplay() {
+        this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+      }
+    
+      ngOnDestroy(): void {
+        this._destroying$.next(undefined);
+        this._destroying$.complete();
+      }
     }
-  }
-
-  logout() { // Add log out function here
-    this.authService.logoutPopup({
-      mainWindowRedirectUri: "/"
-    });
-  }
-
-  setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
-
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
-  }
-}
-```
+    ```
 
 ## Test your code
 
-1.  Start the web server to listen to the port by running the following commands at a command-line prompt from the application folder:
+1. Start the web server to listen to the port by running the following commands at a command-line prompt from the application folder:
 
     ```bash
     npm install
     npm start
     ```
-1. In your browser, enter **http://localhost:4200** or **http://localhost:{port}**, where *port* is the port that your web server is listening on. You should see a page that looks like the one below.
+1. In your browser, enter `http://localhost:4200`, and you should see a page that looks like the following.
 
     :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
 
+1. Select **Accept** to grant the app permissions to your profile. This will happen the first time that you start to sign in.
 
-### Provide consent for application access
+    :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Content dialog displayed in web browser":::
 
-The first time that you start to sign in to your application, you're prompted to grant it access to your profile and allow it to sign you in:
+1. After consenting, the following If you consent to the requested permissions, the web application shows a successful login page. 
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Content dialog displayed in web browser":::
+    :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-02-signed-in.png" alt-text="Results of a successful sign-in in the web browser":::
 
-If you consent to the requested permissions, the web application shows a successful login page:
+1. Select **Profile** to view the user profile information returned in the response from the call to the Microsoft Graph API:
 
-:::image type="content" source="media/tutorial-v2-angular-auth-code/angular-02-signed-in.png" alt-text="Results of a successful sign-in in the web browser":::
-
-### Call the Graph API
-
-After you sign in, select **Profile** to view the user profile information returned in the response from the call to the Microsoft Graph API:
-
-:::image type="content" source="media/tutorial-v2-angular-auth-code/angular-03-profile-data.png" alt-text="Profile information from Microsoft Graph displayed in the browser":::
+    :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-03-profile-data.png" alt-text="Profile information from Microsoft Graph displayed in the browser":::
 
 ## Add scopes and delegated permissions
 
-The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
+The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require other scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
 
-As you add scopes, your users might be prompted to provide additional consent for the added scopes.
+As you add scopes, your users might be prompted to provide extra consent for the added scopes.
 
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.
@@ -1046,7 +947,7 @@ As you add scopes, your users might be prompted to provide additional consent fo
 
 ## Next steps
 
-Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our the multi-part article series.
+Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our multi-part article series.
 
 > [!div class="nextstepaction"]
 > [Scenario: Single-page application](scenario-spa-overview.md)

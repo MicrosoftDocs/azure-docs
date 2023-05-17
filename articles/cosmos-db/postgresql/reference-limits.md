@@ -62,9 +62,8 @@ be scaled down (decreased).
 
 ### Storage size
 
-Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
-available storage options and IOPS calculation [above](resources-compute.md)
-for node and cluster sizes.
+Up to 16 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
+for various node and cluster sizes.
 
 ## Compute
 
