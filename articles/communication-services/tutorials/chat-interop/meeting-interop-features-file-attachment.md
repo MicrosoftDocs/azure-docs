@@ -1,7 +1,7 @@
 ---
-title: Enable File Attachnment Support in your Chat app
+title: Enable File Attachment Support in your Chat app
 titleSuffix: An Azure Communication Services quickstart
-description: In this tutorial, you'll learn how to enable file attachment interoperability with the Azure Communication Chat SDK
+description: In this tutorial, you learn how to enable file attachment interoperability with the Azure Communication Chat SDK
 author: jopeng
 ms.author: jopeng
 ms.date: 05/15/2023
@@ -16,18 +16,18 @@ ms.custom: mode-other
 ## Add file attachment support
 The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive file attachment sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
 
-The Chat SDK for JavaScript provides `previewUrl` and `url` for each file attachment. Specifically, `url` provides a direct download URL to the file. While `previewUrl` provides a link to a webpage on SharePoint where the user can see the content of the file, edit the file and download the file if premission allows. 
+The Chat SDK for JavaScript provides `previewUrl` and `url` for each file attachment. Specifically, `url` provides a direct download URL to the file. While `previewUrl` provides a link to a webpage on SharePoint where the user can see the content of the file, edit the file and download the file if permission allows. 
 
 You should be aware of couple constraints that come with this feature:
 
-1. The Teams admin of the sender's tenant could have impose policies that limits or disable this feature entirely. For example, the Teams admin could disable certain permissions (such as "Anyone") that could cause the file attachment URLs (`previewUrl` and `Url`) to be inaccessible. 
+1. The Teams admin of the sender's tenant could impose policies that limits or disable this feature entirely. For example, the Teams admin could disable certain permissions (such as "Anyone") that could cause the file attachment URLs (`previewUrl` and `Url`) to be inaccessible. 
 2. We currently only support the following file permissions:
    - "Anyone", and
-   - "People you choose" (with email adress)
-   The Teams user sending the file should be made aware of that all other permissions (such as "People in your organization") are not supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
+   - "People you choose" (with email address)
+   The Teams user sending the file should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
 3. The direct download URL (`url`) might be inaccessible if file is protected (files with restricted permissions such as file being password protected or shared with a specific email address owner)
 
-Please note that Microsoft Teams renders image attachments as inline images in the Teams client. Developers that wanted to achieve the same behaviour are expected to leverage the `contentType` of `teamsImage` with logic that converts image attachments. Please see the bottom of the page for more details.
+Note that Microsoft Teams renders image attachments as inline images in the Teams client. Developers that wanted to achieve the same behavior are expected to use the `AttachmentType` of `teamsImage` with logic that converts image attachments.
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
