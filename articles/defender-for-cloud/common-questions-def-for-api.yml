@@ -10,27 +10,31 @@ metadata:
 title: Common Question - Defender for API troubleshooting guide
 
 sections:
-  - name: # Availability and Onboarding
+  - name: Availability and Onboarding
     questions:
-      - question: # What type of APIs can I secure using Defender for APIs?
-        answer: # Currently, Defender for APIs supports REST APIs only.
+      - question: What type of APIs can I secure using Defender for APIs?
+        answer: Currently, Defender for APIs supports REST APIs only.
           
-      - question: # Is Defender for APIs available in my region?
-        answer: # Please review the list of supported regions in [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction).
+      - question: Is Defender for APIs available in my region?
+        answer: Please review the list of supported regions in [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction).
 
-      - question: # I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page?
-        answer: # If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found on the [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction) page.
+      - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page?
+        answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found on the [Defender for APIs – Benefits and Features](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction) page.
  
-  - name: # Name of second section. Omit if you only have a few questions. 
+  - name: Name of second section. Omit if you only have a few questions. 
 # The first name value is ignored and your questions become H2 level. 
     questions:
-      - question: # Question.
-        answer: # Answer.
+      - question: Question.
+        answer: Answer.
 
-      - question: # Question.
-        answer: # Answer.
+      - question: Question.
+        answer: Answer.
 
 additionalContent: |
     ## Next steps
 
-    To learn more, see [link text](link).
+    - [Microsoft Defender for APIs – Benefits and features](https://aka.ms/apiSecurityOverview)
+    - [Quick Start: Enabling enhanced API security features from Microsoft Defender for Cloud](https://aka.ms/apiSecurityOnboarding)  
+    - [Quick Start: Enabling enhanced API security features from Azure API Management](https://aka.ms/apiSecurityApimOnboarding)
+    - You can learn about [API Security Alerts](https://aka.ms/apiSecurityAlerts) 
+    - You can learn about [API Security Recommendations](https://aka.ms/apiSecurityRecommendations)
