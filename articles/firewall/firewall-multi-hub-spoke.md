@@ -40,7 +40,7 @@ Each local firewall needs to know how to reach the other remote spokes, so you m
 
 The benefit of implementing this topology is that with traffic going from one hub to another, you can reach the next hop that is directly connected via the global peering.
 
-As illustrated in the diagram, it's better to place a UDR in the spoke subnets that have a 0/0 with the local firewall as the next hop. This locks in the single next hop exit point as the local firewall. It also reduces the risk of asymmetric routing if it learns more specific prefixes from your on-premises environment that might cause the traffic to bypass the firewall. For more information, see [Don’t let your Azure Routes bite you](https://blog.cloudtrooper.net/2020/11/28/dont-let-your-azure-routes-bite-you/).
+As illustrated in the diagram, it's better to place a UDR in the spoke subnets that have a 0/0 route (default gateway) with the local firewall as the next hop. This locks in the single next hop exit point as the local firewall. It also reduces the risk of asymmetric routing if it learns more specific prefixes from your on-premises environment that might cause the traffic to bypass the firewall. For more information, see [Don’t let your Azure Routes bite you](https://blog.cloudtrooper.net/2020/11/28/dont-let-your-azure-routes-bite-you/).
 
 Here's an example route table for the spoke subnets connected to Hub-01:
 
