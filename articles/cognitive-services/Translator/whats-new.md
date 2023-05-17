@@ -25,7 +25,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ## February 2023
 
-[**Document Translation in Language Studio**](document-translation/language-studio.md) is now available for Public Preview. The feature provides a no-code user interface to interactively translate documents from local or Azure blob storage.
+[**Document Translation in Language Studio**](document-translation/language-studio.md) is now available for Public Preview. The feature provides a no-code user interface to interactively translate documents from local or Azure Blob Storage.
 
 ## November 2022
 
