@@ -32,3 +32,10 @@ sections:
       - question: Can I configure TLS protocol versions?
         answer: No. Traffic Controller supports TLS 1.2. SSL 2.0, 3.0, TLS 1.0, and TLS 1.1 are disabled and non-configurable.
         
+   - name: Configuration - ALB Controller
+    questions:
+      - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
+        answer: It is possible to install multiple ALB Controllers on the same cluster, however this is not recommended or supported as it is not possible to partition gateways, routes, services, etc.
+
+      - question: Is it supported to increase the number of pods/replicas for ALB Controller?
+        answer: No.  Only one pod/replica of ALB Controller should be running at any given time.

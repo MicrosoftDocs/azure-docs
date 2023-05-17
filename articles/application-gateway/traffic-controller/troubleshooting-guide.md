@@ -66,4 +66,4 @@ status:
 ```
 
 #### Solution
-Ensure the the federated credentials of the managed identity for the ALB Controller pod to make changes to Traffic Controller are configured in Azure. Instructions on how to configure federated credentials can be found in the [Quickstart guide](quickstart-create-traffic-controller.md#install-alb-controller).
+Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Traffic Controller are configured in Azure. Instructions on how to configure federated credentials can be found in the [Quickstart guide](quickstart-create-traffic-controller.md#install-alb-controller).
