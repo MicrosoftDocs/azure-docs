@@ -6,7 +6,7 @@ author: kunaal
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 14/05/2023
+ms.date: 05/14/2023
 ms.author: kpunjabi
 ms.custom: private_priview
 services: azure-communication-services
@@ -18,12 +18,12 @@ services: azure-communication-services
 >Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 >Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/acs-tap-invite).
 
-Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the  actions available for steering calls, like CreateCall, Transfer, Redirect, and managing participants. Actions are accompanied with sample code on how to invoke the said action and sequence diagrams describing the events expected after invoking an action. These diagrams will help you visualize how to program your service application with Call Automation. 
+Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the actions available to developers during calls, like Send DTMF and Countinuous DTMF Recognition. Actions are accompanied with sample code on how to invoke the said action.
 
-Call Automation supports various other actions to manage call media and recording that aren't included in this guide.
+Call Automation supports various other actions to manage calls and recording that aren't included in this guide.
 
 > [!NOTE]
-> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or adding them to a call using Call Automation isn't supported. 
+> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making, redirecting a call to a Teams user or playing audio to a Teams user using Call Automation isn't supported. 
 
 As a pre-requisite, we recommend you to read the below articles to make the most of this guide: 
 1. Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks. 
@@ -31,18 +31,21 @@ As a pre-requisite, we recommend you to read the below articles to make the most
 3. Learn more about [how to control and steer calls with Call Automation](./actions-for-call-control.md) which teaches you about dealing with the basics of dealing with a call.
 
 For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application. 
-## [csharp](#tab/csharp)
+### [csharp](#tab/csharp)
 ```csharp
 var client = new CallAutomationClient("<resource_connection_string>"); 
 ```
-## [Java](#tab/java)
+### [Java](#tab/java)
 ```java
  CallAutomationClient client = new CallAutomationClientBuilder().connectionString("<resource_connection_string>").buildClient();
 ```
 -----
 
 ## Send DTMF
-You can send dtmf tones to an external participant, which may be useful when you’re already on a call and need to invite another participant who has an extension number or an IVR menu to navigate.
+You can send dtmf tones to an external participant, which may be useful when you’re already on a call and need to invite another participant who has an extension number or an IVR menu to navigate. 
+
+>[!NOTE]
+>This is only supported for external PSTN participants and supports sending a maximum of 18 tones at a time.
 
 ### SendDTMFAsync Method
 Send a list of DTMF tones to an external participant.
@@ -52,7 +55,7 @@ var tones = new DtmfTone[] { DtmfTone.One, DtmfTone.Two, DtmfTone.Three, DtmfTon
 
 await callAutomationClient.GetCallConnection(callConnectionId)
 	.GetCallMedia()
-	.SendDtmfAsync(targetParticipant: new PhoneNumberIdentifier(c2Target), tones: tones, operationContext: "dtmfs-to-ivr");
+	.SendDtmfAsync(targetParticipant: new tones: tones, PhoneNumberIdentifier(c2Target), operationContext: "dtmfs-to-ivr");
 ```
 ### [Java](#tab/java)
 ```java
@@ -61,7 +64,7 @@ tones.add(DtmfTone.ZERO);
 
 callAutomationClient.getCallConnectionAsync(callConnectionId)
 	.getCallMediaAsync()
-	.sendDtmfWithResponse(new PhoneNumberIdentifier(c2Target), tones, "dtmfs-to-ivr").block();
+	.sendDtmfWithResponse(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr").block();;
 ```
 -----
 After your application sends these DTMF tones you'll receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
@@ -101,7 +104,7 @@ if (acsEvent instanceof SendDtmfFailed toneReceived) {
 }
 ```
 
-## DTMF Subscription
+## Continuous DTMF Recognition
 You can subscribe to receive continuous DTMF tones throughout the call, you will receive DTMF tones as soon as the targeted participant presses on a key on their keypad. These tones will be sent to you one by one as the participant is pressing them.
 
 ### StartContinuousDtmfRecognitionAsync Method
@@ -162,6 +165,9 @@ if (acsEvent instanceof ContinuousDtmfRecognitionToneReceived) {
 }
 ```
 -----
+
+ACS provides you a `SequenceId` as part of the `ContinuousDtmfRecognitionToneReceived` event, which your application can use to reconstruct the order in which the participant entered the DTMF tones.
+
 ### ContinuousDtmfRecognitionFailed Event
 Example of how you can handle when DTMF tone detection failes.
 ### [csharp](#tab/csharp)
@@ -173,7 +179,7 @@ if (@event is ContinuousDtmfRecognitionToneFailed toneFailed)
         toneFailed.OperationContext);
 }
 ```
-### [Java](#tabs/java)
+### [Java](#tab/java)
 ``` java
 if (acsEvent instanceof ContinuousDtmfRecognitionToneFailed) {
     ContinuousDtmfRecognitionToneFailed event = (ContinuousDtmfRecognitionToneFailed) acsEvent;
@@ -184,7 +190,7 @@ if (acsEvent instanceof ContinuousDtmfRecognitionToneFailed) {
 
 ### ContinuousDtmfRecogntionStopped Event
 Example of how to handle when continuous DTMF recognition has stopped, this could be because your application invoked the `StopContinuousDtmfRecognitionAsync` event or because the call has ended.
-### [csharp](#tabs/csharp)
+### [csharp](#tab/csharp)
 ``` csharp
 if (@event is ContinuousDtmfRecognitionStopped stopped)
 {
@@ -192,7 +198,7 @@ if (@event is ContinuousDtmfRecognitionStopped stopped)
         stopped.OperationContext);
 }
 ```
-### [Java](#tabs/java)
+### [Java](#tab/java)
 ``` java
 if (acsEvent instanceof ContinuousDtmfRecognitionStopped) {
     ContinuousDtmfRecognitionStopped event = (ContinuousDtmfRecognitionStopped) acsEvent;
