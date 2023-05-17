@@ -70,7 +70,7 @@ callAutomationClient.getCallConnectionAsync(callConnectionId)
 When your application sends these DTMF tones, you'll receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
 
 Example of *SendDtmfCompleted* event
-### [csharp](#tab/chsarp)
+### [csharp](#tab/csharp)
 ``` chsarp
 if (@event is SendDtmfCompleted completed)
 {
