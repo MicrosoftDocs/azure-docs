@@ -110,7 +110,7 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but there are many others that are available.
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available. 
 
 ```bicep
 @allowed([

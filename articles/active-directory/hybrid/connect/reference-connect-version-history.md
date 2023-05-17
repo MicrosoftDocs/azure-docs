@@ -128,7 +128,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 ### Functional changes
  - We have removed the public preview functionality for the Admin Agent from Azure AD Connect. We will not provide this functionality going forward.
  - We added support for two new attributes: employeeOrgDataCostCenter and employeeOrgDataDivision.
- - We added CerificateUserIds attribute to AAD Connector static schema.
+ - We added CertificateUserIds attribute to AAD Connector static schema.
  - The AAD Connect wizard will now abort if write event logs permission is missing.
  - We updated the AADConnect health endpoints to support the US government clouds.
  - We added new cmdlets “Get-ADSyncToolsDuplicateUsersSourceAnchor and Set-ADSyncToolsDuplicateUsersSourceAnchor“ to fix bulk "source anchor has changed" errors. When a new forest is added to AADConnect with duplicate user objects, the objects are running into bulk "source anchor has changed" errors. This is happening due to the mismatch between msDsConsistencyGuid & ImmutableId. More information about this module and the new cmdlets can be found in [this article](./reference-connect-adsynctools.md).
