@@ -23,7 +23,7 @@ Using private endpoints for your workspace enables you to:
 
 ## Conceptual overview
 
-:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/amw-private-endpoints-overview.jpg" alt-text="A diagram showing an overview of private endpoints for Azure Monitor workspace."  lightbox="./media/azure-monitor-workspace-private-endpoint/amw-private-endpoints-overview.jpg" :::
+:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/amw-private-endpoints-overview.png" alt-text="A diagram showing an overview of private endpoints for Azure Monitor workspace."  lightbox="./media/azure-monitor-workspace-private-endpoint/amw-private-endpoints-overview.jpg" :::
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your workspace, it provides secure connectivity between clients on your VNet and your workspace. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the workspace uses a secure private link.
 
