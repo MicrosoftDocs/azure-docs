@@ -12,7 +12,7 @@ ms.date: 07/11/2022
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
 This section provides guidelines for using Reliable State Manager and Reliable Collections. The goal is to help users avoid common pitfalls.
 
-# Relialbe Collection Guildelines
+## Relialbe Collection Guildelines
 The guidelines are organized as simple recommendations prefixed with the terms *Do*, *Consider*, *Avoid* and *Do not*.
 
 * Do not modify an object of custom type returned by read operations (for example, `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
@@ -29,7 +29,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Consider using backup and restore functionality to have disaster recovery.
 * Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
 * Do handle InvalidOperationException. User transactions can be aborted by the system for variety of reasons. For example, when the Reliable State Manager is changing its role out of Primary or when a long-running transaction is blocking truncation of the transactional log. In such cases, user may receive InvalidOperationException indicating that their transaction has already been terminated. Assuming, the termination of the transaction was not requested by the user, best way to handle this exception is to dispose the transaction, check if the cancellation token has been signaled (or the role of the replica has been changed), and if not create a new transaction and retry.  
-* Do not apply [parallel](https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/how-to-use-parallel-invoke-to-execute-parallel-operations) or [concurrent](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.whenall?view=net-7.0) operations within a transaction. Only one user thread operation is supported within a transaction. Otherwise, it will cause memory leak and lock issues.
+* Do not apply [parallel](https://learn.microsoft.com/dotnet/standard/parallel-programming/how-to-use-parallel-invoke-to-execute-parallel-operations) or [concurrent](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task.whenall) operations within a transaction. Only one user thread operation is supported within a transaction. Otherwise, it will cause memory leak and lock issues.
 * Consider dispose transaction as soon as possible after commit completes (especially if using ConcurrentQueue).
 * Do not perform any blocking code inside a transaction.
 
