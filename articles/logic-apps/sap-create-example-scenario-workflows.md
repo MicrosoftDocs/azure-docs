@@ -14,13 +14,13 @@ ms.date: 05/23/2023
 
 This how-to guide shows how to create example logic app workflows for some common SAP integration scenarios using Azure Logic Apps and the SAP connector.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](logic-apps-using-sap-connector.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](logic-apps-using-sap-connector.md#connector-technical-reference).
 
 ## Prerequisites
 
 - Before you start, make sure to [review and meet the SAP connector requirements](logic-apps-using-sap-connector.md#prerequisites) for your specific scenario.
 
-- The SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+- The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 <a name="receive-message-sap"></a>
 
@@ -72,8 +72,8 @@ The following example logic app workflow triggers when the workflow's SAP trigge
    | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **DegreeOfParallelism**, and enter the new value. |
    | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Add new parameter** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
    | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, in the trigger, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
-   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **Receive IDOCS with unreleased segements**, and select **Yes** or **No**. |
-   | **SncPartnerNames** | No | Filter the messages that your receive from your SAP server based on a list of SNC partner names. To add this parameter, in the trigger, from the **Add new parameter** list, select **SncPartnerNames**, and enter each name separated by a vertical bar (**\|**). |
+   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
+   | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
    > [!NOTE]
    >
@@ -147,13 +147,13 @@ You might get a similar error when SAP Application server or Message server name
 
 ### [Single-tenant](#tab/single-tenant)
 
-The SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 1. Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
 
 1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
 
-   The SAP built-in trigger, **Register SAP RFC server for trigger**, is a webhook-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
+   The preview SAP built-in trigger, **Register SAP RFC server for trigger**, is a webhook-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
@@ -179,7 +179,7 @@ The SAP built-in connector trigger named **Register SAP RFC server for trigger**
    | **SAP Gateway Host** | Yes | The registration gateway host for the SAP RFC server |
    | **SAP Gateway Service** | Yes | The registration gateway service for the SAP RFC server |
    | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
-   | **SAP SNC Partner Names** | No | Filter the messages that your receive from your SAP server based on a list of SNC partner names. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**, and enter each name separated by a vertical bar (**\|**). |
+   | **SAP SNC partners names** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SAP SNC partners names**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
    The following example shows a basically configured SAP built-in trigger in a Standard workflow:
 
@@ -199,23 +199,39 @@ To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger d
 
 The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [set up a workflow with an SAP trigger](#receive-message-sap).
+1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-message-sap).
 
-1. To immediately reply with the status of your SAP request, [add a Response action to your logic app workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
+1. To immediately reply to your SAP server with the SAP request status, [add a Response action to your workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
 
-   As a best practice, add this action immediately after your trigger to free up the communication channel with your SAP server. In Response action, use one of the following status codes (`statusCode`):
+   As a best practice, add this Response action immediately after the trigger to free up the communication channel with your SAP server. In the Response action, use one of the following status codes (`statusCode`):
 
    | Status code | Description |
    |-------------|-------------|
-   | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
    | **202 Accepted** | The request was accepted for processing, but processing isn't complete yet. |
    | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
+   | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
 
-1. Get the root namespace from the XML IDoc that your logic app workflow receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
+1. Get the root namespace from the XML IDoc that your workflow receives from SAP by following these steps:
 
-   `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
+   1. To extract this namespace from the XML document and store the namespace in a local string variable, add the **Initialize variable** action to your workflow.
 
-   ![Screenshot that shows getting the root namespace from IDoc.](./media/logic-apps-using-sap-connector/get-namespace.png)
+   1. Rename the action's title to **Get namespace for root node in received IDoc**.
+
+   1. In the action's **Value** parameter, select inside the edit box, open the expression or function editor, and create the following expression using the [`xpath()` function](workflow-definition-language-functions-reference.md#xpath):
+
+      `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
+
+      **Consumption workflow**
+
+      ![Screenshot shows the expression that gets the root node namespace from received IDoc in Consumption workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-consumption.png)
+
+      **Standard workflow**
+
+      ![Screenshot shows the expression that gets the root node namespace from received IDoc in Standard workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-standard.png)
+
+      When you're done, the expression resolves and now appears as the following format:
+
+      ![Screenshot shows the resolved expression that gets the root node namespace from received IDoc.](./media/logic-apps-using-sap-connector/get-namespace-expression-resolved.png)
 
 1. To extract an individual IDoc, add a step that creates an array variable and stores the IDoc collection by using another `xpath()` expression:
 
