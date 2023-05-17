@@ -20,6 +20,9 @@ Geocoding is the process of taking an address and returning the corresponding la
 
 :::image type="content" source="media/power-bi-visual/geocode.png" alt-text="A screenshot showing the Visualizations and fields panes in Power BI desktop with the Azure Maps visual location field highlighted.":::
 
+> [!NOTE]
+> This visual will only geocode the first 3,500 locations. Using latitude and longitude will load the first 30,000 rows of data but will not enable geo-hierarchy drill down.
+
 ## The location field
 
 The **Location** field in the Azure Maps Power BI Visual can accept multiple values, such as country, region, state, city, street address and zip code. By providing multiple sources of location information in the Location field, you help to guarantee more accurate results and eliminate ambiguity that would prevent a specific location to be determined. For example, there are over 20 different cities in the United States named *Franklin*.
