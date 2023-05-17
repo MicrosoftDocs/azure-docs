@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: quickstart
-ms.date: 04/25/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -66,15 +66,15 @@ Using the Azure portal allows you to see the details of each deployment step. Th
 To learn more about deploying the MedTech service using the Azure portal, see [Deploy the MedTech service using the Azure portal](deploy-manual-portal.md).
 
 > [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+> If you're going to allow access from multiple services to the event hub, it is highly recommended that each service has its own event hub consumer group.
 >
 > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
 >
 > Examples:
 >
-> * Two MedTech services accessing the same device message event hub.
+> * Two MedTech services accessing the same event hub.
 >
-> * A MedTech service and a storage writer application accessing the same device message event hub.
+> * A MedTech service and a storage writer application accessing the same event hub.
 
 ## Next steps
 

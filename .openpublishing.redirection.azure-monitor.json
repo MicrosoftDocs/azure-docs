@@ -452,6 +452,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-rate-limiting.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-sms-behavior.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat-setup.md" ,
             "redirect_url": "/azure/azure-monitor/containers/container-insights-transition-hybrid",
             "redirect_document_id": false
@@ -6024,11 +6034,6 @@
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/monitoring-classic-retirement.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-api-switch.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch",
             "redirect_document_id": false
         },
         {
