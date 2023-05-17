@@ -96,7 +96,7 @@ TextSource playSource = new TextSource(textToPlay);
 
 ### Play source - Text-To-Speech with SSML
 
-If you want to customize your Text-To-Speech output even more with Azure Cognitive Services you can use [Speech Synthesis Markup Language SSML](../../../../cognitive-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. Wtith SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+If you want to customize your Text-To-Speech output even more with Azure Cognitive Services you can use [Speech Synthesis Markup Language SSML](../../../../cognitive-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
 ``` csharp
 String textToPlay = “Welcome to Contoso”;
