@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Design virtual networks with NAT gateway
 
-NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT gateway provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use up to 16 static IP addresses from either.
+NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT gateway provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. When using a public IP prefix, NAT gateway consumes all IP addresses of the entire public IP prefix. A NAT gateway can use up to 16 static IP addresses from either.
 
 :::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway resource with virtual machines and a Virtual Machine Scale Set.":::
 
@@ -49,7 +49,7 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ### Connect to the internet with NAT gateway
 
-NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No additional routing configurations are required to start connecting outbound with NAT gateway. NAT gateway becomes the default route to the internet after association to a subnet. 
+NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No routing configurations are required to start connecting outbound with NAT gateway. NAT gateway becomes the default route to the internet after association to a subnet. 
 
 In the presence of other outbound configurations within a virtual network, such as Load balancer or instance-level public IPs (IL PIPs), NAT gateway takes precedence for outbound connectivity. All new outbound initiated and return traffic starts using NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
 
@@ -143,9 +143,9 @@ NAT gateway uses SNAT to translate the private IP address and port of a virtual 
 
 ### Example SNAT flows for NAT gateway
 
-NAT gateway provides a many to one configuration in which multiple virtual machine instances within a NAT gatway configured subnet can use the same public IP address to connect outbound.
+NAT gateway provides a many to one configuration in which multiple virtual machine instances within a NAT gateway configured subnet can use the same public IP address to connect outbound.
 
-In the following table, two different virtual machines (10.0.0.1 and 10.2.0.1) makes connections to https://microsoft.com destination IP 23.53.254.142. When NAT gateway is configured with public IP address 65.52.1.1, each virtual machine's source IPs are translated into NAT gateway's public IP address and a SNAT port:
+In the following table, two different virtual machines (10.0.0.1 and 10.2.0.1) make connections to https://microsoft.com destination IP 23.53.254.142. When NAT gateway is configured with public IP address 65.52.1.1, each virtual machine's source IPs are translated into NAT gateway's public IP address and a SNAT port:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -173,7 +173,7 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 ### Source (SNAT) port reuse
 
-NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. The same SNAT port can be used to connect to multiple different destinations at the same time as shown in the following table with this extra flow.
+NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it reuses a SNAT port. The same SNAT port can be used to connect to multiple different destinations at the same time as shown in the following table with this extra flow.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -181,9 +181,9 @@ NAT gateway selects a port at random out of the available inventory of ports to 
 
 NAT gateway translates flow 4 to a SNAT port that is already in use for other destinations (see flow 1 from previous table). 
 
-In a scenario where NAT gateway reuses a SNAT port to make new connections to the same destintion endpoint, the SNAT port is first placed in a SNAT port reuse cool down phase. The SNAT port reuse cool down period helps ensure that SNAT ports are not reused too quickly when connecting to the same destination. This is beneficial in scenarios where the destination endpoint has a firewall with its own source port cool down timer in place. 
+In a scenario where NAT gateway reuses a SNAT port to make new connections to the same destination endpoint, the SNAT port is first placed in a SNAT port reuse cool down phase. The SNAT port reuse cool down period helps ensure that SNAT ports are not reused too quickly when connecting to the same destination. This is beneficial in scenarios where the destination endpoint has a firewall with its own source port cool down timer in place. 
 
-To demonstrate this SNAT port reuse cool down behavior, let's take a closer look at flow 4 which was connecting to a destination endpoint fronted by a firewall with a 20 second source port cool down timer.
+To demonstrate this SNAT port reuse cool down behavior, let's take a closer look at flow 4. Flow 4 was connecting to a destination endpoint fronted by a firewall with a 20 second source port cool down timer.
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple | Packet type connection is closed with | Destination firewall cool down timer for source port |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.143: 80 | TCP FIN | 20 seconds |
@@ -207,18 +207,18 @@ The following table provides information about when a TCP port becomes available
 
 | Timer | Description | Value |
 |---|---|---|
-| TCP FIN | After a connection is closed by a TCP FIN packet, a 65-second timer is activated that holds down the SNAT port. The SNAT port will be available for reuse after the timer ends. | 65 seconds |
-| TCP RST | After a connection is closed by a TCP RST packet (reset), a 16-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 16 seconds |
+| TCP FIN | After a connection closes by a TCP FIN packet, a 65-second timer is activated that holds down the SNAT port. The SNAT port is available for reuse after the timer ends. | 65 seconds |
+| TCP RST | After a connection closes by a TCP RST packet (reset), a 16-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 16 seconds |
 | TCP half open | During connection establishment where one connection endpoint is waiting for acknowledgment from the other endpoint, a 30-second timer is activated. If no traffic is detected, the connection will close. Once the connection has closed, the source port is available for reuse to the same destination endpoint. | 30 seconds |
 
-For UDP traffic, after a connection has closed, the port will be in hold down for 65 seconds before it's available for reuse.
+For UDP traffic, after a connection closes, the port is in hold down for 65 seconds before it's available for reuse.
 
 ### Idle Timeout Timers
 
 | Timer | Description | Value |
 |---|---|---|
-| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
-| UDP idle timeout | UDP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. UDP idle timeout timers are 4 minutes and are **not configurable**. Traffic on the flow will reset the idle timeout timer. | **Not configurable**; 4 minutes |
+| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow resets the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
+| UDP idle timeout | UDP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. UDP idle timeout timers are 4 minutes and are **not configurable**. Traffic on the flow resets the idle timeout timer. | **Not configurable**; 4 minutes |
 
 > [!NOTE]
 > These timer settings are subject to change. The values are provided to help with troubleshooting and you should not take a dependency on specific timers at this time.
@@ -227,7 +227,7 @@ For UDP traffic, after a connection has closed, the port will be in hold down fo
 
 Design recommendations for configuring timers:
 
-- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
+- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it is not impacted by the idle timer.
 
 - TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
