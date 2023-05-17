@@ -61,7 +61,7 @@ To configure and test Azure AD SSO with Tulip, perform the following steps:
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Tulip SSO](#configure-tulip-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Tulip test user](#create-tulip-test-user)** - to have a counterpart of B.Simon in Tulip that is linked to the Azure AD representation of user.
+    1. To configure SSO on a Tulip instance, with existing users, reach out to support@tulip.co.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -91,11 +91,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values are not getting auto populated, then fill in the values manually according to your requirement.
 
-1. Tulip application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. Tulip application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. If the ```nameID``` needs to be an email, change the format to be ```Persistent```.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Tulip application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to the above, Tulip application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name |Source Attribute|
 	| -------------- | --------- |
