@@ -31,6 +31,24 @@ To complete this tutorial, you need an Azure subscription. Create a [free accoun
 > [!IMPORTANT]
 > In step 2 of the tutorial, you use Azure Event Grid with the blob storage you create in this step. Create your storage account in an Azure region that supports Event Grid. For a list of supported regions, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
+
+# [Azure CLI](#tab/azure-cli)
+
+1. In the Azure Cloud Shell, select **Bash** in the top-left corner if it's not already selected. 
+
+    :::image type="content" source="./media/storage-upload-process-images/cloud-bash.png" alt-text="Screenshot showing the Azure Cloud Shell with the Bash option selected.":::
+1. Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+    > [!NOTE]
+    > Set appropriate values for `region` and `rgName` (resource group name). 
+    
+
+    ```azurecli
+    region="eastus"
+    rgName="egridtutorialrg"
+    az group create --name $rgName --location $region
+    
+    ```
 # [PowerShell](#tab/azure-powershell)
 
 1. In the Azure Cloud Shell, select **PowerShell** in the top-left corner if it's not already selected. 
@@ -47,37 +65,11 @@ To complete this tutorial, you need an Azure subscription. Create a [free accoun
     New-AzResourceGroup -Name $rgName -Location $region
     
     ```
-    
-# [Azure CLI](#tab/azure-cli)
-
-1. In the Azure Cloud Shell, select **Bash** in the top-left corner if it's not already selected. 
-2. Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
-
-    > [!NOTE]
-    > Set appropriate values for `region` and `rgName` (resource group name). 
-    
-
-    ```azurecli
-    region="eastus"
-    rgName="egridtutorialrg"
-    az group create --name $rgName --location $region
-    
-    ```
-    
+        
 ---
 
 ## Create a storage account
 The sample uploads images to a blob container in an Azure storage account. 
-
-# [PowerShell](#tab/azure-powershell)
-Create a storage account in the resource group you created by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Note down the Azure Storage account name that's displayed in the output. 
-
-```powershell
-$blobStorageAccount="myblobstorage" + (Get-Random).ToString()
-echo $blobStorageAccount
-New-AzStorageAccount -ResourceGroupName $rgName -Name $blobStorageAccount -SkuName Standard_LRS -Location $region -Kind StorageV2 -AccessTier Hot -AllowBlobPublicAccess $true
-
-```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -90,24 +82,22 @@ az storage account create --name $blobStorageAccount --location $region \
   --resource-group $rgName --sku Standard_LRS --kind StorageV2 --access-tier hot --allow-blob-public-access true
 ```
 
+# [PowerShell](#tab/azure-powershell)
+Create a storage account in the resource group you created by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Note down the Azure Storage account name that's displayed in the output. 
+
+```powershell
+$blobStorageAccount="myblobstorage" + (Get-Random).ToString()
+echo $blobStorageAccount
+New-AzStorageAccount -ResourceGroupName $rgName -Name $blobStorageAccount -SkuName Standard_LRS -Location $region -Kind StorageV2 -AccessTier Hot -AllowBlobPublicAccess $true
+
+```
+
 ---
 
 ## Create Blob storage containers
 The app uses two containers in the Blob storage account. The **images** container is where the app uploads full-resolution images. In the second step of the series, an Azure function app uploads resized image thumbnails to the **thumbnails** container.
 
 The **images** container's public access is set to `off`. The **thumbnails** container's public access is set to `container`. The `container` public access setting permits users who visit the web page to view the thumbnails.
-
-# [PowerShell](#tab/azure-powershell)
-Get the storage account key by using the [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) command. Then, use this key to create two containers with the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command.
-
-```powershell
-$blobStorageAccountKey = ((Get-AzStorageAccountKey -ResourceGroupName $rgName -Name $blobStorageAccount)| Where-Object {$_.KeyName -eq "key1"}).Value
-$blobStorageContext = New-AzStorageContext -StorageAccountName $blobStorageAccount -StorageAccountKey $blobStorageAccountKey
-
-New-AzStorageContainer -Name images -Context $blobStorageContext
-New-AzStorageContainer -Name thumbnails -Permission Container -Context $blobStorageContext
-
-```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -127,6 +117,18 @@ az storage container create --name thumbnails \
 
 ```
 
+# [PowerShell](#tab/azure-powershell)
+Get the storage account key by using the [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) command. Then, use this key to create two containers with the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command.
+
+```powershell
+$blobStorageAccountKey = ((Get-AzStorageAccountKey -ResourceGroupName $rgName -Name $blobStorageAccount)| Where-Object {$_.KeyName -eq "key1"}).Value
+$blobStorageContext = New-AzStorageContext -StorageAccountName $blobStorageAccount -StorageAccountKey $blobStorageAccountKey
+
+New-AzStorageContainer -Name images -Context $blobStorageContext
+New-AzStorageContainer -Name thumbnails -Permission Container -Context $blobStorageContext
+
+```
+
 ---
 
 The sample app connects to the storage account using its name and access key.
@@ -134,16 +136,6 @@ The sample app connects to the storage account using its name and access key.
 ## Create an App Service plan
 An [App Service plan](../app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app. The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
-
-# [PowerShell](#tab/azure-powershell)
-
-Create an App Service plan with the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command.
-
-```powershell
-$planName="MyAppServicePlan"
-New-AzAppServicePlan -ResourceGroupName $rgName -Name $planName -Tier "Free" -Location $region
-
-```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -155,21 +147,21 @@ az appservice plan create --name $planName --resource-group $rgName --sku Free
 
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
+Create an App Service plan with the [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) command.
+
+```powershell
+$planName="MyAppServicePlan"
+New-AzAppServicePlan -ResourceGroupName $rgName -Name $planName -Tier "Free" -Location $region
+
+```
+
 ---
 
 ## Create a web app
 
 The web app provides a hosting space for the sample app code that's deployed from the GitHub sample repository. 
-
-# [PowerShell](#tab/azure-powershell)
-Create a [web app](../app-service/overview.md) in the app service plan using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command. Note down the web app name. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
-
-```powershell
-$webapp="MyWebApp" + (Get-Random).ToString()
-echo $webapp
-New-AzWebApp -ResourceGroupName $rgName -Name $webapp -AppServicePlan $planName
-
-```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -181,12 +173,30 @@ webapp="mywebapp$RANDOM"
 az webapp create --name $webapp --resource-group $rgName --plan $planName
 ```
 
+# [PowerShell](#tab/azure-powershell)
+Create a [web app](../app-service/overview.md) in the app service plan using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command. Note down the web app name. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
+
+```powershell
+$webapp="MyWebApp" + (Get-Random).ToString()
+echo $webapp
+New-AzWebApp -ResourceGroupName $rgName -Name $webapp -AppServicePlan $planName
+
+```
+
 ---
 
 ## Deploy the sample app from the GitHub repository
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Azure.Storage](/dotnet/api/azure.storage), [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs), and [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models) namespaces to interact with the Azure Storage service.
+
+# [Azure CLI](#tab/azure-cli)
+```azurecli
+az webapp deployment source config --name $webapp --resource-group $rgName \
+  --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+
+```
 
 # [PowerShell](#tab/azure-powershell)
 ```powershell
@@ -196,17 +206,21 @@ az webapp deployment source config --name $webapp --resource-group $rgName `
 
 ```
 
-# [Azure CLI](#tab/azure-cli)
-```azurecli
-az webapp deployment source config --name $webapp --resource-group $rgName \
-  --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
-
-```
 ---
 
 ## Configure web app settings
 The sample web app uses the [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage) to upload images. Storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) or [New-AzStaticWebAppSetting](/powershell/module/az.websites/new-azstaticwebappsetting) command.
+
+# [Azure CLI](#tab/azure-cli)    
+
+```azurecli
+az webapp config appsettings set --name $webapp --resource-group $rgName \
+  --settings AzureStorageConfig__AccountName=$blobStorageAccount \
+    AzureStorageConfig__ImageContainer=images \
+    AzureStorageConfig__ThumbnailContainer=thumbnails \
+    AzureStorageConfig__AccountKey=$blobStorageAccountKey
+
+```
 
 # [PowerShell](#tab/azure-powershell)
 ```powershell
@@ -217,17 +231,6 @@ Set-AzWebApp -ResourceGroupName $rgName -Name $webapp -AppSettings `
     'AzureStorageConfig__ThumbnailContainer' = 'thumbnails'; `
     'AzureStorageConfig__AccountKey' = $blobStorageAccountKey `
   }
-
-```
-
-# [Azure CLI](#tab/azure-cli)    
-
-```azurecli
-az webapp config appsettings set --name $webapp --resource-group $rgName \
-  --settings AzureStorageConfig__AccountName=$blobStorageAccount \
-    AzureStorageConfig__ImageContainer=images \
-    AzureStorageConfig__ThumbnailContainer=thumbnails \
-    AzureStorageConfig__AccountKey=$blobStorageAccountKey
 
 ```
 

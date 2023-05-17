@@ -31,15 +31,6 @@ Azure Functions requires a general storage account. In addition to the Blob stor
 
 Set variables to hold the name of the resource group that you created in the previous tutorial, the location for resources to be created, and the name of the new storage account that Azure Functions requires. Then, create the storage account for the Azure function.
 
-# [PowerShell](#tab/azure-powershell)
-
-Use the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
-
-```azurepowershell-interactive
-$functionstorage="funcstorage"  + (Get-Random).ToString()   
-New-AzStorageAccount -ResourceGroupName $rgName -AccountName $functionstorage -Location $region -SkuName Standard_LRS -Kind StorageV2 -AllowBlobPublicAccess $true       
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 Use the [az storage account create](/cli/azure/storage/account) command.
@@ -54,20 +45,20 @@ functionstorage="funcstorage$RANDOM"
 az storage account create --name $functionstorage --location $region --resource-group $rgName --sku Standard_LRS --kind StorageV2  --allow-blob-public-access true
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
+Use the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
+
+```azurepowershell-interactive
+$functionstorage="funcstorage"  + (Get-Random).ToString()   
+New-AzStorageAccount -ResourceGroupName $rgName -AccountName $functionstorage -Location $region -SkuName Standard_LRS -Kind StorageV2 -AllowBlobPublicAccess $true       
+```
+
 ---
 
 ## Create a function app  
 
 You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. In the following command, provide your own unique function app name. The function app name is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. Specify a name for the function app that's to be created, then create the Azure function.
-
-# [PowerShell](#tab/azure-powershell)
-
-Create a function app by using the [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) command.
-
-```azurepowershell-interactive
-$functionapp="funcapp" + (Get-Random).ToString()    
-New-AzFunctionApp -Location $region -Name $functionapp -ResourceGroupName $rgName -Runtime PowerShell -StorageAccountName $functionstorage    
-```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -78,6 +69,15 @@ functionapp="funcapp$RANDOM"
 az functionapp create --name $functionapp --storage-account $functionstorage --resource-group $rgName --consumption-plan-location $region --functions-version 4
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
+Create a function app by using the [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) command.
+
+```azurepowershell-interactive
+$functionapp="funcapp" + (Get-Random).ToString()    
+New-AzFunctionApp -Location $region -Name $functionapp -ResourceGroupName $rgName -Runtime PowerShell -StorageAccountName $functionstorage    
+```
+
 ---
 
 Now configure the function app to connect to the Blob storage account you created in the [previous tutorial][previous-tutorial].
@@ -85,6 +85,14 @@ Now configure the function app to connect to the Blob storage account you create
 ## Configure the function app
 
 The function needs credentials for the Blob storage account, which are added to the application settings of the function app using either the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) or [Update-AzFunctionAppSetting](/powershell/module/az.functions/update-azfunctionappsetting) command.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+storageConnectionString=$(az storage account show-connection-string --resource-group $rgName --name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $rgName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2 FUNCTIONS_WORKER_RUNTIME=dotnet
+```
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,13 +103,6 @@ Update-AzFunctionAppSetting -Name $functionapp -ResourceGroupName $rgName -AppSe
 
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string --resource-group $rgName --name $blobStorageAccount --query connectionString --output tsv)
-
-az functionapp config appsettings set --name $functionapp --resource-group $rgName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2 FUNCTIONS_WORKER_RUNTIME=dotnet
-```
 ---
 
 The `FUNCTIONS_EXTENSION_VERSION=~2` setting makes the function app run on version 2.x of the Azure Functions runtime. You can now deploy a function code project to this function app.
