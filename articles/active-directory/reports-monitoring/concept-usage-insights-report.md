@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/09/2023
+ms.date: 05/17/2023
 ms.author: sarahlipsey
 ms.reviewer: madansr7
 ---
@@ -51,8 +51,7 @@ The reports can be viewed and managed using Microsoft Graph on the `/beta` endpo
 
 Refer to the section on each report in this article for the specific objects and parameters to include. For more information, see the [Microsoft Graph documentation for Identity and access reports](/graph/api/resources/report-identity-access).
 
-
-### Azure AD application activity (preview)
+## Azure AD application activity (preview)
 
 The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. Any application activity during the selected date range appears in the report. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
 
@@ -65,6 +64,8 @@ To view the details of the sign-in activity for an application, select the **Vie
 The sign-in activity graph uses interactive user sign-ins. Select a day in the application usage graph to see a detailed list of the sign-in activities for the application. This detailed list is actually the sign-in log with the filter set to the selected application and date. The details of any sign-in failures appears below the table. 
 
 ![Screenshot of the sign-in activity details for a selected application.](./media/concept-usage-insights-report/application-activity-sign-in-detail.png)
+
+### Application activity using Microsoft Graph
 
 You can view the `applicationSignInSummary` or `applicationSignInDetailedSummary` of Azure AD application activity with Microsoft Graph. 
 
@@ -82,7 +83,7 @@ Add the following query to view the **sign-in details**, then select the **Run q
 
 For more information, see [Application sign-in in Microsoft Graph](/graph/api/resources/applicationsigninsummary?view=graph-rest-beta&preserve-view=true).
 
-### AD FS application activity
+## AD FS application activity
 
 The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user login to authenticate in the last 30 days. These applications have not been migrated to Azure AD for authentication.
 
@@ -96,7 +97,7 @@ Add the following query, then select the **Run query** button.
 
 For more information, see [AD FS application activity in Microsoft Graph](/graph/api/resources/relyingpartydetailedsummary?view=graph-rest-beta&preserve-view=true).
 
-### Authentication methods activity
+## Authentication methods activity
 
 The **Authentication methods activity** in Usage & insights displays visualizations of the different authentication methods used by your organization. The **Registration tab** displays statistics of users registered for each of your available authentication methods. Select the **Usage** tab at the top of the page to see actual usage for each authentication method. 
 
@@ -108,9 +109,9 @@ Looking for the details of a user and their authentication methods? Look at the 
 
 Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You'll be able to see the method used to attempt to register or reset an authentication method.
 
-### Service principal sign-in activity (preview)
+## Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last activity date for every service principal. Provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used used in an app-only or delegated context. Service principal activities for the last month are provided in this report.
+The Service principal sign-in activity (preview) report provides the last activity date for every service principal. The report provides you information on the usage of the service principal - whether it was used as a client or resource app and whether it was used used in an app-only or delegated context. The report shows the last time the service principal was used.
 
 ![Screenshot of the service principal sign-in activity report.](./media/concept-usage-insights-report/service-principal-sign-ins.png)
 
@@ -118,6 +119,7 @@ Select the **View more details** link to locate the client and object IDs for th
 
 ![Screenshot of the service principal sign-in activity details.](./media/concept-usage-insights-report/service-principal-sign-in-activity-details.png)
 
+### Service principal sign-in activity using Microsoft Graph
 
 The `servicePrincipalSignInActivity` reports can be viewed using Microsoft Graph in Graph Explorer.
 
@@ -159,11 +161,19 @@ The following is an example of the response:
 
 For more information, see [Service principal activity in Microsoft Graph](/graph/api/resources/serviceprincipalsigninactivity?view=graph-rest-beta&preserve-view=true).
 
-### Application credential activity (preview)
+## Application credential activity (preview)
 
 The Application credential activity (preview) report provides the last credential activity date for every application credential. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place. 
 
 To view the details of the application credential activity, select the **View more details** link. These details include the application object, service principal, and resource IDs. You can also see if the credential origin is the application or the service principal. 
+
+![Screenshot of the app credential activity report.](media/concept-usage-insights-report/app-credential-activity.png)
+
+When you select the **View more details** link, you can see the application object ID and resource ID, in addition to the details visible in the report.
+
+![Screenshot of the app credential activity details.](media/concept-usage-insights-report/app-credential-activity-details.png)
+
+### Application credential activity using Microsoft Graph
 
 Application credential activity can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can get the application credential sign-in activity by entity `id`, `keyId`, and `appId` .
 
