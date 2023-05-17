@@ -13,12 +13,12 @@ ms.date: 05/16/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=dd11ab78-d945-4727-a4e4-cf19eb1922f2" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [00:00](/shows/mdc-in-the-field/new-custom-recommendations#time=00m00s) - Intro
-- [02:00](/shows/mdc-in-the-field/new-custom-recommendations#time=02m00s) - What is Data Aware Security Posture?
-- [03:38](/shows/mdc-in-the-field/new-custom-recommendations#time=03m38s) - Understanding the onboarding process
-- [05:00](/shows/mdc-in-the-field/new-custom-recommendations#time=05m00s) - Sensitive labels discovery process
-- [07:05](/shows/mdc-in-the-field/new-custom-recommendations#time=07m05s) - What's the difference between Data Aware Security Posture and Microsoft Purview?
-- [11:35](/shows/mdc-in-the-field/new-custom-recommendations#time=11m35s) - Demonstration
+- [00:00](/shows/mdc-in-the-field/data-aware-security-posture#time=00m00s) - Intro
+- [02:00](/shows/mdc-in-the-field/data-aware-security-posture#time=02m00s) - What is Data Aware Security Posture?
+- [03:38](/shows/mdc-in-the-field/data-aware-security-posture#time=03m38s) - Understanding the onboarding process
+- [05:00](/shows/mdc-in-the-field/data-aware-security-posture#time=05m00s) - Sensitive labels discovery process
+- [07:05](/shows/mdc-in-the-field/data-aware-security-posture#time=07m05s) - What's the difference between Data Aware Security Posture and Microsoft Purview?
+- [11:35](/shows/mdc-in-the-field/data-aware-security-posture#time=11m35s) - Demonstration
 - 
 ## Recommended resources
   - Learn more about  [Data Aware Security Posture](concept-data-security-posture.md) 
