@@ -1,10 +1,10 @@
 ---
 author: karlerickson
-ms.author: caiqing
+ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 02/09/2022
+ms.date: 05/17/2023
 ---
 
 <!-- 
@@ -35,22 +35,22 @@ Use the following steps to prepare the sample locally.
 1. Use the following command to start the Config Server. Be sure to replace the placeholder value with your local git config repository path.
    ```bash
    GIT_REPO=<local path for spring-petclinic-microservices-config>
-   java -jar spring-petclinic-config-server/target/spring-petclinic-config-server-3.0.1.jar
+   java -jar spring-petclinic-config-server/target/spring-petclinic-config-server-3.0.2.jar
    ```
 
 1. Use the following command to start the Discovery Server.
    ```bash
-   java -jar spring-petclinic-discovery-server/target/spring-petclinic-discovery-server-3.0.1.jar
+   java -jar spring-petclinic-discovery-server/target/spring-petclinic-discovery-server-3.0.2.jar
    ```
 
 1. Execute the following commands respectively to start other applications.
 
    ```bash
-   java -jar spring-petclinic-customers-service/target/spring-petclinic-customers-service-3.0.1.jar
-   java -jar spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar
-   java -jar spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar
-   java -jar spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-3.0.1.jar
-   java -jar spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar
+   java -jar spring-petclinic-customers-service/target/spring-petclinic-customers-service-3.0.2.jar
+   java -jar spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.2.jar
+   java -jar spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.2.jar
+   java -jar spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-3.0.2.jar
+   java -jar spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.2.jar
    ```
 
 1. Go to `http://localhost:8080` in your browser to access the PetClinic.
@@ -81,7 +81,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
     - **Service Details**:
 
         - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
-        - **Plan**: Select **Standard** for the **Pricing tier** option.
+        - **Plan**: Select **Standard** for the **Plan** option.
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
 
