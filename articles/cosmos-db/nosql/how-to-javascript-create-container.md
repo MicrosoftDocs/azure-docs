@@ -11,7 +11,7 @@ ms.date: 05/17/2023
 ms.custom: devx-track-js, cosmos-db-dev-journey
 ---
 
-# Create a database in Azure Cosmos DB for NoSQL using JavaScript
+# Create a container in Azure Cosmos DB for NoSQL using JavaScript
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
@@ -42,10 +42,10 @@ Get a [Database](how-to-javascript-create-database.md) object, then create a [Co
 const containerName = 'myContainer';
 
 // Create or get existing container
-const { statusCode, database} = await database.containers.createIfNotExists({ id: containerName });
+const { statusCode, container } = await database.containers.createIfNotExists({ id: containerName });
 
 // Create or return error
-const { statusCode, database} = await database.containers.create({ id: containerName });
+const { statusCode, container} = await database.containers.create({ id: containerName });
 ```
 
 The statusCode is an HTTP response code. A successful response is in the 200-299 range.
