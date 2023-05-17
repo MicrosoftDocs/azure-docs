@@ -319,7 +319,7 @@ That's it! Now we have added image attachment support as well. Now let's run the
 
 Now let's send some image attachments from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a sendbox with an image attachment uploaded.":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a send box with an image attachment uploaded.":::
 
 Upon sending the image attachment, you notice that it becomes an inline image on the Teams client side:
 
