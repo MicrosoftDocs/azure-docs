@@ -6,7 +6,7 @@ ms.subservice: baremetal-epic
 ms.date: 04/01/2023
 ---
 
-#  Solution design 
+#  Epic solution design 
 
 Content pending
 
