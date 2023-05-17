@@ -590,8 +590,14 @@
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
-        - name: Deploy Kubernetes applications from Azure Marketplace
-          href: deploy-marketplace.md
+        - name: Deploy Kubernetes applications
+          items:
+            - name: Deploy Kubernetes applications from Azure Marketplace
+              href: deploy-marketplace.md
+            - name: Deploy Kubernetes applications with ARM template
+              href: deploy-application-template.md
+            - name: Deploy Kubernetes applications with Azure CLI
+              href: deploy-application-az-cli.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
@@ -633,7 +639,11 @@
         - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
           href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Use cluster extensions
-      href: cluster-extensions.md
+      items:
+      - name: About cluster extensions
+        href: cluster-extensions.md
+      - name: Use the Azure CLI
+        href: deploy-extensions-az-cli.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
