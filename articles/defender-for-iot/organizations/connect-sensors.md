@@ -45,7 +45,7 @@ This step is performed by your deployment and connectivity teams.
 
     For example:
 
-    Add image here.
+    :::image type="content" source="media/connect-sensors/configure-a-proxy.png" alt-text="Screenshot of the proxy setting page." lightbox="media/connect-sensors/configure-a-proxy.png":::
 
 1. If relevant, select **Client certificate** to upload a proxy authentication certificate for access to an SSL proxy server.
 
@@ -395,7 +395,7 @@ Use the following flow chart to determine which connectivity method to use:
 
 1. To enable private connectivity between your VPCs and Defender for IoT, connect your VPC to an Azure VNET over a VPN connection. For example if you're connecting from an AWS VPC, see our TechCommunity blog: [How to create a VPN between Azure and AWS using only managed solutions](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-to-create-a-vpn-between-azure-and-aws-using-only-managed/ba-p/2281900).
 
-1. After your VPC and VNET are configured, connect to Defender for IoT as you would when [connecting via an Azure proxy](#connect-via-an-azure-proxy).
+1. After your VPC and VNET are configured, connect to Defender for IoT as you would when [connecting via an Azure proxy](#set-up-an-azure-proxy).
 
 ## Next steps
 
