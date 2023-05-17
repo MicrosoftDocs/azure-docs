@@ -1067,7 +1067,7 @@
       items: 
         - name: Collect inferencing data from production
           displayName: model data collection, data drift, data quality, model quality
-          herf: how-to-collect-production-data.md
+          href: how-to-collect-production-data.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
