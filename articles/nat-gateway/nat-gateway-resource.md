@@ -173,15 +173,29 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 ### Source (SNAT) port reuse
 
-NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown in the following table with this extra flow.
+NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. The same SNAT port can be used to connect to multiple different destinations at the same time as shown in the following table with this extra flow.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
 | 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.143: 80 |
 
-A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
+NAT gateway translates flow 4 to a SNAT port that is already in use for other destinations (see flow 1 from previous table). 
 
-Don't take a dependency on the specific way source ports are assigned in the above example. The preceding is an illustration of the fundamental concept only.
+In a scenario where NAT gateway reuses a SNAT port to make new connections to the same destintion endpoint, the SNAT port is first placed in a SNAT port reuse cool down phase. The SNAT port reuse cool down period helps ensure that SNAT ports are not reused too quickly when connecting to the same destination. This is beneficial in scenarios where the destination endpoint has a firewall with its own source port cool down timer in place. 
+
+To demonstrate this SNAT port reuse cool down behavior, let's take a closer look at flow 4 which was connecting to a destination endpoint fronted by a firewall with a 20 second source port cool down timer.
+| Flow | Source tuple | Source tuple after SNAT | Destination tuple | Packet type connection is closed with | Destination firewall cool down timer for source port |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.143: 80 | TCP FIN | 20 seconds |
+
+Before connection flow 5 to the same destination is established, NAT gateway places the SNAT port, 1234, in cool down for 65 seconds. Because this port is in cool down for longer than the firewall source port cool down timer duration of 20 seconds, flow 5 proceeds without issue.
+| Flow | Source tuple | Source tuple after SNAT | Destination tuple | 
+|:---:|:---:|:---:|:---:|
+| 5 | 10.2.0.1: 5769 | 65.52.1.1: **1234** | 23.53.254.143: 80 |
+
+Keep in mind that NAT gateway places SNAT ports under different SNAT port reuse cool down timers depending on how the previous connection closed. To learn more about these SNAT port reuse timers, see [Port Reuse Timers](#port-reuse-timers). 
+
+Don't take a dependency on the specific way source ports are assigned in the above examples. The preceding are illustrations of the fundamental concepts only.
 
 ## Timers
 
