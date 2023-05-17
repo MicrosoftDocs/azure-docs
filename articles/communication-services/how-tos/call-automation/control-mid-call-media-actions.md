@@ -85,7 +85,7 @@ if (acsEvent instanceof SendDtmfCompleted toneReceived) {
     logger.log(Level.INFO, "Send dtmf succeeded: context=" + event.getOperationContext());
 }
 ```
-
+-----
 Example of *SendDtmfFailed*
 ### [csharp](#tab/csharp)
 ```csharp
@@ -103,7 +103,7 @@ if (acsEvent instanceof SendDtmfFailed toneReceived) {
     logger.log(Level.INFO, "Send dtmf failed: context=" + event.getOperationContext());
 }
 ```
-
+-----
 ## Continuous DTMF Recognition
 You can subscribe to receive continuous DTMF tones throughout the call, your application receives DTMF tones as soon as the targeted participant presses on a key on their keypad. These tones will be sent to you one by one as the participant is pressing them.
 
