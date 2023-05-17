@@ -53,15 +53,11 @@ To configure the integration of Tulip into Azure AD, you need to add Tulip from 
 
 ## Configure and test Azure AD SSO for Tulip
 
-Configure and test Azure AD SSO with Tulip using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Tulip.
-
 To configure and test Azure AD SSO with Tulip, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Tulip SSO](#configure-tulip-sso)** - to configure the single sign-on settings on application side.
-    1. To configure SSO on a Tulip instance, with existing users, reach out to support@tulip.co.
+    1. To configure SSO on a Tulip instance with existing users, reach out to support@tulip.co.
 
 
 ## Configure Azure AD SSO
@@ -75,10 +71,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
-
-	a. Click **Upload metadata file**.
-
-    ![image1](common/upload-metadata.png)
+	a.Download Tulip's Metadata File which is accessible under the settings page on your Tulip instance - 
+	
+	![tulipXML.png](./media/tulip-tutorial/tulipXML.png)
+	
+	b. Click **Upload metadata file**. 
+	
+	![image1](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
@@ -104,22 +103,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| badgeID |	user.employeeid |
 	| groups |user.groups |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
-
-1. On the **Set up Tulip** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![AzureMetadataXML.png](./media/tulip-tutorial/AzureMetadataXML.png)
 
 
 ## Configure Tulip SSO
 
-1. Log in to your Tulip website as an Account Owner.
+1. Log in to your Tulip instance as an Account Owner.
 
 1. Go to the **Settings** -> **SAML** and perform the following steps in the below page.
 
-	![AzureMetadataXML.png](./media/tulip-tutorial/AzureMetadataXML.png)
+	
 	a. **Enable SAML Logins**. 
 
 	b. Click on **metadata xml file** to download the **Service Provider metadata file** and use this file to upload in the **Basic SAML Configuration** section in Azure portal.
@@ -145,4 +140,4 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 Once you configure Tulip you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
-Please reach out to support@tulip.co for any further questions!
+Please reach out to support@tulip.co for any further questions including migrating existing users in Tulip to use SAML!
