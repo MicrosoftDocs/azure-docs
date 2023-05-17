@@ -75,7 +75,9 @@ The Azure Firewall signatures/rulesets include:
 
 IDPS allows you to detect attacks in all ports and protocols for nonencrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
-The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
+The IDPS Bypass List is a configuration that allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
+
+:::image type="content" source="media/premium-features/idps-bypass-list.png" alt-text="Screenshot showing the IDPS Bypass list screen.":::
 
 ### IDPS Private IP ranges
 
