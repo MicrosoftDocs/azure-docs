@@ -24,32 +24,29 @@ Use the following steps to prepare the sample locally.
    git clone https://github.com/spring-petclinic/spring-petclinic-microservices.git
    ```
 
-1. Use the following commands to build the sample project:
+1. Change to the sample root path, and follow the below steps to run the sample project:
 
-   ```bash
-   cd spring-petclinic-microservices
-   ./mvnw clean package -DskipTests
-   ```
+   - Use the following command to start the Config Server.
 
-1. Use the following command to start the Config Server.
-   ```bash
-   mvnw -f spring-petclinic-config-server/pom.xml spring-boot:run
-   ```
+     ```bash
+     ./mvnw -f spring-petclinic-config-server/pom.xml spring-boot:run
+     ```
 
-1. Use the following command to start the Discovery Server.
-   ```bash
-   mvnw -f spring-petclinic-discovery-server/pom.xml spring-boot:run
-   ```
+   - Use the following command to start the Discovery Server.
 
-1. Execute the following commands respectively to start other applications.
+      ```bash
+      ./mvnw -f spring-petclinic-discovery-server/pom.xml spring-boot:run
+      ```
 
-   ```bash
-   mvnw -f spring-petclinic-customers-service/pom.xml spring-boot:run
-   mvnw -f spring-petclinic-vets-service/pom.xml spring-boot:run
-   mvnw -f spring-petclinic-visits-service/pom.xml spring-boot:run
-   mvnw -f spring-petclinic-api-gateway/pom.xml spring-boot:run
-   mvnw -f spring-petclinic-admin-server/pom.xml spring-boot:run
-   ```
+   - Execute the following commands respectively to start other modules.
+
+     ```bash
+     ./mvnw -f spring-petclinic-customers-service/pom.xml spring-boot:run
+     ./mvnw -f spring-petclinic-vets-service/pom.xml spring-boot:run
+     ./mvnw -f spring-petclinic-visits-service/pom.xml spring-boot:run
+     ./mvnw -f spring-petclinic-api-gateway/pom.xml spring-boot:run
+     ./mvnw -f spring-petclinic-admin-server/pom.xml spring-boot:run
+     ```
 
 1. Go to `http://localhost:8080` in your browser to access the PetClinic.
 
