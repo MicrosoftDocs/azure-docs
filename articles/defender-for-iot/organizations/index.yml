@@ -1,7 +1,9 @@
 ### YamlMime:Landing
 
 title: Microsoft Defender for IoT documentation for organizations
-summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.<br><br>OT monitoring with Microsoft Defender for IoT is now available for purchase with site-based licenses, purchased on the Microsoft 365 admin center. For more information, see <!---->TBD LINK TO BLOG.'
+summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid. 
+
+OT monitoring with Microsoft Defender for IoT is now available for purchase with site-based licenses, purchased on the Microsoft 365 admin center. For more information, see <!---->TBD LINK TO BLOG.'
 
 metadata:
   title: Microsoft Defender for IoT documentation for organizations
