@@ -15,7 +15,7 @@ Follow these steps in order to gather the data needed to diagnose AKS-Hybrid cre
 
 [How to Connect AKS hybrid cluster using Azure CLI](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster)
 
-:::image type="content" source="media/troubleshoot-aks-hybrid-cluster/aks-hybrid-connected-status.png" alt-text="Screenshot of Sample aks hybrid Connected status" lightbox="media/troubleshoot-aks-hybrid-cluster/aks-hybrid-connected-status-expanded.png":::
+:::image type="content" source="media/troubleshoot-aks-hybrid-cluster/aks-hybrid-connected-status.png" alt-text="Screenshot of Sample aks hybrid Connected status." lightbox="media/troubleshoot-aks-hybrid-cluster/aks-hybrid-connected-status-expanded.png":::
 
 If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the install failed
 
