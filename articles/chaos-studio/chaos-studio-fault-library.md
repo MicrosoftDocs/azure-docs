@@ -46,7 +46,7 @@ The faults listed in this article are currently available for use. To understand
 |-|-|
 | Capability name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux |
+| Supported OS types | Windows, Linux. |
 | Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
 | Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
 | | **Windows**: None. |
@@ -91,7 +91,7 @@ Known issues on Linux:
 |-|-|
 | Capability name | PhysicalMemoryPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux |
+| Supported OS types | Windows, Linux. |
 | Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
 | | **Windows**: None. |
@@ -398,7 +398,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 |-|-|
 | Capability name | KillProcess-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux |
+| Supported OS types | Windows, Linux. |
 | Description | Kills all the running instances of a process that matches the process name sent in the fault parameters. Within the duration set for the fault action, a process is killed repetitively based on the value of the kill interval specified. This fault is a destructive fault where system admin would need to manually recover the process if self-healing is configured for it. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:killProcess/1.0 |
