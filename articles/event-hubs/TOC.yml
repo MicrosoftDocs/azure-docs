@@ -96,6 +96,8 @@
       items:
       - name: Capture event data in Event Hubs
         href: event-hubs-capture-overview.md
+      - name: Authentication modes for Capture destination
+        href: event-hubs-capture-managed-identity.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
     - name: Log compaction
