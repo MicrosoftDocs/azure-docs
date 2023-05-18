@@ -38,7 +38,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
-1. [Follow these general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow) to add the SAP managed connector trigger named **When a message is received** to your workflow.
+1. In the designer, [follow these general steps to add the SAP managed connector trigger named **When a message is received**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
 1. If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
@@ -105,7 +105,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
 1. In Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
+1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    The preview SAP built-in trigger, **Register SAP RFC server for trigger**, is a webhook-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
 
@@ -230,6 +230,8 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 ---
 
+<a name="send-idoc-messages"></a>
+
 ## Send IDoc messages to SAP server
 
 To create a logic app workflow that sends an IDoc message to an SAP server and returns a response, follow these examples:
@@ -254,7 +256,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource and a blank workflow in the designer.
 
-1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow).
+1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
    ![Screenshot shows the Request trigger for a Consumption workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-consumption.png)
 
@@ -268,7 +270,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow in the designer.
 
-1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow).
+1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    ![Screenshot shows the Request trigger for a Consumption workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-standard.png)
 
@@ -282,7 +284,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 <a name="add-sap-action-send-message"></a>
 
-### Add an SAP action to send message
+### Add an SAP action to send an IDoc message
 
 Next, create an action to send your IDoc message to SAP when the workflow's Request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
@@ -290,7 +292,9 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
 1. In the workflow designer, under the Request trigger, select **New step**.
 
-1. In the designer, [follow these general steps to find and add the SAP managed action named **Send message to SAP**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow). If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
+1. In the designer, [follow these general steps to find and add the SAP managed action named **Send message to SAP**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+1. If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
@@ -330,12 +334,12 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    1. In the **Send message to SAP** action, include the body output from the Request trigger.
 
-      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list. The **Body** field contains the body output from the Request trigger.
+      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list.
 
-      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**.
+      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the Request trigger. 
 
          > [!NOTE]
-         > If this field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
+         > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
       ![Screenshot shows selecting the Request trigger's output named Body for Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-consumption.png)
 
@@ -349,7 +353,9 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow). If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
@@ -363,9 +369,9 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Standard workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
+   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-standard.png)
 
-1. In the **Send message to SAP** action, find and select an action from your SAP server.
+1. In the **[IDoc] Send document to SAP** action, find and select an action from your SAP server.
 
    1. From the **SAP Action** edit box, select the folder icon. From the file list that opens, select the SAP message that you want to use. To navigate the list, use the arrows.
 
@@ -375,7 +381,7 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
       If you can't find the action you want, you can manually enter a path, for example:
 
-      ![Screenshot shows manually entering a path to an IDoc action for a Standard workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
+      ![Screenshot shows manually entering a path to an IDoc action for a Standard workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-standard.png)
 
       > [!TIP]
       > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
@@ -385,34 +391,38 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    1. In the **Send message to SAP** action, include the body output from the Request trigger.
 
-      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list. The **Body** field contains the body output from the Request trigger.
+      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list.
 
-      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**.
+      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the Request trigger. 
 
          > [!NOTE]
-         > If this field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
+         > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-consumption.png)
+      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-standard.png)
 
       The **Send message to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
-      ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-consumption.png)
+      ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-standard.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
-### Send flat file IDocs
+<a name="send-idoc-messages-flat-file"></a>
 
-You can use IDocs with a flat file schema if you wrap them in an XML envelope. To send a flat file IDoc, use the generic instructions to [add an SAP action to send your IDoc message](#add-an-sap-action-to-send-message), but with the following changes:
+#### Send flat file IDoc messages to SAP server
 
-1. In the **Send message to SAP** action, use the following URI:
+To send an IDoc using a flat file schema, you can wrap the IDoc in an XML envelope and [follow the general steps to add an SAP action to send an IDoc message](#add-sap-action-send-message), but with the following changes:
+
+### Wrap IDoc with XML envelope
+
+1. In the SAP action that you use to send the message, use the following URI:
 
    **`http://Microsoft.LobServices.Sap/2007/03/Idoc/SendIdoc`**
 
 1. Format your input message with an XML envelope.
 
-For example, review the following example XML payload:
+The following example shows a sample XML payload:
 
 ```xml
 <SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
@@ -535,19 +545,19 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 ### Add a Response action
 
-Now, add the Response action to your workflow and include the output from the SAP action. That way, your workflow returns the results from your SAP server to the original requestor.
+Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, add the [Request built-in action named **Response**](../connectors/connectors-native-reqres.md#add-response) to your workflow and include the output from the SAP action.
 
 ### [Multi-tenant](#tab/multi-tenant)
 
 1. In the workflow designer, under the SAP action, select **New step**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **response**.
+1. In the designer, [follow these general steps to find and add the Request built-in action named **Response**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. From the actions list, select the action named **Response**.
+1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list.
 
-1. In the **Response** action, select inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
+1. From the dynamic content list, under **Send message to SAP**, select **Body**. The **Body** field contains the body output from the SAP action.
 
-   ![Screenshot showing finishing the SAP action for Consumption or ISE workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-consumption.png)
+   ![Screenshot shows selecting SAP action output named Body for Consumption workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-consumption.png)
 
 1. Save your workflow.
 
@@ -555,19 +565,19 @@ Now, add the Response action to your workflow and include the output from the SA
 
 1. In the workflow designer, under the SAP action, select the plus sign (**+**) > **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **response**.
+1. In the designer, [follow these general steps to find and add the Request built-in action named **Response**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. In the **Add an action** pane, from the actions list, select the action named **Response**.
+1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list appears.
 
-1. In the **Response** action pane, select inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
+1. From the dynamic content list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
 
    ![Screenshot showing finishing the SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-standard.png)
 
 1. Save your workflow.
 
-#### Create RFC request-response
+#### Create remote function call (RFC) request-response pattern
 
-You must create a request and response pattern if you need to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP. To receive IDocs in your logic app workflow, you should make the workflow's first action a [Response action](../connectors/connectors-native-reqres.md#add-a-response-action) with a status code of `200 OK` and no content. This recommended step completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC immediately, which leaves the SAP CPIC conversation available again. You can then add further actions in your logic app workflow to process the received IDoc without blocking further transfers.
+If you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow, make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
 
 > [!NOTE]
 > The SAP trigger receives IDocs over tRFC, which doesn't have a response parameter by design.
@@ -749,9 +759,9 @@ Optionally, advanced users can capture ETW events directly. You can then [consum
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
-1. In the **Additional Provider** field, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
+1. In the **Additional Provider** parameter, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
 
-1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** field.
+1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** parameter.
 
 1. Select **Start Collection** to begin your trace.
 
@@ -984,7 +994,7 @@ To send the request message, use the generic SAP action **Send message to SAP**,
 
    1. Under **Connection Gateway**, select your data gateway resource in Azure.
 
-   1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
+   1. Continue providing information about the connection. For the **Logon Type** parameter, follow the step based on whether the property is set to **Application Server** or **Group**:
 
       * For **Application Server**, these properties, which usually appear optional, are required:
 
@@ -1105,7 +1115,7 @@ Here's an example that shows this pattern:
 
 1. From the SAP connector, add the **\[IDOC] Send document to SAP** action. Provide the details for the IDoc that you send to your SAP system.
 
-1. To explicitly confirm the transaction ID in a separate step, in the **Confirm TID** field, select **No**. For the optional **Transaction ID GUID** field, you can either manually specify the value or have the connector automatically generate and return this GUID in the response from the **\[IDOC] Send document to SAP** action.
+1. To explicitly confirm the transaction ID in a separate step, in the **Confirm TID** parameter, select **No**. For the optional **Transaction ID GUID** field, you can either manually specify the value or have the connector automatically generate and return this GUID in the response from the **\[IDOC] Send document to SAP** action.
 
    ![Screenshot that shows the "[IDOC] Send document to SAP" action properties](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
 
