@@ -15,22 +15,22 @@ Follow these steps in order to gather the data needed to diagnose AKS-Hybrid cre
 
 [How to Connect AKS hybrid cluster using Azure CLI](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster)
 
-:::image type="content" source="media/AKS-Hybrid-connected-status.png" alt-text="Connected status":::
+:::image type="content" source="media/aks-hybrid-connected-status.png" alt-text="Screenshot of Sample Connected status":::
 
 If Status: isn't `Connected` and Provisioning State: isn't `Succeeded` then the install failed
 
 [How to manage and lifecycle the AKS-Hybrid cluster](./howto-hybrid-aks.md#how-to-manage-and-lifecycle-the-aks-hybrid-cluster)
 
 ## Prerequisites
- 1. Install the latest version of the
+ * Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
- 1. Tenant ID
- 1. Subscription ID
- 1. Cluster name and resource group
- 1. Network fabric controller and resource group
- 1. Network fabric instances and resource group
- 1. AKS-Hybrid cluster name and resource group
- 1. Prepare CLI commands, Bicep templates and/or Azure Resource Manager (ARM) templates that are used for resource creation
+ * Tenant ID
+ * Subscription ID
+ * Cluster name and resource group
+ * Network fabric controller and resource group
+ * Network fabric instances and resource group
+ * AKS-Hybrid cluster name and resource group
+ * Prepare CLI commands, Bicep templates and/or Azure Resource Manager (ARM) templates that are used for resource creation
 
 ## What does an unhealthy AKS-Hybrid cluster look like?
 
@@ -42,7 +42,10 @@ In the Azure portal, an unhealthy cluster may show:
 - Status: 'Offline'
 - Managed identity certificate expiration time: "Couldn't display date/time, invalid format."
 
-In the CLI, when looking at "az hybridaks show -g <>--name <>" output, an unhealthy cluster may show:
+In the CLI, when looking at output, an unhealthy cluster may show:
+~~~ Azure CLI
+az hybridaks show -g <>--name <>
+~~~
 
 -provisioningState: `Failed`
 
@@ -65,22 +68,22 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
  - the cloudservicesnetwork must be created
  - use correct Hybrid AKS extended location, which can be referred from the respective site cluster while creating the AKS-Hybrid resources. 
  - the defaultcninetwork must be created with an ipv4prefix and vlan that matches an existing l3isolationdomain
-   - the ipv4prefix used must be unique across all defaultcninetworks and l3networks
+   - the ipv4prefix used must be unique across all defaultcninetworks and layer 3 networks
  - the networks must have Provisioning state: Succeeded
 
  [How to connect az network cloud using Azure CLI](./howto-install-cli-extensions.md?tabs=linux#install-networkcloud-cli-extension)
 
 ### AKS-Hybrid resources 
 
-To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a hybridaks vnet.
+To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a hybrid aks vnet.
 
 [az hybridaks vnet using Azure CLI](/cli/azure/hybridaks/vnet)
 
-## Common Issues
+## Common issues
 
 Any of the following problems can cause the AKS-Hybrid cluster to fail to provisioning fully 
 
-### AKS-Hybrid clusters may fail or timeout when created concurrently
+### AKS-Hybrid clusters may fail or time out when created concurrently
 
   The Arc Appliance can only handle creating one AKS-Hybrid cluster at a time within an instance. After creating a single AKS-Hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as `connected` or `online` in the Azure portal. 
 
@@ -131,13 +134,13 @@ Care must be taken when creating networks to ensure that they come up successful
 In particular, pay attention to the following constraints when creating defaultcninetworks:
 
   - the ipv4prefix and vlan need to match internal network in the referenced l3isolationdomain
-  - the ipv4prefix must be unique across defaultcninetworks (and l3networks) in the Network Cloud cluster
+  - the ipv4prefix must be unique across defaultcninetworks (and layer 3 networks) in the Network Cloud cluster
 
 If using CLI to create these resources, it's useful to use the '--debug' option. The output includes an operation status URL, which can be queried using az rest.
 
 If the resource has already been created, see the section on Surfacing Errors.
 
-### Known Errors
+### Known errors
 
 Depending on the mechanism used for creation (Azure portal, CLI, Azure Resource Manager (ARM)), it's sometimes hard to see why resources are Failed.
 

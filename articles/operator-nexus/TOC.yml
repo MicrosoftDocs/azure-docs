@@ -56,7 +56,7 @@
 - name: Troubleshooting
   items:
     - name: Troubleshoot AKS-Hybrid
-      href: Troubleshoot-AKS-Hybrid-cluster.md
+      href: troubleshoot-aks-hybrid-cluster.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment
