@@ -32,7 +32,7 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
 
 - Next, to allow the traffic to pass through the Firewall, create an **application** rule in the Firewall policy to allow this traffic.
    > [!IMPORTANT]
-> You must use an application rule. A network rule won't work.
+   > You must use an application rule. A network rule won't work.
 
 
 - To use the Proxy autoconfiguration (PAC) file, select **Enable proxy auto-configuration**.
