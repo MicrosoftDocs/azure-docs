@@ -8,25 +8,106 @@ ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/17/2023
 ---
-
 # How-to: build a real-time collaborative whiteboard using Azure Web PubSub and deploy it to Azure App Service
 
 A new class of applications are re-imagining what modern work could be. While [Microsoft Word](https://www.microsoft.com/en-ww/microsoft-365/word) brings editors together, [Figma](https://www.figma.com) gathers up designers on the same creative endeavor. This class of applications builds on a user experience that makes us feel connected with our remote collaborators. From a technical point of view, user's activities need to be synchronized across users' screens at a low latency.
 
 ## Overview
-In this how-to guide, we will take a cloud-native approach and leverage Azure services to build a real-time collaborative whiteboard and we will deploy the project as a Web App to Azure App Service. 
-
+In this how-to guide, we will take a cloud-native approach and leverage Azure services to build a real-time collaborative whiteboard and we will deploy the project as a Web App to Azure App Service. The whiteboard app is accessable in the browser and allows anyone can draw on the same canvas.
 
 "GIF Missing - Finished project | Mobile and Browser"
 
 ### Architecture
 
-|Azure service name | Purpose | Benefit   | 
+|Azure service name | Purpose | Benefits   | 
 |-------------------|-------------------|------------------|
-|[Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)  | Provides the hosting environment for backend application | Fully managed, with no need to worry about infrastructure where the code runs
+|[Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)  | Provides the hosting environment for the backend application, which is built with [Express](https://expressjs.com/) | Fully managed environment for application backends, with no need to worry about infrastructure where the code runs 
 |[Azure Web PubSub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Frees server from managing persistent WebSocket connections and scales to 100K concurrent client connections with just one resource
 
 "Image Missing - Architecture diagram Missing"
+
+## Prerequisites
+You can find detailed explanation of the [data flow](#data-flow) at the end of this how-go guide as we are going to focus on building and deloying the whiteboard app first.
+ 
+In order to follow the step-by-step guide, you will need
+> [!div class="checklist"]
+> * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+> * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
+
+## Sign in to the Azure CLI
+Run the following command.
+1. Sign in to the Azure CLI by .
+    ```azurecli-interactive
+    az login
+    ```
+
+## Create a Web App resource
+1. Create a resource group on Azure
+    ```azurecli-interactive
+    az group create \
+        --location "westus" \  
+        --name "whiteboard-group"
+    ```
+
+1. Create a free App Service plan
+    ```azurecli-interactive
+    az appservice plan create \ 
+        --resource-group "whiteboard-group" \ 
+        --name "demo" \ 
+        --sku FREE
+        --is-linux
+    ```
+
+1. Create a Web App resource 
+    ```azurecli-interactive
+    az webapp create \
+        --resource-group "whiteboard-group" \
+        --name "whiteboard-app" \ 
+        --plan "demo" \
+        --runtime "NODE:18-lts"
+    ```
+
+## Create a Web PubSub resource
+1. Create a Web PubSub resource.
+    ```azurecli-interactive
+    az webpubsub create \
+      --name whiteboard-app \
+      --resource-group whiteboard-group \
+      --location "westus" \
+      --sku Free_F1
+    ```
+
+1. Show and store the value of `primaryConnectionString` somewhere for later use.
+    ```azurecli-interactive
+    az webpubsub key show \
+      --name "whiteboard-app" \
+      --resource-group "whiteboard-group"
+    ```
+
+## Get the application code
+
+
+## Deploy the application to App Service
+
+
+## Configure upstream server to handle events coming from Web PubSub
+Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages to fulfill your business requirements. 
+
+As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a pubically accesable domain name. 
+1. Show and store the value of `name` somewhere
+    ```azurecli-interactive
+    az webpubsub key show \
+      --name "whiteboard-app" \
+      --resource-group "whiteboard-group"
+    ```
+
+1. The endpoint we decided to expose is `/eventhandler` {hub...}
+
+az webpubsub hub create -n "MyWebPubSub" -g "MyResourceGroup" --hub-name "MyHub" --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
+
+## View the whiteboard app in a broswer
+
+For a more in-depth
 
 ### Data flow
 :::row:::
@@ -90,60 +171,8 @@ In this how-to guide, we will take a cloud-native approach and leverage Azure se
 5. As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
 
 
-## Prerequisites
-Now that we have understood the data flow and the respective responsibilities of App Service and Web PubSub, let us get practical. In order to follow the step-by-step guide, you will need
 
-* A [GitHub](https://github.com/) account.
-* An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
-
-## Create a Web PubSub resource
-
-1. Sign in to the Azure CLI by using the following command.
-
-    ```azurecli-interactive
-    az login
-    ```
-
-1. Create a resource group.
-
-    ```azurecli-interactive
-    az group create \
-      --name whiteboard-app-group \
-      --location "eastus2"
-    ```
-
-1. Create a Web PubSub resource.
-
-    ```azurecli-interactive
-    az webpubsub create \
-      --name whiteboard \
-      --resource-group whiteboard-app-group \
-      --location "eastus2" \
-      --sku Free_F1
-    ```
-
-1. Show and store the access key somewhere for later use.
-
-    ```azurecli-interactive
-    az webpubsub key show \
-      --name whiteboard \
-      --resource-group whiteboard-app-group
-    ```
-
-## Get the application code
-
-
-## Create a Web App resource
-
-
-## Configure upstream server to handle events coming from Web PubSub
-
-
-## Deploy the application to App Service
-
-## View the whiteboard app in a broswer
-
+Now that we have understood the data flow and the respective responsibilities of App Service and Web PubSub, let us get practical.
 
 ## Clean up resources
 Although the application uses only the free tiers of both services, it is best practice to delete resources if you no longer need them. You can delete the resource group along with the resources in it using following command,
