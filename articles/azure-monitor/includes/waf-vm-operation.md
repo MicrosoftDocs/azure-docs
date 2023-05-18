@@ -9,7 +9,16 @@ ms.date: 03/30/2023
 ### Design checklist
 
 > [!div class="checklist"]
-> - 
+> - Migrate from legacy agents to Azure Monitor agent.
+> - Consider whether to use VM insights
+> - Use Azure Policy to deploy agents and assign data collection rules.
+> - Establish a strategy for structure of data collection rules.
+> - Use Azure Arc to monitor your hybrid VMs.
+> - Migrate management pack logic to Azure Monitor.
+> - Migrate SCOM agents to SCOM MI.
+> - Target alert rules for VM hosts at subscription or resource group.
+> - Configure data collection for monitoring client workflows.
+
 
 ### Configuration recommendations
 

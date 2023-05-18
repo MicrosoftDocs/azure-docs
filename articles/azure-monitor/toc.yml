@@ -1335,7 +1335,7 @@ items:
         href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-- name: Compute
+- name: Monitor compute
   items:
   - name: Virtual machines
     items:

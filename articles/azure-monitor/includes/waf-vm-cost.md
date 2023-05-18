@@ -9,7 +9,12 @@ ms.date: 03/30/2023
 ### Design checklist
 
 > [!div class="checklist"]
-> - 
+> - Collect only required data from agents. 
+> - Identify top sources of data collection.
+> - Migrate from Log Analytics agent to Azure Monitor agent.
+> - Enable collection of processes and dependencies in VM insights only if you use the data.
+> - Reduce polling frequency of performance counters.
+> - Ensure that VMs aren't sending duplicate data.
 
 ### Configuration recommendations
 

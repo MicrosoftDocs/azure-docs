@@ -9,7 +9,7 @@ ms.date: 03/30/2023
 ### Design checklist
 
 > [!div class="checklist"]
-> - 
+> - Create availability alert rules for your VMs.
 
 ### Configuration recommendations
 
