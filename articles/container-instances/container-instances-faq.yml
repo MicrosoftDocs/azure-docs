@@ -211,13 +211,13 @@ sections:
       - question: | 
            How do I file quota requests for ACI Spot containers?
         answer: |
-           Customers can file support request to increase capacity for Spot containers.
+           Customers can file support request to increase capacity for Spot containers by  selecting the issue type as "Technical" and add details in the description about the requirement for capacity increase for spot container deployment in the supported regions.
       - question: |
           What regions are ACI Spot containers available?
         answer: |
           Azure Container Instances(ACI) Spot containers are only available in select regions during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
       - question: |
-          Is there an additional cost  Azure Container Instances Spot containers?
+          Is there an additional cost Azure Container Instances Spot containers?
         answer: |
           Azure Container Instances Spot containers are offered at discounted price and offers upto 70% discount on top of regular priority ACI containers. The discounts would vary per month in each region. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
 
