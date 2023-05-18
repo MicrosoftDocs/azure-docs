@@ -26,11 +26,11 @@ The following updates are now available in both Basic/Standard and Enterprise pl
 
 The following updates are now available in the Enterprise plan:
 
-- **More Options For build pools and allow queue build jobs**: Build service now supports a large size build agent pool and allows at most one pool-sized build task to build, and twice the pool-sized build tasks to queue. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+- **More options for build pools and allow queueing of build jobs**: Build service now supports a large build agent pool and allows at most one pool-sized build task to build, and twice the pool-sized build tasks to queue. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
-- **99.95% SLA support**: Higher SLA for mission-critical workloads.
+- **Improved SLA support**: Improved SLA for mission-critical workloads. For more information, see [SLA for Azure Spring Apps](https://azure.microsoft.com/support/legal/sla/spring-apps).
 
-- **High vCPU and Memory app support**: Deployment support for large CPU and memory applications to support CPU intensive or memory intensive workloads. For more information, see [Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise tier](how-to-enterprise-large-cpu-memory-applications.md).
+- **High vCPU and memory app support**: Deployment support for large CPU and memory applications to support CPU intensive or memory intensive workloads. For more information, see [Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise tier](how-to-enterprise-large-cpu-memory-applications.md).
 
 - **SCG APM & certificate verification support**: You can allow configuration of APM and TLS certificate verification between Spring Cloud Gateway and applications. For more information, see the [Configure application performance monitoring](how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
 
@@ -40,7 +40,7 @@ The following updates are now available in the Enterprise plan:
 
 The following updates are now available in both Basic/Standard and Enterprise plan:
 
-- **Ingress Settings**: With ingress settings, customers can manage Azure Spring Apps traffic on the application level. This capability includes protocol support for gRPC, WebSocket and RSocket-on-WebSocket, session affinity, and send/read timeout. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
+- **Ingress Settings**: With ingress settings, you can manage Azure Spring Apps traffic on the application level. This capability includes protocol support for gRPC, WebSocket and RSocket-on-WebSocket, session affinity, and send/read timeout. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
 
 - **Remote debugging**: Now, you can remotely debug your apps in Azure Spring Apps using IntelliJ or VS Code. For security reasons, by default, Azure Spring Apps disables remote debugging. You can enable remote debugging for your apps using Azure portal or Azure CLI and start debugging. For more information, see [Debug your apps remotely in Azure Spring Apps](how-to-remote-debugging-app-instance.md).
 
@@ -66,6 +66,6 @@ The following updates are now available to help customers reduce adoption barrie
 
 You can compare the price change from [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058).
 
-## Older updates
+## See also
 
 For older updates, see [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring).
