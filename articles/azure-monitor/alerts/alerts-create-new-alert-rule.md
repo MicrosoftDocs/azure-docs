@@ -61,12 +61,11 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     Select the **Signal name** and **Apply**.
 1. Follow the steps in the tab that corresponds to the type of alert you're creating.
-
     ### [Metric alert](#tab/metric)
 
     1. Preview the results of the selected metric signal in the **Preview** section. Select values for the following fields.
 
-        |Field |Description |
+        |Field|Description|
         |---------|---------|
         |Time range|The time range to include in the results. Can be from the last six hours to the last week.|
         |Time series|The time series to include in the results.|
@@ -77,10 +76,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |---------|---------|
         |Threshold|Select if the threshold should be evaluated based on a static value or a dynamic value.<br>A **static threshold** evaluates the rule by using the threshold value that you configure.<br>**Dynamic thresholds** use machine learning algorithms to continuously learn the metric behavior patterns and calculate the appropriate thresholds for unexpected behavior. You can learn more about using [dynamic thresholds for metric alerts](alerts-types.md#dynamic-thresholds). |
         |Operator|Select the operator for comparing the metric value against the threshold. <br>If you're using dynamic thresholds, alert rules can use tailored thresholds based on metric behavior for both upper and lower bounds in the same alert rule. Select one of these operators: <br> - Greater than the upper threshold or lower than the lower threshold (default) <br> - Greater than the upper threshold <br> - Lower than the lower threshold|
-        |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max. |
-        |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
+        |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.|
+        |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic.|
         |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
-        |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts. |
+        |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts.|
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
  
@@ -92,10 +91,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         |Field  |Description  |
         |---------|---------|
-        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.  |
-        |Operator|The operator used on the dimension name and value.  |
-        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
-        |Include all future values| Select this field to include any future values added to the selected dimension.  |
+        |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the **Azure Resource ID** column makes the specified resource into the alert target. If detected, the **ResourceID** column is selected automatically and changes the context of the fired alert to the record's resource.|
+        |Operator|The operator used on the dimension name and value.|
+        |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.|
+        |Include all future values| Select this field to include any future values added to the selected dimension.|
 
     1. (Optional) In the **When to evaluate** section: 
 
@@ -111,18 +110,24 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Field  |Description  |
         |---------|---------|
         |Number of violations|The number of violations within the configured time frame that trigger the alert.|
-        |Evaluation period|The time period within which the number of violations occur. |
+        |Evaluation period|The time period within which the number of violations occur.|
         |Ignore data before|Use this setting to select the date from which to start using the metric historical data for calculating the dynamic thresholds. For example, if a resource was running in testing mode and is moved to production, you may want to disregard the metric behavior while the resource was in testing.|
 
     1. Select **Done**.
-
     ### [Log alert](#tab/log)
 
     > [!NOTE]
     > If you're creating a new log alert rule, note that the current alert rule wizard is different from the earlier experience. For more information, see [Changes to the log alert rule creation experience](#changes-to-the-log-alert-rule-creation-experience).
 
     1. On the **Logs** pane, write a query that returns the log events for which you want to create an alert.
+
         To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
+
+        If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+        ```azurecli
+         adx(cluster).table    
+         | where MyTS >= ago(5m) and MyTS <= now()
+        ```
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
@@ -296,7 +301,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
+    1. In the <a href="#managed-id">**Identity**</a> section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
@@ -304,9 +309,11 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         - If you don't use a managed identity, the alert rule permissions are based on the permissions of the last user to edit the rule, at the time the rule was last edited.
         - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for all the resources added to the scope of the rule.
 
-        The identity associated with the rule must have these permissions: 
-         - Read access for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have access to all of them.
-         - Read access for all data sources accessed by the query. For example, if the query is calling a remote Azure Data Explorer cluster using the adx() function, it needs read access on that ADX cluster.
+        The identity associated with the rule must have these roles:
+        - If the query is accessing a Log Analytics workspace, the identity must be assigned a **Reader role** for all workspaces accessed by the query. If you're creating resource-centric log alerts, the alert rule may access multiple workspaces, and the identity must have a reader role on all of them.
+        - If the query is [accessing a remote Azure Data Explorer cluster](../logs/azure-monitor-data-explorer-proxy.md), the identity must be assigned:
+            - **Reader role** for all data sources accessed by the query. For example, if the query is calling a remote Azure Data Explorer cluster using the adx() function, it needs a reader role on that ADX cluster.
+            - **Database viewer** for all databases the query is accessing.
 
         For detailed information on managed identities, see [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -329,7 +336,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the <a href="#custom-props">**Custom properties**</a> section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         > [!NOTE]
         > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
@@ -350,7 +357,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
-    
     ### [Service Health alert](#tab/service-health)
     
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
@@ -358,7 +364,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
-        
     ---
 
 1. On the **Tags** tab, set any required tags on the alert rule resource.
