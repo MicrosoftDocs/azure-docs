@@ -85,11 +85,21 @@ You can have greater control over how to divide uploads into blocks by manually 
 
 ## Upload a block blob with configuration options
 
-You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. Some options can be configured at the client level by using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions). Other options are configured at the operation level for uploads by using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions). The following code examples show how to define configuration options at the operation level for an upload.
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions) class is used to configure options for a [BlobClient]() instance, while [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) is used to configure options for an upload operation. The following code examples show how to use `BlobUploadOptions` to define configuration options at the method level for an upload.
+
+### Specify data transfer options on upload
+
+You can configure the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) to improve performance for data transfer operations. The following code example shows how to define values for a `StorageTransferOptions` instance and pass these configuration options as a parameter to `UploadAsync`. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithTransferOptions":::
+
+To learn more about tuning data transfer options, see [Performance considerations for uploads](storage-blobs-tune-upload-download.md).
 
 ### Specify transfer validation options on upload
 
-You can specify transfer validation options to help ensure that data is uploaded properly and hasn't been tampered with during transit. The following code example shows how to create a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) object and specify an algorithm for generating a checksum. The checksum is then used by the service to verify data integrity for the uploaded content.
+You can specify transfer validation options to help ensure that data is uploaded properly and hasn't been tampered with during transit. Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. 
+
+You can also override transfer validation options at the method level using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions). The following code example shows how to create a `BlobUploadOptions` object and specify an algorithm for generating a checksum. The checksum is then used by the service to verify data integrity of the uploaded content.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithChecksum":::
 
