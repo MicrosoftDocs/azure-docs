@@ -75,9 +75,9 @@ Starting from the bottom up, we can consider Managed Network Fabric resources, N
 
 ### AKS-Hybrid resources 
 
-To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a hybrid aks vnet.
+To be used by a AKS-Hybrid cluster, each Network Cloud network must be "wrapped" in a AKS-Hybrid vnet.
 
-[az hybridaks vnet using Azure CLI](/cli/azure/hybridaks/vnet)
+[AKS-Hybrid vnet using Azure CLI](/cli/azure/hybridaks/vnet)
 
 ## Common issues
 
@@ -91,7 +91,7 @@ Any of the following problems can cause the AKS-Hybrid cluster to fail to provis
 
 ### Case mismatch between AKS-Hybrid vnet and Network Cloud network
 
-To configure an AKS-Hybrid virtual network (vnet), it's necessary for the provided Network Cloud network resource IDs to precisely match the actual Azure Resource Manager (ARM) resource ID, including being case-sensitive. To ensure be the IDs have identical uppercase and lowercase letters, it's necessary and important to ensure the correct casing when setting up the network
+To configure an AKS-Hybrid virtual network (vnet), it's necessary for the provided Network Cloud network resource IDs to precisely match the actual Azure Resource Manager (ARM) resource ID, including being case-sensitive. To ensure the IDs have identical uppercase and lowercase letters, it's necessary and important to ensure the correct casing when setting up the network
 
 If using CLI, the--aods-vnet-id* parameter. If using Azure Resource Manager (ARM), Bicep, or a manual "az rest" API call, the value of .properties.infraVnetProfile.networkCloud.networkId
 
