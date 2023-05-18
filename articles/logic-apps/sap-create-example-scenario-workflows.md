@@ -572,12 +572,14 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. Save your workflow.
 
+---
+
 #### Create remote function call (RFC) request-response pattern
 
 If you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow, make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
 
 > [!NOTE]
-> The SAP trigger receives IDocs over tRFC, which doesn't have a response parameter by design.
+> The SAP trigger receives IDocs over tRFC, which doesn't have a response parameter, by design.
 
 To implement a request and response pattern, you must first discover the RFC schema using the [`generate schema` command](#generate-schemas-for-artifacts-in-sap). The generated schema has two possible root nodes: 
 
@@ -595,13 +597,15 @@ In the following example, a request and response pattern is generated from the `
 
 ### Test your workflow
 
-1. If your logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
+### [Multi-tenant](#tab/multi-tenant)
 
-1. On the designer toolbar, select **Run Trigger** > **Run**. This step manually starts your workflow.
+1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. Trigger your workflow by sending an HTTP POST request to the URL in your Request trigger. Include your message content with your request. To the send the request, you can use a tool such as [Postman](https://www.getpostman.com/apps).
+1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
 
-   For this article, the request sends an IDoc file, which must be in XML format and include the namespace for the SAP action you're using, for example:
+1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+
+   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -619,13 +623,35 @@ In the following example, a request and response pattern is generated from the `
    > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](logic-apps-limits-and-config.md). 
    > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic apps](monitor-logic-apps.md).
 
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can explore other available SAP actions, such as BAPI and RFC.
+You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try sending other message types, such as BAPI and RFC.
 
-### [Standard](#tab/standard)
+### [Single-tenant](#tab/single-tenant)
 
-On the designer, make sure that **Choose an operation** is selected. Under the search box, select **Built-in**. In the search box, enter **http request**. From the triggers list, select the Request trigger named **When a HTTP request is received**.
+1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
-![Screenshot that shows the Standard workflow designer and selected Request trigger.](./media/logic-apps-using-sap-connector/add-request-trigger-standard.png)
+1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
+
+1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+
+   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/2/ORDERS05//720/Send">
+     <idocData>
+       <...>
+     </idocData>
+   </Send>
+   ```
+
+1. After you send the HTTP request, wait for the response from your workflow.
+
+   > [!NOTE]
+   >
+   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](logic-apps-limits-and-config.md). 
+   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic apps](monitor-logic-apps.md).
+
+You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try sending other message types, such as BAPI and RFC.
 
 ---
 
