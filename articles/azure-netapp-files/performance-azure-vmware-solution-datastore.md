@@ -25,9 +25,9 @@ Azure NetApp Files provides an instantly scalable, high performance, and highly 
  
 ## Achieving higher storage performance for AVS using Azure NetApp Files   
 
-Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from AVS hosts to several datastores. You can use the AVS/Azure NetApp Files [TCO Estimator](https://bluexp.netapp.com/anf-avs/tcoestimator) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
+Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from AVS hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
 
-When you determine how to configure datastores, the easiest from a management perspective is to create a single Azure NetApp Files datastore, mount it, and put all your VMs in. This strategy work well for many situations, until more throughput or IOPS is required. To identify the different boundaries, the tests used a synthetic workload generator, the program [`fio`](https://github.com/axboe/fio) , to evaluate a range of workloads for each of these scenarios. This analysis can help you determine how to provision Azure NetApp Files as datastores to maximize performance and optimize costs. 
+When you determine how to configure datastores, the easiest solution from a management perspective is to create a single Azure NetApp Files datastore, mount it, and put all your VMs in. This strategy works well for many situations, until more throughput or IOPS is required. To identify the different boundaries, the tests used a synthetic workload generator, the program [`fio`](https://github.com/axboe/fio) , to evaluate a range of workloads for each of these scenarios. This analysis can help you determine how to provision Azure NetApp Files volumes as datastores to maximize performance and optimize costs. 
 
 ## Before you begin 
 
@@ -53,10 +53,10 @@ This testing follows the "four-corners" methodology, which includes both read op
 * Scaling number of Azure NetApp Files datastores, each with one VMDK equally spread across AVS hosts. 
 
 Testing both small and large block operations and iterating through sequential and random workloads ensure the testing of all components in the compute, storage, and network stacks to the "edge". To cover the four corners with block size and randomization, the following common combinations are used:
-* 64K sequential tests
+* 64 KB sequential tests
     * Large file streaming workloads commonly read and write in large block sizes, as well as being the default MSSQL extent size. 
     * Large block tests typically produce the highest throughput (in MiB/s).
-* 8K random tests
+* 8 KB random tests
     * This setting is the commonly used block size for database software, including software from Microsoft, Oracle, and PostgreSQL.
     * Small block tests typically produce the highest number of IOPS.
 
@@ -98,7 +98,7 @@ To maximize performance, it's common to scale a single VM across multiple VMDKs 
 
 For example, engineers often provision a VMDK for a database log and then provision one-to-many VMDKs for database files. With multiple VMDKs, there are two options. The first option is using each VDMK as an individual file system. The second option is using a storage-management utility such as LVM, MSSQL Filegroups, or Oracle ASM to balance IO by striping across VMDKs. When VMDKs are used as individual file systems, distributing workloads across multiple datastores is a manual effort and can be cumbersome. Using storage management utilities to spread the files across VMDKs enables workload scalability. 
 
-If you strip volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously. As individual writes are stripped across multiple disks, the file system needs to ensure disks are "frozen" during snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as `xfs` (`xfs_freeze`) and NTFS (volume shadow copies), which backup software can take advantage of. 
+If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously. As individual writes are striped across multiple disks, the file system needs to ensure disks are "frozen" during snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as `xfs` (`xfs_freeze`) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
 To understand how well a single AVS VM scales as more virtual disks are added, tests were performed with one, two, four, and eight datastores (each containing a single VMDK). The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
 
@@ -120,11 +120,11 @@ From the context of a single AVS host, while a single datastore allowed the VMs 
 
 ### Multi-host scaling – Single datastore 
 
-A single datastore from a single host produced over 2000 MiB/s of sequential 64-K throughput. Distributing the same workload across all four hosts produced a peak gain of 135% driving over 5000 MiB/s. This outcome likely represents the upper ceiling of a single Azure NetApp Files volume throughput performance.
+A single datastore from a single host produced over 2000 MiB/s of sequential 64-KB throughput. Distributing the same workload across all four hosts produced a peak gain of 135% driving over 5000 MiB/s. This outcome likely represents the upper ceiling of a single Azure NetApp Files volume throughput performance.
 
 :::image type="content" source="../media/azure-netapp-files/performance-avs-datastore-throughput-single-volume.png" alt-text="Diagram that shows throughput scaling on a single Azure NetApp Files volume." lightbox="../media/azure-netapp-files/performance-avs-datastore-throughput-single-volume.png":::
 
-Decreasing the block size from 64 K to 8 K and rerunning the same iterations resulted in four VMs producing 195,000 IOPS, as shown the following diagram. Performance scales as both the number of hosts and the number of datastores increase, because the number of network flows increases. The performance increases by scaling the number of hosts multiplied by the number of datastores, because the count of network flows is a factor of hosts times datastores. 
+Decreasing the block size from 64 KB to 8 KB and rerunning the same iterations resulted in four VMs producing 195,000 IOPS, as shown the following diagram. Performance scales as both the number of hosts and the number of datastores increase, because the number of network flows increases. The performance increases by scaling the number of hosts multiplied by the number of datastores, because the count of network flows is a factor of hosts times datastores. 
 
 :::image type="content" source="../media/azure-netapp-files/performance-avs-datastore-network-flows.png" alt-text="Formula that shows the calculation of total network flows." lightbox="../media/azure-netapp-files/performance-avs-datastore-network-flows.png":::
 
@@ -132,11 +132,11 @@ Decreasing the block size from 64 K to 8 K and rerunning the same iterations res
 
 ### Multi-host scaling – Multiple datastores
 
-A single datastore with four VMs spread across four hosts produced over 5000 MiB/s of sequential 64K IO. For more demanding workloads, each VM is moved to a dedicated datastore, producing over 10,500 MiB/s in total, as shown in the following diagram. 
+A single datastore with four VMs spread across four hosts produced over 5000 MiB/s of sequential 64-KB IO. For more demanding workloads, each VM is moved to a dedicated datastore, producing over 10,500 MiB/s in total, as shown in the following diagram. 
 
 :::image type="content" source="../media/azure-netapp-files/performance-avs-scale-four-hosts.png" alt-text="Diagram that shows scaling datastores on four hosts." lightbox="../media/azure-netapp-files/performance-avs-scale-four-hosts.png":::
 
-For small-block, random workloads, a single datastore produced 195,000 random 8K IOPS.  Scaling to four datastores produced over 530,000 random 8K IOPS. 
+For small-block, random workloads, a single datastore produced 195,000 random 8-KB IOPS.  Scaling to four datastores produced over 530,000 random 8K IOPS. 
 
 :::image type="content" source="../media/azure-netapp-files/performance-avs-scale-four-hosts-8k.png" alt-text="Diagram that shows scaling datastores on four hosts with 8k block size." lightbox="../media/azure-netapp-files/performance-avs-scale-four-hosts-8k.png":::
 
@@ -146,21 +146,21 @@ This section discusses why *spreading your VMs across multiple datastores has su
 
 As shown in the [test results](#test-results), the performance capabilities of Azure NetApp Files are abundant: 
 
-* Testing shows that one datastore can drive an average **~148,980 8K IOPS or ~4147 MiB/s** with 64K IOPS (average of all the write%/read% tests) from a four-host configuration. 
+* Testing shows that one datastore can drive an average **~148,980 8-KB IOPS or ~4147 MiB/s** with 64-KB IOPS (average of all the write%/read% tests) from a four-host configuration. 
 * One VM on one datastore – 
-    * If you have individual VMs that may need more than **~75K 8K IOPS or over ~1700 MiB/s**, spread the file systems over multiple VMDKs to scale the VMs storage performance.
-* One VM on multiple datastores – A Single VM across 8 datastores achieved up to **~147,000 8K IOPS or ~2786 MiB/s** with a 64K block size.
-* One host - Each host was able to support an average **~198,060 8K IOPS or ~2351 MiB/s** if you use at least 4 VMs per host with at least 4 Azure NetApp Files datastores.  So you have the option to balance provisioning enough datastores for maximum, potentially bursting, performance, versus complication of management and cost.
+    * If you have individual VMs that may need more than **~75K 8-KB IOPS or over ~1700 MiB/s**, spread the file systems over multiple VMDKs to scale the VMs storage performance.
+* One VM on multiple datastores – A Single VM across 8 datastores achieved up to **~147,000 8-KB IOPS or ~2786 MiB/s** with a 64 KB block size.
+* One host - Each host was able to support an average **~198,060 8-KB IOPS or ~2351 MiB/s** if you use at least 4 VMs per host with at least 4 Azure NetApp Files datastores.  So you have the option to balance provisioning enough datastores for maximum, potentially bursting, performance, versus complication of management and cost.
 
 ### Recommendations 
 
 When the performance capabilities of a single datastore are insufficient, spread your VMs across multiple datastores to scale even further. Simplicity is often best, but performance and scalability may justify the added but limited complexity.
   
-Four Azure NetApp Files datastores provide up of 10 GBps of usable bandwidth for large sequential IO or the capability to drive up to 500K 8K-random IOPS. While one datastore may be sufficient for many performance needs, for best performance, start with a minimum of four datastores planning. 
+Four Azure NetApp Files datastores provide up of 10 GBps of usable bandwidth for large sequential IO or the capability to drive up to 500K 8K-random IOPS. While one datastore may be sufficient for many performance needs, for best performance, start with a minimum of four datastores. 
 
 For granular performance tuning, both Windows and Linux guest operating systems allow for striping across multiple disks. As such, you should stripe file systems across multiple VMDKs spread across multiple datastores.  However, if application snapshot consistency is an issue and can't be overcome with LVM or storage spaces, consider mounting Azure NetApp Files from the guest operating system or investigate application-level scaling, of which Azure has many great options. 
 
-If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are stripped across multiple disks, the file system needs to ensure disks are “frozen” during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
+If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are striped across multiple disks, the file system needs to ensure disks are “frozen” during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
 Because Azure NetApp Files bills for provisioned capacity at the capacity pool rather than allocated capacity (datastores), you will, for example, pay the same for 4x20TB datastores or 20x4TB datastores. If you need to, you can tweak capacity and performance of datastores on-demand, [dynamically via the Azure API/console](dynamic-change-volume-service-level.md). 
 
