@@ -2,7 +2,7 @@
 title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 ms.topic: conceptual
-ms.date: 10/22/2022
+ms.date: 05/17/2023
 ---
 
 # How to target Azure Functions runtime versions
