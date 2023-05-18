@@ -21,6 +21,10 @@ In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` a
 
 If either of them are more than 100%, ingestion into this workspace is being throttled. In the same workspace, navigate to `New Support Request` to create a request to increase the limits. Select the issue type as `Service and subscription limits (quotas)` and the quota type as `Managed Prometheus`.
 
+## Intermittent gaps in metric data collection
+
+During node updates you may see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collector. This is because the node it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
+
 ## Pod status
 
 Check the pod status with the following command:
