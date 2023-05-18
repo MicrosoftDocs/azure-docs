@@ -39,7 +39,7 @@ In API Center, a deployment identifies a specific environment used for the runti
 
 ## Metadata schema
 
-In each API Center, you can create a metadata schema to describe metadata properties available to apply to your APIs and others assets. Metadata properties can be used for searching and filtering and to enforce governance standards. The custom properties you define in the metadata schema augment several built-in properties such as "API type". API Center supports properties of type array, boolean, number, object, predefined choices, and string. Apply metadata properties when creating or updating assets in API Center.
+In each API Center, you can create a metadata schema to describe metadata properties available to apply to your APIs and other assets. Metadata properties can be used for searching and filtering and to enforce governance standards. The custom properties you define in the metadata schema augment several common built-in properties such as "API type". API Center supports properties of type array, boolean, number, object, predefined choices, and string. Apply metadata properties when creating or updating assets in API Center.
 
 API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
 

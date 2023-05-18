@@ -27,3 +27,7 @@ landingContent:
             url: overview.md
           - text: Key concepts
             url: key-concepts.md
+      - linkListType: get-started
+        links:
+          - text: Tutorial - Set up your API center
+            url: set-up-api-center.md
