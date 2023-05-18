@@ -282,6 +282,22 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="postgresql"
 
+Add the following dependencies in your pom.xml file.
+
+```xml
+<dependency>
+  <groupId>org.postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+  <version>42.3.6</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity-extensions</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+
 1. Update properties file. For more information, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
     ```bash
     cat << EOF > src/main/resources/application.properties
@@ -291,6 +307,8 @@ After creating the connection, you can use the connection string in your applica
     
     read from properties file and connect to database
     ```java
+    import java.sql.*;
+
     Properties properties = new Properties();
     properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
     Connection connection = DriverManager.getConnection(properties.getProperty("url"));
@@ -298,6 +316,8 @@ After creating the connection, you can use the connection string in your applica
 
 2. Directly use the connection string in your application
     ```java
+    import java.sql.*;
+
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin");
     ```
@@ -305,32 +325,43 @@ After creating the connection, you can use the connection string in your applica
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
 ```csharp
-// Call managed identities for Azure resources endpoint.
-// system assigned identity
-var sqlServerTokenProvider = new DefaultAzureCredential();
+using System;  
+using System.Data;  
+using Npgsql;  
+using Azure.Identity;  
+using Azure.Core;  
 
-// user assigned identity
-// var sqlServerTokenProvider = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
-
-string accessToken = (await sqlServerTokenProvider.GetTokenAsync(
-    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
-string connString = String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSLMode=Prefer",
-                    Host,
-                    User,
-                    Database,
-                    5432,
-                    accessToken);
-using (var conn = new NpgsqlConnection(connString))
-{
-    Console.Out.WriteLine("Opening connection using access token...");
-    conn.Open();
-    using (var command = new NpgsqlCommand("SELECT version()", conn))
-    {
-        var reader = command.ExecuteReader();
-        while (reader.Read())
-        {
-            Console.WriteLine("\nConnected!\n\nPostgres version: {0}", reader.GetString(0));
+namespace NpgsqlConnectionExample  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            // Call managed identities for Azure resources endpoint.
+            // system assigned identity
+            var sqlServerTokenProvider = new DefaultAzureCredential();
+            
+            // user assigned identity
+            // var sqlServerTokenProvider = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
+            
+            string accessToken = (sqlServerTokenProvider.GetToken(
+                new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
+            
+            String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
+            string connString = url + ";Password=" + accessToken;
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                Console.Out.WriteLine("Opening connection using access token...");
+                conn.Open();
+                using (var command = new NpgsqlCommand("SELECT version()", conn))
+                {
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("\nConnected!\n\nPostgres version: {0}", reader.GetString(0));
+                    }
+                }
+            }
         }
     }
 }
@@ -344,6 +375,21 @@ For more information, see
 :::zone-end
 
 :::zone pivot="mysql"
+
+Add the following dependencies in your pom.xml file.
+
+```xml
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.30</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity-extensions</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
 1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](../mysql/flexible-server/connect-java.md?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
     ```bash
@@ -369,21 +415,36 @@ For more information, see
 For other language, there's not plugin or library for passwordless connection, you can get access token of the managed identity or service principal as the password to connect database. For example, in .NET, you can use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) to get access token of managed identity or service principal.
 
 ```csharp
-// system assigned identity
-var credential = new DefaultAzureCredential(); 
-// user assigned identity
-// var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
+using System;
+using System.Data;
+using MySqlConnector;
+using Azure.Identity;
+using Azure.Core;
 
-TokenRequestContext tokenRequestContext = new TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" });  
-AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);  
-// Open a connection to the MySQL server using the access token.
-var connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING") + $";Password={accessToken.Token}"        
-using (var conn = new MySqlConnection(connectionString))
-{
-    Console.Out.WriteLine("Opening connection using access token...");
-    await conn.OpenAsync();
-
-    // do something
+namespace MysqlConnectionExample  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            // system assigned identity
+            var credential = new DefaultAzureCredential(); 
+            // user assigned identity
+            // var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
+            
+            TokenRequestContext tokenRequestContext = new TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" });  
+            AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);  
+            // Open a connection to the MySQL server using the access token.
+            var connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING") + $";Password={accessToken.Token}"        
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                Console.Out.WriteLine("Opening connection using access token...");
+                await conn.OpenAsync();
+            
+                // do something
+            }
+        }
+    }
 }
 ```
 
