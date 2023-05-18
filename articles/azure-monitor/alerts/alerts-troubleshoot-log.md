@@ -62,7 +62,7 @@ There are built-in capabilities to prevent false alerts, but they can still occu
 
 ## Log alert was disabled
 
-The following sections list some reasons why Azure Monitor might disable a log alert rule. After those section, there's an [example of the activity log that is sent when a rule is disabled](#activity-log-example-when-rule-is-disabled).
+The following sections list some reasons why Azure Monitor might disable a log alert rule. After those sections, there's an [example of the activity log that is sent when a rule is disabled](#activity-log-example-when-rule-is-disabled).
 
 ### Alert scope no longer exists or was moved
 
