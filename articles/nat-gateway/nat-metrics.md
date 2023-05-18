@@ -34,7 +34,7 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
 | SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Established, Failed, Closed, Timed Out), Protocol (6 TCP; 17 UDP) |
 | Total SNAT connection count | Total number of active SNAT connections | Sum | Protocol (6 TCP; 17 UDP) |
-| Data path availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
+| Datapath availability | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Where to find my NAT gateway metrics
 
@@ -166,9 +166,9 @@ Reasons for why you may see failed connections:
 
 - If you're seeing a pattern of failed connections for your NAT gateway resource, there could be multiple possible reasons. See the NAT gateway [troubleshooting guide](./troubleshoot-nat.md) to help you further diagnose.  
 
-### Data path availability
+### Datapath availability
 
-The data path availability metric measures the status of the NAT gateway resource over time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
+The datapath availability metric measures the status of the NAT gateway resource over time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
 
 You can use this metric to: 
 
@@ -190,7 +190,7 @@ Alerts can be configured in Azure Monitor for each of the preceding metrics. The
 
 For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../azure-monitor/alerts/alerts-metric-overview.md). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
 
-### Alerts for data path availability droppage
+### Alerts for datapath availability droppage
 
 If the datapath of your NAT gateway resource begins to experience drops in availability, you can set up an alert to be fired when it hits a specific threshold in availability. 
 
