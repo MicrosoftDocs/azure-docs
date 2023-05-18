@@ -35,7 +35,7 @@ Once created, the URI for a container is in this format:
 
 Get a [Database](how-to-javascript-create-database.md) object, then create a [Container](/javascript/api/@azure/cosmos/container):
 
-* [createIfNotExists](/javascript/api/@azure/cosmos/containers?view=azure-node-latest#@azure-cosmos-containers-createifnotexists) - Creates a container if it doesn't exist. If it does exist, return container.
+* [createIfNotExists](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) - Creates a container if it doesn't exist. If it does exist, return container.
 * [create](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-create) - Creates a container if it doesn't already exist. If it does exist, return error statusCode.
 
 ```javascript

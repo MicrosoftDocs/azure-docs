@@ -34,7 +34,7 @@ To learn more about the SQL syntax for Azure Cosmos DB for NoSQL, see [Getting s
 
 ## Query an item
 
-Create an array of matched items from the container's [items](/javascript/api/@azure/cosmos/container#@azure-cosmos-container-items) object using the [query](javascript/api/@azure/cosmos/items) method.
+Create an array of matched items from the container's [items](/javascript/api/@azure/cosmos/container#@azure-cosmos-container-items) object using the [query](/javascript/api/@azure/cosmos/items) method.
 
 ```javascript
 const querySpec = {
@@ -51,7 +51,7 @@ for (const product of resources) {
 }
 ```
 
-The [query](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method returns a [QueryIterator](/javascript/api/@azure/cosmos/queryiterator) object. Use the iterator's [fetchAll](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchall) method to retrieve all the results. The QueryIterator also provides [fetchNext](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext), [hasMoreResults](/javascript/api/@azure/cosmos/queryiteratort#@azure-cosmos-queryiterator-hasmoreresults), and other methods to help you use the results.
+The [query](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-query) method returns a [QueryIterator](/javascript/api/@azure/cosmos/queryiterator) object. Use the iterator's [fetchAll](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchall) method to retrieve all the results. The QueryIterator also provides [fetchNext](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-fetchnext), [hasMoreResults](/javascript/api/@azure/cosmos/queryiterator#@azure-cosmos-queryiterator-hasmoreresults), and other methods to help you use the results.
 
 ## Next steps
 
