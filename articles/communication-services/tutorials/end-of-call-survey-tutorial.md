@@ -162,7 +162,7 @@ Screenshare. However, each API value can be customized from a minimum of
    > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ## Custom questions
-You can ask custom questions and collect users feedback. Steps to survey custom questions:
+You can ask custom questions and collect users feedback. Below you'll find steps to incorporate customer questions into a survey:
 -  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 -  Initialize the JavaScript SDK using plain JavaScript or NPM typescript:
    -  Plain JavaScript will have the **appInsights** variable globally available. [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md).
