@@ -22,13 +22,13 @@ If you experience problems while using the Device Update service, there are seve
 
 **Feature requests** - The DU product tracks feature requests via the product's [Device Update Discussions](https://github.com/Azure/iot-hub-device-update/discussions) community.
 
-## Linux Operating systems
+## Linux Operating Systems
 
-Device Update can run on various most Linux operating systems; however, not all of these systems are equally supported. The systems listed in the following tables are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
+Device Update can run on various most Linux operating systems; however, not all of these systems are supported by Microsoft. The systems listed in the following tables are supported, either generally available or in public preview, and are tested with each new release.
 
-Microsoft has these operating system in automated tests and provides installation packages for them
+Microsoft has these operating systems in automated tests and provides installation packages for them
 
-It is is possible to port the open-source DU agent code to run on other OS versions but the se are not tested and maintained by the DU team.
+It is possible to port the open-source DU agent code to run on other OS versions but these are not tested and maintained by Microsoft.
 
 The systems listed in the following tables are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
 
@@ -40,24 +40,24 @@ The systems listed in the following tables are supported by Microsoft, either ge
 
 
 > [!NOTE]
-> [Standard support for Ubuntu 18.04 LTS ends on May 31st, 2023](https://ubuntu.com/blog/18-04-end-of-standard-support). Beginning June 2023, Ubuntu 18.04 LTS won't be an IoT Edge *tier 1* supported platform. Ubuntu 18.04 LTS IoT Edge packages are available until Nov 30th, 2023. IoT Edge system modules Edge Agent and Edge Hub aren't impacted. If you take no action, Ubuntu 18.04 LTS based IoT Edge devices continue to work but ongoing security patches and bug fixes in the host packages for Ubuntu 18.04 won't be available after Nov 30th, 2023. To continue to receive support and security updates, we recommend that you update your host OS to a *tier 1* supported platform. For more information, see the [Update your IoT Edge devices on Ubuntu 18.04 LTS announcement](https://azure.microsoft.com/updates/update-ubuntu-1804/).
+> [Standard support for Ubuntu 18.04 LTS ends on May 31st, 2023](https://ubuntu.com/blog/18-04-end-of-standard-support). Beginning June 2023, Ubuntu 18.04 LTS won't be a supported platform. Ubuntu 18.04 LTS Device Update packages are available until Nov 30th, 2023. If you take no action, Ubuntu 18.04 LTS based Device Update devices continue to work but ongoing security patches and bug fixes in the host packages for Ubuntu 18.04 won't be available after Nov 30th, 2023. To continue to receive support and security updates, we recommend that you update your host OS to a supported platform. 
 
 ## Releases and Support
 
-Device Update for IoT Hub release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. Support for the APIs, PnP Models and device update reference agents is covered below. 
+Device Update for IoT Hub release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. Support for the APIs, PnP Models and device update reference agents is covered in the table. 
 
 Device Update for IoT Hub 1.0 is the first major release and will continue to receive security fixes and fixes to regressions.  
 
 Device Update (DU) agents use IoT Plug and Play models to send and receive properties and messages from the DU service. Each DU agent requires specific models to be used. Learn more about how device update uses these models and how they can be extended.  
 
-Newer REST Service API versions will support older agents unless specified. Device Update for IoT Hub portal experience will use the latest APIs and have the same support as the API version. 
+Newer REST Service API versions supports older agents unless specified. Device Update for IoT Hub portal experience uses the latest APIs and have the same support as the API version. 
 
 | Release notes and assets | deviceupdate-agent | Upgrade Supported from agent version | DU PnP Models supported | API Versions|
 | ------------------------ | ------------------ | ------------------------------------ | ----------------------- |-------------|
 | 1.0.0 | 1.0.0 <br /> 1.0.1 <br /> 1.0.2 | 0.8.x | dtmi:azure:iot:deviceUpdateContractModel;2 <br /> dtmi:azure:iot:deviceUpdateModel;2  | 2022-10-01 |
-|0.0.8 (Preview)(Deprecated) | 0.8.0 <br /> 0.8.1 <br /> 0.8.2 |  | dtmi:azure:iot:deviceUpdateContractModel;1 <br /> dtmi:azure:iot:deviceUpdateModel;1 | 2021-06-01-preview (Deprecated)|
+|0.0.8 (Preview)(Deprecated) | 0.8.0 <br /> 0.8.1 <br /> 0.8.2 |  | dtmi:azure:iot:deviceUpdateContractModel;1 <br /> dtmi:azure:iot:deviceUpdateModel;1 | 2022-10-01 <br /> 2021-06-01-preview (Deprecated)|
 
-The latest API version, 2022-10-01 will be supported till the next stable release. The latest agent version, 1.0.x, will be receiving bug fixes and security fixes till the next stable release. 
+The latest API version, 2022-10-01 will be supported until the next stable release and the latest agent version, 1.0.x, will receive bug fixes and security fixes till the next stable release. 
 
 > [!NOTE]
 > Users, that have extended from the reference agent and customized the agent, are responsible for ensuring the bug fixes and security fixes are incorporated. You will also need to ensure the agent is built and configured correctly as defined by the service to connect service, perform updates, and manage devices from the IoT hub. 
