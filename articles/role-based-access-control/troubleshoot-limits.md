@@ -95,9 +95,21 @@ To reduce the number of role assignments in the subscription, add users to group
 
 1. Replace the principal role assignments with a single role assignment for the group.
 
-**Solution 2 - Replace role assignments at a higher scope**
+**Solution 2 - Combine multiple built-in roles with a custom role**
 
-To reduce the number of role assignments in the subscription, make common role assignments at a higher scope. Follow these steps to identify where multiple role assignments can be replaced with a single role assignment at a higher scope.
+To reduce the number of role assignments in the subscription, combine multiple built-in roles with a custom role and assigning the custom role instead.
+
+**Solution 3 - Make role assignments eligible**
+
+To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned.
+
+**Solution 4 - Add an additional subscription**
+
+Add an additional subscription.
+
+**Solution 5 - Replace role assignments at a higher scope**
+
+If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, make common role assignments at a higher scope. Follow these steps to identify where multiple role assignments can be replaced with a single role assignment at a higher scope. This solution might not follow [best practices of least privilege](best-practices.md#only-grant-the-access-users-need), so other solutions should be explored first.
 
 1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
@@ -141,18 +153,6 @@ To reduce the number of role assignments in the subscription, make common role a
     - For Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Replace the multiple role assignments with a single role assignment at the highest scope.
-
-**Solution 3 - Combine multiple built-in roles with a custom role**
-
-To reduce the number of role assignments in the subscription, combine multiple built-in roles with a custom role and assigning the custom role instead.
-
-**Solution 4 - Make role assignments eligible**
-
-To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned.
-
-**Solution 5 - Add an additional subscription**
-
-Add an additional subscription.
 
 ##  Symptom - No more role assignments can be created at management group scope
 
