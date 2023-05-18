@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: caihuarui
 ms.service: spring-apps 
 ms.topic: how-to
-ms.date: 5/11/2023
+ms.date: 5/19/2023
 ms.custom: devx-track-java
 ---
 
@@ -322,9 +322,9 @@ grpcurl -d "{\"ownerId\":7}" <SERVICE-NAME>-customers-service.azuremicroservices
 
 ## FAQ
 
-- How do I test endpoint?
+- How do I test the endpoint?
 
-   Use the following curl and HTTP commands to test endpoint of the gRPC server:
+   Use the following curl and HTTP commands to use the test endpoint of the gRPC server:
 
    ```bash
    echo -n '0000000000' | xxd -r -p - frame.bin
