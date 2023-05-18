@@ -87,24 +87,24 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
     #### [Arc-enabled virtual machines](#tab/arcvm)
 
-     - Select *Enable ChangeTracking and Inventory for Arc-enabled virtual machines*.
+     - Select *Enable Change Tracking and Inventory for Arc-enabled virtual machines*.
  
        :::image type="content" source="media/enable-vms-monitoring-agent/enable-for arc-vmm-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for arc-vmm-expanded.png":::
 
     #### [Virtual machines Scale Sets](#tab/vmss)
 
-     - Select *Enable ChangeTracking and inventory for Virtual Machine Scale Sets*.
+     - Select *Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
      
        :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-vmss-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-vms-monitoring-agent/enable-for-vmss-expanded.png":::
 
     #### [Virtual machines](#tab/vm)
 
-     - Select *Enable ChangeTracking and inventory for virtual machines*.
+     - Select *Enable Change Tracking and inventory for virtual machines*.
  
        :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-vm-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for-vm-expanded.png"::: 
     
    
-1. Select *Enable ChangeTracking and Inventory for virtual machines* to enable the change tracking on Azure virtual machines.
+1. Select *Enable Change Tracking and Inventory for virtual machines* to enable the change tracking on Azure virtual machines.
    This initiative consists of three policies:
 
    - Assign Built in User-Assigned Managed identity to Virtual machines
