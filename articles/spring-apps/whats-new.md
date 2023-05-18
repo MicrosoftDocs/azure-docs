@@ -1,12 +1,11 @@
 ---
 title: What's new in Azure Spring Apps
-description: This page highlights new features and recent improvements for Azure Spring Apps
-author: hangwan97
+description: Learn about the new features and recent improvements in Azure Spring Apps.
+author: KarlErickson
 ms.author: hangwan
-ms.service: data-factory
-ms.subservice: concepts
-ms.topic: overview
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.service: spring-apps
+ms.topic: conceptual
+ms.custom: devx-track-java, devx-track-azurecli
 ms.date: 05/23/2023
 ---
 
@@ -15,20 +14,19 @@ ms.date: 05/23/2023
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-Azure Spring Apps is improved on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+Azure Spring Apps is improved on an ongoing basis. To help you stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
-This page is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring) where you can search for updates or browse by category.
+This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
 
 ## March 2023
 
-The following updates are now available in both basic/standard and enterprise plan:
+The following updates are now available in both Basic/Standard and Enterprise plan:
 
-- **Source code assessment for migration**: Assess your existing on-premises Spring applications for their readiness to migrate to Azure Spring Apps with Cloud Suitability Analyzer. This tool provides information on what types of changes are for migration, and how much effort is involved. For more information, see [Assess Spring applications with Cloud Suitability Analyzer](https://aka.ms/cloud-suitability-analyzer).
+- **Source code assessment for migration**: Assess your existing on-premises Spring applications for their readiness to migrate to Azure Spring Apps with Cloud Suitability Analyzer. This tool provides information on what types of changes are needed for migration, and how much effort is involved. For more information, see [Assess Spring applications with Cloud Suitability Analyzer](/azure/developer/java/migration/cloud-suitability-analyzer).
 
-The following updates are now available in the enterprise plan:
+The following updates are now available in the Enterprise plan:
 
-- **More Options For build pools and allow queue build jobs**:
-Build service now supports a large size build agent pool and allows at most one pool-sized build task to build, and twice the pool-sized build tasks to queue. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+- **More Options For build pools and allow queue build jobs**: Build service now supports a large size build agent pool and allows at most one pool-sized build task to build, and twice the pool-sized build tasks to queue. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 - **99.95% SLA support**: Higher SLA for mission-critical workloads.
 
@@ -40,7 +38,7 @@ Build service now supports a large size build agent pool and allows at most one 
 
 ## December 2022
 
-The following updates are now available in both basic/standard and enterprise plan:
+The following updates are now available in both Basic/Standard and Enterprise plan:
 
 - **Ingress Settings**: With ingress settings, customers can manage Azure Spring Apps traffic on the application level. This capability includes protocol support for gRPC, WebSocket and RSocket-on-WebSocket, session affinity, and send/read timeout. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
 
@@ -48,7 +46,7 @@ The following updates are now available in both basic/standard and enterprise pl
 
 - **Connect to app instance shell environment for troubleshooting**: Azure Spring Apps offers many ways to troubleshoot your applications. For developers who like to inspect an app instance running environment, you can connect to the app instance’s shell environment and troubleshoot it. For more information, see [Connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md).
 
-The following updates are now available in the enterprise plan:
+The following updates are now available in the Enterprise plan:
 
 - **New managed Tanzu component - Application Live View from Tanzu Application Platform**: a lightweight insight and troubleshooting tool based on Spring Boot Actuators that helps app developers and app operators look inside running apps. Applications provide information from inside the running processes using HTTP endpoints. Application Live View uses those endpoints to retrieve and interact with the data from applications. For more information, see [Use Application Live View with Azure Spring Apps Enterprise tier](how-to-use-application-live-view.md).
 

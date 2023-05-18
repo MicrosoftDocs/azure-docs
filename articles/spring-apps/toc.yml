@@ -39,10 +39,10 @@ items:
       href: quickstart-standard-consumption-custom-domain.md
     - name: Analyze logs and metrics
       href: quickstart-analyze-logs-and-metrics-standard-consumption.md
-    - name: Enable and disable Eureka Server
-      href: quickstart-standard-consumption-eureka-server.md
     - name: Enable and disable Spring Cloud Config Server
       href: quickstart-standard-consumption-config-server.md
+    - name: Enable and disable Eureka Server
+      href: quickstart-standard-consumption-eureka-server.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
