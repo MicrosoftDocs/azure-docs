@@ -5,15 +5,13 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 05/08/2023
+ms.date: 05/15/2023
 ms.author: cshoe
 ---
 
 # Traffic Splitting in Azure Static Web Apps
 
 Traffic splitting allows you to divert a percentage of traffic to different [branch environments](./branch-environments.md).
-
-<!-- While this is not an exhaustive list, here are some common scenarios that may use code snippets: -->
 
 ## Split traffic
 
