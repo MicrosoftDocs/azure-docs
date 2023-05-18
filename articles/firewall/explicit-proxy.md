@@ -34,7 +34,6 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
    > [!IMPORTANT]
 > You must use an application rule. A network rule won't work.
 
-   :::image type="content" source="media/explicit-proxy/application-rule.png" alt-text="Screenshot showing the application rule.":::
 
 - To use the Proxy autoconfiguration (PAC) file, select **Enable proxy auto-configuration**.
 
