@@ -152,11 +152,21 @@
   - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
+    href: troubleshooting.md
+  - name: Troubleshoot (Option 1)
+    href: troubleshooting-v1.md
+  - name: Troubleshoot (Option 2)
     items:
     - name: Troubleshoot Azure RBAC
-      href: troubleshooting.md
+      href: troubleshooting-v2.md
     - name: Reduce role assignments and custom roles
       href: troubleshoot-resource-graph.md
+  - name: Troubleshoot (Option 3)
+    items:
+    - name: Troubleshoot Azure RBAC
+      href: troubleshooting-v3.md
+    - name: Troubleshoot Azure RBAC limits
+      href: troubleshoot-limits.md
 - name: Reference
   items:
   - name: Built-in roles
