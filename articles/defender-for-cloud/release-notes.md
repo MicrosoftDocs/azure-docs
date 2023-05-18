@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/14/2023
+ms.date: 05/18/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -28,6 +28,7 @@ Updates in May include:
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
 - [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
+- Defender for DevOps GitHub Application update
 
 ### New alert in Defender for Key Vault
 
@@ -149,6 +150,22 @@ Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a
 If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
 
 Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
+
+### Defender for DevOps GitHub Application update
+
+Microsoft Defender for DevOps is constantly making changes and updates that require Defender for DevOps customers who have onboarded their GitHub environments in Defender for Cloud to provide permissions as part of the application deployed in their GitHub organization. These permissions are necessary to ensure all of the security features of Defender for DevOps operate normally and without issues.
+
+We suggest updating the permissions as soon as possible to ensure continued access to all available features of Defender for DevOps.
+
+Permissions can be granted in two different ways:
+
+- In your organization, select **GitHub Apps**. Locate Your organization, and select **Review request**.
+
+- You will get an automated email from GitHub Support. In the email select **Review permission request to accept or reject this change**. 
+
+After you have followed either of these options, you will be navigated to the review screen where you should review the request. Select **Accept new permissions** to approve the request.
+
+If you require any assistance updating permissions, please [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## April 2023
 Updates in April include:
