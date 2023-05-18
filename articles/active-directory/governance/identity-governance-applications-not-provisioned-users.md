@@ -34,7 +34,7 @@ For more information on those first two scenarios, where the application support
 This article covers the third scenario. For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications. For those applications, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users.  This article covers that scenario of an application that does not use Azure AD as its identity provider and does not support provisioning.
 
 ## License requirements for Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
-[!INCLUDE [active-directory-p2-governance-license.md](../../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ## Terminology
 

@@ -27,7 +27,7 @@ Use Privileged Identity Management (PIM) to manage, control, and monitor access 
 
 To use Privileged Identity Management, you must have one of the following licenses:
 
-- [!INCLUDE [active-directory-p2-governance-license.md](../../../../includes/active-directory-p2-governance-license.md)]
+- [!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 - Enterprise Mobility + Security (EMS) E5
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).

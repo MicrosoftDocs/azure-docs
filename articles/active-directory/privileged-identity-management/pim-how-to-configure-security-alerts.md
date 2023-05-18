@@ -24,7 +24,7 @@ Privileged Identity Management (PIM) generates alerts when there's suspicious or
 ![Screenshot that shows the alerts page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## License requirements for Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
-[!INCLUDE [active-directory-p2-governance-license.md](../../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ## Security alerts
 
