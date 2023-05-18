@@ -104,7 +104,7 @@ The following table shows the available options for the checksum algorithm, as d
 | MD5 | 2 | Standard MD5 hash algorithm. |
 | StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
 
-## Upload with index tags
+### Upload with index tags
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. You can add tags to a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) instance, and pass that instance into the `UploadAsync` method.
 
