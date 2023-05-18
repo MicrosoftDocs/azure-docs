@@ -33,9 +33,9 @@ This step is performed by your deployment and connectivity teams.
 
 This section describes how to configure settings for an existing proxy on your OT sensor console. If you don't yet have a proxy, configure one using the following procedures:
 
-- xref to Set up an Azure proxy
-- xref to Connect via proxy chaining
-- xref to set up connetivity for multi-cloud environments
+- [Set up an Azure proxy](#set-up-an-azure-proxy)
+- [Connect via proxy chaining](#connect-via-proxy-chaining)
+- [Set up connectivity for multi-cloud environments](#set-up-connectivity-for-multicloud-environments)
 
 **To define proxy settings on your OT sensor:**
 
