@@ -67,7 +67,7 @@ Below is a sample template that creates a Prometheus rule group, including one r
         {
            "name": "sampleRuleGroup",
            "type": "Microsoft.AlertsManagement/prometheusRuleGroups",
-           "apiVersion": "2021-07-22-preview",
+           "apiVersion": "2023-03-01",
            "location": "northcentralus",
            "properties": {
                 "description": "Sample Prometheus Rule Group",
@@ -126,7 +126,7 @@ The rule group will always have the following properties, whether it includes an
 |:---|:---|:---|:---|
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
-| `apiVersion` | True | string | `2021-07-22-preview` |
+| `apiVersion` | True | string | `2023-03-01` |
 | `location` | True | string | Resource location from regions supported in the preview |
 | `properties.description` | False | string | Rule group description |
 | `properties.scopes` | True | string[] | Target Azure Monitor workspace. Only one scope currently supported |
