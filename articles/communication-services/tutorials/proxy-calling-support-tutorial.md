@@ -26,7 +26,7 @@ In certain situations, it might be useful to have all your client traffic proxie
 Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers are running in a NAT environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic STUN and TURN servers are the relay servers here. Learn more about how ACS [mitigates](../concepts/network-traversal.md) network challenges by utilizing STUN and TURN.
 
 ### Provide your TURN servers details to the SDK
-To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to setup a call, see [Azure Communication Services Web SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the Quickstart on how to setup Voice and Video.
+To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to setup a call, see [Azure Communication Services Web SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the Quickstart on how to setup Voice and Video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
@@ -68,10 +68,10 @@ const callClient = new CallClient({
 ```
 
 > [!IMPORTANT]
-> Note that if you have provided your TURN server details while initializing the `CallClient`, all the media traffic will <i>exclusively</i> flow through these TURN servers. Any other ICE candidates that are normally generated when creating a call won't be considered while trying to establish connectivity between peers i.e. only 'relay' candidates will be considered. To learn more about different types of Ice candidates can be found [here](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
+> Note that if you have provided your TURN server details while initializing the `CallClient`, all the media traffic will <i>exclusively</i> flow through these TURN servers. Any other ICE candidates that are normally generated when creating a call won't be considered while trying to establish connectivity between peers i.e. only 'relay' candidates will be considered. To learn more about different types of Ice candidates click here [here](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
 > [!NOTE]
-> If the '?transport' query parameter is not present as part of the TURN url or is not one of these values - 'udp', 'tcp', 'tls', the default will behaviour will be UDP.
+> If the '?transport' query parameter is not present as part of the TURN url or is not one of these values - 'udp', 'tcp', 'tls', the default behaviour will be UDP.
 
 > [!NOTE]
 > If any of the URLs provided are invalid or don't have one of these schemas - 'turn:', 'turns:', 'stun:', the `CallClient` initialization will fail and will throw errors accordingly. The error messages thrown should help you troubleshoot if you run into issues.
@@ -152,23 +152,34 @@ You can create a Linux virtual machine in the Azure portal and deploy an NGINX s
 
 Here's an NGINX config that you could make use of for a quick spin up:
 ```
-events {  
+events {
     multi_accept       on;
     worker_connections 65535;
 }
-
 http {
     map $http_upgrade $connection_upgrade {
         default upgrade;
         '' close;
     }
-
+    map $request_method $access_control_header {
+        OPTIONS '*';
+    }
     server {
         listen <port_you_want_listen_on> ssl;
-        ssl_certificate      <path_to_your_ssl_cert>;
-        ssl_certificate_key  <path_to_your_ssl_key>;
-        location ~* ^/(.*\.(com)(?::[\d]+)?)/(.*)$ {
-            resolver 8.8.8.8;
+        ssl_certificate     <path_to_your_ssl_cert>;
+        ssl_certificate_key <path_to_your_ssl_key>;
+        location ~* ^/(.*?\.(com|net)(?::[\d]+)?)/(.*)$ {
+            if ($request_method = 'OPTIONS') {
+                add_header Access-Control-Allow-Origin '*' always;
+                add_header Access-Control-Allow-Credentials 'true' always;
+                add_header Access-Control-Allow-Headers '*' always;
+                add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+                add_header Access-Control-Max-Age 1728000;
+                add_header Content-Type 'text/plain';
+                add_header Content-Length 0;
+                return 204;
+            }
+            resolver 1.1.1.1;
             set $ups_host $1;
             set $r_uri $3;
             rewrite ^/.*$ /$r_uri break;
@@ -179,26 +190,25 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_pass_header Authorization;
+            proxy_pass_request_headers on;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection $connection_upgrade;
             proxy_set_header Proxy "";
+            proxy_set_header Access-Control-Allow-Origin $access_control_header;
             proxy_pass https://$ups_host;
             proxy_redirect https://$ups_host https://$host/$ups_host;
             proxy_intercept_errors on;
             error_page 301 302 307 = @process_redirect;
-            error_page 400 405  = @process_error_response;
-            if ($request_method = 'OPTIONS') {
-                    add_header Access-Control-Allow-Origin * always;
-            }
+            error_page 400 405 = @process_error_response;
         }
-        location @handle_redirect {
+        location @process_redirect {
             set $saved_redirect_location '$upstream_http_location';
-            resolver 8.8.8.8;
+            resolver 1.1.1.1;
             proxy_pass $saved_redirect_location;
             add_header X-DBUG-MSG "301" always;
         }
-        location @handle_error_response {
+        location @process_error_response {
             add_header Access-Control-Allow-Origin * always;
         }
     }

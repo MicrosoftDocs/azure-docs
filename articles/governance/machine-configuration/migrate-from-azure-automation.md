@@ -391,7 +391,7 @@ configuration stored in Azure Automation by making a REST request to the service
 [01]: ./overview.md
 [02]: /powershell/dsc/getting-started/wingettingstarted
 [03]: /powershell/dsc/getting-started/lnxgettingstarted
-[04]: /powershell/scripting/gallery/how-to/working-with-local-psrepositories
+[04]: /powershell/gallery/how-to/working-with-local-psrepositories
 [05]: ./how-to-create-package.md
 [06]: ./how-to-create-package.md#author-a-configuration
 [07]: /powershell/gallery/how-to/working-with-local-psrepositories

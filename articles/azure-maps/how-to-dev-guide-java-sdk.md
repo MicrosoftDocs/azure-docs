@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Java REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -83,11 +83,6 @@ Once the maven project is created, there should be a `pom.xml` file with basic i
   <artifactId>azure-maps-timezone</artifactId> 
   <version>1.0.0-beta.1</version> 
 </dependency> 
-<dependency> 
-  <groupId>com.azure</groupId> 
-  <artifactId>azure-maps-elevation</artifactId> 
-  <version>1.0.0-beta.1</version> 
-</dependency> 
 ```
 
 Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
@@ -109,7 +104,6 @@ New-Item demo.java
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
 | [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
-| [Elevation][java elevation readme] ([deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023))| [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 ## Create and authenticate a MapsSearchClient
 
@@ -403,9 +397,6 @@ public class Demo{
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
 <!--  Java SDK Developers Guide  --->
-[java elevation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-elevation
-[java elevation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-elevation/README.md
-[java elevation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-elevation/src/samples/java/com/azure/maps/elevation/samples
 [java geolocation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-geolocation/README.md
 [java geolocation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-geolocation/src/samples/java/com/azure/maps/geolocation/samples
 [java geolocation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-geolocation

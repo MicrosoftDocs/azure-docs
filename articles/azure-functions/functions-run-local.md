@@ -28,7 +28,7 @@ Developing functions on your local computer and publishing them to Azure using C
 
 The specific prerequisites for Core Tools depend on the features you plan to use:
 
-**[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+**[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 **[Install extensions](#install-extensions)**: To manually install extensions by using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed. The .NET SDK is used by Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
@@ -254,8 +254,6 @@ There are no other considerations for PowerShell.
 
 + To use a `--worker-runtime` value of `node`, specify the `--language` as `typescript`.
 
-+ See the [TypeScript section in the JavaScript developer reference](functions-reference-node.md#typescript) for `func init` behaviors specific to TypeScript. 
-
 --- 
 
 ## Register extensions
@@ -460,7 +458,12 @@ You can make GET requests from a browser passing data in the query string. For a
 
 #### Non-HTTP triggered functions
 
-For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. 
+For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to get URLs for all available functions, both HTTP triggered and non-HTTP triggered.
+
+When running locally, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
+
+>[!IMPORTANT]
+>Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization isn't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
 
 To test Event Grid triggered functions locally, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
@@ -492,8 +495,6 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 ```
 ---
 
-When you call an administrator endpoint on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
 ## <a name="publish"></a>Publish to Azure
 
 The Azure Functions Core Tools supports two types of deployment:
@@ -506,7 +507,7 @@ The Azure Functions Core Tools supports two types of deployment:
 ### Before you publish 
 
 >[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) installed locally to be able to publish to Azure from Core Tools.  
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools.  
 
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.  
 

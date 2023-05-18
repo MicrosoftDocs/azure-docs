@@ -6,15 +6,15 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 05/15/2023
 manager: nitinme
 keywords: ChatGPT
 ---
 
-## Working with the ChatGPT models (preview)
+## Working with the ChatGPT models
 
-> [!NOTE]
-> The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-35-turbo) models. The Chat Completion API is also the only way to work with GPT-4 models.
+> [!IMPORTANT]
+> Using GPT-35-Turbo models with the completion endpoint remains in preview. Due to the potential for changes to the underlying ChatML syntax, we strongly recommend using the Chat Completion API/endpoint. The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-35-turbo) models. The Chat Completion API is also the only way to access the GPT-4 models.
 
 The following code snippet shows the most basic way to use the ChatGPT models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
@@ -23,12 +23,12 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://{your-resource-name}.openai.azure.com/"
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
   engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model
-  prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
+  prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWho were the founders of Microsoft?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
   top_p=0.5,
@@ -110,7 +110,7 @@ If you want the ChatGPT and GPT-4 models to behave similarly to [chat.openai.com
 Assistant is a large language model trained by OpenAI.
 <|im_end|>
 <|im_start|>user
-What's the difference between garbanzo beans and chickpeas?
+Who were the founders of Microsoft?
 <|im_end|>
 <|im_start|>assistant
 ```
@@ -220,7 +220,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://{your-resource-name}.openai.azure.com/" #This corresponds to your Azure OpenAI resource's endpoint value
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # defining a function to create the prompt from the system message and the conversation messages

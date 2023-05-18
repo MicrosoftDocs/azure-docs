@@ -1,8 +1,8 @@
 ---
 title: Agentless scanning of cloud machines using Microsoft Defender for Cloud
 description: Learn how Defender for Cloud can gather information about your multicloud compute resources without installing an agent on your machines.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 09/28/2022
@@ -25,7 +25,7 @@ Agentless scanning for VMs provides vulnerability assessment and software invent
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts        |
 | Operating systems:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Linux        |
 | Instance types:    | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Standard VMs<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Virtual machine scale set - Flex<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual machine scale set - Uniform<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: EC2<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Auto Scale instances<br>:::image type="icon" source="./media/icons/no-icon.png"::: Instances with a ProductCode (Paid AMIs)        |
-| Encryption: | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted – managed disks using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – other scenarios using platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – customer-managed keys (CMK)<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted |
+| Encryption: | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted – managed disks using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – other scenarios using platform-managed keys (PMK)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Encrypted – customer-managed keys (CMK)<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Unencrypted<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted - PMK<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Encrypted - CMK |
 
 ## How agentless scanning for VMs works
 
@@ -70,16 +70,56 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
     - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
 
-- AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed list of permissions is:
+- AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed permissions are:
 
-    - `ec2:DeleteSnapshot`
-    - `ec2:ModifySnapshotAttribute`
-    - `ec2:DeleteTags`
-    - `ec2:CreateTags`
-    - `ec2:CreateSnapshots`
-    - `ec2:CreateSnapshot`
-    - `ec2:DescribeSnapshots`
-    - `ec2:DescribeInstanceStatus`
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerDeleteSnapshotAccess** |
+    | Actions | ec2:DeleteSnapshot |
+    | Conditions | "StringEquals":{"ec2:ResourceTag/CreatedBy”:<br>"Microsoft Defender for Cloud"} |
+    | Resources | arn:aws:ec2:::snapshot/ |
+    | Effect | Allow |
+
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerAccess** |
+    | Actions | ec2:ModifySnapshotAttribute <br> ec2:DeleteTags <br> ec2:CreateTags <br> ec2:CreateSnapshots <br> ec2:CopySnapshots <br> ec2:CreateSnapshot |
+    | Conditions | None |
+    | Resources | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ |
+    | Effect | Allow |
+    
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerVerificationAccess** |
+    | Actions | ec2:DescribeSnapshots <br> ec2:DescribeInstanceStatus |
+    | Conditions | None |
+    | Resources | * |
+    | Effect | Allow |
+       
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerEncryptionKeyCreation** |
+    | Actions | kms:CreateKey |
+    | Conditions | None |
+    | Resources | * |
+    | Effect | Allow |
+    
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerEncryptionKeyManagement** |
+    | Actions | kms:TagResource <br> kms:GetKeyRotationStatus <br> kms:PutKeyPolicy <br> kms:GetKeyPolicy <br> kms:CreateAlias <br> kms:ListResourceTags |
+    | Conditions | None |
+    | Resources | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey |
+    | Effect | Allow |
+    
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerEncryptionKeyUsage** |
+    | Actions | kms:GenerateDataKeyWithoutPlaintext <br> kms:DescribeKey <br> kms:RetireGrant <br> kms:CreateGrant <br> kms:ReEncryptFrom |
+    | Conditions | None |
+    | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
+    | Effect | Allow |
+
 
 ### Which data is collected from snapshots?
 
@@ -102,9 +142,6 @@ Agentless scanning protects disk snapshots according to Microsoft’s highest se
 - Isolation of environments per customer account/subscription.
 - Only metadata containing scan results is sent outside the isolated scanning environment.
 - All operations are audited.
-
-### Does agentless scanning support encrypted disks?
-Agentless scanning doesn't currently support encrypted disks, except for Azure managed disks using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK).
 
 ## Next steps
 

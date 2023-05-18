@@ -87,7 +87,7 @@ To find the group SID, use the following command, with your group name
 
 `Get-ADGroup "GroupName"`
 
-![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
+![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
 
 #### Setting the claims rules to call Azure AD MFA
 
@@ -166,7 +166,7 @@ For step-by-step directions on this process, see [Configure the AD FS servers](/
 
 Once you've configured the servers, you can add Azure AD MFA as an additional authentication method. 
 
-![Screen shot showing the Edit authentication methods screen with Azure AD MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/edit-authentication-methods.png)
+![Screen shot showing the Edit authentication methods screen with Azure AD MFA and Azure Multi-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
 
 ## Prepare Azure AD and implement migration
 

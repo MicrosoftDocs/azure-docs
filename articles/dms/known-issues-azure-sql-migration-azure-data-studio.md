@@ -222,7 +222,7 @@ WHERE STEP in (3,4,6);
 
 - **Cause**: The network share where the database backups are stored is in the same machine as the self-hosted Integration Runtime (SHIR).
 
-- **Recommendation**: The latest version of Integration Runtime (**5.28.8488**) prevents access to a network file share on a local host. Please ensure you run Integration Runtime on a different machine than the network share hosting. If hosting the self-hosted Integration Runtime and the network share on different machines is not possible with your current migration setup, you can use the option to opt-out using ```DisableLocalFolderPathValidation```. 
+- **Recommendation**: The latest version of Integration Runtime (**5.28.8488**) prevents access to a network file share on a local host. Ensure you run Integration Runtime on a different machine than the network share hosting. If hosting the self-hosted Integration Runtime and the network share on different machines isn't possible with your current migration setup, you can use the option to opt out using ```DisableLocalFolderPathValidation```. 
     > [!NOTE]
     > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
 
@@ -270,7 +270,7 @@ WHERE STEP in (3,4,6);
 
 ## Error code: Ext_RestoreSettingsError
 
-- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.;The remote server returned an error: (403) Forbidden
+- **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.; The remote server returned an error: (403) Forbidden
 
 - **Cause**: The Azure SQL target is unable to connect to blob storage.
 
@@ -314,6 +314,14 @@ Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azu
 Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
 [!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
+
+## Azure Data Studio Limitations
+
+### Failed to start Sql Migration Service: Error: Request error: 
+
+- **Message**: `Error at ClientRequest.<anonymous> (c:\Users\MyUser\.azuredatastudio\extensions\microsoft.sql-migration-1.4.2\dist\main.js:2:7448) at ClientRequest.emit (node:events:538:35) at TLSSocket.socketOnEnd (node:_http_client:466:9) at TLSSocket.emit (node:events:538:35) at endReadableNT (node:internal/streams/readable:1345:12) at process.processTicksAndRejections (node:internal/process/task_queues:83:21)`
+- **Cause**: This issue occurs when Azure Data Studio isn't able to download the MigrationService package from https://github.com/microsoft/sqltoolsservice/releases. The download failure can be due to disconnected network work or unresolved proxy settings. 
+- **Recommendation**: The sure fire way of solving this issue is by downloading the package manually. Follow the mitigation steps outlined in this link: https://github.com/microsoft/azuredatastudio/issues/22558#issuecomment-1496307891
 
 ## Next steps
 

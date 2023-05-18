@@ -28,13 +28,12 @@ The abort operation supports the following scenarios:
 
 You can use the [az aks nodepool](/cli/azure/aks/nodepool) command with the `operation-abort` argument to abort an operation on a node pool or a managed cluster.
 
-The following example terminates an operation on a node pool on a specified cluster by its name and resource group that holds the cluster.
-
+The following example terminates an operation on a node pool on a specified cluster.
 ```azurecli-interactive
 az aks nodepool operation-abort --resource-group myResourceGroup --cluster-name myAKSCluster --name myNodePool 
 ```
 
-The following example terminates an operation against a specified managed cluster its name and resource group that holds the cluster.
+The following example terminates an operation on a specified cluster.
 
 ```azurecli-interactive
 az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
@@ -52,7 +51,7 @@ The following example terminates a process for a specified agent pool.
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/agentPools/{agentPoolName}/abort
 ```
 
-The following example terminates a process for a specified managed cluster.
+The following example terminates a process for a specified cluster.
 
 ```rest
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/abort

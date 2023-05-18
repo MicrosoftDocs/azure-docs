@@ -5,17 +5,20 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/27/2023
+ ms.date: 04/14/2023
  ms.author: rogarana
  ms.custom: include file
 ---
 
 ### General limitations
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSD v2 managed disks, premium SSD managed disks, and standard SSDs can enable shared disks. Shared disks can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed. A shared disk can't be expanded without either deallocating the VMs or detaching the disk.
+Shared disks have general limitations that apply to all shared disks, regardless of disk type. As well as additional limitations that only apply to specific types of shared disks. The following list is the list of general limitations:
 
-> [!IMPORTANT]
-> Host caching isn't supported for shared disks.
+- Currently, only Ultra Disks, Premium SSD v2, Premium SSD, and Standard SSDs can be used as a shared disk
+- Shared disks can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed
+- A shared disk can't be expanded without either deallocating all VMs the disk is attached to, or detaching the disk from all of these VMs
+- Write accelerator isn't supported for shared disks
+- Host caching isn't supported for shared disks
 
 Each managed disk that has shared disks enabled are also subject to the following limitations, organized by disk type:
 

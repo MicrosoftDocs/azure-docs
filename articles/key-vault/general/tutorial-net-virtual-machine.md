@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
   * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+  * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create resources and assign permissions
 

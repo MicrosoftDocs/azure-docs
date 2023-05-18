@@ -226,7 +226,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 * Count of routes learned from peers
 * Frequency of routes changed
 * Number of VMs in the virtual network
-* Count of active flows
+* Active flows
 * Max flows created per second
 
 It's highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
@@ -298,7 +298,7 @@ Aggregation type: *Avg*
 Split by: Gateway Instance
 
 
-This metric displays a count of the total number of active flows on the ExpressRoute Gateway. Through split at instance level, you can see active flow count per gateway instance. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
+This metric displays a count of the total number of active flows on the ExpressRoute Gateway. Only inbound traffic from on-premises is captured for active flows. Through split at instance level, you can see active flow count per gateway instance. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/active-flows.png" alt-text="Screenshot of number of active flows per second metrics dashboard.":::
 
