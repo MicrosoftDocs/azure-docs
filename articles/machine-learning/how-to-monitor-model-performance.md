@@ -62,6 +62,10 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
+> [!IMPORTANT]
+>
+> Model monitoring jobs are scheduled to run on serverless Spark compute pool with `Standard_E4s_v3` VM instance type support only. More VM instance type support will come in the future roadmap.
+
 ## Set up out-of-box model monitoring
 
 If you deploy your model to production in an Azure Machine Learning online endpoint, Azure Machine Learning collects production inference data automatically and uses it for continuous monitoring.
@@ -104,7 +108,7 @@ trigger:
 
 create_monitor:
   compute: # specify a spark compute for monitoring job
-    instance_type: standard_e8s_v3
+    instance_type: standard_e4s_v3
     runtime_version: 3.2
   monitoring_target:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
@@ -216,7 +220,7 @@ trigger:
 
 create_monitor:
   compute: 
-    instance_type: standard_e8s_v3
+    instance_type: standard_e4s_v3
     runtime_version: 3.2
   monitoring_target:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
@@ -533,7 +537,7 @@ trigger:
 
 create_monitor:
   compute: 
-    instance_type: standard_e8s_v3
+    instance_type: standard_e4s_v3
     runtime_version: 3.2
   monitoring_target:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
