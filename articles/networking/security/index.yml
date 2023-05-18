@@ -30,6 +30,9 @@ highlightedContent:
     - title: Azure Networking security blog
       itemType: concept
       url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/bg-p/AzureNetworkSecurityBlog
+    - title: How to use Azure Bastion to connect securely to your Azure VMs
+      itemType: video
+      url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
 
 
 # additionalContent section (optional)
@@ -48,7 +51,7 @@ additionalContent:
               url: ../../firewall-manager/overview.md
             - text: What is Web Application Firewall?
               url: ../../web-application-firewall/overview.md
-        - title: Concept
+        - title: Concepts
           links:
             - text: Azure Firewall Standard features
               url: ../../firewall/features.md
@@ -59,91 +62,72 @@ additionalContent:
         - title: Learn
           links:
             - text: Introduction to Azure Firewall
-              url: /learn/modules/introduction-azure-firewall/
+              url: /training/modules/introduction-azure-firewall/
             - text: Introduction to Azure Firewall Manager
-              url: /learn/modules/intro-to-azure-firewall-manager/
+              url: /training/modules/intro-to-azure-firewall-manager/
             - text: Introduction to Azure Web Application Firewall
-              url: /learn/modules/introduction-azure-web-application-firewall/
+              url: /training/modules/introduction-azure-web-application-firewall/
 
     - title: Secure your virtual networks  # < 60 chars (optional)
       items:
         # Card
-        - title: Network load balancer
+        - title: Overview
           links:
-            - text: What is Azure Load Balancer?
-              url: ../load-balancer/load-balancer-overview.md
-            - text: Load balance internet traffic to VMs
-              url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
-            - text: See more
-              url: ../load-balancer/index.yml
+            - text: Network security groups 
+              url: ../../virtual-network/network-security-groups-overview.md
+            - text: Virtual Network service endpoints
+              url: ../../virtual-network/virtual-network-service-endpoints-overview.md
+        - title: Concepts
+          links:
+            - text: How network security groups filter network traffic
+              url: ../../virtual-network/network-security-group-how-it-works.md
+            - text: Virtual Network service endpoints
+              url: ../../virtual-network/virtual-network-service-endpoints-overview.md
+        - title: Learn
+          links:
+            - text: Configure network security groups
+              url: /training/modules/configure-network-security-groups/
+            - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
+              url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
     - title: Protect your apps  # < 60 chars (optional)
       items:
         # Card
-        - title: Network firewall
-          links:
-            - text: What is Azure Firewall?
-              url: ../firewall/overview.md
-            - text: Deploy and configure Azure Firewall
-              url: ../firewall/tutorial-firewall-deploy-portal.md
-            - text: See more
-              url: ../firewall/index.yml
-        # Card
-        - title: DDoS protection
+        - title: Overview
           links:
             - text: What is Azure DDoS Protection?
-              url: ../ddos-protection/ddos-protection-overview.md
-            - text: Create DDoS Network Protection
-              url: ../ddos-protection/manage-ddos-protection.md
-            - text: Create DDoS IP Protection
-              url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
-            - text: See more
-              url: ../ddos-protection/index.yml
-        # Card
-        - title: Web application firewall
-          links:
-            - text: What is Azure web application firewall?
-              url: ../web-application-firewall/overview.md
-            - text: WAF on Azure Application Gateway
-              url: ../web-application-firewall/ag/ag-overview.md
-            - text: WAF on Azure Front Door Service
-              url: ../web-application-firewall/afds/afds-overview.md  
-            - text: See more
-              url: ../web-application-firewall/index.yml
-        # Card
-        - title: Private access to a service
-          links:
+              url: ../../ddos-protection/ddos-protection-overview.md
             - text: What is Azure Private Link?
-              url: ../private-link/private-link-overview.md
-            - text: What is Azure private endpoint?
-              url: ../private-link/private-endpoint-overview.md
-            - text: See more
-              url: ../private-link/index.yml
-        # Card
-        - title: Secure access to Azure VMs
+              url: ../../private-link/private-link-overview.md
+            - text: What is a Private Endpoint?
+              url: ../../private-link/private-endpoint-overview.md
+            - text: What is Private Link service?
+              url: ../../private-link/private-link-service-overview.md
+        - title: Concepts
           links:
-            - text: What is Azure Bastion?
-              url: ../bastion/bastion-overview.md
-            - text:  Create an Azure Bastion host
-              url: ../bastion/tutorial-create-host-portal.md
-            - text: See more
-              url: ../bastion/index.yml
-        # Card
-        - title: Network security management
+            - text: Types of DDoS attacks
+              url: ../../ddos-protection/types-of-attacks.md
+            - text: Azure Private Link availability
+              url: ../../private-link/availability.md
+        - title: Learn
           links:
-            - text: What is Azure Firewall Manager?
-              url: ../firewall-manager/overview.md
-            - text: Secure your virtual WAN using Azure Firewall Manager
-              url: ../firewall-manager/secure-cloud-network.md
-            - text: See more
-              url: ../firewall-manager/index.yml
+            - text: Introduction to Azure DDoS Protection
+              url: /training/modules/introduction-azure-ddos-protection/
+            - text: Introduction to Azure Private Link
+              url: /training/modules/introduction-azure-private-link/
     - title: Secure your virtual machines # < 60 chars (optional)
       items:
         # Card
-        - title: Monitor and repair network health
+        - title: Overview
           links:
-            - text: What is Network Watcher?
-              url: ../network-watcher/network-watcher-monitoring-overview.md
-            - text: Diagnose VM traffic filter problem
-              url: ../network-watcher/diagnose-vm-network-traffic-filtering-problem.md
-            - text: See more
-              url: ../network-watcher/index.yml
+            - text: What is Azure Bastion?
+              url: ../../bastion/bastion-overview.md
+        - title: Concepts
+          links:
+            - text: VNet peering and Azure Bastion
+              url: ../../bastion/vnet-peering.md
+        - title: Learn
+          links:
+            - text: Introduction to Azure Bastion
+              url: /training/modules/intro-to-azure-bastion/
+            - text: Connect to a VM using Azure Bastion
+              url: /training/modules/connect-vm-with-azure-bastion/
