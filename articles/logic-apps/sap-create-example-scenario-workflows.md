@@ -318,7 +318,7 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    The **Send message to SAP** action is generic and can send a message that has BAPI, IDoc, RFC, or tRFC type. Select the message type and the SAP action to use for sending the message.
 
-   1. In the **SAP Action** edit box, select the folder icon. From the message type list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**.
+   1. In the **SAP Action** edit box, select the folder icon. From the message type list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different message type, the available SAP actions reflect your selection.
 
       > [!NOTE]
       >
@@ -366,12 +366,7 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
 1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   > [!NOTE]
-   >
-   > This SAP action specifically sends messages by selecting an SAP action type, such as IDoc, RFC, tRFC, or BAPI action. 
-   > This example continues by selecting an IDoc action.
-
-   The **Send message to SAP** action is generic and can send a message that has BAPI, IDoc, RFC, or tRFC type. Select the message type and the SAP action to use for sending the message.
+   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions to send a message with a specific type. During preview, you can still use the generic **Send message to SAP** to send messages other than IDoc.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
