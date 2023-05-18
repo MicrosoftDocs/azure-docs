@@ -154,8 +154,8 @@ The resource types most relevant to content you add to the map are listed in the
 | Image | A request for an image for use with either a SymbolLayer or ImageLayer. |
 | Source | A request for source information, such as a TileJSON request. Some requests from the base map styles will also use this resource type when loading source information. |
 | Tile | A request from a tile layer (raster or vector). |
-| WFS | A request from a `WfsClient` in the [Spatial IO module](https://learn.microsoft.com/azure/azure-maps/spatial-io-connect-wfs-service) to an OGC Web Feature Service. |
-| WebMapService | A request from the `OgcMapLayer` in the [Spatial IO module](https://learn.microsoft.com/azure/azure-maps/spatial-io-add-ogc-map-layer) to a WMS or WMTS service. |
+| WFS | A request from a `WfsClient` in the [Spatial IO module](spatial-io-connect-wfs-service.md) to an OGC Web Feature Service. |
+| WebMapService | A request from the `OgcMapLayer` in the [Spatial IO module](spatial-io-add-ogc-map-layer.md) to a WMS or WMTS service. |
 
 Here are some resource types that are passed through the request transform that are related to the base map styles: StyleDefinitions, Style, SpriteImage, SpriteJSON, Glyphs, Attribution. You will normally want to ignore these and simply return the `url` value.
 
