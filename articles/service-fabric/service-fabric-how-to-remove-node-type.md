@@ -186,7 +186,11 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     
 10. Remove resources relating to the node type that are no longer in use. Example Load Balancer, and Public IP. 
 
-    - To remove these resources you can use the same PowerShell command as used in step 6 specifying the specific resource type and API version. 
+    - To remove these resources you can use the same PowerShell command as used in step 6 specifying the specific resource type and API version.
+    - For silver and gold durability any repair task left in the cluster, which is targeting any of the nodes which were present in the nodetype which was removed, should be completed with the command:
+    ```powershell
+       Complete-ServiceFabricRepairTask -TaskId <repair task name>
+    ```
 
 > [!Note]
 > This step is optional if same Load Balancer, and IP is reused between node types.
