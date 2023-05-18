@@ -5,7 +5,7 @@ description: Learn how to connect to a VM from a Windows computer by using Basti
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 05/18/2023
 ms.author: cherylmc
 ---
 
