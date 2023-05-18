@@ -196,7 +196,7 @@ export COSMOS_KEY="<cosmos-account-PRIMARY-KEY>"
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables as parameters.
 
 ```javascript
-
+const client = new CosmosClient({ endpoint, key });
 ```
 
 ### Connect with a connection string
@@ -296,16 +296,8 @@ export COSMOS_CONNECTION_STRING="<cosmos-account-PRIMARY-CONNECTION-STRING>"
 Create a new instance of the **CosmosClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the only parameter.
 
 ```javascript
-// Get Cosmos Client
-import { CosmosClient } from "@azure/cosmos";
-
-// Provide required connection from environment variables
-const key = process.env.COSMOS_KEY;
-// Endpoint format: https://YOUR-RESOURCE-NAME.documents.azure.com:443/
-const endpoint = process.env.COSMOS_ENDPOINT;
-
-// Authenticate to Azure Cosmos DB
-const cosmosClient = new CosmosClient({ endpoint, key });
+// New instance of CosmosClient class using a connection string
+const cosmosClient = new CosmosClient(process.env.COSMOS_CONNECTION_STRING);
 ```
 
 ### Connect using the Microsoft Identity Platform
@@ -335,16 +327,18 @@ The **@azure/identity** npm package contains core authentication functionality t
     ```
 #### Create CosmosClient with default credential implementation
 
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/javascript/api/@azure/identity/defaultazurecredential) instance.
+If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/javascript/api/@azure/identity/defaultazurecredential) instance. Then create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
 ```javascript
+const { CosmosClient } = require("@azure/cosmos");
+const { DefaultAzureCredential } = require("@azure/identity");
 
-```
+const credential = new DefaultAzureCredential();
 
-Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
-
-```javascript
-
+const cosmosClient = new CosmosClient({ 
+    endpoint, 
+    aadCredentials: credential
+});
 ```
 
 #### Create CosmosClient with a custom credential implementation
@@ -353,15 +347,24 @@ If you plan to deploy the application out of Azure, you can obtain an OAuth toke
 
 For this example, we create a [``ClientSecretCredential``](/javascript/api/@azure/identity/tokencredential) instance by using client and tenant identifiers, along with a client secret.
 
-```javascript
-```
-
 You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
 ```javascript
+const { CosmosClient } = require("@azure/cosmos");
+const { DefaultAzureCredential } = require("@azure/identity");
 
+const credential = new ClientSecretCredential(
+    tenantId: process.env.AAD_TENANT_ID,
+    clientId: process.env.AAD_CLIENT_ID,
+    clientSecret: process.env.AAD_CLIENT_SECRET
+);
+
+const cosmosClient = new CosmosClient({ 
+    endpoint, 
+    aadCredentials: credential
+});
 ```
 
 ## Build your application
