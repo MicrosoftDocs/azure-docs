@@ -28,7 +28,7 @@ Updates in May include:
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
 - [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
-- Defender for DevOps GitHub Application update
+- [Defender for DevOps GitHub Application update](#defender-for-devops-github-application-update)
 
 ### New alert in Defender for Key Vault
 
@@ -147,7 +147,7 @@ Vulnerability assessment (VA) solutions are essential to safeguard machines from
 
 Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a built-in solution in the Defender for Servers plan that doesn't have a VA solution selected.
 
-If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
+If a subscription has a VA solution enabled on any of its VMs, no changes are made and MDVM won't be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
 
 Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
 
@@ -161,11 +161,11 @@ Permissions can be granted in two different ways:
 
 - In your organization, select **GitHub Apps**. Locate Your organization, and select **Review request**.
 
-- You will get an automated email from GitHub Support. In the email select **Review permission request to accept or reject this change**. 
+- You'll get an automated email from GitHub Support. In the email, select **Review permission request to accept or reject this change**. 
 
-After you have followed either of these options, you will be navigated to the review screen where you should review the request. Select **Accept new permissions** to approve the request.
+After you have followed either of these options, you'll be navigated to the review screen where you should review the request. Select **Accept new permissions** to approve the request.
 
-If you require any assistance updating permissions, please [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+If you require any assistance updating permissions, you can [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## April 2023
 Updates in April include:
