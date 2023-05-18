@@ -1,5 +1,5 @@
 ---
-title: Use a private link for data ingestion
+title: Use a private link for Managed Prometheus data ingestion
 description: Overview of private link for secure data ingestion to Azure Monitor workspace from virtual networks.
 author: EdB-MSFT
 ms.author: edbaynash 

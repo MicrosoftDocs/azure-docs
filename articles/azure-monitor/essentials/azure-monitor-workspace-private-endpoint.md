@@ -35,6 +35,7 @@ When you create a private endpoint for a workspace in your VNet, a consent reque
 
 Azure Monitor workspace owners can manage consent requests and the private endpoints through the '*Private Access*' tab on the Networking page for the workspace in the [Azure portal](https://portal.azure.com).
 
+
 > [!TIP]
 > If you want to restrict access to your workspace through the private endpoint only, select 'Disable public access and use private access' on the '*Public Access*' tab on the Networking page for the workspace in the [Azure portal](https://portal.azure.com).
 
@@ -121,6 +122,5 @@ This constraint is a result of the DNS changes made when workspace A2 creates a 
 
 ## Next steps
 
-- [Configure Public Access settings](./azure-monitor-workspace-network-public-access.md)
-- [Managed Grafana network settings](../TBD/doc_that_covers_private_link_for_query.md)
+- [Managed Grafana network settings]( https://aka.ms/ags/mpe)
 - [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
