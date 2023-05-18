@@ -89,7 +89,7 @@ The following samples show public client desktop applications that access the Mi
 > | Python | [Sign in users](https://github.com/Azure-Samples/ms-identity-python-desktop) | MSAL Python | Resource owner password credentials |
 > | Universal Window Platform (UWP) | [Call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) | MSAL.NET | Web account manager |
 > | Windows Presentation Foundation (WPF) | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | Authorization code with PKCE |
-> | XAML | &#8226; [Sign in users and call ASP.NET core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | MSAL.NET | Authorization code with PKCE |
+> | XAML | &#8226; [Sign in users and call ASP.NET Core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | MSAL.NET | Authorization code with PKCE |
 
 ### Mobile
 
@@ -136,7 +136,7 @@ The following sample shows a public client application running on a device witho
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
-> | .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | Device code|
+> | .NET Core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | Device code|
 > | Java | [Sign in users and invoke protected API from text-only device](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/2.%20Client-Side%20Scenarios/Device-Code-Flow) | MSAL Java | Device code |
 > | Python | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) | MSAL Python | Device code |
 
@@ -162,17 +162,64 @@ The following samples show how to configure your application to accept sign-ins 
 
 # [**By language/platform**](#tab/language)
 
-### .NET
+### CSharp
+
+<!---->
+
+#### .NET
+
+> [!div class="mx-tdCol2BreakAll"]
+> | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | Desktop | [Invoke protected API with integrated Windows authentication](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) | MSAL.NET | Integrated Windows authentication |
+> | Headless | [.NET Azure function web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET | Authorization code |
+
+#### ASP.NET
+
+#### ASP.NET Core
+
+#### Blazor WebAssembly
+
+#### Xamarin
+
+<!---->
+
+### iOS
+
+<!---->
 
 ### JavaScript
 
-### Angular
+#### Angular
 
-### React
+> [!div class="mx-tdCol2BreakAll"]
+> | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | Single-page application | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/1-Authentication/1-sign-in/README.md)<br/>&#8226; [Sign in users (B2C)](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/1-Authentication/2-sign-in-b2c/README.md) <br/> &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph/README.md)<br/>&#8226; [Call .NET Core web API](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/1-call-api)<br/>&#8226; [Call .NET Core web API (B2C)](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)<br/>&#8226; [Call Microsoft Graph via OBO](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/6-AdvancedScenarios/1-call-api-obo/README.md)<br/>&#8226; [Use App Roles for access control](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl/1-call-api-roles/README.md)<br/> &#8226; [Use Security Groups for access control](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl/2-call-api-groups/README.md)<br/>&#8226; [Deploy to Azure Storage and App Service](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/4-Deployment/README.md)| MSAL Angular | &#8226; Authorization code with PKCE<br/>&#8226; On-behalf-of (OBO) <br/>&#8226; Continuous Access Evaluation (CAE) |
+> | Multi-tenant SaaS | [Angular single-page application calls ASP.NET Core web API](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/6-AdvancedScenarios/2-call-api-mt) | MSAL Angular | Authorization code |
 
-### Blazor WebAssembly
+
+#### Node.js 
+
+#### Node.js (Express)
+
+#### React
+
+<!---->
 
 ### Python
+
+#### Flask
+
+#### Django
+
+<!---->
+
+### Kotlin
+
+### Ruby
+
+### XA
 
 # [**By library**](#tab/library)
 
