@@ -171,7 +171,7 @@ You can ask custom questions and collect users feedback. Below you'll find steps
 -  Submit survey results to ACS and send user response using App Insights:
 	``` javascript
 	currentCall.feature(SDK.Features.CallSurvey).submitSurvey(survey).then(res => {
-	// improvementSuggesstion is our custome question here
+	// `improvementSuggesstion` contains custom, user response
         if (improvementSuggestion !== '') {
         	appInsights.trackEvent({
                     name: "CallSurvey", properties: {
