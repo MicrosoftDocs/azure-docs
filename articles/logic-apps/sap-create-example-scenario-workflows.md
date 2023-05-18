@@ -213,7 +213,7 @@ The following example workflow shows how to extract individual IDocs from a pack
    | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
    | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
 
-1. Get the root namespace from the XML IDoc that your workflow receives from SAP by following these steps:
+1. Get the root namespace from the XML IDoc that your workflow receives from SAP.
 
    1. To extract this namespace from the XML document and store the namespace in a local string variable, add the **Initialize variable** action.
 
@@ -360,33 +360,38 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
 
-1. Now find and select an action from your SAP server.
+1. In the **Send message to SAP** action, find and select an action from your SAP server.
 
-   1. In the **SAP Action** box, select the folder icon. From the file list, find and select the SAP Message you want to use. To navigate the list, use the arrows.
+   1. From the **SAP Action** edit box, select the folder icon. From the file list that opens, select the SAP message that you want to use. To navigate the list, use the arrows.
 
-      This example selects an IDoc with the **Orders** type.
+      This example selects an IDoc action with the **Orders** type.
 
-      ![Screenshot that shows finding and selecting an IDoc action.](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+      ![Screenshot shows selecting an IDoc action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-idoc-action-consumption.png)
 
       If you can't find the action you want, you can manually enter a path, for example:
 
-      ![Screenshot that shows manually providing a path to an IDoc action.](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+      ![Screenshot shows manually entering a path to an IDoc action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
 
       > [!TIP]
-      > Provide the value for **SAP Action** through the expression editor. 
+      > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
       > That way, you can use the same action for different message types.
 
       For more information about IDoc operations, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-   1. Click inside the **Input Message** box so that the dynamic content list appears. From that list, under **When a HTTP request is received**, select the **Body** field.
+   1. In the **Send message to SAP** action, include the body output from the Request trigger.
 
-      This step includes the body content from your Request trigger and sends that output to your SAP server.
+      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list. The **Body** field contains the body output from the Request trigger.
 
-      ![Screenshot that shows selecting the "Body" property in the Request trigger.](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**.
 
-      When you're finished, your SAP action looks like this example:
+         > [!NOTE]
+         > If this field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot that shows completing the SAP action.](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+      ![Screenshot shows selecting the Request trigger's output named Body for Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-consumption.png)
+
+      The **Send message to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
+
+      ![Screenshot shows completed SAP action for Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
