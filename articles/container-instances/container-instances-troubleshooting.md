@@ -228,6 +228,20 @@ If you want to confirm that Azure Container Instances can listen on the port you
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
 
+## Issues during confidential container group deployments 
+
+### Policy errors while using custom CCE policy 
+
+Custom CCE policies must be generated the [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md). Before generating the policy, ensure that all properties specified in your ARM template are valid and match what you expect to be represented in a confidential computing policy. Some properties to validate include the container image, environment variables, volume mounts, and container commands. 
+
+### Missing hash from policy 
+
+The Azure CLI concom extension will used cached images on your local machine which may not match those that are available remotely which can result in layer mismatch when the policy is validate. Please ensure that you remove any old images and pull the latest container images to your local environment.  Once you are sure that you have the latest SHA, you should regenerate the CCE policy. 
+
+### Process/container terminated with exit code:139
+
+This exit code occures due to limitations with the Ubuntu Version 22.04 base image. The recommendation is to use a different base image to resolve this issue. 
+
 ## Next steps
 
 Learn how to [retrieve container logs and events](container-instances-get-logs.md) to help debug your containers.
