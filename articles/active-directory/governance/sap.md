@@ -38,9 +38,13 @@ Customers who use SAP SuccessFactors can easily bring identities into [Azure Act
 
 ### SAP HCM
 
-Customers who still use SAP Human Capital Management (HCM) can also bring identities into Azure AD. By using SAP Integration Suite, you can synchronize identities between SAP HCM and SAP SuccessFactors. From there, you can bring identities directly into Azure AD or provision them into Active Directory Domain Services by using the native provisioning integrations mentioned earlier.
+Customers who still use SAP Human Capital Management (HCM) can also bring identities into Azure AD. By using SAP Integration Suite, you can synchronize lists of workers between SAP HCM and SAP SuccessFactors. From there, you can bring identities directly into Azure AD or provision them into Active Directory Domain Services by using the native provisioning integrations mentioned earlier.
 
 ![Diagram of SAP HR integrations.](./media/sap/sap-hr.png)
+
+## Enable SSO
+
+After you set up provisioning for your SAP applications, you can enable SSO for those applications. Azure AD can serve as the identity provider and serve as the authentication authority for your SAP applications. [Learn how to configure Azure AD as the corporate identity provider for your SAP applications](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html).
 
 ## Provision identities into modern SAP applications
 
@@ -56,10 +60,6 @@ Customers who have yet to transition from applications such as  SAP ERP Central 
 
 * Use the lightweight Azure AD provisioning agent and [web services connector](/azure/active-directory/app-provisioning/on-premises-web-services-connector) to provision users into apps such as SAP ECC.
 * In scenarios where you need to do more complex group and role management, use [Microsoft Identity Manager](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) to manage access to your legacy SAP applications.
-
-## Enable SSO
-
-After you set up provisioning for your SAP applications, you can enable SSO for those applications. Azure AD can serve as the identity provider and serve as the authentication authority for your SAP applications. [Learn how to configure Azure AD as the corporate identity provider for your SAP applications](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html).
 
 ## Trigger custom workflows
 
