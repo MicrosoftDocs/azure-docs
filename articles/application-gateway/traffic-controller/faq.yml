@@ -7,7 +7,7 @@ metadata:
   ms.service: application-gateway
   ms.subservice: traffic-controller
   ms.topic: article
-  ms.date: 05/17/2023
+  ms.date: 05/18/2023
   ms.author: greglin
     
 title: Frequently asked questions about Traffic Controller
@@ -32,7 +32,7 @@ sections:
       - question: Can I configure TLS protocol versions?
         answer: No. Traffic Controller supports TLS 1.2. SSL 2.0, 3.0, TLS 1.0, and TLS 1.1 are disabled and non-configurable.
         
-   - name: Configuration - ALB Controller
+  - name: Configuration - ALB Controller
     questions:
       - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
         answer: It is possible to install multiple ALB Controllers on the same cluster, however this is not recommended or supported as it is not possible to partition gateways, routes, services, etc.
