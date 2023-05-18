@@ -20,11 +20,13 @@ The following table lists the current versions available for the public and beta
 
 In this release we've made some tweaks around the behavior of the connection bar on iPads and fixed some bugs to keep things running smoothly.
 
-- We've made the following changes to the iPad connection bar:
+We've made the following changes to the iPad connection bar:
 
-  - We fixed an issue that caused the connection bar to get stuck under the Stage Manager ellipsis menu.
-  - The connection bar will now be docked on the right side of the screen when you turn your iPad on. The iOS client will also save the position you dock your screen in across all your iPad and iPhone devices.
-  - We moved the Add a PC or Workspace button to the center of the toolbar at the bottom of the screen.
+- We fixed an issue that caused the connection bar to get stuck under the Stage Manager ellipsis menu.
+- The connection bar will now be docked on the right side of the screen when you turn your iPad on. The iOS client will also save the position you dock your screen in across all your iPad and iPhone devices.
+- We moved the Add a PC or Workspace button to the center of the toolbar at the bottom of the screen.
+
+We've also made the following other changes:
 
 - Fixed an issue where session rotation wasn't working on iOS 16.
 - Resolved an issue where the search box in the Connection Center went out of focus when the user tried entering characters.
