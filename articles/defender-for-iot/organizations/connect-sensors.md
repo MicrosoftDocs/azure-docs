@@ -35,7 +35,7 @@ This section describes how to configure settings for an existing proxy on your O
 
 - [Set up an Azure proxy](#set-up-an-azure-proxy)
 - [Connect via proxy chaining](#connect-via-proxy-chaining)
-- [Set up connectivity for multi-cloud environments](#set-up-connectivity-for-multicloud-environments)
+- [Set up connectivity for multicloud environments](#set-up-connectivity-for-multicloud-environments)
 
 **To define proxy settings on your OT sensor:**
 
@@ -69,7 +69,7 @@ You might use an Azure proxy to connect your sensor to Defender for IoT in the f
 
 If you already have a proxy configured, continue directly with  [defining the proxy settings on your sensor console](#configure-proxy-settings-on-an-ot-sensor).
 
-If you don't yet haev a proxy configured, use the procedures in this section to set one up in your Azure VNET.
+If you don't yet have a proxy configured, use the procedures in this section to set one up in your Azure VNET.
 
 ### Prerequisites
 
@@ -379,7 +379,7 @@ This section describes how to connect your sensor to Defender for IoT in Azure f
 
 Before you start, make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor [SPAN traffic](traffic-mirroring/configure-mirror-span.md).
 
-### Select a multi-cloud connectivity method
+### Select a multicloud connectivity method
 
 Use the following flow chart to determine which connectivity method to use:
 
