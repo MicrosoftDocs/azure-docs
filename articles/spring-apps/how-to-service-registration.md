@@ -22,11 +22,7 @@ This article shows you how to register your application using Spring Cloud Servi
 Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Apps provides two options for you to solve this problem:
 
 > [!NOTE]
-> To use service registry in the Standard consumption plan, you must enable it first.
-
-<!--
-For more information, see [Enable and disable Eureka Server in Azure Spring Apps](quickstart-standard-consumption-eureka-server.md).
--->
+> To use service registry in the Standard consumption plan, you must enable it first. For more information, see [Enable and disable Eureka Server in Azure Spring Apps](quickstart-standard-consumption-eureka-server.md).
 
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.
 
