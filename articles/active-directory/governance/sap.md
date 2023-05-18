@@ -55,7 +55,7 @@ After your users are in Azure AD, you can provision accounts into the various Sa
 Customers who have yet to transition from applications such as  SAP ERP Central Component (SAP ECC) to SAP S/4HANA can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ECC, you expose the necessary Business Application Programming Interfaces (BAPIs) for creating, updating, and deleting users. Within Azure AD, you have two options:
 
 * Use the lightweight Azure AD provisioning agent and web services connector to provision users into apps such as SAP ECC.
-* In scenarios where you need to do more complex group and role management, use [Microsoft Identity Manager](https://learn.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) to manage access to your legacy SAP applications.
+* In scenarios where you need to do more complex group and role management, use [Microsoft Identity Manager](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) to manage access to your legacy SAP applications.
 
 ## Customize SAP integrations
 
@@ -67,7 +67,7 @@ After you set up provisioning for your SAP applications, you can enable SSO for 
 
 ### Custom workflows
 
-When a new employee is hired in your organization, you might need to trigger a workflow within your SAP server. By using the [Microsoft Entra Identity Governance lifecycle workflows](lifecycle-workflow-extensibility.md) in conjunction with the [SAP connector in Azure Logic Apps](https://learn.microsoft.com/azure/logic-apps/logic-apps-using-sap-connector), you can trigger custom actions in SAP upon hiring a new employee.
+When a new employee is hired in your organization, you might need to trigger a workflow within your SAP server. By using the [Microsoft Entra Identity Governance lifecycle workflows](lifecycle-workflow-extensibility.md) in conjunction with the [SAP connector in Azure Logic Apps](/azure/logic-apps/logic-apps-using-sap-connector), you can trigger custom actions in SAP upon hiring a new employee.
 
 ### Separation of duties
 
