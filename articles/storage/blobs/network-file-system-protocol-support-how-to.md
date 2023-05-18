@@ -72,19 +72,17 @@ The following image shows the squash options as they appear in the Azure portal.
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows squash options in the Azure portal.](./media/network-file-system-protocol-how-to/squash-options-azure-portal.png)
 
-## Step 5: Mount the container
+## Step 5: Install the AZNFS Mount Helper package
 
-Create a directory on your Linux system, install the AZNFS Mount Helper package, and then mount the container in the storage account.
+The ASNFS Mount Helper package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which detects any change to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. To learn more, see [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
 
-1. On your Linux system, create a directory:
+1. Determine whether the AZNFS Mount Helper package is installed on your client.
 
    ```
-   mkdir -p /nfsdata
+   systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
    ```
 
-2. Install The AZNFS Mount Helper package. This package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which detects any change to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. 
-
-   To install the AZNFS Mount Helper program and `aznfswatchdog` service, run the following command:
+2. If the package is not yet installed, then use the following command to install it. 
 
    ```
    wget -O - -q https://github.com/Azure/AZNFS-mount/releases/latest/download/aznfs_install.sh | bash
@@ -96,17 +94,26 @@ Create a directory on your Linux system, install the AZNFS Mount Helper package,
    > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
-   > - SUSE (SLES 15)
+   > - SUSE (SLES 15)After this command runs, a message appears that indicates whether the package is installed.
 
+## Step 6: Mount the container
 
-3. Mount the container by using one of the following methods. In both methods, replace the `<storage-account-name>` placeholder with the name of your storage account, and replace `<container-name>` with the name of your container.
+Create a directory on your Linux system, install the AZNFS Mount Helper package, and then mount the container in the storage account.
+
+1. On your Linux system, create a directory:
+
+   ```
+   mkdir -p /nfsdata
+   ```
+
+2. Mount the container by using one of the following methods. In both methods, replace the `<storage-account-name>` placeholder with the name of your storage account, and replace `<container-name>` with the name of your container.
 
    - To have the share mounted automatically on reboot:
 
      1. Create an entry in the /etc/fstab file by adding the following line:
   
         ```
-        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    nfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,aznfs    0 0
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
         ```
 
      2. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
@@ -122,7 +129,7 @@ Create a directory on your Linux system, install the AZNFS Mount Helper package,
      ``` 
      
      > [!TIP]
-     > The `aznfs` parameter is optional but highly recommended. This parameter enables the AZNFS service for your container mount. 
+     > We highly recommend that you mount containers by using the `aznfs` option instead of the `nfs` option. By using the `aznfs` option, you ensure that the fully qualified domain name of your Azure Blob NFS share always resolves to the IP address of the storage endpoint even if that endpoint changes.
 
 ## Resolve common errors
 
