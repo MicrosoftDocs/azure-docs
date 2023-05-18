@@ -146,7 +146,13 @@ Yes, you can deploy your own VPN gateways or servers in Azure either from the Az
 
 ### <a name="gatewayports"></a>Why are certain ports opened on my virtual network gateway?
 
-They're required for Azure infrastructure communication. They're protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, won't be able to cause any effect on those endpoints.
+The list of listening ports is:
+```
+TCP: <<list,of,ports>>
+UDP: <<list,of,ports>>
+```
+
+Most ports are used for Azure infrastructure communication and are protected (locked down) using Azure certificates. Without proper certificates, external entities - including the customers of those gateways - won't be able to use the port.
 
 A virtual network gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
@@ -284,3 +290,4 @@ You can view additional virtual network information in the [Virtual Network FAQ]
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**
+<<list,of,ports>>
