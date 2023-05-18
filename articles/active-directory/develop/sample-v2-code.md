@@ -162,11 +162,11 @@ The following samples show how to configure your application to accept sign-ins 
 
 # [**By language/platform**](#tab/language)
 
-### CSharp
+### CSharp <!---->
 
 <!---->
 
-#### .NET
+#### .NET <!---->
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
@@ -174,23 +174,28 @@ The following samples show how to configure your application to accept sign-ins 
 > | Desktop | [Invoke protected API with integrated Windows authentication](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) | MSAL.NET | Integrated Windows authentication |
 > | Headless | [.NET Azure function web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET | Authorization code |
 
-#### ASP.NET
+#### ASP.NET <!---->
 
-#### ASP.NET Core
+#### ASP.NET Core <!---->
 
-#### Blazor WebAssembly
+#### Blazor WebAssembly <!---->
 
-#### Xamarin
+#### Xamarin <!---->
 
 <!---->
 
 ### iOS
 
+> [!div class="mx-tdCol2BreakAll"]
+> | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | Mobile | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | MSAL iOS | Authorization code with PKCE |
+
 <!---->
 
-### JavaScript
+### JavaScript <!---->
 
-#### Angular
+#### Angular <!---->
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
@@ -199,43 +204,50 @@ The following samples show how to configure your application to accept sign-ins 
 > | Multi-tenant SaaS | [Angular single-page application calls ASP.NET Core web API](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/6-AdvancedScenarios/2-call-api-mt) | MSAL Angular | Authorization code |
 
 
-#### Node.js 
+#### Node.js <!---->
 
-#### Node.js (Express)
+#### Node.js (Express) <!---->
 
-#### React
-
-<!---->
-
-### Python
-
-#### Flask
-
-#### Django
+#### React <!---->
 
 <!---->
 
-### Kotlin
+### Python <!---->
 
-### Ruby
+#### Flask <!---->
 
-### XA
+#### Django <!---->
+
+<!---->
+
+### Kotlin <!---->
+
+### Ruby <!---->
+
+### XAML <!---->
 
 # [**By library**](#tab/library)
 
-### MSAL.NET
+### MSAL.NET <!---->
 
-### MSAL Java
+### MSAL Java <!---->
 
-### MSAL Node
+### MSAL Node <!---->
 
-### MSAL Python
+### MSAL Python <!---->
 
-### MSAL MAUI
+### MSAL MAUI <!---->
 
-### MSAL iOS
+### MSAL iOS 
 
-### MSAL Android
+> [!div class="mx-tdCol2BreakAll"]
+> | Language/Platform | App type | Code sample(s) on GitHub | Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | iOS | Mobile | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | Authorization code with PKCE |
+
+
+### MSAL Android <!---->
+
 ---
 
 
