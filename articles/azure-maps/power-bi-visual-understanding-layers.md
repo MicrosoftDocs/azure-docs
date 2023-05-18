@@ -44,7 +44,7 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
 
         Shows data "hot spots" on a map.
         
-        ![3D column layer on map](media/power-bi-visual/heat-map-sm.png)
+        ![Heat map layer on map](media/power-bi-visual/heat-map-sm.png)
     :::column-end:::
 :::row-end:::
 
