@@ -45,7 +45,7 @@ Review this section to familiarize yourself with considerations for designing vi
 
 Connecting from your Azure virtual network to Azure PaaS services can be done directly over the Azure backbone and bypass the internet. When you bypass the internet to connect to other Azure PaaS services, you free up SNAT ports and reduce the risk of SNAT port exhaustion. [Private Link](../private-link/private-link-overview.md) should be used when possible to connect to Azure PaaS services in order to free up SNAT port inventory.
 
-Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of [available Azure services](../private-link/availability.md) that are supported by Private Link.
+Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of [available Azure services](../private-link/availability.md) that Private Link supports.
 
 ### Connect to the internet with NAT gateway
 
@@ -57,7 +57,7 @@ In the presence of other outbound configurations within a virtual network, such 
 
 NAT gateway, load balancer and instance-level public IPs are flow direction aware. NAT gateway can coexist in the same virtual network as a load balancer and instance-level public IPs to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through NAT gateway. 
 
-The following examples demonstrate co-existence of a load balancer or instance-level public IPs with a NAT gateway. Inbound traffic traverses the load balancer or public IP. Outbound traffic traverses the NAT gateway.
+The following examples demonstrate coexistence of a load balancer or instance-level public IPs with a NAT gateway. Inbound traffic traverses the load balancer or public IP. Outbound traffic traverses the NAT gateway.
 
 #### NAT and VM with an instance-level public IP
 
@@ -70,7 +70,7 @@ The following examples demonstrate co-existence of a load balancer or instance-l
 | Inbound | VM with instance-level public IP |
 | Outbound | NAT gateway |
 
-VM will use NAT gateway for outbound. Inbound originated isn't affected.
+VM uses NAT gateway for outbound. Inbound originated isn't affected.
 
 #### NAT and VM with a standard public load balancer
 
@@ -83,7 +83,7 @@ VM will use NAT gateway for outbound. Inbound originated isn't affected.
 | Inbound | Standard public load balancer |
 | Outbound | NAT gateway |
 
-Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Inbound originated isn't affected.
+NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules. Inbound originated isn't affected.
 
 #### NAT and VM with an instance-level public IP and a standard public load balancer
 
@@ -96,7 +96,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 | Inbound | VM with instance-level public IP and a standard public load balancer |
 | Outbound | NAT gateway |
 
-Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. The VM will also use NAT gateway for outbound. Inbound originated isn't affected.
+NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules. The VM uses NAT gateway for outbound. Inbound originated isn't affected.
 
 ### Monitor outbound network traffic with NSG flow logs
 
@@ -163,13 +163,13 @@ NAT gateway dynamically allocates SNAT ports across a subnet's private resources
 
 *Figure: NAT gateway on-demand outbound SNAT*
 
-Pre-allocation of SNAT ports to each virtual machine is required for other SNAT methods. This pre-allocation of SNAT ports can cause SNAT port exhaustion on some virtual machines while others still have available SNAT ports for connecting outbound. With NAT gateway, pre-allocation of SNAT ports isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
+Preallocation of SNAT ports to each virtual machine is required for other SNAT methods. This preallocation of SNAT ports can cause SNAT port exhaustion on some virtual machines while others still have available SNAT ports for connecting outbound. With NAT gateway, preallocation of SNAT ports isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
 
 :::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram of all available SNAT ports used by virtual machines on subnets configured with NAT and an exhaustion threshold.":::
 
 *Figure: Differences in exhaustion scenarios*
 
-After a SNAT port is released, it's available for use by any VM on subnets configured with NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. As long as SNAT ports are available, SNAT flows will succeed. 
+After a SNAT port is released, it's available for use by any VM on subnets configured with NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. As long as SNAT ports are available, SNAT flows succeed. 
 
 ### Source (SNAT) port reuse
 
@@ -181,9 +181,9 @@ NAT gateway selects a port at random out of the available inventory of ports to 
 
 NAT gateway translates flow 4 to a SNAT port that is already in use for other destinations (see flow 1 from previous table). 
 
-In a scenario where NAT gateway reuses a SNAT port to make new connections to the same destination endpoint, the SNAT port is first placed in a SNAT port reuse cool down phase. The SNAT port reuse cool down period helps ensure that SNAT ports are not reused too quickly when connecting to the same destination. This is beneficial in scenarios where the destination endpoint has a firewall with its own source port cool down timer in place. 
+In a scenario where NAT gateway reuses a SNAT port to make new connections to the same destination endpoint, the SNAT port is first placed in a SNAT port reuse cool down phase. The SNAT port reuse cool down period helps ensure that SNAT ports are not reused too quickly when connecting to the same destination. This SNAT port reuse cool down on NAT gateway is beneficial in scenarios where the destination endpoint has a firewall with its own source port cool down timer in place. 
 
-To demonstrate this SNAT port reuse cool down behavior, let's take a closer look at flow 4. Flow 4 was connecting to a destination endpoint fronted by a firewall with a 20 second source port cool down timer.
+To demonstrate this SNAT port reuse cool down behavior, let's take a closer look at flow 4. Flow 4 was connecting to a destination endpoint fronted by a firewall with a 20-second source port cool down timer.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple | Packet type connection is closed with | Destination firewall cool down timer for source port |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -211,7 +211,7 @@ The following table provides information about when a TCP port becomes available
 |---|---|---|
 | TCP FIN | After a connection closes by a TCP FIN packet, a 65-second timer is activated that holds down the SNAT port. The SNAT port is available for reuse after the timer ends. | 65 seconds |
 | TCP RST | After a connection closes by a TCP RST packet (reset), a 16-second timer is activated that holds down the SNAT port. When the timer ends, the port is available for reuse. | 16 seconds |
-| TCP half open | During connection establishment where one connection endpoint is waiting for acknowledgment from the other endpoint, a 30-second timer is activated. If no traffic is detected, the connection will close. Once the connection has closed, the source port is available for reuse to the same destination endpoint. | 30 seconds |
+| TCP half open | During connection establishment where one connection endpoint is waiting for acknowledgment from the other endpoint, a 30-second timer is activated. If no traffic is detected, the connection closes. Once the connection has closed, the source port is available for reuse to the same destination endpoint. | 30 seconds |
 
 For UDP traffic, after a connection closes, the port is in hold down for 65 seconds before it's available for reuse.
 
