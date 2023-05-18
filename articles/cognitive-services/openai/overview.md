@@ -57,7 +57,7 @@ With Azure OpenAI, customers get the security capabilities of Microsoft Azure wh
 
 ### Prompts & Completions
 
-The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text **completion**.
+The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-or-image-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text or an image **completion**.
 
 Here's an example of a simple prompt and completion:
 
