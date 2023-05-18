@@ -370,7 +370,7 @@ The resulting image version can be used to create either Azure Gen2 VMs or Trust
 These images can be shared with specific subscriptions or tenants through [Azure Compute Gallery - Direct Shared Gallery](../virtual-machines/azure-compute-gallery.md#shared-directly-to-a-tenant-or-subscription) and with all Azure users using [Azure Compute Gallery - Community Gallery](../virtual-machines/azure-compute-gallery.md#community-gallery)
 
 > [!NOTE]
-> The OS disk VHD, Managed Image or Gallery Image Version should be created from a [Gen2 image that is compatible with Trusted launch VMs](trusted-launch.md#limitations). 
+> The OS disk VHD, Managed Image or Gallery Image Version should be created from a [Gen2 image that is compatible with Trusted launch VMs](trusted-launch.md#virtual-machines-sizes).
 
 #### [Portal](#tab/portal3)
 
@@ -396,7 +396,7 @@ These images can be shared with specific subscriptions or tenants through [Azure
 1. After the configuration is successfully validated, select **Create** to finish creating the image.
 1. After the image version is created, select **Create VM**.
 12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#additional-information).
 14. Select **Trusted launch virtual machines** as the security type. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
 15. Fill in the **Administrator account** information and then **Inbound port rules**.
 1. On the validation page, review the details of the VM.
