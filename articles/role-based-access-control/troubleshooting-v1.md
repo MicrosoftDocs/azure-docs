@@ -37,9 +37,6 @@ $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($s
 $ras.Count
 ```
 
-> [!NOTE]
-> The **4000** role assignments limit per subscription is fixed and cannot be increased.
-
 **Solution 1 - Replace user role assignments with a group**
 
 To reduce the number of role assignments in the subscription, add users to groups and assign roles to the groups instead. Follow these steps to identify where multiple role assignments for users can be replaced with a single role assignment for a group.
