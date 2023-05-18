@@ -205,7 +205,7 @@ To receive the account change broadcast, you need to register a broadcast receiv
 The following code snippet shows how you could register a broadcast receiver.
 
 ```objectivec
-NSString *const MSAL_SHARED_MODE = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
+NSString *const MSAL_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
 
 - (void) registerDarwinNotificationListener 
 
@@ -219,7 +219,7 @@ NSString *const MSAL_SHARED_MODE = @"SHARED_MODE_CURRENT_ACCOUNT_CHANGED";
 
    sharedModeAccountChangedCallback,
 
-   (CFStringRef)MSAL_SHARED_MODE, 
+   (CFStringRef)MSAL_SHARED_MODE_CURRENT_ACCOUNT_CHANGED_NOTIFICATION_KEY, 
 
    nil, CFNotificationSuspensionBehaviorDeliverImmediately); 
 
