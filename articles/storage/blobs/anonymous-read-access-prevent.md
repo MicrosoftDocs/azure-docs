@@ -266,7 +266,9 @@ To disallow public access for a storage account with a template, create a templa
 
 ### Responses to the anonymous bearer challenge
 
-When anonymous public access is allowed for a storage account, all requests made with the anonymous bearer challenge return a 401 error (Unauthorized). If anonymous public access is allowed for the account, and a request that does not use the anonymous bearer challenge is made to a container that is not public, Blob Storage returns a 404 error (Not Found).  
+When anonymous public access is allowed for a storage account, all requests made with the anonymous bearer challenge return a 401 error (Unauthorized).
+
+If anonymous public access is allowed for the account, and a request that does not use the anonymous bearer challenge is made to a container that is not public, Blob Storage returns a 404 error (Not Found). Read requests that do not use the anonymous bearer challenge and that are made to public containers will succeed.
 
 After anonymous public access is disallowed for a storage account, all requests made with the anonymous bearer challenge return a 409 error (Conflict).
 
