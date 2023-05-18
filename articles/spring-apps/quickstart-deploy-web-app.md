@@ -20,7 +20,7 @@ zone_pivot_groups: spring-apps-plan-selection
 
 This quickstart shows how to deploy a Spring Boot web application to Azure Spring Apps. The sample project is a simple ToDo application to add tasks, mark when they're complete, and then delete them. The following screenshot shows the application:
 
-:::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
+:::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Screenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
 
 This application is a typical three-layers web application with the following layers:
 
@@ -182,7 +182,7 @@ An Azure Container Apps environment creates a secure boundary around a group of 
        --output tsv)
    ```
 
-1. The Azure Spring Apps Standard consumption plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created. Use the following command to create an Azure Spring Apps service instance:
+1. The Azure Spring Apps Standard consumption plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created. Use the following command to create an Azure Spring Apps service instance with the resource ID:
 
    ```azurecli
    az spring create \
@@ -423,7 +423,7 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 ::: zone-end
 
-1. Use the following command to check the app's log for investigating deployment issues:
+1. Use the following command to check the app's log to investigate any deployment issue:
 
    ```azurecli
    az spring app logs \
