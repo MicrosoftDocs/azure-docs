@@ -81,7 +81,7 @@ You can define client library configuration options when uploading a blob. These
 
 ### Specify data transfer options on upload
 
-You can configure the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) to improve performance for data transfer operations. The following code example shows how to define values for a `StorageTransferOptions` instance and pass these options as a parameter to `UploadAsync`. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+You can configure the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) to improve performance for data transfer operations. The following code example shows how to set values for `StorageTransferOptions` and include the options as part of a `BlobUploadOptions` instance. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithTransferOptions":::
 
