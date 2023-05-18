@@ -218,7 +218,8 @@ Follow these steps:
 
    The impacted recovery points are labeled as *being soft deleted* in the **Recovery type** column and will be retained as per the soft delete retention of the vault.
  
-   
+   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/select-restore-point-for-soft-delete.png" alt-text="Screenshot shows to filter recovery points for soft delete.":::
+
 ## Undelete recovery points
 
 You can *undelete* recovery points that are in soft deleted state so that they can last till their expiry by modifying the policy again to increase the retention of backups.
