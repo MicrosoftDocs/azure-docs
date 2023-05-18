@@ -129,7 +129,7 @@ To set the role assignment and create a query, do the following steps:
 
 ### Install Azure PowerShell module
 
-Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps) (if you haven't already), by typing:
+Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-azure-powershell) (if you haven't already), by typing:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser

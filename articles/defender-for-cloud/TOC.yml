@@ -187,14 +187,14 @@
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
-    - name: Security alerts
-      items:
-      - name: About security alerts and incidents
-        displayName: security, alerts, classification, incident, threat, detection, analytics, 
-        href: alerts-overview.md
-      - name: Security alerts reference list
-        displayName: alerts, mitre
-        href: alerts-reference.md
+  - name: Security alerts
+    items:
+    - name: About security alerts and incidents
+      displayName: security, alerts, classification, incident, threat, detection, analytics, 
+      href: alerts-overview.md
+    - name: Security alerts reference list
+      displayName: alerts, mitre
+      href: alerts-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
@@ -716,7 +716,9 @@
     - name: Zero Trust and Defender for Cloud
       href: episode-twenty-eight.md
     - name: Security policy enhancements in Defender for Cloud
-      href: episode-twenty-nine.md  
+      href: episode-twenty-nine.md
+    - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
+      href: episode-thirty.md  
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
