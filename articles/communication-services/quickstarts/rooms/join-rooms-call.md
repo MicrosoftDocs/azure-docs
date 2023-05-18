@@ -41,7 +41,7 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../identity/
 ::: zone pivot="platform-ios"
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-dfdsfsdfds
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
