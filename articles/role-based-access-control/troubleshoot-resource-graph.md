@@ -16,9 +16,9 @@ ms.author: rolyon
 
 ## Prerequisites
 
-To follow these steps, you must have:
-
-- [Owner](./built-in-roles.md#owner) or [User Access Administrator](./built-in-roles.md#user-access-administrator) role
+- [Reader](./built-in-roles.md#reader) to run Azure Resource Graph queries.
+- [User Access Administrator](./built-in-roles.md#user-access-administrator) or [Owner](./built-in-roles.md#owner) role to add role assignments, remove role assignments, or delete custom roles.
+- [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator), [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator) to create groups.
 
 ## Reduce the number of Azure role assignments
 
@@ -30,7 +30,7 @@ Follow these steps to identify where multiple role assignments for users can be 
 
 1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
-1. Run the following query to get role assignments that assign the same role at the same scope, but to different principals. 
+1. Run the following query to get role assignments that assign the same role at the same scope, but for different principals. 
 
     ```kusto
     AuthorizationResources  
@@ -52,9 +52,29 @@ Follow these steps to identify where multiple role assignments for users can be 
 
     The following shows an example of the output. The results are ordered by the number of principals.
 
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png":::
+
 1. For a row, select **See details** to open the **Details** pane.
 
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png":::
+
 1. Under **AllPrincipals**, get the list of the principal IDs with the same role assignment.
+
+1. If necessary, get the principal name from the principal ID.
+
+    # [Portal](#tab/portal)
+    
+    See [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md)
+    
+    # [PowerShell](#tab/powershell)
+    
+    See [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main)
+    
+    # [Azure CLI](#tab/cli)
+    
+    See [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show)
+
+---
 
 1. Create an Azure AD group and add the principals to the group.
 
@@ -66,7 +86,7 @@ Follow these steps to identify where multiple role assignments can be replaced w
 
 1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
-1. Run the following query to get role assignments that assign the same principal and role at different scopes.
+1. Run the following query to get role assignments for the same principal and role, but at different scopes.
 
     ```kusto
     AuthorizationResources  
@@ -90,9 +110,20 @@ Follow these steps to identify where multiple role assignments can be replaced w
 
     The following shows an example of the output. The results are ordered by the number of scopes.
 
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope.png":::
+
 1. For a row, select **See details** to open the **Details** pane.
 
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png":::
+
 1. Under **Scopes**, get the list of the scopes for the same principal and role.
+
+1. If necessary, get the principal name from the principal ID.
+
+    
+    - For Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
+    - For PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
+    - For Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Replace the multiple role assignments with a single role assignment at the highest scope.
 
@@ -131,3 +162,4 @@ Azure supports up to 5000 custom roles in a directory. If you get the error mess
 ## Next steps
 
 - [Remove Azure role assignments](./role-assignments-remove.md)
+- [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md)
