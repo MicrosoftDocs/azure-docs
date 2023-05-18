@@ -64,10 +64,10 @@ To verify data is being ingested, try one of the following methods:
 
 - Open the Workbooks page from your Azure Monitor workspace and select the **Prometheus Explorer** tile.  For more information on Azure Monitor workspace  Workbooks, see [Workbooks overview](./prometheus-workbooks.md).
 
- -  Use a linked Grafana Instance. For more information on linking a Grafana instance to your workspace, see [Link a Grafana workspace](./azure-monitor-workspace-manage?tabs=azure-portal.md#link-a-grafana-workspace) with your Azure Monitor workspace.
+ -  Use a linked Grafana Instance. For more information on linking a Grafana instance to your workspace, see [Link a Grafana workspace](./azure-monitor-workspace-manage.md?tabs=azure-portal.md#link-a-grafana-workspace) with your Azure Monitor workspace.
+ 
 ## Next steps
 
-- [Configure Public Access settings](azure-monitor-workspace-network-public-access.md)
-- [Managed Grafana network settings](../TBD/doc_that_covers_private_link_for_query.md)
+- [Managed Grafana network settings](https://aka.ms/ags/mpe)
 - [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
-- [Verify remote write is working correctly](prometheus-remote-write.md#verify-remote-write-is-working-correctly)
+- [Verify remote write is working correctly](./prometheus-remote-write.md#verify-remote-write-is-working-correctly)
