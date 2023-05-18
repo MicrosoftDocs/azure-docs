@@ -28,7 +28,6 @@ The table below lists the main properties of `room` objects:
 | `roomId`              | Unique `room` identifier.                  |
 | `validFrom`           | Earliest time a `room` can be used. | 
 | `validUntil`          | Latest time a `room` can be used. |
-| `roomJoinPolicy`      | Specifies which user identities are allowed to join room calls. Valid options are `InviteOnly` and `CommunicationServiceUsers`. | 
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. | 
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
 

@@ -128,7 +128,7 @@ console.log("\nCreated a room with id: ", roomId);
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
-### Get properties of an existing room
+## Get properties of an existing room
 
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
@@ -140,7 +140,7 @@ console.log("\nRetrieved room with id: ", getRoom.id);
 
 ```
 
-### Update the lifetime of a room
+## Update the lifetime of a room
 
 The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
 
@@ -162,7 +162,7 @@ console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, " and valid
 
 ```
 
-### Add new participants
+## Add new participants
 
 To add new participants to a `room`, use the `addParticipants` method exposed on the client.
 
@@ -177,14 +177,14 @@ const addParticipantsList = [
     }]
 
 // add user2 to the room with the request payload
-const addParticipants = await roomsClient.addParticipants(roomId, addParticipantsList);
+await roomsClient.addParticipants(roomId, addParticipantsList);
 console.log("\nAdded participants to room");
 
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
 
-### Get list of participants
+## Get list of participants
 
 Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
@@ -196,7 +196,7 @@ console.log("\nRetrieved participants for room: ", participantsList);
 
 ```
 
-### Remove participants
+## Remove participants
 
 To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
@@ -211,7 +211,7 @@ console.log("\nRemoved participants from room");
 
 ```
 
-### Delete room
+## Delete room
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
 ```javascript

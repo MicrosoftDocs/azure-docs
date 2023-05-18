@@ -89,11 +89,11 @@ valid_until = valid_from + relativedelta(months=+1)
 
 # Create identities for users
 identity_client = CommunicationIdentityClient.from_connection_string(connection_string)
-user1 = identity_client.create_user_and_token(scopes=["voip"])
+user1 = identity_client.create_user_and_token(scopes=[CommunicationTokenScope.VOIP])
 user2 = identity_client.create_user_and_token(scopes=["voip"])
 
 participants = []
-participants.append(RoomParticipant(CommunicationUserIdentifier(user1[0].properties['id'])))
+participants.append(RoomParticipant(CommunicationUserIdentifier(user1.properties['id'])))
 
 try:
     create_room_response = self.rooms_client.create_room(valid_from=valid_from, valid_until=valid_until, participants=participants)
@@ -143,7 +143,7 @@ To add new participants to a `room`, use the `add_participants` method exposed o
 # Add Participants
 try:
     participants = []
-    participants.append(RoomParticipant(CommunicationUserIdentifier(user2[0].properties['id']), RoleType.ATTENDEE))
+    participants.append(RoomParticipant(CommunicationUserIdentifier(user2.properties['id']), RoleType.ATTENDEE))
     self.rooms_client.add_participants(room_id, participants)
     print("\nAdded participants to room")
 
@@ -163,7 +163,7 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 # Get list of participants in room
 try:
     participants = self.rooms_client.get_participants(room_id)
-    console.log("\nRetrieved participants for room: ", participants);
+    print("\nRetrieved participants for room: ", participants)
 except HttpResponseError as ex:
     print(ex)
 
@@ -176,7 +176,7 @@ To remove a participant from a `room` and revoke their access, use the `remove_p
 ```python
 
 # Remove Participants
-participants = [CommunicationUserIdentifier(user2[0].properties['id'])]
+participants = [CommunicationUserIdentifier(user2.properties['id'])]
 
 try:
     remove_participants_response = self.rooms_client.remove_participants(room_id=room_id, communication_identifiers=participants)

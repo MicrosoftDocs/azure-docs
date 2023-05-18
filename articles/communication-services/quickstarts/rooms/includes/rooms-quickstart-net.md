@@ -100,8 +100,8 @@ Create a new `room` with default properties using the code snippet below:
 ```csharp
 
 //Create a room
-roomParticipants = new List<RoomParticipant>();
-roomParticipants.Add(new RoomParticipant(new CommunicationUserIdentifier(user1.Value.User.Id), "Presenter"));
+List roomParticipants = new List<RoomParticipant>();
+roomParticipants.Add(new RoomParticipant(new CommunicationUserIdentifier(user1.Value.User.Id), RoleType.Presenter));
 
 CommunicationRoom createdRoom = await RoomCollection.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, roomParticipants, cancellationToken);
 string roomId = createdRoom.Id;
@@ -146,7 +146,7 @@ To add new participants to a `room`, use the `AddParticipantsAsync` method expos
 
 // Add participants
 List<RoomParticipant> participants = new List<RoomParticipant>();
-participants.Add(new RoomParticipant(new CommunicationUserIdentifier(user2.Value.User.Id), "Attendee"));
+participants.Add(new RoomParticipant(new CommunicationUserIdentifier(user2.Value.User.Id), RoleType.Attendee));
 
 var addParticipantsResult = await RoomCollection.AddParticipantsAsync(roomId, participants);
 Console.writeLine("\nAdded participants to room");

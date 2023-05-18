@@ -148,7 +148,7 @@ List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
 roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user1.getId())).setRole(RoleType.CONSUMER));
 
-roomCreated = roomsClient.createRoom(
+CommunicationRoom roomCreated = roomsClient.createRoom(
     validFrom,
     validUntil,
     roomJoinPolicy,
@@ -196,8 +196,8 @@ To add new participants to a `room`, use the `addParticipants` method exposed on
 ```java
 
 // Add participants to room
-RoomParticipant newParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user2.getId())).setRole(RoleType.CONSUMER);
-ParticipantsCollection updatedParticipants = roomsClient.addParticipants(roomId, List.of(newParticipant));
+RoomParticipant newParticipant = new RoomParticipant(new CommunicationUserIdentifier(user2.getId())).setRole(RoleType.CONSUMER)
+AddOrUpdateParticipantsResult updatedParticipants = roomsClient.addOrUpdateParticipants(roomId, List.of(newParticipant));
 System.out.println("\nAdded participants to room:")
 
 ```
@@ -228,7 +228,7 @@ To remove a participant from a `room` and revoke their access, use the `removePa
 
 // Remove a participant from the room
 RoomParticipant existingParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user1.getId()));
-ParticipantsCollection updatedParticipants = roomsClient.removeParticipants(roomId, List.of(existingParticipant));
+emoveParticipantsResult removedParticipants = roomsAsyncClient.removeParticipants(roomId, Arrays.asList(existingParticipant.getCommunicationIdentifier()););
 System.out.println("\nRemoved participants from room")
 
 ```
