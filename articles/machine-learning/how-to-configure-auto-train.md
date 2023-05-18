@@ -450,7 +450,7 @@ Distributed algorithm | Supported tasks
 
 Distributed training algorithms automatically partition and distribute your data across multiple compute cores, on possibly multiple nodes, for model training.
 
-### Classification and regression
+### Distributed training for classification and regression
 
 To use distributed training for classification, you need to set the `training_mode` and `max_nodes` properties of the job object. 
 
@@ -477,9 +477,9 @@ classification_job.set_limits(
 )
 ```
 
-### Forecasting
+### Distributed training for forecasting
 
-To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). To use distributed training for forecasting, you need to set set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
+To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training) article. To use distributed training for forecasting, you need to set set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
 
 Property | Description
 -- | --

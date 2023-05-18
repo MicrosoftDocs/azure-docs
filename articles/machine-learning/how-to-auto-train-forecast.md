@@ -113,7 +113,7 @@ forecasting_job.set_limits(
 
 ### Forecasting job settings
 
-Forecasting tasks have many settings that are specific to forecasting. Use the [set_forecast_settings](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) method of a ForecastingJob to configure these settings. In the following example, we provide the name of the time column in the training data and set the forecast horizon: 
+Forecasting tasks have many settings that are specific to forecasting. Use the [set_forecast_settings()](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) method of a ForecastingJob to configure these settings. In the following example, we provide the name of the time column in the training data and set the forecast horizon: 
 
 ```python
 # Forecasting specific configuration
@@ -140,16 +140,16 @@ Other settings are optional and reviewed in the next section.
 
 ### Optional forecasting job settings
 
-Optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. A complete list of parameters is available in the [forecast_settings documentation](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings).
+Optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. A complete list of parameters is available in the [forecast_settings()](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) documentation.
 
 #### Model search settings
 
-There are two optional settings that control the model space where AutoML searches for the best model, `allowed_training_algorithms` and `blocked_training_algorithms`. To restrict the search space to a given set of model classes, use allowed_training_algorithms as in the following sample:
+There are two optional settings that control the model space where AutoML searches for the best model, `allowed_training_algorithms` and `blocked_training_algorithms`. To restrict the search space to a given set of model classes, use the `allowed_training_algorithms` parameter as in the following sample:
 
 ```python
 # Only search ExponentialSmoothing and ElasticNet models
 forecasting_job.set_training(
-    allowed_training_algorithms=["ExponentialSmoothing", "ElasticNet"]
+    allowed_training_algorithms=["exponential_smoothing", "elastic_net"]
 )
 ```
 
@@ -158,11 +158,11 @@ In this case, the forecasting job _only_ searches over Exponential Smoothing and
 ```python
 # Search over all model classes except Prophet
 forecasting_job.set_training(
-    blocked_training_algorithms=["Prophet"]
+    blocked_training_algorithms=["prophet"]
 )
 ```
 
-Now, the job searches over all model classes _except_ Prophet. For a list of forecasting model names that are accepted in `allowed_training_algorithms` and `blocked_training_algorithms`, see [supported forecasting models](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting) and [supported regression models](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression).  
+Now, the job searches over all model classes _except_ Prophet. For a list of forecasting model names that are accepted in `allowed_training_algorithms` and `blocked_training_algorithms`, see the [training properties](reference-automated-ml-forecasting#training) reference documentation.  
 
 #### Enable deep learning
 
@@ -180,6 +180,8 @@ forecasting_job.set_training(
     enable_dnn_training=True
 )
 ```
+
+By default, TCNForecaster training is limited to a single compute node and a single GPU, if available, per model trial. **For large data scenarios, we recommend distributing each TCNForecaster trial over multiple cores/GPUs** and nodes. See our [distributed training](how-to-configure-auto-train.md#distributed-training-for-forecasting) article section for more information and code samples.  
 
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
@@ -339,7 +341,7 @@ Once the job is submitted, AutoML will provision compute resources, apply featur
 
 Your ML workflow likely requires more than just training. Inference, or retrieving model predictions on newer data, and evaluation of model accuracy on a test set with known target values are other common tasks that you can orchestrate in AzureML along with training jobs. To support inference and evaluation tasks, AzureML provides [components](concept-component.md), which are self-contained pieces of code that do one step in an AzureML [pipeline](concept-ml-pipelines.md).
 
-In the following example, we retrieve component instances from a client registry:
+In the following example, we retrieve component code from a client registry:
 
 ```python
 # Create a client for accessing assets in the AzureML registry
@@ -503,7 +505,7 @@ compute_metrics_component = ml_client_registry.components.get(
 
 ### Many models training configuration
 
-The many models training component accepts a YAML format configuration file of AutoML training settings. The component applies these settings to each AutoML instance it launches. This YAML file has the same specification as the [Forecasting Job specification](reference-automated-ml-forecasting.md#) plus one additional parameter named `partition_column_names`.
+The many models training component accepts a YAML format configuration file of AutoML training settings. The component applies these settings to each AutoML instance it launches. This YAML file has the same specification as the [Forecasting Job](reference-automated-ml-forecasting.md#) plus one additional parameter named `partition_column_names`.
 
 Parameter|Description
 --|--
@@ -661,7 +663,7 @@ compute_metrics_component = ml_client_registry.components.get(
 
 ### HTS training configuration
 
-The HTS training component accepts a YAML format configuration file of AutoML training settings. The component applies these settings to each AutoML instance it launches. This YAML file has the same specification as the [Forecasting Job specification](reference-automated-ml-forecasting.md#) plus additional parameters related to the hierarchy information:
+The HTS training component accepts a YAML format configuration file of AutoML training settings. The component applies these settings to each AutoML instance it launches. This YAML file has the same specification as the [Forecasting Job](reference-automated-ml-forecasting.md#) plus additional parameters related to the hierarchy information:
 
 Parameter|Description
 --|--
