@@ -134,9 +134,6 @@ The public access setting for a storage account overrides the individual setting
 
 If your scenario requires that certain containers need to be available for public access, then you should move those containers and their blobs into separate storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
 
-> [!IMPORTANT]
-> After anonymous public access is disallowed for a storage account, clients that use the anonymous bearer challenge will find that Azure Storage returns a 403 error (Forbidden) rather than a 401 error (Unauthorized). We recommend that you make all containers private to mitigate this issue. For more information on modifying the public access setting for containers, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
-
 Remediating blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 ### Permissions for disallowing public access
@@ -266,6 +263,12 @@ To disallow public access for a storage account with a template, create a templa
 > Disallowing public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
+
+### Responses to the anonymous bearer challenge
+
+When anonymous public access is allowed for a storage account, requests made with the anonymous bearer challenge return a 401 error (Unauthorized). If anonymous public access is allowed for the account, and a request that does not use the anonymous bearer challenge is made to a container that is not public, Blob Storage returns a 404 error (Not Found).  
+
+After anonymous public access is disallowed for a storage account, requests made with the anonymous bearer challenge return a 409 error (Conflict).
 
 ## Sample script for bulk remediation
 
