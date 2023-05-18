@@ -23,7 +23,7 @@ Before performing the procedures in this article, make sure that you have:
 
 Unless you're working with a [trial Defender for IoT license](billing.md#free-trial), you'll need to periodically update your licenses as your network grows. Each license applies to a single site, and is based on the site size, or the number of devices monitored in that site.
 
-**To calculate the number of devices in your site:**:
+**To calculate the number of devices in each site:**:
 
 1. Collect the total number of devices in your site and add them together.
 
@@ -38,7 +38,32 @@ For more information, see [Devices monitored by Defender for IoT](architecture.m
 
 ## Purchase a Defender for IoT license
 
-<!--TBD-->
+This procedure describes how to purchase Defender for IoT licenses in the Microsoft 365 Admin center.
+
+**To purchase Defender for IoT licenses**:
+
+1. Go to the [Microsoft 365 Admin Center](https://portal.office.com/AdminPortal/Home#/catalog) and select **Marketplace**.
+
+1. Browse to **Security and identity** products, and locate **Microsoft Defender for IoT**.
+
+1. In the **Microsoft Defender for IoT** box, select **Details** and then select your license size, depending on the number of devices in your site.
+
+1. Select the number of licenses you want to purchase, depending on the number of sites you want to monitor at the selected size.
+
+1. Select **Buy**.
+
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
+
+1. In the **Plan settings** pane, define the following settings:
+
+   - **Subscription**: Select the Azure subscription where you want to add a plan. You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
+
+        > [!TIP]
+        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
+
+   - **License**: TBD
+
+Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
 ## Move existing sensors to a different plan
 
@@ -80,7 +105,6 @@ For legacy customers, *committed devices* are the number of devices you're monit
 <!-- i don't think this is still relevant
 
 ## Onboard a Defender for IoT plan for OT networks
-
 
 This procedure describes how to add a Defender for IoT plan for OT networks to an Azure subscription.
 
@@ -133,7 +157,7 @@ You might need to edit your plan to change your plan commitment or update the nu
 1. Make any of the following changes as needed:
 
    - Change your price plan from a trial to a monthly or annual commitment
-   - Update the number of [committed devices](#calculate-committed-devices-for-ot-monitoring)
+   - Update the number of [committed devices](#calculate-devices-in-your-network)
    - Update the number of sites (annual commitments only)
 
 1. Select the **I accept the terms and conditions** option, and then select **Purchase**.
@@ -195,7 +219,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan](#cancel-a-defender-for-iot-plan).
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a legacy Defender for IoT plan](#cancel-a-legacy-defender-for-iot-plan).
 
 
 > [!NOTE]

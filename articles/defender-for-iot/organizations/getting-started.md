@@ -35,7 +35,7 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 1. In the **Microsoft Defender for IoT** box, select **Details** and then select your license size, depending on the number of devices in your site.
 
-1. Select the number of licenses you want to purchase, depending on the number of sites you want to monitor at the selected size. 
+1. Select the number of licenses you want to purchase, depending on the number of sites you want to monitor at the selected size. <!---->TBD IS A TRIAL MAYBE LIMITED TO A SINGLE LICENSE?
 
 1. Select **Start free trial**.
 

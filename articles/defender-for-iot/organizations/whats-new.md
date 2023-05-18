@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Billing changes](#billing-changes) |
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) |
 
 ### OT plans billed by site-based licenses
 
