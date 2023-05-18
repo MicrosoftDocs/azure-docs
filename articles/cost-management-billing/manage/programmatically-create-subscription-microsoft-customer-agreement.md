@@ -27,7 +27,7 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Principal ID using [Microsoft Graph PowerShell](powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
+If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
 
 > [!NOTE]
 > Permissions differ between the legacy API (api-version=2018-03-01-preview) and the latest API (api-version=2020-05-01). Although you may have a role sufficient to use the legacy API, you might need an EA admin to delegate you a role to use the latest API.
