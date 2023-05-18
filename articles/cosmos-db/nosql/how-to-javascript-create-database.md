@@ -65,4 +65,4 @@ The statusCode is an HTTP response code. A successful response is in the 200-299
 Now that you've created a database, use the next guide to create containers.
 
 > [!div class="nextstepaction"]
-> [Create a container](how-to-dotnet-create-container.md)
+> [Create a container](how-to-javascript-create-container.md)

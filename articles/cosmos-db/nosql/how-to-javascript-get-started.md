@@ -173,7 +173,7 @@ The most common constructor for **CosmosClient** has two parameters:
 
 ---
 
-To use the **URI** and **PRIMARY KEY** values within your .NET code, persist them to new environment variables on the local machine running the application.
+To use the **URI** and **PRIMARY KEY** values within your code, persist them to new environment variables on the local machine running the application.
 
 #### [Windows](#tab/windows)
 
@@ -275,7 +275,7 @@ Another constructor for **CosmosClient** only contains a single parameter:
 1. Record the value from the **PRIMARY CONNECTION STRING** field.
 
 ---
-To use the **PRIMARY CONNECTION STRING** value within your .NET code, persist it to a new environment variable on the local machine running the application.
+To use the **PRIMARY CONNECTION STRING** value within your code, persist it to a new environment variable on the local machine running the application.
 
 #### [Windows](#tab/windows)
 
@@ -382,7 +382,7 @@ The following diagram shows the relationship between these resources.
     Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
-Each type of resource is represented by one or more associated .NET classes. Here's a list of the most common classes:
+Each type of resource is represented by one or more associated classes. Here's a list of the most common classes:
 
 | Class | Description |
 |---|---|
