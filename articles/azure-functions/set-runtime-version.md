@@ -7,7 +7,7 @@ ms.date: 10/22/2022
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There are four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
+A function app runs on a specific version of the Azure Functions runtime. There have been four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
 The way that you manually target a specific version depends on whether you're running Windows or Linux.
 
@@ -166,7 +166,7 @@ The function app restarts after the change is made to the site config.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Target the 2.0 runtime in your local development environment](functions-run-local.md)
+> [Target the correct runtime during local dev environment](functions-run-local.md#changing-core-tools-versions)
 
 > [!div class="nextstepaction"]
 > [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)
