@@ -26,5 +26,5 @@ Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date 
 
 ## Next steps
 
-- Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
-- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
+- TK
+- TBD
