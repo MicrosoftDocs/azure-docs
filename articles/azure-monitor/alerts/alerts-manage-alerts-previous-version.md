@@ -53,7 +53,7 @@ This article describes the process of managing alert rules created in the previo
 1. To make alerts stateful, select **Automatically resolve alerts (preview)**.
 
    ![Screenshot that shows the Alert Details pane.](media/alerts-log/AlertsPreviewSuppress.png)
-1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md#webhook) when the alert condition is met.
+1. Specify if the alert rule should trigger one or more [action groups](./action-groups.md) when the alert condition is met.
     > [!NOTE]
     > For limits on the actions that can be performed, see [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 1. (Optional) Customize actions in log alert rules:

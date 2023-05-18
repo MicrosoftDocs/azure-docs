@@ -10,7 +10,8 @@ metadata:
   ms.collection: collection
   author: mbender-ms
   ms.author: mbender
-  ms.date: 03/30/2021
+  ms.date: 05/11/2023
+  ms.custom: engagement-fy23
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -82,11 +83,14 @@ landingContent:
         links:
           - text: Virtual network peering
             url: ../../virtual-network/virtual-network-peering-overview.md
+          - text: Virtual network Manager
+            url: ../../virtual-network-manager/overview.md
       - linkListType: tutorial
         links:
           - text: Connect virtual networks with virtual network peering
             url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
-
+          - text: Create a hub and spoke topology
+            url: ../../virtual-network-manager/how-to-create-hub-and-spoke.md
   # Card
   - title: Private access to network resources
     linkLists:
@@ -142,6 +146,8 @@ landingContent:
             url: ../../web-application-firewall/overview.md
           - text: Azure Bastion
             url: ../../bastion/bastion-overview.md
+          - text: Azure Virtual Network Manager
+            url: ../../virtual-network-manager/overview.md
       - linkListType: tutorial
         links:
           - text: Restrict network access to PaaS resources
@@ -160,6 +166,8 @@ landingContent:
             url: ../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md
           - text: Web Application Firewall on Azure Front Door
             url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
+          - text: How to block network traffic with Azure Virtual Network Manager
+            url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
       - linkListType: learn
         links:
           - text: Secure network connectivity on Azure

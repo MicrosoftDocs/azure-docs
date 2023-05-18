@@ -99,7 +99,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 
-1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).  
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).  
 
 1. Enable the service endpoint for an existing subnet of a virtual network.  
 
