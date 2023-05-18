@@ -19,13 +19,13 @@ In this QuickStart, you learn how to Send and Receive Events using Azure Event H
 
 ### Prerequisites 
 
-If you're new to Azure Event Hubs, see the Event Hubs overview before you go through this QuickStart. 
+If you're new to Azure Event Hubs, see the [Event Hubs overview](/azure/event-hubs/event-hubs-about) before you go through this QuickStart. 
 
 To complete this QuickStart, you need the following prerequisites: 
 
-Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a free trial or use your MSDN subscriber benefits when you create an account. // existing content on all Quick starts 
+Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/en-us/). 
 
-Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see QuickStart: Create an event hub using Azure portal. 
+Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create)
 
 > [!NOTE] 
 > Data Generator for Azure Event Hubs is in Public Preview phase. 
