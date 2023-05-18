@@ -103,7 +103,7 @@ While an account may be a member or guest in multiple organizations, MSAL doesn'
 The claims exposed on the account object are always the claims from the 'home tenant'/{authority} for an account. If that account hasn't been used to request a token for their home tenant, MSAL can't provide claims via the account object.  For example:
 
 ```java
-// Psuedo Code
+// Pseudo Code
 IAccount account = getAccount("accountid");
 
 String username = account.getClaims().get("preferred_username");
@@ -123,7 +123,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 To access claims about an account as they appear in other tenants, you first need to cast your account object to `IMultiTenantAccount`. All accounts may be multi-tenant, but the number of tenant profiles available via MSAL is based on which tenants you have requested tokens from using the current account.  For example:
 
 ```java
-// Psuedo Code
+// Pseudo Code
 IAccount account = getAccount("accountid");
 IMultiTenantAccount multiTenantAccount = (IMultiTenantAccount)account;
 

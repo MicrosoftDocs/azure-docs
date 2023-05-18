@@ -20,7 +20,7 @@ items:
   items:
     - name: GPT-3
       href: quickstart.md
-    - name: GPT-35-Turbo (preview) & GPT-4 (preview)
+    - name: GPT-35-Turbo & GPT-4 
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
 - name: Concepts
@@ -37,7 +37,7 @@ items:
   items:
     - name: Resource creation & model deployment
       href: ./how-to/create-resource.md
-    - name: GPT-35-Turbo (preview) & GPT-4 (preview)
+    - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
     - name: Completions

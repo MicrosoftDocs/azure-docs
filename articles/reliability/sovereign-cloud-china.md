@@ -77,10 +77,20 @@ This section outlines variations and considerations when using Azure Container A
 |---------|--------|------------|
 | Azure Monitor| The Azure Monitor integration is not supported in Azure China |
 
+## Azure in China Account Sign in
+
+The table below lists ways to connect to your Azure account in Azure Global vs. Azure in China.
+
+
+| Sign in description | Azure Global | Azure in China |
+|--------------|-----------|------| 
+| Sign into Azure with an authenticated account for use with Azure Resource Manager| Connect-AzureAccount | Connect-AzureAccount -Environment AzureChinaCloud|
+| Sign into Azure Active Directory with Microsoft Graph PowerShell | Connect-MgGraph | Connect-MgGraph -AzureEnvironment China|
+| Sign into your Azure classic portal account | Add-AzureAccount | Add-AzureAccount -Environment AzureChinaCloud |
 
 ## Azure in China REST endpoints
 
-The table below lists API endpoints in Azure vs. Azure in China for accessing and managing some of the more common services. 
+The table below lists API endpoints in Azure Global vs. Azure in China for accessing and managing some of the more common services. 
 
 For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/confirmation.aspx?id=57062).
 
@@ -113,7 +123,6 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Cognitive Services | `https://api.projectoxford.ai/face/v1.0` | `https://api.cognitive.azure.cn/face/v1.0` |
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Sign in with PowerShell: <br>- Azure classic portal <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
 | Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
 | Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
 

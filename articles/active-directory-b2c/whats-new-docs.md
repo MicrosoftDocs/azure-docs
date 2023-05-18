@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 03/06/2023
+ms.date: 05/03/2023
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,13 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+
+## April 2023
+
+### Updated articles
+
+- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md) - Update partner-bindid.md
+- [Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP](partner-f5.md) - Update partner-f5.md
 
 ## March 2023
 

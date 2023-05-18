@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 03/31/2023
+ms.date: 05/02/2023
 ---
 
 # Manage the Mobility agent 

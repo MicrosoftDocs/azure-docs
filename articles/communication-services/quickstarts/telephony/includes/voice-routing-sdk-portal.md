@@ -36,8 +36,32 @@ ms.author: nikuklic
    :::image type="content" source="../media/voice-routing/add-session-border-controller.png" alt-text="Screenshot of adding a session border controller on the panel for configuring direct routing.":::
 
 3. Select **Next**.
+    If everything is set up correctly, you should see the status of SBC as *Active* in Azure portal. 
 
-    If everything is set up correctly, you should see an exchange of **OPTIONS** messages between Microsoft and your SBC. Use your SBC monitoring and logs to validate the connection.
+### Session Border Controller connection status
+
+The health of an SBC connection now exposed in Azure portal. It takes in account Transport Layer Security (TLS) status and SIP OPTIONS. 
+
+   [![Screenshot of SBC connection properties.](../media/voice-routing/session-border-controller-connection-properties.png)](../media/voice-routing/session-border-controller-connection-properties.png#lightbox)
+
+#### Possible values of each health indicator
+
+TLS Status - Status of the TLS connections of a Trunk: 
+- Unknown - Indicates an unknown status. 
+- Active - Indicates that TLS connection is established. 
+- CertExpiring - Indicates that SBC certificate is expiring. 
+- CertExpired - Indicates that SBC certificate is expired. 
+
+SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
+- Unknown - Indicates an unknown status. 
+- Active - Indicates that OPTIONS are being sent and received. 
+- Expired - Indicates that status is expired. 
+- Error - Indicates an error in OPTIONS exchange.  
+
+Status - The overall health status of a Trunk: 
+- Unknown - Indicates an unknown health status. 
+- Online - Indicates that SBC connection is healthy. 
+- Inactive - Indicates inactive connection. 
 
 ## Create voice routing rules
 
