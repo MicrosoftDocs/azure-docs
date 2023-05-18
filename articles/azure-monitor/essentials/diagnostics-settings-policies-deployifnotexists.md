@@ -43,7 +43,6 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select **Review + create**, then select **Create** .
   :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
 
-The policy visible in the resources' diagnostic setting after approximately 30 minutes.
 
 ### [CLI](#tab/cli)
 To apply a policy using the CLI, use the following commands:
@@ -77,12 +76,7 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group rg-001  --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 --name policy-assignment-1
     ```
-  
-    When assigning policies that send logs to event hubs, you must manually add the *Azure Event Hubs Data Owner* role for the event hub to your policy assigned identity.  
- 
-    ```azurecli
-        az role assignment create --assignee <Principal ID> --role "Azure Event Hubs Data Owner" --scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group>
-    ```
+
 1. Trigger a scan to find existing resources using [`az policy state trigger-scan`](https://learn.microsoft.com/cli/azure/policy/state?view=azure-cli-latest#az-policy-state-trigger-scan).
 
     ```azurecli
@@ -137,10 +131,6 @@ To apply a policy using the PowerShell, use the following commands:
             New-AzRoleAssignment -Scope $rg.ResourceId -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
         }
     ```
-    When assigning policies that send logs to event hubs, you must manually add the *Azure Event Hubs Data Owner* role for the event hub to your system assigned Managed Identity.  
-    ```azurepowershell
-        New-AzRoleAssignment -Scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group> -ObjectId $policyAssignment.Identity.PrincipalId -RoleDefinitionId "Azure Event Hubs Data Owner"
-    ```
 
 1. Scan for compliance, then  create a remediation task to force compliance for existing resources.
     ```azurepowershell
@@ -154,20 +144,7 @@ To apply a policy using the PowerShell, use the following commands:
     ```
 ---
 
-> [!Note]
-> When assigning policies that send logs to event hubs, you must manually add the *Azure Event Hubs Data Owner* role for the event hub to your policy assigned identity.  
-> Use the `az role assignment create` Azure CLI command.
-> ```azurecli
->   az role assignment create --assignee <Principal ID> --role "Azure Event Hubs Data Owner" --scope /subscriptions/<subscription ID>/resourceGroups/<event hub's resource group>
->```
-> For example:
-> ```azurecli
-> az role assignment create --assignee xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --role "Azure Event Hubs Data Owner" --scope /subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy/resourceGroups/myResourceGroup
->```
->
-> Find your principal ID on the **Policy Assignment** page, **Managed Identity** tab.
-> :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/find-principal.png" alt-text="A screenshot showing the policy assignment page, managed identity tab.":::
- 
+The policy is visible in the resources' diagnostic settings after approximately 30 minutes.
 
 ## Remediation tasks
 

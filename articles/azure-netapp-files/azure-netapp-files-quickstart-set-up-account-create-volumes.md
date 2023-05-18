@@ -40,7 +40,7 @@ For registration steps using Portal, open a Cloud Shell session as indicated abo
 
 # [PowerShell](#tab/azure-powershell)
 
-This how-to article requires the Azure PowerShell module Az version 2.6.0 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you prefer, you can use Cloud Shell console in a PowerShell session instead.
+This how-to article requires the Azure PowerShell module Az version 2.6.0 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you prefer, you can use Cloud Shell console in a PowerShell session instead.
 
 1. In a PowerShell command prompt (or PowerShell Cloud Shell session), specify the subscription that has been approved for Azure NetApp Files:
     ```powershell-interactive

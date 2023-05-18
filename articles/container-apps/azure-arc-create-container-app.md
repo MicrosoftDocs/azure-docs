@@ -4,8 +4,9 @@ description: Get started with Azure Container Apps on Azure Arc-enabled Kubernet
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 3/20/2023
 ms.author: cshoe
 ---
 
@@ -35,7 +36,7 @@ Next, add the required Azure CLI extensions.
 ```azurecli-interactive
 az extension add --upgrade --yes --name customlocation
 az extension remove --name containerapp
-az extension add -s https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
+az extension add -s https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
 ```
 
 ## Create a resource group
@@ -111,12 +112,12 @@ If there's an error when running a query, try again in 10-15 minutes. There may 
 ```kusto
 let StartTime = ago(72h);
 let EndTime = now();
-ContainerAppsConsoleLogs_CL
+ContainerAppConsoleLogs_CL
 | where TimeGenerated between (StartTime .. EndTime)
-| where AppName_s =~ "my-container-app"
+| where ContainerAppName_s =~ "my-container-app"
 ```
 
-The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppsConsoleLogs_CL`.
+The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppConsoleLogs_CL`.
 
 * **Log_s** contains application logs for a given Container Apps extension
 * **AppName_s** contains the Container App app name. In addition to logs you write via your application code, the *Log_s* column also contains logs on container startup and shutdown.

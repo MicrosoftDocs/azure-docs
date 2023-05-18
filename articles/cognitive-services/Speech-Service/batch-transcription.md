@@ -40,3 +40,4 @@ Batch transcription jobs are scheduled on a best-effort basis. You can't estimat
 - [Locate audio files for batch transcription](batch-transcription-audio-data.md)
 - [Create a batch transcription](batch-transcription-create.md)
 - [Get batch transcription results](batch-transcription-get.md)
+- [See batch transcription code samples at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch/)

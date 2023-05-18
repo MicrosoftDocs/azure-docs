@@ -13,13 +13,17 @@ This article describes how to view Defender for IoT alerts on an on-premises man
 
 ## Prerequisites
 
-- **To have alerts on the on-premises management console**, you must have an OT network sensor with alerts connected to your on-premises management console. For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md) and [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
+Before performing the procedures in this article, make sure that you have:
 
-- **To view alerts the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view alerts by location or zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
 
-- **To manage alerts on the on-premises management console**, sign in as an *Admin* or *Security Analyst* user. Management activities include acknowledging or muting an alert, depending on the alert type.
+- One or more OT sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated, configured](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view alerts per zone, make sure that each sensor is assigned to a specific zone.
 
-For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
+
+    - **To view alerts the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
+
+    - **To manage alerts on the on-premises management console**, sign in as an *Admin* or *Security Analyst* user. Management activities include acknowledging or muting an alert, depending on the alert type.
 
 ## View alerts on the on-premises management console
 
@@ -35,7 +39,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
     - Select **OPEN SENSOR** to open the sensor that generated the alert and continue your investigation. For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).
 
-    - Select **SHOW DEVICES** to show the affected devices on a zone map. For more information, see [View information per zone](how-to-view-information-per-zone.md).
+    - Select **SHOW DEVICES** to show the affected devices on a zone map. For more information, see [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
 
 > [!NOTE]
 > On the on-premises management console, *New* alerts are called *Unacknowledged*, and *Closed* alerts are called *Acknowledged*. For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
@@ -47,6 +51,44 @@ At the top of the **Alerts** page, use the **Free Search**, **Sites**, **Zones**
 - [Acknowledged alerts](alerts.md#alert-statuses-and-triaging-options) aren't listed by default. Select **Show Acknowledged Alerts** to include them in the list.
 
 - Select **Clear** to remove all filters.
+
+### View alerts by location
+
+To view alerts from connected OT sensors across your entire global network, use the **Enterprise View** map on an on-premises management console.
+
+1. Sign into your on-premises management console and select **Enterprise View**. The default map view shows your sites at their locations around the world.
+
+    (Optional) Use the **All Sites** and **All Regions** menus at the top of the page to filter your map and display only specific sites, or only specific regions.
+
+1. From the **Default View** menu at the top of the page, select any of the following to drill down to specific types of alerts:
+
+    - **Risk Management**. Highlights site risk alerts, helping you prioritize mitigation activities and plan security improvements.
+    - **Incident Response** Highlights any active (unacknowledged) alerts on each site.
+    - **Malicious Activity**. Highlights malware alerts, which require immediate action.
+    - **Operational Alerts**. Highlights operational alerts, such as PLC stops and firmware or program uploads.
+
+    In any view but the **Default View**, your sites appear in red, yellow, or green. Red sites have alerts that require immediate action, yellow sites have alerts that justify investigation, and green sites require no action.
+
+1. Select any site that's red or yellow, and then select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
+
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
+
+    The **Alerts** page opens, automatically filtered to the selected alerts.
+
+### View alerts by zone
+
+To view alerts from connected OT sensors for a specific zone, use the **Site Management** page on an on-premises management console.
+
+1. Sign into your on-premises management console and select **Site Management**. 
+
+1. Locate the site and zone you want to view, using the filtering options at the top as needed:
+
+    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+
+1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false":::  alerts button for a specific OT sensor to jump to that sensor's current alerts.
 
 ## Manage alert status and triage alerts
 
@@ -86,6 +128,3 @@ The CSV file is generated, and you're prompted to save it locally.
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
-
-> [!div class="nextstepaction"]
-> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

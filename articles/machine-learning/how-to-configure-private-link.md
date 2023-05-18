@@ -18,7 +18,7 @@ ms.date: 08/29/2022
 [!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [CLI or SDK v1](v1/how-to-configure-private-link.md)
+> * [CLI or SDK v1](v1/how-to-configure-private-link.md?view=azureml-api-1&preserve-view=true)
 > * [CLI v2 (current)](how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
@@ -263,7 +263,7 @@ In some situations, you may want to allow someone to connect to your secured wor
 
 > [!WARNING]
 > When connecting over the public endpoint while the workspace uses a private endpoint to communicate with other resources:
-> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. 
+> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. To resolve this problem, add your client device's IP address to the [Azure Storage Account's firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range).
 > * Using Jupyter, JupyterLab, RStudio, or Posit Workbench (formerly RStudio Workbench) on a compute instance, including running notebooks, __is not supported__.
 
 To enable public access, use the following steps:

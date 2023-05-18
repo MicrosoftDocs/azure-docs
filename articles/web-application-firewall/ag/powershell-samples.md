@@ -4,10 +4,10 @@ description: Azure PowerShell examples for Azure Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-
 ---
 # Azure PowerShell script examples for Azure Application Gateway
 

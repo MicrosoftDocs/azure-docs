@@ -4,16 +4,16 @@ description: Learn how to isolate and restrict the restore permissions for conti
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/17/2023
+ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: subject-rbac-steps, ignite-2022
+ms.custom: subject-rbac-steps, ignite-2022, devx-track-azurecli
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope or more granularly at the source account scope as shown in the following image:
+Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. These permissions can be applied at the subscription scope or more granularly at the source account scope as shown in the following image:
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.svg" alt-text="List of roles required to perform restore operation." border="false":::
 
@@ -21,7 +21,7 @@ Scope is a set of resources that have access, to learn more on scopes, see the [
 
 ## Assign roles for restore using the Azure portal
 
-To perform a restore, a user or a principal need the permission to restore (that is *restore/action* permission), and permission to provision a new account (that is *write* permission).  To grant these permissions, the owner can assign the `CosmosRestoreOperator` and `Cosmos DB Operator` built in roles to a principal.
+To perform a restore, a user or a principal need the permission to restore (that is *restore/action* permission), and permission to provision a new account (that is *write* permission).  To grant these permissions, the owner of the subscription can assign the `CosmosRestoreOperator` and `Cosmos DB Operator` built in roles to a principal.
 
 1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your subscription. The `CosmosRestoreOperator` role is available at subscription level.
 
@@ -83,17 +83,20 @@ Following permissions are required to perform the different activities pertainin
 Roles with permission can be assigned to different scopes to achieve granular control on who can perform the restore operation within a subscription or a given account.
 
 ### Assign capability to restore from any restorable account in a subscription
-- Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
-- Assign the `CosmosRestoreOperator` built in role to the specific restorable database account that needs to be restored. In the following command, the scope for the `RestorableDatabaseAccount` is extracted from the `ID` property of result of execution of `az cosmosdb restorable-database-account list`(if using CLI) or `Get-AzCosmosDBRestorableDatabaseAccount`(if using the PowerShell)
 
-Assign the `CosmosRestoreOperator` built-in role at subscription level
+- Assign the `CosmosRestoreOperator` built in role to the specific subscription level 
 
 ```azurecli-interactive
 az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
 ```
 
-### Assign capability to restore from a specific account
-This operation is currently not supported.
+### Assign capability to restore from a specific account  
+- Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
+- Assign the `CosmosRestoreOperator` built in role to the specific restorable database account that needs to be restored. In the following command, the scope for the `RestorableDatabaseAccount` is extracted from the `ID` property of result of execution of `az cosmosdb restorable-database-account list`(if using CLI) or `Get-AzCosmosDBRestorableDatabaseAccount`(if using the PowerShell)
+
+```azurecli-interactive
+az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope  <RestorableDatabaseAccount>
+```
 
 ### Assign capability to restore from any source account in a resource group.
 This operation is currently not supported.

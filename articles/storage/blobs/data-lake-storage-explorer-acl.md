@@ -2,13 +2,13 @@
 title: 'Storage Explorer: Set ACLs in Azure Data Lake Storage Gen2'
 titleSuffix: Azure Storage
 description: Use the Azure Storage Explorer to manage access control lists (ACLs) in storage accounts that have hierarchical namespace (HNS) enabled.
-author: jimmart-dev
+author: normesta
 
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/09/2023
-ms.author: jammart
+ms.author: normesta
 ---
 
 # Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage Gen2
@@ -82,6 +82,9 @@ Use the check box controls to set access and default ACLs. To learn more about t
 You can apply ACL entries recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
 To apply ACL entries recursively, Right-click the container or a directory, and then select **Propagate Access Control Lists**.  The following screenshot shows the menu as it appears when you right-click a directory.
+
+> [!NOTE] 
+> The **Propagate Access Control** Lists option is available only in Storage Explorer 1.28.1 or later versions.
 
 > [!div class="mx-imgBorder"]
 > ![Right-clicking a directory and choosing the propagate access control setting](./media/data-lake-storage-explorer-acl/propagate-access-control-list-option.png)

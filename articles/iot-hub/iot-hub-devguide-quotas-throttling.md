@@ -26,7 +26,7 @@ The tier also determines the throttling limits that IoT Hub enforces on all oper
 
 Operation throttles are rate limitations that are applied in minute ranges and are intended to prevent abuse. They're also subject to [traffic shaping](#traffic-shaping).
 
-It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, see [Retry patterns](../iot-develop/how-to-use-reliability-features-in-sdks.md#retry-patterns).
+It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).
 
 ### Basic and standard tier operations
 

@@ -130,17 +130,22 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Microsoft Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Microsoft Purview account and open the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+1. Open your Microsoft Purview governance portal by:
 
-2. From the **Credentials** page, select **Manage Key Vault connections**.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Open the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/).
+
+1. Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+
+1. From the **Credentials** page, select **Manage Key Vault connections**.
 
    :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Manage Azure Key Vault connections":::
 
-3. Select **+ New** from the Manage Key Vault connections page.
+1. Select **+ New** from the Manage Key Vault connections page.
 
-4. Provide the required information, then select **Create**.
+1. Provide the required information, then select **Create**.
 
-5. Confirm that your Key Vault has been successfully associated with your Microsoft Purview account as shown in this example:
+1. Confirm that your Key Vault has been successfully associated with your Microsoft Purview account as shown in this example:
 
    :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
 

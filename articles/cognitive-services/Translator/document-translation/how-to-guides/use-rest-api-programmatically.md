@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/17/2023
+ms.date: 04/17/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -31,7 +31,10 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You create containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](#create-azure-blob-storage-containers) in your Azure blob storage account for your source and target files:
+
+  * **Source container**. This container is where you upload your files for translation (required).
+  * **Target container**. This container is where your translated files are stored (required).
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
@@ -56,26 +59,19 @@ To get started, you need:
 
   1. After your resource has successfully deployed, select **Go to resource**.
 
-## Your custom domain name and key
+### Retrieve your key and custom domain endpoint
 
-> [!IMPORTANT]
->
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You won't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+*Requests to the Translator service require a read-only key and custom endpoint to authenticate access. The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories and is available in the Azure portal.
 
-### What is the custom domain endpoint?
+1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 
-The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
+1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 
-```http
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0
-```
+1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
 
-### Find your custom domain name
+1. You **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service.
 
-The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
-
-:::image type="content" source="../../media/instance-details.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
+    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
 ### Get your key
 
@@ -115,6 +111,8 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 ## HTTP requests
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
+
+For detailed information regarding Azure Translator Service request limits, _see_ [**Document Translation request limits**](../../request-limits.md#document-translation).
 
 ### HTTP headers
 
@@ -1276,22 +1274,6 @@ func main() {
 
 ---
 
-## Content limits
-
-This table lists the limits for data that you send to Document Translation:
-
-|Attribute | Limit|
-|---|---|
-|Document size| ≤ 40 MB |
-|Total number of files.|≤ 1000 |
-|Total content size in a batch | ≤ 250 MB|
-|Number of target languages in a batch| ≤ 10 |
-|Size of Translation memory file| ≤ 10 MB|
-
-Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
-
-## Troubleshooting
-
 ### Common HTTP status codes
 
 | HTTP status code | Description | Possible reason |
@@ -1311,5 +1293,3 @@ Document Translation can't be used to translate secured documents such as those 
 
 > [!div class="nextstepaction"]
 > [Create a customized language system using Custom Translator](../../custom-translator/overview.md)
->
->

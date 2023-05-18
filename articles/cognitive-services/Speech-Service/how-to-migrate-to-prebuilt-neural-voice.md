@@ -125,7 +125,7 @@ More than 75 prebuilt standard voices are available in over 45 languages and loc
 | Tamil (India) | `ta-IN` | Male | `ta-IN-Valluvar`|
 | Telugu (India) | `te-IN` | Female | `te-IN-Chitra`|
 | Thai (Thailand) | `th-TH` | Male | `th-TH-Pattara`|
-| Turkish (Turkey) | `tr-TR` | Female | `tr-TR-SedaRUS`|
+| Turkish (Türkiye) | `tr-TR` | Female | `tr-TR-SedaRUS`|
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-An` |
 
 > [!IMPORTANT]

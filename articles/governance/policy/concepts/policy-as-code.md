@@ -18,28 +18,30 @@ in the cloud are:
   end users.
 
 Azure Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test, and validate that change. However, that
+source control and whenever a change is made, test and validate that change. However, that
 shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
-deployment workflows. Examples include deploying an application environment or virtual
-infrastructure. By making Azure Policy validation an early component of the build and deployment
-process the application and operations teams discover if their changes are non-compliant, long
+deployment (CI/CD) workflows, like deploying an application environment or virtual infrastructure. By making Azure Policy validation an early component of the build and deployment process, the application and operations teams discover if their changes are behaving as expected long
 before it's too late and they're attempting to deploy in production.
 
 ## Definitions and foundational information
 
-Before getting into the details of Azure Policy as Code workflow, review the following definitions
-and examples:
+Before getting into the details of Azure Policy as Code workflow, it's important to understand how to author policy definitions and initiative definitions:
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
 
-The file names align to portions of either the policy or initiative definition:
-- `policy(set).json` - The entire definition
-- `policy(set).parameters.json` - The `properties.parameters` portion of the definition
-- `policy.rules.json` - The `properties.policyRule` portion of the definition
-- `policyset.definitions.json` - The `properties.policyDefinitions` portion of the definition
+The file names correspond with certain portions of policy or initiative definitions:
+
+| File format                   | File contents                       |
+| :--                           | :--                                 |
+| `policy.json`                 | The entire policy definition        |
+| `policyset.json`              | The entire initiative definition    |
+| `policy.parameters.json`      | The `properties.parameters` portion of the policy definition               |
+| `policyset.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
+| `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
+| `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
 
 Examples of these file formats are available in the
 [Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
@@ -54,6 +56,10 @@ The recommended general workflow of Azure Policy as Code looks like this diagram
 :::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram showing Azure Policy as Code workflow boxes from Create to Test to Deploy." border="false":::
    The diagram showing the Azure Policy as Code workflow boxes. Create covers creation of the policy and initiative definitions. Test covers assignment with enforcement mode disabled. A gateway check for the compliance status is followed by granting the assignments M S I permissions and remediating resources. Deploy covers updating the assignment with enforcement mode enabled.
 :::image-end:::
+
+### Source control
+
+Existing policy and initiative definitions can be exported through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
 
 ### Create and update policy definitions
 
@@ -81,17 +87,12 @@ in source control.
 |
 ```
 
-When a new policy is added or an existing one updated, the workflow should automatically update the
+When a new policy is added or an existing one is updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
-
-Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
-definitions and assignments into the source code management environment
-[GitHub](https://www.github.com).
 
 ### Create and update initiative definitions
 
-Likewise, initiatives have their own JSON file and related files that should be stored in the same
-folder. The initiative definition requires the policy definition to already exist, so can't be
+Initiative definitions are also created using JSON files that should be stored in the same folder as policy definitions. The initiative definition requires the policy definition to already exist, so it can't be
 created or updated until the source for the policy has been updated in source control and then
 updated in Azure. The following structure is a recommended way of keeping your initiative
 definitions in source control:
@@ -116,8 +117,8 @@ definitions in source control:
 |
 ```
 
-Like policy definitions, when adding or updating an existing initiative, the workflow should
-automatically update the initiative definition in Azure. Testing of the new or updated initiative
+Like with policy definitions, the workflow should
+automatically update the initiative definition in Azure when an existing initiative is added or updated. Testing of the new or updated initiative
 definition comes in a later step.
 
 > [!NOTE]
@@ -146,13 +147,9 @@ specifically for validating policies.
 > the resource.
 
 After the assignment is deployed, use the Azure Policy SDK, the
-[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan),
-or the
-[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy)
-to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
-used to test the policies and assignments should have both compliant and non-compliant resources.
-Like a good unit test for code, you want to test that resources are as expected and that you also
-have no false-positives or false-negatives. If you test and validate only for what you expect, there
+[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](../samples/resource-graph-samples.md)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
+used to test the policies and assignments should have resources with varying compliance states.
+Like a good unit test for code, you want to test that resources are evaluated as expected with no false-positives or false-negatives. If you test and validate only for what you expect, there
 may be unexpected and unidentified impact from the policy. For more information, see
 [Evaluate the impact of a new Azure Policy definition](./evaluate-impact.md).
 
@@ -160,8 +157,7 @@ may be unexpected and unidentified impact from the policy. For more information,
 
 If validation of the assignment meets expectations, the next step is to validate remediation.
 Policies that use either [deployIfNotExists](./effects.md#deployifnotexists) or
-[modify](./effects.md#modify) may be turned into a remediation task and correct resources from a
-non-compliant state.
+[modify](./effects.md#modify) can have an associated remediation task triggered to correct resources from a non-compliant state and bring them into compliance.
 
 The first step to remediating resources is to grant the policy assignment the role assignment
 defined in the policy definition. This role assignment gives the policy assignment managed identity
@@ -206,9 +202,7 @@ workflows, and fail deployments that create non-compliant resources.
 
 This article covers the general workflow for Azure Policy as Code and also where policy evaluation
 should be part of other deployment workflows. This workflow can be used in any environment that
-supports scripted steps and automation based on triggers. For a tutorial on using this workflow on
-GitHub, see
-[Tutorial: Implement Azure Policy as Code with GitHub](../tutorials/policy-as-code-github.md).
+supports scripted steps and automation based on triggers.
 
 ## Next steps
 

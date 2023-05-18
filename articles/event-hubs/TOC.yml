@@ -4,16 +4,18 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
-    - name: What is Azure Event Hubs for Apache Kafka?
+    - name: Apache Kafka on Azure Event Hubs
       href: azure-event-hubs-kafka-overview.md
-    - name: Azure Schema Registry in Event Hubs
+    - name: Schema Registry
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
+    - name: Compare messaging services
+      href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an event hub
+    - name: Create an event hub or Kafka topic
       items:
         - name: Azure portal
           href: event-hubs-create.md
@@ -29,22 +31,28 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Send and receive events
       items:
-        - name: .NET
-          href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java
-          href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: JavaScript
-          href: event-hubs-node-get-started-send.md
-        - name: Spring
-          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
-        - name: Go
-          href: event-hubs-go-get-started-send.md
-        - name: C (send only)
-          href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm (receive only)
-          href: event-hubs-storm-getstarted-receive.md
+        - name: Event Hubs SDKs (AMQP)
+          items: 
+          - name: .NET
+            href: event-hubs-dotnet-standard-getstarted-send.md
+          - name: Java
+            href: event-hubs-java-get-started-send.md
+          - name: Python
+            href: event-hubs-python-get-started-send.md
+          - name: JavaScript
+            href: event-hubs-node-get-started-send.md
+          - name: Spring
+            href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
+          - name: Go
+            href: event-hubs-go-get-started-send.md
+          - name: C (send only)
+            href: event-hubs-c-getstarted-send.md
+          - name: Apache Storm (receive only)
+            href: event-hubs-storm-getstarted-receive.md
+        - name: Apache Kafka
+          items:
+          - name: Java
+            href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Capture events
       items:
         - name: Use the Azure portal to enable Event Hubs Capture
@@ -53,20 +61,18 @@
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
         - name: Read captured data using Python 
           href: event-hubs-capture-python.md
-    - name: Stream into Event Hubs for Apache Kafka
-      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Use Schema Registry
       items:
         - name: Create a schema registry - Azure portal
           href: create-schema-registry.md  
-        - name: Validate events using a schema (.NET + AMQP)
+        - name: Validate events using an Avro schema (.NET + AMQP)
           href: schema-registry-dotnet-send-receive-quickstart.md
+        - name: Validate events using an Avro schema (Java + Apache Kafka)
+          href: schema-registry-kafka-java-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
   items:
-    - name: Visualize data anomalies on Event Hubs data streams
-      href: event-hubs-tutorial-visualize-anomalies.md
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Capture Event Hubs data in Parquet format
@@ -104,6 +110,12 @@
         href: event-hubs-dedicated-overview.md
       - name: Compare tiers
         href: compare-tiers.md
+    - name: Schema Registry 
+      items: 
+      - name: Schema Registry concepts
+        href: schema-registry-concepts.md   
+      - name: Client-side schema enforcement
+        href: schema-registry-client-side-enforcement.md
     - name: Event processing using SDKs
       items: 
       - name: Event processor host (legacy SDK)
@@ -230,6 +242,20 @@
           href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
+    
+    - name: Use Schema Registry 
+      items:
+        - name: Client-side schema enforcement 
+          items:
+          - name: Using Avro schema 
+            items: 
+            - name: Avro schema with Event Hubs SDK(AMQP)
+              href: schema-registry-dotnet-send-receive-quickstart.md
+          - name: Using JSON Schema  
+            items: 
+            - name: JSON Schema with Apache Kafka applications
+              href: schema-registry-json-schema-kafka.md
+
     - name: Integrate with Spring framework
       items:
         - name: Create a Spring Cloud Stream Binder app

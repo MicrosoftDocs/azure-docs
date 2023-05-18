@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu
 ms.custom: subject-rbac-steps, devx-track-azurepowershell
@@ -29,6 +29,9 @@ You will need an instance of Azure Data Factory to implement this walk through. 
 If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## Create and schedule ADF pipelines that start and or stop Azure-SSIS IR
+> [!NOTE]
+> This section is not supported for Azure-SSIS in **Azure Synapse** with [data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) enabled. 
+
 This section shows you how to use Web activities in ADF pipelines to start/stop your Azure-SSIS IR on schedule or start & stop it on demand. We will guide you to create three pipelines: 
 
 1. The first pipeline contains a Web activity that starts your Azure-SSIS IR. 
@@ -49,7 +52,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
    
 2. In the **Activities** toolbox, expand **General** menu, and drag & drop a **Web** activity onto the pipeline designer surface. In **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to **Settings** tab, and do the following actions:
     > [!NOTE]
-    > For Azure-SSIS in Azure Synapse, use corresponding Azure Synapse REST API to [Get Integration Runtime status](/rest/api/synapse/integration-runtimes/get), [Start Integration Runtime](/rest/api/synapse/integration-runtimes/start) and [Stop Integration Runtime](/rest/api/synapse/integration-runtimes/stop).
+    > For Azure-SSIS in **Azure Synapse**, use corresponding Azure Synapse REST API to [Get Integration Runtime status](/rest/api/synapse/integration-runtimes/get), [Start Integration Runtime](/rest/api/synapse/integration-runtimes/start) and [Stop Integration Runtime](/rest/api/synapse/integration-runtimes/stop).
 
    1. For **URL**, enter the following URL for REST API that starts Azure-SSIS IR, replacing `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, and `{integrationRuntimeName}` with the actual values for your IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Alternatively, you can also copy & paste the resource ID of your IR from its monitoring page on ADF UI/app to replace the following part of the above URL: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     

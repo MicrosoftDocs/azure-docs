@@ -16,15 +16,19 @@ ms.custom: devx-track-java, devguide-java
 
 # Create and manage container leases with Java
 
-This article shows how to create and manage container leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
+This article shows how to create and manage container leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break container leases.
 
-A lease establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. A lease on a container provides exclusive delete access to the container. A container lease only controls the ability to delete the container using the [Delete Container](/rest/api/storageservices/delete-container) operation. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations will succeed on a leased container without the lease ID. If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
+## About container leases
 
-You can use the Java client library to acquire, renew, release and break leases. Lease operations are handled by the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, which provides a client containing all lease operations for [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) and [BlobClient](/java/api/com.azure.storage.blob.blobclient). To learn more about lease states and when you might perform an operation, see [Lease states and actions](#lease-states-and-actions).
+[!INCLUDE [storage-dev-guide-about-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-container-lease.md)]
+
+Lease operations are handled by the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about blob leases using the client library, see [Create and manage blob leases with Java](storage-blob-lease-java.md).
 
 ## Acquire a lease
 
-When you acquire a lease, you'll obtain a lease ID that your code can use to operate on the container. To acquire a lease, create an instance of the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, and then use the following method:
+When you acquire a container lease, you obtain a lease ID that your code can use to operate on the container. If the container already has an active lease, you can only request a new lease by using the active lease ID. However, you can specify a new lease duration.
+
+To acquire a lease, create an instance of the [BlobLeaseClient](/java/api/com.azure.storage.blob.specialized.blobleaseclient) class, and then use the following method:
 
 - [acquireLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -34,7 +38,9 @@ The following example acquires a 30-second lease for a container:
 
 ## Renew a lease
 
-If your lease expires, you can renew it. To renew an existing lease, use the following method:
+You can renew a container lease if the lease ID specified on the request matches the lease ID associated with the container. The lease can be renewed even if it has expired, as long as the container hasn't been leased again since the expiration of that lease. When you renew a lease, the duration of the lease resets.
+
+To renew an existing lease, use the following method:
 
 - [renewLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -44,7 +50,9 @@ The following example renews a lease for a container:
 
 ## Release a lease
 
-You can either wait for a lease to expire or explicitly release it. When you release a lease, other clients can immediately acquire a lease for the container as soon as the operation is complete. You can release a lease by using the following method:
+You can release a container lease if the lease ID specified on the request matches the lease ID associated with the container. Releasing a lease allows another client to acquire a lease for the container immediately after the release is complete.
+
+You can release a lease by using the following method:
 
 - [releaseLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -54,7 +62,9 @@ The following example releases the lease on a container:
 
 ## Break a lease
 
-When you break a lease, the lease ends, and other clients can't acquire a lease until the lease period expires. You can break a lease by using the following method:
+You can break a container lease if the container has an active lease. Any authorized request can break the lease; the request isn't required to specify a matching lease ID. A lease can't be renewed after it's broken, and breaking a lease prevents a new lease from being acquired for a period of time until the original lease expires or is released.
+
+You can break a lease by using the following method:
 
 - [breakLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 

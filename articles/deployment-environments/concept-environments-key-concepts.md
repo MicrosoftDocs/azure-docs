@@ -1,15 +1,16 @@
 ---
-title: Azure Deployment Environments key concepts
-description: Learn the key concepts behind Azure Deployment Environments.
+title: Key concepts and roles
+titleSuffix: Azure Deployment Environments
+description: Learn the key concepts, role definitions, and terminology for Azure Deployment Environments.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ---
 
-# Key concepts for new Azure Deployment Environments Preview users
+# Key concepts for Azure Deployment Environments Preview
 
 Learn about the key concepts and components of Azure Deployment Environments Preview. This knowledge can help you more effectively deploy environments for your scenarios.
 
