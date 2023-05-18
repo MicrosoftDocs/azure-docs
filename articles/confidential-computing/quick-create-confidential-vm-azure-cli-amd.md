@@ -213,3 +213,4 @@ echo -n $JWT | cut -d "." -f 2 | base64 -d 2>/dev/null | jq .
 > [!div class="nextstepaction"]
 > [Create a confidential VM on AMD with an ARM template](quick-create-confidential-vm-arm-amd.md)
 
+
