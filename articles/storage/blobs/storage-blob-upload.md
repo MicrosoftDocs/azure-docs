@@ -63,14 +63,6 @@ The following example uploads a block blob from a string:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadString":::
 
-## Upload with index tags
-
-Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. You can perform this task by adding tags to a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) instance, and then passing that instance into the [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method.
-
-The following example uploads a block blob with index tags:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadBlobWithTags":::
-
 ## Upload to a stream in Blob Storage
 
 You can open a stream in Blob Storage and write to it. The following example creates a zip file in Blob Storage and writes files to it. Instead of building a zip file in local memory, only one file at a time is in memory. 
@@ -85,15 +77,15 @@ You can have greater control over how to divide uploads into blocks by manually 
 
 ## Upload a block blob with configuration options
 
-You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions) class is used to configure options for a [BlobClient]() instance, while [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) is used to configure options for an upload operation. The following code examples show how to use `BlobUploadOptions` to define configuration options at the method level for an upload.
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to use [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) to define configuration options when calling an upload method.
 
 ### Specify data transfer options on upload
 
-You can configure the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) to improve performance for data transfer operations. The following code example shows how to define values for a `StorageTransferOptions` instance and pass these configuration options as a parameter to `UploadAsync`. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+You can configure the values in [StorageTransferOptions](/dotnet/api/azure.storage.storagetransferoptions) to improve performance for data transfer operations. The following code example shows how to define values for a `StorageTransferOptions` instance and pass these options as a parameter to `UploadAsync`. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithTransferOptions":::
 
-To learn more about tuning data transfer options, see [Performance considerations for uploads](storage-blobs-tune-upload-download.md).
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
 
 ### Specify transfer validation options on upload
 
@@ -111,6 +103,14 @@ The following table shows the available options for the checksum algorithm, as d
 | None | 1 | No selected algorithm. Don't calculate or request checksums.
 | MD5 | 2 | Standard MD5 hash algorithm. |
 | StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
+
+## Upload with index tags
+
+Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. You can add tags to a [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) instance, and pass that instance into the `UploadAsync` method.
+
+The following example uploads a block blob with index tags:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadBlobWithTags":::
 
 ### Set a blob's access tier on upload
 
