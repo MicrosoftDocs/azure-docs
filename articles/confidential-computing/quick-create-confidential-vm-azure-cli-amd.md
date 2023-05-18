@@ -11,7 +11,7 @@ ms.author: simranparkhe
 ms.custom: devx-track-azurecli
 ---
 
- # Quickstart: Create an AMD-based confidential VM with the Azure CLI
+# Quickstart: Create an AMD-based confidential VM with the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
