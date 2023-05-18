@@ -17,7 +17,7 @@ ms.author: eur
 [Speech Studio](https://aka.ms/speechstudio/) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 > [!TIP]
-> You can try speech-to-text and text-to-speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.
+> You can try speech to text and text to speech in [Speech Studio](https://aka.ms/speechstudio/) without signing up or writing any code.
 
 ## Speech Studio scenarios
 
@@ -34,7 +34,7 @@ For a demonstration of these scenarios in Speech Studio, view this [introductory
 
 In Speech Studio, the following Speech service features are available as project types:
 
-* [Real-time speech-to-text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech-to-text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech-to-text works on your audio samples. To explore the full functionality, see [What is speech-to-text?](speech-to-text.md).
+* [Real-time speech to text](https://aka.ms/speechstudio/speechtotexttool): Quickly test speech to text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech to text works on your audio samples. To explore the full functionality, see [What is speech to text?](speech-to-text.md).
 
 * [Custom Speech](https://aka.ms/speechstudio/customspeech): Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Upload training and testing datasets](how-to-custom-speech-upload-data.md).
 
@@ -42,9 +42,9 @@ In Speech Studio, the following Speech service features are available as project
 
 * [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from a broad portfolio of [languages, voices, and variants](language-support.md?tabs=tts). Bring your scenarios to life with highly expressive and human-like neural voices.
 
-* [Custom Voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text-to-speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](how-to-custom-voice-create-voice.md). 
+* [Custom Voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text to speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](how-to-custom-voice-create-voice.md). 
 
-* [Audio Content Creation](https://aka.ms/speechstudio/audiocontentcreation): A no-code approach for text-to-speech synthesis. You can use the output audio as-is, or as a starting point for further customization. You can build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. For more information, see the [Audio Content Creation](how-to-audio-content-creation.md) documentation.
+* [Audio Content Creation](https://aka.ms/speechstudio/audiocontentcreation): A no-code approach for text to speech synthesis. You can use the output audio as-is, or as a starting point for further customization. You can build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. For more information, see the [Audio Content Creation](how-to-audio-content-creation.md) documentation.
 
 * [Custom Keyword](https://aka.ms/speechstudio/customkeyword): A custom keyword is a word or short phrase that you can use to voice-activate a product. You create a custom keyword in Speech Studio, and then generate a binary file to [use with the Speech SDK](custom-keyword-basics.md) in your applications.
 
