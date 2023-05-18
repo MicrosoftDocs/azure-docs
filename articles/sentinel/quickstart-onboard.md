@@ -1,24 +1,21 @@
 ---
 title: 'Quickstart: Onboard in Microsoft Sentinel'
-description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
+description: IN this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
-ms.date: 07/14/2022
+ms.date: 05/18/2023
 ms.custom: references_regions, ignite-fall-2021, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 ---
 
 # Quickstart: Onboard Microsoft Sentinel
 
-In this quickstart, you enable Microsoft Sentinel, and then set up data connectors to monitor and protect your environment. After you connect your data sources using data connectors, you choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
+In this quickstart, you'll enable Microsoft Sentinel and install a solution from the content hub. Then, you'll set up a data connector to start ingesting data into Microsoft Sentinel.
 
-Microsoft Sentinel comes with many connectors for Microsoft products, for example, the Microsoft 365 Defender service-to-service connector. You can also enable built-in connectors for non-Microsoft products, for example, Syslog or Common Event Format (CEF). [Learn more about data connectors](connect-data-sources.md).
+Microsoft Sentinel comes with many data connectors for Microsoft products such as the Microsoft 365 Defender service-to-service connector. You can also enable built-in connectors for non-Microsoft products such as Syslog or Common Event Format (CEF). For this quickstart, you'll use the Azure Activity data connector that's available in the Azure Activity solution for Microsoft Sentinel.
 
->[!IMPORTANT]
-> Review the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Microsoft Sentinel costs and billing](billing.md) information.
-
-## Global prerequisites
+## Prerequisites
 
 - **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,19 +25,18 @@ Microsoft Sentinel comes with many connectors for Microsoft products, for exampl
 
 - **Permissions**:
 
-    - To enable Microsoft Sentinel, you need **contributor** permissions to the subscription in which the Microsoft Sentinel workspace resides. 
+    - To enable Microsoft Sentinel, you need **contributor** permissions to the subscription in which the Microsoft Sentinel workspace resides.
 
     - To use Microsoft Sentinel, you need either **contributor** or **reader** permissions on the resource group that the workspace belongs to.
-
-    - You might need other permissions to connect specific data sources.
+    - To install or manage solutions in the content hub, you need the **Template Spec Contributor** role on the resource group that the workspace belongs to.
 
 - **Microsoft Sentinel is a paid service**. Review the [pricing options](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
-- Review the full [pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
+- Before deploying Microsoft Sentinel to a production environment, review the [pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 
 ## Enable Microsoft Sentinel <a name="enable"></a>
 
-1. Sign in to the Azure portal. Make sure that the subscription in which Microsoft Sentinel is created is selected.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Search for and select **Microsoft Sentinel**.
 
@@ -60,36 +56,43 @@ Microsoft Sentinel comes with many connectors for Microsoft products, for exampl
 
 1. Select **Add Microsoft Sentinel**.
 
-## Set up data connectors
+## Install a solution from the content hub
 
-Microsoft Sentinel ingests data from services and apps by connecting to the service and forwarding the events and logs to Microsoft Sentinel. 
+The content hub in Microsoft Sentinel is the centralized location to discover and manage out-of-the-box (built-in) content including data connectors.
 
-- For physical and virtual machines, you can install the Log Analytics agent that collects the logs and forwards them to Microsoft Sentinel. 
-- For firewalls and proxies, Microsoft Sentinel installs the Log Analytics agent on a Linux Syslog server, from which the agent collects the log files and forwards them to Microsoft Sentinel. 
+1. In Microsoft Sentinel, select **Content hub**.
+
+1. Find and select the **Azure Activity** solution.
+
+1. Select **Install** and then **Create**.
+1. On the **Basics** tab, select the **Resource group** and **Workspace** where Microsoft Sentinel is enabled.
+1. Select **Review + create**.
+
+## Set up the data connector
+
+Microsoft Sentinel ingests data from services and apps by connecting to the service and forwarding the events and logs to Microsoft Sentinel. For this quickstart, you'll install the data connector to forward data for Azure Activity to Microsoft Sentinel.
  
-1. From the main menu, select **Data connectors**. This opens the data connectors gallery. 
-1. Select a data connector, and then select the **Open connector page** button.
-1. The connector page shows instructions for configuring the connector, and any other instructions that may be necessary.
-
-    For example, if you select the **Azure Active Directory** data connector, which lets you stream logs from Azure AD into Microsoft Sentinel, you can select what type of logs you want to get - sign-in logs and/or audit logs. <br>Follow the installation instructions. To learn more, [read the relevant connection guide](data-connectors-reference.md) or learn about [Microsoft Sentinel data connectors](connect-data-sources.md).
-
-1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data.
+1. In the Azure portal, search for and select **Microsoft Sentinel**.
+1. In Microsoft Sentinel, select **Data connectors**.
+1. Search for and select the **Azure Activity** data connector.
+1. In the details pane for the connector, select **Open connector page**.
+1. Review the instructions to configure the connector.
+1. Select **Launch Azure Policy Assignment Wizard**.
+1. On the **Basics** tab, set the **Scope** to the subscription and resource group that has activity to send to Microsoft Sentinel. For example, use the subscription and resource group that contains your Microsoft Sentinel instance.
+1. Select the **Parameters** tab.
+1. Set the **Primary Log Analytics workspace**. This should be the workspace where Microsoft Sentinel is installed.
+1. Select **Review + create** and **Create**.
 
 After you set up your data connectors, your data starts streaming into Microsoft Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](get-visibility.md) and start building queries in Log Analytics to [investigate the data](investigate-cases.md).
 
 Review the [data collection best practices](best-practices-data.md).
 
+## View data ingested into Microsoft Sentinel
+
+
 ## Next steps
 
-For more information, see:
-
-- **Alternate deployment / management options**:
-
-    - [Deploy Microsoft Sentinel via ARM template](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One)
-    - [Manage Microsoft Sentinel via API](/rest/api/securityinsights/)
-    - [Manage Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
-
-- **Get started**:
-    - [Get started with Microsoft Sentinel](get-visibility.md)
-    - [Create custom analytics rules to detect threats](detect-threats-custom.md)
-    - [Connect your external solution using Common Event Format](connect-common-event-format.md)
+In this quickstart, you enabled Microsoft Sentinel and installed a solution from the content hub. Then, you set up a data connector to start ingesting data into Microsoft Sentinel.
+Go to the next article to learn how to visualize the data you've collected by using the dashboards and workbooks.
+> [!div class="nextstepaction"]
+> [Next steps button](get-visibility.md)
