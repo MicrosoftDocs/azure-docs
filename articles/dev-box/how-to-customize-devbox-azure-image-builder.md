@@ -16,7 +16,7 @@ ms.topic: how-to
 
    > [!IMPORTANT]
    > Currently Microsoft Dev Box only supports images that use the security type [Trusted Launch](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2#deploy-a- trusted-launch-vm) enabled. 
-   >
+   >/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2
    >
 
 When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments.
