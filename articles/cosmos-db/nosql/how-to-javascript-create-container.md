@@ -36,15 +36,21 @@ Once created, the URI for a container is in this format:
 Get a [Database](how-to-javascript-create-database.md) object, then create a [Container](/javascript/api/@azure/cosmos/container):
 
 * [createIfNotExists](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) - Creates a container if it doesn't exist. If it does exist, return container.
-* [create](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-create) - Creates a container if it doesn't already exist. If it does exist, return error statusCode.
+* [create](/javascript/api/@azure/cosmos/containers#@azure-cosmos-containers-create) - Creates a container. If it does exist, return error statusCode.
 
 ```javascript
 const containerName = 'myContainer';
 
-// Create or get existing container
+// Possible results:
+// Create then return container
+// Return existing container
+// Return error statusCode
 const { statusCode, container } = await database.containers.createIfNotExists({ id: containerName });
 
-// Create or return error
+// Possible results: 
+// Create then return container
+// Return error statusCode, reason includes container already exists
+
 const { statusCode, container} = await database.containers.create({ id: containerName });
 ```
 

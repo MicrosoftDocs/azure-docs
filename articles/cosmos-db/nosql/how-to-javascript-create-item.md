@@ -61,7 +61,7 @@ When referencing the item using a URI, use the system-generated *resource identi
 Create an item with the container's [items](/javascript/api/@azure/cosmos/container#@azure-cosmos-container-items) object using the [create](/javascript/api/@azure/cosmos/items) method.
 
 ```javascript
-const { statusCode, item, resource, activitId, etag} = await container.items.create({ 
+const { statusCode, item, resource, activityId, etag} = await container.items.create({ 
         id: '2', 
         category: 'gear-surf-surfboards',
         name: 'Sunnox Surfboard',
@@ -75,7 +75,7 @@ const { statusCode, item, resource, activitId, etag} = await container.items.cre
 Replace the data with the [Item](/javascript/api/@azure/cosmos/item) object with the [replace](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-replace) method.
 
 ```javascript
-const { statusCode, item, resource, activitId, etag} = await item.replace({ 
+const { statusCode, item, resource, activityId, etag} = await item.replace({ 
         id: '2', 
         category: 'gear-surf-surfboards-retro',
         name: 'Sunnox Surfboard Retro',
@@ -86,18 +86,18 @@ const { statusCode, item, resource, activitId, etag} = await item.replace({
 
 ## Read an item
 
-Read the most current data with the [Item](/javascript/api/@azure/cosmos/item) object with the [read](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read) method.
+Read the most current data with the [Item](/javascript/api/@azure/cosmos/item) object's [read](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read) method.
 
 ```javascript
-const { statusCode, item, resource, activitId, etag} = await item.read();
+const { statusCode, item, resource, activityId, etag} = await item.read();
 ```
 
 ## Delete an item
 
-Delete the item with the [Item](/javascript/api/@azure/cosmos/item) object with the [delete](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read) method.
+Delete the item with the [Item](/javascript/api/@azure/cosmos/item) object's' [delete](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read) method.
 
 ```javascript
-const { statusCode, item, activitId, etag} = await item.delete();
+const { statusCode, item, activityId, etag} = await item.delete();
 ```
 
 ## Next steps

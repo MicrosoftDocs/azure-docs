@@ -36,15 +36,20 @@ Once created, the URI for a database is in this format:
 Once you create the [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient), use the client to create a [Database](/javascript/api/@azure/cosmos/database) from two different calls:
 
 * [createIfNotExists](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) - Creates a database if it doesn't exist. If it does exist, return database.
-* [create](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-create) - Creates a database if it doesn't already exist. If it does exist, return error statusCode.
+* [create](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-create) - Creates a database. If it does exist, return error statusCode.
 
 ```javascript
 const databaseName = 'myDb';
 
-// Create or get existing database
+// Possible results:
+// Create then return database
+// Return existing database
+// Return error statusCode
 const {statusCode, database } = await client.databases.createIfNotExists({ id: databaseName });
 
-// Create or return error status code
+// Possible results: 
+// Create then return database
+// Return error statusCode, reason includes database already exists
 const {statusCode, database } = await client.databases.create({ id: databaseName });
 ```
 
