@@ -29,7 +29,7 @@ Organizations with compliance requirements or risk management plans will have se
 
 In addition to the application access governance scenario, you can also use identity governance and the other Microsoft Entra features for other scenarios, such as [reviewing and removing users from other organizations](../governance/access-reviews-external-users.md) or [managing users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).  If your organization has multiple administrators in Azure AD or Azure, uses B2B or self-service group management, then you should [plan an access reviews deployment](deploy-access-reviews.md) for those scenarios.
 
-## License requirements for Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
+## License requirements
 [!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ## Getting started with governing access to applications

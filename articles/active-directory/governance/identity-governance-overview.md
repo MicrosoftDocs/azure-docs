@@ -87,7 +87,7 @@ In addition to the features listed above, additional Microsoft Entra features fr
 |Privileged access|Just-in-time and scheduled access, alerting, approval workflows for Azure AD roles (including custom roles) and Azure Resource roles.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
 |Auditing|Admins can be alerted of creation of admin accounts.|[Microsoft Entra PIM alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
-## License requirements for Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
+## License requirements
 [!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
 ## Getting started
