@@ -123,14 +123,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
-        If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
+
+    1. (Optional.) If you are querying an ADX cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
         ```azurecli
          adx(cluster).table    
          | where MyTS >= ago(5m) and MyTS <= now()
-        ```
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
-
+        ```     
     1. Select **Run** to run the alert.
     1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
     1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
