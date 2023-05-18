@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: bastion
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 05/17/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling using Azure PowerShell.
 ---

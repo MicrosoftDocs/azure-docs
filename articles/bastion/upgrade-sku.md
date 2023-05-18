@@ -5,7 +5,7 @@ description: Learn how to change Tiers from the Basic to the Standard SKU.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 05/17/2023
 ms.author: cherylmc
 
 ---

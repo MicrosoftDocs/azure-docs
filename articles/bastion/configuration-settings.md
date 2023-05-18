@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 05/17/2023
 ---
 
 # About Bastion configuration settings

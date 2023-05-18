@@ -5,7 +5,7 @@ description: Learn how to add additional instances (scale units) to Azure Bastio
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 05/17/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling using the Azure portal.
 
