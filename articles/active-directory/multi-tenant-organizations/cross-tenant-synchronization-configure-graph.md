@@ -657,14 +657,22 @@ In the source tenant, to enable provisioning, create a provisioning job.
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
 ::: zone pivot="ms-powershell"
-1. In the source tenant, use the [Update-MgServicePrincipalSynchronization](/powershell/module/microsoft.graph.applications/update-mgserviceprincipalsynchronization?view=graph-powershell-beta&preserve-view=true&branch=main) command to save your credentials.
+1. In the source tenant, use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest) command to save your credentials.
 
     ```powershell
-    $Credentials=@(
-        [pscustomobject]@{"Key"="CompanyId"; "Value"=$TargetTenantId}
-        [pscustomobject]@{"Key"="AuthenticationType"; "Value"="SyncPolicy"}
-    )
-    Update-MgServicePrincipalSynchronization -ServicePrincipalId $ServicePrincipalId -Secrets $Credentials
+    $Params = @{
+    	"value" = @(
+    		@{
+    			"key" = "CompanyId"
+    			"value" = $TargetTenantId
+    		}
+    		@{
+    			"key" = "AuthenticationType"
+    			"value" = "SyncPolicy"
+    		}
+    	)
+    }
+    Invoke-MgGraphRequest -Method PUT -Uri "https://graph.microsoft.com/beta/servicePrincipals/$ServicePrincipalId/synchronization/secrets" -Body $Params
     ```
 ::: zone-end
 
