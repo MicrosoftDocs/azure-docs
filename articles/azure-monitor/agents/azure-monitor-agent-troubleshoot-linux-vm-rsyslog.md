@@ -19,16 +19,16 @@ Here's how AMA collects syslog events:
 	> [!NOTE]
 	> AMA uses local persistency by default, all events received from `rsyslog` / `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
 	
-# Rsyslog data not uploaded due to Full Disk space issue on AMA Linux Agent
+## Rsyslog data not uploaded due to Full Disk space issue on AMA Linux Agent
 
-## Symptom
+### Symptom
 **Syslog data is not uploading**: When inspecting the error logs at `/var/opt/microsoft/azuremonitoragent/log/mdsd.err`, you'll see entries about *Error while inserting item to Local persistent store…No space left on device* similar to the following snippet:
 
 ```
 2021-11-23T18:15:10.9712760Z: Error while inserting item to Local persistent store syslog.error: IO error: No space left on device: While appending to file: /var/opt/microsoft/azuremonitoragent/events/syslog.error/000555.log: No space left on device
 ```
 
-## Cause
+### Cause
 Linux AMA buffers events to `/var/opt/microsoft/azuremonitoragent/events` prior to ingestion. On a default Linux AMA install, this directory will take ~650MB of disk space at idle. The size on disk will increase when under sustained logging load. It will get cleaned up about every 60 seconds and will reduce back to ~650 MB when the load returns to idle.
 
 ### Confirming the issue of Full Disk
@@ -65,12 +65,12 @@ none      849   root  txt    REG    0,1       8632     0 16764 / (deleted)
 rsyslogd 1484 syslog   14w   REG    8,1 3601566564     0 35280 /var/log/syslog (deleted)
 ```
 
-### Issue: rsyslog default configuration logs all facilities to /var/log/syslog
+## Issue: rsyslog default configuration logs all facilities to /var/log/syslog
 On some popular distros (for example Ubuntu 18.04 LTS), rsyslog ships with a default configuration file (`/etc/rsyslog.d/50-default.conf`) which will log events from nearly all facilities to disk at `/var/log/syslog`.
 
 AMA doesn't rely on syslog events being logged to `/var/log/syslog`. Instead, it configures rsyslog to forward events over a socket directly to the azuremonitoragent service process (mdsd).
 
-#### Fix: Remove high-volume facilities from /etc/rsyslog.d/50-default.conf
+### Fix: Remove high-volume facilities from /etc/rsyslog.d/50-default.conf
 If you're sending a high log volume through rsyslog, consider modifying the default rsyslog config to avoid logging these events to this location `/var/log/syslog`. The events for this facility would still be forwarded to AMA because of the config in `/etc/rsyslog.d/10-azuremonitoragent.conf`.
 
 1. For example, to remove local4 events from being logged at `/var/log/syslog`, change this line in `/etc/rsyslog.d/50-default.conf` from this:
@@ -85,7 +85,7 @@ If you're sending a high log volume through rsyslog, consider modifying the defa
 	```
 2. `sudo systemctl restart rsyslog`
 
-### Issue: AMA Event Buffer is Filling Disk
+## Issue: AMA Event Buffer is Filling Disk
 If you observe the `/var/opt/microsoft/azuremonitor/events` directory growing unbounded (10 GB or higher) and not reducing in size, [file a ticket](#file-a-ticket) with **Summary** as 'AMA Event Buffer is filling disk' and **Problem type** as 'I need help configuring data collection from a VM'.
 
 [!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]

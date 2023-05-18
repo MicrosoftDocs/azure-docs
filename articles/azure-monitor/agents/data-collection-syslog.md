@@ -10,7 +10,7 @@ ms.reviewer: glinuxagent
 
 # Collect syslog with Azure Monitor Agent overview
 
-Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon built into Linux devices and appliances to collect local events of the types you specify, and have it send those events to Microsoft Azure Monitor. Applications send messages that might be stored on the local machine or delivered to a Syslog collector. When the Azure Monitor agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent when syslog collection is enabled in [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). The Azure Monitor Agent then sends the messages to Azure Monitor/Log Analytics workspace where a corresponding syslog record is created in [Syslog table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/syslog).
+Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon built into Linux devices and appliances to collect local events of the types you specify, and have it send those events to Log Analytics Workspace. Applications send messages that might be stored on the local machine or delivered to a Syslog collector. When the Azure Monitor agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent when syslog collection is enabled in [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). The Azure Monitor Agent then sends the messages to Azure Monitor/Log Analytics workspace where a corresponding syslog record is created in [Syslog table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/syslog).
 
 ![Diagram that shows Syslog collection.](media/data-sources-syslog/overview.png)
 
@@ -31,7 +31,7 @@ The following facilities are supported with the Syslog collector:
 * uucp
 * local0-local7
 
-For some device types that don't allow local installation of the Azure Monitor agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. Please see [Sentinel documents](https://learn.microsoft.com/en-us/azure/sentinel/connect-syslog#architecture) for more information.
+For some device types that don't allow local installation of the Azure Monitor agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. Please see [Sentinel documents](https://learn.microsoft.com/azure/sentinel/connect-syslog#architecture) for more information.
 
 ## Configure Syslog
 
