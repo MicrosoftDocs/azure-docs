@@ -168,7 +168,7 @@ You can ask custom questions and collect users feedback. Below you'll find steps
    -  Plain JavaScript will have the **appInsights** variable globally available. [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md).
    -  Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
 
--  Send custom events using App Insights:
+-  Submit survey results to ACS and send user response using App Insights:
 	``` javascript
 	currentCall.feature(SDK.Features.CallSurvey).submitSurvey(survey).then(res => {
 	// improvementSuggesstion is our custome question here
