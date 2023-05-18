@@ -604,7 +604,36 @@ myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "
 
 #### [.NET](#tab/net)
 
-Coming soon.
+```csharp
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
+
+        var rand = new Random();
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "green"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
+        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+}
+```
 
 #### [Java](#tab/java)
 
@@ -692,7 +721,35 @@ myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 
 #### [.NET](#tab/net)
 
-Coming soon.
+```csharp
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
+
+        myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
+        myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
+        myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
+        myFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
+        myFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
+        myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+}
+```
 
 #### [Java](#tab/java)
 
@@ -792,7 +849,38 @@ private static IEnumerable<Measurement<int>> GetThreadState(Process process)
 
 #### [.NET](#tab/net)
 
-Coming soon.
+```csharp
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        var process = Process.GetCurrentProcess();
+        
+        ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+    
+    private static IEnumerable<Measurement<int>> GetThreadState(Process process)
+    {
+        foreach (ProcessThread thread in process.Threads)
+        {
+            yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
+        }
+    }
+}
+```
 
 #### [Java](#tab/java)
 
@@ -890,7 +978,20 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 
 #### [.NET](#tab/net)
 
-Coming soon.
+```csharp
+using (var activity = activitySource.StartActivity("ExceptionExample"))
+{
+    try
+    {
+        throw new Exception("Test exception");
+    }
+    catch (Exception ex)
+    {
+        activity?.SetStatus(ActivityStatusCode.Error);
+        activity?.RecordException(ex);
+    }
+}
+```
 
 #### [Java](#tab/java)
 
@@ -1012,7 +1113,22 @@ For code representing a background job not captured by an instrumentation librar
 
 #### [.NET](#tab/net)
 
-Coming soon.
+> [!NOTE]
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
+```csharp
+using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddSource("ActivitySourceName")
+        .AddAzureMonitorTraceExporter(o => o.ConnectionString = "<Your Connection String>")
+        .Build();
+
+var activitySource = new ActivitySource("ActivitySourceName");
+
+using (var activity = activitySource.StartActivity("CustomActivity"))
+{
+    // your code here
+}
+```
 
 #### [Java](#tab/java)
   
@@ -1374,7 +1490,49 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 
 #### [.NET](#tab/net)
 
-Coming soon.
+To add span attributes, use either of the following two ways:
+
+* Use options provided by instrumentation libraries.
+* Add a custom span processor.
+
+> [!TIP]
+> The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
+
+1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.8/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
+    - [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+
+1. Use a custom processor:
+
+> [!TIP]
+> Add the processor shown here *before* the Azure Monitor Exporter.
+
+```csharp
+using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddSource("OTel.AzureMonitor.Demo")
+        .AddProcessor(new ActivityEnrichingProcessor())
+        .AddAzureMonitorTraceExporter(o =>
+        {
+                o.ConnectionString = "<Your Connection String>"
+        })
+        .Build();
+```
+
+Add `ActivityEnrichingProcessor.cs` to your project with the following code:
+
+```csharp
+public class ActivityEnrichingProcessor : BaseProcessor<Activity>
+{
+    public override void OnEnd(Activity activity)
+    {
+        // The updated activity will be available to all processors which are called after this processor.
+        activity.DisplayName = "Updated-" + activity.DisplayName;
+        activity.SetTag("CustomDimension1", "Value1");
+        activity.SetTag("CustomDimension2", "Value2");
+    }
+}
+```
 
 ##### [Java](#tab/java)
 
@@ -1686,7 +1844,42 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 #### [.NET](#tab/net)
 
-Coming soon.
+1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.8/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
+    - [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
+
+1. Use a custom processor:
+    
+    ```csharp
+    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+            .AddSource("OTel.AzureMonitor.Demo")
+            .AddProcessor(new ActivityFilteringProcessor())
+            .AddAzureMonitorTraceExporter(o =>
+            {
+                    o.ConnectionString = "<Your Connection String>"
+            })
+            .Build();
+    ```
+    
+    Add `ActivityFilteringProcessor.cs` to your project with the following code:
+    
+    ```csharp
+    public class ActivityFilteringProcessor : BaseProcessor<Activity>
+    {
+        public override void OnStart(Activity activity)
+        {
+            // prevents all exporters from exporting internal activities
+            if (activity.Kind == ActivityKind.Internal)
+            {
+                activity.IsAllDataRequested = false;
+            }
+        }
+    }
+    ```
+
+1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
+
 
 #### [Java](#tab/java)
 
