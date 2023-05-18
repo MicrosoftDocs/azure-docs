@@ -342,7 +342,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    To download the predictions, use the following command:
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_scores" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_output" :::
 
    # [Python](#tab/python)
 

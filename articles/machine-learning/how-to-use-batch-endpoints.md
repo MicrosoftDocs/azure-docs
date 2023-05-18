@@ -212,7 +212,7 @@ To add a new deployment to an existing endpoint, use the  code:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_new_deployment_not_default" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_new_deployment_non_default" :::
 
 # [Python](#tab/python)
 
