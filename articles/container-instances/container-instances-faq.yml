@@ -199,7 +199,7 @@ sections:
       - question: | 
           When should I use ACI Spot containers?     
         answer: |
-         ACI spot containers may be preempted when Azure has insufficient surplus capacity and customers are billed for per-second memory/core usage. With ACI Spot Containers, you can now run your containerized workloads such as batch workloads and parallelizable offline workloads that can tolerate interruptions on Azure at a fraction of the cost of traditional ACI pricing. This offering is targeted at customers who wants to run interruptible workloads with no SLA
+         ACI spot containers may be preempted when Azure has insufficient surplus capacity and customers are billed for per-second memory/core usage. With ACI Spot Containers, you can now run your containerized workloads such as batch processing, monte carlo simulations, dev/test workloads and parallelizable offline workloads that can tolerate interruptions on Azure at a fraction of the cost of traditional ACI pricing. This offering is targeted at customers who wants to run interruptible workloads with no strict availability requirement. 
       - question: |
           Are there any features that aren't supported on ACI spot containers?
         answer: | 
