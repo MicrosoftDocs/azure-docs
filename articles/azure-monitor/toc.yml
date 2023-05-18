@@ -565,16 +565,6 @@ items:
             href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
-  - name: System Center
-    items:
-    - name: Migrate from Operations Manager
-      href: azure-monitor-operations-manager.md
-    - name: SCOM Managed Instance (preview)
-      href: vm/scom-managed-instance-overview.md
-    - name: Connect Operations Manager
-      href: agents/om-agents.md
-    - name: Assess Operations Manager
-      href: insights/scom-assessment.md
 - name: Insights
   items:
   - name: Overview
@@ -1401,6 +1391,16 @@ items:
         href: vm/vminsights-optout.md
       - name: Troubleshoot
         href: vm/vminsights-troubleshoot.md
+    - name: System Center
+      items:
+      - name: Migrate from Operations Manager
+        href: azure-monitor-operations-manager.md
+      - name: SCOM Managed Instance (preview)
+        href: vm/scom-managed-instance-overview.md
+      - name: Connect Operations Manager
+        href: agents/om-agents.md
+      - name: Assess Operations Manager
+        href: insights/scom-assessment.md
   - name: Containers
     items:
     - name: Monitor AKS
