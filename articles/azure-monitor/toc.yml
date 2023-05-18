@@ -935,6 +935,10 @@ items:
     items:
     - name: Best practices
       href: best-practices-vm.md
+    - name: Monitor virtual machines
+      href: ../virtual-machines/monitor-vm.md?toc=/azure/azure-monitor/toc.json
+    - name: Monitor virtual machines reference
+      href: ../virtual-machines/monitor-vm-reference.md?toc=/azure/azure-monitor/toc.json
     - name: Tutorials
       items:
       - name: Enable recommended alerts
