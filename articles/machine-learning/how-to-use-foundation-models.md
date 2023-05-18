@@ -18,7 +18,7 @@ ms.date: 04/25/2023
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to set up and evaluate foundation models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
+In this article, you learn how to access and evaluate foundation models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
 
 **Foundation Models in Azure Machine Learning** provides Azure Machine Learning native capabilities that enable customers to build and operationalize open-source foundation models at scale. Foundation models are trained machine learning model that is designed to perform a specific task. Foundation models accelerate the model building process by serving as a starting point for custom models. Azure Machine Learning provides the capability to easily integrate these pre-trained models into your applications.
 
