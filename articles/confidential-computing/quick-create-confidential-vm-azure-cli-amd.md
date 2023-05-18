@@ -85,46 +85,37 @@ Make a note of the `publicIpAddress` to use later.
 Create a confidential [disk encryption set](../virtual-machines/linux/disks-enable-customer-managed-keys-cli.md) using [Azure Key Vault](../key-vault/general/quick-create-cli.md) or [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md). Based on your security and compliance needs you can choose either option. The following example uses Azure Key Vault Premium. 
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
-
 For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
 ```azurecli
 Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
 New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
 ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
-
 ```azurecli-interactive
 az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
 ```
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
-
-
 ```azurecli
   $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-  az keyvault set-policy --name $KeyVault --object-id $cvmAgent.objectId --key-permissions get release
+  az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
 ```
-
 4. Create a key in the key vault using [az keyvault key create](/cli/azure/keyvault). For the key type, use RSA-HSM.
-
 ```azurecli-interactive
 az keyvault key create --name mykey --vault-name keyVaultName --default-cvm-policy --exportable --kty RSA-HSM
 ```
 5. Create the disk encryption set using [az disk-encryption-set create](/cli/azure/disk-encryption-set). Set the encryption type to `ConfidentialVmEncryptedWithCustomerKey`.
-
 ```azurecli-interactive
 $keyVaultKeyUrl=(az keyvault key show --vault-name keyVaultName --name mykey--query [key.kid] -o tsv)
 
 az disk-encryption-set create --resource-group myResourceGroup --name diskEncryptionSetName --key-url $keyVaultKeyUrl  --encryption-type ConfidentialVmEncryptedWithCustomerKey
 ```
 6. Grant the disk encryption set resource access to the key vault using [az key vault set-policy](/cli/azure/keyvault).
-
 ```azurecli-interactive
 $desIdentity=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [identity.principalId] -o tsv)
 
 az keyvault set-policy -n keyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
 ```
 7. Use the disk encryption set ID to create the VM.
-
 ```azurecli-interactive
 $diskEncryptionSetID=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
 ```
@@ -171,7 +162,6 @@ To use a sample application in C++ for use with the guest attestation APIs, use 
 2. Clone the [sample Linux application](https://github.com/Azure/confidential-computing-cvm-guest-attestation).
 
 3. Install the `build-essential` package. This package installs everything required for compiling the sample application.
-
 ```bash
 sudo apt-get install build-essential 
 ```
@@ -186,19 +176,16 @@ sudo apt install nlohmann-json3-dev
 5. Download the [attestation package](https://packages.microsoft.com/repos/azurecore/pool/main/a/azguestattestation1/).
 
 6. Install the attestation package. Make sure to replace `<version>` with the version that you downloaded.
-
 ```bash
 sudo dpkg -i azguestattestation1_<latest-version>_amd64.deb
 ```
 7. Once the above packages have been installed, use the below steps to build and run the app.
-
 ```bash
 cd confidential-computing-cvm-guest-attestation/cvm-attestation-sample-app
 sudo cmake . && make
 sudo ./AttestationClient -o token
 ```
 8. To convert the web token to a JSON, use the steps below.
-
 ```bash
 sudo ./AttestationClient -o token>> /attestation_output
 
@@ -212,5 +199,3 @@ echo -n $JWT | cut -d "." -f 2 | base64 -d 2>/dev/null | jq .
 
 > [!div class="nextstepaction"]
 > [Create a confidential VM on AMD with an ARM template](quick-create-confidential-vm-arm-amd.md)
-
-
