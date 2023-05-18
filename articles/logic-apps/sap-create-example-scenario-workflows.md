@@ -366,7 +366,7 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
 1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions to send a message with a specific type. During preview, you can still use the generic **Send message to SAP** to send messages other than IDoc.
+   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions to send a specific message type. During preview, you can still use the generic **Send message to SAP** to send messages other than IDoc. Also, while a message can contain a document, not all messages contain documents.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -382,29 +382,13 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-standard.png)
+   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-idoc-standard.png)
 
-1. In the **[IDoc] Send document to SAP** action, find and select an action from your SAP server.
+1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send a message to your SAP server, for example:
 
-   1. From the **SAP Action** edit box, select the folder icon. From the file list that opens, select the SAP message that you want to use. To navigate the list, use the arrows.
+   1. For the **IDoc Format** parameter, select **SapPlainXML**.
 
-      This example selects an IDoc action with the **Orders** type.
-
-      ![Screenshot shows selecting an IDoc action for a Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-idoc-action-consumption.png)
-
-      If you can't find the action you want, you can manually enter a path, for example:
-
-      ![Screenshot shows manually entering a path to an IDoc action for a Standard workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-standard.png)
-
-      > [!TIP]
-      > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
-      > That way, you can use the same action for different message types.
-
-      For more information about IDoc operations, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
-
-   1. In the **Send message to SAP** action, include the body output from the Request trigger.
-
-      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list.
+      1. In the **Plain XML IDoc** parameter, select inside the edit box, and open the dynamic content list (lightning icon). 
 
       1. From the dynamic content list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the Request trigger. 
 
@@ -413,7 +397,7 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
       ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-standard.png)
 
-      The **Send message to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
+      The **[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
       ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-standard.png)
 
