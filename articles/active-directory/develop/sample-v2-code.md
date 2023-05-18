@@ -226,9 +226,23 @@ The following samples show how to configure your application to accept sign-ins 
 
 ### XAML <!---->
 
+### Universal Windows Platform (UWP) <!---->
+
+### Windows Presentation Foundation (WPF) <!---->
+
+> [!div class="mx-tdCol2BreakAll"]
+> | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | Desktop | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | Authorization code with PKCE |
+
 # [**By library**](#tab/library)
 
 ### MSAL.NET <!---->
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Language/<br/>Platform | App type | Code sample(s) on GitHub | Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | Windows Presentation Foundation (WPF) | Desktop | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | Authorization code with PKCE |
 
 ### MSAL Java <!---->
 
@@ -241,7 +255,7 @@ The following samples show how to configure your application to accept sign-ins 
 ### MSAL iOS 
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Language/Platform | App type | Code sample(s) on GitHub | Auth flow |
+> | Language/<br/>Platform | App type | Code sample(s) on GitHub | Auth flow |
 > | ----------- | ----------- |----------- |----------- |
 > | iOS | Mobile | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | Authorization code with PKCE |
 
