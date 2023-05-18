@@ -301,7 +301,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. In the <a href="#managed-id">**Identity**</a> section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
+    1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
@@ -336,7 +336,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
-    1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the <a href="#custom-props">**Custom properties**</a> section, add the property **Name** and **Value** for the custom property you want included in the payload.
+    1. <a name="#custom-props"></a>(Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         > [!NOTE]
         > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
