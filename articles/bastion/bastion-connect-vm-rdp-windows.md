@@ -53,4 +53,4 @@ See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
  
 ## Next steps
 
-Read the [Bastion FAQ](bastion-faq.md) for additional connection information.
+Read the [Bastion FAQ](bastion-faq.md) for more connection information.
