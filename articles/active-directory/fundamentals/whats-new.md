@@ -86,6 +86,16 @@ The ability for users to create tenants from the Manage Tenant overview has been
 
 ---
 
+### General Availability - Devices settings Self-Help Capability for Pending Devices
+
+**Type:** New feature   
+**Service category:** Device Registration and Management                              
+**Product capability:** End User Experiences                 
+
+In the All Devices settings under the Registered column, you can now select any pending devices you have, and it will open a context pane to help troubleshoot why a device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+
+---
+
 ### Public Preview - In portal guide to configure multi-factor authentication
 
 **Type:** New feature   
