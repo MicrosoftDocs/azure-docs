@@ -23,6 +23,9 @@ Privileged Identity Management (PIM) generates alerts when there's suspicious or
 
 ![Screenshot that shows the alerts page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
+## License requirements for Microsoft Entra Premuim P2 or Microsoft Entra ID Governance
+[!INCLUDE [active-directory-p2-governance-license.md](../../../../includes/active-directory-p2-governance-license.md)]
+
 ## Security alerts
 
 This section lists all the security alerts for Azure AD roles, along with how to fix and how to prevent. Severity has the following meaning:
@@ -55,14 +58,14 @@ Severity: **Low**
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 | **In-portal mitigation action** | Makes multi-factor authentication required for activation of the privileged role. |
 
-### The organization doesn't have Azure AD Premium P2
+### The organization doesn't have Microsoft Entra Premium P2 or Microsoft Entra ID Governance
 
 Severity: **Low**
 
 | | Description |
 | --- | --- |
-| **Why do I get this alert?** | The current Azure AD organization doesn't have Azure AD Premium P2. |
-| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
+| **Why do I get this alert?** | The current Azure AD organization doesn't have Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
+| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
 
 ### Potential stale accounts in a privileged role
 
