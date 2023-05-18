@@ -568,10 +568,9 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.Services.AddOpenTelemetry()
-        .WithTracing(builder => builder.AddOtlpExporter())
-        .WithMetrics(builder => builder.AddOtlpExporter())
-        .UseAzureMonitor();
+    builder.Services.AddOpenTelemetry().UseAzureMonitor();
+    builder.Services.AddOpenTelemetry().WithTracing(builder => builder.AddOtlpExporter());
+    builder.Services.AddOpenTelemetry().WithMetrics(builder => builder.AddOtlpExporter());
 
     var app = builder.Build();
 
