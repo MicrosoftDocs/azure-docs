@@ -14,7 +14,7 @@ ms.date: 01/01/2023
 
 ## Getting started
 
-Azure Modeling and Simulation Workbench uses Azure's built in role based assignments to manage chamber access. Within Azure, only users with the User Access Administrator can manage role assignments on Azure Resources. As mentioned in the [user personas concept article](./concept-user-personas.md), the IT Admin or Workbench Owner is responsible for managing user access to a chamber.
+Azure Modeling and Simulation Workbench uses Azure's built-in role based assignments to manage chamber access. Within Azure, only users with the User Access Administrator can manage role assignments on Azure Resources. As mentioned in the [user personas concept article](./concept-user-personas.md), the IT Admin or Workbench Owner is responsible for managing user access to a chamber.
 
 ## Prerequisites
 
@@ -84,4 +84,4 @@ Azure Modeling and Simulation Workbench uses Azure's built in role based assignm
 
 ## Next steps
 
-To learn how to setup networking for an Azure Modeling and Simulation Workbench chamber, check [How to Setup Networking](./howtoguide-setup-networking.md)
+To learn how to set up networking for an Azure Modeling and Simulation Workbench chamber, check [How to Setup Networking](./howtoguide-setup-networking.md)

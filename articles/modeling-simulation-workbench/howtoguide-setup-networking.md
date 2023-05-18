@@ -1,13 +1,13 @@
 ---
 title: How to Set up Networking for a Modeling and Simulation Workbench chamber
-description: In this How-to guide, you learn how to setup networking for a Modeling and Simulation Workbench connector.
+description: In this How-to guide, you learn how to set up networking for a Modeling and Simulation Workbench connector.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 01/01/2023
-# Customer intent: As a Modeling and Simulation Workbench Owner, I want to setup networking for chamber access.
+# Customer intent: As a Modeling and Simulation Workbench Owner, I want to set up networking for chamber access.
 ---
 
 # How to Set up Networking for a Modeling and Simulation Workbench chamber
