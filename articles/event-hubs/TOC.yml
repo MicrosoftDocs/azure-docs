@@ -96,7 +96,7 @@
       items:
       - name: Capture event data in Event Hubs
         href: event-hubs-capture-overview.md
-      - name: Authentication modes for Capture destination
+      - name: Authentication modes for capture destination
         href: event-hubs-capture-managed-identity.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
@@ -266,7 +266,7 @@
         - name: Use the Spring Boot Starter for Apache Kafka
           href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
           maintainContext: true
-    - name: Use Kafka on Event Hubs
+    - name: Use Kafka on Azure Event Hubs
       items:
         - name: Kafka developer guide for Event Hubs
           href: apache-kafka-developer-guide.md
