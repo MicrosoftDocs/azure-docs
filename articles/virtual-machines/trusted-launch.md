@@ -32,15 +32,15 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 | Type | Virtual machines sizes supported | Sizes not supported yet.
 |:--- |:--- |:--- |
 | [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series | DCasv5-series, DCadsv5-series, Dpsv5-series, Dpdsv5-series
-| [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
-| [Memory optimized](sizes-memory.md) | Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
-| [Storage optimized](sizes-storage.md) |Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
-| [GPU](sizes-gpu.md) &#42; | NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCasT4_v3-series, NCads A10 v4-series, NVadsA10 v5-series | NC-series, NCv2-series, NCv3-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series,  NV-series
+| [Compute optimized](sizes-compute.md) | FX-series, Fsv2-series | All sizes supported.
+| [Memory optimized](sizes-memory.md) | Dsv2-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
+| [Storage optimized](sizes-storage.md) |Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
+| [GPU](sizes-gpu.md) &#42; | NCasT4_v3-series, NVadsA10 v5-series | NCv2-series, NCv3-series, NC_A100_v4-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series, NDv2-series, NVv3-series, NVv4-series
 
 To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](generation-2.md) and Trusted Launch VMs.
 
 > [!NOTE]
-> &#42; The **CUDA driver** requires [additional steps to install with Secure Boot Enabled](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).
+> &#42; The **CUDA driver** requires [additional steps to install with Secure Boot Enabled](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).
 > <br/>The **GRID driver** installation process does not offer any options to skip kernel module build and installation, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
 
 ## Operating systems supported
@@ -161,7 +161,7 @@ Trusted launch supports ephemeral OS disks. Note that, while using ephemeral dis
 
 ### How can I find VM sizes that support Trusted launch?
 
-See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes-supported).
+See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes).
 
 The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
 
