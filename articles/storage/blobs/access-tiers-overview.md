@@ -244,7 +244,6 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 - [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
-- blobs can't be set to the cold tier by using AzCopy. During the preview, you can set the blob's tier to the cold tier by using the Azure portal, PowerShell, or the Azure CLI.
 
 ### Required REST and SDK versions
 

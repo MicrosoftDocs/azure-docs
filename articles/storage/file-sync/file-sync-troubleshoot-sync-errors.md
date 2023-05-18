@@ -1296,7 +1296,8 @@ Disconnect all previous connections to the server or shared resource and try aga
 
 Run the following PowerShell command on the server to reset the certificate: `Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>`
 
-### Common troubleshooting steps
+## Common troubleshooting steps
+
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
 1. Navigate to the sync group within the Storage Sync Service.

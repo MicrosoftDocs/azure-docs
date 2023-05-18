@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: ignite-2022, devx-track-arm-template
-ms.date: 03/05/2023
+ms.date: 05/11/2023
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
@@ -249,12 +249,20 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     The format for extracting values from the common schema, use a "$", and then the path of the common schema field inside curly brackets. For example: `${data.essentials.monitorCondition}`.
 
-    For example, you could use these values in the **custom properties** to utilize data from the payload.
+    In the following examples, values in the **custom properties** are used to utilize data from the payload:
 
-    |Custom properties name  |Custom properties value  |Result  |
-    |---------|---------|---------|
-    |AdditionalDetails|Evaluation windowStartTime: ${data.alertContext.condition.windowStartTime}. windowEndTime: ${data.alertContext.condition.windowEndTime}|AdditionalDetails": "Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"         |
-    |Alert ${data.essentials.monitorCondition} reason     |“${data.alertContext.condition.allOf[0].metricName} ${data.alertContext.condition.allOf[0].operator}${data.alertContext.condition.allOf[0].threshold} ${data.essentials.monitorCondition}. The value is ${data.alertContext.condition.allOf[0].metricValue}"         |Examples of the results could be: <br> - Alert Resolved reason": "Percentage CPU GreaterThan5 Resolved. The value is 3.585 <br>Percentage CPU GreaterThan5 Fired. The value is 10.585  |
+    **Example 1**
+    - **Name:** "Additional Details"
+    - **Value:** "Evaluation windowStartTime: \${data.alertContext.condition.windowStartTime}. windowEndTime: \${data.alertContext.condition.windowEndTime}"
+    - **Result:** "AdditionalDetails:Evaluation windowStartTime: 2023-04-04T14:39:24.492Z. windowEndTime: 2023-04-04T14:44:24.492Z"
+
+
+    **Example 2**
+    - **Name:** "Alert \${data.essentials.monitorCondition} reason"
+    - **Value:** "\${data.alertContext.condition.allOf[0].metricName} \${data.alertContext.condition.allOf[0].operator} \${data.alertContext.condition.allOf[0].threshold} \${data.essentials.monitorCondition}. The value is \${data.alertContext.condition.allOf[0].metricValue}"
+    - **Result:**  Example results could be something like:
+        - "Alert Resolved reason: Percentage CPU GreaterThan5 Resolved. The value is 3.585"
+        - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
 
 1. On the **Details** tab, define the **Project details**.
     - Select the **Subscription**.
