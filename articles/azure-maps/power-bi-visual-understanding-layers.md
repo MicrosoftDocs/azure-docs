@@ -31,6 +31,23 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
     :::column-end:::
 :::row-end:::
 
+:::row:::
+    :::column span="":::
+        **Filled map layer**
+
+        Provides a visual display to shows differences in values across a geography or region.
+
+        ![Filled Map layer on map](media/power-bi-visual/filled-map.png)
+    :::column-end:::
+    :::column span="":::
+        **Heat map layer**
+
+        Shows data "hot spots" on a map.
+        
+        ![3D column layer on map](media/power-bi-visual/heat-map-sm.png)
+    :::column-end:::
+:::row-end:::
+
 The second type of layer connects addition external sources of data to map to provide more context and consists of the following layers.
 
 :::row:::
