@@ -19,6 +19,8 @@ In this how-to guide, we will take a cloud-native approach and leverage Azure se
 
 "GIF Missing - Finished project | Mobile and Browser"
 
+### Architecture
+
 |Azure service name | Purpose | Benefit   | 
 |-------------------|-------------------|------------------|
 |[Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)  | Provides the hosting environment for backend application | Fully managed, with no need to worry about infrastructure where the code runs
@@ -53,25 +55,104 @@ In this how-to guide, we will take a cloud-native approach and leverage Azure se
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
     :::column-end:::
 :::row-end:::
-
 > [!NOTE]
-> To keep this how-to guide focused, all connecting clients are added to the same `draw` group and is allowed to send messages to the group. Azure Web PubSub offers APIs for managing client connections at a granular level.
+> To keep this how-to guide focused, all connecting clients are added to the same group named `draw` and is given the permission to send messages to this group. To manage client connections at a granular level, see the full references of the APIs provided by Azure Web PubSub. {...missing link}
 
 :::row:::
     :::column span="2":::
-        4. The backend application is notified by Azure Web PubSub that a client has connected and it handles the `onConnected` event by calling the `sendToAll` provided by Azure Web PubSub
+        4. The backend application is notified by Azure Web PubSub that a client has connected and it handles the `onConnected` event by calling the `sendToAll()`, with a payload of the latest number of connected clients.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+    :::column-end:::
+:::row-end:::
+> [!NOTE]
+> It is important to note that if there are a large number of online users in the `draw` group, with **a single** network call from the backend application, all the online users will be notified that a new user has just joined. This drastically reduces the complexity and load of the backend application.
+
+:::row:::
+    :::column span="2":::
+        5. As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
     :::column-end:::
 :::row-end:::
 
+:::row:::
+    :::column span="2":::
+        6. Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, is managed by the backend application and delivered through Web PubSub. {code missing}
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+    :::column-end:::
+:::row-end:::
+
+5. As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
+
 
 ## Prerequisites
+Now that we have understood the data flow and the respective responsibilities of App Service and Web PubSub, let us get practical. In order to follow the step-by-step guide, you will need
 
 * A [GitHub](https://github.com/) account.
 * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
+## Create a Web PubSub resource
+
+1. Sign in to the Azure CLI by using the following command.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+1. Create a resource group.
+
+    ```azurecli-interactive
+    az group create \
+      --name whiteboard-app-group \
+      --location "eastus2"
+    ```
+
+1. Create a Web PubSub resource.
+
+    ```azurecli-interactive
+    az webpubsub create \
+      --name whiteboard \
+      --resource-group whiteboard-app-group \
+      --location "eastus2" \
+      --sku Free_F1
+    ```
+
+1. Show and store the access key somewhere for later use.
+
+    ```azurecli-interactive
+    az webpubsub key show \
+      --name whiteboard \
+      --resource-group whiteboard-app-group
+    ```
+
+## Get the application code
+
+
+## Create a Web App resource
+
+
+## Configure upstream server to handle events coming from Web PubSub
+
+
+## Deploy the application to App Service
+
+## View the whiteboard app in a broswer
+
+
+## Clean up resources
+Although the application uses only the free tiers of both services, it is best practice to delete resources if you no longer need them. You can delete the resource group along with the resources in it using following command,
+
+```azurecli-interactive
+az group delete --name whiteboard-app-group
+```
+
+## Next steps
+plug demo site
 
 
