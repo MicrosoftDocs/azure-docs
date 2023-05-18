@@ -42,10 +42,14 @@ Other than the scenarios previously described, no other data overlaid on the map
 For more information about privacy and terms of use related to the Azure Maps Power BI visual, see [Microsoft Azure Legal Information].
 
 ## Use the Azure Maps Power BI visual
+<!----------------------------------------------------------------
+Before you can use the Azure Maps visual in Power BI, you must select the **Use Azure Maps Visual** security option. To do this in Power BI desktop select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Security**, then select the **Use Azure Maps Visual** checkbox.
 
+:::image type="content" source="media/power-bi-visual/security-setting.png" alt-text="A screenshot of Use Azure Maps Visual checkbox in Power BI Security options page.":::
+---------------------------------------------------------------->
 Once the Azure Maps Power BI visual is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
 
-:::image type="content" source="media/power-bi-visual/azure-maps-in-visualizations-pane.png" alt-text="A screenshot the Azure Maps visual button on the Visualizations pane in of Power BI.":::
+:::image type="content" source="media/power-bi-visual/azure-maps-in-visualizations-pane.png" alt-text="A screenshot of the Azure Maps visual button on the Visualizations pane in of Power BI.":::
 
 Power BI creates an empty Azure Maps visual design canvas.
 
@@ -63,8 +67,10 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored bubbles on the map after legend field is provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color.png":::
 
+<!---------------------------------------------------------------
     > [!NOTE]
     > The built-in legend control for Power BI does not currently appear in this preview.
+--------------------------------------------------------------->
 
 3. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Sales** column.  
 
