@@ -314,23 +314,34 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
 
-1. In the **Send message to SAP** action, find and select an action from your SAP server.
+1. In the **Send message to SAP** action, find and select an available SAP action on your SAP server to send the message.
 
-   1. From the **SAP Action** edit box, select the folder icon. From the file list that opens, select the SAP message that you want to use. To navigate the list, use the arrows.
+   The **Send message to SAP** action is generic and can send a message that has BAPI, IDoc, RFC, or tRFC type. Select the message type and the SAP action to use for sending the message.
 
-      This example selects an IDoc action with the **Orders** type.
+   1. In the **SAP Action** edit box, select the folder icon. From the message type list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**.
 
-      ![Screenshot shows selecting an IDoc action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-idoc-action-consumption.png)
+      > [!NOTE]
+      >
+      > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
+
+      ![Screenshot shows selecting IDOC message type for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-idoc-type-consumption.png)
+
+   1. Browse the SAP action types folders using the arrows to find and select the SAP action that you want to use.
+
+      This example selects **ORDERS** > **ORDERS05**.
+
+      ![Screenshot shows finding an Orders action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-orders-action-consumption.png)
 
       If you can't find the action you want, you can manually enter a path, for example:
 
-      ![Screenshot shows manually entering a path to an IDoc action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
+      ![Screenshot shows manually entering a path to an Orders action type for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
 
       > [!TIP]
+      >
       > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
-      > That way, you can use the same action for different message types.
+      > That way, you can use the same SAP action for different message types.
 
-      For more information about IDoc operations, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      For more information about IDoc messages, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    1. In the **Send message to SAP** action, include the body output from the Request trigger.
 
@@ -354,6 +365,13 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
 1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+   > [!NOTE]
+   >
+   > This SAP action specifically sends messages by selecting an SAP action type, such as IDoc, RFC, tRFC, or BAPI action. 
+   > This example continues by selecting an IDoc action.
+
+   The **Send message to SAP** action is generic and can send a message that has BAPI, IDoc, RFC, or tRFC type. Select the message type and the SAP action to use for sending the message.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -1198,6 +1216,8 @@ During connection creation, if you receive the following error, a problem exists
 **Test connection failed. Error 'Failed to process request. Error details: 'could not load file or assembly 'sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken 50436dca5c7f7d23' or one of its dependencies. The system cannot find the file specified.'.'**
 
 Make sure to [install the required version of the SAP NCo client library and meet all other prerequisites](logic-apps-using-sap-connector.md#sap-client-library-prerequisites).
+
+<a name="bad-gateway-request"></a>
 
 ### 500 Bad Gateway or 400 Bad Request error
 
