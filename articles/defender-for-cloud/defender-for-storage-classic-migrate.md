@@ -2,8 +2,8 @@
 title: Migrate from Defender for Storage (classic) - Microsoft Defender for Cloud
 description: Learn about how to migrate from Defender for Storage (classic) to the new Defender for Storage plan to take advantage of its enhanced capabilities and pricing.
 ms.date: 03/16/2023
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ---
 

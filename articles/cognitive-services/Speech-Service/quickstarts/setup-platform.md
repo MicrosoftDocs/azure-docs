@@ -50,6 +50,6 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 ## Next steps
 
-* [Speech-to-text quickstart](../get-started-speech-to-text.md)
-* [Text-to-speech quickstart](../get-started-text-to-speech.md)
+* [Speech to text quickstart](../get-started-speech-to-text.md)
+* [Text to speech quickstart](../get-started-text-to-speech.md)
 * [Speech translation quickstart](../get-started-speech-translation.md)

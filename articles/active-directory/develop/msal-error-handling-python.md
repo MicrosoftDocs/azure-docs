@@ -50,13 +50,39 @@ else:
 
 ```
 
-When an error is returned, the `"error_description"` key also contains a human-readable message, and there is typically also an `"error_code"` key which contains a machine-readable Microsoft identity platform error code. For more information about the various Microsoft identity platform error codes, see [Authentication and authorization error codes](./reference-aadsts-error-codes.md).
+When an error is returned, the `"error_description"` key also contains a human-readable message, and there is typically also an `"error_code"` key which contains a machine-readable Microsoft identity platform error code. For more information about the various Microsoft identity platform error codes, see [Authentication and authorization error codes](./reference-error-codes.md).
 
 In MSAL for Python, exceptions are rare because most errors are handled by returning an error value. The `ValueError` exception is only thrown when there's an issue with how you're attempting to use the library, such as when API parameter(s) are malformed.
 
 [!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
 
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+
+## Retrying after errors and exceptions
+
+MSAL makes HTTP calls to the Azure AD service, and occasionally failures can occur.
+For example the network can go down or the server is overloaded.
+
+MSAL Python 1.11+ automatically performs one retry attempt for you.
+You may customize this behavior by following
+[this instruction](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.params.http_client).
+
+### HTTP 429
+
+When the Service Token Server (STS) is overloaded with too many requests,
+it returns HTTP error 429 with a hint about how long until you can try again in the `Retry-After` response field.
+
+Your app was expected to throttle the subsequent requests, and only retry after the specified period.
+That was not an easy task.
+
+MSAL Python 1.16+ made it easy for you, in that your app could blindly retry in any given time
+(say, whenever the end user clicks the sign-in button again),
+MSAL Python 1.16+ would automatically throttle those retry attempts by returning same error response from an HTTP cache,
+and only sending out a real HTTP call when that call is attempted after the specified period.
+
+By default, this throttle mechanism works by saving throttle information into a built-in in-memory HTTP cache.
+You may provide your own `dict`-like object as the HTTP cache, which you can control how to persist its content.
+See [MSAL Python's API document](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.params.http_cache)
+for more details.
 
 ## Next steps
 

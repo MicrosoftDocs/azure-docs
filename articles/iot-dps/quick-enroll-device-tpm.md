@@ -278,7 +278,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 1. Go to the sample folder:
 
     ```cmd
-    cd azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-sample
+    cd azure-iot-sdk-java\provisioning\provisioning-service-client-samples\service-enrollment-sample
     ```
 
 1. Open the file *\src\main\java\samples\com\microsoft\azure\sdk\iot\ServiceEnrollmentSample.java* in an editor.
@@ -370,7 +370,7 @@ AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEA
 
 :::zone pivot="programming-language-java"
 
-1. From the *azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-sample* folder in your command prompt, run the following command to build the sample:
+1. From the *azure-iot-sdk-java\provisioning\provisioning-service-client-samples\service-enrollment-sample* folder in your command prompt, run the following command to build the sample:
 
     ```cmd\sh
     mvn install -DskipTests

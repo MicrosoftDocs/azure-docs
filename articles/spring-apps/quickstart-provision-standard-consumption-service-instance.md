@@ -21,7 +21,7 @@ This article describes how to create a Standard consumption plan in Azure Spring
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
+- (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
 ## Provision a Standard consumption plan instance
 

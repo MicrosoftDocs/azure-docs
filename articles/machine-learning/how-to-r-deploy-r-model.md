@@ -3,6 +3,7 @@ title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
@@ -181,7 +182,7 @@ These steps assume you have an Azure Container Registry associated with your wor
 
 Once you have verified that you have at least one custom environment, use the following steps to build a container.
 
-1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
+1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity

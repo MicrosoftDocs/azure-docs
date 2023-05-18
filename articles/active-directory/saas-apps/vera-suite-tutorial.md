@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 04/12/2023
 ms.author: jeedes
 
 ---
@@ -56,24 +56,8 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the Azure portal, on the **Vera Suite** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
-
-1. On the **Basic SAML Configuration** section, perform the following steps:
-
-	a. In the **Identifier** textbox, type the URL:
-	`https://logon.mykpa.com/identity/Saml2/`
-
-	b. In the **Reply URL** textbox, type the URL:
-	`https://logon.mykpa.com/identity/Saml2/Acs`
-
-	c. In the **Sign on URL** textbox, type one of the following URLs:
-	
-	| **Sign on URL** |
-	|-------------|
-	| `https://www.verasuite.com` |
-	| `https://logon.mykpa.com` |
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

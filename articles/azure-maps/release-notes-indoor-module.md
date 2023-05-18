@@ -14,6 +14,61 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Indoor Module.
 
+## [0.2.1]
+
+### New features (0.2.1)
+
+- multiple statesets are now supported for map configurations with multiple tileset, instead of single stateset ID, a mapping between tileset IDs and stateset ids can be passed:
+  
+  ```js
+  indoorManager.setOptions({
+    statesetId: {
+      'tilesetId1': 'stasetId1',
+      'tilesetId2': 'stasetId2'
+     }
+  });
+
+  indoorManager.setDynamicStyling(true)
+  ```
+
+- autofocus and autofocusOptions support: when you set autofocus on `IndoorManagerOptions`, the camera is focused on the indoor facilities once the indoor map is loaded. Camera options can be further customized via autofocus options:
+  
+  ```js
+  indoorManager.setOptions({
+    autofocus: true,
+    autofocusOptions: {
+      padding: { top: 50, bottom: 50, left: 50, right: 50 }
+    }
+  });
+  ```
+
+- focusCamera support: instead of `autofocus`, you can call `focusCamera` directly. (Alternative to `autofocus`, when indoor map configuration is used, tilesetId can be provided to focus on a specific facility only, otherwise bounds that enclose all facilities are used):
+
+  ```js
+  indoorManager.focusCamera({
+     type: 'ease',
+     duration: 1000,
+     padding: { top: 50, bottom: 50, left: 50, right: 50 }
+  })
+  ```
+
+- level name labels in LevelControl (in addition to `ordinal`, LevelControl can now display level names derived from 'name' property of level features):
+
+  ```js
+  indoorManager.setOptions({
+    levelControl: new LevelControl({ levelLabel: 'name' })
+  });
+  ```
+### Changes (0.2.1)
+
+-  non level-bound features are now displayed
+
+### Bug fixes (0.2.1)
+
+- fix facility state not initialized when tile loads don't emit `sourcedata` event
+
+- level preference sorting fixed
+
 ## [0.2.0]
 
 ### New features (0.2.0)
@@ -47,6 +102,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 [drawing package 2.0]: ./drawing-package-guide.md
+[0.2.1]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.1
 [0.2.0]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.0
 [Azure Maps Creator Samples]: https://samples.azuremaps.com/?search=creator
 [Azure Maps Blog]: https://techcommunity.microsoft.com/t5/azure-maps-blog/bg-p/AzureMapsBlog

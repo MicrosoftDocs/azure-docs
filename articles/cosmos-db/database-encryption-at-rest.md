@@ -44,6 +44,20 @@ A: Microsoft has a set of internal guidelines for encryption key rotation, which
 ### Q: Can I use my own encryption keys?
 A: Yes, this feature is now available for new Azure Cosmos DB accounts and this should be done at the time of account creation. Please go through [Customer-managed Keys](./how-to-setup-cmk.md) document for more information.
 
+> [!WARNING]
+> The following field names are reserved on Cassandra API tables in accounts using Customer-managed Keys:
+>
+> - `id`
+> - `ttl`
+> - `_ts`
+> - `_etag`
+> - `_rid`
+> - `_self`
+> - `_attachments`
+> - `_epk`
+> 
+> When Customer-managed Keys are not enabled, only field names beginning with `__sys_` are reserved.
+
 ### Q: What regions have encryption turned on?
 A: All Azure Cosmos DB regions have encryption turned on for all user data.
 

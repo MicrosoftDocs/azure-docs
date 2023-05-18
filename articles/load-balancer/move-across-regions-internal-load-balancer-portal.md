@@ -6,7 +6,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Move Azure internal Load Balancer to another region using the Azure portal

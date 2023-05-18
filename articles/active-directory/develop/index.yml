@@ -16,7 +16,7 @@ metadata:
   author: Dickson-Mwendia
   manager: CelesteDG
   ms.author: dmwendia
-  ms.date: 11/11/2022
+  ms.date: 04/28/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: hub-page
@@ -117,11 +117,11 @@ conceptualContent:
     ## CARD 2 ######################
     - title: Protect a web API
       links:
-        - text: Register an API with the identity platform
+        - text: Configure an application to expose a web API
           url: quickstart-configure-app-expose-web-apis.md
           itemType: quickstart
-        - text: Protect an API in code
-          url: web-api-quickstart.md
+        - text: Build a protected web API
+          url: web-api-tutorial-01-register-app.md
           itemType: quickstart
         - text: Call an API from a non-interactive app or script
           url: console-app-quickstart.md
@@ -155,40 +155,40 @@ conceptualContent:
 
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
-  title: Microsoft authentication libraries on GitHub
+  title: Microsoft authentication libraries
   summary: >
-    The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft,
-    we recommend MSAL for any app that uses theMicrosoft identity platform for authentication and authorization.
+    The open-source Microsoft Authentication Library (MSAL) is built and supported by Microsoft.
+    We recommend MSAL for any app that uses the Microsoft identity platform for authentication and authorization.
   items:
   ## ROW 1 ######################
   - title: .NET
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+    url: /entra/msal/dotnet
     imageSrc: /media/logos/logo_Csharp.svg
   - title: Android
     url: https://github.com/AzureAD/microsoft-authentication-library-for-android
     imageSrc: ./media/hub/android.svg
   - title: Angular
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular
+    url: /javascript/api/@azure/msal-angular/
     imageSrc: ./media/hub/angular.svg
   ## ROW 2 ######################
   - title: iOS & macOS
     url: https://github.com/AzureAD/microsoft-authentication-library-for-objc
     imageSrc: /media/logos/logo_ios.svg
   - title: Java
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-java
+    url: /java/api/com.microsoft.aad.msal4j
     imageSrc: /media/logos/logo_java.svg
   - title: JavaScript
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser
+    url: /javascript/api/overview/msal-overview
     imageSrc: /media/logos/logo_js.svg
   ## ROW 3 ######################
   - title: Node.js
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node
+    url: /javascript/api/@azure/msal-node
     imageSrc: ./media/hub/node.svg
   - title: Python
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-python
+    url: /python/api/msal/overview-msal
     imageSrc: /media/logos/logo_python.svg
   - title: React
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react
+    url: /javascript/api/@azure/msal-react
     imageSrc: ./media/hub/react.svg
 ## BAND 4 - TOOLS END #######################################################################################################################################
 

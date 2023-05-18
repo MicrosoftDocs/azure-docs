@@ -24,31 +24,38 @@ The first step is to create the workload L2 and L3 networks, followed by the cre
 ## Common parameters
 
 ```bash
-export myloc="eastus"
-export myrg="****"
-export MSYS_NO_PATHCONV=1
-export mysub="******"
-export mynfid='******'
-export myplatcustloc='******'
-export myhakscustloc='******'
+export DC_LOCATION="eastus"
+export RESOURCE_GROUP="****"
+export SUBSCRIPTION="******"
+export CUSTOM_LOCATION="******"
+export VM_NAME="******"
+export IP_ALLOCATION_TYPE="IPV4"
+export IPV4_SUBNET="******"
+export VLAN=****
+export L3_ISD_ARM="******"
+export L3_MGMT_NET_NAME="******"
+export L3_TRUSTED_NET_NAME="******"
+export L3_UNTRUSTED_NET_NAME="******"
+export L2_NETWORK_NAME="******"
+export L2_ISD_ARM="******"
+export VM_PARAMS="******"
 ```
-
 ## Initialization
 
-Set `$mysub` as the active subscription for your Operator Nexus instance.
+Set `$SUBSCRIPTION` as the active subscription for your Operator Nexus instance.
 
 ```azurecli
-  az account set --subscription "$mysub"
+  az account set --subscription "$SUBSCRIPTION"
 ```
 
 ## Create `cloudservicesnetwork`
 
 ```azurecli
-az networkcloud cloudservicesnetwork create --name "$mycsn" \
---resource-group "$myrg" \
---subscription "$mysub" \
---extended-location name="$myplatcustloc" type="CustomLocation" \
---location "$myloc" \
+az networkcloud cloudservicesnetwork create --name "$CLOUD_SERVICES_NETWORK" \
+--resource-group "$RESOURCE_GROUP" \
+--subscription "$SUBSCRIPTION" \
+--extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
+--location "$DC_LOCATION" \
 --additional-egress-endpoints "[{\"category\":\"azure-resource-management\",\"endpoints\":[{\"domainName\":\"az \",\"port\":443}]}]" \
 --debug
 ```
@@ -56,98 +63,91 @@ az networkcloud cloudservicesnetwork create --name "$mycsn" \
 ### Validate `cloudservicesnetwork` has been created
 
 ```azurecli
-az networkcloud cloudservicesnetwork show --name "$mycsn" --resource-group "$myrg" --subscription "$mysub" -o table
+az networkcloud cloudservicesnetwork show --name "$CLOUD_SERVICES_NETWORK" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" -o table
 ```
 
 ## Create management L3network
 
 ```azurecli
-az networkcloud l3network create --name "$myl3n-mgmt" \
---resource-group "$myrg" \
---subscription "$mysub" \
---extended-location name="$myplatcustloc" type="CustomLocation" \
---location "$myloc" \
---hybrid-aks-ipam-enabled "False" \
---hybrid-aks-plugin-type "HostDevice" \
---ip-allocation-type "$myalloctype" \
---ipv4-connected-prefix "$myipv4sub" \
---l3-isolation-domain-id "$myl3isdarm" \
---vlan $myvlan \
+az networkcloud l3network create --name "$L3_MGMT_NET_NAME" \
+--resource-group "$RESOURCE_GROUP" \
+--subscription "$SUBSCRIPTION" \
+--extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
+--location "$DC_LOCATION" \
+--ip-allocation-type "$IP_ALLOCATION_TYPE" \
+--ipv4-connected-prefix "$IPV4_SUBNET" \
+--l3-isolation-domain-id "$L3_ISD_ARM" \
+--vlan $VLAN \
 --debug
 ```
 
 ### Validate `l3network` has been created
 
 ```azurecli
-az networkcloud l3network show --name "$myl3n-mgmt" \
-   --resource-group "$myrg" --subscription "$mysub"
+az networkcloud l3network show --name "$L3_MGMT_NET_NAME" \
+   --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION"
 ```
 
 ## Create trusted L3network
 
 ```azurecli
-az networkcloud l3network create --name "$myl3n-trust" \
---resource-group "$myrg" \
---subscription "$mysub" \
---extended-location name="$myplatcustloc" type="CustomLocation" \
---location "$myloc" \
---hybrid-aks-ipam-enabled "False" \
---hybrid-aks-plugin-type "HostDevice" \
---ip-allocation-type "$myalloctype" \
---ipv4-connected-prefix "$myipv4sub" \
---l3-isolation-domain-id "$myl3isdarm" \
---vlan $myvlan \
+az networkcloud l3network create --name "$L3_TRUSTED_NET_NAME" \
+--resource-group "$RESOURCE_GROUP" \
+--subscription "$SUBSCRIPTION" \
+--extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
+--location "$DC_LOCATION" \
+--ip-allocation-type "$IP_ALLOCATION_TYPE" \
+--ipv4-connected-prefix "$IPV4_SUBNET" \
+--l3-isolation-domain-id "$L3_ISD_ARM" \
+--vlan $VLAN \
 --debug
 ```
 
 ### Validate trusted `l3network` has been created
 
 ```azurecli
-az networkcloud l3network show --name "$myl3n-trust" \
-   --resource-group "$myrg" --subscription "$mysub"
+az networkcloud l3network show --name "$L3_TRUSTED_NET_NAME" \
+   --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION"
 ```
 
 ## Create untrusted L3network
 
 ```azurecli
-az networkcloud l3network create --name "$myl3n-untrust" \
---resource-group "$myrg" \
---subscription "$mysub" \
---extended-location name="$myplatcustloc" type="CustomLocation" \
---location "$myloc" \
---hybrid-aks-ipam-enabled "False" \
---hybrid-aks-plugin-type "HostDevice" \
---ip-allocation-type "$myalloctype" \
---ipv4-connected-prefix "$myipv4sub" \
---l3-isolation-domain-id "$myl3isdarm" \
---vlan $myvlan \
+az networkcloud l3network create --name "$L3_UNTRUSTED_NET_NAME" \
+--resource-group "$RESOURCE_GROUP" \
+--subscription "$SUBSCRIPTION" \
+--extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
+--location "$DC_LOCATION" \
+--ip-allocation-type "$IP_ALLOCATION_TYPE" \
+--ipv4-connected-prefix "$IPV4_SUBNET" \
+--l3-isolation-domain-id "$L3_ISD_ARM" \
+--vlan $VLAN \
 --debug
 ```
 
 ### Validate untrusted `l3network` has been created
 
 ```azurecli
-az networkcloud l3network show --name "$myl3n-untrust" \
-   --resource-group "$myrg" --subscription "$mysub"
+az networkcloud l3network show --name "$L3_UNTRUSTED_NET_NAME" \
+   --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION"
 ```
 
 ## Create L2network
 
 ```azurecli
-az networkcloud l2network create --name "$myl2n" \
---resource-group "$myrg" \
---subscription "$mysub" \
---extended-location name="$myplatcustloc" type="CustomLocation" \
---location "$myloc" \
---hybrid-aks-plugin-type "HostDevice" \
---l2-isolation-domain-id "$myl2isdarm" \
+az networkcloud l2network create --name "$L2_NETWORK_NAME" \
+--resource-group "$RESOURCE_GROUP" \
+--subscription "$SUBSCRIPTION" \
+--extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
+--location "$DC_LOCATION" \
+--l2-isolation-domain-id "$L2_ISD_ARM" \
 --debug
 ```
 
 ### Validate `l2network` has been created
 
 ```azurecli
-az networkcloud l2network show --name "$myl2n" --resource-group "$myrg" --subscription "$mysub"
+az networkcloud l2network show --name "$L2_NETWORK_NAME" --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION"
 ```
 
 ## Create Virtual Machine and deploy VNF
@@ -155,8 +155,8 @@ az networkcloud l2network show --name "$myl2n" --resource-group "$myrg" --subscr
 The virtual machine parameters include the VNF image.
 
 ```azurecli
-az networkcloud virtualmachine create --name "$myvm" \
---resource-group "$myrg" --subscription "$mysub" \
---virtual-machine-parameters "$vmparm" \
+az networkcloud virtualmachine create --name "$VM_NAME" \
+--resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" \
+--virtual-machine-parameters "$VM_PARAMS" \
 --debug
 ```

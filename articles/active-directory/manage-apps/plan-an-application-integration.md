@@ -12,6 +12,7 @@ ms.workload: identity
 ms.date: 04/05/2021
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Integrating Azure Active Directory with applications getting started guide

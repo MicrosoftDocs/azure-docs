@@ -22,7 +22,7 @@ This quickstart shows you how to configure single sign-on for applications runni
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A license for Azure Spring Apps Enterprise tier. For more information, see [Enterprise tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.37.0 or higher](/cli/azure/install-azure-cli).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
@@ -170,6 +170,7 @@ To complete the single sign-on experience, use the following steps to deploy the
        --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern identity/default \
        --source-path apps/acme-identity \
+       --build-env BP_JVM_VERSION=17 \
        --env "JWK_URI=<jwk-uri>"
    ```
 
