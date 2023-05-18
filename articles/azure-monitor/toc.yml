@@ -124,6 +124,8 @@ items:
     href: essentials/platform-logs-overview.md
   - name: Activity log
     href: essentials/activity-log.md
+  - name: Activity log insights
+    href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
 - name: Data collection
@@ -519,6 +521,8 @@ items:
             href: logs/availability-zones.md
         - name: Monitor
           items:
+          - name: Log Analytics workspace insights
+            href: logs/log-analytics-workspace-insights-overview.md
           - name: Monitor Log Analytics workspace health
             displayName: latency
             href: logs/log-analytics-workspace-health.md
@@ -565,10 +569,12 @@ items:
             href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
-- name: Insights
+- name: Monitor resources
   items:
-  - name: Overview
+  - name: Insights
     href: insights/insights-overview.md
+  - name: Troubleshoot insights
+    href: insights/troubleshoot-workbooks.md 
   - name: Application Insights
     items:
     - name: Application Insights overview
@@ -925,6 +931,170 @@ items:
         href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
       - name: Troubleshooting articles
         href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
+  - name: Virtual machines
+    items:
+    - name: Best practices
+      href: best-practices-vm.md
+    - name: Tutorials
+      items:
+      - name: Enable recommended alerts
+        href: vm/tutorial-monitor-vm-alert-recommended.md
+      - name: Create availability alert
+        href: vm/tutorial-monitor-vm-alert-availability.md
+      - name: Enable VM insights
+        href: vm/tutorial-monitor-vm-enable-insights.md
+      - name: Collect guest logs and metrics
+        href: vm/tutorial-monitor-vm-guest.md
+    - name: Monitor virtual machines
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Deploy agents
+        href: vm/monitor-virtual-machine-agent.md
+      - name: Collect data
+        href: vm/monitor-virtual-machine-data-collection.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
+    - name: VM insights
+      items:
+      - name: Overview
+        href: vm/vminsights-overview.md
+      - name: FAQ
+        href: /azure/azure-monitor/faq#vm-insights
+      - name: Enable and configure
+        items:
+        - name: Overview
+          href: vm/vminsights-enable-overview.md
+        - name: Azure portal
+          href: vm/vminsights-enable-portal.md
+        - name: Azure PowerShell
+          href: vm/vminsights-enable-powershell.md
+        - name: ARM templates
+          href: vm/vminsights-enable-resource-manager.md
+        - name: Azure Policy 
+          href: vm/vminsights-enable-policy.md
+        - name: Hybrid VMs
+          href: vm/vminsights-enable-hybrid.md
+        - name: Dependency Agent
+          href: vm/vminsights-dependency-agent-maintenance.md
+        - name: Configure workspace 
+          href: vm/vminsights-configure-workspace.md
+      - name: Map dependencies
+        href: vm/vminsights-maps.md
+      - name: Monitor performance
+        href: vm/vminsights-performance.md
+      - name: Analyze data with log queries
+        href: vm/vminsights-log-query.md
+      - name: Monitor changes
+        href: vm/vminsights-change-analysis.md
+      - name: Visualize data with workbooks
+        href: vm/vminsights-workbooks.md
+      - name: Disable monitoring
+        href: vm/vminsights-optout.md
+      - name: Troubleshoot
+        href: vm/vminsights-troubleshoot.md
+    - name: System Center
+      items:
+      - name: Migrate from Operations Manager
+        href: azure-monitor-operations-manager.md
+      - name: SCOM Managed Instance (preview)
+        href: vm/scom-managed-instance-overview.md
+      - name: Connect Operations Manager
+        href: agents/om-agents.md
+      - name: Assess Operations Manager
+        href: insights/scom-assessment.md
+  - name: Containers
+    items:
+    - name: Monitor AKS
+      href: ../aks/monitor-aks.md
+    - name: Container insights
+      items:
+      - name: Overview
+        href: containers/container-insights-overview.md
+      - name: FAQ
+        href: /azure/azure-monitor/faq#container-insights
+      - name: Enable
+        displayName: container insights
+        items:
+        - name: Overview
+          displayName: container insights
+          href: containers/container-insights-onboard.md
+        - name: AKS cluster
+          href: containers/container-insights-enable-aks.md
+        - name: Azure Arc-enabled cluster
+          href: containers/container-insights-enable-arc-enabled-clusters.md
+        - name: AKS hybrid cluster
+          href: containers/container-insights-enable-provisioned-clusters.md
+        - name: Hybrid cluster
+          href: containers/container-insights-hybrid-setup.md
+        - name: Enable with Azure Policy
+          href: containers/container-insights-enable-aks-policy.md
+        - name: Supported region mappings
+          href: containers/container-insights-region-mapping.md
+        - name: Transition from Container monitoring solution
+          href: containers/container-insights-transition-solution.md
+      - name: Prometheus metrics
+        href: containers/container-insights-prometheus.md
+      - name: Configure
+        items:
+        - name: Agent management
+          href: containers/container-insights-manage-agent.md
+        - name: Agent collection settings
+          href: containers/container-insights-agent-config.md
+        - name: Enable ContainerLogv2
+          href: containers/container-insights-logging-v2.md
+        - name: Enable cost optimization settings (preview)
+          href: containers/container-insights-cost-config.md
+      - name: Monitor
+        items:
+        - name: Monitor performance
+          href: containers/container-insights-analyze.md
+        - name: Monitor GPU performance
+          href: containers/container-insights-gpu-monitoring.md
+        - name: Monitor network configuration
+          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+        - name: Monitor Deployments & HPAs
+          href: containers/container-insights-deployment-hpa-metrics.md
+        - name: Monitor Persistent Volumes (PVs)
+          href: containers/container-insights-persistent-volumes.md
+        - name: Monitor Security with Syslog 
+          href: containers/container-insights-syslog.md  
+        - name: Reports tab
+          href: containers/container-insights-reports.md
+        - name: Custom metrics
+          href: containers/container-insights-custom-metrics.md
+      - name: Log queries
+        href: containers/container-insights-log-query.md
+      - name: View live data
+        items:
+        - name: Live Data overview
+          href: containers/container-insights-livedata-overview.md
+        - name: Setup
+          href: containers/container-insights-livedata-setup.md
+        - name: View cluster metrics
+          href: containers/container-insights-livedata-metrics.md
+      - name: Alerting
+        items:
+        - name: Create metric alert rules
+          href: containers/container-insights-metric-alerts.md
+        - name: Create log alert rules
+          href: containers/container-insights-log-alerts.md
+      - name: Manage cost and usage
+        href: containers/container-insights-cost.md
+      - name: Disable monitoring
+        items:
+          - name: Disable monitoring AKS
+            href: containers/container-insights-optout.md
+          - name: Disable monitoring Red Hat OpenShift v3
+            href: containers/container-insights-optout-openshift-v3.md
+          - name: Disable monitoring Red Hat OpenShift v4
+            href: containers/container-insights-optout-openshift-v4.md
+          - name: Disable monitoring hybrid cluster
+            href: containers/container-insights-optout-hybrid.md
+      - name: Troubleshooting
+        href: containers/container-insights-troubleshoot.md
   - name: Network insights
     items:
     - name: Overview
@@ -936,14 +1106,6 @@ items:
     - name: Troubleshooting
       displayName: Network Insights, Network
       href: ../network-watcher/network-insights-troubleshooting.md    
-  - name: Activity log insights
-    href: essentials/activity-log-insights.md
-  - name: Log Analytics workspace insights
-    href: logs/log-analytics-workspace-insights-overview.md
-  - name: Resource group insights
-    href: insights/resource-group-insights.md
-  - name: Troubleshoot insights
-    href: insights/troubleshoot-workbooks.md 
 - name: Visualize
   items:
   - name: Workbooks
@@ -1325,172 +1487,6 @@ items:
         href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-- name: Monitor compute
-  items:
-  - name: Virtual machines
-    items:
-    - name: Best practices
-      href: best-practices-vm.md
-    - name: Tutorials
-      items:
-      - name: Enable recommended alerts
-        href: vm/tutorial-monitor-vm-alert-recommended.md
-      - name: Create availability alert
-        href: vm/tutorial-monitor-vm-alert-availability.md
-      - name: Enable VM insights
-        href: vm/tutorial-monitor-vm-enable-insights.md
-      - name: Collect guest logs and metrics
-        href: vm/tutorial-monitor-vm-guest.md
-    - name: Monitor virtual machines
-      items:
-      - name: Overview
-        href: vm/monitor-virtual-machine.md
-      - name: Deploy agents
-        href: vm/monitor-virtual-machine-agent.md
-      - name: Collect data
-        href: vm/monitor-virtual-machine-data-collection.md
-      - name: Analyze data
-        href: vm/monitor-virtual-machine-analyze.md
-      - name: Create alerts
-        href: vm/monitor-virtual-machine-alerts.md
-    - name: VM insights
-      items:
-      - name: Overview
-        href: vm/vminsights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#vm-insights
-      - name: Enable and configure
-        items:
-        - name: Overview
-          href: vm/vminsights-enable-overview.md
-        - name: Azure portal
-          href: vm/vminsights-enable-portal.md
-        - name: Azure PowerShell
-          href: vm/vminsights-enable-powershell.md
-        - name: ARM templates
-          href: vm/vminsights-enable-resource-manager.md
-        - name: Azure Policy 
-          href: vm/vminsights-enable-policy.md
-        - name: Hybrid VMs
-          href: vm/vminsights-enable-hybrid.md
-        - name: Dependency Agent
-          href: vm/vminsights-dependency-agent-maintenance.md
-        - name: Configure workspace 
-          href: vm/vminsights-configure-workspace.md
-      - name: Map dependencies
-        href: vm/vminsights-maps.md
-      - name: Monitor performance
-        href: vm/vminsights-performance.md
-      - name: Analyze data with log queries
-        href: vm/vminsights-log-query.md
-      - name: Monitor changes
-        href: vm/vminsights-change-analysis.md
-      - name: Visualize data with workbooks
-        href: vm/vminsights-workbooks.md
-      - name: Disable monitoring
-        href: vm/vminsights-optout.md
-      - name: Troubleshoot
-        href: vm/vminsights-troubleshoot.md
-    - name: System Center
-      items:
-      - name: Migrate from Operations Manager
-        href: azure-monitor-operations-manager.md
-      - name: SCOM Managed Instance (preview)
-        href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
-      - name: Assess Operations Manager
-        href: insights/scom-assessment.md
-  - name: Containers
-    items:
-    - name: Monitor AKS
-      href: ../aks/monitor-aks.md
-    - name: Container insights
-      items:
-      - name: Overview
-        href: containers/container-insights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#container-insights
-      - name: Enable
-        displayName: container insights
-        items:
-        - name: Overview
-          displayName: container insights
-          href: containers/container-insights-onboard.md
-        - name: AKS cluster
-          href: containers/container-insights-enable-aks.md
-        - name: Azure Arc-enabled cluster
-          href: containers/container-insights-enable-arc-enabled-clusters.md
-        - name: AKS hybrid cluster
-          href: containers/container-insights-enable-provisioned-clusters.md
-        - name: Hybrid cluster
-          href: containers/container-insights-hybrid-setup.md
-        - name: Enable with Azure Policy
-          href: containers/container-insights-enable-aks-policy.md
-        - name: Supported region mappings
-          href: containers/container-insights-region-mapping.md
-        - name: Transition from Container monitoring solution
-          href: containers/container-insights-transition-solution.md
-      - name: Prometheus metrics
-        href: containers/container-insights-prometheus.md
-      - name: Configure
-        items:
-        - name: Agent management
-          href: containers/container-insights-manage-agent.md
-        - name: Agent collection settings
-          href: containers/container-insights-agent-config.md
-        - name: Enable ContainerLogv2
-          href: containers/container-insights-logging-v2.md
-        - name: Enable cost optimization settings (preview)
-          href: containers/container-insights-cost-config.md
-      - name: Monitor
-        items:
-        - name: Monitor performance
-          href: containers/container-insights-analyze.md
-        - name: Monitor GPU performance
-          href: containers/container-insights-gpu-monitoring.md
-        - name: Monitor network configuration
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: Monitor Deployments & HPAs
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: Monitor Persistent Volumes (PVs)
-          href: containers/container-insights-persistent-volumes.md
-        - name: Monitor Security with Syslog 
-          href: containers/container-insights-syslog.md  
-        - name: Reports tab
-          href: containers/container-insights-reports.md
-        - name: Custom metrics
-          href: containers/container-insights-custom-metrics.md
-      - name: Log queries
-        href: containers/container-insights-log-query.md
-      - name: View live data
-        items:
-        - name: Live Data overview
-          href: containers/container-insights-livedata-overview.md
-        - name: Setup
-          href: containers/container-insights-livedata-setup.md
-        - name: View cluster metrics
-          href: containers/container-insights-livedata-metrics.md
-      - name: Alerting
-        items:
-        - name: Create metric alert rules
-          href: containers/container-insights-metric-alerts.md
-        - name: Create log alert rules
-          href: containers/container-insights-log-alerts.md
-      - name: Manage cost and usage
-        href: containers/container-insights-cost.md
-      - name: Disable monitoring
-        items:
-          - name: Disable monitoring AKS
-            href: containers/container-insights-optout.md
-          - name: Disable monitoring Red Hat OpenShift v3
-            href: containers/container-insights-optout-openshift-v3.md
-          - name: Disable monitoring Red Hat OpenShift v4
-            href: containers/container-insights-optout-openshift-v4.md
-          - name: Disable monitoring hybrid cluster
-            href: containers/container-insights-optout-hybrid.md
-      - name: Troubleshooting
-        href: containers/container-insights-troubleshoot.md
 - name: Reference
   items:
   - name: Service limits
