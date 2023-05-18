@@ -663,12 +663,12 @@ In the source tenant, to enable provisioning, create a provisioning job.
     $Params = @{
     	"value" = @(
     		@{
-    			"key" = "CompanyId"
-    			"value" = $TargetTenantId
-    		}
-    		@{
     			"key" = "AuthenticationType"
     			"value" = "SyncPolicy"
+    		}
+    		@{
+    			"key" = "CompanyId"
+    			"value" = $TargetTenantId
     		}
     	)
     }
@@ -687,13 +687,13 @@ In the source tenant, to enable provisioning, create a provisioning job.
     
     { 
         "value": [ 
-            { 
-                "key": "CompanyId", 
-                "value": "{targetTenantId}" 
-            },
             {
                 "key": "AuthenticationType",
                 "value": "SyncPolicy"
+            },
+            { 
+                "key": "CompanyId", 
+                "value": "{targetTenantId}" 
             },
             {
                 "key": "SyncNotificationSettings",
