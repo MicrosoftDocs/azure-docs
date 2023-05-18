@@ -918,12 +918,12 @@ items:
   items:
   - name: Sentiment analysis and opinion mining overview
     href: sentiment-opinion-mining/overview.md
+  - name: Sentiment analysis and opinion mining language support
+    href: sentiment-opinion-mining/language-support.md
   - name: Prebuilt
     items:
     - name: Sentiment analysis and opinion mining quickstart
       href: sentiment-opinion-mining/quickstart.md
-    - name: Sentiment analysis and opinion mining language support
-      href: sentiment-opinion-mining/language-support.md
     - name: Samples
       items:
       - name: C#
@@ -1005,8 +1005,13 @@ items:
     items:
       - name: How-to guides
         items:
+        - name: Create projects
+          href: sentiment-opinion-mining/custom/how-to/create-project.md
+        - name: Data selection and schema
+          href: sentiment-opinion-mining/custom/how-to/design-schema.md
         - name: Call the API
           href: sentiment-opinion-mining/custom/how-to/call-api.md
+        
 - name: Text Analytics for health
   items:
   - name: Text Analytics for health overview
