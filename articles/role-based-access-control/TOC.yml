@@ -153,15 +153,15 @@
     href: transfer-subscription.md
   - name: Troubleshoot
     href: troubleshooting.md
-  - name: Troubleshoot (Option 1)
+  - name: Troubleshoot (Option 1 - ARG steps in Troubleshoot doc)
     href: troubleshooting-v1.md
-  - name: Troubleshoot (Option 2)
+  - name: Troubleshoot (Option 2 - ARG steps in separate Reduce doc)
     items:
     - name: Troubleshoot Azure RBAC
       href: troubleshooting-v2.md
     - name: Reduce role assignments and custom roles
       href: troubleshoot-resource-graph.md
-  - name: Troubleshoot (Option 3)
+  - name: Troubleshoot (Option 3 - Limits and ARG steps in separate Limits doc)
     items:
     - name: Troubleshoot Azure RBAC
       href: troubleshooting-v3.md
