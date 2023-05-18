@@ -23,7 +23,7 @@ API Center enables tracking APIs in a centralized location for discovery, reuse,
 With API Center, stakeholders throughout your organization can discover, govern, and reuse APIs, including API program managers, application developers, and API developers.  
 
 * **API program managers**, usually IT or enterprise architects leading organizational API programs, who foster API reuse, quality, and compliance. API Center helps these users organize and manage the API inventory, implement API standards, and make decisions about API access.
-* **Application developers**, including both professional developers and low-code/no-code developers, who discover and consume APIs to accelerate or enable development of applicatoins. API Center helps these users find, acquire, and access documentation for available APIs and reach the API developer teams who support them.
+* **Application developers**, including both professional developers and low-code/no-code developers, who discover and consume APIs to accelerate or enable development of applications. API Center helps these users find, acquire, and access documentation for available APIs and reach the API developer teams who support them.
 * **API developers**, who design, develop, document, and publish APIs that meet organizational standards and comply with industry regulations. API Center helps these users reduce duplication, boost adoption, and manage the API lifecycle without breaking consumers.  
 
 ## Key capabilities
