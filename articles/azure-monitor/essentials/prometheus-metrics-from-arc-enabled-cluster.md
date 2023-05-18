@@ -124,12 +124,12 @@ az k8s-extension create\
 
 You can use the following optional parameters with the previous commands:
 
-`--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` is a comma-separated list of Kubernetes label keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional labels, provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'.
+`--configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` is a comma-separated list of Kubernetes label keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional labels, provide a list of resource names in their plural form and Kubernetes label keys you would like to allow for them. For example, `=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...`
 
-`--configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of Kubernetes annotations keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional annotations, provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them (Example: '=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...)'.
+`--configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` is a comma-separated list of Kubernetes annotations keys that will be used in the resource' labels metric. By default the metric contains only name and namespace labels. To include additional annotations, provide a list of resource names in their plural form and Kubernetes annotation keys you would like to allow for them. For example, `=namespaces=[kubernetes.io/team,...],pods=[kubernetes.io/team],...`.
 
 > [!NOTE]
->  A single `*` can be provided per resource instead to allow any labels, but that has severe performance implications (Example: '=pods=[]').
+> A single `*`, for example `'=pods=[*]'` can be provided per resource to allow any labels, however, this has severe performance implications.
 
 
 ```azurecli
