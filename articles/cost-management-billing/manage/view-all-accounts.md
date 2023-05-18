@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 05/18/2023
 ms.author: banders
 ---
 
@@ -36,6 +36,8 @@ To determine the type of your billing account, see [Check the type of your billi
 
 ## Scopes for billing accounts
 A scope is a node within a billing account that you use to view and manage billing. It's where you manage billing data, payments, invoices, and conduct general account management.
+
+You might see a subscription created for an EA enrollment that appears in both the EA Account billing scope and also under the MOSP billing scope. Viewing it in both places is intended. For EA enrollment account owners, when a MOSP billing scope gets created, all of the subscriptions under the enrollment account are shown under the MOSP account. Although there's a single subscription, you can view it in both places.
 
 If you don't have access to view or manage billing accounts, you probably don't have permission to access. You can ask your billing account administrator to grant you access. For more information, see the following articles:
 
