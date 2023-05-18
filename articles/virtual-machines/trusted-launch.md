@@ -27,11 +27,11 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Gain insights and confidence of the entire boot chain's integrity.
 - Ensure workloads are trusted and verifiable.
 
-## Virtual machines sizes supported
+## Virtual machines sizes
 
-| Type | VM Sizes | Sizes not supported yet.
+| Type | Virtual machines sizes supported | Sizes not supported yet.
 |:--- |:--- |:--- |
-| [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series |Av2-series, Dv2-series, Dv3-series, DCasv5-series, DCadsv5-series, Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series, Dlsv5-series, Dldsv5-series
+| [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series | DCasv5-series, DCadsv5-series, Dpsv5-series, Dpdsv5-series
 | [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
 | [Memory optimized](sizes-memory.md) | Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series|Ev3-series, Edv5-series, Edsv5-series, Easv5-series, Eadsv5-series, ECasv5, ECadsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
 | [Storage optimized](sizes-storage.md) |Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
@@ -44,14 +44,13 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 | OS | Version |
 |:--- |:--- |
 | CBL-Mariner |2.0 |
-| CentOS | 8.3, 8.4 |
 | Debian |11 |
 | Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0 LVM |
 | RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM |
 | SUSE Enterprise Linux |15SP3 |
 | Ubuntu Server |18.04 LTS, 20.04 LTS, 22.04 LTS |
-| Windows 10 |Pro, Enterprise, Enterprise Multi-Session |
-| Windows 11 |Pro, Enterprise, Enterprise Multi-Session |
+| Windows 10 |Pro, Enterprise, Enterprise Multi-Session &#42; |
+| Windows 11 |Pro, Enterprise, Enterprise Multi-Session &#42; |
 | Windows Server |2016, 2019, 2022 &#42; |
 
 * Variations of this operating system are supported.
@@ -69,7 +68,6 @@ No additional cost to existing VM pricing.
 - Azure Site Recovery
 - Ultra disk, PV2
 - Managed Image
-- High Performance Compute VM Sizes
 - Nested Virtualization (most v5 VM sizes supported)
 
 ## Secure boot
