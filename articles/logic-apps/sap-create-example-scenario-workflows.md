@@ -230,14 +230,14 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 ---
 
-<a name="send-idoc-messages"></a>
+<a name="send-idoc"></a>
 
-## Send IDoc messages to SAP server
+## Send IDoc to SAP server
 
-To create a logic app workflow that sends an IDoc message to an SAP server and returns a response, follow these examples:
+To create a logic app workflow that sends an IDoc to an SAP server and returns a response, follow these examples:
 
 1. [Create a logic app workflow that's triggered by an HTTP request.](#add-request-trigger)
-1. [Add an SAP action to your workflow that sends a message to SAP.](#add-sap-action-send-message)
+1. [Add an SAP action to your workflow for sending an IDoc to SAP.](#add-sap-action-send-idoc)
 1. [Add a Response action to your workflow.](#add-response-action)
 1. [Create a remote function call (RFC) request-response pattern, if you're using an RFC to receive replies from SAP ABAP.](#create-rfc-request-response)
 1. [Test your workflow.](#test-your-workflow)
@@ -246,7 +246,7 @@ To create a logic app workflow that sends an IDoc message to an SAP server and r
 
 ### Add the Request trigger
 
-To have your workflow receive IDocs from SAP over XML HTTP, you can use the [Request built-in trigger](../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP *POST* requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
+To have your workflow receive IDocs from SAP over XML HTTP, you can use the [Request built-in trigger](../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP POST requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
 
 To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
 
@@ -282,11 +282,11 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ---
 
-<a name="add-sap-action-send-message"></a>
+<a name="add-sap-action-send-idoc"></a>
 
-### Add an SAP action to send an IDoc message
+### Add an SAP action to send an IDoc
 
-Next, create an action to send your IDoc message to SAP when the workflow's Request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Next, create an action to send your IDoc to SAP when the workflow's Request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Multi-tenant](#tab/multi-tenant)
 
@@ -314,17 +314,17 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
 
-1. In the **Send message to SAP** action, find and select an available SAP action on your SAP server to send the message.
+1. In the **Send message to SAP** action, find and select an available SAP action on your SAP server to send the IDoc.
 
-   The **Send message to SAP** action is generic and can send a message that has BAPI, IDoc, RFC, or tRFC type. Select the message type and the SAP action to use for sending the message.
+   The **Send message to SAP** action is generic and can send a message for BAPI, IDoc, RFC, or tRFC, but you must first select the message type and SAP action to use.
 
-   1. In the **SAP Action** edit box, select the folder icon. From the message type list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different message type, the available SAP actions reflect your selection.
+   1. In the **SAP Action** edit box, select the folder icon. From the list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different type, the available SAP actions change based on your selection.
 
       > [!NOTE]
       >
       > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
 
-      ![Screenshot shows selecting IDOC message type for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-idoc-type-consumption.png)
+      ![Screenshot shows selecting IDOC for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-idoc-type-consumption.png)
 
    1. Browse the SAP action types folders using the arrows to find and select the SAP action that you want to use.
 
@@ -366,7 +366,7 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
 1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions to send a specific message type. During preview, you can still use the generic **Send message to SAP** to send messages other than IDoc. Also, while a message can contain a document, not all messages contain documents.
+   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -382,9 +382,9 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-idoc-standard.png)
+   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-standard.png)
 
-1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send a message to your SAP server, for example:
+1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
 
    1. For the **IDoc Format** parameter, select **SapPlainXML**.
 
@@ -395,21 +395,21 @@ Next, create an action to send your IDoc message to SAP when the workflow's Requ
          > [!NOTE]
          > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-standard.png)
+      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-select-body-standard.png)
 
       The **[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
-      ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-standard.png)
+      ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-complete-standard.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
-<a name="send-idoc-messages-flat-file"></a>
+<a name="send-idoc-flat-file"></a>
 
-#### Send flat file IDoc messages to SAP server
+#### Send flat file IDocs to SAP server
 
-To send an IDoc using a flat file schema, you can wrap the IDoc in an XML envelope and [follow the general steps to add an SAP action to send an IDoc message](#add-sap-action-send-message), but with the following changes:
+To send an IDoc using a flat file schema, you can wrap the IDoc in an XML envelope and [follow the general steps to add an SAP action to send an IDoc](#add-sap-action-send-idoc), but with the following changes:
 
 ### Wrap IDoc with XML envelope
 
@@ -568,7 +568,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. From the dynamic content list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
 
-   ![Screenshot showing finishing the SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-standard.png)
+   ![Screenshot showing selecting the SAP action output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-standard.png)
 
 1. Save your workflow.
 
@@ -603,7 +603,7 @@ In the following example, a request and response pattern is generated from the `
 
 1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
 
-1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to include your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
 
    For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
@@ -621,9 +621,9 @@ In the following example, a request and response pattern is generated from the `
    > [!NOTE]
    >
    > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic apps](monitor-logic-apps.md).
+   > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic app workflows](monitor-logic-apps.md).
 
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try sending other message types, such as BAPI and RFC.
+You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
 
 ### [Single-tenant](#tab/single-tenant)
 
@@ -649,9 +649,9 @@ You've now created a workflow that can communicate with your SAP server. Now tha
    > [!NOTE]
    >
    > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](logic-apps-limits-and-config.md). 
-   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic apps](monitor-logic-apps.md).
+   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](monitor-logic-apps.md).
 
-You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try sending other message types, such as BAPI and RFC.
+You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
 
 ---
 
