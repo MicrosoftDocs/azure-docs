@@ -48,7 +48,7 @@ c)**Select Content-Type:** Based on the type of data you’re sending; you could
 
 d)**Repeat Send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions. 
 
-e) Authentication Type: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
+e) **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
 
 ![User's image](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
