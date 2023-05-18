@@ -209,7 +209,7 @@ For a complete working sample of how to use CSS and HTML to create a marker on t
 
 For a complete working sample of how to add mouse and drag events to an HTML marker, see [HTML Marker events] in the [Azure Maps Samples].
 
-:::image type="content" source="./media/map-add-custom-html/html-marker-events.gif" alt-text="Screenshot showing a map of the world with a an HtmlMarker and a list of HtmlMarker events that become highlighted in green when that event fires.":::
+:::image type="content" source="./media/map-add-custom-html/html-marker-events.gif" alt-text="Screenshot showing a map of the world with an HtmlMarker and a list of HtmlMarker events that become highlighted in green when that event fires.":::
 
 <!-------------------------------------------------------------------
 <br/>
