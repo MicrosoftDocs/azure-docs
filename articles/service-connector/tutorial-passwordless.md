@@ -282,39 +282,23 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="postgresql"
 
-Add the following dependencies in your pom.xml file.
+1. Add the following dependencies in your pom.xml file.
 
-```xml
-<dependency>
-  <groupId>org.postgresql</groupId>
-  <artifactId>postgresql</artifactId>
-  <version>42.3.6</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-identity-extensions</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
-
-
-1. Update properties file. For more information, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
-    ```bash
-    cat << EOF > src/main/resources/application.properties
-    url=${AZURE_POSTGRESQL_CONNECTIONSTRING}&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
-    EOF
-    ```
-    
-    read from properties file and connect to database
-    ```java
-    import java.sql.*;
-
-    Properties properties = new Properties();
-    properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
-    Connection connection = DriverManager.getConnection(properties.getProperty("url"));
+    ```xml
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.3.6</version>
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity-extensions</artifactId>
+      <version>1.0.0</version>
+    </dependency>
     ```
 
-2. Directly use the connection string in your application
+
+1. Get connection string from environment variables and add plugin name to connect database.
     ```java
     import java.sql.*;
 
@@ -343,7 +327,9 @@ namespace NpgsqlConnectionExample
             
             // user assigned identity
             // var sqlServerTokenProvider = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
-            
+            // service principal 
+            // var sqlServerTokenProvider = new ClientSecretCredential(tenantId, clientId, clientSecret);
+
             string accessToken = (sqlServerTokenProvider.GetToken(
                 new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
             
@@ -371,42 +357,29 @@ For more information, see
 * [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../spring-apps/how-to-bind-postgres.md)
 * [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* 
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+
 :::zone-end
 
 :::zone pivot="mysql"
 
-Add the following dependencies in your pom.xml file.
+1. Add the following dependencies in your pom.xml file.
 
-```xml
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.30</version>
-</dependency>
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity-extensions</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-1. Update properties file. For more information, see [Prepare a configuration file to connect to Azure Database for MySQL](../mysql/flexible-server/connect-java.md?tabs=passwordless#prepare-a-configuration-file-to-connect-to-azure-database-for-mysql)
-    ```bash
-    cat << EOF > src/main/resources/application.properties
-    url=${AZURE_MYSQL_CONNECTIONSTRING}&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
-    EOF
-    ```
-    If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.Azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
-
-    Next, read from properties file and connect to database
-    ```java
-    Properties properties = new Properties();
-    properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
-    Connection connection = DriverManager.getConnection(properties.getProperty("url"));
+    ```xml
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.30</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity-extensions</artifactId>
+        <version>1.0.0</version>
+    </dependency>
     ```
 
-2. Directly use the connection string in your application
+
+1. Get connection string from environment variables and add plugin name to connect database.
     ```java
     String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
     Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin");
@@ -431,7 +404,8 @@ namespace MysqlConnectionExample
             var credential = new DefaultAzureCredential(); 
             // user assigned identity
             // var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
-            
+            // service principal 
+            // var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
             TokenRequestContext tokenRequestContext = new TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" });  
             AccessToken accessToken = await credential.GetTokenAsync(tokenRequestContext);  
             // Open a connection to the MySQL server using the access token.
@@ -450,7 +424,7 @@ namespace MysqlConnectionExample
 
 For more information, see 
 * [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../spring-apps/how-to-bind-mysql.md)
-
+* [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../mysql/flexible-server/connect-java.md?tabs=passwordless)
 
 :::zone-end
 
