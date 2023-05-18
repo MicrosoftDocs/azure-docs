@@ -50,7 +50,7 @@ Use the following steps to enable Application Insights:
    // useXhr: 1,
    crossOrigin: "anonymous",
    // onInit: null,
-   cfg: { 
+   cfg: { // Application Insights Configuration
     connectionString: "YOUR_CONNECTION_STRING"
    }});
    </script>
