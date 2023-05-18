@@ -31,7 +31,7 @@ We also provide an [Azure Logic App that can be deployed in the service provider
 
 ## Create your parameters file
 
-To assign the policy, you deploy the [deployLighthouseIfNotExistManagementGroup.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-delegate-management-groups/deployLighthouseIfNotExistManagementGroup.json) file from our samples repo, along with a [deployLighthouseIfNotExistsManagementGroup.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-delegate-management-groups/deployLighthouseIfNotExistsManagementGroup.parameters.json) parameters file that you edit with your specific tenant and assignment details. These two files contain the same details that would be used to [onboard an individual subscription](onboard-customer.md).
+To assign the policy, deploy the [deployLighthouseIfNotExistManagementGroup.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-delegate-management-groups/deployLighthouseIfNotExistManagementGroup.json) file from our samples repo, along with a [deployLighthouseIfNotExistsManagementGroup.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-delegate-management-groups/deployLighthouseIfNotExistsManagementGroup.parameters.json) parameters file that you edit with your specific tenant and assignment details. These two files contain the same details that would be used to [onboard an individual subscription](onboard-customer.md).
 
 The example below shows a parameters file which will delegate the subscriptions to the Relecloud Managed Services tenant, with access granted to two principalIDs: one for Tier 1 Support, and one automation account which can [assign the delegateRoleDefinitionIds to managed identities in the customer tenant](deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).
 
@@ -74,7 +74,7 @@ The example below shows a parameters file which will delegate the subscriptions 
 
 ## Assign the policy to a management group  
 
-Once you've edited the policy to create your assignments, you can assign it at the management group level. For information about how to assign a policy and view compliance state results, see [Quickstart: Create a policy assignment](../../governance/policy/assign-policy-portal.md).
+Once you've edited the policy to create your assignments, you can assign it at the management group level. To learn how to assign a policy and view compliance state results, see [Quickstart: Create a policy assignment](../../governance/policy/assign-policy-portal.md).
 
 The PowerShell script below shows how to add the policy definition under the specified management group, using the template and parameter file you created. You need to create the assignment and remediation task for existing subscriptions.
 
@@ -84,7 +84,7 @@ New-AzManagementGroupDeployment -Name <DeploymentName> -Location <location> -Man
 
 ## Confirm successful onboarding
 
-You can confirm that the subscriptions were successfully onboarded in a number of ways. For more information, see [Confirm successful onboarding](onboard-customer.md#confirm-successful-onboarding).
+There are several ways to verify that the subscriptions in the management group were successfully onboarded. For more information, see [Confirm successful onboarding](onboard-customer.md#confirm-successful-onboarding).
 
 If you keep the Logic App and policy active for your management group, any new subscriptions that are added to the management group will be onboarded as well.
 
