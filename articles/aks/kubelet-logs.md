@@ -18,8 +18,12 @@ This article shows you how you can use `journalctl` to view *kubelet* logs on an
 This article assumes you have an existing AKS cluster. If you need an AKS cluster, create one using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [Azure portal][aks-quickstart-portal].
 
 ## Using kubectl raw
-you can quickly veiw any node kubelet logs by using this command :
+
+You can quickly view any node kubelet logs by using the following command:
+```bash
 kubectl get --raw "/api/v1/nodes/nodename/proxy/logs/messages"|grep kubelet
+```
+
 
 ## Create an SSH connection
 
