@@ -329,7 +329,7 @@ To learn how to use more Azure Spring capabilities, advance to the quickstart se
 
 ::: zone pivot="sc-consumption-plan"
 
-To learn how to set up autoscale for applications in Azure Spring Apps Standard consumption plan, advance to the quickstart:
+To learn how to set up autoscale for applications in Azure Spring Apps Standard consumption plan, advance to this next quickstart:
 
 > [!div class="nextstepaction"]
 > [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
