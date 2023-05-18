@@ -50,7 +50,6 @@ const { statusCode, container } = await database.containers.createIfNotExists({ 
 // Possible results: 
 // Create then return container
 // Return error statusCode, reason includes container already exists
-
 const { statusCode, container} = await database.containers.create({ id: containerName });
 ```
 
