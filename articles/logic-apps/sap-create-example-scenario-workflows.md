@@ -40,7 +40,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. [Follow these general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow) to add the SAP managed connector trigger named **When a message is received** to your workflow.
 
-1. If prompted. provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
+1. If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
@@ -50,13 +50,13 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **Authentication Type** | Yes | The authentication type to use for your connection, which must be **Basic** (username and password). To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
-   | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server |
+   | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   After Azure Logic Apps sets up and tests your connection, the trigger information box appears.
+   After Azure Logic Apps sets up and tests your connection, the trigger information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
 1. Based on your SAP server configuration and scenario, provide the necessary parameter values for the [**When a message is received** trigger](/connectors/sap/#when-a-message-is-received), and add any other available trigger parameters that you want to use in your scenario.
 
@@ -71,10 +71,10 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **GatewayHost** | Yes | The registration gateway host for the SAP RFC server |
    | **GatewayService** | Yes | The registration gateway service for the SAP RFC server |
    | **ProgramId** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
-   | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **DegreeOfParallelism**, and enter the new value. |
+   | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, from the **Add new parameter** list, select **DegreeOfParallelism**, and enter the new value. |
    | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Add new parameter** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
-   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, in the trigger, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
-   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, in the trigger, from the **Add new parameter** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
+   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Add new parameter** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
    | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
    > [!NOTE]
@@ -166,10 +166,10 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
    | **Authentication Type** | Yes | The authentication type to use for your connection. To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
-   | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server |
+   | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. |
 
-   After Azure Logic Apps sets up and tests your connection, the SAP trigger information box appears.
+   After Azure Logic Apps sets up and tests your connection, the SAP trigger information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
 1. Based on your SAP server configuration and scenario, provide the following trigger information, and add any available trigger parameters that you want to use in your scenario.
 
@@ -340,44 +340,25 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the workflow designer, under the Request trigger, select **New step**.
 
-1. Under the **Choose an operation** search box, select **Enterprise**. In the search box, enter **send message sap**. From the actions list, select the SAP action named **Send message to SAP**.
+1. In the designer, [follow these general steps to find and add the SAP managed action named **Send message to SAP**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow). If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
-   ![Screenshot that shows the workflow designer with the selected "Send message to SAP" action under Enterprise tab.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Connection name** | Yes | Enter a name for the connection. |
+   | **Data Gateway** | Yes | 1. For **Subscription**, select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. <br><br>2. For **Connection Gateway**, select your data gateway resource in Azure. |
+   | **Client** | Yes | The SAP client ID to use for connecting to your SAP server |
+   | **Authentication Type** | Yes | The authentication type to use for your connection, which must be **Basic** (username and password). To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
+   | **SAP Username** | Yes | The username for your SAP server |
+   | **SAP Password** | Yes | The password for your SAP server |
+   | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
+   | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
-1. If your connection already exists, continue to the next step. Otherwise, provide the following connection information for your on-premises SAP server:
+   For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   1. Provide a name for the connection.
+   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   1. If you're using the data gateway, follow these steps:
-
-      1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation.
-
-      1. Under **Connection Gateway**, select your data gateway resource in Azure.
-
-   1. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**.
-
-      * For **Application Server**, these properties, which usually appear optional, are required:
-
-        ![Screenshot that shows how to create SAP Application server connection.](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
-
-      * For **Group**, these properties, which usually appear optional, are required:
-
-        ![Screenshot that shows how to create SAP Message server connection.](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
-
-        In the SAP server, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
-
-      By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing).
-
-   1. When you're finished, select **Create**.
-
-      Azure Logic Apps sets up and tests your connection to make sure that the connection works properly.
-
-      > [!NOTE]
-      > If you receive the following error, there is a problem with your installation of the SAP NCo client library: 
-      >
-      > **Test connection failed. Error 'Failed to process request. Error details: 'could not load file or assembly 'sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken 50436dca5c7f7d23' or one of its dependencies. The system cannot find the file specified.'.'**
-      >
-      > Make sure to [install the required version of the SAP NCo client library and meet all other prerequisites](logic-apps-using-sap-connector.md#sap-client-library-prerequisites).
+   ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
 
 1. Now find and select an action from your SAP server.
 
@@ -408,6 +389,8 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
       ![Screenshot that shows completing the SAP action.](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
+
+### [Single-tenant](#tab/single-tenant)
 
 ---
 
@@ -1178,6 +1161,20 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
        If the same, single IDoc number is returned for both calls, the IDoc was deduplicated.
 
    When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
+
+<a name="troubleshoot"></a>
+
+## Troubleshoot problems
+
+<a name="troubleshoot-connections"></a>
+
+### Connection problems
+
+- During connection creation, if you receive the following error, a problem exists with your installation of the SAP NCo client library: 
+
+  **Test connection failed. Error 'Failed to process request. Error details: 'could not load file or assembly 'sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken 50436dca5c7f7d23' or one of its dependencies. The system cannot find the file specified.'.'**
+
+  Make sure to [install the required version of the SAP NCo client library and meet all other prerequisites](logic-apps-using-sap-connector.md#sap-client-library-prerequisites).
 
 ## Next steps
 
