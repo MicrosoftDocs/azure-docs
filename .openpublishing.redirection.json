@@ -22740,6 +22740,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/use-mariner.md",
+            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
             "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
             "redirect_document_id": true
