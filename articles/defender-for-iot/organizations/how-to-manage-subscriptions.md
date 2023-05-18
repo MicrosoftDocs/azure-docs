@@ -96,6 +96,12 @@ Business considerations may require that you apply your existing IoT sensors to 
 > [!NOTE]
 > If the previous subscription was connected to Microsoft Sentinel, you'll need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md).
 
+## Cancel your license
+
+When you choose to cancel a purchase or trial, users with licenses lose access to the product. The user who originally signed up for the purchase or trial subscription receives an email that says the subscription was canceled.
+
+For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
+
 ## Legacy procedures for plan management in the Azure portal
 
 Customers with existing plans from earlier than June 1, 2023 can continue to manage their plans in the Azure portal, until the end of their plan.

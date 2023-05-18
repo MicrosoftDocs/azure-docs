@@ -12,7 +12,7 @@ As you plan your Microsoft Defender for IoT deployment, you typically want to un
 
 OT monitoring is billed using site-based licenses, where each license applies to an individual site, based on the site size. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, all which monitor devices detected in connected networks.
 
-Enterprise IoT monitoring is billed based on the number of devices covered your plan.
+Enterprise IoT monitoring is billed based on the number of devices covered by your plan.
 
 ## Free trial
 
