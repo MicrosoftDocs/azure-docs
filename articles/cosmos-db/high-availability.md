@@ -185,7 +185,7 @@ Multiple-region accounts experience different behaviors depending on the followi
 
 The following table summarizes the high-availability capabilities of various account configurations.
 
-|KPI|Single-region writes without availability zones|Single-region writes with availability zones|Multiple-region, single-region writes without availability zones|Multiple-region, single-region writes with availability zones|Multiple-region, single-region writes with or without availability zones|
+|KPI|Single-region writes without availability zones|Single-region writes with availability zones|Multiple-region, single-region writes without availability zones|Multiple-region, single-region writes with availability zones|Multiple-region, multiple-region writes with or without availability zones|
 |---------|---------|---------|---------|---------|---------|
 |Write availability SLA | 99.99% | 99.995% | 99.99% | 99.995% | 99.999% |
 |Read availability SLA  | 99.99% | 99.995% | 99.999% | 99.999% | 99.999% |
