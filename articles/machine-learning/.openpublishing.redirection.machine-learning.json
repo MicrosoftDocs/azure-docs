@@ -6,6 +6,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-manage-imported-data-assets.md",
+        "redirect_url": "/azure/machine-learning/",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v1/how-to-workspace-diagnostic-api.md",
         "redirect_url": "/azure/machine-learning/how-to-workspace-diagnostic-api",
         "redirect_document_id": false
@@ -3823,6 +3828,16 @@
     {
         "source_path_from_root": "/articles/machine-learning/overview-what-happened-to-workbench.md",
         "redirect_url": "/azure/machine-learning",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-batch-endpoint.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-batch-model-deployments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-batch-with-rest.md",
+        "redirect_url": "/azure/machine-learning/how-to-access-data-batch-endpoints-jobs?tabs=rest",
         "redirect_document_id": false
     }
 ]
