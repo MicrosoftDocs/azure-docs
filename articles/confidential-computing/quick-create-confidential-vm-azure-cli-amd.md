@@ -11,7 +11,7 @@ ms.author: simranparkhe
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Create an AMD-based confidential VM with the Azure CLI
+ # Quickstart: Create an AMD-based confidential VM with the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
@@ -86,55 +86,55 @@ Create a confidential [disk encryption set](../virtual-machines/linux/disks-enab
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
 For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
-```azurecli
-Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
-New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
-```
+  ```azurecli
+  Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
+  New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+  ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
-```azurecli-interactive
-az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
-```
+  ```azurecli-interactive
+  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
+  ```
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
-```azurecli
+  ```azurecli
   $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
   az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
-```
+  ```
 4. Create a key in the key vault using [az keyvault key create](/cli/azure/keyvault). For the key type, use RSA-HSM.
-```azurecli-interactive
-az keyvault key create --name mykey --vault-name keyVaultName --default-cvm-policy --exportable --kty RSA-HSM
-```
+  ```azurecli-interactive
+  az keyvault key create --name mykey --vault-name keyVaultName --default-cvm-policy --exportable --kty RSA-HSM
+  ```
 5. Create the disk encryption set using [az disk-encryption-set create](/cli/azure/disk-encryption-set). Set the encryption type to `ConfidentialVmEncryptedWithCustomerKey`.
-```azurecli-interactive
+  ```azurecli-interactive
 $keyVaultKeyUrl=(az keyvault key show --vault-name keyVaultName --name mykey--query [key.kid] -o tsv)
 
 az disk-encryption-set create --resource-group myResourceGroup --name diskEncryptionSetName --key-url $keyVaultKeyUrl  --encryption-type ConfidentialVmEncryptedWithCustomerKey
-```
+  ```
 6. Grant the disk encryption set resource access to the key vault using [az key vault set-policy](/cli/azure/keyvault).
-```azurecli-interactive
+  ```azurecli-interactive
 $desIdentity=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [identity.principalId] -o tsv)
 
 az keyvault set-policy -n keyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-```
+  ```
 7. Use the disk encryption set ID to create the VM.
-```azurecli-interactive
+  ```azurecli-interactive
 $diskEncryptionSetID=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
-```
+  ```
 8. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key. Enabling secure boot is optional, but recommended.  For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
 
-```azurecli-interactive
+  ```azurecli-interactive
 az vm create \
---resource-group myResourceGroup \
---name myVM \
---size Standard_DC4as_v5 \
---admin-username <azure-user> \
---admin-password <azure-password> \
---enable-vtpm true \
---enable-secure-boot true \
---image "Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-cvm:latest" \
---public-ip-sku Standard \
---security-type ConfidentialVM \
---os-disk-security-encryption-type DiskWithVMGuestState \
---os-disk-secure-vm-disk-encryption-set $diskEncryptionSetID \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --size Standard_DC4as_v5 \
+  --admin-username <azure-user> \
+  --admin-password <azure-password> \
+  --enable-vtpm true \
+  --enable-secure-boot true \
+  --image "Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-cvm:latest" \
+  --public-ip-sku Standard \
+  --security-type ConfidentialVM \
+  --os-disk-security-encryption-type DiskWithVMGuestState \
+  --os-disk-secure-vm-disk-encryption-set $diskEncryptionSetID \
 ```
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
@@ -166,7 +166,6 @@ To use a sample application in C++ for use with the guest attestation APIs, use 
 sudo apt-get install build-essential 
 ```
 4. Install the packages below.
-
 ```bash
 sudo apt-get install libcurl4-openssl-dev 
 sudo apt-get install libjsoncpp-dev
