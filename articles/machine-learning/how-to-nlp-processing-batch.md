@@ -125,7 +125,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
    # [Azure CLI](#tab/cli)
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_endpoint" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_endpoint" :::
 
    # [Python](#tab/python)
 
@@ -222,7 +222,7 @@ Let's create the deployment that will host the model:
   
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_deployment" :::
    
    # [Python](#tab/python)
    
