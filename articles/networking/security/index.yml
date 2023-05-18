@@ -1,15 +1,14 @@
 ### YamlMime:Hub 
 
-title: Azure networking security documentation 
-summary: Learn about the various Azure networking security services available that provide security for your resources in Azure. 
+title: Azure network security documentation 
+summary: Learn about the various Azure network security services available that provide security for your resources in Azure. 
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
-  title: Azure networking security documentation
-  description: Azure networking security services provide security for your resources in Azure. 
+  title: Azure network security documentation
+  description: Azure network security services provide security for your resources in Azure. 
   ms.service: firewall
   ms.topic: hub-page
-  ms.collection:
   author: vhorne
   ms.author: victorh
   manager: kumudD
