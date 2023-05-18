@@ -77,16 +77,6 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Add new parameter** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
    | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
-   > [!NOTE]
-   >
-   > The SAP managed connector parameters don't specify or save the language used for sending 
-   > data to your SAP server. Instead, at both design time and run time, the connector uses 
-   > your web browser's local language from each request that's sent to your server. 
-   >
-   > For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests 
-   > the SAP connection with Portuguese, but doesn't save the connection with that language. 
-   > At run time, if no accept header is passed, by default, English is used.
-
    The following example shows a basically configured SAP managed trigger in a Consumption workflow:
 
    ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-managed-consumption.png)
@@ -109,44 +99,6 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. After the trigger fires and your workflow runs, review the workflow's trigger history to confirm that trigger registration succeeded.
 
-#### 500 Bad Gateway or 400 Bad Request error
-
-If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message similar to **service 'sapgw00' unknown**, the network service name resolution to port number is failing, for example:
-
-```json
-{
-   "body": {
-      "error": {
-         "code": 500,
-         "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
-         "clientRequestId": "00000000-0000-0000-0000-000000000000",
-         "message": "BadGateway",
-         "innerError": {
-            "error": {
-               "code": "UnhandledException",
-               "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
-            }
-         }
-      }
-   }
-}
-```
-
-* **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
-
-* **Option 2:** If you're using the on-premises data gateway, you can add the gateway service name to the port mapping in `%windir%\System32\drivers\etc\services` and then restart the on-premises data gateway service, for example:
-
-  ```text
-  sapgw00  3300/tcp
-  ```
-
-You might get a similar error when SAP Application server or Message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP Application server or Message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
-
-```text
-10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
-10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
-```
-
 ### [Single-tenant](#tab/single-tenant)
 
 The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
@@ -167,7 +119,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. |
+   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](#change-language-headers). |
 
    After Azure Logic Apps sets up and tests your connection, the SAP trigger information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
@@ -332,9 +284,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### Add an SAP action to send message
 
-Next, create an action to send your IDoc message to SAP when the workflow's Request trigger fires. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. In the SAP managed connector, the **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing).
-
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Next, create an action to send your IDoc message to SAP when the workflow's Request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Multi-tenant](#tab/multi-tenant)
 
@@ -356,7 +306,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
    ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
 
@@ -396,6 +346,59 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Single-tenant](#tab/single-tenant)
+
+1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
+
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-a-trigger-to-start-your-workflow). If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
+
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Connection name** | Yes | Enter a name for the connection. |
+   | **Client** | Yes | The SAP client ID to use for connecting to your SAP server |
+   | **Authentication Type** | Yes | The authentication type to use for your connection. To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
+   | **SAP Username** | Yes | The username for your SAP server |
+   | **SAP Password** | Yes | The password for your SAP server |
+   | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
+   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](#change-language-headers). |
+
+   After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
+
+   ![Screenshot shows a Standard workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
+
+1. In the **Send message to SAP** action, find and select an action from your SAP server.
+
+   1. From the **SAP Action** edit box, select the folder icon. From the file list that opens, select the SAP message that you want to use. To navigate the list, use the arrows.
+
+      This example selects an IDoc action with the **Orders** type.
+
+      ![Screenshot shows selecting an IDoc action for a Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-idoc-action-consumption.png)
+
+      If you can't find the action you want, you can manually enter a path, for example:
+
+      ![Screenshot shows manually entering a path to an IDoc action for a Standard workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
+
+      > [!TIP]
+      > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
+      > That way, you can use the same action for different message types.
+
+      For more information about IDoc operations, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+
+   1. In the **Send message to SAP** action, include the body output from the Request trigger.
+
+      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list. The **Body** field contains the body output from the Request trigger.
+
+      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**.
+
+         > [!NOTE]
+         > If this field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
+
+      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-consumption.png)
+
+      The **Send message to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
+
+      ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-consumption.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -1070,20 +1073,25 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 ## Advanced scenarios
 
-### Change language headers
+<a name="change-language-headers"></a>
 
-When you connect to SAP from Logic Apps, the default language for the connection is English. You can set the language for your connection by using the [standard HTTP header `Accept-Language`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) with your inbound requests.
+### Change language headers for sending data to SAP
 
-> [!TIP]
-> Most web browsers add an `Accept-Language` header based on the user's settings. The web browser applies this header when you create a new SAP connection in the workflow designer, either update your web browser's settings to use your preferred language, or create your SAP connection using Azure Resource Manager instead of the workflow designer.
+When you connect to SAP from Azure Logic Apps, English is the default language used by the SAP connection for sending data to your SAP server. However, the SAP managed connector and SAP built-in connector handle changing and saving the language used in different ways.
 
-For example, you can send a request with the `Accept-Language` header to your logic app workflow by using the **Request** trigger. All the actions in your logic app workflow receive the header. Then, SAP uses the specified languages in its system messages, such as BAPI error messages.
+- When you create a connection with SAP built-in connector, the connection parameters let you specify and save the language parameter value as part of the SAP connection parameters.
 
-The SAP connection parameters for a logic app workflow don't have a language property. So, if you use the `Accept-Language` header, you might get the following error: **Please check your account info and/or permissions and try again.** In this case, check the SAP component's error logs instead. The error actually happens in the SAP component that uses the header, so you might get one of these error messages:
+- When you create a connection with the SAP managed connector, the connection parameters don't have language parameter. So, during this time, you can't specify or the language to use for sending data to your SAP server. Instead, at both workflow design time and run time, the connector uses your web browser's local language from each request that's sent to your server. For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests the SAP connection with Portuguese, but doesn't save the connection with that language.
 
-* `"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"`
+  However, you can set the language for your connection by using the [standard HTTP header `Accept-Language`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) with your inbound requests. Most web browsers add an `Accept-Language` header based on your locale settings. The web browser applies this header when you create a new SAP connection in the workflow designer. So, you can either update your web browser's settings to use your preferred language, or you can create your SAP connection using Azure Resource Manager instead of the workflow designer.
 
-* `"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"`
+  For example, you can send a request with the `Accept-Language` header to your logic app workflow by using the Request trigger named **When a HTTP request is received**. All the actions in your workflow receive the header. Then, SAP uses the specified languages in its system messages, such as BAPI error messages. If you don't pass an `Accept-Language` header at run time, by default, English is used.
+
+  If you use the `Accept-Language` header, you might get the following error: **Please check your account info and/or permissions and try again.** In this case, check the SAP component's error logs instead. The error actually happens in the SAP component that uses the header, so you might get one of these error messages:
+
+  * **"SAP.Middleware.Connector.RfcLogonException: Select one of the installed languages"**
+
+  * **"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"**
 
 ### Confirm transaction explicitly
 
@@ -1175,11 +1183,49 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 ### Connection problems
 
-- During connection creation, if you receive the following error, a problem exists with your installation of the SAP NCo client library: 
+During connection creation, if you receive the following error, a problem exists with your installation of the SAP NCo client library: 
 
-  **Test connection failed. Error 'Failed to process request. Error details: 'could not load file or assembly 'sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken 50436dca5c7f7d23' or one of its dependencies. The system cannot find the file specified.'.'**
+**Test connection failed. Error 'Failed to process request. Error details: 'could not load file or assembly 'sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken 50436dca5c7f7d23' or one of its dependencies. The system cannot find the file specified.'.'**
 
-  Make sure to [install the required version of the SAP NCo client library and meet all other prerequisites](logic-apps-using-sap-connector.md#sap-client-library-prerequisites).
+Make sure to [install the required version of the SAP NCo client library and meet all other prerequisites](logic-apps-using-sap-connector.md#sap-client-library-prerequisites).
+
+### 500 Bad Gateway or 400 Bad Request error
+
+If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message similar to **service 'sapgw00' unknown**, the network service name resolution to port number is failing, for example:
+
+```json
+{
+   "body": {
+      "error": {
+         "code": 500,
+         "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+         "clientRequestId": "00000000-0000-0000-0000-000000000000",
+         "message": "BadGateway",
+         "innerError": {
+            "error": {
+               "code": "UnhandledException",
+               "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+            }
+         }
+      }
+   }
+}
+```
+
+* **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
+
+* **Option 2:** If you're using the on-premises data gateway, you can add the gateway service name to the port mapping in `%windir%\System32\drivers\etc\services` and then restart the on-premises data gateway service, for example:
+
+  ```text
+  sapgw00  3300/tcp
+  ```
+
+You might get a similar error when SAP Application server or Message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP Application server or Message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
+
+```text
+10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
+10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
+```
 
 ## Next steps
 
