@@ -175,7 +175,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     ```
 
 > [!NOTE]
-> You can also use the [Spring Cloud Azure global configurations](./developer/java/spring-framework/authentication) to connect to Key Vault.
+> You can also use the [Spring Cloud Azure global configurations](https://learn.microsoft.com/azure/developer/java/spring-framework/authentication) to connect to Key Vault.
 
 1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
 
