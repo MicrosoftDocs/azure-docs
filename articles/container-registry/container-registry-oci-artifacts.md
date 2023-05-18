@@ -1,11 +1,11 @@
 ---
 title: Push and pull OCI artifact references
 description: Push and pull Open Container Initiative (OCI) artifacts using a container registry in Azure
-author: SteveLasker
+author: tejaswikolli
 manager: gwallace
 ms.topic: article
 ms.date: 01/03/2023
-ms.author: stevelas
+ms.author: tejaswikolli-web
 ---
 
 # Push and pull OCI artifacts using an Azure container registry

@@ -1,11 +1,11 @@
 ---
 title: Attach, push, and pull supply chain artifacts
 description: Attach, push, and pull supply chain artifacts using Azure Registry (Preview)
-author: SteveLasker
+author: tejaswikolli
 manager: gwallace
 ms.topic: article
 ms.date: 01/04/2023
-ms.author: stevelas
+ms.author: tejaswikolli-web
 ms.custom: references_regions
 ---
 
