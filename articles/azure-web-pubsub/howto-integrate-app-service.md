@@ -35,21 +35,21 @@ In order to follow the step-by-step guide, you will need
 > * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
 ## Create Azure resources using Azure CLI
-# [Sign in](#tab/signin-cli)
-Sign in to Azure CLI by running the following command.
+# [1. Sign in](#tab/signin-cli)
+1. Sign in to Azure CLI by running the following command.
     ```azurecli-interactive
     az login
     ```
 
-# [Create a Web App resource](#tab/create-web-app)
-1. Create a resource group on Azure
+1. Create a resource group on Azure.
     ```azurecli-interactive
     az group create \
         --location "westus" \  
         --name "whiteboard-group"
     ```
 
-1. Create a free App Service plan
+# [2. Create a Web App resource](#tab/create-web-app)
+1. Create a free App Service plan.
     ```azurecli-interactive
     az appservice plan create \ 
         --resource-group "whiteboard-group" \ 
@@ -59,7 +59,7 @@ Sign in to Azure CLI by running the following command.
     ```
 
 1. Create a Web App resource 
-    ```azurecli-interactive
+    ```azurecli-interactive.
     az webapp create \
         --resource-group "whiteboard-group" \
         --name "whiteboard-app" \ 
@@ -67,7 +67,7 @@ Sign in to Azure CLI by running the following command.
         --runtime "NODE:18-lts"
     ```
 
-# [Create a Web PubSub resource](#tab/create-web-pubsub)
+# [3. Create a Web PubSub resource](#tab/create-web-pubsub)
 1. Create a Web PubSub resource.
     ```azurecli-interactive
     az webpubsub create \
@@ -85,47 +85,47 @@ Sign in to Azure CLI by running the following command.
     ```
 ---
 ## Get the application code
-Run the following command the get a copy of the application code.
+Run the following command to get a copy of the application code.
 ```bash
-git clone {remote repo URL missing}
+git clone https://github.com/Azure/awps-webapp-sample.git
 ```
 
 ## Deploy the application to App Service
 1. App Service supports many deployment workflows. For this guide, we are going to deploy a ZIP package. Run the following commands to prepare the ZIP.
 ```bash
-    npm install
-    npm run build
-    zip -r app.zip *
+npm install
+npm run build
+zip -r app.zip *
 ```
 
 2. Use the following command to deploy it to Azure App Service.
 ```azurecli-interactive
-    az webapp deployment source config-zip \
-      --resource-group "whiteboard-group" \
-      --name "whiteboard-app" \
-      --src app.zip
+az webapp deployment source config-zip \
+  --resource-group "whiteboard-group" \
+  --name "whiteboard-app" \
+  --src app.zip
 ```
 
 3. Set Azure Web PubSub connection string in the application settings. This is the `primaryConnectionString` you stored from an earlier step.
 ```azurecli-interactive
-    az webapp config appsettings set \
-      --resource-group "whiteboard-group" \
-      --name "whiteboard-app" \
-      --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
+az webapp config appsettings set \
+  --resource-group "whiteboard-group" \
+  --name "whiteboard-app" \
+  --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
 ```
 
 ## Configure upstream server to handle events coming from Web PubSub
 Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages to fulfill your business requirements. 
 
 As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a publically accesable domain name for it. 
-1. Show and store the value of `name` somewhere
+1. Show and store the value of `name` somewhere.
     ```azurecli-interactive
     az webapp config hostname list \
       --resource-group "whiteboard-group"
       --webapp-name "whiteboard-app" 
     ```
 
-1. The endpoint we decided to expose on the backend server is `/eventhandler` and the `hub` name for whiteboard app `sample_draw` {missing link to code or reference }
+1. The endpoint we decided to expose on the backend server is [`/eventhandler`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L17) and the `hub` name for whiteboard app [`sample_draw`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#l14)
     ```azurecli-interactive
     az webapp config hostname list \
       --resource-group "whiteboard-group"
@@ -142,7 +142,7 @@ As is with HTTP requests, Web PubSub service needs to know where to locate your 
 > `url-template` has three parts: protocol + hostname + path, which in our case is `https://<The hostname of your Web App resource>/eventhandler`.
 
 ## View the whiteboard app in a broswer
-Now head over to your browser and visit your deployed Web App. It is recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better share the link with a colleague or friend.
+Now head over to your browser and visit your deployed Web App. It is recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
 
 ### Data flow
 :::row:::
