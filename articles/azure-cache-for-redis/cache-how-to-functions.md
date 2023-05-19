@@ -101,17 +101,35 @@ public static void PubSubTrigger(
 ::: zone pivot="programming-language-java"
 
 ```java
-// TBD!
-// PubSubTrigger "channel"
+@FunctionName("PubSubTrigger")
+    public void PubSubTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "channel")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
 ```
 
 :::zone-end
 
 ::: zone pivot="programming-language-python"
 
-```python
-# TBD
-# PubSubTrigger "myKey"
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisLocalhost",
+      "channel": "channel",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
 ```
 
 :::zone-end
@@ -135,17 +153,35 @@ public static void PubSubTrigger(
 ::: zone pivot="programming-language-java"
 
 ```java
-// TBD!
-// PubSubTrigger "myKey"
+@FunctionName("KeyspaceTrigger")
+    public void KeyspaceTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "__keyspace@0__:myKey")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
 ```
 
 :::zone-end
 
 ::: zone pivot="programming-language-python"
 
-```python
-# TBD
-# PubSubTrigger "myKey"
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisLocalhost",
+      "channel": "__keyspace@0__:myKey",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
 ```
 
 :::zone-end
@@ -168,17 +204,35 @@ public static void PubSubTrigger(
 ::: zone pivot="programming-language-java"
 
 ```java
-// TBD!
-// PubSubTrigger "keyevent"
+ @FunctionName("KeyeventTrigger")
+    public void KeyeventTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "__keyevent@0__:del")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
 ```
 
 :::zone-end
 
 ::: zone pivot="programming-language-python"
 
-```python
-# TBD
-# PubSubTrigger "myKey"
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisLocalhost",
+      "channel": "__keyevent@0__:del",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
 ```
 
 :::zone-end
@@ -221,17 +275,43 @@ public static void ListsTrigger(
 ::: zone pivot="programming-language-java"
 
 ```java
-// TBD
-// ListsTrigger "listTest"
+@FunctionName("ListTrigger")
+    public void ListTrigger(
+            @RedisListTrigger(
+                name = "entry",
+                connectionStringSetting = "redisLocalhost",
+                key = "listTest",
+                pollingIntervalInMs = 100,
+                messagesPerWorker = 10,
+                count = 1,
+                listPopFromBeginning = false)
+                String entry,
+            final ExecutionContext context) {
+            context.getLogger().info(entry);
+    }
 ```
 
 :::zone-end
 
 ::: zone pivot="programming-language-python"
 
-```python
-# TBD
-# PubSubTrigger "myKey"
+```json
+{
+  "bindings": [
+    {
+      "type": "redisListTrigger",
+      "listPopFromBeginning": true,
+      "connectionStringSetting": "redisLocalhost",
+      "key": "listTest",
+      "pollingIntervalInMs": 1000,
+      "messagesPerWorker": 100,
+      "count": 10,
+      "name": "entry",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
 ```
 
 :::zone-end
@@ -276,13 +356,43 @@ public static void StreamsTrigger(
 ::: zone pivot="programming-language-java"
 
 ```java
-// TBD
-// StreamsTrigger "streamTest"
+@FunctionName("StreamTrigger")
+    public void StreamTrigger(
+            @RedisStreamTrigger(
+                name = "entry",
+                connectionStringSetting = "redisLocalhost",
+                key = "streamTest",
+                pollingIntervalInMs = 100,
+                messagesPerWorker = 10,
+                count = 1,
+                deleteAfterProcess = true)
+                String entry,
+            final ExecutionContext context) {
+            context.getLogger().info(entry);
+    }
 ```
 
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+```json
+{
+  "bindings": [
+    {
+      "type": "redisStreamTrigger",
+      "deleteAfterProcess": false,
+      "connectionStringSetting": "redisLocalhost",
+      "key": "streamTest",
+      "pollingIntervalInMs": 1000,
+      "messagesPerWorker": 100,
+      "count": 10,
+      "name": "entry",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
 :::zone-end
 
 ### Return Values
@@ -309,13 +419,21 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 ::: zone pivot="programming-language-java"
 
 ```java
-// TBD
-// RedisMessageModel
+public class RedisMessageModel {
+    public String Trigger;
+    public String Message;
+}
 ```
 
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+```
+class RedisMessageModel:
+    def __init__(self, trigger, message):
+        self.Trigger = trigger
+        self.Message = message
+```
 :::zone-end
 
 ## Next steps
