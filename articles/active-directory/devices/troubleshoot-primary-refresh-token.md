@@ -63,5 +63,3 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 
 ### Step 4: Collect the logs
-
-[!INCLUDE [Azure Help Support](../../includes/azure-help-support.md)]
