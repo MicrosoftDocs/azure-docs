@@ -1,6 +1,5 @@
 ---
 title: Transform data for an IoT Central application
-titleSuffix: Azure IoT Central
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way in and out of IoT Central.
 author: dominicbetts
 ms.author: dobett

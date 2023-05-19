@@ -1,6 +1,5 @@
 ---
 title: Migrate devices from Azure IoT Central to Azure IoT Hub
-titleSuffix: Azure IoT Central
 description: Describes how to use the migration tool to migrate devices that currently connect to an Azure IoT Central application to an Azure IoT hub.
 author: dominicbetts
 ms.author: dobett
