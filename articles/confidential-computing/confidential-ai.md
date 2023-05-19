@@ -1,5 +1,6 @@
 ---
 title: Confidential AI
+titleSuffix: Azure Confidential Computing
 description: Confidential AI services and solutions
 services: virtual-machines
 author: kapilv
@@ -12,10 +13,9 @@ ms.author: kapilv
 ---
 
 # Confidential AI
-
-## What is Confidential AI?
 AI has been shaping several industries such as finance, advertising, manufacturing, and healthcare well before the recent progress in generative AI. Generative AI models have the potential to create an even larger impact on society. Microsoft has been at the forefront of defining the [principles of Responsible AI](https://www.microsoft.com/ai/responsible-ai) to serve as a guardrail for responsible use of AI technologies. Confidential computing and confidential AI are a key tool to enable security and privacy in the Responsible AI toolbox.
 
+## What is Confidential AI?
 Confidential AI is a set of hardware-based technologies that provide cryptographically verifiable protection of data and models throughout the AI lifecycle, including when data and models are in use. Confidential AI technologies include accelerators such as general purpose CPUs and GPUs that support the creation of Trusted Execution Environments (TEEs), and services that enable data collection, pre-processing, training and deployment of AI models. Confidential AI also provides tools to increase trust, transparency, and accountability in AI deployments.
 
 ## What scenarios does Confidential AI address? 
@@ -36,7 +36,7 @@ Confidential AI addresses several scenarios spanning the entire AI lifecycle.
 
 With Azure Confidential Computing, customers and partners are building Confidential AI solutions addressing many use cases.
 
-1.  **Speech and face recognition**. Models for speech and face recognition operate on audio and video streams that contain sensitive data. In some scenarios, such as surveillance in public places, consent as a means for meeting privacy requirements may not practical. Confidential AI allows data processors to train models and run inference in real-time while minimizing the risk of data leakage.
+1.  **Speech and face recognition**. Models for speech and face recognition operate on audio and video streams that contain sensitive data. In some scenarios, such as surveillance in public places, consent as a means for meeting privacy requirements may not be practical. Confidential AI allows data processors to train models and run inference in real-time while minimizing the risk of data leakage.
 
 2.  **Anti-money laundering/Fraud detection**. Confidential AI allows multiple banks to combine datasets in the cloud for training more accurate AML models without exposing personal data of their customers. Models trained using combined datasets can detect the movement of money by one user between multiple banks, without the banks accessing each other's data. Through confidential AI, these financial institutions can increase fraud detection rates, and reduce false positives.
 
@@ -46,9 +46,9 @@ With Azure Confidential Computing, customers and partners are building Confident
 
 The effectiveness of AI models depends both on the quality and quantity of data. While much progress has been made by training models using publicly available datasets, enabling models to perform accurately complex advisory tasks such as medical diagnosis, financial risk assessment, or business analysis require access to private data, both during training and inferencing.
 
-There are many privacy-preserving technologies protect private data that can data in use. For example, data can be scrubbed and de-identified before sharing. However, de-identification alone has been shown to be brittle, and in some cases can reduce utility. Other approaches such as fully homomorphic encryption (FHE) and secure multi-party computation (MPC) can limit expressiveness or introduce significant performance overheads. 
+There are many privacy-preserving technologies protect private data that can protect data in use. For example, data can be scrubbed and de-identified before sharing. However, de-identification alone has been shown to be brittle, and in some cases can reduce utility. Other approaches such as fully homomorphic encryption (FHE) and secure multi-party computation (MPC) can limit expressiveness or introduce significant performance overheads. 
 
-Confidential computing can unlock access to sensitive datasets while meeting security and compliance concerns with low overheads. With confidential computing, data providers can authorize the use of their datasets for specific tasks (verified by attestation), such as training or fine-tuning an agreed upon model, while keeping the data protected. Confidential training can be combined with differential privacy to further reduce leakage of training data through inferencing. Model builders can make their models more transparent by using confidential computing to generate non-repudiable data and model provenance records. Using remote attestation, end users verify that inference services only use inference requests in accordance with declared data use policies. 
+Confidential computing can unlock access to sensitive datasets while meeting security and compliance concerns with low overheads. With confidential computing, data providers can authorize the use of their datasets for specific tasks (verified by attestation), such as training or fine-tuning an agreed upon model, while keeping the data protected. Confidential training can be combined with differential privacy to further reduce leakage of training data through inferencing. Model builders can make their models more transparent by using confidential computing to generate non-repudiable data and model provenance records. Clients can use remote attestation to verify that inference services only use inference requests in accordance with declared data use policies. 
 
 ## What are the options to get started? 
 
