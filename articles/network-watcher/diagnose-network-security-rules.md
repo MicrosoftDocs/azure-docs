@@ -1,5 +1,5 @@
 ---
-title: Diagnose security rules
+title: Check security rules using NSG diagnostics
 titleSuffix: Azure Network Watcher
 description: Use NSG diagnostics to check if traffic is allowed or denied by network security group rules or Azure Virtual Network Manager security admin rules. 
 author: halkazwini
@@ -453,7 +453,9 @@ Use [az network watcher run-configuration-diagnostic](/cli/azure/network/watcher
 az network watcher run-configuration-diagnostic --resource 'myVM' --resource-group 'myResourceGroup' --resource-type 'virtualMachines' --direction 'Inbound' --protocol 'TCP' --source '10.0.1.0/26' --destination '10.0.0.4' --port '*'
 ```
 
-```
+Output similar to the following example output is returned:
+
+```output
 {
   "results": [
     {
@@ -585,7 +587,7 @@ You can add the security rule to the network security group from the Network Wat
 
     Output similar to the following example output is returned:
 
-    ```powershell
+    ```output
     Results     : {Microsoft.Azure.Commands.Network.Models.PSNetworkConfigurationDiagnosticResult}
     ResultsText : [
                     {
@@ -676,7 +678,7 @@ You can add the security rule to the network security group from the Network Wat
 
     Output similar to the following example output is returned:
 
-    ```azurecli
+    ```output
     {
       "results": [
         {
