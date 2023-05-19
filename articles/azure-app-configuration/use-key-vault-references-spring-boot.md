@@ -162,11 +162,11 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ```yaml
 spring:
-cloud:
-    azure:
-    appconfiguration:
-        stores:
-        - endpoint: ${APP_CONFIGURATION_ENDPOINT}
+    cloud:
+        azure:
+        appconfiguration:
+            stores:
+            - endpoint: ${APP_CONFIGURATION_ENDPOINT}
 ```
 
 ### [properties](#tab/properties)
@@ -220,7 +220,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDP
 
 ## Clean up resources
 
-[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+[!INCLUDE [Azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
