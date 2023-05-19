@@ -65,7 +65,7 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 # [Preview Bundle v4.x](#tab/preview-bundle-v4x)
 
-You can add the preview extension by adding or replacign the following code in your `host.json` file:
+You can add the preview extension by adding or replacing the following code in your `host.json` file:
 
 ```json
 {
@@ -78,6 +78,11 @@ You can add the preview extension by adding or replacign the following code in y
 ``` 
 
 ---
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 
 [!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
 
