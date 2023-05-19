@@ -26,8 +26,8 @@ Microsoft Azure subscription. To use Azure services, including Azure Event Hubs,
 
 Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create)
 
-> [!NOTE] 
-> Data Generator for Azure Event Hubs is in Public Preview phase. 
+> [!NOTE]
+> Data Generator for Azure Event Hubs is in Public Preview.
 
 ## Sending Events with Azure Event Hubs Data Generator 
 
@@ -52,8 +52,8 @@ e) **Authentication Type**: Under settings, you can choose from two different au
 ![User's image](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
 > [!TIP]
-> For user defined payload, entire content under "Enter payload" section is sent as one event. If you select Repeat send to be 50, then 50 events would be sent to event hubs. 
-> In case of pre-canned datasets, dataset is a collection of different events that are sent separately. As an example, if the dataset contains 20 events and value of repeat send is set to 10, then 200 events would be sent to event hub. 
+> For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
+> Pre-canned datasets are collection of events. For pre-canned datasets, each event in the dataset is sent separately. For example, if the dataset has 20 events and the value of repeat send is 10, then 200 events are sent to the event hub.
 
 <Portal snapshot for Event Hubs entity level Data generator> 
 
