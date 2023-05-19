@@ -22,9 +22,11 @@ This article describes how to create a network fabric for Azure Operator Nexus b
 * Azure ExpressRoute connectivity between NFC and Azure Operator Nexus instances.
 * A terminal server [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server) with a username and password.
 * Provider edge (PE) devices preconfigured with necessary VLANs, route targets, and IP addresses.
-* Supported SKUs from Network Fabric Adapter (NFA) Release 1.5 and beyond for fabric:
-  * M4-A400-A100-C16-aa for up to four compute racks
-  * M8-A400-A100-C16-aa for up to eight compute racks
+
+Supported SKUs for network fabric instances are:
+
+* M4-A400-A100-C16-aa for up to four compute racks
+* M8-A400-A100-C16-aa for up to eight compute racks
 
 ## Steps to provision a fabric and racks
 
@@ -255,7 +257,7 @@ Expected output:
 
 ```
 
-### List or get network fabrics
+### List all network fabrics in a resource group
 
 ```azurecli
 az nf fabric list --resource-group "NFResourceGroup"  
@@ -563,12 +565,12 @@ For example, `AggrRack` consists of:
 * `CE02`
 * `TOR17`
 * `TOR18`
-* `Mgmnt Switch01`
-* `Mgmnt Switch02` (and so on, for other switches)
+* `MgmtSwitch01`
+* `MgmtSwitch02` (and so on, for other switches)
 
 ## List or get network fabric devices
 
-Run the following command to list network fabric devices:
+Run the following command to list network fabric devices in a resource group:
 
 ```azurecli
 az nf device list --resource-group "NFResourceGroup"

@@ -9,7 +9,7 @@ ms.date: 04/02/2023
 ms.custom: template-how-to
 ---
 
-# Configure L2 and L3 isolation domains by using managed network fabric services
+# Configure L2 and L3 isolation domains by using a managed network fabric
 
 For Azure Operator Nexus instances, isolation domains enable communication between workloads hosted on the same rack (intra-rack communication) or different racks (inter-rack communication). This article describes how you can manage Layer 2 (L2) and Layer 3 (L3) isolation domains by using the Azure CLI. You can use the commands in this article to create, update, delete, and check the status of L2 and L3 isolation domains.
 
@@ -17,8 +17,8 @@ For Azure Operator Nexus instances, isolation domains enable communication betwe
 
 1. Ensure that a network fabric controller (NFC) and a network fabric have been created.
 1. Install the latest version of the
-[necessary Azure CLI extensions](./howto-install-cli-extensions.md).
-1. Use the following command to sign in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID that you use across all Azure Operator Nexus resources.
+[Azure CLI extension for managed network fabrics](./howto-install-cli-extensions.md).
+1. Use the following command to sign in to your Azure account and set the subscription to your Azure subscription ID. This should be the same subscription ID that you use for all the resources in an Azure Operator Nexus instance.
 
    ```azurecli
        az login
@@ -32,7 +32,7 @@ For Azure Operator Nexus instances, isolation domains enable communication betwe
 
       Registration can take up to 10 minutes. When it's finished, `RegistrationState` in the output changes to `Registered`.
 
-You'll create isolation domains to enable Layer 2 and Layer 3 connectivity between workloads hosted on an Azure Operator Nexus instance.
+Isolation domains are used to enable Layer 2 or Layer 3 connectivity between workloads hosted across the Azure Operator Nexus instance and external networks.
 
 > [!NOTE]
 > Azure Operator Nexus reserves VLANs up to 500 for platform use. You can't use VLANs in this range for your (tenant) workload networks. You should use VLAN values from 501 through 4095.
@@ -57,7 +57,7 @@ The following parameters are available for configuring isolation domains.
 
 ### Create an L2 isolation domain
 
-Use the following code to create an L2 isolation domain:
+Use the following commands to create an L2 isolation domain:
 
 ```azurecli
 az nf l2domain create \
@@ -95,12 +95,6 @@ Expected output:
   "type": "microsoft.managednetworkfabric/l2isolationdomains",
   "vlanId": 750
 }
-```
-
-### Create an L2 isolation domain for a workload
-
-```azurecli
-az nf l2domain create --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName" --vlan-id 505 --mtu 1500
 ```
 
 ### Show L2 isolation domains
@@ -177,7 +171,7 @@ Expected output:
 
 ### Change the administrative state of an L2 isolation domain
 
-You must enable an isolation domain before pushing its configuration to the network fabric devices. Use the following command to change the administrative state of an isolation domain:
+You must enable an isolation domain to push the configuration to the network fabric devices. Use the following command to change the administrative state of an isolation domain:
 
 ```azurecli
 az nf l2domain update-admin-state --resource-group "ResourceGroupName" --resource-name "example-l2domain" --state Enable/Disable
@@ -222,7 +216,7 @@ az nf l2domain delete --resource-group "ResourceGroupName" --resource-name "exam
 Expected output:
 
 ```output
-Please use show or list command to validate that isolation domain is deleted. Deleted resources will not appear in result
+Please use show or list command to validate that the isolation domain is deleted. Deleted resources will not appear in the output
 ```
 
 ## Configure L3 isolation domains
@@ -281,7 +275,7 @@ az nf l3domain create
 ```
 
 > [!NOTE]
-> For MPLS Option 10B connectivity to external networks via private endpoint devices, you can specify Option B parameters while creating an isolation domain.
+> For MPLS Option B connectivity to external networks via private endpoint devices, you can specify Option B parameters while creating an isolation domain.
 
 Expected output:
 
@@ -491,7 +485,7 @@ The following parameters are optional for creating internal networks.
 |Parameter|Description|Example|Required|
 |---|---|---|---|
 |`connectedIPv4Subnets` |IPv4 subnet that the Azure Kubernetes Service hybrid (HAKS) cluster's workloads use.|`10.0.0.0/24`||
-|`connectedIPv6Subnets`	|IPv6 subnet that the HAKS cluster's workloads use.|`10:101:1::1/64`||
+|`connectedIPv6Subnets`	|IPv6 subnet that the HAKS cluster's workloads use.|`df8:f53b:82e4::53/127`||
 |`staticRouteConfiguration`	|IPv4 prefix of the static route.|`10.0.0.0/24`|
 |`bgpConfiguration`|IPv4 next-hop address.|`10.0.0.0/24`| |
 |`defaultRouteOriginate`	| `True`/`False` parameter that enables the default route to be originated when you're advertising routes via BGP. | `True` | |
@@ -501,7 +495,7 @@ The following parameters are optional for creating internal networks.
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range; maximum range allowed in /28.| `10.1.0.0/26` | |
 |`ipv6ListenRangePrefixes`| BGP IPv6 listen range; maximum range allowed in /127.| `3FFE:FFFF:0:CD30::/126`| |
 |`ipv4NeighborAddress`| IPv4 neighbor address.|`10.0.0.11`| |
-|`ipv6NeighborAddress`| IPv6 neighbor address.|`10:101:1::11`| |
+|`ipv6NeighborAddress`| IPv6 neighbor address.|`df8:f53b:82e4::53/127`| |
 
 You need to create an internal network before you enable an L3 isolation domain. This command creates an internal network with BGP configuration and a specified peering address:
 
@@ -684,7 +678,7 @@ az nf internalnetwork create
 --location "eastus" 
 --vlan-id 1090 
 --connected-ipv6-subnets '[{"prefix":"10:101:1::0/64", "gateway":"10:101:1::1"}]' 
---mtu 1500 --bgp-configuration '{"defaultRouteOriginate":true,"peerASN": 65020,"ipv6NeighborAddress":[{"address": "10:101:1::11"}]}'
+--mtu 1500 --bgp-configuration '{"defaultRouteOriginate":true,"peerASN": 65020,"ipv6NeighborAddress":[{"address": "df8:f53b:82e4::53/127"}]}'
 ```
 
 Expected output:
@@ -707,7 +701,7 @@ Expected output:
     "ipv6ListenRangePrefixes": null, 
     "ipv6NeighborAddress": [ 
       { 
-        "address": "10:101:1::11", 
+        "address": "df8:f53b:82e4::53/127", 
         "operationalState": "Disabled" 
       } 
     ], 
@@ -754,9 +748,9 @@ The commands for creating an external network by using Azure CLI include the fol
 |`peeringOption` |Peering that uses either Option A or Option B. Possible values are `OptionA` and `OptionB`. |`OptionB`| True|
 |`optionBProperties` | Configuration of Option B properties. To specify, use `exportRouteTargets` or `importRouteTargets`.|`"exportRouteTargets": ["1234:1234"]}}`||
 |`optionAProperties` | Configuration of Option A properties. |||
-|`external`|Optional parameter to input MPLS Option 10B connectivity to external networks via private endpoint devices. By using this option, you can input import and export route targets as shown in the example.| || 
+|`external`|Optional parameter to input MPLS Option B connectivity to external networks via private endpoint devices. By using this option, you can input import and export route targets as shown in the example.| || 
 
-For Option A, you need to create an external network before you enable the L3 isolation domain. An external network is dependent on an internal network, so an external network can't be enabled without an internal one. The `vlan-id` value should be from `501` to `4095`.
+For Option A, you need to create an external network before you enable the L3 isolation domain. An external network is dependent on an internal network, so an external network can't be enabled without an internal network. The `vlan-id` value should be from `501` to `4095`.
 
 ### Create an external network by using Option B
 
@@ -871,7 +865,7 @@ az nf externalnetwork create
 --secondary-ipv6-prefix "10:101:3::0/127"
 ```
 
-The primary and secondary IPv6 supported in this release is /127.
+The supported primary and secondary IPv6 prefix size is /127.
 
 Expected output:
 
