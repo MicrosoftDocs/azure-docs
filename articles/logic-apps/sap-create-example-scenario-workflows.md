@@ -53,7 +53,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](#safe-typing). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe typing option](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
@@ -369,7 +369,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   ![Screenshot shows the Request trigger for a Consumption workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-standard.png)
+   ![Screenshot shows the Request trigger for a Standard workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-standard.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -402,7 +402,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](l#safe-typing). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe typing option](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
@@ -415,7 +415,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
    The **Send message to SAP** action is generic and can send a message for BAPI, IDoc, RFC, or tRFC, but you must first select the message type and SAP action to use.
 
-   1. In the **SAP Action** edit box, select the folder icon. From the list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different type, the available SAP actions change based on your selection.
+   1. In the **SAP Action** parameter's edit box, select the folder icon. From the list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different type, the available SAP actions change based on your selection.
 
       > [!NOTE]
       >
@@ -425,7 +425,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
    1. Browse the SAP action types folders using the arrows to find and select the SAP action that you want to use.
 
-      This example selects **ORDERS** > **ORDERS05**.
+      This example selects **ORDERS** > **ORDERS05** > **720** > **Send**.
 
       ![Screenshot shows finding an Orders action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-orders-action-consumption.png)
 
