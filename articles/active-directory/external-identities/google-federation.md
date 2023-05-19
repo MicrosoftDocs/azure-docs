@@ -158,7 +158,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Under **User support email**, select an email address.
 
-1. Under **Authorized domains**, select **Add domain**, and then add the `microsoftonline.com` domain.
+1. Under **Authorized domains**, select **Add domain**, and then add `ciamlogin.com` and `microsoftonline.com` domains.
 
 1. Under **Developer contact information**, enter an email address.
 
