@@ -80,7 +80,7 @@ For information on the available metrics, see the [User metrics options](./conce
 
 ## Upgrade to the Standard plan
 
-If you're on the Basic tier and constrained by one or more of these limits, you can upgrade to the Standard plan. To upgrade, go to the **Pricing** tier menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
+If you're on the Basic plan and constrained by one or more of these limits, you can upgrade to the Standard plan. To upgrade, go to the **Pricing** plan menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
 
 ## Next steps
 

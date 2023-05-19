@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Set request rate limits"
 titleSuffix: Azure Spring Apps Enterprise plan
-description: Explains how to set request rate limits by using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
+description: Explains how to set request rate limits by using Spring Cloud Gateway on the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to set request rate limits by using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
+This quickstart shows you how to set request rate limits by using Spring Cloud Gateway on the Azure Spring Apps Enterprise plan.
 
 Rate limiting enables you to avoid problems that arise with spikes in traffic. When you set request rate limits, your application can reject excessive requests. This configuration helps you minimize throttling errors and more accurately predict throughput.
 

@@ -36,7 +36,7 @@ You'll configure the properties in Azure AD in the following steps.
 
 First, you must get the assigned public endpoint for Spring Cloud Gateway and API portal by following these steps:
 
-1. Open your Enterprise tier service instance in [Azure portal](https://portal.azure.com).
+1. Open your Enterprise plan service instance in the [Azure portal](https://portal.azure.com).
 1. Select **Spring Cloud Gateway** or **API portal** under *VMware Tanzu components* in the left menu. 
 1. Select **Yes** next to *Assign endpoint*.
 1. Copy the URL for use in the next section of this article.

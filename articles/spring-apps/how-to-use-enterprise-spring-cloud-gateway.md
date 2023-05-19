@@ -33,7 +33,7 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
@@ -298,4 +298,4 @@ az spring spring-cloud-gateway delete \
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
-- [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md)
+- [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](./quickstart-deploy-apps-enterprise.md)

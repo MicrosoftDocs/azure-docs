@@ -60,7 +60,7 @@ After a few seconds, the scaling changes you make are reflected on the **Overvie
 
 ## Upgrade to the Standard plan
 
-If you're on the Basic tier and constrained by current limits, you can upgrade to the Standard plan. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier](/azure/spring-apps/how-to-migrate-standard-tier-to-enterprise-tier).
+If you're on the Basic plan and constrained by current limits, you can upgrade to the Standard plan. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md) and [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](how-to-migrate-standard-tier-to-enterprise-tier.md).
 
 ## Next steps
 

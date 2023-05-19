@@ -20,7 +20,7 @@ This article describes the Azure Marketplace offer and license requirements for 
 
 ## Enterprise plan and VMware Tanzu components
 
-The Azure Spring Apps Enterprise plan is optimized for the needs of enterprise Spring developers and provides advanced configurability, flexibility, and portability. Azure Spring Apps also provides the enterprise-ready VMware Spring Runtime with 24/7 support in a strong partnership with VMware. You can learn more about the plan's value propositions in the [Enterprise plan](./overview.md#enterprise-plan) section of [What is Azure Spring Apps?](/azure/spring-apps/overview)
+The Azure Spring Apps Enterprise plan is optimized for the needs of enterprise Spring developers and provides advanced configurability, flexibility, and portability. Azure Spring Apps also provides the enterprise-ready VMware Spring Runtime with 24/7 support in a strong partnership with VMware. You can learn more about the plan's value propositions in the [Enterprise plan](overview.md#enterprise-plan) section of [What is Azure Spring Apps?](overview.md)
 
 Because the Enterprise plan provides feature parity with the Standard plan, it provides a rich set of features that include app lifecycle management, monitoring, and troubleshooting.
 

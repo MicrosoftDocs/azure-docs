@@ -23,7 +23,7 @@ This article explains how to view static outbound public IP addresses of applica
 
 ## How IP addresses work in Azure Spring Apps
 
-An Azure Spring Apps service has one or more outbound public IP addresses. The number of outbound public IP addresses may vary according to the tiers and other factors.
+An Azure Spring Apps service has one or more outbound public IP addresses. The number of outbound public IP addresses may vary according to the plan and other factors.
 
 The outbound public IP addresses are usually constant and remain the same, but there are exceptions.
 
@@ -33,7 +33,7 @@ Each Azure Spring Apps instance has a set number of outbound public IP addresses
 
 The number of outbound public IPs changes when you perform one of the following actions:
 
-- Upgrade your Azure Spring Apps instance between tiers.
+- Upgrade your Azure Spring Apps instance between plans.
 - Raise a support ticket for more outbound public IPs for business needs.
 
 ## Find outbound IPs
