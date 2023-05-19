@@ -1,6 +1,6 @@
 ---
 title: SAP artifact schemas
-description: Sample SAP artifacts for workflows in Azure Logic Apps.
+description: Sample SAP artifacts for workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: daviburg
@@ -10,7 +10,143 @@ ms.topic: reference
 ms.date: 05/23/2023
 ---
 
-# SAP artifact schemas for workflows in Azure Logic Apps
+# Generate SAP schemas for workflows in Azure Logic Apps
+
+
+## Generate schemas for artifacts in SAP
+
+The following example uses a logic app workflow that you can trigger with an HTTP request. To generate the schemas for the specified IDoc and BAPI, the SAP action **Generate schema** sends a request to an SAP system.
+
+This SAP action returns an [XML schema](#sample-xml-schemas), not the contents or data of the XML document itself. Schemas returned in the response are uploaded to an integration account by using the Azure Resource Manager connector. Schemas contain the following parts:
+
+* The request message's structure. Use this information to form your BAPI `get` list.
+
+* The response message's structure. Use this information to parse the response.
+
+To send the request message, use the generic SAP action **Send message to SAP**, or the targeted **\[BAPI] Call method in SAP** actions.
+
+### Add the Request trigger
+
+1. In the Azure portal, create a blank logic app, which opens the workflow designer.
+
+1. In the search box, enter `http request` as your filter. From the **Triggers** list, select **When a HTTP request is received**.
+
+   ![Screenshot that shows adding the Request trigger.](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
+
+1. Now save your logic app so you can generate an endpoint URL for your logic app workflow. On the designer toolbar, select **Save**.
+
+   The endpoint URL now appears in your trigger, for example:
+
+   ![Screenshot that shows generating the endpoint URL.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
+
+### Add an SAP action to generate schemas
+
+1. In the workflow designer, under the trigger, select **New step**.
+
+   ![Screenshot that shows adding a new step to logic app workflow.](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
+
+1. In the search box, enter `generate schemas sap` as your filter. From the **Actions** list, select **Generate schemas**.
+  
+   ![Screenshot that shows adding the "Generate schemas" action to workflow.](./media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
+
+   Or, you can select the **Enterprise** tab, and select the SAP action.
+
+   ![Screenshot that shows selecting the "Generate schemas" action from the Enterprise tab.](./media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
+
+1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
+
+   1. Provide a name for the connection.
+
+   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. 
+
+   1. Under **Connection Gateway**, select your data gateway resource in Azure.
+
+   1. Continue providing information about the connection. For the **Logon Type** parameter, follow the step based on whether the property is set to **Application Server** or **Group**:
+
+      * For **Application Server**, these properties, which usually appear optional, are required:
+
+        ![Screenshot that shows creating a connection for SAP Application server](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+
+      * For **Group**, these properties, which usually appear optional, are required:
+
+        ![Screenshot that shows creating a connection for SAP Message server](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+   1. When you're finished, select **Create**.
+
+      Azure Logic Apps sets up and tests your connection to make sure that the connection works properly.
+
+1. Provide the path to the artifact for which you want to generate the schema.
+
+   You can select the SAP action from the file picker:
+
+   ![Screenshot that shows selecting an SAP action.](./media/logic-apps-using-sap-connector/select-SAP-action-schema-generator.png)  
+
+   Or, you can manually enter the action:
+
+   ![Screenshot that shows manually entering an SAP action.](./media/logic-apps-using-sap-connector/manual-enter-SAP-action-schema-generator.png)
+
+   To generate schemas for more than one artifact, provide the SAP action details for each artifact, for example:
+
+   ![Screenshot that shows selecting "Add new item".](./media/logic-apps-using-sap-connector/schema-generator-array-pick.png)
+
+   ![Screenshot that shows two items.](./media/logic-apps-using-sap-connector/schema-generator-example.png)
+
+   For more information about the SAP action, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
+
+### Test your workflow
+
+1. On the designer toolbar, select **Run** to trigger a run for your logic app workflow.
+
+1. Open the run, and check the outputs for the **Generate schemas** action.
+
+   The outputs show the generated schemas for the specified list of messages.
+
+### Upload schemas to an integration account
+
+Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app workflow by using the Azure Resource Manager connector.
+
+> [!NOTE]
+>
+> Schemas use base64-encoded format. To upload schemas to an integration account, you must decode them first 
+> by using the `base64ToString()` function. The following example shows the code for the `properties` element:
+>
+> ```json
+> "properties": {
+>    "Content": "@base64ToString(items('For_each')?['Content'])",
+>    "ContentType": "application/xml",
+>    "SchemaType": "Xml"
+> }
+> ```
+
+1. In the workflow designer, under the trigger, select **New step**.
+
+1. In the search box, enter `resource manager` as your filter. Select **Create or update a resource**.
+
+   ![Screenshot that shows selecting an Azure Resource Manager action.](./media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
+
+1. Enter the details for the action, including your Azure subscription, Azure resource group, and integration account. To add SAP tokens to the fields, click inside the boxes for those fields, and select from the dynamic content list that appears.
+
+   1. Open the **Add new parameter** list, and select the **Location** and **Properties** fields.
+
+   1. Provide details for these new fields as shown in this example.
+
+      ![Screenshot that shows entering details for the Azure Resource Manager action.](./media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
+
+   The SAP **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop to the action. Here's an example that shows how this action appears:
+
+   ![Screenshot that shows the Azure Resource Manager action with a "for each" loop.](./media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+### Test your workflow
+
+1. On the designer toolbar, select **Run** to manually trigger your logic app workflow.
+
+1. After a successful run, go to the integration account, and check that the generated schemas exist.
 
 This reference guide provides more information about schemas for SAP artifacts 
 

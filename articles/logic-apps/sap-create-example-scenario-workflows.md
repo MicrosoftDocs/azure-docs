@@ -22,9 +22,9 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
-<a name="receive-message-sap"></a>
+<a name="receive-messages-sap"></a>
 
-## Receive message from SAP
+## Receive messages from SAP
 
 The following example logic app workflow triggers when the workflow's SAP trigger receives a message from an SAP server.
 
@@ -51,7 +51,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
@@ -147,13 +147,15 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
 ---
 
+<a name="receive-idoc-packets-sap"></a>
+
 ## Receive IDoc packets from SAP
 
 To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, you have to implement a few more steps to split the packet into individual IDocs by setting up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html). 
 
 The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-message-sap).
+1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-messages-sap).
 
 1. To immediately reply to your SAP server with the SAP request status, [add a Response action to your workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
 
@@ -230,17 +232,110 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 ---
 
-<a name="send-idoc"></a>
+<a name="filter-with-sap-actions"></a>
 
-## Send IDoc to SAP server
+## Filter received messages with SAP actions
+
+You can optionally filter the messages that your workflow receives from your SAP server by providing a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
+
+Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
+
+If you can't send IDoc packets from SAP to your trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
+
+### The RequestContext on the IReplyChannel was closed without a reply being sent
+
+This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
+
+To acknowledge that your workflow received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a **200 OK** status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+
+To reject the IDoc instead, respond with any HTTP status code other than **200 OK**. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
+
+If you're receiving this error message and experience systemic failures calling Azure Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, review [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
+
+If you're receiving this error message and experience intermittent failures calling Azure Logic Apps, you might need to increase your retry count or also retry interval.
+
+1. Check the SAP settings in your on-premises data gateway service configuration file named **Microsoft.PowerBI.EnterpriseGateway.exe.config**.
+
+   1. Under the `configuration` root node, add a `configSections` element, if none exists.
+
+   1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
+
+      > [!IMPORTANT]
+      > Don't change the attributes in existing `section` elements, if such elements already exist.
+
+      Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:
+
+      ```xml
+      <configSections>
+        <section name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"/>
+      </configSections>
+      ```
+
+   1. Under the `configuration` root node, add an `SapAdapterSection` element, if none exists.
+
+   1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exist: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
+
+      > [!IMPORTANT]
+      > Change the attributes for the `Broker` element, even if the element already exists.
+
+      The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
+
+      ```xml
+      <SapAdapterSection>
+        <Broker WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2" />
+      </SapAdapterSection>
+      ```
+
+      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
+
+   > [!NOTE]
+   > For more information about the configuration file,
+   > review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
+
+1. Save your changes. Restart your on-premises data gateway.
+
+### The segment or group definition E2EDK36001 was not found in the IDoc meta
+
+This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments aren't released by SAP. As a result, the segment type metadata required for conversion is missing.
+
+To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+
+## Set up asynchronous request-reply pattern for triggers
+
+The SAP managed connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Azure Logic Apps triggers. You can use this pattern to create successful requests that would otherwise fail with the default synchronous request-reply pattern.
+
+> [!NOTE]
+>
+> In workflows with multiple **Response** actions, all **Response** actions must use the same request-reply pattern. 
+> For example, if your workflow uses a switch control with multiple possible **Response** actions, you must set up 
+> all the **Response** actions to use the same request-reply pattern, either synchronous or asynchronous.
+
+If you enable an asynchronous response for your **Response** action, your workflow can respond with a **202 Accepted** reply after accepting a request for processing. The reply contains a location header that you can use to retrieve the final state of your request.
+
+To configure an asynchronous request-reply pattern for your workflow using the SAP connector, follow these steps:
+
+1. In the designer, open your logic app workflow. Confirm that your workflow starts with an SAP trigger.
+
+1. In your workflow, find the **Response** action, and open that action's **Settings**.
+
+1. Based on whether you have a Consumption or Standard workflow, follow the corresponding steps:
+
+   * Consumption: Under **Asynchronous Response**, turn the setting from **Off** to **On**, and select **Done**.
+   * Standard: Expand **Networking**, and under **Asynchronous Response**, turn the setting from **Off** to **On**.
+
+1. Save your workflow.
+
+<a name="send-idocs-sap"></a>
+
+## Send IDocs to SAP
 
 To create a logic app workflow that sends an IDoc to an SAP server and returns a response, follow these examples:
 
 1. [Create a logic app workflow that's triggered by an HTTP request.](#add-request-trigger)
 1. [Add an SAP action to your workflow for sending an IDoc to SAP.](#add-sap-action-send-idoc)
 1. [Add a Response action to your workflow.](#add-response-action)
-1. [Create a remote function call (RFC) request-response pattern, if you're using an RFC to receive replies from SAP ABAP.](#create-rfc-request-response)
-1. [Test your workflow.](#test-your-workflow)
+1. [Create a remote function call (RFC) request-response pattern, if you're using an RFC to receive replies from SAP ABAP.](#create-rfc-request-response-pattern)
+1. [Test your workflow.](#test-workflow)
 
 <a name="add-request-trigger"></a>
 
@@ -248,7 +343,7 @@ To create a logic app workflow that sends an IDoc to an SAP server and returns a
 
 To have your workflow receive IDocs from SAP over XML HTTP, you can use the [Request built-in trigger](../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP POST requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
 
-To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
+To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-messages-sap).
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
@@ -305,7 +400,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](logic-apps-using-sap-connector.md#safe-typing). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing option](l#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
@@ -358,15 +453,15 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
       ![Screenshot shows completed SAP action for Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-consumption.png)
 
-1. Save your workflow. On the designer toolbar, select **Save**.
+1. Save your workflow.
 
 ### [Single-tenant](#tab/single-tenant)
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **\[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
+   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **\[BAPI] Call method in SAP** and **\[RFC] Call function in SAP**.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -384,7 +479,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
    ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-standard.png)
 
-1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
+1. In the **\[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
 
    1. For the **IDoc Format** parameter, select **SapPlainXML**.
 
@@ -397,11 +492,11 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
       ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-select-body-standard.png)
 
-      The **[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
+      The **\[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
       ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-complete-standard.png)
 
-1. Save your workflow. On the designer toolbar, select **Save**.
+1. Save your workflow.
 
 ---
 
@@ -566,7 +661,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list appears.
 
-1. From the dynamic content list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
+1. From the dynamic content list, under **\[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
 
    ![Screenshot showing selecting the SAP action output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-standard.png)
 
@@ -574,19 +669,22 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 ---
 
-#### Create remote function call (RFC) request-response pattern
+<a name="create-rfc-request-response-pattern"></a>
+
+### Create a remote function call (RFC) request-response pattern
 
 If you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow, make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
 
 > [!NOTE]
+>
 > The SAP trigger receives IDocs over tRFC, which doesn't have a response parameter, by design.
 
-To implement a request and response pattern, you must first discover the RFC schema using the [`generate schema` command](#generate-schemas-for-artifacts-in-sap). The generated schema has two possible root nodes: 
+To implement a request and response pattern, you must first discover the RFC schema using the [`generate schema` command](sap-generate-schemas-for-artifacts.md). The generated schema has two possible root nodes: 
 
-* The request node, which is the call that you receive from SAP.
-* The response node, which is your reply back to SAP.
+* The request node, which is the call that you receive from SAP
+* The response node, which is your reply back to SAP
 
-In the following example, a request and response pattern is generated from the `STFC_CONNECTION` RFC module. The request XML is parsed to extract a node value in which SAP requests `<ECHOTEXT>`. The response inserts the current timestamp as a dynamic value. You receive a similar response when you send a `STFC_CONNECTION` RFC from a logic app workflow to SAP.
+In the following example, the `STFC_CONNECTION` RFC module generates a request and response pattern. The request XML is parsed to extract a node value where SAP requests `<ECHOTEXT>`. The response inserts the current timestamp as a dynamic value. You receive a similar response when you send a `STFC_CONNECTION` RFC from a logic app workflow to SAP.
 
 ```xml
 <STFC_CONNECTIONResponse xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
@@ -594,6 +692,8 @@ In the following example, a request and response pattern is generated from the `
   <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
 </STFC_CONNECTIONResponse>
 ```
+
+<a name="test-workflow"></a>
 
 ### Test your workflow
 
@@ -655,454 +755,53 @@ You've now created a workflow that can communicate with your SAP server. Now tha
 
 ---
 
-<a name="filter-with-sap-actions"></a>
-
-## Filter messages with SAP actions
-
-You can optionally filter the messages that your logic app workflow receives from your SAP server by providing a list, or array, with a single or multiple SAP actions. By default, this array is empty, which means that your logic app receives all the messages from your SAP server without filtering.
-
-When you set up the array filter, the trigger only receives messages from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
-
-Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
-
-If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
-
-#### The RequestContext on the IReplyChannel was closed without a reply being sent
-
-This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
-
-To acknowledge that your logic app workflow received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
-
-To reject the IDoc instead, respond with any HTTP status code other than `200 OK`. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
-
-If you're receiving this error message and experience systemic failures calling Azure Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, review [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
-
-If you're receiving this error message and experience intermittent failures calling Azure Logic Apps, you might need to increase your retry count or also retry interval.
-
-1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`.
-
-   1. Under the `configuration` root node, add a `configSections` element, if none exists.
-   1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
-
-      > [!IMPORTANT]
-      > Don't change the attributes in existing `section` elements, if such elements already exist.
-
-      Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:
-
-      ```xml
-      <configSections>
-        <section name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"/>
-      </configSections>
-      ```
-
-   1. Under the `configuration` root node, add an `SapAdapterSection` element, if none exists.
-   1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exist: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
-
-      > [!IMPORTANT]
-      > Change the attributes for the `Broker` element, even if the element already exists.
-
-      The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
-
-      ```xml
-      <SapAdapterSection>
-        <Broker WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2" />
-      </SapAdapterSection>
-      ```
-
-      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
-
-   > [!NOTE]
-   > For more information about the configuration file,
-   > review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
-
-1. Save your changes. Restart your on-premises data gateway.
-
-#### The segment or group definition E2EDK36001 was not found in the IDoc meta
-
-This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments aren't released by SAP. As a result, the segment type metadata required for conversion is missing.
-
-To have these segments released by SAP, contact the ABAP engineer for your SAP system.
-
-## Set up asynchronous request-reply pattern for triggers
-
-The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Azure Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern.
-
-> [!TIP]
-> In logic app workflows that have multiple response actions, all response actions must use the same request-reply pattern. 
-> For example, if your logic app workflow uses a switch control with multiple possible response actions, you must configure 
-> all the response actions to use the same request-reply pattern, either synchronous or asynchronous.
-
-If you enable asynchronous response for your response action, your logic app workflow can respond with a `202 Accepted` reply after accepting a request for processing. The reply contains a location header that you can use to retrieve the final state of your request.
-
-To configure an asynchronous request-reply pattern for your logic app workflow using the SAP connector, follow these steps:
-
-1. Open your logic app in the workflow designer.
-
-1. Confirm that the SAP connector is the trigger for your logic app workflow.
-
-1. Open your logic app workflow's **Response** action. In the action's title bar, select the menu (**...**) &gt; **Settings**.
-
-1. In the **Settings** for your response action, turn on the toggle under **Asynchronous Response**. Select done.
-
-1. Save the changes to your logic app workflow.
-
-## Find extended error logs
-
-For full error messages, check your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
-
-* For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
-
-* For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
-
-  * The default logging level is **Warning**.
-
-  * If you enable  **Additional logging** in the **Diagnostics** settings of the on-premises data gateway app, the logging level is increased to **Informational**.
-
-  * To increase the logging level to **Verbose**, update the following setting in your configuration file. Typically, the configuration file is located at `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
-
-    ```xml
-    <setting name="SapTraceLevel" serializeAs="String">
-       <value>Verbose</value>
-    </setting>
-    ```
-
-### Extended SAP logging in on-premises data gateway
-
-If you use an [on-premises data gateway for Azure Logic Apps](logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
-
-You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
-
-> [!NOTE]
-> Extended logging might affect your logic app workflow's performance when always enabled. As a best practice, 
-> turn off extended log files after you're finished with analyzing and troubleshooting an issue.
-
-#### Capture ETW events
-
-Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
-
-1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
-
-1. In the **Additional Provider** parameter, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
-
-1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** parameter.
-
-1. Select **Start Collection** to begin your trace.
-
-1. After you've reproduced your issue or collected enough analysis data, select **Stop Collection**.
-
-1. To share your data with another party, such as Azure support engineers, compress the ETL file.
-
-1. To view the content of your trace:
-
-   1. In PerfView, select **File** &gt; **Open** and select the ETL file you just generated.
-
-   1. In the PerfView sidebar, the **Events** section under your ETL file.
-
-   1. Under **Filter**, filter by `Microsoft-LobAdapter` to only view relevant events and gateway processes.
-
-### Test your workflow
-
-1. To trigger your logic app workflow, send a message from your SAP system.
-
-1. On the logic app menu, select **Overview**. Review the **Runs history** for any new runs for your logic app workflow.
-
-1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
-
-### Test sending IDocs from SAP
-
-To send IDocs from SAP to your logic app workflow, you need the following minimum configuration:
-
-> [!IMPORTANT]
-> Use these steps only when you test your SAP configuration with your logic app workflow. Production environments require additional configuration.
-
-1. [Create an RFC destination.](#create-rfc-destination)
-1. [Create an ABAP connection.](#create-abap-connection)
-1. [Create a receiver port.](#create-receiver-port)
-1. [Create a sender port.](#create-sender-port)
-1. [Create a logical system partner.](#create-logical-system-partner)
-1. [Create a partner profile.](#create-partner-profiles)
-1. [Test sending messages.](#test-sending-messages)
-
-#### Create RFC destination
-
-This destination will identify your logic app workflow for the receiver port.
-
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **TCP/IP Connections** > **Create**.
-
-1. Create a new RFC destination with the following settings:
-
-    1. For your **RFC Destination**, enter a name.
-
-    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
-
-    1. For your **Program ID**, enter a value. In the SAP server, your logic app workflow's trigger is registered by using this identifier.
-
-       > [!IMPORTANT]
-       > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
-       > when you configure your logic app workflow and SAP server. Otherwise, you might receive the following errors in the 
-       > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
-       >
-       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-       > * **Non-ABAP RFC client (partner type ) not supported**
-       >
-       > For more information from SAP, review the following notes (login required):
-       >
-       > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
-       > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
-
-    1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
-
-       > [!NOTE]
-       > SAP .NET Client libraries support only Unicode character encoding. If you get the error 
-       > `Non-ABAP RFC client (partner type ) not supported` when sending IDoc from SAP to 
-       > Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
-
-1. Save your changes.
-
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received**.
-
-   This way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
-
-1. In your workflow's trigger history, the on-premises data gateway SAP Adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
-
-1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
-
-#### Create ABAP connection
-
-This destination will identify your SAP system for the sender port.
-
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **ABAP Connections** > **Create**.
-
-1. For **RFC Destination**, enter the identifier for your test SAP system.
-
-1. By leaving the target host empty in the Technical Settings, you are creating a local connection to the SAP system itself.
-
-1. Save your changes.
-
-1. To test your connection, select **Connection Test**.
-
-#### Create receiver port
-
-1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **Ports** > **Transactional RFC** > **Create**.
-
-1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
-
-1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
-
-1. Save your changes.
-
-#### Create sender port
-
-1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **Ports** > **Transactional RFC** > **Create**.
-
-1. In the settings box that opens, select **own port name**. For your test port, enter a **Name** that starts with **SAP**. All sender port names must start with the letters **SAP**, for example, **SAPTEST**. Save your changes.
-
-1. In the settings for your new sender port, for **RFC destination**, enter the identifier for [your ABAP connection](#create-abap-connection).
-
-1. Save your changes.
-
-#### Create logical system partner
-
-1. To open the **Change View "Logical Systems": Overview** settings, in your SAP interface, use the **bd54** transaction code (T-Code).
-
-1. Accept the warning message that appears: **Caution: The table is cross-client**
-
-1. Above the list that shows your existing logical systems, select **New Entries**.
-
-1. For your new logical system, enter a **Log.System** identifier and a short **Name** description. Save your changes.
-
-1. When the **Prompt for Workbench** appears, create a new request by providing a description, or if you already created a request, skip this step.
-
-1. After you create the workbench request, link that request to the table update request. To confirm that your table was updated, save your changes.
-
-#### Create partner profiles
-
-For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app.
-
-1. To open the **Partner profiles** settings, in your SAP interface, use the **we20** transaction code (T-Code) with the **/n** prefix.
-
-1. Under **Partner Profiles**, select **Partner Type LS** > **Create**.
-
-1. Create a new partner profile with the following settings:
-
-    * For **Partner No.**, enter [your logical system partner's identifier](#create-logical-system-partner).
-
-    * For **Partn. Type**, enter **LS**.
-
-    * For **Agent**, enter the identifier for the SAP user account to use when you register program identifiers for Azure Logic Apps or other non-SAP systems.
-
-1. Save your changes. If you haven't [created the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
-
-1. In your partner profile's settings, under **Outbound parmtrs.**, select **Create outbound parameter**.
-
-1. Create a new outbound parameter with the following settings:
-
-    * Enter your **Message Type**, for example, **CREMAS**.
-
-    * Enter your [receiver port's identifier](#create-receiver-port).
-
-    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](#receive-idoc-packets-from-sap), select **Pass IDoc Immediately**.
-
-1. Save your changes.
-
-#### Test sending messages
-
-1. To open the **Test Tool for IDoc Processing** settings, in your SAP interface, use the **we19** transaction code (T-Code) with the **/n** prefix.
-
-1. Under **Template for test**, select **Via message type**, and enter your message type, for example, **CREMAS**. Select **Create**.
-
-1. Confirm the **Which IDoc type?** message by selecting **Continue**.
-
-1. Select the **EDIDC** node. Enter the appropriate values for your receiver and sender ports. Select **Continue**.
-
-1. Select **Standard Outbound Processing**.
-
-1. To start outbound IDoc processing, select **Continue**. When the tool finishes processing, the **IDoc sent to SAP system or external program** message appears.
-
-1. To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
-
-## Generate schemas for artifacts in SAP
-
-This example uses a logic app workflow that you can trigger with an HTTP request. To generate the schemas for the specified IDoc and BAPI, the SAP action **Generate schema** sends a request to an SAP system.
-
-This SAP action returns an [XML schema](#sample-xml-schemas), not the contents or data of the XML document itself. Schemas returned in the response are uploaded to an integration account by using the Azure Resource Manager connector. Schemas contain the following parts:
-
-* The request message's structure. Use this information to form your BAPI `get` list.
-
-* The response message's structure. Use this information to parse the response.
-
-To send the request message, use the generic SAP action **Send message to SAP**, or the targeted **\[BAPI] Call method in SAP** actions.
-
-### Add the Request trigger
-
-1. In the Azure portal, create a blank logic app, which opens the workflow designer.
-
-1. In the search box, enter `http request` as your filter. From the **Triggers** list, select **When a HTTP request is received**.
-
-   ![Screenshot that shows adding the Request trigger.](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
-
-1. Now save your logic app so you can generate an endpoint URL for your logic app workflow. On the designer toolbar, select **Save**.
-
-   The endpoint URL now appears in your trigger, for example:
-
-   ![Screenshot that shows generating the endpoint URL.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
-
-### Add an SAP action to generate schemas
-
-1. In the workflow designer, under the trigger, select **New step**.
-
-   ![Screenshot that shows adding a new step to logic app workflow.](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
-
-1. In the search box, enter `generate schemas sap` as your filter. From the **Actions** list, select **Generate schemas**.
-  
-   ![Screenshot that shows adding the "Generate schemas" action to workflow.](./media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
-
-   Or, you can select the **Enterprise** tab, and select the SAP action.
-
-   ![Screenshot that shows selecting the "Generate schemas" action from the Enterprise tab.](./media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
-
-1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
-
-   1. Provide a name for the connection.
-
-   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. 
-
-   1. Under **Connection Gateway**, select your data gateway resource in Azure.
-
-   1. Continue providing information about the connection. For the **Logon Type** parameter, follow the step based on whether the property is set to **Application Server** or **Group**:
-
-      * For **Application Server**, these properties, which usually appear optional, are required:
-
-        ![Screenshot that shows creating a connection for SAP Application server](./media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
-
-      * For **Group**, these properties, which usually appear optional, are required:
-
-        ![Screenshot that shows creating a connection for SAP Message server](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
-
-   1. When you're finished, select **Create**.
-
-      Azure Logic Apps sets up and tests your connection to make sure that the connection works properly.
-
-1. Provide the path to the artifact for which you want to generate the schema.
-
-   You can select the SAP action from the file picker:
-
-   ![Screenshot that shows selecting an SAP action.](./media/logic-apps-using-sap-connector/select-SAP-action-schema-generator.png)  
-
-   Or, you can manually enter the action:
-
-   ![Screenshot that shows manually entering an SAP action.](./media/logic-apps-using-sap-connector/manual-enter-SAP-action-schema-generator.png)
-
-   To generate schemas for more than one artifact, provide the SAP action details for each artifact, for example:
-
-   ![Screenshot that shows selecting "Add new item".](./media/logic-apps-using-sap-connector/schema-generator-array-pick.png)
-
-   ![Screenshot that shows two items.](./media/logic-apps-using-sap-connector/schema-generator-example.png)
-
-   For more information about the SAP action, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
-
-1. Save your workflow. On the designer toolbar, select **Save**.
-
-By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
-
-### Test your workflow
-
-1. On the designer toolbar, select **Run** to trigger a run for your logic app workflow.
-
-1. Open the run, and check the outputs for the **Generate schemas** action.
-
-   The outputs show the generated schemas for the specified list of messages.
-
-### Upload schemas to an integration account
-
-Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app workflow by using the Azure Resource Manager connector.
-
-> [!NOTE]
->
-> Schemas use base64-encoded format. To upload schemas to an integration account, you must decode them first 
-> by using the `base64ToString()` function. The following example shows the code for the `properties` element:
->
-> ```json
-> "properties": {
->    "Content": "@base64ToString(items('For_each')?['Content'])",
->    "ContentType": "application/xml",
->    "SchemaType": "Xml"
-> }
-> ```
-
-1. In the workflow designer, under the trigger, select **New step**.
-
-1. In the search box, enter `resource manager` as your filter. Select **Create or update a resource**.
-
-   ![Screenshot that shows selecting an Azure Resource Manager action.](./media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
-
-1. Enter the details for the action, including your Azure subscription, Azure resource group, and integration account. To add SAP tokens to the fields, click inside the boxes for those fields, and select from the dynamic content list that appears.
-
-   1. Open the **Add new parameter** list, and select the **Location** and **Properties** fields.
-
-   1. Provide details for these new fields as shown in this example.
-
-      ![Screenshot that shows entering details for the Azure Resource Manager action.](./media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
-
-   The SAP **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop to the action. Here's an example that shows how this action appears:
-
-   ![Screenshot that shows the Azure Resource Manager action with a "for each" loop.](./media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)
-
-1. Save your workflow. On the designer toolbar, select **Save**.
-
-### Test your workflow
-
-1. On the designer toolbar, select **Run** to manually trigger your logic app workflow.
-
-1. After a successful run, go to the integration account, and check that the generated schemas exist.
+<a name="safe-typing"></a>
+
+## Safe typing
+
+By default, when you create your SAP connection, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and the trigger.
+
+When strong typing is used (**Safe Typing** isn't enabled), the schema maps the DATS and TIMS types to more straightforward XML types:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+When you send messages using strong typing, the DATS and TIMS response complies with the matching XML type format:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+When **Safe Typing** is enabled, the schema maps the DATS and TIMS types to XML string fields with length restrictions only, for example:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+When messages are sent with **Safe Typing** enabled, the DATS and TIMS response looks like this example:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
+<a name="advanced-scenarios"></a>
 
 ## Advanced scenarios
 
@@ -1112,9 +811,9 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 When you connect to SAP from Azure Logic Apps, English is the default language used by the SAP connection for sending data to your SAP server. However, the SAP managed connector and SAP built-in connector handle changing and saving the language used in different ways.
 
-- When you create a connection with SAP built-in connector, the connection parameters let you specify and save the language parameter value as part of the SAP connection parameters.
+* When you create a connection with SAP built-in connector, the connection parameters let you specify and save the language parameter value as part of the SAP connection parameters.
 
-- When you create a connection with the SAP managed connector, the connection parameters don't have language parameter. So, during this time, you can't specify or the language to use for sending data to your SAP server. Instead, at both workflow design time and run time, the connector uses your web browser's local language from each request that's sent to your server. For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests the SAP connection with Portuguese, but doesn't save the connection with that language.
+* When you create a connection with the SAP managed connector, the connection parameters don't have language parameter. So, during this time, you can't specify or the language to use for sending data to your SAP server. Instead, at both workflow design time and run time, the connector uses your web browser's local language from each request that's sent to your server. For example, if your browser is set to Portuguese, Azure Logic Apps creates and tests the SAP connection with Portuguese, but doesn't save the connection with that language.
 
   However, you can set the language for your connection by using the [standard HTTP header `Accept-Language`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) with your inbound requests. Most web browsers add an `Accept-Language` header based on your locale settings. The web browser applies this header when you create a new SAP connection in the workflow designer. So, you can either update your web browser's settings to use your preferred language, or you can create your SAP connection using Azure Resource Manager instead of the workflow designer.
 
@@ -1126,87 +825,131 @@ When you connect to SAP from Azure Logic Apps, English is the default language u
 
   * **"SAP.Middleware.Connector.RfcAbapMessageException: Select one of the installed languages"**
 
-### Confirm transaction explicitly
+<a name="confirm-transaction-explicitly"></a>
 
-When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). By default, the **Send to SAP** action handles both the steps for the function transfer and for the transaction confirmation in a single call. The SAP connector gives you the option to decouple these steps. You can send an IDoc and rather than automatically confirm the transaction, you can use the explicit **\[IDOC] Confirm transaction ID** action.
+## Confirm transaction explicitly
 
-This capability to decouple the transaction ID confirmation is useful when you don't want to duplicate transactions in SAP, for example, in scenarios where failures might happen due to causes such as network issues. When the **Send to SAP** action separately confirms the transaction ID, the SAP system completes the transaction only once.
+When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true).
 
-Here's an example that shows this pattern:
+By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You also have the option to decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
 
-1. Create a blank logic app workflow, and add the Request trigger.
+You can send an IDoc without automatically confirming the transaction using the SAP managed connector action named [**[IDOC] Send document to SAP**](/connectors/sap/#[idoc]-send-document-to-sap-(preview)). You can then explicitly confirm the transaction using the SAP managed connector action named [**[IDOC - RFC] Confirm transaction Id**](/connectors/sap/#[idoc---rfc]-confirm-transaction-id-(preview)). When your workflow separately confirms the transaction in a different step, the SAP system completes the transaction only once.
 
-1. From the SAP connector, add the **\[IDOC] Send document to SAP** action. Provide the details for the IDoc that you send to your SAP system.
+In Standard workflows, the SAP built-in connector also has actions that separately handle the transfer and confirmation steps, specifically, [**[IDoc] Send document to SAP**](/azure/logic-apps/connectors/built-in/reference/sap/#[idoc]-send-document-to-sap-(preview)) and [**[IDOC - RFC] Confirm transaction Id**](/azure/logic-apps/connectors/built-in/reference/sap/#[idoc---rfc]-confirm-transaction-id-(preview)).
 
-1. To explicitly confirm the transaction ID in a separate step, in the **Confirm TID** parameter, select **No**. For the optional **Transaction ID GUID** field, you can either manually specify the value or have the connector automatically generate and return this GUID in the response from the **\[IDOC] Send document to SAP** action.
+The following example workflow shows this pattern:
 
-   ![Screenshot that shows the "[IDOC] Send document to SAP" action properties](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
+1. Create and open a Consumption or Standard logic app with a blank workflow in the designer. Add the Request trigger.
 
-1. To explicitly confirm the transaction ID, add the **\[IDOC] Confirm transaction ID** action, making sure to [avoid sending duplicate IDocs to SAP](#avoid-sending-duplicate-idocs). Click inside the **Transaction ID** box so that the dynamic content list appears. From that list, select the **Transaction ID** value that's returned from the **\[IDOC] Send document to SAP** action.
+1. To help avoid sending duplicate IDocs to SAP, [follow these alternative steps to create and use an IDoc transaction ID in your SAP actions](#create=transaction-ID-variable).
 
-   ![Screenshot that shows the "Confirm transaction ID" action](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
+1. Add the SAP action named **[IDOC] Send document to SAP** to your workflow. Provide the information for the IDoc that you send to your SAP system plus the following values:
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. <br><br>You can either manually specify this value, or create the IDoc transaction ID variable to automatically generate a GUID and return that GUID in the response from the **[IDOC] Send document to SAP** action. To select the transaction ID variable, follow these steps: <br><br> 1. In the **Transaction Id GUID** parameter, select inside the edit box to open the dynamic content list. 2. From the list, under **Variables**, select the variable that you created, for example, **IDocTransactionID**. |
+
+   **Consumption workflow**
+
+   ![Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-doc-consumption.png)
+
+   **Standard workflow**
+
+   ![Screenshot shows Standard workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-doc-standard.png)
+
+1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
+
+   The **Default** option is the recommended policy, but you can select a custom policy for your specific needs. If you choose to use a custom policy, set up at least one retry to overcome temporary network outages.
+
+1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**. 
+
+   1. In the **Transaction ID** parameter, select inside the edit box to open the dynamic content list.
+
+   1. From the list, under **[IDOC] Send document to SAP**, select the **Transaction Id** value, which is returned from the SAP action.
+
+      ![Screenshot that shows the "Confirm transaction ID" action](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
 
    After this step runs, the current transaction is marked complete at both ends, on the SAP connector side and on SAP system side.
 
-#### Avoid sending duplicate IDocs
-
-If you experience an issue with duplicate IDocs being sent to SAP from your logic app workflow, follow these steps to create a string variable to serve as your IDoc transaction identifier. Creating this transaction identifier helps prevent duplicate network transmissions when there are issues such as temporary outages, network issues, or lost acknowledgments.
-
-> [!NOTE]
-> SAP systems forget a transaction identifier after a specified time, or 24 hours by default. 
-> As a result, SAP never fails to confirm a transaction identifier if the ID or GUID is unknown.
-> If confirmation for a transaction identifier fails, this failure indicates that communcation 
-> with the SAP system failed before SAP was able to acknowledge the confirmation.
-
-1. In the workflow designer, add the action **Initialize variable** to your logic app workflow.
-
-1. In the editor for the action **Initialize variable**, configure the following settings. Then, save your changes.
-
-   1. For **Name**, enter a name for your variable. For example, `IDOCtransferID`.
-
-   1. For **Type**, select **String** as the variable type.
-
-   1. For **Value**, select the text box **Enter initial value** to open the dynamic content menu.
-
-   1. Select the **Expressions** tab. In the list of functions, enter the function `guid()`.
-
-   1. Select **OK** to save your changes. The **Value** field is now set to the `guid()` function, which generates a GUID.
-
-1. After the **Initialize variable** action, add the action **\[IDOC] Send document to SAP**.
-
-1. In the editor for the action **\[IDOC] Send document to SAP**, configure the following settings. Then, save your changes.
-
-   1. For **IDOC type** select your message type, and for **Input IDOC message**, specify your message.
-
-   1. For **SAP release version**, select your SAP configuration's values.
-
-   1. For **Record types version**, select your SAP configuration's values.
-
-   1. For **Confirm TID**, select **No**.
-
-   1. Select **Add new parameter list** > **Transaction ID GUID**.
-
-   1. Select the text box to open the dynamic content menu. Under the **Variables** tab, select the name of the variable that you created, for example, `IDOCtransferID`.
-
-1. On the title bar of the action **\[IDOC] Send document to SAP**, select **...** > **Settings**.
-
-   For **Retry Policy**, it's recommended to select **Default** &gt; **Done**. However, you can instead configure a custom policy for your specific needs. For custom policies, it's recommended to configure at least one retry to overcome temporary network outages.
-
-1. After the action **\[IDOC] Send document to SAP**, add the action **\[IDOC] Confirm transaction ID**.
-
 1. In the editor for the action **\[IDOC] Confirm transaction ID**, configure the following settings. Then, save your changes.
 
-1. For **Transaction ID**, enter the name of your variable again. For example, `IDOCtransferID`.
+1. For **Transaction ID**, enter the name of your variable again. For example, **IDocTransactionID**.
+
+<a name="create=transaction-ID-variable"></a>
+
+### Avoid sending duplicate IDocs with a transaction ID variable
+
+If you experience a problem with your workflow sending duplicate IDocs to SAP, you can create a string variable that serves as an IDoc transaction identifier. You can then use this identifier to help prevent duplicate network transmissions in conditions such as temporary outages, network issues, or lost acknowledgments.
+
+1. In the designer, after you add the Request trigger, and before you add the SAP action named **[IDOC] Send document to SAP**, add the action named **Initialize variable** to your workflow.
+
+1. Rename the action to **Create IDoc transaction ID**.
+
+1. In the action information box, provide the following parameter values:
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Name** | <*variable-name*> | A name for your variable, for example, **IDocTransactionID** |
+   | **Type** | **String** | The variable type |
+   | **Value** | `guid()` | Select inside the edit box, open the expression or function editor, and enter **guid()**. Save your changes. <br><br>The **Value** parameter is now set to the **guid()** function, which generates a GUID.|
+
+   **Consumption workflow**
+
+   ![Screenshot shows Consumption workflow with the action named Create transaction ID.](./media/logic-apps-using-sap-connector/idoc-create-transaction-id-consumption.png)
+
+   **Standard workflow**
+
+   ![Screenshot shows Standard workflow with the action named Create transaction ID.](./media/logic-apps-using-sap-connector/idoc-create-transaction-id-standard.png)
+
+   > [!NOTE]
+   >
+   > SAP systems forget a transaction identifier after a specified time, or 24 hours by default. As a result, SAP never fails 
+   > to confirm a transaction identifier if the ID or GUID is unknown. If confirmation for a transaction identifier fails, 
+   > this failure indicates that communcation with the SAP system failed before SAP was able to acknowledge the confirmation.
+
+1. Add the SAP action named **[IDOC] Send document to SAP** to your workflow. Provide the information for the IDoc that you send to your SAP system plus the following values:
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. To select the transaction ID variable that you created, follow these steps: <br><br> 1. In the **Transaction Id GUID** parameter, select inside the edit box to open the dynamic content list. 2. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
+
+   **Consumption workflow**
+
+   ![Screenshot shows Consumption workflow with action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-var-consumption.png)
+
+   **Standard workflow**
+
+   ![Screenshot shows Standard workflow with action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-var-standard.png)
+
+1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
+
+   The **Default** option is the recommended policy, but you can select a custom policy for your specific needs. If you choose to use a custom policy, set up at least one retry to overcome temporary network outages.
+
+1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**.
+
+   1. In the **Transaction ID** parameter, select inside the edit box to open the dynamic content list.
+
+   1. From the list, under **Variables**, enter the name for the variable that you created, which is **IDocTransactionID** in this example.
+
+      **Consumption workflow**
+
+      ![Screenshot shows Consumption workflow with action named Confirm transaction ID using a variable.](./media/logic-apps-using-sap-connector/sap-confirm-with-var-consumption.png)
+
+      **Standard workflow**
+
+      ![Screenshot shows Standard workflow with action named Confirm transaction ID using a variable.](./media/logic-apps-using-sap-connector/sap-confirm-with-var-standard.png)
 
 1. Optionally, validate the deduplication in your test environment.
 
-    1. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step.
+    1. Add another SAP action named **[IDOC] Send document to SAP**. In the **Transaction ID** parameter, select the **Transaction ID** GUID that you used in the previous step.
     
-    1. To validate which IDoc number got assigned after each call to the **\[IDOC] Send document to SAP** action, use the **\[IDOC] Get IDOC list for transaction** action with the same **Transaction ID** and the **Receive** direction.
+    1. To validate which IDoc number gets assigned after each call to the action named **[IDOC] Send document to SAP**, add the action named **[IDOC] Get IDOC list for transaction** to your workflow with the same **Transaction ID** and the **Receive** direction.
 
-       If the same, single IDoc number is returned for both calls, the IDoc was deduplicated.
+       If the same IDoc number is returned for both calls, the IDoc was deduplicated.
 
-   When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
+If you send the same IDoc twice, you can validate that SAP can identify the duplication of the tRFC call, and resolve the two calls to a single inbound IDoc message.
 
 <a name="troubleshoot"></a>
 

@@ -622,56 +622,237 @@ In Consumption workflows, the **SAP Application Server** and **SAP Message Serve
 
 For a how-to guide to creating workflows for common SAP integration workloads, see the following sections in [Create workflows for common SAP scenarios](sap-create-example-scenario-workflows.md):
 
-* [Receive message from SAP](sap-create-example-scenario-workflows.md#receive-message-sap)
-* [](sap-create-example-scenario-workflows.md)
-* [](sap-create-example-scenario-workflows.md)
-* [](sap-create-example-scenario-workflows.md)
-* [](sap-create-example-scenario-workflows.md)
-* [](sap-create-example-scenario-workflows.md)
+* [Receive message from SAP](sap-create-example-scenario-workflows.md#receive-messages-sap)
+* [Receive IDoc packets from SAP](sap-create-example-scenario-workflows.md#receive-idoc-packets-sap)
+* [Send IDocs to SAP](sap-create-example-scenario-workflows.md#send-idocs-sap)
+* [Generate schemas for artifacts in SAP](sap-generate-schemas-for-artifacts.md)
 
-## Safe typing
+## Create workflows for advanced SAP scenarios
 
-By default, when you create your SAP connection, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and the trigger.
+* [Change language headers for sending data to SAP](sap-create-example-scenario-workflows.md#change-language-headers)
+* []
+## Find extended error logs
 
-When strong typing is used (**Safe Typing** isn't enabled), the schema maps the DATS and TIMS types to more straightforward XML types:
+For full error messages, check your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
 
-```xml
-<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
-<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
-```
+* For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
-When you send messages using strong typing, the DATS and TIMS response complies with the matching XML type format:
+* For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
-```xml
-<DATE>9999-12-31</DATE>
-<TIME>23:59:59</TIME>
-```
+  * The default logging level is **Warning**.
 
-When **Safe Typing** is enabled, the schema maps the DATS and TIMS types to XML string fields with length restrictions only, for example:
+  * If you enable  **Additional logging** in the **Diagnostics** settings of the on-premises data gateway app, the logging level is increased to **Informational**.
 
-```xml
-<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
-  <xs:simpleType>
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="8" />
-    </xs:restriction>
-  </xs:simpleType>
-</xs:element>
-<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
-  <xs:simpleType>
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="6" />
-    </xs:restriction>
-  </xs:simpleType>
-</xs:element>
-```
+  * To increase the logging level to **Verbose**, update the following setting in your configuration file. Typically, the configuration file is located at `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
 
-When messages are sent with **Safe Typing** enabled, the DATS and TIMS response looks like this example:
+    ```xml
+    <setting name="SapTraceLevel" serializeAs="String">
+       <value>Verbose</value>
+    </setting>
+    ```
 
-```xml
-<DATE>99991231</DATE>
-<TIME>235959</TIME>
-```
+### Extended SAP logging in on-premises data gateway
+
+If you use an [on-premises data gateway for Azure Logic Apps](logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
+
+You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
+
+> [!NOTE]
+> Extended logging might affect your logic app workflow's performance when always enabled. As a best practice, 
+> turn off extended log files after you're finished with analyzing and troubleshooting an issue.
+
+#### Capture ETW events
+
+Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+
+1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
+
+1. In the **Additional Provider** parameter, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
+
+1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** parameter.
+
+1. Select **Start Collection** to begin your trace.
+
+1. After you've reproduced your issue or collected enough analysis data, select **Stop Collection**.
+
+1. To share your data with another party, such as Azure support engineers, compress the ETL file.
+
+1. To view the content of your trace:
+
+   1. In PerfView, select **File** &gt; **Open** and select the ETL file you just generated.
+
+   1. In the PerfView sidebar, the **Events** section under your ETL file.
+
+   1. Under **Filter**, filter by `Microsoft-LobAdapter` to only view relevant events and gateway processes.
+
+### Test your workflow
+
+1. To trigger your logic app workflow, send a message from your SAP system.
+
+1. On the logic app menu, select **Overview**. Review the **Runs history** for any new runs for your logic app workflow.
+
+1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
+
+### Test sending IDocs from SAP
+
+To send IDocs from SAP to your logic app workflow, you need the following minimum configuration:
+
+> [!IMPORTANT]
+> Use these steps only when you test your SAP configuration with your logic app workflow. Production environments require additional configuration.
+
+1. [Create an RFC destination.](#create-rfc-destination)
+1. [Create an ABAP connection.](#create-abap-connection)
+1. [Create a receiver port.](#create-receiver-port)
+1. [Create a sender port.](#create-sender-port)
+1. [Create a logical system partner.](#create-logical-system-partner)
+1. [Create a partner profile.](#create-partner-profiles)
+1. [Test sending messages.](#test-sending-messages)
+
+#### Create RFC destination
+
+This destination will identify your logic app workflow for the receiver port.
+
+1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **TCP/IP Connections** > **Create**.
+
+1. Create a new RFC destination with the following settings:
+
+    1. For your **RFC Destination**, enter a name.
+
+    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
+
+    1. For your **Program ID**, enter a value. In the SAP server, your logic app workflow's trigger is registered by using this identifier.
+
+       > [!IMPORTANT]
+       > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
+       > when you configure your logic app workflow and SAP server. Otherwise, you might receive the following errors in the 
+       > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+       >
+       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+       > * **Non-ABAP RFC client (partner type ) not supported**
+       >
+       > For more information from SAP, review the following notes (login required):
+       >
+       > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
+       > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
+
+    1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
+
+       > [!NOTE]
+       > SAP .NET Client libraries support only Unicode character encoding. If you get the error 
+       > `Non-ABAP RFC client (partner type ) not supported` when sending IDoc from SAP to 
+       > Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
+
+1. Save your changes.
+
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received**.
+
+   This way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
+
+1. In your workflow's trigger history, the on-premises data gateway SAP Adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
+
+1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
+
+#### Create ABAP connection
+
+This destination will identify your SAP system for the sender port.
+
+1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **ABAP Connections** > **Create**.
+
+1. For **RFC Destination**, enter the identifier for your test SAP system.
+
+1. By leaving the target host empty in the Technical Settings, you are creating a local connection to the SAP system itself.
+
+1. Save your changes.
+
+1. To test your connection, select **Connection Test**.
+
+#### Create receiver port
+
+1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **Ports** > **Transactional RFC** > **Create**.
+
+1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
+
+1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
+
+1. Save your changes.
+
+#### Create sender port
+
+1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **Ports** > **Transactional RFC** > **Create**.
+
+1. In the settings box that opens, select **own port name**. For your test port, enter a **Name** that starts with **SAP**. All sender port names must start with the letters **SAP**, for example, **SAPTEST**. Save your changes.
+
+1. In the settings for your new sender port, for **RFC destination**, enter the identifier for [your ABAP connection](#create-abap-connection).
+
+1. Save your changes.
+
+#### Create logical system partner
+
+1. To open the **Change View "Logical Systems": Overview** settings, in your SAP interface, use the **bd54** transaction code (T-Code).
+
+1. Accept the warning message that appears: **Caution: The table is cross-client**
+
+1. Above the list that shows your existing logical systems, select **New Entries**.
+
+1. For your new logical system, enter a **Log.System** identifier and a short **Name** description. Save your changes.
+
+1. When the **Prompt for Workbench** appears, create a new request by providing a description, or if you already created a request, skip this step.
+
+1. After you create the workbench request, link that request to the table update request. To confirm that your table was updated, save your changes.
+
+#### Create partner profiles
+
+For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app.
+
+1. To open the **Partner profiles** settings, in your SAP interface, use the **we20** transaction code (T-Code) with the **/n** prefix.
+
+1. Under **Partner Profiles**, select **Partner Type LS** > **Create**.
+
+1. Create a new partner profile with the following settings:
+
+    * For **Partner No.**, enter [your logical system partner's identifier](#create-logical-system-partner).
+
+    * For **Partn. Type**, enter **LS**.
+
+    * For **Agent**, enter the identifier for the SAP user account to use when you register program identifiers for Azure Logic Apps or other non-SAP systems.
+
+1. Save your changes. If you haven't [created the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
+
+1. In your partner profile's settings, under **Outbound parmtrs.**, select **Create outbound parameter**.
+
+1. Create a new outbound parameter with the following settings:
+
+    * Enter your **Message Type**, for example, **CREMAS**.
+
+    * Enter your [receiver port's identifier](#create-receiver-port).
+
+    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](#receive-idoc-packets-from-sap), select **Pass IDoc Immediately**.
+
+1. Save your changes.
+
+#### Test sending messages
+
+1. To open the **Test Tool for IDoc Processing** settings, in your SAP interface, use the **we19** transaction code (T-Code) with the **/n** prefix.
+
+1. Under **Template for test**, select **Via message type**, and enter your message type, for example, **CREMAS**. Select **Create**.
+
+1. Confirm the **Which IDoc type?** message by selecting **Continue**.
+
+1. Select the **EDIDC** node. Enter the appropriate values for your receiver and sender ports. Select **Continue**.
+
+1. Select **Standard Outbound Processing**.
+
+1. To start outbound IDoc processing, select **Continue**. When the tool finishes processing, the **IDoc sent to SAP system or external program** message appears.
+
+1. To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
