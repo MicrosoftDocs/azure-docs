@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
@@ -29,7 +29,7 @@ Service registration and discovery are key requirements for maintaining a list o
   Azure Spring Apps creates a corresponding Kubernetes service for every app running in it using the app name as the Kubernetes service name. You can invoke calls from one app to another app by using the app name in an HTTP/HTTPS request such as `http(s)://{app name}/path`. This approach is also suitable for Enterprise tier. For more information, see the [Kubernetes registry code sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/k8s-service-registry).
 
   > [!NOTE]
-  > This approach isn't suitable for Standard consumption (Preview).
+  > This approach isn't suitable for Standard consumption and dedicated (Preview).
 
 * Use Managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 

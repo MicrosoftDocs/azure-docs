@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Enable and disable Spring Cloud Config Server in Azure Spring Apps
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to enable and disable Spring Cloud Config Server for service registration and discovery in Azure Spring Apps.
 Spring Cloud Config Server is a centralized configuration service for distributed systems. Config Server uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the Config Server to get data from a Git repository.
