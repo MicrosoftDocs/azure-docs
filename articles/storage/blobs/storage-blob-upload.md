@@ -34,6 +34,8 @@ You can use either of the following methods to upload data to a block blob:
 - [Upload](/dotnet/api/azure.storage.blobs.blobclient.upload)
 - [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync)
 
+When using these upload methods, the client library may call either [Put Blob](/rest/api/storageservices/put-blob) or [Put Block](/rest/api/storageservices/put-block), depending on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-on-upload) are set.
+
 To open a stream in Blob Storage and write to that stream, use either of the following methods:
 
 - [OpenWrite](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.openwrite)
