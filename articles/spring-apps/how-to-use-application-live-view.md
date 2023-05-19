@@ -36,7 +36,7 @@ Application Live View only supports Spring Boot applications.
 
 ## Enable Application Live View
 
-You can enable Application Live View when you provision an Azure Spring Apps Enterprise plan instance. If you already have a provisioned Azure Spring Apps Enterprise resource, see the [Manage Application Live View in existing Enterprise plan instances](#manage-application-live-view-in-existing-enterprise-tier-instances) section of this article.
+You can enable Application Live View when you provision an Azure Spring Apps Enterprise plan instance. If you already have a provisioned Azure Spring Apps Enterprise resource, see the [Manage Application Live View in existing Enterprise plan instances](#manage-application-live-view-in-existing-enterprise-plan-instances) section of this article.
 
 You can enable Application Live View using the Azure portal or Azure CLI.
 

@@ -34,7 +34,7 @@ Application Accelerator for VMware Tanzu helps you bootstrap developing your app
 
 ## Enable App Accelerator
 
-You can enable App Accelerator when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-tier-instance) section to enable it.
+You can enable App Accelerator when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section to enable it.
 
 You can enable App Accelerator using the Azure portal or Azure CLI.
 
