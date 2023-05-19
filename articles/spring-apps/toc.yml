@@ -24,7 +24,7 @@ items:
     href: quickstart-deploy-web-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app-standard-consumption.md
-  - name: Run apps on Standard consumption plan
+  - name: Run apps on Standard consumption and dedicated plan
     expanded: true
     items:
     - name: Provision a service instance
@@ -201,7 +201,7 @@ items:
       href: how-to-built-in-persistent-storage.md
     - name: Use custom persistent storage
       href: how-to-custom-persistent-storage.md
-    - name: Use custom persistent storage with the Standard consumption plan
+    - name: Use custom persistent storage with the Standard consumption and dedicated plan
       href: how-to-custom-persistent-storage-with-standard-consumption.md
     - name: Identify outbound public IP addresses
       href: how-to-outbound-public-ip.md
@@ -283,7 +283,7 @@ items:
       href: how-to-configure-ingress.md
     - name: Customer responsibilities running Azure Spring Apps in a virtual network
       href: vnet-customer-responsibilities.md
-    - name: Customer responsibilities for Standard consumption plan in a virtual network
+    - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
       href: standard-consumption-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
