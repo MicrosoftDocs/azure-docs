@@ -228,6 +228,10 @@ blue_deployment = KubernetesOnlineDeployment(
 
 In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system uses `defaultinstancetype` to deploy the model.
 
+> [!IMPORTANT]
+>
+> For MLFlow model deployment, the resource request require at least 2 CPU and 4 GB memory, otherwise the deployment will fail.
+
 #### Resource section validation
 If you're using the `resource section` to define the resource request and limit of your model deployments, for example:
 

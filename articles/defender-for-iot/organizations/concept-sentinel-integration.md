@@ -125,6 +125,7 @@ SecurityIncident
 
 For more information, see:
 
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md)
 - [Detect threats out-of-the-box with Defender for IoT data](../../sentinel/iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data)
 - [Create custom analytics rules to detect threats](../../sentinel/detect-threats-custom.md)

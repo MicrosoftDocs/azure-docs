@@ -179,7 +179,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | China East 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China North 3 | :heavy_check_mark:  | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: |
+| East Asia (Hong Kong SAR) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

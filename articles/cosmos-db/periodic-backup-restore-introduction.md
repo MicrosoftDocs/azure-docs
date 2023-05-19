@@ -33,6 +33,30 @@ The following steps show how Azure Cosmos DB performs data backup:
 
 - The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database.
 
+With the periodic backup mode, the backups are taken only in the write region of your Azure Cosmos DB account. The restore action always restores data into a new account which is located in the write region of the source account. 
+
+## What is restored into new account? 
+
+-You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. 
+-The restore action restores all data and its index properties into a new account.  
+-The duration of restore will depend on the amount of data that needs to be restored.  
+-The newly restored database account’s consistency setting will be same as the source database account’s consistency settings. 
+
+## What isn't restored? 
+
+The following configurations aren't restored after the point-in-time recovery.
+- A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole. 
+- Database account keys. The restored account will be generated with new database account keys. 
+-Firewall, VNET, Data plane RBAC or private endpoint settings. Enabling/Disabling public network access can be provided as an input to the restore request. 
+-Regions. The restored account will only be a single region account, which is the write region of the source account. 
+-Stored procedures, triggers, UDFs. 
+-Role-based access control assignments. These will need to be re-assigned. 
+-Documents that were deleted because of expired TTL. 
+-Analytical data when synapse link is enabled. 
+-Materialized views 
+
+Some of these configurations can be added to the restored account after the restore is completed. 
+
 ## Azure Cosmos DB Backup with Azure Synapse Link
 
 For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Azure Synapse Link is enabled, Azure Cosmos DB continues to automatically take backups of your data in the transactional store at a scheduled backup interval. Automatic backup and restore of your data in the analytical store isn't supported at this time.
@@ -55,6 +79,7 @@ With Azure Cosmos DB API for NoSQL accounts, you can also maintain your own back
 
 Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically to a storage solution of your choice.
 
+
 ### Azure Cosmos DB change feed
 
 Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for full backups or for incremental changes, and store it in your own storage.
@@ -63,3 +88,4 @@ Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for 
 
 > [!div class="nextstepaction"]
 > [Periodic backup storage redundancy](periodic-backup-storage-redundancy.md)
+

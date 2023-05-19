@@ -63,6 +63,9 @@
         - name: "Online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-deploy-endpoints.md
+        - name: "Pipeline endpoints"
+          displayName: migration, v1, v2, publish pipelines
+          href: migrate-to-v2-deploy-pipelines.md
         - name: "Upgrade from ACI web services to managed online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-managed-online-endpoints.md
@@ -235,10 +238,16 @@
               href: algorithm-cheat-sheet.md
             - name: How to select algorithms
               href: how-to-select-algorithms.md
-    - name: Deploy models
+    - name: Deploy to production
       items:
-        - name: Endpoints
+        - name: Endpoints for inference
           href: concept-endpoints.md
+        - name: Endpoints
+          items:
+            - name: Online endpoints
+              href: concept-endpoints-online.md
+            - name: Batch endpoints
+              href: concept-endpoints-batch.md
         - name: Model portability (ONNX)
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
@@ -254,6 +263,10 @@
         - name: MLflow models
           displayName: tracking models, mlflow, custom, flavors
           href: concept-mlflow-models.md
+    - name: Foundation Models
+      items:
+        - name: Foundation Models
+          href: concept-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: MLOps capabilities
@@ -611,8 +624,6 @@
             - name: Import data (preview)
               displayName: Import data (preview)
               href: how-to-import-data-assets.md
-            - name: Manage imported data (preview)
-              href: how-to-manage-imported-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -864,7 +875,7 @@
           displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
           href: ./v1/how-to-machine-learning-interpretability-automl.md
         # end v1  
-    - name: Deploy models
+    - name: Deploy to production
       items:
         - name: Online endpoints (real-time)
           items:
@@ -912,42 +923,34 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items:
-            - name: Batch scoring with batch endpoints
-              href: how-to-use-batch-endpoint.md
-            - name: Create jobs and input data for batch endpoints
+            - name: Work with batch endpoints and deployments
+              href: how-to-use-batch-endpoints.md
+            - name: Create jobs and input data to batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
-            - name: Author scoring scripts for batch scoring
-              href: how-to-batch-scoring-script.md
-            - name: Customize outputs in batch jobs
-              href: how-to-deploy-model-custom-output.md
-            - name: Troubleshoot batch endpoints
-              href: how-to-troubleshoot-batch-endpoints.md
-            - name: Security
+            - name: Deploy models
               items:
-                - name: Authorization on batch endpoints
-                  href: how-to-authenticate-batch-endpoint.md
-                - name: Network isolation in batch endpoints
-                  href: how-to-secure-batch-endpoint.md
-            - name: Cost management
-              items:
-                - name: Use low priority VMs in batch deployments
-                  href: how-to-use-low-priority-batch.md
-            - name: Scenarios
-              items:
-                - name: Use MLflow models in batch deployments
+                - name: Deploy models for scoring in batch endpoints
+                  href: how-to-use-batch-model-deployments.md
+                - name: Deploy MLflow models in batch deployments
                   href: how-to-mlflow-batch.md
-                - name: Image processing with batch deployments
+                - name: Author scoring scripts
+                  href: how-to-batch-scoring-script.md
+                - name: Customize outputs in model's batch jobs
+                  href: how-to-deploy-model-custom-output.md
+                - name: Image processing with batch model deployments
                   href: how-to-image-processing-batch.md
-                - name: Text processing with batch deployments
+                - name: Deploy language models with batch model deployments
                   href: how-to-nlp-processing-batch.md
-            - name: Integrations
+            - name: Deploy pipeline components (Preview)
               items:
-                - name: Run batch endpoints from Azure Data Factory
-                  href: how-to-use-batch-azure-data-factory.md
-                - name: Run batch endpoints from Event Grid events in storage
-                  href: how-to-use-event-grid-batch.md
-                - name: Use REST to deploy a model as batch endpoints
-                  href: how-to-deploy-batch-with-rest.md
+                - name: Deploy pipelines with batch endpoints
+                  href: how-to-use-batch-pipeline-deployments.md
+                - name: Operationalize a training pipeline on batch endpoints
+                  href: how-to-use-batch-training-pipeline.md
+                - name: Operationalize a scoring pipeline on batch endpoints
+                  href: how-to-use-batch-scoring-pipeline.md
+                - name: Create batch endpoints from pipeline jobs
+                  href: how-to-use-batch-pipeline-from-job.md
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
@@ -1066,6 +1069,10 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
+    - name: Work with Foundation Models
+      items:
+        - name: How to use Foundation Models
+          href: how-to-use-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Set up MLOps with Azure DevOps
@@ -1252,8 +1259,6 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
-        - name: Pipeline component
-          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
@@ -1318,6 +1323,8 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+            - name: Pipeline 
+              href: reference-yaml-component-pipeline.md
     - name: Azure PowerShell
       href: /powershell/module/az.machinelearningservices/
     - name: Service limits

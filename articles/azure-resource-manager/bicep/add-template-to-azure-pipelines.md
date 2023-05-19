@@ -3,7 +3,7 @@ title: CI/CD with Azure Pipelines and Bicep files
 description: In this quickstart, you learn how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use an Azure CLI task to deploy a Bicep file.
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-azurecli
-ms.date: 01/10/2023
+ms.date: 05/05/2023
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
@@ -114,6 +114,12 @@ steps:
       az --version
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
+```
+
+To override the parameters, update the last line of `inlineScript` to:
+
+```bicep
+az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters storageAccountType='Standard_GRS' location='eastus'
 ```
 
 For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.

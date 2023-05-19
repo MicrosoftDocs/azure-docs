@@ -119,8 +119,8 @@ sections:
           **OS** | **SKU** | **Details**
           --- | --- | ---
           Workstation | |
-          Windows 11 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
-          Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
+          Windows 11 64 bit | Enterprise, Pro, Home, IoT | Machines should be running the latest services packs and updates.
+          Windows 10 64 bit | Enterprise, Pro, Home, IoT | Machines should be running the latest services packs and updates.
           Server | |
           Windows Server 2022 64 bit | Standard, Datacenter, Essentials, IoT | With the latest service packs/updates.
           Windows Server 2019 64 bit | Standard, Datacenter, Essentials, IoT | With the latest service packs/updates.
