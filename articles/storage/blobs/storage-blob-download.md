@@ -23,7 +23,7 @@ This article shows how to download a blob using the [Azure Storage client librar
 To work with the code examples in this article, make sure you have:
 
 - An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an download operation. To learn more, see the authorization guidance for the following REST API operation:
+- Permissions to perform a download operation. To learn more, see the authorization guidance for the following REST API operation:
     - [Get Blob](/rest/api/storageservices/get-blob#authorization)
 - The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
