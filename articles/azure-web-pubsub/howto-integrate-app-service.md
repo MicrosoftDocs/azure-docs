@@ -27,7 +27,7 @@ In this how-to guide, we will take a cloud-native approach and leverage Azure se
 "Image Missing - Architecture diagram Missing"
 
 ## Prerequisites
-You can find detailed explanation of the [data flow](#data-flow) at the end of this how-go guide as we are going to focus on building and deloying the whiteboard app first.
+You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide as we are going to focus on building and deloying the whiteboard app first.
  
 In order to follow the step-by-step guide, you will need
 > [!div class="checklist"]
@@ -85,7 +85,7 @@ In order to follow the step-by-step guide, you will need
     ```
 ---
 ## Get the application code
-Run the following command to get a copy of the application code.
+Run the following command to get a copy of the application code. You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide
 ```bash
 git clone https://github.com/Azure/awps-webapp-sample.git
 ```
@@ -144,10 +144,10 @@ As is with HTTP requests, Web PubSub service needs to know where to locate your 
 ## View the whiteboard app in a broswer
 Now head over to your browser and visit your deployed Web App. It is recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
 
-### Data flow
+## Data flow
 :::row:::
     :::column span="2":::
-        1. The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service. {...Code link missing}
+        The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service. {...Code link missing}
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
@@ -156,7 +156,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
 
 :::row:::
     :::column span="2":::
-        2. When the backend application successfully returns the Client Access Token to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  {...Code link missing}
+        When the backend application successfully returns the Client Access Token to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  {...Code link missing}
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
@@ -165,7 +165,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
 
 :::row:::
     :::column span="2":::
-        3. If the handshake with Azure Web PubSub is successful, the client will be added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the `draw` group. {...Code link missing}
+        If the handshake with Azure Web PubSub is successful, the client will be added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the `draw` group. {...Code link missing}
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
@@ -176,7 +176,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
 
 :::row:::
     :::column span="2":::
-        4. The backend application is notified by Azure Web PubSub that a client has connected and it handles the `onConnected` event by calling the `sendToAll()`, with a payload of the latest number of connected clients.
+        The backend application is notified by Azure Web PubSub that a client has connected and it handles the `onConnected` event by calling the `sendToAll()`, with a payload of the latest number of connected clients.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
@@ -187,7 +187,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
 
 :::row:::
     :::column span="2":::
-        5. As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
+        As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
@@ -196,22 +196,22 @@ Now head over to your browser and visit your deployed Web App. It is recommended
 
 :::row:::
     :::column span="2":::
-        6. Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, is managed by the backend application and delivered through Web PubSub. {code missing}
+        Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, is managed by the backend application and delivered through Web PubSub. {code missing}
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
     :::column-end:::
 :::row-end:::
 
-
 ## Clean up resources
 Although the application uses only the free tiers of both services, it is best practice to delete resources if you no longer need them. You can delete the resource group along with the resources in it using following command,
 
 ```azurecli-interactive
-az group delete --name whiteboard-app-group
+az group delete 
+--name "whiteboard-group"
 ```
 
 ## Next steps
-plug demo site
-
+> [!div class="nextstepaction"]
+> [Check out more demos built with Web PubSub](https://azure.github.io/azure-webpubsub/)
 
