@@ -16,47 +16,47 @@ This article is part three of a six-part tutorial series. [Part one](tutorial-re
 
 ## Configure Cache for ACR (preview)  - Azure CLI
 
-Follow the steps to create a Cacherule without using a Credential set.
+Follow the steps to create a Cache rule without using a Credential set.
 
-### Create a Cacherule
+### Create a Cache rule
 
-1. Run [az acr Cachecreate][az-acr-cache-create] command to create a Cacherule.
+1. Run [az acr Cache create][az-acr-cache-create] command to create a Cache rule.
 
-    - For example, to create a Cacherule without a credential set for a given `MyRegistry` Azure Container Registry.
+    - For example, to create a Cache rule without a credential set for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr Cachecreate -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu-
+    az acr Cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu-
     ```
 
-2. Run [az acr Cacheshow][az-acr-cache-show] command to show a Cacherule.
+2. Run [az acr Cache show][az-acr-cache-show] command to show a Cache rule.
 
-    - For example, to show a Cacherule for a given `MyRegistry` Azure Container Registry.
+    - For example, to show a Cache rule for a given `MyRegistry` Azure Container Registry.
  
     ```azurecli-interactive
-     az acr Cacheshow -r MyRegistry -n MyRule
+     az acr Cache show -r MyRegistry -n MyRule
     ```
 
 ### Pull your image
 
-1. Pull the image from your Cacheusing the Docker command `docker pull myregistry.azurecr.io/hello-world`.
+1. Pull the image from your Cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`.
 
 
 ## Clean up the resources
 
-1. Run [az acr Cachelist][az-acr-cache-list] command to list the Cacherules in the Azure Container Registry.
+1. Run [az acr Cache list][az-acr-cache-list] command to list the Cache rules in the Azure Container Registry.
 
-    - For example, to list the Cacherules for a given `MyRegistry` Azure Container Registry.
+    - For example, to list the Cache rules for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-     az acr Cachelist -r MyRegistry
+     az acr Cache list -r MyRegistry
     ```
 Cache
-2. Run [az acr Cachedelete][az-acr-cache-delete] command to delete a Cacherule.
+2. Run [az acr Cache delete][az-acr-cache-delete] command to delete a Cache rule.
 
     - For example, to delete a Cacherule for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr Cachedelete -r MyRegistry -n MyRule
+    az acr Cache delete -r MyRegistry -n MyRule
     ```
 
 ## Next steps
