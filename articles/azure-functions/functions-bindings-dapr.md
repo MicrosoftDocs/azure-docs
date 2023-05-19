@@ -28,7 +28,6 @@ With the integration between Dapr and Functions, you can build functions that re
 |Publish a message to a Dapr topic | Out | [daprPublish](./functions-bindings-dapr-output-publish.md) |
 | Send a value to a Dapr output binding | Out | [daprBinding](./functions-bindings-dapr-output.md) |
 
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
