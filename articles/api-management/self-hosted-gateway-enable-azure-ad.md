@@ -6,15 +6,15 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/10/2023
+ms.date: 05/18/2023
 ms.author: danlep
 ---
 
 # Enable Azure AD authentication in the self-hosted gateway
 
-The default authentication mechanism provided with the self-hosted gateway to connect with its associated API Management instance is an access token (authentication key). You can configure the access token to be valid for at most 30 days, after which it must be regenerated and the gateway configuration refreshed.
+The default authentication mechanism provided with the self-hosted gateway to connect with its associated API Management instance is an access token (authentication key). The access token to be valid for at most 30 days, after which it must be regenerated and the gateway configuration refreshed.
 
-This article shows you how to enable the self-hosted gateway to authenticate to its associated cloud instance by using an Azure AD [app and service principal](../active-directory/develop/app-objects-and-service-principals.md). With Azure AD authentication, you can configure longer expiry times for secrets than provided using the access token. You also can use Azure role-based access control (RBAC) to scope access to a specific Azure API Management instance.
+This article shows you how to enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Azure AD app](../active-directory/develop/app-objects-and-service-principals.md). With Azure AD authentication, you can configure longer expiry times for secrets and scope access more closely to the API Management instance. 
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This article shows you how to enable the self-hosted gateway to authenticate to 
 
 ## Create custom roles
 
-Create the following two [custom roles](../role-based-access-control/custom-roles.md) that are assigned in later steps. You can use the following JSON templates to create the custom roles with the [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), or other Azure tools.
+Create the following two [custom roles](../role-based-access-control/custom-roles.md) that are assigned in later steps. You can use the permissions listed following JSON templates to create the custom roles with the [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), or other Azure tools.
 
 When configuring the custom roles, update the [`AssignableScopes`](../role-based-access-control/role-definitions.md#assignablescopes) property with appropriate scope values for your directory, such as a subscription in which your API Management instance is deployed. 
 
@@ -78,26 +78,36 @@ When configuring the custom roles, update the [`AssignableScopes`](../role-based
 }
 ```
 
-## Add role assignments to API Management instance
+## Add role assignments
 
-### Add API Management Configuration API Access Validator Service Role assignment
+### Assign API Management Configuration API Access Validator Service Role 
 
-Assign the API Management Configuration API Access Validator Service Role to the managed identity of the API Management instance. For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md).
+Assign the API Management Configuration API Access Validator Service Role to the managed identity of the API Management instance. For detailed steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md). 
 
-### Register Azure AD app 
+* Scope: The  resource group or subscription in which the API Management instance is deployed
+* Role: API Management Configuration API Access Validator Service Role
+* Assign access to: Managed identity of API Management instance
 
-Create a new AD app and service principal. For steps, see [Create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This app will be used by the self-hosted gateway to authenticate to the API Management instance.
+### Assign API Management Gateway Configuration Reader Service Role
 
-* Generate a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) 
+#### Step 1. Register Azure AD app 
+
+Create a new Azure AD app. For steps, see [Create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This app will be used by the self-hosted gateway to authenticate to the API Management instance.
+
+* Generate a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret) 
 * Take note of the following application values for use in the next section when deploying the self-hosted gateway: application (client) ID, directory (tenant) ID, and client secret
 
-### Add API Management Gateway Configuration Reader Service Role assignment
+#### Step 2. Assign API Management Gateway Configuration Reader Service Role
 
-[Assign](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) the API Management Gateway Configuration Reader Service Role to the app, scoped to the API Management instance.
+[Assign](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) the API Management Gateway Configuration Reader Service Role to the app.
+
+* Scope: The API Management instance (or resource group or subscription in which it's deployed)
+* Role: API Management Gateway Configuration Reader Service Role
+* Assign access to: Azure AD app
 
 ## Deploy the self-hosted gateway
 
-Deploy the self-hosted gateway to Kubernetes, adding Azure AD app registration settings to the `data` element of the gateways `ConfigMap`. In the following example YAML configuration file, the gateway is named *mygw* and the file is named `mgw.yaml`.
+Deploy the self-hosted gateway to Kubernetes, adding Azure AD app registration settings to the `data` element of the gateways `ConfigMap`. In the following example YAML configuration file, the gateway is named *mygw* and the file is named `mygw.yaml`.
 
 > [!IMPORTANT]
 > If you're following the existing Kubernetes [deployment guidance](how-to-deploy-self-hosted-gateway-kubernetes.md):
