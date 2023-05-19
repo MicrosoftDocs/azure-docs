@@ -388,7 +388,12 @@ Here's an example of what a parameter template definition looks like:
                         }
                     ]
                 }
-            }]
+            }],
+            "parameters": {
+                "*": {
+                    "defaultValue": "="
+                }
+            }
         }
     },
     "Microsoft.Synapse/workspaces/integrationRuntimes": {
@@ -400,6 +405,13 @@ Here's an example of what a parameter template definition looks like:
     },
     "Microsoft.Synapse/workspaces/triggers": {
         "properties": {
+            "pipelines": [
+                {
+                    "parameters": {
+                        "*": "="
+                    }
+                }
+            ],
             "typeProperties": {
                 "recurrence": {
                     "*": "=",
@@ -476,6 +488,7 @@ Here's an explanation of how the preceding template is constructed, by resource 
 
 - Any property in the `activities/typeProperties/waitTimeInSeconds` path is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. The property won't have a default value in the Resource Manager template. Instead, the property will be required input during Resource Manager deployment.
 - The `headers` property (for example, in a `Web` activity) is parameterized with the `object` type (Object). The `headers` property has a default value that is the same value as the source factory.
+- All the parameters used in the pipelines are parameterized
 
 **`integrationRuntimes`**
 
@@ -483,6 +496,7 @@ Here's an explanation of how the preceding template is constructed, by resource 
 
 **`triggers`**
 
+- All the parameters used in the triggers are parameterized
 - Under `typeProperties`, two properties are parameterized:
   - The `maxConcurrency` property has a default value and is the `string` type. The default parameter name of the `maxConcurrency` property is  `<entityName>_properties_typeProperties_maxConcurrency`.
   - The `recurrence` property also is parameterized. All properties under the `recurrence` property are set to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as the `int` type. The parameter name is suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed, such as `<entityName>_freq`.
