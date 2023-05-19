@@ -569,7 +569,14 @@ items:
             href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
-- name: Monitor resources
+- name: Insights
+  items:
+  - name: Overview
+    displayName: insights
+    href: insights/insights-overview.md
+  - name: Troubleshoot insights
+    href: insights/troubleshoot-workbooks.md 
+- name: Monitoring scenarios
   items:
   - name: Insights
     href: insights/insights-overview.md
