@@ -14,7 +14,7 @@ This article provides architectural best practices for monitoring virtual machin
 
 
 ## Reliability
-In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to monitor your virtual machines for failure.
+In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to monitor your virtual machines and their client workloads for failure.
 
 [!INCLUDE [waf-vm-reliability](includes/waf-vm-reliability.md)]
 
