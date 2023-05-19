@@ -50,7 +50,7 @@ AKS uses several managed identities for built-in services and add-ons.
 ## Enable managed identities on a new AKS cluster
 
 > [!NOTE]
-> AKS creates a system-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -151,7 +151,7 @@ A custom control plane managed identity enables access to the existing identity 
 >
 > USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud aren't supported.
 >
-> AKS creates a system-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
 
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
