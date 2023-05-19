@@ -34,13 +34,12 @@ In order to follow the step-by-step guide, you will need
 > * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 > * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
-## Sign in to the Azure CLI
-Run the following command.
-1. Sign in to the Azure CLI by .
+## Create Azure resources using Azure CLI
+# [Sign in](#tab/signin-cli)
+Sign in to Azure CLI by running the following command.
     ```azurecli-interactive
     az login
     ```
-
 
 # [Create a Web App resource](#tab/create-web-app)
 1. Create a resource group on Azure
@@ -85,13 +84,35 @@ Run the following command.
       --resource-group "whiteboard-group"
     ```
 ---
-
-
 ## Get the application code
-
+Run the following command the get a copy of the application code.
+```bash
+git clone {remote repo URL missing}
+```
 
 ## Deploy the application to App Service
+1. App Service supports many deployment workflows. For this guide, we are going to deploy a ZIP package. Run the following commands to prepare the ZIP.
+```bash
+    npm install
+    npm run build
+    zip -r app.zip *
+```
 
+2. Use the following command to deploy it to Azure App Service.
+```azurecli-interactive
+    az webapp deployment source config-zip \
+      --resource-group "whiteboard-group" \
+      --name "whiteboard-app" \
+      --src app.zip
+```
+
+3. Set Azure Web PubSub connection string in the application settings. This is the `primaryConnectionString` you stored from an earlier step.
+```azurecli-interactive
+    az webapp config appsettings set \
+      --resource-group "whiteboard-group" \
+      --name "whiteboard-app" \
+      --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
+```
 
 ## Configure upstream server to handle events coming from Web PubSub
 Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages to fulfill your business requirements. 
@@ -112,15 +133,16 @@ As is with HTTP requests, Web PubSub service needs to know where to locate your 
     ```
     ```azurecli-interactive
     az webpubsub hub create \ 
-    --resource-group "whiteboard-group" 
-    --name "whiteboard-app" --hub-name "sample_draw" --event-handler url-template="https://<<Replace with the value of the hostname of your Web App resource>>/eventhandler" user-event-pattern="*" system-event="connected" system-event="disconnected" 
+    --resource-group "whiteboard-group" \
+    --name "whiteboard-app" \
+    --hub-name "sample_draw" \
+    --event-handler url-template="https://<Replace with the hostname of your Web App resource>/eventhandler" user-event-pattern="*" system-event="connected" system-event="disconnected" 
     ```
 > [!IMPORTANT]
-> `url-template` has three parts: protocol + hostname + path, which is our case is `https://<<The hostname of your Web App resource>>/eventhandler`.
+> `url-template` has three parts: protocol + hostname + path, which in our case is `https://<The hostname of your Web App resource>/eventhandler`.
 
 ## View the whiteboard app in a broswer
-
-For a more in-depth
+Now head over to your browser and visit your deployed Web App. It is recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better share the link with a colleague or friend.
 
 ### Data flow
 :::row:::
@@ -181,11 +203,6 @@ For a more in-depth
     :::column-end:::
 :::row-end:::
 
-5. As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
-
-
-
-Now that we have understood the data flow and the respective responsibilities of App Service and Web PubSub, let us get practical.
 
 ## Clean up resources
 Although the application uses only the free tiers of both services, it is best practice to delete resources if you no longer need them. You can delete the resource group along with the resources in it using following command,
