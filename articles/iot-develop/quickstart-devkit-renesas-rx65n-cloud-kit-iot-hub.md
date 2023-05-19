@@ -38,7 +38,7 @@ You complete the following tasks:
 * Hardware
 
     * The [Renesas RX65N Cloud Kit](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-cloud-kit-renesas-rx65n-cloud-kit) (Renesas RX65N)
-    * two USB 2.0 A male to Mini USB male cables
+    * Two USB 2.0 A male to Mini USB male cables
     * WiFi 2.4 GHz
 
 ## Prepare the development environment
@@ -84,7 +84,7 @@ To install the tools:
     ```
 To install the remaining tools:
 
-* Install [Renesas Flash Programmer](https://www.renesas.com/software-tool/renesas-flash-programmer-programming-gui) for your operating system. The Renesas Flash Programmer development environment includes the drivers and tools needed to flash the Renesas RX65N via the Renesas E2 Lite.
+* Install [Renesas Flash Programmer](https://www.renesas.com/software-tool/renesas-flash-programmer-programming-gui) for Windows. The Renesas Flash Programmer development environment includes the drivers and tools needed to flash the Renesas RX65N via the Renesas E2 Lite.
 
 [!INCLUDE [iot-develop-create-cloud-components](../../includes/iot-develop-create-cloud-components.md)]
 
@@ -362,7 +362,7 @@ To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
 1. For the **setLedState** command, set the **state** to **Yes**.
-1. Select **Send command**. You should see a notification in IoT Explorer, and the green LED light on the device should turn on.
+1. Select **Send command**. You should see a notification in IoT Explorer, and the red LED light on the device should turn on.
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer.":::
 

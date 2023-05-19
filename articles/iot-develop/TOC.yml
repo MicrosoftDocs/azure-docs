@@ -21,6 +21,8 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+      - name: Renesas RX65N Cloud Kit
+        href: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
         href: quickstart-devkit-stm-b-l475e-iot-hub.md
       - name: STMicroelectronics L4S5I-IOT01A
