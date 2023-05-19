@@ -120,14 +120,17 @@ compatible. The following table shows a list of supported operating systems on A
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
+| Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
 | Canonical | Ubuntu Server              | 14.04 - 20.x     |
 | Credativ  | Debian                     | 8 - 10.x         |
-| Microsoft | Windows Server             | 2012 - 2022      |
+| Microsoft | CBL-Mariner                | 1 - 2            |
 | Microsoft | Windows Client             | Windows 10       |
-| Oracle    | Oracle-Linux               | 7.x-8.x          |
-| OpenLogic | CentOS                     | 7.3 -8.x         |
-| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 8.x        |
+| Microsoft | Windows Server             | 2012 - 2022      |
+| Oracle    | Oracle-Linux               | 7.x - 8.x        |
+| OpenLogic | CentOS                     | 7.3 - 8.x        |
+| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |
+| Rocky     | Rocky Linux                | 9                |
 | SUSE      | SLES                       | 12 SP3-SP5, 15.x |
 
 \* Red Hat CoreOS isn't supported.

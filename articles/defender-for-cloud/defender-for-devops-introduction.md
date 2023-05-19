@@ -77,10 +77,9 @@ On this part of the screen you see:
     > [!NOTE]
     > Currently, this information is available only for GitHub repositories.
 
-- **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.
+- **IaC scanning findings** – Shows the number of infrastructure as code misconfigurations identified in the repositories.
 
-    > [!NOTE]
-    > Currently, this information is available only for GitHub repositories.
+- **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.
 
 ## Learn more
 

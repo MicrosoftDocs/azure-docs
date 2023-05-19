@@ -8,7 +8,7 @@ ms.author: erhopf
 
 Each request requires an authorization header. This table illustrates which headers are supported for each feature:
 
-| Supported authorization header | Speech-to-text | Text-to-speech |
+| Supported authorization header | Speech to text | Text to speech |
 |------------------------|----------------|----------------|
 | `Ocp-Apim-Subscription-Key` | Yes | Yes |
 | `Authorization: Bearer` | Yes | Yes |
@@ -142,7 +142,7 @@ def get_token(subscription_key):
 
 The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can get a new token at any time, but to minimize network traffic and latency, we recommend using the same token for nine minutes.
 
-Here's a sample HTTP request to the speech-to-text REST API for short audio:
+Here's a sample HTTP request to the Speech to text REST API for short audio:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

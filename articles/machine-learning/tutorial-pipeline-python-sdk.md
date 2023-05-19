@@ -209,9 +209,8 @@ os.makedirs(dependencies_dir, exist_ok=True)
 
 Now, create the file in the dependencies directory.
 
-
 ```python
-%%writefile {dependencies_dir}/conda.yml
+%%writefile {dependencies_dir}/conda.yaml
 name: model-env
 channels:
   - conda-forge
@@ -246,7 +245,7 @@ pipeline_job_env = Environment(
     name=custom_env_name,
     description="Custom environment for Credit Card Defaults pipeline",
     tags={"scikit-learn": "0.24.2"},
-    conda_file=os.path.join(dependencies_dir, "conda.yml"),
+    conda_file=os.path.join(dependencies_dir, "conda.yaml"),
     image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     version="0.1.0",
 )
@@ -511,7 +510,7 @@ First, create the *yaml* file describing the component:
 
 
 ```python
-%%writefile {train_src_dir}/train.yml
+%%writefile {train_src_dir}/train.yaml
 # <component>
 name: train_credit_defaults_model
 display_name: Train Credit Defaults Model
@@ -551,8 +550,8 @@ Now create and register the component.  Registering it allows you to re-use it i
 # importing the Component Package
 from azure.ai.ml import load_component
 
-# Loading the component from the yml file
-train_component = load_component(source=os.path.join(train_src_dir, "train.yml"))
+# Loading the component from the yaml file
+train_component = load_component(source=os.path.join(train_src_dir, "train.yaml"))
 
 # Now we register the component to the workspace
 train_component = ml_client.create_or_update(train_component)

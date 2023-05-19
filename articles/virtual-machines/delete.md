@@ -100,23 +100,28 @@ This example shows how to set the data disk and NIC to be deleted when the VM is
 PUT 
 https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/myVM?api-version=xx  
 { 
-"storageProfile": { 
+  "storageProfile": { 
     "dataDisks": [ 
-        { "diskSizeGB": 1023, 
+        { 
+          "diskSizeGB": 1023, 
           "name": "myVMdatadisk", 
           "createOption": "Empty", 
           "lun": 0, 
-          "deleteOption": “Delete” 
-       }    ] 
-},  
-"networkProfile": { 
+          "deleteOption": "Delete"
+       }
+    ] 
+  },  
+  "networkProfile": { 
       "networkInterfaces": [ 
-        { "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
+        { 
+          "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
           "properties": { 
             "primary": true, 
-  	    "deleteOption": “Delete” 
-          }        } 
-      ]  
+  	         "deleteOption": "Delete"
+          }
+        } 
+      ]
+  }
 } 
 ```
 
@@ -143,9 +148,9 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
             "id": "/subscriptions/../publicIPAddresses/test-ip", 
 
-          "properties": { 
-            “deleteOption”: “Delete” 
-            } 
+            "properties": { 
+              "deleteOption": "Delete"
+            }
           }, 
 
           "subnet": { 
@@ -264,15 +269,14 @@ PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegr
         "networkProfile": { 
             "networkInterfaces": [ 
                 { 
-                    "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336" 
-                , 
+                   "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336", 
                    "properties": { 
-                   "deleteOption": "Delete" 
-} 
-} 
+                     "deleteOption": "Delete" 
+                    } 
+                } 
             ] 
         } 
-} 
+    } 
 } 
 ```
 ---

@@ -82,7 +82,7 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 
 ### Create twins in bulk with the Jobs API
 
-You can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to create many twins at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for twins and bulk jobs.
+You can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) (currently in preview) to create many twins at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for twins and bulk jobs.
 
 >[!TIP]
 >The Jobs API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).

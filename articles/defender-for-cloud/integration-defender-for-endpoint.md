@@ -1,10 +1,10 @@
 ---
 title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/15/2023
+ms.date: 04/24/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -344,7 +344,7 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Disable the integration:
     1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the relevant machines.
-    1. In the Monitoring coverage column of the Defender for Servers plan, select **Settings**.
+    1. In the Defender plans page, select **Settings & Monitoring**.
     1. In the status of the Endpoint protection component, select **Off** to disable the integration with Microsoft Defender for Endpoint.
     1. Select **Continue** and **Save** to save your settings.
 

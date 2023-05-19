@@ -80,12 +80,16 @@
       href: ../../virtual-network/network-security-groups-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Private Endpoint
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Network firewall
+    - name: Azure Firewall
       href: ../../firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Azure Firewall Manager
+      href: ../../firewall-manager/overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: DDoS protection
       href: ../../ddos-protection/ddos-protection-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Web application firewall
+    - name: Web Application Firewall
       href: ../../web-application-firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Azure Bastion
+      href: ../../bastion/bastion-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md

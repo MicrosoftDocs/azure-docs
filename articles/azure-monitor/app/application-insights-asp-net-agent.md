@@ -58,17 +58,17 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet -Force
-```    
+```
 
 Close PowerShell.
 
 #### Install Application Insights Agent
 Run PowerShell as an admin.
 
-```powershell    
+```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
-```    
+```
 
 > [!NOTE]
 > The `AllowPrerelease` switch in the `Install-Module` cmdlet allows installation of the beta release.
@@ -164,9 +164,9 @@ These instructions were written and tested on a computer running Windows 10 and 
 
 These steps will prepare your server to download modules from PowerShell Gallery.
 
-> [!NOTE] 
+> [!NOTE]
 > PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6+.
-> For information about earlier versions, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
+> For information about earlier versions, see [Installing PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
 
 
 1. Run PowerShell as Admin with an elevated execution policy.
@@ -177,18 +177,18 @@ These steps will prepare your server to download modules from PowerShell Gallery
     - Optional parameters:
         - `-Proxy`. Specifies a proxy server for the request.
         - `-Force`. Bypasses the confirmation prompt.
-    
+
     You'll receive this prompt if NuGet isn't set up:
 
     ```output
     NuGet provider is required to continue
-    PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. 
+    PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories.
     The NuGet provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
     'C:\Users\t\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running
     'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import
     the NuGet provider now?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-    ```    
+    ```
 
 3. Configure PowerShell Gallery as a trusted repository.
     - Description: By default, PowerShell Gallery is an untrusted repository.
@@ -201,9 +201,9 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
     ```output
     Untrusted repository
-    You are installing the modules from an untrusted repository. 
-    If you trust this repository, change its InstallationPolicy value 
-    by running the Set-PSRepository cmdlet. Are you sure you want to 
+    You are installing the modules from an untrusted repository.
+    If you trust this repository, change its InstallationPolicy value
+    by running the Set-PSRepository cmdlet. Are you sure you want to
     install the modules from 'PSGallery'?
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
     ```
@@ -212,7 +212,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
 
 4. Install the newest version of PowerShellGet.
     - Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
-    - Reference: [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
+    - Reference: [Installing PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
     - Command: `Install-Module -Name PowerShellGet`.
     - Optional parameters:
         - `-Proxy`. Specifies a proxy server for the request.
@@ -293,7 +293,7 @@ For more information, see [Installing a PowerShell Module](/powershell/scripting
 
 If you're installing the module into any other directory, manually import the module by using [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > DLLs will install via relative paths.
 > Store the contents of the package in your intended runtime directory and confirm that access permissions allow read but not write.
 
@@ -301,7 +301,7 @@ If you're installing the module into any other directory, manually import the mo
 2. Find the file path of Az.ApplicationMonitor.psd1.
 3. Run PowerShell as Admin with an elevated execution policy.
 4. Load the module by using the `Import-Module Az.ApplicationMonitor.psd1` command.
-    
+
 
 ### Route traffic through a proxy
 
@@ -332,13 +332,13 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Set-ApplicationInsightsMonitoringConfig](?tabs=api-reference#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
-> [!NOTE] 
+> [!NOTE]
 > - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 > - The instrumentation engine adds additional overhead and is off by default.
@@ -410,7 +410,7 @@ In this example:
 - Spaces are added for readability.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
+PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
     @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
       @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
       @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
@@ -419,7 +419,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 > [!NOTE]
-> The naming of AppFilter in this context can be confusing, `AppFilter` sets the application name regex filter (HostingEnvironment.SiteName in the case of .Net on IIS). `VirtualPathFilter` sets the virtual path regex filter (HostingEnvironment.ApplicationVirtualPath in the case of .Net on IIS). To instrument a single app you would use the VirtualPathFilter as follows: `Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap @(@{VirtualPathFilter="^/MyAppName$"; InstrumentationSettings=@{InstrumentationKey='<your ikey>'}})`
+> The naming of AppFilter in this context can be confusing, `AppFilter` sets the application name regex filter (HostingEnvironment.SiteName in the case of .NET on IIS). `VirtualPathFilter` sets the virtual path regex filter (HostingEnvironment.ApplicationVirtualPath in the case of .NET on IIS). To instrument a single app you would use the VirtualPathFilter as follows: `Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap @(@{VirtualPathFilter="^/MyAppName$"; InstrumentationSettings=@{InstrumentationKey='<your ikey>'}})`
 
 #### Parameters
 
@@ -458,13 +458,13 @@ The instrumentation engine adds overhead and is off by default.
 When you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 The HttpModule can't be injected into this shared configuration.
 This script will fail with the message that extra installation steps are required.
-Use this switch to ignore this check and continue installing prerequisites. 
+Use this switch to ignore this check and continue installing prerequisites.
 For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 ##### -Verbose
 **Common parameter.** Use this switch to display detailed logs.
 
-##### -WhatIf 
+##### -WhatIf
 **Common parameter.** Use this switch to test and validate your input parameters without actually enabling monitoring.
 
 #### Output
@@ -513,7 +513,7 @@ Restart IIS for the changes to take effect.
 PS C:\> Disable-InstrumentationEngine
 ```
 
-#### Parameters 
+#### Parameters
 
 ##### -Verbose
 **Common parameter.** Use this switch to output detailed logs.
@@ -542,7 +542,7 @@ This cmdlet will remove edits to the IIS applicationHost.config and remove regis
 PS C:\> Disable-ApplicationInsightsMonitoring
 ```
 
-#### Parameters 
+#### Parameters
 
 ##### -Verbose
 **Common parameter.** Use this switch to display detailed logs.
@@ -782,7 +782,7 @@ If this process fails for any reason, you can run these commands manually:
 Sets the config file without doing a full reinstallation.
 Restart IIS for your changes to take effect.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This cmdlet requires a PowerShell session with Admin permissions.
 
 
@@ -873,7 +873,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 ### Start-ApplicationInsightsMonitoringTrace
 
-Collects [ETW Events](/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime. 
+Collects [ETW Events](/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime.
 This cmdlet is an alternative to running [PerfView](https://github.com/microsoft/perfview).
 
 Collected events will be printed to the console in real-time and saved to an ETL file. The output ETL file can be opened by [PerfView](https://github.com/microsoft/perfview) for further investigation.
@@ -910,8 +910,8 @@ You have three options when collecting events:
 **Optional.** Use this parameter to set how long this script should collect events. Default is 5 minutes.
 
 ##### -LogDirectory
-**Optional.** Use this switch to set the output directory of the ETL file. 
-By default, this file will be created in the PowerShell Modules directory. 
+**Optional.** Use this switch to set the output directory of the ETL file.
+By default, this file will be created in the PowerShell Modules directory.
 The full path will be displayed during script execution.
 
 
@@ -1003,7 +1003,7 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
   - You can use the [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
   - Use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
   - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
-  
+
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```

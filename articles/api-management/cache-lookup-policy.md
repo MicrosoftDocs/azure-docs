@@ -61,12 +61,14 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
 
-When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
+* When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
+- This policy can only be used once in a policy section.
+
 
 ## Examples
 
