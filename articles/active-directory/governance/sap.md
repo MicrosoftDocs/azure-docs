@@ -42,11 +42,15 @@ Customers who still use SAP Human Capital Management (HCM) can also bring identi
 
 ![Diagram of SAP HR integrations.](./media/sap/sap-hr.png)
 
-## Enable SSO
+## Provide access to SAP applications
 
-After you set up provisioning for your SAP applications, you can enable SSO for those applications. Azure AD can serve as the identity provider and serve as the authentication authority for your SAP applications. [Learn how to configure Azure AD as the corporate identity provider for your SAP applications](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html).
+In addition to the native provisioning integrations that allow you to manage access to your SAP applications, Azure AD supports a rich set of integrations with those applications.
 
-## Provision identities into modern SAP applications
+### Enable SSO
+
+After you set up provisioning for your SAP applications, you can enable SSO for them. Azure AD can serve as the identity provider and serve as the authentication authority for your SAP applications. [Learn how to configure Azure AD as the corporate identity provider for your SAP applications](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html).
+
+### Provision identities into modern SAP applications
 
 After your users are in Azure AD, you can provision accounts into the various SaaS and on-premises SAP applications that they need access to. You have three ways to accomplish this:
 
@@ -54,7 +58,7 @@ After your users are in Azure AD, you can provision accounts into the various Sa
 * Use the [SAP Identity Authentication Service (IAS)](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) enterprise application in Azure AD to provision identities into SAP IAS. After you bring all the identities into SAP IAS, you can use SAP IPS to provision the accounts from there into your applications when required.
 * Use the [SAP IPS](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/f2b2df8a273642a1bf801e99ecc4a043.html) integration to directly export identities from Azure AD into your [applications](https://help.sap.com/docs/IDENTITY_PROVISIONING/f48e822d6d484fa5ade7dda78b64d9f5/ab3f641552464c79b94d10b9205fd721.html). When you're using SAP IPS to pull users into your applications, all provisioning configuration is managed in SAP directly. You can still use the enterprise application in Azure AD to manage SSO and use [Azure AD as the corporate identity provider](https://help.sap.com/docs/IDENTITY_AUTHENTICATION/6d6d63354d1242d185ab4830fc04feb1/058c7b14209f4f2d8de039da4330a1c1.html).
 
-## Provision identities into on-premises SAP systems that SAP IPS doesn't support
+### Provision identities into on-premises SAP systems that SAP IPS doesn't support
 
 Customers who have yet to transition from applications such as  SAP ERP Central Component (SAP ECC) to SAP S/4HANA can still rely on the Azure AD provisioning service to provision user accounts. Within SAP ECC, you expose the necessary Business Application Programming Interfaces (BAPIs) for creating, updating, and deleting users. Within Azure AD, you have two options:
 
