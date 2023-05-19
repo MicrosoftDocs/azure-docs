@@ -30,12 +30,12 @@ Make an options object specifying the raw stream properties we want to send.
 
 ```swift
     let outgoingAudioStreamOptions = RawOutgoingAudioStreamOptions()
-    let properties = RawOutgoingAudioProperties()
+    let properties = RawOutgoingAudioStreamProperties()
     properties.sampleRate = .hz44100
-    properties.dataPerBlock = .inMs20
+    properties.bufferDuration = .inMs20
     properties.channelMode = .mono
-    properties.audioFormat = .pcm16Bit
-    outgoingAudioStreamOptions.rawOutgoingAudioProperties = properties
+    properties.format = .pcm16Bit
+    outgoingAudioStreamOptions.properties = properties
 ```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
@@ -45,7 +45,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
 
     let outgoingAudioOptions = OutgoingAudioOptions()
     self.rawOutgoingAudioStream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: outgoingAudioStreamOptions)
-    outgoingAudioOptions.outgoingAudioStream = self.rawOutgoingAudioStream
+    outgoingAudioOptions.stream = self.rawOutgoingAudioStream
     options.outgoingAudioOptions = outgoingAudioOptions
 
     // Start or Join call passing the options instance.
@@ -58,7 +58,7 @@ Or you can also attach the stream to an existing `Call` instance instead:
 
 ```swift
 
-    call.startAudio(self.rawOutgoingAudioStream) { error in 
+    call.startAudio(stream: self.rawOutgoingAudioStream) { error in 
         // Stream attached to `Call`.
     }
 ```
@@ -71,7 +71,7 @@ To observe the audio stream state change, we implement the `RawOutgoingAudioStre
 
 ```swift
     func rawOutgoingAudioStream(_ rawOutgoingAudioStream: RawOutgoingAudioStream,
-                                didOutgoingAudioStreamStateChanged args: OutgoingAudioStreamStateChangedEventArgs) {
+                                didChangeState args: AudioStreamStateChangedEventArgs) {
         // When value is `AudioStreamState.started` we will be able to send audio samples.
     }
 
@@ -93,7 +93,7 @@ The audio buffer format should match the specified stream properties.
 ```swift
     protocol SamplesProducer {
         func produceSample(_ currentSample: Int, 
-                        options: RawOutgoingAudioStreamOptions) -> AVAudioPCMBuffer
+                           options: RawOutgoingAudioStreamOptions) -> AVAudioPCMBuffer
     }
 
     // Let's use a simple Tone data producer as example.
@@ -101,17 +101,17 @@ The audio buffer format should match the specified stream properties.
     func produceSamples(_ currentSample: Int,
                         stream: RawOutgoingAudioStream,
                         options: RawOutgoingAudioStreamOptions) -> AVAudioPCMBuffer {
-        let sampleRate = options.rawOutgoingAudioProperties.sampleRate
-        let channelMode = options.rawOutgoingAudioProperties.channelMode
-        let dataPerBlockInMs = options.rawOutgoingAudioProperties.dataPerBlock
-        let numberOfChunks = UInt32(1000 / dataPerBlockInMs.timeInMilliseconds)
+        let sampleRate = options.properties.sampleRate
+        let channelMode = options.properties.channelMode
+        let bufferDuration = options.properties.bufferDuration
+        let numberOfChunks = UInt32(1000 / bufferDuration.value)
         let bufferFrameSize = UInt32(sampleRate.valueInHz) / numberOfChunks
         let frequency = 400
 
         guard let format = AVAudioFormat(commonFormat: .pcmFormatInt16,
-                                            sampleRate: sampleRate.valueInHz,
-                                            channels: channelMode.numberOfChannels,
-                                            interleaved: channelMode == .stereo) else {
+                                         sampleRate: sampleRate.valueInHz,
+                                         channels: channelMode.channelCount,
+                                         interleaved: channelMode == .stereo) else {
             fatalError("Failed to create PCM Format")
         }
 
@@ -123,7 +123,7 @@ The audio buffer format should match the specified stream properties.
 
         let factor: Double = ((2 as Double) * Double.pi) / (sampleRate.valueInHz/Double(frequency))
         var interval = 0
-        for sampleIdx in 0..<Int(buffer.frameCapacity * channelMode.numberOfChannels) {
+        for sampleIdx in 0..<Int(buffer.frameCapacity * channelMode.channelCount) {
             let sample = sin(factor * Double(currentSample + interval))
             // Scale to maximum amplitude. Int16.max is 37,767.
             let value = Int16(sample * Double(Int16.max))
@@ -148,35 +148,35 @@ The audio buffer format should match the specified stream properties.
         private var currentTimestamp: Int64 = 0
 
         init(stream: RawOutgoingAudioStream,
-            options: RawOutgoingAudioStreamOptions,
-            producer: SamplesProducer) {
+             options: RawOutgoingAudioStreamOptions,
+             producer: SamplesProducer) {
             self.stream = stream
             self.options = options
             self.producer = producer
         }
 
         func start() {
-            let properties = self.options.rawOutgoingAudioProperties
-            let interval = properties.dataPerBlock.asTimeInterval
+            let properties = self.options.properties
+            let interval = properties.bufferDuration.timeInterval
 
-            let channelCount = AVAudioChannelCount(properties.channelMode.numberOfChannels)
+            let channelCount = AVAudioChannelCount(properties.channelMode.channelCount)
             let format = AVAudioFormat(commonFormat: .pcmFormatInt16,
-                                    sampleRate: properties.sampleRate.valueInHz,
-                                    channels: channelCount,
-                                    interleaved: channelCount > 1)!
+                                       sampleRate: properties.sampleRate.valueInHz,
+                                       channels: channelCount,
+                                       interleaved: channelCount > 1)!
             self.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
                 let sample = self.producer.produceSamples(self.currentSample, options: self.options)
                 let rawBuffer = RawAudioBuffer()
                 rawBuffer.buffer = sample
                 rawBuffer.timestampInTicks = self.currentTimestamp
-                self.stream.sendOutgoing(audioBuffer: rawBuffer, completionHandler: { error in
+                self.stream.send(buffer: rawBuffer, completionHandler: { error in
                     if let error = error {
                         // Handle possible error.
                     }
                 })
 
-                self.currentTimestamp += Int64(properties.dataPerBlock.timeInMilliseconds)
+                self.currentTimestamp += Int64(properties.bufferDuration.value)
                 self.currentSample += 1
             }
         }
@@ -189,6 +189,16 @@ The audio buffer format should match the specified stream properties.
         deinit {
             stop()
         }
+    }
+```
+
+
+It is also important to remember to stop the audio stream in the current call `Call` instance:
+
+```swift
+
+    call.stopAudio(stream: self.rawOutgoingAudioStream) { error in 
+        // Stream detached from `Call` and stopped.
     }
 ```
 
@@ -206,11 +216,11 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
 
     final class MicrophoneDataSender {
         private let stream: RawOutgoingAudioStream
-        private let properties: RawOutgoingAudioProperties
+        private let properties: RawOutgoingAudioStreamProperties
         private let format: AVAudioFormat
         private let audioEngine: AVAudioEngine = AVAudioEngine()
 
-        init(properties: RawOutgoingAudioProperties) throws {
+        init(properties: RawOutgoingAudioStreamProperties) throws {
             // This can be different depending on which device we are running or value set for
             // `try AVAudioSession.sharedInstance().setPreferredSampleRate(...)`.
             let nodeFormat = self.audioEngine.inputNode.outputFormat(forBus: 0)
@@ -223,10 +233,10 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
             properties.sampleRate = inputNodeSampleRate
 
             let options = RawOutgoingAudioStreamOptions()
-            options.rawOutgoingAudioProperties = properties
+            options.properties = properties
 
             self.stream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: options)
-            let channelCount = AVAudioChannelCount(properties.channelMode.numberOfChannels)
+            let channelCount = AVAudioChannelCount(properties.channelMode.channelCount)
             self.format = AVAudioFormat(commonFormat: .pcmFormatInt16,
                                         sampleRate: properties.sampleRate.valueInHz,
                                         channels: channelCount,
@@ -245,14 +255,14 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
             // Note that some formats may not be allowed by `installTap`, so we have to specify the 
             // correct properties.
             self.audioEngine.inputNode.installTap(onBus: 0, bufferSize: framesFor100ms, 
-                                                format: self.format) { [weak self] buffer, _ in
+                                                  format: self.format) { [weak self] buffer, _ in
                 guard let self = self else { return }
                 
                 let rawBuffer = RawAudioBuffer()
                 rawBuffer.buffer = buffer
                 // Although we specified either 10ms or 20ms, we allow sending up to 100ms of data
                 // as long as it can be evenly divided by the specified size.
-                self.stream.sendOutgoing(audioBuffer: rawBuffer) { error in
+                self.stream.send(buffer: rawBuffer) { error in
                     if let error = error {
                         // Handle error
                     }
@@ -289,11 +299,11 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
 
 ```swift
     let options = RawIncomingAudioStreamOptions()
-    let properties = RawIncomingAudioProperties()
-    properties.audioFormat = .pcm16Bit
+    let properties = RawIncomingAudioStreamProperties()
+    properties.format = .pcm16Bit
     properties.sampleRate = .hz44100
     properties.channelMode = .stereo
-    options.rawIncomingAudioProperties = properties
+    options.properties = properties
 ```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options
@@ -303,7 +313,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options
     let incomingAudioOptions = IncomingAudioOptions()
 
     self.rawIncomingStream = RawIncomingAudioStream(rawIncomingAudioStreamOptions: audioStreamOptions)
-    incomingAudioOptions.incomingAudioStream = self.rawIncomingStream
+    incomingAudioOptions.stream = self.rawIncomingStream
     options.incomingAudioOptions = incomingAudioOptions
 ```
 
@@ -311,7 +321,7 @@ Or we can also attach the stream to an existing `Call` instance instead:
 
 ```swift
 
-    call.startAudio(self.rawIncomingStream) { error in 
+    call.startAudio(stream: self.rawIncomingStream) { error in 
         // Stream attached to `Call`.
     }
 ```
