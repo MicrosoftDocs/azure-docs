@@ -1185,7 +1185,7 @@
   </g>
   <g id="shape24677-737" transform="translate(854.125 -301.963)">
     <path class="st5" d="M0 1094.37h272.25v51.193H0z"/>
-    <text x="4" y="1114.57" style="fill:#0070c0;font-family:Segoe UI Semibold;font-size:1.5em;font-weight:700">SCOM Managed Instance</text>
+    <text x="4" y="1114.57" style="fill:#0070c0;font-family:Segoe UI Semibold;font-size:1.5em;font-weight:700">SCOM Managed Instance (Preview)</text>
   </g>
   <g id="shape24678-740" transform="translate(1187.69 -259.33)">
     <path d="M0 1145.56h41.62" class="st60"/>
