@@ -14,13 +14,13 @@ This article provides architectural best practices for monitoring virtual machin
 
 
 ## Reliability
-In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
+In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to monitor your virtual machines for failure.
 
 [!INCLUDE [waf-vm-reliability](includes/waf-vm-reliability.md)]
 
 
 ## Security
-Security is one of the most important aspects of any architecture. Azure Monitor provides features to employ both the principle of least privilege and defense-in-depth. Use the following information to maximize the security of your Log Analytics workspaces and ensure that only authorized users access collected data.
+Security is one of the most important aspects of any architecture. Azure Monitor provides features to employ both the principle of least privilege and defense-in-depth. Use the following information to monitor the security of your virtual machines.
 
 [!INCLUDE [waf-vm-security](includes/waf-vm-security.md)]
 
@@ -35,13 +35,13 @@ Cost optimization refers to ways to reduce unnecessary expenses and improve oper
 
 
 ## Operational excellence
-Operational excellence refers to operations processes required keep a service running reliably in production. Use the following information to minimize the operational requirements for supporting Log Analytics workspaces.
+Operational excellence refers to operations processes required keep a service running reliably in production. Use the following information to minimize the operational requirements for monitoring of your virtual machines.
 
 [!INCLUDE [waf-vm-operation](includes/waf-vm-operation.md)]
 
 
 ## Performance efficiency
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to ensure that your Log Analytics workspaces and log queries are configured for maximum performance.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to monitor the performance of your virtual machines.
 
 [!INCLUDE [waf-vm-performance](includes/waf-vm-performance.md)]
 
