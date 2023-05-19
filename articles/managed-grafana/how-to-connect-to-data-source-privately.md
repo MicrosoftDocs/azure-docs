@@ -40,7 +40,7 @@ To follow the steps in this guide, you must have:
 
 ## Create a managed private endpoint for Azure Monitor workspace
 
-You can create a managed private endpoint for your Managed Grafana workspace to connect to a [supported Azure data source](#supported-data-sources) using a private link.
+You can create a managed private endpoint for your Managed Grafana workspace to connect to a [supported Azure data source](#supported-azure-data-sources) using a private link.
 
 1. In the Azure portal, navigate to your Grafana workspace and then select **Networking (Preview)**.
 1. Select **Managed private endpoint**, and then select **Create**.
