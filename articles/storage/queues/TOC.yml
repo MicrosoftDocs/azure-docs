@@ -71,6 +71,8 @@
         href: ../common/storage-rest-api-auth.md?toc=/azure/storage/queues/toc.json
     - name: Authorize with SAS
       href: ../common/storage-sas-overview.md?toc=/azure/storage/queues/toc.json
+    - name: Migrate to passwordless connections
+      href: passwordless-migrate-queues.md?toc=/azure/storage/queues/toc.json
   - name: Authorizing management operations
     href: ../common/authorization-resource-provider.md?toc=/azure/storage/queues/toc.json
   - name: Security

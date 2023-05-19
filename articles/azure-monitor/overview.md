@@ -115,6 +115,29 @@ Distributed tracing is a technique used to trace requests as they travel through
 
 For less expensive, long-term archival of monitoring data for auditing or compliance purposes, you can export to [Azure Storage](/azure/storage/).
 
+
+## Data collection and routing
+
+Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
+
+:::image type="content" source="media/overview/data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-large-in-overview-context.png":::
+
+Click on the picture to see a larger version of the data collection diagram in context.
+
+
+|Collection method|Description  |
+|---------|---------|
+|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
+|[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
+|[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
+|Internal| Data is automatically sent to a destination without user configuration.  |
+|[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
+|[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
+
+A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
+
+For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
+
 ## Consumption
 
 The following sections outline methods and services that consume monitoring data from the Azure Monitor data platform.

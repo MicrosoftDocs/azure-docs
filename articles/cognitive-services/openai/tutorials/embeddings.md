@@ -103,11 +103,10 @@ setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 # [Bash](#tab/bash)
 
 ```Bash
-echo export AZURE_OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
-```
+echo export AZURE_OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment
 
-```Bash
-echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+source /etc/environment
 ```
 
 ---
@@ -139,18 +138,16 @@ RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = "azure"
 openai.api_key = API_KEY
 openai.api_base = RESOURCE_ENDPOINT
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 
-url = openai.api_base + "/openai/deployments?api-version=2022-12-01" 
+url = openai.api_base + "/openai/deployments?api-version=2023-05-15" 
 
 r = requests.get(url, headers={"api-key": API_KEY})
 
 print(r.text)
 ```
 
-**Output:**
-
-```cmd
+```output
 {
   "data": [
     {
@@ -259,9 +256,7 @@ df_bills = df_bills[df_bills.n_tokens<8192]
 len(df_bills)
 ```
 
-**Output:**
-
-```cmd
+```output
 20
 ```
 
@@ -288,9 +283,7 @@ decode
 
 For our docs we're intentionally truncating the output, but running this command in your environment will return the full text from index zero tokenized into chunks. You can see that in some cases an entire word is represented with a single token whereas in others parts of words are split across multiple tokens.
 
-**Output:**
-
-```cmd
+```output
 [b'SECTION',
  b' ',
  b'1',
@@ -347,9 +340,7 @@ If you then check the length of the `decode` variable, you'll find it matches th
 len(decode)
 ```
 
-**Output:**
-
-```cmd
+```output
 1466
 ```
 
@@ -400,9 +391,7 @@ Finally, we'll show the top result from document search based on user query agai
 res["summary"][9]
 ```
 
-**Output:**
-
-```cmd
+```output
 "Taxpayer's Right to View Act of 1993 - Amends the Communications Act of 1934 to prohibit a cable operator from assessing separate charges for any video programming of a sporting, theatrical, or other entertainment event if that event is performed at a facility constructed, renovated, or maintained with tax revenues or by an organization that receives public financial support. Authorizes the Federal Communications Commission and local franchising authorities to make determinations concerning the applicability of such prohibition. Sets forth conditions under which a facility is considered to have been constructed, maintained, or renovated with tax revenues. Considers events performed by nonprofit or public organizations that receive tax subsidies to be subject to this Act if the event is sponsored by, or includes the participation of a team that is part of, a tax exempt organization."
 ```
 

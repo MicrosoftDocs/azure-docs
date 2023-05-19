@@ -43,13 +43,13 @@ You must have a valid Application Insights connection string. This string is req
 
 Specific instructions for each type of application are described in the following sections.
 
-## .NET Core LTS Worker Service application
+## .NET Core Worker Service application
 
 The full example is shared at the [NuGet website](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService).
 
-1. Download and install .NET Core [Long Term Support (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+1. [Download and install the .NET SDK](https://dotnet.microsoft.com/download).
 1. Create a new Worker Service project either by using a Visual Studio new project template or the command line `dotnet new worker`.
-1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+1. Add the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
 1. Add `services.AddApplicationInsightsTelemetryWorkerService();` to the `CreateHostBuilder()` method in your `Program.cs` class, as in this example:
 
@@ -217,13 +217,13 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
     ```
 
 1. Set up the connection string.
-   Use the same `appsettings.json` from the preceding .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) Worker Service example.
+   Use the same `appsettings.json` from the preceding [.NET](/dotnet/fundamentals/) Worker Service example.
 
 ## .NET Core/.NET Framework console application
 
-As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher, and .NET Framework [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
+As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`netstandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in [.NET Core](/dotnet/fundamentals/) or higher, and [.NET Framework](/dotnet/framework/) or higher.
 
-The full example is shared at this [GitHub page](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp).
+The full example is shared at this [GitHub page](https://github.com/microsoft/ApplicationInsights-dotnet/tree/main/examples/ConsoleApp).
 
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
@@ -352,7 +352,7 @@ Dependency collection is enabled by default. The article [Dependency tracking in
 
 ### EventCounter
 
-`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on how to customize the list.
+`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from [.NET](/dotnet/fundamentals/) apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on how to customize the list.
 
 ### Manually track other telemetry
 
@@ -587,7 +587,7 @@ Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Cor
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) only.
+No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports [.NET](/dotnet/fundamentals/) only.
 
 ### Are all features supported if I run my application in Linux?
 
@@ -621,7 +621,7 @@ Use this sample if you're using a console application written in either .NET Cor
 Use this sample if you're in ASP.NET Core and creating background tasks in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services).
 
 [.NET Core Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService):
-Use this sample if you have a .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
+Use this sample if you have a [.NET](/dotnet/fundamentals/) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
 
 ## Open-source SDK
 
