@@ -33,6 +33,7 @@ Dev mode services come with the following features:
 - **Scaling**: The service can scale in to zero when there's no demand for the service.
 - **Pricing**: Service billing falls under consumption-based pricing. Billing only happens when instances of the service are running.
 - **Storage**: The service uses persistent storage to ensure there's no data loss as a service scales in to zero.
+- **Revisions**: Any time you change a dev mode service, a new revision of your container app is created.
 
 See the service-specific features for managed services.
 
