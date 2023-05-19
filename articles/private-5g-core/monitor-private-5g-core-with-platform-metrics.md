@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure Private 5G Core with Azure Monitor platform metrics
 description: Information on using Azure Monitor platform metrics to monitor activity and analyze statistics in your private mobile network. 
-author: b-branco
-ms.author: biancabranco
+author: r-swain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
-ms.date: 11/22/2022
+ms.date: 05/19/2023
 ms.custom: template-concept
 ---
 
@@ -40,7 +40,7 @@ You can use the Azure portal to monitor your deployment's health and performance
 
 1. Select the **Monitoring** tab.
 
-    :::image type="content" source="media/packetcore-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab." lightbox="media/platform-metrics-dashboard.png":::
+    :::image type="content" source="media/packetcore-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab." lightbox="media/packetcore-metrics-dashboard.png":::
 
 You should now see the Azure Monitor dashboard displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
 
