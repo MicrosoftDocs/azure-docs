@@ -108,7 +108,7 @@ Here is a sample configuration in `pom.xml`:
 
     ```groovy
     plugins {
-      id 'com.microsoft.azure.azurewebapp' version '1.7.1'
+      id "com.microsoft.azure.azurewebapp" version "1.7.1"
     }
     ```
 
