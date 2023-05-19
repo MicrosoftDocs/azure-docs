@@ -10,9 +10,9 @@ ms.date: 04/25/2023
 ms.custom: template-concept 
 ---
 
-# Guest Attestation Extension (boot integrity monitoring) overview
+# Boot integrity monitoring (guest attestation) overview
 
-To help Trusted Launch better prevent bootkits and rootkit attacks on virtual machines, Secure Boot + vTPM with the guest attestation extension is used to monitor boot integrity. This attestation is critical to provide validity of a platform’s states. A vTPM is used to perform remote attestation by the cloud, identify advanced threat patterns, and cryptographically certify that your VM booted correctly. If your [Azure Trusted Virtual Machines](trusted-launch.md) has Secure Boot and vTPM enabled and attestation extensions installed, Microsoft Defender for Cloud will verify that the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, [see the trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
+To help Trusted Launch better prevent malicious rootkit attacks on virtual machines, guest attestation through Microsoft Azure Attestation (MAA) endpoint is used to monitor the boot sequence integrity. This attestation is critical to provide validity of a platform’s states. If your [Azure Trusted Virtual Machines](trusted-launch.md) has Secure Boot and vTPM enabled and attestation extensions installed, Microsoft Defender for Cloud will verify that the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, see the [trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ An Active Azure Subscription + Trusted Launch Virtual Machine
 
 ### Verify Integrity Monitoring is Enabled
 
-To verify if your virtual machines have enabled integrity monitoring:
+To verify through Azure portal if your virtual machines has enabled integrity monitoring:
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Select the resource (**Virtual Machines**).

@@ -43,7 +43,7 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#additional-information).
-1. For **Security type** select **Trusted launch virtual machines**. This will make three more options appear - **Secure boot**, **vTPM**, and **Integrity Monitoring** . Select the appropriate options for your deployment. To learn more about [integrity monitoring (guest attestation extension) installation](guest-attestation-guide.md).
+1. For **Security type** select **Trusted launch virtual machines**. This will make three more options appear - **Secure boot**, **vTPM**, and **Integrity Monitoring** . Select the appropriate options for your deployment. To learn more about [integrity monitoring (guest attestation extension) overview](boot-integrity-monitoring-overview.md).
     :::image type="content" source="./media/trusted-launch/tvm-popup.png" alt-text="Screenshot showing the options for Trusted Launch.":::
 1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [trusted launch](trusted-launch.md#virtual-machines-sizes).
    > [!TIP]
@@ -560,4 +560,4 @@ If the VM is running, you will receive a message that the VM will be restarted. 
 
 ## Next steps
 
-Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](guest-attestation-guide.md) VMs.
+Learn more about [trusted launch](trusted-launch.md) and [Boot integrity monitoring](boot-integrity-monitoring-overview.md) VMs.

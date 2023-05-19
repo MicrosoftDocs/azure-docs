@@ -1623,8 +1623,8 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Guest attestation extension
-      href: guest-attestation-guide.md
+    - name: Boot integrity monitoring overview
+      href: boot-integrity-monitoring-overview.md
  
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
