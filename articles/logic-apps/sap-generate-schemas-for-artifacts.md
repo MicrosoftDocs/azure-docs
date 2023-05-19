@@ -118,7 +118,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 <a name="test-workflow"></a>
 
-### Test your workflow
+### Test your workflow for schema generation
 
 ### [Multi-tenant](#tab/multi-tenant)
 
@@ -207,6 +207,8 @@ Optionally, you can download or store the generated schemas in repositories, suc
 > }
 > ```
 
+### [Multi-tenant](#tab/multi-tenant)
+
 1. In the workflow designer, under the trigger, select **New step**.
 
 1. In the search box, enter `resource manager` as your filter. Select **Create or update a resource**.
@@ -227,32 +229,25 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
+### [Single-tenant](#tab/single-tenant)
+
+---
+
 ### Test your workflow
 
-1. On the designer toolbar, select **Run** to manually trigger your logic app workflow.
+1. Based on whether you have a Consumption or Standard logic app workflow, [follow the general steps to manually test and run your workflow](#test-workflow).
 
 1. After a successful run, go to the integration account, and check that the generated schemas exist.
-
-This reference guide provides more information about schemas for SAP artifacts 
-
-If you're learning how to generate an XML schema to use 
-
-If you're learning how to generate an XML schema to use when creating a sample document, review the following samples. These examples show how you can work with many types of payloads, including:
 
 ## Sample XML schemas
 
 If you're learning how to generate an XML schema for use in creating a sample document, review the following samples. These examples show how you can work with many types of payloads, including:
 
 * [RFC requests](#xml-samples-for-rfc-requests)
-
 * [BAPI requests](#xml-samples-for-bapi-requests)
-
 * [IDoc requests](#xml-samples-for-idoc-requests)
-
 * Simple or complex XML schema data types
-
 * Table parameters
-
 * Optional XML behaviors
 
 You can begin your XML schema with an optional XML prolog. The SAP connector works with or without the XML prolog.
