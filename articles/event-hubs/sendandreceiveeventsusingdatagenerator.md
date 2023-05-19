@@ -17,7 +17,7 @@ ms.date:     05/15/2023
 
 In this QuickStart, you learn how to Send and Receive Events using Azure Event Hubs Data Generator.  
 
-### Prerequisites 
+## Prerequisites
 
 If you're new to Azure Event Hubs, see the [Event Hubs overview](/azure/event-hubs/event-hubs-about) before you go through this QuickStart. 
 
@@ -38,28 +38,25 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
 
 ![User's image](media/sendandreceiveeventsusingdatagenerator/image.png)
 
-1.  On Generate Data blade, you would find below properties for Data generation: 
+2. On Generate Data blade, you would find below properties for Data generation: 
 
-a) **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “Create Event Hub” to create a new event hub within namespace and stream data post creation of event hub.  
+a) **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “create Event Hub” to [create a new event hub](/azure/event-hubs/event-hubs-create) within namespace and stream data post creation of event hub.  
 
-b) **Select Payload:** You could choose “User defined Payload” in case you want to send event tailored to your business needs. Additionally, you could choose from any of the pre-canned datasets provided in the Select Payload drop down list.  
+b) **Select Payload:** You could send custom payload to event hubs using User defined payload or make use of different pre-canned datasets available in data generator. 
 
-c)**Select Content-Type:** Based on the type of data you’re sending; you could choose the Content-type Option. As of today, Data generator supports sending data in following content-type - JSON, XML, Text and Binary. 
+c) **Select Content-Type:** Based on the type of data you’re sending; you could choose the Content-type Option. As of today, Data generator supports sending data in following content-type - JSON, XML, Text and Binary. 
 
-d)**Repeat Send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions. 
+d) **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions. 
 
 e) **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
 
 ![User's image](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
-
-```
-You can also generate events at event hub level by clic
-```
+> [!TIP]
+> While choosing User defined payload, entire content under "Enter payload" section is sent as one event. If you select Repeat send to be 50, then 50 events would be sent to event hubs. 
+> In case of pre-canned datasets, dataset is a collection of different events that are sent separately. As an example, if the dataset contains 20 events and value of repeat send is set to 10, then 200 events would be sent to event hub. 
 
 <Portal snapshot for Event Hubs entity level Data generator> 
-
-You can also generate events at event hub level by clicking on "Generate data" tab under features section on Event hub instance. 
 
 ### Maximum Message size support with different SKU
 
@@ -80,13 +77,11 @@ As soon as you click send, data generator would take care of sending the events 
 
 ## Frequently Asked Questions
 
-##### I am getting the error “We couldn’t find any events in Event Hub- <your event hub name>. Please make sure that there is no active consumer reading events from $Default Consumer group”
+##### I am getting the error “We couldn’t read events from Event Hub- <your event hub name>. Please make sure that there is no active consumer reading events from $Default Consumer group”
 
-Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs.To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. 
+Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. 
 
 Please disconnect any active consumer reading from $Default consumer group and try again. 
-
-I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?
 
 ##### I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?
 
