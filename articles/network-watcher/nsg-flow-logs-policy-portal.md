@@ -29,7 +29,7 @@ To audit your flow logs by using the built-in policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/portal.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/portal.png":::
 
-1. Select **Assignments** > **Assign policy**.
+1. Select **Assignments**, and then select **Assign policy**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-policy.png" alt-text="Screenshot of selecting the button for assigning a policy in the Azure portal.":::
 
@@ -45,7 +45,7 @@ To audit your flow logs by using the built-in policy:
 
     This policy doesn't require any parameters. It also doesn't contain any role definitions, so you don't need to create role assignments for the managed identity on the **Remediation** tab.
 
-1. Select **Review + create** > **Create**.
+1. Select **Review + create**, and then select **Create**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-audit-policy.png" alt-text="Screenshot of the Basics tab to assign an audit policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/assign-audit-policy.png":::
 
@@ -69,7 +69,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/portal.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/portal.png":::
 
-1. Select **Assignments** > **Assign policy**.
+1. Select **Assignments**, and then select **Assign policy**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-policy.png" alt-text="Screenshot of selecting the button for assigning a policy in the Azure portal.":::
 
@@ -112,7 +112,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/assign-deploy-policy-remediation.png" alt-text="Screenshot of the Remediation tab for assigning a deployment policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/assign-deploy-policy-remediation.png":::
 
-1. Select **Review + create** > **Create**.
+1. Select **Review + create**, and then select **Create**.
 
 1. Select **Compliance**. Search for the name of your assignment, and then select it.
 
@@ -125,5 +125,5 @@ To assign the *deployIfNotExists* policy:
 ## Next steps
 
 - To learn more about NSG flow logs, see [Flow logs for network security groups](./network-watcher-nsg-flow-logging-overview.md).
-- To learn about using built-in policies with traffic analytics, see [Manage traffic analytics by using Azure Policy](./traffic-analytics-policy-portal.md).
-- To learn how to use an Azure Resource Manager template to deploy flow logs and traffic analytics, see [Configure NSG flow logs by using an Azure Resource Manager template](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
+- To learn about using built-in policies with traffic analytics, see [Manage traffic analytics using Azure Policy](./traffic-analytics-policy-portal.md).
+- To learn how to use an Azure Resource Manager template (ARM template) to deploy flow logs and traffic analytics, see [Configure NSG flow logs using an Azure Resource Manager template](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
