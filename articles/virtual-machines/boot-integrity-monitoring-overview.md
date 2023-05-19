@@ -1,6 +1,6 @@
 ---
-title: Guest attestation installation guide
-description: How to use the guest attestation extension to secure boot your VM. How to handle traffic blocking 
+title: Boot integrity monitoring (guest attestation) overview
+description: How to use the guest attestation extension to secure boot your VM. How to handle traffic blocking.
 author: Howie425
 ms.author: howieasmerom
 ms.service: virtual-machines
@@ -18,15 +18,15 @@ To help Trusted Launch better prevent malicious rootkit attacks on virtual machi
 
 An Active Azure Subscription + Trusted Launch Virtual Machine
 
-### Verify Integrity Monitoring is Enabled
+### Verify integrity monitoring is enabled
 
-To verify through Azure portal if your virtual machines has enabled integrity monitoring:
+To verify through Azure portal if your virtual machines have enabled integrity monitoring:
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Select the resource (**Virtual Machines**).
 1. Under **Settings**, select **configuration**. In the security type panel, select **integrity monitoring**.
 
-    :::image type="content" source="media/trusted-launch/verify-integrity-boot-on.png" alt-text="Integrity Booting.":::
+    :::image type="content" source="media/trusted-launch/verify-integrity-boot-on.png" alt-text="Screenshot showing integrity booting selected.":::
 
 1. Save the changes.
 
@@ -111,13 +111,13 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 ---
 
-## Troubleshooting guide for Guest Attestation Extension installation
+## Troubleshooting guide for guest attestation extension installation
 
 ### Symptoms
 
 The Microsoft Azure Attestation extensions won't properly work when customers set up a network security group or proxy. An error that looks similar to (Microsoft.Azure.Security.WindowsAttestation.GuestAttestation provisioning failed.)
 
-:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Failed GA Extension":::
+:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot of an error screen that results from a failed GA Extension":::
 
 ### Solutions
 
@@ -128,9 +128,9 @@ To unblock traffic using an NSG with service tags, set allow rules for Microsoft
 1. Navigate to the **virtual machine** that you want to allow outbound traffic.
 1. Under "Networking" in the left-hand sidebar, select the **networking settings** tab.
 1. Then select **create port rule**, and **Add outbound port rule**.  
-    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="port rule"::: 
+    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="Screenshot of the add outbound port rule selection":::
 1. To allow Microsoft Azure Attestation, make the destination a **service tag**. This allows for the range of IP addresses to update and automatically set allow rules for Microsoft Azure Attestation. The destination service tag is **AzureAttestation** and action is set to **Allow**.
-    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="nsg unblocking":::
+    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot showing how to make the destination a service tag":::
 
 > [!NOTE]
 > Users can configure their source type, service, destination port ranges, protocol, priority, and name.
