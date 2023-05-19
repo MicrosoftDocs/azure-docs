@@ -24,7 +24,11 @@ You will be presented with a list and a map of service retirements that impact y
 *	Use subscription, resource group and location filters to focus on a specific workload.
 *	Use sorting to find services which are retiring soon and those that have biggest impact on your workloads. 
 *	Share the report with your team to help them plan migration using export function.
- 
+
+:::image type="content" source="media/advisor-service-retirement-workbook-overview.png#lightbox" alt-text="Screenshot of the Azure Advisor service retirement workbook template.":::
+
+:::image type="content" source="media/advisor-service-retirement-workbook-details.png#lightbox" alt-text="Screenshot of the Azure Advisor service retirement workbook template, detailed view.":::
+
  
 For more information about Advisor recommendations, see:
 * [Reliability recommendations](advisor-reference-reliability-recommendations.md)
