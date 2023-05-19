@@ -41,7 +41,8 @@ Run the following command.
     az login
     ```
 
-## Create a Web App resource
+
+# [Create a Web App resource](#tab/create-web-app)
 1. Create a resource group on Azure
     ```azurecli-interactive
     az group create \
@@ -67,7 +68,7 @@ Run the following command.
         --runtime "NODE:18-lts"
     ```
 
-## Create a Web PubSub resource
+# [Create a Web PubSub resource](#tab/create-web-pubsub)
 1. Create a Web PubSub resource.
     ```azurecli-interactive
     az webpubsub create \
@@ -83,6 +84,8 @@ Run the following command.
       --name "whiteboard-app" \
       --resource-group "whiteboard-group"
     ```
+---
+
 
 ## Get the application code
 
@@ -93,17 +96,27 @@ Run the following command.
 ## Configure upstream server to handle events coming from Web PubSub
 Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages to fulfill your business requirements. 
 
-As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a pubically accesable domain name. 
+As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a publically accesable domain name for it. 
 1. Show and store the value of `name` somewhere
     ```azurecli-interactive
-    az webpubsub key show \
-      --name "whiteboard-app" \
+    az webapp config hostname list \
       --resource-group "whiteboard-group"
+      --webapp-name "whiteboard-app" 
     ```
 
-1. The endpoint we decided to expose is `/eventhandler` {hub...}
-
-az webpubsub hub create -n "MyWebPubSub" -g "MyResourceGroup" --hub-name "MyHub" --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
+1. The endpoint we decided to expose on the backend server is `/eventhandler` and the `hub` name for whiteboard app `sample_draw` {missing link to code or reference }
+    ```azurecli-interactive
+    az webapp config hostname list \
+      --resource-group "whiteboard-group"
+      --webapp-name "whiteboard-app" 
+    ```
+    ```azurecli-interactive
+    az webpubsub hub create \ 
+    --resource-group "whiteboard-group" 
+    --name "whiteboard-app" --hub-name "sample_draw" --event-handler url-template="https://<<Replace with the value of the hostname of your Web App resource>>/eventhandler" user-event-pattern="*" system-event="connected" system-event="disconnected" 
+    ```
+> [!IMPORTANT]
+> `url-template` has three parts: protocol + hostname + path, which is our case is `https://<<The hostname of your Web App resource>>/eventhandler`.
 
 ## View the whiteboard app in a broswer
 
