@@ -28,8 +28,25 @@ The Azure Monitor metrics agent's architecture utilizes a ReplicaSet and a Daemo
   - Microsoft.Insights
   - Microsoft.AlertsManagement
 
+> [!NOTE]
+> `Contributor` permission is enough for enabling the addon to send data to Azure Monitor Metrics. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana as the user executing the onboarding step needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace so that it is able to query for the metrics. 
+
 ## Enable Prometheus metric collection
 Use any of the following methods to install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
+
+## Default configuration
+
+By default the following resources are created as part of onboarding.
+
+- DCE (Data Collection Endpoint) with the format `MSProm-<azure_monitor_workspace_location>-<cluster_name>` in the clusters resource group
+- DCR (Data Collection Rule) with the format `MSProm-<azure_monitor_workspace_location>-<cluster_name>` in the clusters resource group
+- DCRA (Data Collection Rule Association) with the format `ContainerInsightsMetricsExtension` in the clusters resource group
+- Recording rule groups (required for default dashboards)
+    - `KubernetesRecordingRulesRuleGroup-<cluster_name>`
+    - `NodeRecordingRulesRuleGroup-<cluster_name>`
+    - `NodeRecordingRulesRuleGroup-Win-<cluster_name>` (disabled by default)
+    - `NodeAndKubernetesRecordingRulesRuleGroup-Win-<cluster_name>` (disabled by default)
+- Azure Monitor Workspace : If an azure monitor workspace is not specified while using the Az CLI then one will be created for you in a resource group following the format `DefaultResourceGroup-<azure_monitor_workspace_region>` with a name following the format ` "DefaultAzureMonitorWorkspace-<azure_monitor_workspace_region>`. The default Azure Monitor Workspace region will be the cluster region unless Azure Monitor Workspace creation is not supported in that region. Then one will be picked randomly from the [supported region list](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=monitor)
 
 ### [Azure portal](#tab/azure-portal)
 > [!NOTE]
@@ -47,34 +64,33 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
 
 #### Prerequisites
 
-- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in the Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- The aks-preview extension must be installed by using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- The aks-preview version 0.5.138 or higher is required for this feature. Check the aks-preview version by using the `az version` command.
+- The aks-preview extension must be uninstalled by using the command `az extension remove --name aks-preview`. For more information on how to uninstall a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- Az CLI version of 2.49.0 or higher is required for this feature. Check the aks-preview version by using the `az version` command.
 
 #### Install the metrics add-on
 
-Use `az aks update` with the `-enable-azuremonitormetrics` option to install the metrics add-on. Depending on the Azure Monitor workspace and Grafana workspace you want to use, choose one of the following options:
+Use `az aks update` with the `-enable-azure-monitor-metrics` option to install the metrics add-on. Depending on the Azure Monitor workspace and Grafana workspace you want to use, choose one of the following options:
 
 - **Create a new default Azure Monitor workspace.**<br>
 If no Azure Monitor workspace is specified, a default Azure Monitor workspace is created in a resource group with the name `DefaultRG-<cluster_region>` and is named `DefaultAzureMonitorWorkspace-<mapped_region>`.
 
 
     ```azurecli
-    az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
+    az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
     ```
 
 - **Use an existing Azure Monitor workspace.**<br>
 If the existing Azure Monitor workspace is already linked to one or more Grafana workspaces, data is available in that Grafana workspace.
 
     ```azurecli
-    az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
+    az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
     ```
 
 - **Use an existing Azure Monitor workspace and link with an existing Grafana workspace.**<br>
 This option creates a link between the Azure Monitor workspace and the Grafana workspace.
 
     ```azurecli
-    az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
+    az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
     ```
 
 The output for each command looks similar to the following example:
@@ -101,7 +117,7 @@ You can use the following optional parameters with the previous commands:
 **Use annotations and labels.**
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
+az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
 ```
 
 The output is similar to the following example:
@@ -125,7 +141,6 @@ The output is similar to the following example:
 
 ### Prerequisites
 
-- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in the Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor workspace subscription, register the Azure Monitor workspace subscription with the `Microsoft.Dashboard` resource provider by following [this documentation](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - The Azure Monitor workspace and Azure Managed Grafana instance must already be created.
 - The template must be deployed in the same resource group as the Azure Managed Grafana instance.
@@ -212,7 +227,6 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 ### Prerequisites
 
-- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - The Azure Monitor workspace and Azure Managed Grafana instance must already be created.
 - The template needs to be deployed in the same resource group as the Azure Managed Grafana instance.
 - Users with the `User Access Administrator` role in the subscription of the AKS cluster can enable the `Monitoring Data Reader` role directly by deploying the template.
@@ -299,7 +313,6 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 ### Prerequisites
 
-- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider by following [this documentation](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 - The template needs to be deployed in the same resource group as the Azure Managed Grafana workspace.
@@ -339,10 +352,6 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
 > Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 ### Prerequisites
-
-- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command using the Azure CLI:
-
-  `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`
 
 - The Azure Monitor workspace and Azure Managed Grafana instance must already be created.
 
@@ -503,27 +512,10 @@ The following table lists the firewall configuration required for Azure monitor 
 | `*.handler.control.monitor.azure.us` | For querying data collection rules  | 443 |
 
 ## Uninstall the metrics add-on
-Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.
-
-1. Install the `aks-preview` extension by using the following command:
-
-    ```
-    az extension add --name aks-preview
-    ```
-
-    For more information on installing a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-    > [!NOTE]
-    > Upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is at least '0.5.132'. Find your current version by using the `az version`.
+Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection dule (DCR), DCRA and recording rules groups created as part of onboarding. . This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
     ```azurecli
-    az extension add --name aks-preview
-    ```
-
-2. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection dule (DCR) and DCRA that links the data collection rule with the cluster. This action doesn't remove any existing data stored in your Azure Monitor workspace.
-
-    ```azurecli
-    az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
+    az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
     ```
 
 ## Supported regions
