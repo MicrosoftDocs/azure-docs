@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 04/10/2023
+ms.date: 05/20/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,30 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2023-05-20
+
+### Azure Machine Learning SDK for Python v1.51.0
+  + **azureml-automl-core**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+    + Disallow using non-tabular datasets to customers for Classification (multi-class and multi-label) scenarios
+  + **azureml-automl-dnn-nlp**
+    + Disallow using non-tabular datasets to customers for Classification (multi-class and multi-label) scenarios
+  + **azureml-contrib-automl-pipeline-steps**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **azureml-fsspec**
+    + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.29.*
+  + **azureml-pipeline-core**
+    + Fix `pipeline_version` not taking effect when calling `pipeline_endpoint.submit()`.
+  + **azureml-train-automl-client**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **azureml-train-automl-runtime**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **mltable**
+    + Additional encoding variants like `utf-8` are now supported when loading MLTable files.
+    + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
 
 ## 2023-04-10
 
