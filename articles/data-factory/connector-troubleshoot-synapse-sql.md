@@ -256,14 +256,6 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Resolution**: Upgrade the Azure SQL Database performance tier to fix the issue.
 
-## SQL table can't be found
-
-- **Symptoms**: You copy data from hybrid into an on-premises SQL Server table and receive the following error：`Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.`
-
-- **Cause**: The current SQL account doesn't have sufficient permissions to execute requests issued by .NET SqlBulkCopy.WriteToServer.
-
-- **Resolution**: Switch to a more privileged SQL account.
-
 ## Error message: String or binary data is truncated
 
 - **Symptoms**: An error occurs when you copy data into an on-premises Azure SQL Server table.
