@@ -302,8 +302,8 @@ Use [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetwor
 $networkSecurityGroup = Get-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup'
 # Create a security rule.
 Add-AzNetworkSecurityRuleConfig -Name 'DenyVnetInBound' -NetworkSecurityGroup $networkSecurityGroup `
--Access 'Deny' -Protocol * -Direction 'Inbound' -Priority '1000' `
--SourceAddressPrefix 'virtualNetwork' -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange *
+-Access 'Deny' -Protocol '*' -Direction 'Inbound' -Priority '1000' `
+-SourceAddressPrefix 'virtualNetwork' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '*'
 # Updates the network security group.
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 ```
