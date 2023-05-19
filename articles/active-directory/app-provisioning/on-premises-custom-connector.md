@@ -16,16 +16,16 @@ ms.reviewer: arvinh
 
 # Provisioning with the custom connectors
 
-Azure AD supports pre-integrated connectors for applications that support the following protocols and standards:  
+Azure AD supports preintegrated connectors for applications that support the following protocols and standards:  
 
 > [!div class="checklist"]
 > - [SCIM 2.0](on-premises-scim-provisioning.md)
-> - [SQL](utorial-ecma-sql-connector.md)
+> - [SQL](tutorial-ecma-sql-connector.md)
 > - [LDAP](on-premises-ldap-connector-configure.md)
 > - [REST](on-premises-ldap-connector-configure.md)
 > - [SOAP](on-premises-ldap-connector-configure.md)
 
-For connectivity to applications that don't support the aformetioned protocols and standards, customers and partners have built custom [ECMA 2.0](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the Azure AD provisioning provisioning agent, without needing MIM sync deployed. We also have a healthy ecosystem of custom connectors built by partners that you can use to connect to popular applications. For a full list, please see [here](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx).  
+For connectivity to applications that don't support the aforementioned protocols and standards, customers and partners have built custom [ECMA 2.0](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the Azure AD provisioning agent, without needing MIM sync deployed. We also have a healthy ecosystem of custom connectors built by partners that you can use to connect to popular applications. For a full list, please see [here](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx).  
 
 ## Limitations 
 
