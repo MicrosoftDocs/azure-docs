@@ -14,8 +14,6 @@ Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, 
 
 Azure Monitor collects and aggregates the data from every layer and component of your system into a common data platform. It correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services. Because this data is stored together, it can be correlated and analyzed using a common set of tools. The data can then be used for analysis and visualizations to help you understand how your applications are performing and respond automatically to system events.
 
-Azure Monitor also includes Azure Monitor SCOM Managed Instance, which allows you to move your on-premises System Center Operation Manager (Operations Manager) installation to the cloud in Azure.
-
 Use Azure Monitor to monitor these types of resources in Azure, other clouds, or on-premises:
   - Applications
   - Virtual machines
@@ -30,8 +28,7 @@ You can also export monitoring data from Azure Monitor into other systems so you
   - Integrate with other third-party and open-source monitoring and visualization tools
   - Integrate with ticketing and other ITSM systems
 
-If you are a System Center Operations Manager (SCOM) user, Azure Monitor now includes [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md) as an option.  SCOM MI is a cloud-hosted version of System Center Operations Manager (SCOM). 
-
+If you are a System Center Operations Manager (SCOM) user, Azure Monitor now includes a preview of Azure Monitor [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md). SCOM MI is a cloud-hosted version of SCOM and allows you to move your on-premises SCOM installation to Azure.
 
 ## Monitoring and observability
 
@@ -45,27 +42,24 @@ Azure Monitor achieves observability by correlating data from multiple pillars a
 
 ## High level architecture
 
-The following diagram gives a high-level view of Azure Monitor. Click on the diagram to show an even more detailed expanded version. 
+The following diagram gives a high-level view of Azure Monitor. Click on the diagram to show an even more detailed expanded version.
 
-:::image type="content" source="media/overview/overview-04-25-2023-scom-mi-simplier-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-04-25-2023-scom-mi-expanded-opt.svg":::
+:::image type="content" source="media/overview/overview-04-27-2023-scom-mi-simplier-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-04-27-2023-scom-mi-expanded-opt.svg":::
 
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. 
 - The data is **collected and routed** to the data platform. Clicking on the diagram shows the larger expanded version showing the collection options, which are also called out in detail later in this article. 
-- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes. SCOM MI (preview) uses it's own database hosted in SQL Server Managed Instance. 
-- The **consumption** section shows the components that use data from the data platform. This includes insights, visualizations, and responses. The SCOM MI path uses the traditional Ops Console that SCOM customers are already familiar with. 
-- Interoperability options are shown in the **integrate** section.  Not all services integrate at all level. SCOM MI only integrates with Power BI.   
-
-The service Azure Monitor now includes [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md) in preview. It allows existing customers of System Center Operations Manager (SCOM) to maintain their investment in SCOM while moving their monitoring infrastructure into the Azure cloud. This first iteretation of SCOM MI has it's own data path and does not use the rest of the Azure Monitor data path (Data )
-
+- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes. SCOM MI (preview) uses it's own database hosted in SQL Server Managed Instance.
+- The **consumption** section shows the components that use data from the data platform. This includes insights, visualizations, analysis tools, and tools to help you respond to monitoring data. The SCOM MI path uses the traditional Operations manager console that SCOM customers are already familiar with. 
+- Interoperability options are shown in the **integrate** section.  Not all services integrate at all level. SCOM MI only integrates with Power BI.  
 
 ## Data sources
 
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. 
 
-:::image type="content" source="media/overview/data-sources-2.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type-2.svg":::
+:::image type="content" source="media/overview/data-sources.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type-2.svg":::
 
-Click on the diagram above to see a larger version of the data sources in context.
+Click on the diagram above to see a larger version of the data sources diagram in context.
 
 You can integrate monitoring data from sources outside Azure, including on-premises and other non-Microsoft clouds, using the application, infrastructure, and custom data sources.
 
@@ -73,7 +67,7 @@ Azure Monitor collects these types of data:
 
 |Data Type|Description and subtypes|
 |---------|-----------|
-|Application|Application performance, health, and activity data.|
+|App/Workloads |**App**- Application performance, health, and activity data. <br/><br/>**Workloads** - IaaS workloads such as SQL server, Oracle or SAP running on a hosted Virtual Machine.|
 |Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
 |Azure Platform <br><br> Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br> |
 |Custom Sources| Data which gets into the system using Azure Monitor REST API. |
@@ -91,7 +85,7 @@ Click on the diagram to see a larger version of the data collection in context.
 
 |Collection method|Description  |
 |---------|---------|
-|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
+|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. In addition, Application Insights is in process of implementing [Open Telemetry](./app/opentelemetry-overview.md). For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
 |Internal| Data is automatically sent to a destination without user configuration.  |
