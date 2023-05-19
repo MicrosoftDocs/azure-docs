@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Contextual on-object interaction with Azure Maps Power BI visual
+# Contextual on-object interaction with Azure Maps Power BI visual (preview)
 
 The Azure Maps Power BI Visual now features on-object interaction, an
 intuitive and efficient way to update the formatting of any element on the map.
