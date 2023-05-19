@@ -4,15 +4,18 @@ description: Learn how to use GitHub Actions to define a workflow to build and d
 ms.topic: conceptual
 ms.date: 05/16/2023
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
+zone_pivot_groups: github-actions-deployment-options
 ---
 
 # Continuous delivery by using GitHub Actions
 
-Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
+You can use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
-In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your function app project on GitHub. A YAML file (.yml) for a workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow and is specific to the development language of your functions. 
+In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your function app project from GitHub to Azure. 
 
-You can create a workflow configuration file for your deployment manually. You can also generate the file from a set language-specific templates in one of these ways:  
+A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
+
+You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates in one of these ways:  
 
 + In the Azure portal
 + Using the Azure CLI   
@@ -27,7 +30,6 @@ If you don't want to create your YAML file by hand, select a different method at
 - A working function app hosted on Azure with source code in a GitHub repository.   
     - [Quickstart: Create a function in Azure using Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
-
 ## Workflow configuration
 
 A GitHub Actions workflow for Functions performs the following tasks, regardless of language: 
@@ -36,19 +38,21 @@ A GitHub Actions workflow for Functions performs the following tasks, regardless
 1. Build the code project.
 1. Deploy the package to a function app in Azure.
 
+The Azure Functions action handles the deployment to an existing function app in Azure. 
+
 The template for this workflow varies both by language and by the operating system:
 
 # [Windows](#tab/windows)
 
-Deployments to Windows use `runs-on: windows-latest`.
+When you created your function app to run on Windows.
 
 # [Linux](#tab/linux)
 
-Deployments to Linux use `runs-on: ubuntu-latest`.
+When you created your function app to run on Linux.
 
 ---
 
-The following YAML is the workflow template for your chosen language and OS:
+The following template example uses version 1 of the `functions-action` and a `publish profile` for authentication. The template depends on your chosen language and the operating system of your function app:
 
 # [.NET](#tab/dotnet/windows)
 
@@ -60,11 +64,11 @@ The following YAML is the workflow template for your chosen language and OS:
 
 # [Java](#tab/java/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-java-functionapp-on-azure.yml" range="1-5,13-44"::: 
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-java-functionapp-on-azure.yml" range="1-5,13-45"::: 
 
 # [Java](#tab/java/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-java-functionapp-on-azure.yml" range="1-5,13-44"::: 
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-java-functionapp-on-azure.yml" range="1-5,13-45"::: 
 
 # [JavaScript](#tab/javascript/windows)
 
@@ -80,7 +84,7 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 # [Python](#tab/python/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-python-functionapp-on-azure.yml" range="1-5,13-44"::: 
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-python-functionapp-on-azure.yml" range="1-5,13-47"::: 
 
 # [PowerShell](#tab/powershell/windows)
 
@@ -92,19 +96,53 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 --- 
 
+### Azure Functions Action
+
+The Azure Functions Action (`Azure/azure-functions`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
+
+The following parameters are most commonly used with this action:
+
+|Parameter |Explanation  |
+|---------|---------|
+|_**app-name**_ | (Mandatory) The name of your function app. |
+|_**slot-name**_ | (Optional) The name of a specific [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already exist in your function app. When not specified, the code is deployed to the active slot. |
+|_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. |
+
+The following parameters are also supported, but are required only in specific cases:
+
+|Parameter |Explanation  |
+|---------|---------|
+| _**package**_ | (Optional) Sets a subpath in your repository from which to publish. By default, this value is set to `.`, which means all files and folders in the GitHub repository are deployed. |
+| _**respect-pom-xml**_ | (Optional) Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, you should set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
+| _**respect-funcignore**_ | (Optional) Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this vale to `true` when your repository has a .funcignore file and you want to use it exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. | 
+| _**scm-do-build-during-deployment**_ | (Optional) Whether the App Service deployment site (Kudu) performs predeployment operations. The deployment site for your function app can be found at `https://<APP_NAME>.scm.azurewebsites.net/`. Change this setting to `true` when you need to control the deployments in Kudu rather than resolving the dependencies in the GitHub Actions workflow. The default value is `false`. For more information, see the [SCM_DO_BUILD_DURING_DEPLOYMENT](./functions-app-settings.md#scm_do_build_during_deployment) setting. |
+| _**enable-oryx-build**_ |(Optional) Whether the Kudu deployment site resolves your project dependencies by using Oryx. Set to `true` when you want to use Oryx to resolve your project dependencies by using a remote build instead of the GitHub Actions workflow. When `true`, you should also set `scm-do-build-during-deployment` to `true`. The default value is `false`.|
+
+### Considerations for using templates
+
++ When using GitHub Actions, the code is deployed to your function app using [Zip deployment for Azure Functions](deployment-zip-push.md). 
+
++ The credentials required by GitHub to connection to Azure for deployment are stored as Secrets in your GitHub repository and accessed in the deployment as `secrets.<SECRET_NAME>`.
+
++ The easiest way for GitHub Actions to authenticate with Azure Functions for deployment is by using a publish profile. You can also authenticate using a service principal. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action). 
 
 
-::: zone pivot="method-manual"
++ This article uses the Azure publish profile for authentication. 
 
-## Manually create your GitHub Actions workflow
+    >[!IMPORTANT]
+    >The publish profile is a valuable credential that allows access to Azure resources. Make sure you always transport and store it securely. In GitHub, the publish profile must only be stored as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets).
 
-### Generate deployment credentials
++ The actions for setting up the environment and running a build are generated from the templates, and are language specific.
 
-The recommended way to authenticate with Azure Functions for GitHub Actions is by using a publish profile. You can also authenticate with a service principal. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action). 
++ The template uses `env` elements to define settings unique to your build and deployment.
 
-After saving your publish profile credential as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets), you'll use this secret within your workflow to authenticate with Azure. 
+::: zone pivot="method-manual,method-template"
 
-#### Download your publish profile
+## Generate deployment credentials
+
+Since GitHub Actions uses your publish profile to access your function app during deployment, you first need to get your publish profile and store it securely as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets).  
+
+### Download your publish profile
 
 To download the publishing profile of your function app:
 
@@ -114,8 +152,7 @@ To download the publishing profile of your function app:
 
 1. Save and copy the contents of the file.
 
-
-#### Add the GitHub secret
+### Add the GitHub secret
 
 1. In [GitHub](https://github.com/), go to your repository.
 
@@ -130,489 +167,87 @@ To download the publishing profile of your function app:
 1. Select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
-
-### Create the environment 
-
-Setting up the environment is done using a language-specific publish setup action.
-
-# [.NET](#tab/dotnet)
-
-
-
-.NET (including ASP.NET) uses the `actions/setup-dotnet` action.  
-The following example shows the part of the workflow that sets up the environment:
-
-```yaml
-    - name: Setup DotNet 6.0.x Environment
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
-```
-
-# [Java](#tab/java)
-
-Java uses the  `actions/setup-java` action.  
-The following example shows the part of the workflow that sets up the environment:
-
-```yaml
-    - name: Setup Java 17
-      uses: actions/setup-java@3
-      with:
-        distribution: 'zulu' # See 'Supported distributions' for available options in setup-java-jdk
-        java-version: '17'
-```
-
-# [JavaScript](#tab/javascript)
-
-JavaScript (Node.js) uses the `actions/setup-node` action.  
-The following example shows the part of the workflow that sets up the environment:
-
-```yaml
-
-    - name: Setup Node 16.x Environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16.x'
-```
-
-# [Python](#tab/python)
-
-Python uses the `actions/setup-python` action.  
-The following example shows the part of the workflow that sets up the environment:
-
-```yaml
-    - name: Setup Python 3.9 Environment
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-```
-
-# [PowerShell](#tab/powershell)
-
-This step can be skipped for PowerShell as the GitHub runner already includes PowerShell.
-
----
-
-### Build the function app
-
-This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
-
-The following example shows the part of the workflow that builds the function app, which is language-specific:
-
-# [.NET](#tab/dotnet)
-
-```yaml
-    env:
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-
-    - name: 'Resolve Project Dependencies Using Dotnet'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        dotnet build --configuration Release --output ./output
-        popd
-```
-
-# [Java](#tab/java)
-
-```yaml
-    env:
-      POM_XML_DIRECTORY: '.'  # set this to the directory which contains pom.xml file
-
-    - name: 'Restore Project Dependencies Using Mvn'
-      shell: bash
-      run: |
-        pushd './${{ env.POM_XML_DIRECTORY }}'
-        mvn clean package
-        mvn azure-functions:package
-        popd
-```
-
-# [JavaScript](#tab/javascript)
-
-```yaml
-    env:
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'  # set this to the path to your web app project, defaults to the repository root
-
-    - name: 'Resolve Project Dependencies Using Npm'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-        popd
-```
-
-# [Python](#tab/python)
-
-```yaml
-    env:
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-
-    - name: 'Resolve Project Dependencies Using Pip'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
-        popd
-```
-
-# [PowerShell](#tab/powershell)
-
-This step can be skipped for PowerShell as there is no need to build.
-
----
-
-### Deploy the function app
-
-Use the `Azure/functions-action` action to deploy your code to a function app. This action has three parameters:
-
-|Parameter |Explanation  |
-|---------|---------|
-|_**app-name**_ | (Mandatory) The name of your function app. |
-|_**slot-name**_ | (Optional) The name of the [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already be defined in your function app. |
-|_**publish-profile**_ | (Optional) The name of the GitHub secret for your publish profile. |
-
-The following example uses version 1 of the `functions-action` and a `publish profile` for authentication 
-
-# [.NET](#tab/dotnet)
-
-Set up a .NET Linux workflow that uses a publish profile.
-
-```yaml
-name: Deploy DotNet project to function app with a Linux environment
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name  # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '6.0.x'                # set this to the dotnet version to use
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-
-    - name: 'Resolve Project Dependencies Using Dotnet'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        dotnet build --configuration Release --output ./output
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-```
-Set up a .NET Windows workflow that uses a publish profile.
-
-```yaml
-name: Deploy DotNet project to function app with a Windows environment
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name  # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '6.0.x'                # set this to the dotnet version to use
-
-jobs:
-  build-and-deploy:
-    runs-on: windows-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-
-    - name: 'Resolve Project Dependencies Using Dotnet'
-      shell: pwsh
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        dotnet build --configuration Release --output ./output
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-```
-
-# [Java](#tab/java)
-
-Set up a Java Linux workflow that uses a publish profile.
-
-```yaml
-name: Deploy Java project to function app
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
-  POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
-  POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '17'                         # set this to the java version to use
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'zulu'
-        java-version: ${{ env.JAVA_VERSION }}
-
-    - name: 'Restore Project Dependencies Using Mvn'
-      shell: bash
-      run: |
-        pushd './${{ env.POM_XML_DIRECTORY }}'
-        mvn clean package
-        mvn azure-functions:package
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }}'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-```
-
-Set up a Java Windows workflow that uses a publish profile.
-
-```yaml
-name: Deploy Java project to function app
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
-  POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
-  POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '17'                         # set this to the Java version to use
-
-jobs:
-  build-and-deploy:
-    runs-on: windows-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'zulu'
-        java-version: ${{ env.JAVA_VERSION }}
-
-    - name: 'Restore Project Dependencies Using Mvn'
-      shell: pwsh
-      run: |
-        pushd './${{ env.POM_XML_DIRECTORY }}'
-        mvn clean package
-        mvn azure-functions:package
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }}'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-```
-
-# [JavaScript](#tab/javascript)
-
-Set up a Node.JS Linux workflow that uses a publish profile.
-
-```yaml
-name: Deploy Node.js project to function app
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '16.x'                     # set this to the node version to use (supports 14.x, 16.x, 18.x)
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-
-    - name: 'Resolve Project Dependencies Using Npm'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-```
-
-Set up a Node.JS Windows workflow that uses a publish profile.
-
-```yaml
-name: Deploy Node.js project to function app
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '16.x'                     # set this to the node version to use (supports 14.x, 16.x, 18.x)
-
-jobs:
-  build-and-deploy:
-    runs-on: windows-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-
-    - name: 'Resolve Project Dependencies Using Npm'
-      shell: pwsh
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-
-```
-# [Python](#tab/python)
-
-Set up a Python Linux workflow that uses a publish profile.
-
-```yaml
-name: Deploy Python project to function app
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.9'                 # set this to the Python version to use (supports 3.8, 3.9, 3.10)
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: 'Checkout GitHub action'
-      uses: actions/checkout@v3
-
-    - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
-
-    - name: 'Resolve Project Dependencies Using Pip'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
-        popd
-    - name: 'Run Azure Functions action'
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-```
-
-# [PowerShell](#tab/powershell)
-
-Set up a Windows workflow that uses a publish profile.
-
-```yaml
-name: Deploy PowerShell project to function app
-
-on:
-  [push]
-
-env:
-  AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
-
-jobs:
-  build-and-deploy:
-    runs-on: windows-latest
-    steps:
-      - name: 'Checkout GitHub Action'
-        uses: actions/checkout@v2
-
-      - name: 'Run Azure Functions Action'
-        uses: Azure/functions-action@v1
-        id: fa
-        with:
-          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-          slot-name: 'Production'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-
-```
-
----
+::: zone-end
+::: zone pivot="method-manual"
+
+## Get the development template
+
+The best way to manually create a workflow configuration is to start from the officially supported template. 
+
+1. Copy the template from the Azure Functions Actions repository using the following link:  
+
+    # [.NET](#tab/dotnet/windows)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-dotnet-functionapp-on-azure.yml> 
+    
+    # [.NET](#tab/dotnet/linux)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-dotnet-functionapp-on-azure.yml>
+    
+    # [Java](#tab/java/windows)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-java-functionapp-on-azure.yml>
+    
+    # [Java](#tab/java/linux)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-java-functionapp-on-azure.yml>
+    
+    # [JavaScript](#tab/javascript/windows)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-node.js-functionapp-on-azure.yml> 
+    
+    # [JavaScript](#tab/javascript/linux)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-node.js-functionapp-on-azure.yml>
+    
+    # [Python](#tab/python/windows)
+    
+    Python functions aren't supported on Windows. Choose Linux instead.
+    
+    # [Python](#tab/python/linux)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-python-functionapp-on-azure.yml>
+    
+    # [PowerShell](#tab/powershell/windows)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-powershell-functionapp-on-azure.yml>
+    
+    # [PowerShell](#tab/powershell/linux)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-powershell-functionapp-on-azure.yml> 
+    
+    --- 
+
+    Make sure that your template is for the correct operating system.
+
+    # [Windows](#tab/windows)
+    
+    Deployments to Windows use `runs-on: windows-latest`.
+    
+    # [Linux](#tab/linux)
+    
+    Deployments to Linux use `runs-on: ubuntu-latest`.
+    
+    ---
+
+1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#. 
+
+1. Add this new YAML file in the `/.github/workflows/` path in your repository. 
 
 ::: zone-end
-
 ::: zone pivot="method-portal"
 
-## Use the Deployment option in Azure portal
+## Create the workflow configuration in the portal
 
-You can get started quickly with GitHub Actions through the Deployment tab when you create a function in Azure portal. You can also add GitHub Actions to an existing function app. This option generates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory.
+When you use the portal to enable GitHub Actions, Functions creates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory.
 
-To add a GitHub Actions workflow when you create a new function app:
+The portal automatically gets your publish profile and adds it to the GitHub secrets for your repository.
 
-1. Select **Deployment** in the **Create Function App** flow. 
+### During function app create
+
+You can get started quickly with GitHub Actions through the Deployment tab when you create a function in Azure portal. To add a GitHub Actions workflow when you create a new function app:
+
+1. In the [Azure portal], select **Deployment** in the **Create Function App** flow. 
 
     :::image type="content" source="media/functions-how-to-github-actions/github-actions-deployment.png" alt-text="Screenshot of Deployment option in Functions menu.":::
 
@@ -624,53 +259,46 @@ To add a GitHub Actions workflow when you create a new function app:
 
 1. Complete configuring your function app. Your GitHub repository now includes a new workflow file in `/.github/workflows/`. 
 
-To add a GitHub Actions workflow to an existing function app:
+### For an existing function app 
+
+You can also add GitHub Actions to an existing function app. To add a GitHub Actions workflow to an existing function app:
 
 1. Navigate to your function app in the Azure portal.
+
 1. Select **Deployment Center**. 
-1. Under Continuous Deployment (CI / CD), select **GitHub**. You'll see a default message, *Building with GitHub Actions*. 
+
+1. Under Continuous Deployment (CI / CD), select **GitHub**. You see a default message, *Building with GitHub Actions*. 
+
 1. Enter your GitHub organization, repository, and branch. 
+
 1. Select **Preview file** to see the workflow file that will be added to your GitHub repository in `github/workflows/`.
+
 1. Select **Save** to add the workflow file to your repository. 
 
 ::: zone-end
-
 ::: zone pivot="method-cli"
 
-## Use Azure CLI to create a GitHub Actions workflow file 
+## Add GitHub Actions to your repository
 
-In your existing repository with a functions app, run the `az functionapp deployment github-actions add` command to create a workflow file and have it get added to your repository.
+You can use the [`az functionapp deployment github-actions add`](/cli/azure/functionapp/deployment/github-actions) command to generate a workflow configuration file from the correct template for your function app. The new YAML file is then stored in the correct location in the GitHub repository (`/.github/workflows/`), while the publish profile file for your app is added to GitHub secrets. 
 
-```azurecli
-az functionapp deployment github-actions add --repo
-                                             [--branch]
-                                             [--build-path]
-                                             [--force]
-                                             [--ids]
-                                             [--login-with-github]
-                                             [--name]
-                                             [--resource-group]
-                                             [--runtime]
-                                             [--runtime-version]
-                                             [--slot]
-                                             [--subscription]
-                                             [--token]
-```
+1. Run this `az functionapp` command, replacing the values `githubUser/githubRepo`, `MyResourceGroup`, and `MyFunctionapp`:
 
-To use the interactive method to retrieve a personal access token:
-
-1. Run this `az functionapp` command, replacing the values `githubUser/githubRepo`, `MyResourceGroup`, and `MyFunctionapp`.
     ```azurecli
     az functionapp deployment github-actions add --repo "githubUser/githubRepo" -g MyResourceGroup -n MyFunctionapp --login-with-github
     ```
 
-1. In your terminal window, you'll see the message, "Please navigate to https://github.com/login/device and enter the user code 1234-ABCD to activate and retrieve your github personal access token." Your values will be different from `1234-ABDC`. 
+    This command uses an interactive method to retrieve a personal access token for your GitHub account.
 
-1. Go to <https://github.com/login/device> and enter your unique code. 
+1. In your terminal window, you should see something like the following message: 
 
-1. After entering your code, you should see a message like this:
+    ```output
+    Please navigate to https://github.com/login/device and enter the user code XXXX-XXXX to activate and retrieve your GitHub personal access token.
+    ```  
 
-    ```
+1. Copy the unique `XXXX-XXXX` code, browse to <https://github.com/login/device>, and enter the code you copied. After entering your code, you should see something like the following message:
+
+    ```output
     Verified GitHub repo and branch
     Getting workflow template using runtime: java
     Filling workflow template with name: func-app-123, branch: main, version: 8, slot: production, build_path: .
@@ -685,25 +313,33 @@ To use the interactive method to retrieve a personal access token:
 
 ::: zone pivot="method-template"
 
-## Use a GitHub Actions template
+## Create the workflow configuration file
 
-You can also use functions templates from within GitHub Actions. 
+You can create the GitHub Actions workflow configuration file from the Azure Functions templates directly from your GitHub repository. 
 
 1. In [GitHub](https://github.com/), go to your repository.
 
-1. Go to **Actions**. 
-
-1. Select **New workflow**. 
+1. Select **Actions** and **New workflow**. 
 
 1. Search for *functions*. 
 
     :::image type="content" source="media/functions-how-to-github-actions/github-actions-functions-templates.png" alt-text="Screenshot of search for GitHub Actions functions templates. ":::
 
-1. Select **Configure** and use one of the functions app workflows authored by Microsoft Azure. 
+1. In the displayed functions app workflows authored by Microsoft Azure, find the one that matches your code language and select **Configure**. 
+
+1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
+
+1. Verify that the new workflow file is being saved in `/.github/workflows/` and select **Commit changes...**.  
 
 ::: zone-end
+
+## Update a workflow configuration
+
+If for some reason, you need to update or change an existing workflow configuration, just navigate to the `/.github/workflows/` location in your repository, open the specific XAML file, make any needed changes, and then commit the updates to the repository.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about Azure and GitHub integration](/azure/developer/github/)
+
+[Azure portal]: https://portal.azure.com
