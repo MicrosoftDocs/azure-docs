@@ -47,7 +47,7 @@ The following parameters are available for configuring isolation domains.
 |---|---|---|---|
 |`resource-group`	|Resource group name specifically for the isolation domain of your choice.|`ResourceGroupName`|True
 |`resource-name`	|Resource name of the L2 isolation domain.|`example-l2domain`| True
-|`location`|Azure Operator Distributed Services region used during NFC creation.|`eastus`| True
+|`location`|Azure Operator Nexus region used during NFC creation.|`eastus`| True
 |`nf-Id`	|Network fabric ID.|`/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname`| True
 |`Vlan-id` | VLAN identifier value. VLANs 1 to 500 are reserved and can't be used. The VLAN identifier value can't be changed after you specify it. You must delete and re-create the isolation domain if you need to modify the VLAN identifier value. The range is `501` to `4095`.|`501`| True
 |`mtu` | Maximum transmission unit. If you don't specify a value, the default is `1500`.|`1500`|
