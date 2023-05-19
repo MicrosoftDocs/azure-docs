@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
+ms.date: 05/19/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.custom: enterprise-apps
