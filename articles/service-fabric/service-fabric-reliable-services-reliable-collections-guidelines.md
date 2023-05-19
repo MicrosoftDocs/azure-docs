@@ -12,7 +12,8 @@ ms.date: 05/17/2023
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
 This section provides guidelines for using Reliable State Manager and Reliable Collections. The goal is to help users avoid common pitfalls.
 
-## Relialbe Collection Guildelines
+## Reliable Collection guildelines
+
 The guidelines are organized as simple recommendations prefixed with the terms *Do*, *Consider*, *Avoid* and *Do not*.
 
 * Do not modify an object of custom type returned by read operations (for example, `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
@@ -47,7 +48,8 @@ Here are some things to keep in mind:
 * Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.
 * `ReliableDictionary` enumeration uses a sorted data structure ordered by key. To make enumeration efficient, commits are added to a temporary hashtable and later moved into the main sorted data structure post checkpoint. Adds/Updates/Deletes have best case runtime of O(1) and worst case runtime of O(log n), in the case of validation checks on the presence of the key. Gets might be O(1) or O(log n) depending on whether you are reading from a recent commit or from an older commit.
 
-## Additional Guidelines for Volatile Reliable Collections
+## Additional guidelines for volatile Reliable Collections
+
 When deciding to use volatile reliable collections, consider the following:
 
 * ```ReliableDictionary``` does have volatile support
