@@ -220,7 +220,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDP
 
 ## Clean up resources
 
-[!INCLUDE [Azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
