@@ -238,6 +238,9 @@ The previous example will run until you hit the model's token limit. With each q
 
 It's your responsibility to ensure the prompt and completion falls within the token limit. This means that for longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
+> [!NOTE]  
+> Inernal implementation may accept more tokens than the maximum, but it's subject to change without notice. Please use under the limit described in the [models article](../concepts/models.md).
+
 The following code sample shows a simple chat loop example with a technique for handling a 4096 token count using OpenAI's tiktoken library.
 
 The code requires tiktoken `0.3.0`. If you have an older version run `pip install tiktoken --upgrade`.
