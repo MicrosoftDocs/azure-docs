@@ -927,9 +927,13 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
    ![Screenshot shows Standard workflow with action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-var-standard.png)
 
-1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
+1. For the SAP managed action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
 
    The **Default** option is the recommended policy, but you can select a custom policy for your specific needs. If you choose to use a custom policy, set up at least one retry to overcome temporary network outages.
+
+   > [!NOTE]
+   >
+   > Only managed connector actions currently have the Retry Policy setting, not built-in, service provider-based connectors.
 
 1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**.
 
