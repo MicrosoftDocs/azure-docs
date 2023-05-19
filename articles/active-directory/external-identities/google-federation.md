@@ -177,7 +177,7 @@ First, create a new project in the Google Developers Console to obtain a client 
     - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oidc/accounts.google.com`
     - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oauth2`
     - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oauth2`
-    where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name
+    where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name.
    
     > [!NOTE]
     > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**. To find the tenant name, in the same location copy the **Name**.
