@@ -50,10 +50,13 @@ Ignore this setup if you use the npm setup.
   !function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
     crossOrigin: "anonymous",
-    cfg: configObj
+    cfg: configObj // configObj is defined above.
   });
 </script>
 ```
+
+> [!NOTE]
+> To add or update SDK Loader Script configuration, see [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration).
 
 ### npm setup
 
