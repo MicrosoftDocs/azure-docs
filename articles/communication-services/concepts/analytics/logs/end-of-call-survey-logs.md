@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# End of Call Survey (Preview)
+# End of call survey (preview)
 
 > 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
