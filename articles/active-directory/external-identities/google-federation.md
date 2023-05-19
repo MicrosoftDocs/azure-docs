@@ -173,6 +173,10 @@ First, create a new project in the Google Developers Console to obtain a client 
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
+    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oidc/accounts.google.com` <br>(where `<tenant ID>` is your tenant ID)
+    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oidc/accounts.google.com` <br>(where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name)
+    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oauth2` <br>(where `<tenant ID>` is your tenant ID)
+    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oauth2` <br>(where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name)
    
     > [!NOTE]
     > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
