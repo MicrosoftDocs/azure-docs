@@ -26,36 +26,47 @@ landingContent:
             url: ./modeling-simulation-workbench-overview.md
       - linkListType: concept
         links:
-          - text: Modeling and Simulation Workbench
+          - text: Workbench
             url: ./concept-workbench.md
-          - text: Chamber
+          - text: User Personas
+            url: ./concept-user-personas.md
+          - text: Chambers
             url: ./concept-chamber.md
-          - text: Connector
+          - text: Connectors
             url: ./concept-connector.md
           - text: Data Pipeline
             url: ./concept-data-pipeline.md
-
+          - text: License Service
+            url: ./concept-license-service.md
   # Card: Get started
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create Workbench-Azure Portal
+          - text: Azure Onboarding
+            url: ./quickstart-create-portal.md#azure-onboarding
+          - text: Modeling and Simulation Workbench Onboarding
+            url: ./quickstart-create-portal.md#modeling-and-simulation-workbench-onboarding
+          - text: Create Workbench-Azure portal
             url: ./quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Set up license services
-            url: ./howtoguide-licenses.md
-          - text: Upload data to chamber
-            url: ./howtoguide-upload-data.md
-          - text: Download data from chamber
-            url: ./howtoguide-download-data.md
+          - text: Manage users
+            url: ./how-to-guide-manage-users.md
+          - text: Setup networking
+            url: ./how-to-guide-set-up-networking.md
+          - text: Manage license service
+            url: ./how-to-guide-licenses.md
+          - text: Import data
+            url: ./how-to-guide-upload-data.md
+          - text: Export data
+            url: ./how-to-guide-download-data.md
           - text: Manage chamber storage
-            url: ./howtoguide-manage-storage.md
+            url: ./how-to-guide-manage-storage.md
 #          - name: Disaster Recovery
-#            href: ./howtoguide-disaster-recovery.md
+#            href: ./how-to-guide-disaster-recovery.md
           - text: Troubleshooting
-            url: ./howtoguide-troubleshooting.md
+            url: ./how-to-guide-troubleshooting.md
   # Card: Reference
 #  - title: Reference
 #    linkLists:

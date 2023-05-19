@@ -3,14 +3,18 @@ items:
   href: index.yml
 - name: Overview
   items: 
-    - name: About Azure Modeling and Simulation Workbench (preview)
+    - name: What is Azure Modeling and Simulation Workbench?
       href: modeling-simulation-workbench-overview.md
 - name: Quickstart
   items: 
+    - name: Azure onboarding
+      href: ./quickstart-create-portal.md#azure-onboarding
+    - name: Modeling and Simulation Workbench onboarding
+      href: ./quickstart-create-portal.md#modeling-and-simulation-workbench-onboarding
     - name: Create Workbench
       items: 
         - name: Azure portal
-          href: ./quickstart-create-portal.md      
+          href: ./quickstart-create-portal.md
 #- name: Tutorials
 #  items: 
 #    - name: Create Azure Modeling and Simulation Workbench
@@ -21,28 +25,36 @@ items:
   items: 
     - name: Workbench
       href: ./concept-workbench.md
+    - name: User personas
+      href: ./concept-user-personas.md
     - name: Chamber
       href: ./concept-chamber.md
     - name: Connector
       href: ./concept-connector.md
     - name: Data pipeline
       href: ./concept-data-pipeline.md
+    - name: License Service
+      href: ./concept-license-service.md      
 - name: How-to guides
   items: 
     - name: Manage chamber
       items: 
-        - name: Set up license services
-          href: ./howtoguide-licenses.md
-        - name: Upload data
-          href: ./howtoguide-upload-data.md
-        - name: Download data
-          href: ./howtoguide-download-data.md
+        - name: Manage users
+          href: ./how-to-guide-manage-users.md
+        - name: Setup networking
+          href: ./how-to-guide-set-up-networking.md
+        - name: Manage license services
+          href: ./how-to-guide-licenses.md
+        - name: Import data
+          href: ./how-to-guide-upload-data.md
+        - name: Export data
+          href: ./how-to-guide-download-data.md
         - name: Manage chamber storage
-          href: ./howtoguide-manage-storage.md          
+          href: ./how-to-guide-manage-storage.md          
 #        - name: Disaster Recovery
-#          href: ./howtoguide-disaster-recovery.md
+#          href: ./how-to-guide-disaster-recovery.md
         - name: Troubleshooting
-          href: ./howtoguide-troubleshooting.md
+          href: ./how-to-guide-troubleshooting.md
 #- name: Reference
 #  items: 
 #    - name: Azure CLI
