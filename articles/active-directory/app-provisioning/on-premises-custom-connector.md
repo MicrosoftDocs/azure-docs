@@ -32,7 +32,7 @@ For connectivity to applications that don't support the aforementioned protocols
 Custom connectors built for MIM rely on the [ECMA framework](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Azure AD provisioning agent. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](https://learn.microsoft.com/azure/active-directory/app-provisioning/known-issues?pivots=app-provisioning#on-premises-application-provisioning).  
 
 
-| **Scenario**   | **Support**   | **Comments**   | 
+| **Capability / feature**   | **Support**   | **Comments**   | 
 | --- | --- | --- | 
 | Object type  | Partially supported  | Supports one object type  | 
 | Partitions  | Partially supported  | Supports one partition  | 
