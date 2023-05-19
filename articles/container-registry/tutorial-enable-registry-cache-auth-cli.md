@@ -1,16 +1,16 @@
 ---
-title: Enable Caching for ACR with authentication - Azure CLI
-description: Learn how to enable Caching for ACR with authentication using Azure CLI.
+title: Enable Cache ACR with authentication - Azure CLI
+description: Learn how to enable Cache ACR with authentication using Azure CLI.
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) with authentication - Azure CLI
+# Enable Cache ACR (Preview) with authentication - Azure CLI
 
-This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Caching for ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Caching for ACR feature with authentication by using Azure portal. 
+This article is part five of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Cache ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Cache ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md), you learn how to enable Cache ACR feature by using the Azure CLI. In [part four](tutorial-enable-registry-cache-auth.md), you learn how to enable Cache ACR feature with authentication by using Azure portal. 
 
-This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
+This article walks you through the steps of enabling Cache ACR with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ This article walks you through the steps of enabling Caching for ACR with authen
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You can set and retrieve secrets from your Key Vault. Learn more about [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret]
 
-## Configure Caching for ACR (preview) with authentication - Azure CLI
+## Configure Cache ACR (preview) with authentication - Azure CLI
 
 ### Create a Credential Set - Azure CLI
 
