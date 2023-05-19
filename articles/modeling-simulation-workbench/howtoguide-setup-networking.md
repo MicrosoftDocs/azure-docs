@@ -1,6 +1,6 @@
 ---
-title: How to Set up Networking for a Modeling and Simulation Workbench chamber
-description: In this How-to guide, you learn how to set up networking for a Modeling and Simulation Workbench connector.
+title: How to set up networking for a Modeling and Simulation Workbench chamber
+description: In this how-to guide, you learn how to set up networking for a Modeling and Simulation Workbench connector.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -10,7 +10,7 @@ ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench Owner, I want to set up networking for chamber access.
 ---
 
-# How to Set up Networking for a Modeling and Simulation Workbench chamber
+# How to set up networking for a Modeling and Simulation Workbench chamber
 
 The Workbench allows users to customize networking to meet their security and business requirements. Users can connect to the workbench using allowlisted Public IP addresses or VPN/Express Route. Each chamber has a dedicated connector, which can support either of the above-mentioned protocols to establish network access between an onboarding customer's on-premises or cloud environment and the workbench.
 
@@ -35,6 +35,8 @@ For organizations that don't have an Azure network setup or prefer to onboard to
 ### Edit Public IP addresses
 
 To edit the allowed IP addresses list, go to the **Networking** blade for the connector object in the Azure portal. Click on **Edit allowed IP**. From here, you can delete existing IP addresses or add new ones. Make sure to click **Submit** to save your changes. Once submitted, refresh the view for connector networking and see your changes reflected.
+
+   :::image type="content" source="/azure/active-directory/develop/media/howtoguide-troubleshooting/chamber-connector-networking-network-allowlist" alt-text="Screenshot of the Azure portal in a web browser, showing the chamber connector networking allowlist.":::
 
 ## Next steps
 

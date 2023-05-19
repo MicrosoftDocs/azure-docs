@@ -14,7 +14,7 @@ ms.topic: quickstart
 
 Get started with Azure Modeling and Simulation Workbench (preview) by using the Azure portal. The Azure portal is a browser-based user interface to create Azure resources. This quickstart shows you how to use the Azure portal to deploy an Azure Modeling and Simulation Workbench, and perform initial setup to get users started on their development or collaboration activity.
 
-## Azure Onboarding
+## Azure onboarding
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -37,25 +37,25 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
 
 Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 
-## Modeling and Simulation Workbench Onboarding
+## Modeling and Simulation Workbench onboarding
 
 ### Register Azure Modeling and Simulation Workbench resource provider
 
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 
-   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="search subscriptions":::
+   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of the Azure portal in a web browser, showing search subscriptions.":::
 
 1. Select the subscription you want to view.
 
-   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="select subscriptions":::
+   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of the Azure portal in a web browser, showing select subscriptions.":::
 
 1. On the left menu, under **Settings**, select **Resource providers**.
 
-   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-resource-providers.png" alt-text="select resource providers":::
+   :::image type="content" source="/azure/azure-resource-manager/management/media/resource-providers-and-types/select-resource-providers.png" alt-text="Screenshot of the Azure portal in a web browser, showing select resource providers.":::
 
 1. Select the *Microsoft.ModSimWorkbench* resource provider, and select **Register**.
 
-   :::image type="content" source="./media/quickstart-create-portal/register-resource-provider.png" alt-text="register resource providers":::
+   :::image type="content" source="./media/quickstart-create-portal/register-resource-provider.png" alt-text="Screenshot of the Azure portal in a web browser, showing register resource providers.":::
 
 > [!IMPORTANT]
 >
@@ -71,7 +71,7 @@ Registering your application establishes a trust relationship between Modeling a
 
 Follow these steps to create the app registration:
 
-1. If you have access to multiple tenants, use the Directories + subscriptions** filter ![img](/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png) in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the Directories + subscriptions** filter :::image type="content" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" alt-text="Showing filter icon."::: in the top menu to switch to the tenant in which you want to register the application.
 
 1. Search for and select **Azure Active Directory**.
 
@@ -129,7 +129,7 @@ Take note of the properties in the next steps:
    - Leave the other options to their defaults.
 1. After providing the information as instructed, select **Create**.
 
-   :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
+   :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes.":::
 
 #### Key Vault role assignment
 
@@ -199,7 +199,7 @@ Take note of the properties in the next steps:
 
 1. Select **Next : Chamber >** button at the bottom of the page.
 
-    :::image type="content" source="./media/quickstart-create-portal/create-02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values":::
+    :::image type="content" source="./media/quickstart-create-portal/create-02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values.":::
 
 1. In the **Chamber** tab, under **Chamber**, choose the following values:
 
@@ -239,15 +239,15 @@ Take note of the properties in the next steps:
 
 1. Select **Add** > **Add role assignment**. If you don't have permissions to assign roles, the Add role assignment option is disabled.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-02.png" alt-text="Screenshot of the Role assignments page showing where you select the Add role assignment command":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-02.png" alt-text="Screenshot of the Role assignments page showing where you select the Add role assignment command.":::
 
 1. The **Add role assignment** pane opens. In the **Role** list, search or scroll to find the role **Chamber Admin**. Choose **Chamber Admin** for the **Role** and select **Next**.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-03.png" alt-text="Screenshot of the Add role assignment page showing where you select the Role":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-03.png" alt-text="Screenshot of the Add role assignment page showing where you select the Role.":::
 
 1. Leave the **Assign access to** default **User, group, or service principal**. Select **+ Select members**. In the **Select members** blade on the left side of the screen, search for your security principal by entering a string or scrolling through the list. Select your security principal. Select **Select** to save the selections.
 
-   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal":::
+   :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal.":::
 
 1. Select **Review + assign** to assign the selected role.
 
@@ -265,7 +265,7 @@ Follow these steps to get redirect URIs:
    - **Dashboard reply URL**: For example, https://<*dashboardFqdn*>/etx/oauth2/code
    - **Authentication reply URL**: For example, https://<*authenticationFqdn*>/otdsws/login?authhandler=AzureOIDC
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-01.png" alt-text="Screenshot of the connector overview page showing where you select the reply URLs.":::
 
 Follow these steps to add redirect URIs:
 
@@ -283,7 +283,7 @@ Follow these steps to add redirect URIs:
 
 1. Paste the property of **Authentication reply URL** recorded in the previous step and select **Save**.
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you select the Redirect URIs":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you select the Redirect URIs.":::
 
 ## Connect to chamber with remote desktop
 

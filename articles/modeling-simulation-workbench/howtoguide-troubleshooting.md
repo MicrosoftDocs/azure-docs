@@ -17,6 +17,9 @@ ms.date: 01/01/2023
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for Modeling and Simulation Workbench and choose the workbench you want to see logs for from the resource list.
 1. In the menu for the workbench, select **Activity log** blade on the left of the screen.
+
+   :::image type="content" source="/azure/active-directory/develop/media/howtoguide-troubleshooting/workbench-activity-log.png" alt-text="Screenshot of the Azure portal in a web browser, showing the activity log for a workbench.":::
+
 1. Use filters provided here to find logs for your Modeling and Simulation Workbench workbench. On screen, you find a link to **Learn more about Azure Activity log** and **Visit Log Analytics** which provides a [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial) for consolidating logs, saving queries, pin results to
 1. NOTE: the lifetime of these logs is 30 days. If you want to retain logs longer, click on the **Export Activity Logs** option to access options available to you.
 
@@ -107,14 +110,11 @@ If you receive an error that all licenses are in use for the remote desktop tool
    ...
    ```
 
-1. If licenses are unexpired, restart license server from the Azure portal. Check if license file can be checked out.
-<!---TODO screenshot from within chamber showing how command or output of how to check out license file. Or sample code/command line call to check out license 
-1. --->
+1. If licenses are unexpired, restart license server from the Azure portal. Check if license file can be checked out. <!---TODO screenshot from within chamber showing how command or output of how to check out license file. Or sample code/command line call to check out license --->
 
 1. If not, reupload the original license file from the license provider. Make sure no edits were made to the file provided by the license provider prior to uploading. See [how to upload license](./howtoguide-licenses.md)
 
-1. Run 'lmstat' command to check the status of the license server, if it's running try to check out your license file.
-1. <!---TODO screenshot of lmstat output without any proprietary information--->
+1. Run 'lmstat' command to check the status of the license server, if it's running try to check out your license file. <!---TODO screenshot of lmstat output without any proprietary information--->
 
 1. If the issue persists, contact your Microsoft account representative.
 
@@ -125,9 +125,7 @@ If you receive an error that all licenses are in use for the remote desktop tool
 1. Check the networking and chamber connector settings for the chamber. Validate your network access.
     1. If you're connecting in through an allow listed IP address, validate your current Public IP is listed.
     1. If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.
-1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User.
-<!--- TODO screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set 
---->
+1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User. <!--- TODO screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set --->
 1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [how to upload data](./howtoguide-upload-data.md)
 1. Check your version of azcopy, while we recommend 'latest', there are known issues with v10.18.0 so that version doesn't work.
 1. If the issue persists, contact your Microsoft account representative.
@@ -149,9 +147,7 @@ If you're unable to export data from chamber using the SAS URI.
 1. Check the networking and chamber connector settings for the chamber. Validate your network access.
     1. If you're connecting in through an allow listed IP address, validate your current Public IP is listed.
     1. If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.
-1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User.
-<!--- TODO screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set
---->
+1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User. <!--- TODO screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set --->
 1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [download file from chamber](./howtoguide-download-data.md).
 1. If the issue persists, contact your Microsoft account representative.
 

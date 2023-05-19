@@ -12,6 +12,8 @@ ms.date: 01/01/2023
 
 # Azure Modeling and Simulation Workbench license service
 
+License service is provided to automate the installation of the service, automation of all of the license operations, to accelerate the customer's engineering design.
+
 ## License service - an introduction
 
 Engineering design tools are widely used across industries to enable design teams to run their flows efficiently. Many these proprietary software requires licenses. FlexLM is the most commonly used license manager, and we have integrated license management via FlexLM in our flows. For each deployed chamber within the workbench, we set up a license server and expose the FlexLM HostID's to procure licenses.
