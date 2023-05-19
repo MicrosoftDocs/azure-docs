@@ -49,6 +49,8 @@ When object is deleted from the data source, currently the subsequent scan won't
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+* You must have an Azure Key Vault account. Create an Access Policy allowing your Purview account to read secrets.
+
 * You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
