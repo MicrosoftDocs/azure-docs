@@ -848,33 +848,35 @@ The following example workflow shows this pattern:
    | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
-   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. <br><br>You can either manually specify this value, or create the IDoc transaction ID variable to automatically generate a GUID and return that GUID in the response from the **[IDOC] Send document to SAP** action. To select the transaction ID variable, follow these steps: <br><br> 1. In the **Transaction Id GUID** parameter, select inside the edit box to open the dynamic content list. 2. From the list, under **Variables**, select the variable that you created, for example, **IDocTransactionID**. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. <br><br>You can either manually specify this value, or the connector can automatically generate this GUID as an output from the **[IDOC] Send document to SAP** action. This example leaves this parameter empty to automatically generate the GUID. |
 
    **Consumption workflow**
 
-   ![Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-doc-consumption.png)
+   ![Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-id-consumption.png)
 
    **Standard workflow**
 
-   ![Screenshot shows Standard workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-doc-standard.png)
+   ![Screenshot shows Standard workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-id-standard.png)
 
 1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
 
    The **Default** option is the recommended policy, but you can select a custom policy for your specific needs. If you choose to use a custom policy, set up at least one retry to overcome temporary network outages.
 
-1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**. 
+1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**.
 
    1. In the **Transaction ID** parameter, select inside the edit box to open the dynamic content list.
 
-   1. From the list, under **[IDOC] Send document to SAP**, select the **Transaction Id** value, which is returned from the SAP action.
+   1. From the list, under **[IDOC] Send document to SAP**, select the **Transaction Id** value, which is the output from the previous SAP action.
 
-      ![Screenshot that shows the "Confirm transaction ID" action](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
+      **Consumption workflow**
+
+      ![Screenshot shows Consumption workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/logic-apps-using-sap-connector/sap-confirm-id-consumption.png)
+
+      **Standard workflow**
+
+      ![Screenshot shows Standard workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/logic-apps-using-sap-connector/sap-confirm-id-standard.png)
 
    After this step runs, the current transaction is marked complete at both ends, on the SAP connector side and on SAP system side.
-
-1. In the editor for the action **\[IDOC] Confirm transaction ID**, configure the following settings. Then, save your changes.
-
-1. For **Transaction ID**, enter the name of your variable again. For example, **IDocTransactionID**.
 
 <a name="create=transaction-ID-variable"></a>
 
@@ -913,7 +915,7 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
    | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
-   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. To select the transaction ID variable that you created, follow these steps: <br><br> 1. In the **Transaction Id GUID** parameter, select inside the edit box to open the dynamic content list. 2. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. To select the transaction ID variable that you created, follow these steps: <br><br> 1. In the **Transaction Id GUID** parameter, select inside the edit box to open the dynamic content list. <br><br>2. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
 
    **Consumption workflow**
 
