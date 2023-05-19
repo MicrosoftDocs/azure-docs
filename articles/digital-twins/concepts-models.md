@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/09/2023
+ms.date: 05/19/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -35,7 +35,7 @@ The rest of this article summarizes how the language is used in Azure Digital Tw
 
 ### Supported DTDL versions
 
-Azure Digital Twins supports DTDL versions 2 and 3 (shortened in the documentation to v2 and v3, respectively). Azure Digital Twins support of v3 is currently in preview. V3 is the recommended choice for modeling in Azure Digital Twins based on its expanded capabilities, including:
+Azure Digital Twins supports DTDL versions 2 and 3 (shortened in the documentation to v2 and v3, respectively). V3 is the recommended choice for modeling in Azure Digital Twins based on its expanded capabilities, including:
 * [DTMI version](#model-overview) relaxation
 * [Array support for properties](#schema)
 * Increased limits for [model inheritance](#model-inheritance)
@@ -236,7 +236,7 @@ The extending interface can't change any of the definitions of the parent interf
 
 ## DTDL v3 feature extensions
 
-DTDL v3 (which is currently supported in preview for Azure Digital Twins) enables language extensions that define additional metamodel classes, which you can use to write richer models. This section describes the *feature extension* classes that you can use to add non-core features to your DTDL v3 models.
+DTDL v3 enables language extensions that define additional metamodel classes, which you can use to write richer models. This section describes the *feature extension* classes that you can use to add non-core features to your DTDL v3 models.
 
 Each feature extension is identified by its *context specifier*, which is a unique [Digital Twin Model Identifier (DTMI)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#digital-twin-model-identifier) value. To enable a feature extension in a model, add the extension's context specifier to the model's `@context` field (alongside the general DTDL context specifier of `dtmi:dtdl:context;3`). You can add multiple feature extensions to the same model.
 

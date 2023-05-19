@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/05/2023
+ms.date: 05/19/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -324,7 +324,7 @@ Azure Digital Twins doesn't prevent this state, so be careful to patch twins app
 
 ## Convert v2 models to v3
 
-Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supported-dtdl-versions) (shortened in the documentation to v2 and v3, respectively).  V3, which is currently supported in preview for Azure Digital Twins, is the recommended choice based on its expanded capabilities. This section explains how to update an existing DTDL v2 model to DTDL v3.
+Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supported-dtdl-versions) (shortened in the documentation to v2 and v3, respectively).  V3 is the recommended choice based on its expanded capabilities. This section explains how to update an existing DTDL v2 model to DTDL v3.
 
 1. **Update the context.** The main feature that identifies a model as v2 or v3 is the `@context` field on the interface. To convert a model from v2 to v3, change the `dtmi:dtdl:context;2` context value to `dtmi:dtdl:context;3`. For many models, this will be the only required change.
     1. Value in v2: `"@context": "dtmi:dtdl:context;2"`
