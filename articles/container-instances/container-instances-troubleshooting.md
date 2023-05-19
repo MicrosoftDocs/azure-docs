@@ -236,11 +236,11 @@ Custom CCE policies must be generated the [Azure CLI confcom extension](https://
 
 ### Missing hash from policy 
 
-The Azure CLI confcom extension will use cached images on your local machine which may not match those that are available remotely which can result in layer mismatch when the policy is validate. Please ensure that you remove any old images and pull the latest container images to your local environment.  Once you are sure that you have the latest SHA, you should regenerate the CCE policy. 
+The Azure CLI confcom extension will use cached images on your local machine which may not match those that are available remotely which can result in layer mismatch when the policy is validated. Please ensure that you remove any old images and pull the latest container images to your local environment.  Once you are sure that you have the latest SHA, you should regenerate the CCE policy. 
 
 ### Process/container terminated with exit code: 139
 
-This exit code occures due to limitations with the Ubuntu Version 22.04 base image. The recommendation is to use a different base image to resolve this issue. 
+This exit code occurs due to limitations with the Ubuntu Version 22.04 base image. The recommendation is to use a different base image to resolve this issue. 
 
 ## Next steps
 
