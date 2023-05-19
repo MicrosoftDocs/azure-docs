@@ -10,20 +10,18 @@ ms.topic: how-to
 ms.date: 05/23/2023
 ---
 
-# Generate SAP schemas for workflows in Azure Logic Apps
+## Generate schemas for SAP artifacts in Azure Logic Apps
 
-
-## Generate schemas for artifacts in SAP
-
-The following example uses a logic app workflow that you can trigger with an HTTP request. To generate the schemas for the specified IDoc and BAPI, the SAP action **Generate schema** sends a request to an SAP system.
+This how-to guide shows how to create example logic app workflow that generate schemas for SAP artifacts. The workflow starts with a **Request** trigger that can receive HTTP requests from your SAP server. The workflow then generates schemas for the specified IDoc and BAPI by using the SAP action named **Generate schema** that sends a request to your SAP server. To send this request, you can use either the generic SAP managed connector action named **Send message to SAP**, or you can use the specific SAP managed or built-in action named **\[BAPI] Call method in SAP**.
 
 This SAP action returns an [XML schema](#sample-xml-schemas), not the contents or data of the XML document itself. Schemas returned in the response are uploaded to an integration account by using the Azure Resource Manager connector. Schemas contain the following parts:
 
-* The request message's structure. Use this information to form your BAPI `get` list.
+| Component | Description |
+|-----------|-------------|
+| Request message structure | Use this information to form your BAPI `get` list. |
+| Response message structure | Use this information to parse the response. |
 
-* The response message's structure. Use this information to parse the response.
-
-To send the request message, use the generic SAP action **Send message to SAP**, or the targeted **\[BAPI] Call method in SAP** actions.
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](logic-apps-using-sap-connector.md#connector-technical-reference).
 
 ### Add the Request trigger
 
