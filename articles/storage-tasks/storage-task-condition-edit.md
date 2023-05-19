@@ -21,11 +21,7 @@ Include guidance for these types of things:
 - What types of properties are available
 - Constraints such as naming values and wildcards
 
-## Explore the impact of conditions by using the preview pane
-
-Include guidance for these types of things:
-
-### Preview results
+## Preview results
 
 You can see how the task will impact an account by previewing that result. Then, you can make tweaks and changes before deploying the task. Previewing results does not incur charges.
 
@@ -49,7 +45,7 @@ Receiving and then addressing validation errors.
 
 ---
 
-### Validation errors
+## Fix validation errors
 
 - What sorts of errors and validation issues can appear and how to address them.
 
