@@ -17,7 +17,7 @@ keywords:
 
 This article provides a recommended framework and example templates to help write an effective system message, sometimes referred to as a metaprompt or [system prompt](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-completions#meta-prompts) that can be used to guide an AI system’s behavior and improve system performance. If you're new to prompt engineering, we recommend starting with our [introduction to prompt engineering](prompt-engineering.md) and [prompt engineering techniques guidance](advanced-prompt-engineering.md).
 
-This guide provides system message recommendations and resources that, along with other prompt engineering techniques, can help increase the accuracy and grounding of responses you generate with a Large Language Model (LLM). However, it is important to remember that even when using these templates and guidance, you still need to validate the responses the models generate. Just because a carefully crafted system message worked well for a particular scenario doesn't necessarily mean it will work more broadly across other scenarios. Understanding the [limitations of LLMs](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text#limitations) and the [mechanisms for evaluating and mitigating those limitations](https://aka.ms/cogsvs/azopenai/raioverview) is just as important as understanding how to leverage their strengths.
+This guide provides system message recommendations and resources that, along with other prompt engineering techniques, can help increase the accuracy and grounding of responses you generate with a Large Language Model (LLM). However, it is important to remember that even when using these templates and guidance, you still need to validate the responses the models generate. Just because a carefully crafted system message worked well for a particular scenario doesn't necessarily mean it will work more broadly across other scenarios. Understanding the [limitations of LLMs](https://learn.microsoft.com/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=text#limitations) and the [mechanisms for evaluating and mitigating those limitations](/legal/cognitive-services/openai/overview?context=/azure/cognitive-services/openai/context/context) is just as important as understanding how to leverage their strengths.
 
 The LLM system message framework described here covers four concepts:
 
@@ -92,7 +92,7 @@ Here is an example:
 
 ## Define additional behavioral guardrails
 
-When defining additional safety and behavioral guardrails, it’s helpful to first identify and prioritize [the harms](https://aka.ms/cogsvs/azopenai/raioverview) you’d like to address. Depending on the application, the sensitivity and severity of certain harms could be more important than others. Below, we’ve outlined some system message templates that may help mitigate some of the common harms that have been seen with LLMs, such as fabrication of content (that is not grounded or relevant), jailbreaks, and manipulation.
+When defining additional safety and behavioral guardrails, it’s helpful to first identify and prioritize [the harms](/legal/cognitive-services/openai/overview?context=/azure/cognitive-services/openai/context/context) you’d like to address. Depending on the application, the sensitivity and severity of certain harms could be more important than others. Below, we’ve outlined some system message templates that may help mitigate some of the common harms that have been seen with LLMs, such as fabrication of content (that is not grounded or relevant), jailbreaks, and manipulation.
 
 Here are some examples of lines you can include:
 
@@ -125,5 +125,5 @@ Here are some examples of lines you can include:
 ## Next steps
 
 - Learn more about [Azure OpenAI](../overview.md)
-- Learn more about [deploying Azure OpenAI responsibly](https://aka.ms/cogsvs/azopenai/raioverview)
+- Learn more about [deploying Azure OpenAI responsibly](/legal/cognitive-services/openai/overview?context=/azure/cognitive-services/openai/context/context)
 - For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure-Samples/openai)

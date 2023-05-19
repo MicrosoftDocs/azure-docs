@@ -77,7 +77,7 @@ items:
 - name: Responsible AI
   items:
     - name: Overview
-      href: https://aka.ms/cogsvs/azopenai/raioverview
+      href: /legal/cognitive-services/openai/overview?context=/azure/cognitive-services/openai/context/context
     - name : Transparency note
       href: /legal/cognitive-services/openai/transparency-note?context=/azure/cognitive-services/openai/context/context
     - name: Limited access
