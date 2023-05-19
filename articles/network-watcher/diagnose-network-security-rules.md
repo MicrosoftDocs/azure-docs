@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 05/19/2023
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Diagnose security rules
