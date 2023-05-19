@@ -49,7 +49,7 @@ When you need forecasts past the horizon, AutoML applies the model recursively o
 Here, we generate forecasts on a period three times the length of the horizon by using predictions from one window as the context for the next window.
 
 > [!WARNING]
-> Recursive forecasting compounds modeling errors, so predictions become less accurate the farther they are from the original forecast horizon. You may find a more accurate model by training with a longer horizon in this case.
+> Recursive forecasting compounds modeling errors, so predictions become less accurate the farther they are from the original forecast horizon. You may find a more accurate model by re-training with a longer horizon in this case.
 
 ### Prediction with a gap between training and inference periods
 
@@ -59,15 +59,19 @@ Suppose that you've trained a model in the past and you want to use it to make p
 
 AutoML supports this inference scenario, but **you need to provide the context data in the gap period**, as shown in the diagram. The prediction data passed to the [inference component](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines) needs values for features and observed target values in the gap and missing values or "NaN" values for the target in the inference period. The following table shows an example of this pattern:  
  
-:::image type="content" source="media/concept-automl-forecasting-evaluation/forecasting-with-gap-table.png" alt-text="Diagram demonstrating a forecast immediately following the training period.":::
+:::image type="content" source="media/concept-automl-forecasting-evaluation/forecasting-with-gap-table.png" alt-text="Table showing an example of prediction data when there's a gap between the training and inference periods.":::
 
 Here, known values of the target and features are provided for 2023-05-01 through 2023-05-03. Missing target values starting at 2023-05-04 indicate that the inference period starts at that date. 
 
 AutoML uses the new context data to update lag and other lookback features, and also to update models like ARIMA that keep an internal state. This operation _does not_ update or re-fit model parameters.  
   
-## Model evaluation: rolling forecasts
+## Model evaluation
 
- A best practice procedure for evaluating a forecasting model is to roll the trained forecaster forward in time over the test set, averaging error metrics over several prediction windows. This procedure is sometimes called a **backtest**, depending on the context. Ideally, the test set for the evaluation is long relative to the model's forecast horizon. Estimates of forecasting error may otherwise be statistically noisy and, therefore, less reliable.
+Evaluation is the process of generating predictions on a test set held-out from the training data and computing metrics from these predictions that guide model deployment decisions. Accordingly, there's an inference mode specifically suited for model evaluation - a rolling forecast. We review it in the following sub-section.     
+
+### Rolling forecast
+
+ A best practice procedure for evaluating a forecasting model is to roll the trained forecaster forward in time over the test set, averaging error metrics over several prediction windows. This procedure is sometimes called a **backtest**, depending on the context. Ideally, the test set for the evaluation is long relative to the model's forecast horizon. Estimates of forecasting error may otherwise be statistically noisy and, therefore, less reliable. 
 
 The following diagram shows a simple example with three forecasting windows:
 
@@ -83,7 +87,21 @@ Importantly, the context advances along with the forecasting window. This means 
 
 :::image type="content" source="media/concept-automl-forecasting-evaluation/rolling-eval-table.png" alt-text="Example output table from a rolling forecast.":::
 
-Once we have a table like this, we can visualize the forecasts vs. the actuals and compute desired evaluation metrics.
+With a table like this, we can visualize the forecasts vs. the actuals and compute desired evaluation metrics. AutoML pipelines can generate rolling forecasts on a test set with an [inference component](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines).
+
+> [!NOTE]
+> When the test period is the same length as the forecast horizon, a rolling forecast gives a single window of forecasts up to the horizon. Hence, it's equivalent to ["normal" forecasting model inference](#inference-scenarios) in this case.
+
+### Evaluation metrics
+
+The choice of evaluation summary or metric is usually driven by the specific business scenario. Some common choices include the following:
+
+* Plots of observed target values vs. forecasted values to check that certain dynamics of the data are captured by the model,
+* MAPE (mean absolute percentage error) between actual and forecasted values,
+* RMSE (root mean squared error), possibly with a normalization, between actual and forecasted values,
+* MAE (mean absolute error) , possibly with a normalization, between actual and forecasted values.
+
+There are many other possibilities, depending on the business scenario. You may need to create your own post-processing utilities for computing evaluation metrics from inference results and rolling forecasts. For more information on metrics, see our [regression and forecasting metrics](how-to-understand-automated-ml.md#regressionforecasting-metrics) article section. 
 
 ## Next steps
 

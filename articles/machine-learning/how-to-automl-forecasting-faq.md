@@ -136,7 +136,7 @@ You can resolve disk out-of-memory errors by deleting the compute cluster and cr
 AutoML supports the following advanced prediction scenarios:
 
 - Quantile forecasts
-- Robust model evaluation via [rolling forecasts](concept-automl-forecasting-evaluation.md#rolling-evaluation)
+- Robust model evaluation via [rolling forecasts](concept-automl-forecasting-evaluation.md#rolling-forecast)
 - Forecasting beyond the forecast horizon
 - Forecasting when there's a gap in time between training and forecasting periods
 

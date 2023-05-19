@@ -58,7 +58,7 @@ Data scenarios featuring large amounts of historical observations and/or large n
 
 Distributed DNN training achieves scalability using a data partitioning algorithm that respects time series boundaries. The following diagram illustrates a simple example with two partitions:
 
-:::image type="content" source="./media/concept-automl-forecasting-at-scale/distributed-training-diagram.png" alt-text="Diagram of data hierarchy for the example data.":::
+:::image type="content" source="./media/concept-automl-forecasting-at-scale/distributed-training-diagram.png" alt-text="Example diagram of a distributed training data partition.":::
 
 During training, the DNN data loaders on each compute load just what they need to complete an iteration of back-propagation; **the whole dataset is never read into memory**. The partitions are further distributed across multiple compute cores (usually GPUs) on possibly multiple nodes to accelerate training. Coordination across computes is provided by the [Horovod](https://horovod.ai/) framework.
 
