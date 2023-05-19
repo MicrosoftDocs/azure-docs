@@ -21,10 +21,10 @@ This guide provides system message recommendations and resources that, along wit
 
 The LLM system message framework described here covers four concepts:
 
-1. Define the model’s profile, capabilities, and limitations for your scenario
-2. Define the model’s output format
-3. Provide example(s) to demonstrate the intended behavior of the model
-4. Provide additional behavioral guardrails
+- Define the model’s profile, capabilities, and limitations for your scenario
+- Define the model’s output format
+- Provide example(s) to demonstrate the intended behavior of the model
+- Provide additional behavioral guardrails
 
 ## Define the model’s profile, capabilities, and limitations for your scenario
 
