@@ -70,12 +70,12 @@ Use the following steps to enable Application Insights:
    1. Locate the **Connection String**.
    1. Select the **Copy to clipboard** icon to copy the connection string to the clipboard.
 
-     :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+      :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-   1. Replace the placeholder `"CONNECTION_STRING"` in the SDK Loader Script with your connection string copied to the clipboard.
+   1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the SDK Loader Script with your connection string copied to the clipboard.
 
-   > [!NOTE]
-   > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
+      > [!NOTE]
+      > An Application Insights [connection string](sdk-connection-string.md) contains information to connect to the Azure cloud and associate telemetry data with a specific Application Insights resource. The connection string includes the Instrumentation Key (a unique identifier), the endpoint suffix (to specify the Azure cloud), and optional explicit endpoints for individual services. The connection string isn't considered a security token or key.
 
 ### SDK Loader Script configuration
 
