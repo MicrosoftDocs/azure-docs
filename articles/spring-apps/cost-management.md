@@ -36,7 +36,7 @@ You can manually scale computing capacities to accommodate a changing environmen
 
 Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale.md).
 
-You can also set up autoscale rules for your applications in Azure Spring Apps Standard consumption and dedicated plan. For more information, see [Quickstart: Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan](quickstart-apps-autoscale-standard-consumption.md).
+You can also set up autoscale rules for your applications in the Azure Spring Apps Standard consumption and dedicated plan. For more information, see [Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan](quickstart-apps-autoscale-standard-consumption.md).
 
 ## Next steps
 
