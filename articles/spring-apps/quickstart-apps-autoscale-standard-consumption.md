@@ -9,7 +9,7 @@ ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan
+# Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
