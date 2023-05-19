@@ -154,7 +154,7 @@ The APIs appear on the **APIs** page in the portal. When you've added a large nu
 > [!TIP]
 > After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see options to manage the API registration. 
 
-## Add API version
+## Add an API version
 
 Throughout its lifecycle, an API could have multiple versions. You can add a version to an existing API in your API center, optionally with an updated specification file. 
 
