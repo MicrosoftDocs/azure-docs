@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 10/05/2022
+ms.date: 05/19/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
@@ -93,6 +93,11 @@ You decide to create a rate limiting rule that restricts each socket IP address 
    - **Operation:** Is
    - **Operator:** Contains
    - **Match values:** */promo*
+
+1. For **Action**, choose either **Log** or **Block**
+
+   - Rate Limit rules only support Log and Block actions, Allow is not supported.
+
 
    :::image type="content" source="../media/waf-front-door-rate-limit-configure/custom-rule.png" alt-text="Screenshot of the Azure portal showing the custom rule configuration." :::
 
