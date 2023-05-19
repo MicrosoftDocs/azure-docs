@@ -85,7 +85,7 @@ Visual authoring with Azure Repos Git integration supports source control and co
 
 
 > [!NOTE]
-> You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
+> Additonal files such as arm templates, scripts, or configuration files can be stored in the repository outside of the mapped folder. If doing this keep in mind an additional task will be requiired to build/deploy and interact with the files that are stored outside of the mapped Azure DevOps folder.
 
 ### Azure Repos settings
 
