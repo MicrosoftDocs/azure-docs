@@ -52,9 +52,14 @@ e) **Authentication Type**: Under settings, you can choose from two different au
 
 ![User's image](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
-	You can also generate events at event hub level by clicking on “Generate data” tab under Features section at Event Hub level. 
+
+```
+You can also generate events at event hub level by clic
+```
 
 <Portal snapshot for Event Hubs entity level Data generator> 
+
+You can also generate events at event hub level by clicking on "Generate data" tab under features section on Event hub instance. 
 
 ### Maximum Message size support with different SKU
 
@@ -69,24 +74,68 @@ Maximum Payload Size| 	256Kb		| 	1MB 	     | 1MB     | 1MB
 > [!IMPORTANT]
 > View Events is meant to act like a magnifying glass to the stream of events that you had sent. The tabular section under View events would let you glance at the last 15 events that have been sent to Azure Event hubs.  
 
-As soon as you Click send, the Data generator would take care of sending the events to event hubs of your choice and new collapsible “View Events” window would load automatically. You could expand any tabular row to review the event content sent to event hubs. 
+As soon as you click send, data generator would take care of sending the events to event hubs of your choice and new collapsible “View Events” window would load automatically. You could expand any tabular row to review the event content sent to event hubs. 
 
 ![User's image](image2.png)
 
 ## Frequently Asked Questions
 
-1. I am getting the error “We couldn’t find any events in Event Hub- <your event hub name>. Please make sure that there is no other consumer reading events from $Default Consumer group”
-Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. If you have an active consumer silently listening to the events and checkpointing them, then Data generator would not be able to read anything. Please make sure that no other application is reading from $Default consumer group.
-1. I am getting the error: “We couldn’t make connection to receive the events. Please make sure that there is no active consumer reading events from $Default consumer group”.  
-To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Please disconnect any active consumer reading from $Default consumer group and try again. 
-3. I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?
+##### I am getting the error “We couldn’t find any events in Event Hub- <your event hub name>. Please make sure that there is no active consumer reading events from $Default Consumer group”
 
-	Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data 	generator, View events section would also  show events sent by other clients. At any instance, View Events would let you read last 15 events that have sent to Azure 		Event Hubs
+Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs.To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. 
+
+Please disconnect any active consumer reading from $Default consumer group and try again. 
+
+I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?
+
+##### I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?
+
+Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data 	generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
 
 ## Next Steps
 
 [Send and Receive events using Event Hubs SDKs(AMQP)](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?tabs=passwordless%2Croles-azure-portal)
 
 [Send and Receive events using Apache Kafka](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?tabs=passwordless)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
