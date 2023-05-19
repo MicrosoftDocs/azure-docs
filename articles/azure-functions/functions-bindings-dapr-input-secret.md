@@ -45,7 +45,7 @@ public static void Run(
 
 More samples for the Dapr input secret binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/blob/master/samples/dotnet-isolated-azurefunction/InputBinding).
 
-:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/RetrieveSecret.cs" range="8-36"::: 
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/RetrieveSecret.cs" range="18-35"::: 
 
 ---
 

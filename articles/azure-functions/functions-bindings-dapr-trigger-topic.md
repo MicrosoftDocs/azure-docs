@@ -48,7 +48,7 @@ public static void Run(
  
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/TransferEventBetweenTopics.cs" range="8-30"::: 
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/TransferEventBetweenTopics.cs" range="20-29"::: 
 
 ---
 

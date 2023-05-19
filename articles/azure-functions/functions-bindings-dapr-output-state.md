@@ -54,7 +54,7 @@ public static async Task<IActionResult> Run(
 
 More samples for the Dapr output state binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/blob/master/samples/dotnet-isolated-azurefunction/OutputBinding).
 
-:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/StateOutputBinding.cs" range="8-29"::: 
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/StateOutputBinding.cs" range="16-28"::: 
 
 ---
 

@@ -8,6 +8,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr trigger and bindings for Azure Functions
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
+
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr extension for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
@@ -15,6 +17,11 @@ The Dapr extension for Azure Functions is a set of tools and services that allow
 Azure Functions is an event-driven programming where [triggers and bindings](./functions-triggers-bindings.md) are key features, with which you can easily build event-driven serverless applications. Dapr provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
 With the integration between Dapr and Functions, you can build functions that react to events from Dapr or external systems.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+
 
 | Action  | Direction | Type |
 |---------|-----------|------|
@@ -28,6 +35,7 @@ With the integration between Dapr and Functions, you can build functions that re
 |Publish a message to a Dapr topic | Out | [daprPublish](./functions-bindings-dapr-output-publish.md) |
 | Send a value to a Dapr output binding | Out | [daprBinding](./functions-bindings-dapr-output.md) |
 
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 

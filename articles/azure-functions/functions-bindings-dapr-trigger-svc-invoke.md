@@ -47,7 +47,7 @@ public static void Run(
 
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/CreateNewOrder.cs" range="8-32"::: 
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/CreateNewOrder.cs" range="18-31"::: 
  
 
 ---
