@@ -3,7 +3,9 @@ title: Pan UK-Biobank
 description: Learn how to use the Pan UK-Biobank dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
+ms.custom: references_regions
 ms.date: 05/17/2023
+ms.custom: references_regions
 ---
 
 # Pan UK-Biobank: Pan-ancestry genetic analysis of the UK Biobank
