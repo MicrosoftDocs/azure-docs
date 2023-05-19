@@ -109,6 +109,9 @@ Before disabling workspace soft delete on an Azure subscription, purge or recove
 
 In general, when a workspace is in soft-deleted state, there are only two operations possible: 'permanently delete' and 'recover'. All other operations will fail. Therefore, even though the workspace exists, no compute operations can be performed and hence no usage will occur. When a workspace is soft-deleted, any cost-incurring resources including compute clusters are hard deleted.
 
+> [!IMPORTANT]    
+> Workspaces that use [customer-managed keys for encryption](concept-data-encryption.md) store additional service data in your subscription in a managed resource group. When a workspace is soft-deleted, the managed resource group and resources in it will not be deleted and will incur cost until the workspace is hard-deleted.
+
 ## General Data Protection Regulation (GDPR) implications
 
 After soft-deletion, the service keeps necessary data and metadata during the recovery [retention period](#soft-delete-retention-period). From a GDPR and privacy perspective, a request to delete personal data should be interpreted as a request for *permanent* deletion of a workspace and not soft delete.
