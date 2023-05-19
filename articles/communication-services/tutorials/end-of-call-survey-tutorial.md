@@ -31,7 +31,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
--	An [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource) only if you want to survey custom questions.
+-	To conduct a survey with custom questions using free form text, you will need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 
 
 <!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
@@ -162,11 +162,10 @@ Screenshare. However, each API value can be customized from a minimum of
    > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ## Custom questions
-You can ask custom questions and collect users feedback. Below you'll find steps to incorporate customer questions into a survey:
+In addition to using the End of Call Survey API you can create your own survey questions and incorporate them with the End of Call Survey results. Below you'll find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
 -  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
--  Initialize the JavaScript SDK using plain JavaScript or NPM typescript:
-   -  Plain JavaScript will have the **appInsights** variable globally available. [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md).
-   -  Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
+-  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
+-  Build an UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the improvementSuggestion variable
 
 -  Submit survey results to ACS and send user response using App Insights:
 	``` javascript
@@ -185,12 +184,12 @@ You can ask custom questions and collect users feedback. Below you'll find steps
 	});
 	appInsights.flush();
 	```
-Custom survey data will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources and correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
+User responses that were sent using AppInsights will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
 -  Create new Workbook (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])
--  Query the call rating data-
+-  Please be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
    ```KQL
    ACSCallSurvey
    | where TimeGenerated > now(-24h)
