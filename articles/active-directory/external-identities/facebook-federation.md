@@ -42,7 +42,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 > 	- `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
 > 	- `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
 > 	- `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
-> You can find your `<tenant-ID>` `<tenant-name>`and in the Azure Active Directory Overview blade.
+> You can find your `<tenant-ID>` and `<tenant-name>` in the Azure Active Directory Overview blade.
 
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
