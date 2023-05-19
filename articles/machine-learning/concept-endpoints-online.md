@@ -6,9 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: santiagxf
-ms.author: fasantia
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
+reviewer: msakande
 ms.custom: devplatv2
 ms.date: 04/01/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
