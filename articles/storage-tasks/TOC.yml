@@ -26,7 +26,7 @@ items:
   - name: REST API
     href: /rest/api/storageservices/blob-service-rest-api
   - name: Monitoring data Reference
-    href: storage-task-monitor-data-reference.md
+    href: storage-tasks-monitor-data-reference.md
 - name: Resources
   items:
     - name: FAQ

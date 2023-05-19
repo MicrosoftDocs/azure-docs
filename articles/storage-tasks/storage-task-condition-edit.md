@@ -12,9 +12,46 @@ ms.date: 05/10/2023
 
 Description goes here.
 
-## Task subhead 1
+## Define conditions
 
-Put something here.
+Include guidance for these types of things:
+
+- Using the editor to define conditions
+- Nesting and grouping conditions
+- What types of properties are available
+- Constraints such as naming values and wildcards
+
+## Explore the impact of conditions by using the preview pane
+
+Include guidance for these types of things:
+
+### Preview results
+
+You can see how the task will impact an account by previewing that result. Then, you can make tweaks and changes before deploying the task. Previewing results does not incur charges.
+
+#### [Portal](#tab/azure-portal)
+
+Open preview by using the Azure portal.
+Column sorting and various other preview settings.
+Receiving and then addressing validation errors.
+
+#### [PowerShell](#tab/powershell)
+
+Generate a preview by using PowerShell.
+Column sorting and various other preview settings.
+Receiving and then addressing validation errors.
+
+#### [Azure CLI](#tab/azure-cli)
+
+Generate a preview by using Azure CLI.
+Column sorting and various other preview settings.
+Receiving and then addressing validation errors.
+
+---
+
+### Validation errors
+
+- What sorts of errors and validation issues can appear and how to address them.
 
 ## See also
 
