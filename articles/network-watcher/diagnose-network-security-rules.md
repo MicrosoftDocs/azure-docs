@@ -14,7 +14,7 @@ ms.custom: template-how-to, engagement-fy23
 
 You can use network security groups to filter and control inbound and outbound network traffic to and from your Azure resources. You can also use Azure Virtual Network Manager to apply admin security rules to your Azure resources to control network traffic.
 
-In this article, you learn how to use Azure Network Watcher NSG diagnostics to check and troubleshoot security rules applied to your Azure traffic. NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
+In this article, you learn how to use Azure Network Watcher [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md) to check and troubleshoot security rules applied to your Azure traffic. NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
 
 The example in this article shows you how a misconfigured network security group can prevent you from using Azure Bastion to connect to a virtual machine.
 
@@ -753,8 +753,6 @@ You can add the security rule to the network security group from the Network Wat
 
 ---
 
-
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+- To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md).
+- To learn how to troubleshoot routing problems [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
