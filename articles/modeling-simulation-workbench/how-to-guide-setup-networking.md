@@ -36,7 +36,7 @@ For organizations that don't have an Azure network setup or prefer to onboard to
 
 To edit the allowed IP addresses list, go to the **Networking** blade for the connector object in the Azure portal. Click on **Edit allowed IP**. From here, you can delete existing IP addresses or add new ones. Make sure to click **Submit** to save your changes. Once submitted, refresh the view for connector networking and see your changes reflected.
 
-   :::image type="content" source="/azure/active-directory/develop/media/howtoguide-troubleshooting/chamber-connector-networking-network-allowlist" alt-text="Screenshot of the Azure portal in a web browser, showing the chamber connector networking allowlist.":::
+   :::image type="content" source="./media/howtoguide-troubleshooting/chamber-connector-networking-network-allowlist.png" alt-text="Screenshot of the Azure portal in a web browser, showing the chamber connector networking allowlist.":::
 
 ## Next steps
 

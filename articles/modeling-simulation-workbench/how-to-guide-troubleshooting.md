@@ -18,7 +18,7 @@ ms.date: 01/01/2023
 1. Search for Modeling and Simulation Workbench and choose the workbench you want to see logs for from the resource list.
 1. In the menu for the workbench, select **Activity log** blade on the left of the screen.
 
-   :::image type="content" source="/azure/active-directory/develop/media/howtoguide-troubleshooting/workbench-activity-log.png" alt-text="Screenshot of the Azure portal in a web browser, showing the activity log for a workbench.":::
+   :::image type="content" source="./media/howtoguide-troubleshooting/workbench-activity-log.png" alt-text="Screenshot of the Azure portal in a web browser, showing the activity log for a workbench.":::
 
 1. Use filters provided here to find logs for your Modeling and Simulation Workbench workbench. On screen, you find a link to **Learn more about Azure Activity log** and **Visit Log Analytics** which provides a [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial) for consolidating logs, saving queries, pin results to
 1. NOTE: the lifetime of these logs is 30 days. If you want to retain logs longer, click on the **Export Activity Logs** option to access options available to you.
