@@ -165,7 +165,7 @@ Screenshare. However, each API value can be customized from a minimum of
 In addition to using the End of Call Survey API you can create your own survey questions and incorporate them with the End of Call Survey results. Below you'll find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
 -  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 -  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
--  Build an UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the improvementSuggestion variable
+-  Build an UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
 
 -  Submit survey results to ACS and send user response using App Insights:
 	``` javascript
@@ -185,7 +185,7 @@ In addition to using the End of Call Survey API you can create your own survey q
 	appInsights.flush();
 	```
 User responses that were sent using AppInsights will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
--  Create new Workbook (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
+-  Create new [Workbooks](../../update-center/workbooks.md) (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])
