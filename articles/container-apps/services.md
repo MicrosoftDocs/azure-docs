@@ -32,7 +32,7 @@ Dev mode services come with the following features:
 - **Scaling**: The service can scale in to zero when there's no demand for the service.
 - **Pricing**: Service billing falls under consumption-based pricing. Billing only happens when instances of the service are running.
 - **Storage**: The service uses persistent storage to ensure there's no data loss as a service scales in to zero.
-- **Revisions**: Any time you change a dev mode service, a new revision of your container app is created.
+- **Revisions**: Anytime you change a dev mode service, a new revision of your container app is created.
 
 See the service-specific features for managed services.
 
@@ -62,10 +62,51 @@ The following table shows you which service to use in development, and which ser
 
 You're responsible for data continuity between development and production environments.
 
+## Manage a service
+
+To connect a service to an application, you first need to create the service.
+
+Use the `service` command with `containerapp create` to create a new service.
+
+``` CLI
+az containerapp service redis create --name myredis --environment myenv
+```
+
+This command creates a new Redis service called `myredis` in a Container Apps environment called `myenv`.
+
+To bind a service to an application, use the `--bind` argument for `containerapp create`.
+
+``` CLI
+az containerapp create \
+  --name myapp \
+  --image myimage \
+  --bind myredis \
+  --environment myenv
+```
+
+This command features the typical Container App `create` with the `--bind` argument. The bind argument tells the Container Apps runtime to connect a service to the application.
+
+The `--bind` argument is available to the `create` or `update` commands.
+
+To disconnect a service from an application, use the `--unbind` argument on the
+`update` command
+
+The following example shows you how to unbind a service.
+
+``` CLI
+az containerapp update --name myapp --unbind myredis
+```
+
+For a full tutorial on connecting to services, see [Connect services in Azure Container Apps](connect-services.md).
+
+For more information on the service commands and arguments, see the
+[`az containerapp`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true) reference.
+
 ## Limitations
 
 - Dev mode services are in public preview.
 - Any container app created before May 23, 2023 isn't eligible to use dev mode services.
+- Dev mode services come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
 
 ## Next steps
 

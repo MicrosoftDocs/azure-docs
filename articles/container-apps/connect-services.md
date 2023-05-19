@@ -11,9 +11,15 @@ ms.author: dougdavis
 
 # Tutorial: Connect services in Azure Container Apps
 
-Dev mode services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
+Azure Container Apps allows you to connect to services that support your app that run in the same environment as your container app.
 
-In this tutorial, you learn how to:
+When in development, your application can quickly create and connect to [dev mode services](services.md). These services easy to create and are development-grade services designed for nonproduction environments.
+
+As you move to production, your application can connect production-grade managed services.
+
+This tutorial shows you how to connect both dev mode and production grade services to your container app.
+
+In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Create a new Redis development service
@@ -108,9 +114,12 @@ Next, create your internet-accessible container app.
       --ingress external \
       --target-port 8080 \
       --bind myredis
+      --query properties.configuration.ingress.fqdn
     ```
 
-    This command uses the `--bind` option to create a link between the container app and the Redis dev mode service.
+    This command returns the fully qualified domain name (FQDN). Paste this value into a web browser so you can inspect the application'e behavior throughout this tutorial.
+
+    The `containerapp create` command uses the `--bind` option to create a link between the container app and the Redis dev mode service.
 
     The bind request gathers connection information, including credentials and  connection strings, and injects it into the application as environment variables. These values are now available to the application code via environment variables.
 
