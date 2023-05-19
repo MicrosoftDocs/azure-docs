@@ -88,7 +88,7 @@ Advisor monitors your virtual machine usage for 7 days by default and then ident
 Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
 
 If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule and the look back period on a per subscription basis.
-The CPU utilization rule can be set to 5%(default), 10%, 15%, 20%, or 100%. In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization.
+The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization.
 You can select how far back in historical data you want to analyze: 7 days (default), 14, 21, 30, 60, or 90 days.
 
 > [!NOTE]
