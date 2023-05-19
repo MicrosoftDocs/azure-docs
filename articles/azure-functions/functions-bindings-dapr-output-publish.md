@@ -73,7 +73,9 @@ Here's the _function.json_ file for `daprPublish`:
 }
 ```
 
-Here's the JavaScript code for the Dapr Publish output binding trigger:
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+Here's the JavaScript code: 
 
 ```javascript
 module.exports = async function (context, req) {
@@ -105,7 +107,7 @@ Here's the _function.json_ file for `daprPublish`:
 }
 ```
 
-For more information about *function.json* file properties, see the [Configuration](#configuration) section explains these properties.
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 Here's the Python code:
 
@@ -169,10 +171,12 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Publish output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use the Dapr publish output binding, you'll run `DaprPublish`. 
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
 
 ::: zone-end
 
@@ -181,9 +185,12 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Publish output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr publish output binding, you'll define your `daprPublish` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
 
 ::: zone-end
 
@@ -192,9 +199,12 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Publish output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr publish output binding, you'll define your `daprPublish` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
 
 ::: zone-end
 

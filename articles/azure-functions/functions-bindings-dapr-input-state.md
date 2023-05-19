@@ -73,7 +73,9 @@ Here's the _function.json_ file for `daprState`:
 }
 ```
 
-Here's the JavaScript code for the Dapr input binding trigger:
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -168,13 +170,13 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-For the `StateInputBinding` function, you'll run both an `HttpTrigger` and `DaprState` to use the Dapr state input binding. 
+To use the Dapr state input binding, you'll run `DaprState`. 
 
 You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
-- [Dapr JavaScript SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/js/js-client/)
+
 
 
 ::: zone-end
@@ -184,13 +186,13 @@ You'll also need to set up a Dapr state store component. You can learn more abou
 See the [Example section](#example) for complete examples.
 
 ## Usage
-To use a Dapr state input binding, you'll not only define your bindings in a functions.json file and update your application code. 
+To use a Dapr state input binding, you'll define your `daprState` binding in a functions.json file. 
 
 You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
-- [Dapr .NET SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/dotnet/dotnet-client/)
+
 
 ::: zone-end
 
@@ -200,13 +202,12 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-To use a Dapr state input binding, you'll define your bindings in a functions.json file and update your application code. 
+To use a Dapr state input binding, you'll define your `daprState` binding in a functions.json file. 
 
 You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
-- [Dapr Python SDK documentation and examples](https://docs.dapr.io/developing-applications/sdks/python/python-client/)
 
 ::: zone-end
 

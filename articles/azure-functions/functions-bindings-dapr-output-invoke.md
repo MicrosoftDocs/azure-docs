@@ -84,7 +84,9 @@ Here's the _function.json_ file for `daprInvoke`:
 }
 ```
 
-Here's the JavaScript code for the Dapr output binding trigger:
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -183,24 +185,20 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Invoke output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use the Dapr service invocation output binding, you'll run `DaprInvoke`. 
 
-TODO: Need usage content. 
-
-
----
+You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
 ::: zone-end
 
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Invoke output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr invoke output binding, you'll define your `daprInvoke` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
 ::: zone-end
 
@@ -209,10 +207,9 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Invoke output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr invoke output binding, you'll define your `daprInvoke` binding in a functions.json file.  
 
-TODO: Need usage content. 
-
+You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 ::: zone-end
 
 ## Next steps

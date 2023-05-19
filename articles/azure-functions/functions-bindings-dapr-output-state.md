@@ -32,43 +32,21 @@ A C# function can be created using one of the following C# modes:
 
 # [In-process](#tab/in-process)
 
-The following example demonstrates using [Dapr service invocation trigger](./functions-bindings-dapr-trigger-svc-invoke.md) and the Dapr state output binding to persist a new state into the state store. 
+The following example demonstrates using the Dapr state output binding to persist a new state into the state store. 
 
 ```csharp
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Dapr;
-using Microsoft.Extensions.Logging;
-
-public static class DaprStateOutputBindingUserDefinedType
-{
-    /// <summary>
-    /// Example to use Dapr Service Invocation Trigger and Dapr State Output binding to persist a new state into statestore
-    /// </summary>
-    [FunctionName("DaprStateOutputBindingUserDefinedType")]
-
-public static Product Run(
-    [DaprServiceInvocationTrigger] Product payload,
-    [DaprState("%StateStoreName%", Key = "product")] out Product product,
+[FunctionName("StateOutputBinding")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = "state/{key}")] HttpRequest req,
+    [DaprState("statestore", Key = "{key}")] IAsyncCollector<string> state,
     ILogger log)
 {
-    log.LogInformation("C# function processed a DaprStateOutputBindingUserDefinedType request from the Dapr Runtime.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
-        product = payload;
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    await state.AddAsync(requestBody);
 
-        return payload;
-    }
-}
-
-public class Product
-{
-    [JsonPropertyName("Name")]
-    public string Name { get; set; }
-    [JsonPropertyName("Description")]
-    public string Description { get; set; }
-    [JsonPropertyName("Quantity")]
-    public int Quantity { get; set; }
+    return new OkResult();
 }
 ```
 
@@ -102,7 +80,9 @@ Here's the _function.json_ file for `daprState` output:
 }
 ```
 
-Here's the JavaScript code for the Dapr output binding trigger:
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -138,7 +118,7 @@ Here's the _function.json_ file for `daprState`:
 }
 ```
 
-For more information about *function.json* file properties, see the [Configuration](#configuration) section explains these properties.
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 Here's the Python code:
 
@@ -203,9 +183,12 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr State output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use the Dapr state output binding, you'll run `DaprState`. 
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
 ::: zone-end
 
@@ -214,9 +197,12 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr State output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr state output binding, you'll define your `daprState` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
 ::: zone-end
 
@@ -225,9 +211,13 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr State output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr state output binding, you'll define your `daprState` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+
 
 ::: zone-end
 

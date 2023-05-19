@@ -71,7 +71,9 @@ Here's the _function.json_ file for `daprServiceInvocationTrigger`:
 }
 ```
 
-Here's the JavaScript code for the Dapr service invocation trigger:
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context) {
@@ -107,6 +109,8 @@ Here's the _function.json_ file for `daprServiceInvocationTrigger`:
     }
 }
 ```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 Here's the Python code:
 
@@ -176,9 +180,12 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The binding types supported by the Dapr secret input depend on the Functions runtime version, the extension package version, and the C# modality used. For more information, see [Binding types](./functions-bindings-dapr.md#binding-types).
+To use the Dapr secret input binding, you'll run `DaprSecret`. 
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
+- [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
 
 ::: zone-end
 
@@ -187,7 +194,12 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-Access Dapr secret input using `context.bindings.secret`.
+To use a Dapr secret input binding, you'll define your `daprSecret` binding in a functions.json file.  
+
+You'll also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
+- [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
 
 ::: zone-end
 
@@ -196,7 +208,12 @@ Access Dapr secret input using `context.bindings.secret`.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr invoke output binding, you'll define your `daprSecret` binding in a functions.json file.  
+
+You'll also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
+- [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
 
 
 ::: zone-end

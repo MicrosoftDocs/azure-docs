@@ -71,7 +71,9 @@ Here's the _function.json_ file for `daprServiceInvocationTrigger`:
 }
 ```
 
-Here's the JavaScript code for the Dapr Service Invocation trigger:
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context) {
@@ -101,6 +103,8 @@ Here's the _function.json_ file for `daprServiceInvocationTrigger`:
   ]
 }
 ```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 Here's the Python code:
 
@@ -162,9 +166,12 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr Service Invocation trigger, you'll run `DaprServiceInvocationTrigger`. 
 
-Included text: The parameter type supported by the Dapr Service Invocation trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
+
+- [Dapr component specs](https://docs.dapr.io/reference/components-reference/)
+- [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
 
 ::: zone-end
 
@@ -173,9 +180,12 @@ Included text: The parameter type supported by the Dapr Service Invocation trigg
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr Service Invocation trigger, you'll define your `daprServiceInvocationTrigger` binding in a functions.json file.  
 
-Included text: The parameter type supported by the Dapr Service Invocation trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
+
+- [Dapr component specs](https://docs.dapr.io/reference/components-reference/)
+- [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
 
 ::: zone-end
 
@@ -184,9 +194,12 @@ Included text: The parameter type supported by the Dapr Service Invocation trigg
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr Service Invocation trigger, you'll define your `daprServiceInvocationTrigger` binding in a functions.json file.  
 
-Included text: The parameter type supported by the Dapr Service Invocation trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+You can learn more about which components to use with the Service Invocation trigger and how to set them up in the official Dapr documentation.
+
+- [Dapr component specs](https://docs.dapr.io/reference/components-reference/)
+- [Dapr service invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
 
 ::: zone-end
 

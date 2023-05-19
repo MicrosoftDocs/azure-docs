@@ -73,8 +73,9 @@ Here's the _function.json_ file for `daprBinding`:
     }
 }
 ```
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-Here's the JavaScript code for the Dapr Binding output binding trigger:
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context) {
@@ -105,7 +106,7 @@ Here's the _function.json_ file for `daprBinding`:
 }
 ```
 
-For more information about *function.json* file properties, see the [Configuration](#configuration) section explains these properties.
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 Here's the Python code:
 
@@ -170,9 +171,12 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Binding output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use the Dapr output binding, you'll run `DaprBinding`. 
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
+- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
 
 ::: zone-end
 
@@ -181,9 +185,12 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Binding output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr output binding, you'll define your `daprBinding` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
+- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
 
 ::: zone-end
 
@@ -192,9 +199,12 @@ TODO: Need usage content.
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Dapr Binding output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+To use a Dapr output binding, you'll define your `daprBinding` binding in a functions.json file.  
 
-TODO: Need usage content. 
+You'll also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
+- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
 
 ::: zone-end
 

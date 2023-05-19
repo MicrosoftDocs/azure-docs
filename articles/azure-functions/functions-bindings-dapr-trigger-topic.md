@@ -169,9 +169,13 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr Topic trigger, you'll run `DaprTopicTrigger`. 
 
-Included text: The parameter type supported by the Dapr Topic trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
+
 
 ::: zone-end
 
@@ -180,9 +184,12 @@ Included text: The parameter type supported by the Dapr Topic trigger depends on
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr Topic trigger, you'll define your `daprTopicTrigger` binding in a functions.json file.  
 
-Included text: The parameter type supported by the Dapr Topic trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
 
 ::: zone-end
 
@@ -191,9 +198,12 @@ Included text: The parameter type supported by the Dapr Topic trigger depends on
 See the [Example section](#example) for complete examples.
 
 ## Usage
-TODO: Need usage content. 
+To use a Dapr Topic trigger, you'll define your `daprTopicTrigger` binding in a functions.json file.  
 
-Included text: The parameter type supported by the Dapr Topic trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+You'll also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
 
 ::: zone-end
 
