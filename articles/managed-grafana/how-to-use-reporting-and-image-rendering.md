@@ -10,7 +10,7 @@ ms.date: 5/6/2023
 
 # Use reporting and image rendering (preview)
 
-In this guide, you'll learn how to create reports from your dashboards in Azure Managed Grafana. You can configure to have these reports emailed to intended recipients on a regular schedule or on-demand.
+In this guide, you learn how to create reports from your dashboards in Azure Managed Grafana. You can configure to have these reports emailed to intended recipients on a regular schedule or on-demand.
 
 Generating reports in the PDF format requires Grafana's image rendering capability, which captures dashboard panels as PNG images. Azure Managed Grafana installs the image renderer for your instance automatically.
 
