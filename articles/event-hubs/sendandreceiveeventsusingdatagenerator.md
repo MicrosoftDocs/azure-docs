@@ -53,7 +53,7 @@ e) **Authentication Type**: Under settings, you can choose from two different au
 ![User's image](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
 > [!TIP]
-> While choosing User defined payload, entire content under "Enter payload" section is sent as one event. If you select Repeat send to be 50, then 50 events would be sent to event hubs. 
+> For user defined payload, entire content under "Enter payload" section is sent as one event. If you select Repeat send to be 50, then 50 events would be sent to event hubs. 
 > In case of pre-canned datasets, dataset is a collection of different events that are sent separately. As an example, if the dataset contains 20 events and value of repeat send is set to 10, then 200 events would be sent to event hub. 
 
 <Portal snapshot for Event Hubs entity level Data generator> 
