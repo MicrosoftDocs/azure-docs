@@ -50,10 +50,10 @@ Follow the steps to create a Cache rule without using a Credential set.
     ```azurecli-interactive
      az acr Cache list -r MyRegistry
     ```
-Cache
+
 2. Run [az acr Cache delete][az-acr-cache-delete] command to delete a Cache rule.
 
-    - For example, to delete a Cacherule for a given `MyRegistry` Azure Container Registry.
+    - For example, to delete a Cache rule for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr Cache delete -r MyRegistry -n MyRule
