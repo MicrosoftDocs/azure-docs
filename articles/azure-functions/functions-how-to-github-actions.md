@@ -4,38 +4,94 @@ description: Learn how to use GitHub Actions to define a workflow to build and d
 ms.topic: conceptual
 ms.date: 05/16/2023
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
-zone_pivot_groups: github-actions-deployment-options
 ---
 
 # Continuous delivery by using GitHub Actions
 
 Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
-In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your function app project on GitHub. 
+In GitHub Actions, a [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your function app project on GitHub. A YAML file (.yml) for a workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow and is specific to the development language of your functions. 
 
-There are four options for deploying a function with GitHub Actions: 
+You can create a workflow configuration file for your deployment manually. You can also generate the file from a set language-specific templates in one of these ways:  
 
-1. Manually create your GitHub Actions workflow. 
-1. Use the Deployment option in the Azure portal.
-1. Use Azure CLI to generate a workflow file and deploy your app.   
-1. Use an Actions template within GitHub.  
++ In the Azure portal
++ Using the Azure CLI   
++ From your GitHub repository 
 
-All four approaches involve adding a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow. 
-
-For an Azure Functions workflow, the file has three sections: 
-
-| Section | Tasks |
-| ------- | ----- |
-| **Authentication** | Download a publish profile.<br/>Create a GitHub secret.|
-| **Build** | Set up the environment.<br/>Build the function app.|
-| **Deploy** | Deploy the function app.|
+If you don't want to create your YAML file by hand, select a different method at the top of the article.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
-- A working function app hosted on Azure with a GitHub repository.   
+- A working function app hosted on Azure with source code in a GitHub repository.   
     - [Quickstart: Create a function in Azure using Visual Studio Code](./create-first-function-vs-code-csharp.md)
+
+
+## Workflow configuration
+
+A GitHub Actions workflow for Functions performs the following tasks, regardless of language: 
+
+1. Set up the environment.
+1. Build the code project.
+1. Deploy the package to a function app in Azure.
+
+The template for this workflow varies both by language and by the operating system:
+
+# [Windows](#tab/windows)
+
+Deployments to Windows use `runs-on: windows-latest`.
+
+# [Linux](#tab/linux)
+
+Deployments to Linux use `runs-on: ubuntu-latest`.
+
+---
+
+The following YAML is the workflow template for your chosen language and OS:
+
+# [.NET](#tab/dotnet/windows)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-dotnet-functionapp-on-azure.yml" range="1-5,13-44"::: 
+
+# [.NET](#tab/dotnet/linux)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-dotnet-functionapp-on-azure.yml" range="1-5,13-44"::: 
+
+# [Java](#tab/java/windows)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-java-functionapp-on-azure.yml" range="1-5,13-44"::: 
+
+# [Java](#tab/java/linux)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-java-functionapp-on-azure.yml" range="1-5,13-44"::: 
+
+# [JavaScript](#tab/javascript/windows)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-node.js-functionapp-on-azure.yml" range="1-5,13-46"::: 
+
+# [JavaScript](#tab/javascript/linux)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-node.js-functionapp-on-azure.yml" range="1-5,13-46"::: 
+
+# [Python](#tab/python/windows)
+
+Python functions aren't supported on Windows. Choose Linux instead.
+
+# [Python](#tab/python/linux)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-python-functionapp-on-azure.yml" range="1-5,13-44"::: 
+
+# [PowerShell](#tab/powershell/windows)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
+
+# [PowerShell](#tab/powershell/linux)
+
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
+
+--- 
+
 
 
 ::: zone pivot="method-manual"
@@ -80,6 +136,8 @@ GitHub can now authenticate to your function app in Azure.
 Setting up the environment is done using a language-specific publish setup action.
 
 # [.NET](#tab/dotnet)
+
+
 
 .NET (including ASP.NET) uses the `actions/setup-dotnet` action.  
 The following example shows the part of the workflow that sets up the environment:
