@@ -163,7 +163,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cognitive Services Face Recognizer](#cognitive-services-face-recognizer) | Lets you perform detect, verify, identify, group, and find similar operations on Face API. This role does not allow create or delete operations, which makes it well suited for endpoints that only need inferencing capabilities, following 'least privilege' best practices. | 9894cab4-e18a-44aa-828b-cb588cd6f2d7 |
 > | [Cognitive Services Metrics Advisor Administrator](#cognitive-services-metrics-advisor-administrator) | Full access to the project, including the system level configuration. | cb43c632-a144-4ec5-977c-e80c4affc34a |
 > | [Cognitive Services OpenAI Contributor](#cognitive-services-openai-contributor) | Full access including the ability to fine-tune, deploy and generate text | a001fd3d-188f-4b5d-821b-7da978bf7442 |
-> | [Cognitive Services OpenAI User](#cognitive-services-openai-user) | Ability to view files, models, deployments. Readers can't make any changes They can inference | 5e0bd9bd-7b93-4f28-af87-19fc36ad61bd |
+> | [Cognitive Services OpenAI User](#cognitive-services-openai-user) | Read access to view files, models, deployments. The ability to create completion and embedding calls. | 5e0bd9bd-7b93-4f28-af87-19fc36ad61bd |
 > | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Let's you create, edit, import and export a KB. You cannot publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
@@ -7829,7 +7829,7 @@ Full access including the ability to fine-tune, deploy and generate text
 
 ### Cognitive Services OpenAI User
 
-Ability to view files, models, deployments. Readers can't make any changes They can inference
+Read access to view files, models, deployments. The ability to create completion and embedding calls.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
