@@ -28,14 +28,14 @@ Accessing raw audio media gives you access to the incoming audio stream of the c
 Make an options object specifying the raw stream properties we want to send. 
 
 ```java
-    RawOutgoingAudioProperties outgoingAudioProperties = new RawOutgoingAudioProperties()
-                .setAudioFormat(AudioFormat.PCM16_BIT)
-                .setSampleRate(AudioSampleRate.HZ44100)
-                .setChannelMode(AudioChannelMode.STEREO)
-                .setDataPerBlockInMs(DataPerBlock.IN_MS20);
+    RawOutgoingAudioStreamProperties outgoingAudioProperties = new RawOutgoingAudioStreamProperties()
+                .setAudioFormat(AudioStreamFormat.PCM16_BIT)
+                .setSampleRate(AudioStreamSampleRate.HZ44100)
+                .setChannelMode(AudioStreamChannelMode.STEREO)
+                .setBufferDuration(AudioStreamBufferDuration.IN_MS20);
 
     RawOutgoingAudioStreamOptions outgoingAudioStreamOptions = new RawOutgoingAudioStreamOptions()
-                .setRawOutgoingAudioProperties(outgoingAudioProperties);
+                .setProperties(outgoingAudioProperties);
 ```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
@@ -46,7 +46,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
     RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioStreamOptions);
 
-    outgoingAudioOptions.setOutgoingAudioStream(rawOutgoingAudioStream);
+    outgoingAudioOptions.setStream(rawOutgoingAudioStream);
     options.setOutgoingAudioOptions(outgoingAudioOptions);
 
     // Start or Join call with those call options.
@@ -116,11 +116,11 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
 
 ```java
     RawIncomingAudioStreamOptions options = new RawIncomingAudioStreamOptions();
-    RawIncomingAudioProperties properties = new RawIncomingAudioProperties()
-                .setAudioFormat(AudioFormat.PCM16_BIT)
-                .setSampleRate(AudioSampleRate.HZ44100)
-                .setChannelMode(AudioChannelMode.STEREO);
-    options.setRawIncomingAudioProperties(properties);
+    RawIncomingAudioStreamProperties properties = new RawIncomingAudioStreamProperties()
+                .setAudioFormat(AudioStreamFormat.PCM16_BIT)
+                .setSampleRate(AudioStreamSampleRate.HZ44100)
+                .setChannelMode(AudioStreamChannelMode.STEREO);
+    options.setProperties(properties);
 ```
 
 Create a `RawIncomingAudioStream` and attach it to join call options
@@ -130,7 +130,7 @@ Create a `RawIncomingAudioStream` and attach it to join call options
     IncomingAudioOptions incomingAudioOptions = new IncomingAudioOptions();
 
     RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
-    incomingAudioOptions.setIncomingAudioStream(rawIncomingAudioStream);
+    incomingAudioOptions.setStream(rawIncomingAudioStream);
     options.setIncomingAudioOptions(incomingAudioOptions);
 ```
 
@@ -155,6 +155,13 @@ buffer received events.
 
     rawIncomingAudioStream.addOnStateChangedListener(this::onStateChanged);
     rawIncomingAudioStream.addMixedAudioBufferReceivedListener(this::onMixedAudioBufferReceived);
+```
+
+It is also important to remember to stop the audio stream in the current call `Call` instance:
+
+```java
+
+    CompletableFuture<Void> result = call.stopAudio(context, rawIncomingAudioStream);
 ```
 
 ## Raw Video Access
