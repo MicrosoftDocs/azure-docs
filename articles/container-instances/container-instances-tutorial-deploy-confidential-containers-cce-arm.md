@@ -6,11 +6,11 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 02/28/2023
+ms.date: 05/23/2023
 ms.custom: seodec18, mvc, devx-track-js, devx-track-arm-template
 ---
 
-# Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy (preview)
+# Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy
 
 Confidential containers on ACI is a SKU on the serverless platform that enables customers to run container applications in a hardware-based and attested trusted execution environment (TEE), which can protect data in use and provides in-memory encryption via Secure Nested Paging. 
 
@@ -104,7 +104,7 @@ You can see under **confidentialComputeProperties**, we have left a blank **cceP
     "resources": [
       {
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2022-10-01-preview",
+        "apiVersion": "2023-05-01",
         "name": "[parameters('name')]",
         "location": "[parameters('location')]",
         "properties": {
