@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 05/19/2023
 ms.author: danlep
 ---
 
@@ -18,7 +18,10 @@ API authentication and authorization in API Management involve securing the end-
 
 :::image type="content" source="media/authentication-authorization-overview/data-plane-security.svg" alt-text="Diagram showing points of interaction for securing APIs." border="false":::
 
-API Management supports other client-side and service-side authentication and authorization mechanisms that supplement OAuth 2.0 or that are useful when OAuth 2.0 authorization for APIs isn't possible.
+API Management supports other client-side and service-side authentication and authorization mechanisms that supplement OAuth 2.0 or that are useful when OAuth 2.0 authorization for APIs isn't possible. How you choose from among these options depends on the maturity of your organization's API environment, your security and compliance requirements, and your organization's approach to [mitigating common API threats](mitigate-owasp-api-threats.md). 
+
+> [!IMPORTANT]
+> Securing users' access to APIs is one of many considerations for securing your API Management environment. For more information, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2F&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json).
 
 > [!NOTE]
 > Other API Management components have separate mechanisms to secure and restrict user access:
@@ -38,7 +41,7 @@ Here's a brief explanation of authentication and authorization in the context of
 
 ## OAuth 2.0 concepts
 
-[OAuth 2.0](https://oauth.net/2) is a standard authorization framework that is widely used to secure access to resources such as web APIs. OAuth 2.0 restricts actions of what a client app can perform on resources on behalf of the user, without ever sharing the user's credentials. While OAuth 2.0 is not an authentication protocol, it's often used with OpenID Connect (OIDC), which extends OAuth 2.0 by providing user authentication and SSO functionality.
+[OAuth 2.0](https://oauth.net/2) is a standard authorization framework that is widely used to secure access to resources such as web APIs. OAuth 2.0 restricts actions of what a client app can perform on resources on behalf of the user, without ever sharing the user's credentials. While OAuth 2.0 isn't an authentication protocol, it's often used with OpenID Connect (OIDC), which extends OAuth 2.0 by providing user authentication and SSO functionality.
 
 ### OAuth flow
 
