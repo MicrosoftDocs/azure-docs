@@ -3,9 +3,9 @@ title: Connect to SAP
 description: Connect to an SAP server from a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: estfan, daviburg, azla
+author: daviburg
+ms.author: daviburg
+ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/23/2023
 tags: connectors
@@ -71,7 +71,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 ## Known issues and limitations
 
-For the SAP managed connector, the following known issues and limitations apply:
+### SAP managed connector
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system that you want to connect.
 
@@ -92,6 +92,10 @@ For the SAP managed connector, the following known issues and limitations apply:
   1. Create a session explicitly using the action named **\[BAPI - RFC] Create stateful session**.
   1. In the action named **\[BAPI] Call method in SAP**, disable the auto-commit feature.
   1. Call the action named **\[BAPI] Commit transaction** instead.
+
+### SAP built-in connector
+
+The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 ## Prerequisites
 
@@ -126,7 +130,7 @@ For the SAP managed connector, the following known issues and limitations apply:
     > When you use a Premium-level ISE, use the ISE-native SAP connector, not the SAP managed connector, 
     > which doesn't natively run in an ISE. For more information, review the [ISE prerequisites](#ise-prerequisites).
 
-* To use the **When a message is received from SAP** trigger, complete the following tasks:
+* To use the SAP managed connector trigger named **When a message is received from SAP**, complete the following tasks:
 
   * Set up your SAP gateway security permissions or Access Control List (ACL). In the **Gateway Monitor** (T-Code SMGW) dialog box, which shows the **secinfo** and **reginfo** files, open the **Goto** menu, and select **Expert Functions** > **External Security** > **Maintenance of ACL Files**.
 
@@ -159,7 +163,7 @@ For the SAP managed connector, the following known issues and limitations apply:
   > might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is 
   > still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
 
-* The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](/connectors/sap/#actions) that you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
+* The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](/connectors/sap/#actions) that you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](sap-create-example-scenario-workflows.md#send-flat-file-idocs).
 
 ### Network prerequisites
 
@@ -630,7 +634,8 @@ For a how-to guide to creating workflows for common SAP integration workloads, s
 ## Create workflows for advanced SAP scenarios
 
 * [Change language headers for sending data to SAP](sap-create-example-scenario-workflows.md#change-language-headers)
-* []
+* [Confirm transaction separately and explicitly](sap-create-example-scenario-workflows.md#confirm-transaction-explicitly)
+
 ## Find extended error logs
 
 For full error messages, check your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
@@ -1021,4 +1026,4 @@ The following screenshot shows the example query's traces results table:
 
 ## Next steps
 
-* [Create SAP common scenario workflows](sap-create-example-scenario-workflows.md)
+* [Create example workflows for common SAP scenarios](sap-create-example-scenario-workflows.md)

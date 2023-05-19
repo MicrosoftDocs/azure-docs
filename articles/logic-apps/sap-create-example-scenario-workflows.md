@@ -3,7 +3,9 @@ title: Create common SAP workflows
 description: Build workflows for common SAP scenarios in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, daviburg, azla
+author: daviburg
+ms.author: daviburg
+ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/23/2023
 ---

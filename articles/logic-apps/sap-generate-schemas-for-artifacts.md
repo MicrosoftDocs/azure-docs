@@ -6,7 +6,7 @@ ms.suite: integration
 author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/23/2023
 ---
 
@@ -399,4 +399,4 @@ The following example is an alternative method to set the transaction identifier
 
 ## Next steps
 
-* [Create SAP common scenario workflows](sap-create-example-scenario-workflows.md)
+* [Create example workflows for common SAP scenarios](sap-create-example-scenario-workflows.md)
