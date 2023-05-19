@@ -15,7 +15,7 @@ For Azure Operator Nexus instances, isolation domains enable communication betwe
 
 ## Prerequisites
 
-1. Ensure that you've created a network fabric controller (NFC) and a network fabric.
+1. Ensure that a network fabric controller (NFC) and a network fabric have been created.
 1. Install the latest version of the
 [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 1. Use the following command to sign in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID that you use across all Azure Operator Nexus resources.
@@ -257,7 +257,7 @@ The following parameters are available for configuring L3 isolation domains.
 |---|---|---|---|
 |`resource-group`	|Resource group name specifically for the isolation domain of your choice|`ResourceGroupName`|True|
 |`resource-name`	|Resource name of the L3 isolation domain|`example-l3domain`|True|
-|`location`|Azure Operator Distributed Services region used during NFC creation|`eastus`|True|
+|`location`|Azure Operator Nexus region used during NFC creation|`eastus`|True|
 |`nf-Id`	|Azure subscription ID used during NFC creation|`/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName`| True|
 
 The following parameters for isolation domains are optional.
@@ -465,7 +465,7 @@ Use the `show` or `list` command to validate that the isolation domain has been 
 
 ## Create internal networks
 
-After you successfully create an isolation domain, the next step is to create an internal network. Internal networks enable Layer 3 inter-rack and intra-rack communication between workloads by exchanging routes with the fabric. An L3 isolation domain can support multiple internal networks, each on a separate VLAN.
+After you successfully create an L3 isolation domain, the next step is to create an internal network. Internal networks enable Layer 3 inter-rack and intra-rack communication between workloads by exchanging routes with the fabric. An L3 isolation domain can support multiple internal networks, each on a separate VLAN.
 
 The following diagram represents an example network function with three internal networks: trusted, untrusted, and management. Each of the internal networks is created in its own L3 isolation domain.
 
@@ -484,7 +484,7 @@ The following parameters are available for creating internal networks.
 |`vlan-Id` |VLAN identifier with a range from 501 to 4095|`1001`|True|
 |`resource-group`|Corresponding NFC resource group name| `NFCresourcegroupname` | True
 |`l3-isolation-domain-name`|Resource name of the L3 isolation domain|`example-l3domain` | True
-|`location`|Azure Operator Distributed Services region used during NFC creation|`eastus` | True
+|`location`|Azure Operator Nexus region used during NFC creation|`eastus` | True
 
 The following parameters are optional for creating internal networks.
 
@@ -500,7 +500,6 @@ The following parameters are optional for creating internal networks.
 |`allowASOverride`	|Enables or disables `allowAS`.|`Enable`||
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range; maximum range allowed in /28.| `10.1.0.0/26` | |
 |`ipv6ListenRangePrefixes`| BGP IPv6 listen range; maximum range allowed in /127.| `3FFE:FFFF:0:CD30::/126`| |
-|`ipv4ListenRangePrefixes`| BGP IPv4 listen range; maximum range allowed in /28.| `10.1.0.0/26` | |
 |`ipv4NeighborAddress`| IPv4 neighbor address.|`10.0.0.11`| |
 |`ipv6NeighborAddress`| IPv6 neighbor address.|`10:101:1::11`| |
 
