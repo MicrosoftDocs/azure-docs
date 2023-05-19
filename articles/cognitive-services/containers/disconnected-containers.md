@@ -83,6 +83,10 @@ Access is limited to customers that meet the following requirements:
     * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
     
 
+## Container Image and Licence Updates
+
+[!INCLUDE [License update information](includes/cognitive-services-containers-license-update.md)]
+
 ## Usage records
 
 When operating Docker containers in a disconnected environment, the container will write usage records to a volume where they're collected over time. You can also call a REST endpoint to generate a report about service usage.
