@@ -19,11 +19,10 @@ Dev mode services allow you to use OSS services without the burden of manual dow
 
 Services available as dev mode services include:
 
-- Apache Kafka on Confluent Cloud
-- Azure Cache for Redis
-- Azure Database for PostgreSQL
+- Open-source Redis
+- Open-source PostgreSQL
 
-Once your container app is ready to [move to production](#development-vs-production), you can connect your container app to a managed service instead of a dev mode service.
+Once you're ready for your app to use a production level service, you can connect it to an Azure managed service instead using the same "bind" type of action.
 
 ## Features
 
@@ -56,9 +55,9 @@ The following table shows you which service to use in development, and which ser
 
 | Functionality | Dev mode service | Production managed service |
 |---|---|---|
-| Cache | Azure Cache for Redis | Azure Cache for Redis |
+| Cache | Open-source Redis | Azure Cache for Redis |
 | Database | N/A | Azure Cosmos DB |
-| Database | Azure DB for PostgreSQL | Azure DB for PostgreSQL Flexible Service |
+| Database | Open-source PostgreSQL | Azure DB for PostgreSQL Flexible Service |
 
 You're responsible for data continuity between development and production environments.
 
