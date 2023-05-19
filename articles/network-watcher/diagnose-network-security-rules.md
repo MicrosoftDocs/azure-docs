@@ -764,4 +764,4 @@ You can add the security rule to the network security group from the Network Wat
 
 ## Next steps
 - To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md).
-- To learn how to troubleshoot routing problems [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
+- To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
