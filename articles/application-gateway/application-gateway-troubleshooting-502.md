@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 05/19/2023
 ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
@@ -95,6 +95,8 @@ The following table lists the values associated with the default health probe:
 * Ensure the configured port is open and there are no firewall rules or Azure Network Security Groups blocking incoming or outgoing traffic on the port configured.
 * If Azure classic VMs or Cloud Service is used with an FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
+
+For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md).
 
 ## Problems with custom health probe
 
