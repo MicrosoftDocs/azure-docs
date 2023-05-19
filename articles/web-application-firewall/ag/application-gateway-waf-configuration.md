@@ -81,16 +81,18 @@ The below table shows some examples of how you might structure your exclusion fo
 
 | Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
 |-|-|-|-|-|-|
-| Query string | RequestArgKeys | Equals | etc/passwd | Uri: http://localhost:8080/?/etc/passwd=test | test |
-| Query string | RequestArgNames | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | text |
-| Request body | RequestArgKeys | Contains | zshrc | Request body: {"test": ".zshrc"} | test |
-| Request body | RequestArgValues | Equals | test | Request body: {"test": ".zshrc"} | test |
-| Header | RequestHeaderKeys | Equals | X-Scanner | Header: {k: "X-Scanner", v: "test"} | test |
-| Header | RequestHeaderNames | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | head1 |
-| Header | RequestHeaderValues | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | head1 |
-| Cookie | RequestCookieKeys | Equals | /etc/passwd | Header: {k: "Cookie", v: "/etc/passwdtest=hello1"} | hello1 |
-| Cookie | RequestHeaderNames | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | arg1 |
-| Cookie | RequestHeaderValues | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | arg1 |
+| Query string | RequestArgKeys | Equals | /etc/passwd | Uri: http://localhost:8080/?/etc/passwd=test | /etc/passwd |
+| Query string | RequestArgNames | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | /etc/passwd |
+| Query string | RequestArgValues | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | /etc/passwd |
+| Request body | RequestArgKeys | Contains | sleep | Request body: {"sleep(5)": "test"} | sleep(5) |
+| Request body | RequestArgNames | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
+| Request body | RequestArgValues | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
+| Header | RequestHeaderKeys | Equals | X-Scanner | Header: {k: "X-Scanner", v: "test"} | X-scanner |
+| Header | RequestHeaderNames | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | X-scanner |
+| Header | RequestHeaderValues | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | X-scanner |
+| Cookie | RequestCookieKeys | Contains | /etc/passwd | Header: {k: "Cookie", v: "/etc/passwdtest=hello1"} | /etc/passwdtest |
+| Cookie | RequestHeaderNames | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | /etc/passwd |
+| Cookie | RequestHeaderValues | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | /etc/passwd |
 
 ## Exclusion scopes
 
