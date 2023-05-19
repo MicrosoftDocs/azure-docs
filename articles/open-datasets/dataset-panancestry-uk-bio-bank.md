@@ -5,7 +5,6 @@ ms.service: open-datasets
 ms.topic: sample
 ms.custom: references_regions
 ms.date: 05/17/2023
-ms.custom: references_regions
 ---
 
 # Pan UK-Biobank: Pan-ancestry genetic analysis of the UK Biobank
@@ -38,7 +37,7 @@ The GWAS results data produced by the Pan-UKB are available free of restrictions
 
 ## Contact
 
-For questions on dataset contact [email](ukb.diverse.gwas@gmail.com)
+For questions on dataset contact us at ukb.diverse.gwas@gmail.com
 
 For details about the code to run this analysis, see the [Github](https://github.com/atgu/ukbb_pan_ancestry)
 
