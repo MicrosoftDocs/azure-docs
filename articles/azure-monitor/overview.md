@@ -42,26 +42,30 @@ Azure Monitor achieves observability by correlating data from multiple pillars a
 
 ## High level architecture
 
-The following diagram gives a high-level view of Azure Monitor. Click on the diagram to show an even more detailed expanded version.
+The following diagram gives a high-level view of Azure Monitor. 
 
 :::image type="content" source="media/overview/overview-04-27-2023-scom-mi-simplier-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-04-27-2023-scom-mi-expanded-opt.svg":::
 
+Click on the diagram to see a more detailed expanded version showing a larger breakdown of data sources and data collection methods.
+
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. 
-- The data is **collected and routed** to the data platform. Clicking on the diagram shows the larger expanded version showing the collection options, which are also called out in detail later in this article. 
-- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes. SCOM MI (preview) uses it's own database hosted in SQL Server Managed Instance.
-- The **consumption** section shows the components that use data from the data platform. This includes insights, visualizations, analysis tools, and tools to help you respond to monitoring data. The SCOM MI path uses the traditional Operations manager console that SCOM customers are already familiar with. 
+- The data is **collected and routed** to the data platform. Clicking on the diagram shows these options, which are also called out in detail later in this article. 
+- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's core data platform has stores for metrics, logs, traces, and changes. SCOM MI uses it's own database hosted in SQL Server Managed Instance.
+- The **consumption** section shows the components that use data from the data platform. Azure Monitor's core consumption methods include insights, visualizations, analysis tools. The visualization tools build on the analysis tools and the Insights build on top of the visuliziation tools. There are additional mechanisms to help you respond to incoming monitoring data. The SCOM MI path uses the traditional Operations Manager console that SCOM customers are already familiar with. 
 - Interoperability options are shown in the **integrate** section.  Not all services integrate at all level. SCOM MI only integrates with Power BI.  
+ 
+Azure Monitor is 
 
 ## Data sources
 
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. 
 
-:::image type="content" source="media/overview/data-sources.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type-2.svg":::
+:::image type="content" source="media/overview/data-sources-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type-2-opt.svg":::
 
 Click on the diagram above to see a larger version of the data sources diagram in context.
 
-You can integrate monitoring data from sources outside Azure, including on-premises and other non-Microsoft clouds, using the application, infrastructure, and custom data sources.
+You can integrate application, infrastructure, and custom data source monitoring data from outside Azure, including from on-premises, and non-Microsoft clouds.
 
 Azure Monitor collects these types of data:
 
@@ -74,33 +78,42 @@ Azure Monitor collects these types of data:
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
 
+SCOM MI (like on premises SCOM) collects only IaaS Workload and Operating System sources.
+
 ## Data collection and routing
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/data-collection-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-blowup-type-2.svg":::
+:::image type="content" source="media/overview/data-collection-box-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-blowup-type-2-opt.svg":::
 
 Click on the diagram to see a larger version of the data collection in context.
-
 
 |Collection method|Description  |
 |---------|---------|
 |[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. In addition, Application Insights is in process of implementing [Open Telemetry](./app/opentelemetry-overview.md). For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
-|Internal| Data is automatically sent to a destination without user configuration.  |
+|Zero Config| Data is automatically sent to a destination without user configuration.  |
 |[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
 |[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
 
 A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
 
+SCOM MI (like on-premises SCOM) uses an agent to collect data, which it sends to a management server running in a SCOM MI on Azure.
+
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
 ## Data platform
 
-Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
+Azure Monitor stores data in data stores for each of the three pillars of observability, plus an addition one:
+ - metrics 
+ - logs 
+ - distributed traces  
+ - changes 
 
-:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2.svg":::
+ Each store is optimized for specific types of data and monitoring scenarios.
+
+:::image type="content" source="media/overview/data-platform-box-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2-opt.svg":::
 
 Click on the picture above for a to see the Data Platform in the context of the whole of Azure Monitor. 
 
@@ -115,34 +128,16 @@ Distributed tracing is a technique used to trace requests as they travel through
 
 For less expensive, long-term archival of monitoring data for auditing or compliance purposes, you can export to [Azure Storage](/azure/storage/).
 
+SCOM MI is similar to SCOM on-premises. It stores it's information in an SQL Database, but uses SQL Managed Instance because it's in Azure.  
 
-## Data collection and routing
-
-Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
-
-:::image type="content" source="media/overview/data-collection.png" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-large-in-overview-context.png":::
-
-Click on the picture to see a larger version of the data collection diagram in context.
-
-
-|Collection method|Description  |
-|---------|---------|
-|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
-|[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
-|[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
-|Internal| Data is automatically sent to a destination without user configuration.  |
-|[Diagnostic settings](essentials/diagnostic-settings.md)|Use diagnostic settings to determine where to send resource log and activity log data on the data platform.|
-|[Azure Monitor REST API](logs/logs-ingestion-api-overview.md)|The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace in Azure Monitor Logs. You can also send metrics into the Azure Monitor Metrics store using the custom metrics API.|
-
-A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
-
-For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
 
 ## Consumption
 
 The following sections outline methods and services that consume monitoring data from the Azure Monitor data platform.
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
+
+The top part of the consumption section applies to Azure Monitor core only. SCOM MI uses the traditional Ops Console running in the cloud. It can also can send monitoring data to Power BI for visualization.
 
 ### The Azure portal
 
@@ -152,9 +147,9 @@ The Azure portal is a web-based, unified console that provides an alternative to
 
 ### Insights
 
-Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration. Insights are large, scalable, curated visualizations. 
+Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration. Insights are large, scalable, curated visualizations.
 
-:::image type="content" source="media/overview/insights-box.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-blowup-type-2.svg":::
+:::image type="content" source="media/overview/insights-box-opt.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-blowup-type-2.svg":::
 
 The following table describes some of the larger insights:
 
