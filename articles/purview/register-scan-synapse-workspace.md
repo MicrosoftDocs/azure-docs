@@ -172,6 +172,15 @@ You can set up authentication for an Azure Synapse source any of the following o
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+1. Run the following command in SQL script to verify the addition of role.
+    ```sql
+    SELECT p.name AS UserName, r.name AS RoleName
+    FROM sys.database_principals p
+    LEFT JOIN sys.database_role_members rm ON p.principal_id = rm.member_principal_id
+    LEFT JOIN sys.database_principals r ON rm.role_principal_id = r.principal_id
+    WHERE p.authentication_type_desc = 'EXTERNAL'
+    ORDER BY p.name;
+    ```
 1. Follow the same steps for **each database you want to scan.**
 
 #### Use a managed identity for serverless SQL databases
@@ -184,16 +193,39 @@ You can set up authentication for an Azure Synapse source any of the following o
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
-
+1. Run the following command in SQL script to verify the addition of role.
+    ```sql
+    SELECT p.name AS UserName, r.name AS RoleName
+    FROM sys.database_principals p
+    LEFT JOIN sys.database_role_members rm ON p.principal_id = rm.member_principal_id
+    LEFT JOIN sys.database_principals r ON rm.role_principal_id = r.principal_id
+    WHERE p.authentication_type_desc = 'EXTERNAL'
+    ORDER BY p.name;
+    ```
 1. Follow the same steps for **each database you want to scan.**
 
 #### Grant permission to use credentials for external tables
 
 If the Azure Synapse workspace has any external tables, the Microsoft Purview managed identity must be given References permission on the external table scoped credentials. With the References permission, Microsoft Purview can read data from external tables.
 
-```sql
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
-```
+1. Run the following command in SQL script to get the list of database scoped credentials.
+    ```sql
+    Select name, credential_identity
+    from sys.database_scoped_credentials;
+    ```
+1. To grant the access to database scoped credential, please run the command below by replacing the ***scoped_credential*** with the name of actual database scoped credential.
+    ```sql
+    GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+    ```
+
+1. To verify the grant permission assignment, run the following command in SQL script.
+    ```sql
+    SELECT dp.permission_name, dp.grantee_principal_id, p.name AS grantee_principal_name
+    FROM sys.database_permissions AS dp
+    JOIN sys.database_principals AS p ON dp.grantee_principal_id = p.principal_id
+    JOIN sys.database_scoped_credentials AS c ON dp.major_id = c.credential_id;
+    ```
+
 # [Service principal](#tab/SP)
 
 #### Use a service principal for dedicated SQL databases
