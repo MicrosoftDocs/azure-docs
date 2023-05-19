@@ -1,17 +1,17 @@
 ---
-title: Azure API Center (Preview) - Key concepts
+title: Azure API Center (preview) - Key concepts
 description: Key concepts of Azure API Center. API Center enables tracking APIs in a centralized location for discovery, reuse, and governance.
 author: dlepow
 editor: ''
  
 ms.service: api-center
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 05/19/2023
 ms.author: danlep
 ms.custom: 
 ---
 
-# Azure API Center (Preview) - key concepts
+# Azure API Center (preview) - key concepts
 
 This article goes into more detail about key concepts of [Azure API Center](overview.md). API Center enables tracking APIs in a centralized location for discovery, reuse, and governance.
 
@@ -31,24 +31,25 @@ Each API version may be defined with a specification file, such as an OpenAPI de
 
 ## Environment
 
-Use API Center to maintain information about your APIs' environments. An environment represents a location where an API runtime could be deployed, typically an API management platform, API gateway, or compute service. Each environment has a type (such as production or staging) and may include links to developer portal or management interfaces.
+Use API Center to maintain information about your APIs' environments. An environment represents a location where an API runtime could be deployed, typically an API management platform, API gateway, or compute service. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
 
 ## Deployment
 
 In API Center, a deployment identifies a specific environment used for the runtime of an API version. For example, an API version could have two deployments: a deployment in a staging Azure API Management service and a deployment in a production Azure API Management service.
 
-## Metadata schema
+## Metadata and metadata schema
 
-In each API Center, you can create a metadata schema to describe metadata properties available to apply to your APIs and other assets. Metadata properties can be used for searching and filtering and to enforce governance standards. The custom properties you define in the metadata schema augment several common built-in properties such as "API type". API Center supports properties of type array, boolean, number, object, predefined choices, and string. Apply metadata properties when creating or updating assets in API Center.
+In API Center, you organize your APIs and other assets by setting values of metadata properties, which can be used for searching and filtering and to enforce governance standards. API Center provides several common built-in properties such as "API type" and "Lifecycle". An API Center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their API assets according to their organization's requirements. For example, create a *Line of business* property to identify the business unit that owns an API. 
 
-API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
+* API Center supports properties of type array, boolean, number, object, predefined choices, and string. 
+
+* API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
 
 ## Workspace
 
 To enable multiple teams to work independently in a single deployment, API Center provides workspaces. Similar to API Management [workspaces](../api-management/workspaces-overview.md), workspaces in API Center allow separate teams to access and manage a part of the API inventory. Access is controlled through Azure role-based access control (RBAC).
 
 ## Next steps
-<!-- Link to quickstart when available -->
 
-Learn more about [API Center](overview.md)
+* [Set up your API center](set-up-api-center.md)
 
