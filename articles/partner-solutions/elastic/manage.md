@@ -1,9 +1,9 @@
 ---
-title: Manage an Elastic integration with Azure
-description: This article describes management of Elastic on the Azure portal. How to configure diagnostic settings and delete the resource.
+title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
+description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
 
-ms.date: 05/18/2023
+ms.date: 05/19/2023
 author: flang-msft
 ms.author: franlanglois
 
@@ -31,11 +31,11 @@ You can filter the list by resource type, resource group name, location, and whe
 
 The **Logs to Elastic** column indicates whether the resource is sending Logs to Elastic. If the resource isn't sending logs, this field specifies why logs aren't being sent. The reasons could be:
 
-* Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
-* Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
-* An error is blocking the logs from being sent to Elastic.
-* Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration.
-* Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.
+- Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- An error is blocking the logs from being sent to Elastic.
+- Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration.
+- Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.
 
 ## Monitor virtual machines using Elastic agent
 
@@ -45,12 +45,12 @@ You can install Elastic agents on virtual machines as an extension. To see the a
 
 For each virtual machine, the following data is displayed:
 
-* Resource Name – Virtual machine name.
-* Resource Status – Whether the virtual machine is stopped or running. The Elastic agent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Elastic agent is disabled.
-* Agent version – The Elastic agent version number.
-* Agent status – Whether the Elastic agent is running on the virtual machine.
-* Integrations enabled – The key metrics that are being collected by the Elastic agent.
-* Sending logs – Whether the Elastic agent is sending logs to Elastic.
+- Resource Name – Virtual machine name.
+- Resource Status – Whether the virtual machine is stopped or running. The Elastic agent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Elastic agent is disabled.
+- Agent version – The Elastic agent version number.
+- Agent status – Whether the Elastic agent is running on the virtual machine.
+- Integrations enabled – The key metrics that are being collected by the Elastic agent.
+- Sending logs – Whether the Elastic agent is sending logs to Elastic.
 
 To install the Elastic agent, select a virtual machine and select **Install Extension**.
 
@@ -76,9 +76,32 @@ You can limit network access to a [private link](../../private-link/private-link
 
 :::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
 
+## Traffic Filters
+
+To manage how Elastic deployments can be accessed, you can set Traffic filters for Azure Private Links.
+
+<!-- Screenshot -->
+
+There are two types of filters available:
+
+- IP traffic filter
+- Private Link traffic filter
+
+Select **Add** to set up and this automatically associates a new traffic filter to Elastic deployment.
+
+To associate an already existing traffic filter to the current deployment, you select **Link**. The traffic filter must be in the same region as the deployment.
+
+If a traffic filter is no longer needed, unlink it from deployment and then delete it.
+
 ## Delete Elastic resource
 
 When you no longer need your Elastic resource, delete the resource in the Azure portal.
+
+> [!IMPORTANT]
+> Deleting an Elastic resource stops billing only for the corresponding Elastic deployment.
+
+> [!IMPORTANT]
+> A single Azure marketplace SaaS unifies billing for multiple Elastic deployments. If you are looking to completely stop billing for the marketplace SaaS, you need to delete all linked Elastic deployments (created from Azure or Elastic portal). Deleting the Azure subscription or resource group corresponding to marketplace SaaS does not guarantee billing stop, as this does not clean up corresponding Elastic deployments.
 
 To delete the resource in Azure, select your Elastic resource. In **Overview**, select **Delete**. Confirm that you want to delete Elastic resource.
 
@@ -88,4 +111,4 @@ When the Elastic resource is deleted, logs are no longer sent to Elastic. All bi
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Elastic integration with Azure](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Elastic integration with Azure](troubleshoot.md).

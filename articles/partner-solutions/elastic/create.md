@@ -15,7 +15,7 @@ In this quickstart, you'll use the Azure portal to integrate an instance of Elas
 ## Prerequisites
 
 - Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ or _Contributor_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users. 
+- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
 
 ## Find offer
 
@@ -27,7 +27,7 @@ Use the Azure portal to find the Elastic application.
 
     :::image type="content" source="media/create/marketplace.png" alt-text="Marketplace icon.":::
 
-1.  Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings
+1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
 
 1. Select **Set up + subscribe**.
 
@@ -65,14 +65,14 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
    To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
 
-   * By default, logs are collected for all resources. 
-   * Resources with *Include* tags send logs to Elastic. 
-   * Resources with *Exclude* tags don't send logs to Elastic. 
-   * If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
- 
+   - By default, logs are collected for all resources.
+   - Resources with _Include_ tags send logs to Elastic.
+   - Resources with _Exclude_ tags don't send logs to Elastic.
+   - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+
    Select **Next: Tags** to set up tags for the new Elastic resource.
 
-1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation. 
+1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.
 
    :::image type="content" source="media/create/add-tags.png" alt-text="Add tags to Elastic resource":::
 
@@ -90,8 +90,6 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
     :::image type="content" source="media/create/deployment-complete.png" alt-text="View status of deployment":::
 
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage the Elastic resource](manage.md)
+- [Manage the Elastic resource](manage.md)
