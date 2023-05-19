@@ -53,7 +53,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe typing option](#safe-typing). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
@@ -402,7 +402,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
    | **SAP Username** | Yes | The username for your SAP server |
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
-   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe typing option](#safe-typing). |
+   | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
@@ -461,9 +461,9 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in action named **\[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **\[BAPI] Call method in SAP** and **\[RFC] Call function in SAP**.
+   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -481,7 +481,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
    ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-standard.png)
 
-1. In the **\[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
+1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
 
    1. For the **IDoc Format** parameter, select **SapPlainXML**.
 
@@ -494,7 +494,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
       ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-select-body-standard.png)
 
-      The **\[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
+      The **[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
       ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-complete-standard.png)
 
@@ -663,7 +663,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list appears.
 
-1. From the dynamic content list, under **\[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
+1. From the dynamic content list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
 
    ![Screenshot showing selecting the SAP action output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-standard.png)
 
@@ -761,7 +761,7 @@ You've now created a workflow that can communicate with your SAP server. Now tha
 
 ## Safe typing
 
-By default, when you create your SAP connection, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and the trigger.
+By default, when you create a connection for the SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and the trigger.
 
 When strong typing is used (**Safe Typing** isn't enabled), the schema maps the DATS and TIMS types to more straightforward XML types:
 

@@ -69,7 +69,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. If prompted, provide the [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
-   For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
+   By default, when you create a connection for an SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](sap-create-example-scenario-workflows.md#safe-typing). For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
    After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
@@ -93,30 +93,24 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
       If you can't find the action you want, you can manually enter a path, for example:
 
-      ![Screenshot shows manually entering a path to an SAP action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
-manual-enter-SAP-action-schema-generator.png
+      ![Screenshot shows manually entering a path to an SAP action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-generate-schemas-manual-consumption.png)
 
       > [!TIP]
       >
-      > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
+      > For the **Body ActionUri** parameter, you can use the expression editor to provide the parameter value. 
       > That way, you can use the same SAP action for different message types.
 
-      For more information about IDoc messages, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
-   Or, you can manually enter the action:
+      For more information about this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-   ![Screenshot that shows manually entering an SAP action.](./media/logic-apps-using-sap-connector/)
+   1. To generate schemas for more than one artifact, in the **Body ActionUri** section, select **Add new item**.
 
-   To generate schemas for more than one artifact, provide the SAP action details for each artifact, for example:
+      ![Screenshot shows selecting the option to add a new item.](./media/logic-apps-using-sap-connector/sap-generate-schemas-add-item-consumption.png)
 
-   ![Screenshot that shows selecting "Add new item".](./media/logic-apps-using-sap-connector/schema-generator-array-pick.png)
+   1. For each artifact, provide the SAP action that you want to use for schema generation, for example:
 
-   ![Screenshot that shows two items.](./media/logic-apps-using-sap-connector/schema-generator-example.png)
-
-   For more information about the SAP action, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      ![Screenshot shows multiple SAP actions to use for generating multiple schemas.](./media/logic-apps-using-sap-connector/sap-generate-schemas-multiples-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
-
-By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
 ### [Single-tenant](#tab/single-tenant)
 
@@ -130,7 +124,82 @@ By default, strong typing is used to check for invalid values by performing XML 
 
    The outputs show the generated schemas for the specified list of messages.
 
-### Upload schemas to an integration account
+
+<a name="test-workflow"></a>
+
+### Test your workflow
+
+### [Multi-tenant](#tab/multi-tenant)
+
+1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
+
+1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
+
+1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to include your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+
+   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/2/ORDERS05//720/Send">
+     <idocData>
+       <...>
+     </idocData>
+   </Send>
+   ```
+
+1. After you send your HTTP request, wait for the response from your workflow.
+
+   > [!NOTE]
+   >
+   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](logic-apps-limits-and-config.md). 
+   > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic app workflows](monitor-logic-apps.md).
+
+1. On your logic app's **Overview** pane, under **Runs history**, find and open the workflow run.
+
+1. Find the **Generate schemas** action and review the acton's outputs.
+
+   The outputs show the generated schemas for the specified messages.
+
+For more information about reviewing workflow run history, see [Monitor logic app workflows](monitor-logic-apps.md?tabs=consumption).
+
+### [Single-tenant](#tab/single-tenant)
+
+1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
+
+1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
+
+1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+
+   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/2/ORDERS05//720/Send">
+     <idocData>
+       <...>
+     </idocData>
+   </Send>
+   ```
+
+1. After you send the HTTP request, wait for the response from your workflow.
+
+   > [!NOTE]
+   >
+   > Your workflow might time out if all the steps required for the response don't finish within the [request timeout limit](logic-apps-limits-and-config.md). 
+   > If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](monitor-logic-apps.md).
+
+1. On your workflow's **Overview** pane, under **Run History**, find and open the workflow run.
+
+1. Find the **Generate schemas** action and review the acton's outputs.
+
+   The outputs show the generated schemas for the specified messages.
+
+For more information about reviewing workflow run history, see [Monitor logic app workflows](monitor-logic-apps.md?tabs=standard).
+
+---
+
+## Upload schemas to an integration account
 
 Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app workflow by using the Azure Resource Manager connector.
 
