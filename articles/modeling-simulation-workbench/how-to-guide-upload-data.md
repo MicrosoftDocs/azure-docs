@@ -54,4 +54,4 @@ Open your web browser, and go to the [Azure portal](https://portal.azure.com/). 
 
 ## Next steps
 
-To learn how to export data from an Azure Modeling and Simulation Workbench chamber, check [How to Export Data](./howtoguide-download-data.md)
+To learn how to export data from an Azure Modeling and Simulation Workbench chamber, check [How to Export Data](./how-to-guide-download-data.md)

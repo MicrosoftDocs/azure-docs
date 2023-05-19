@@ -319,4 +319,4 @@ Or instead, to delete the newly created Modeling and Simulation Workbench resour
 In this quickstart, you deployed a Modeling and Simulation Workbench, and allowed use of your Modeling and Simulation Workbench chamber. To learn how to install an application in Modeling and Simulation Workbench chamber, continue to the next quickstart.
 
    > [!div class="nextstepaction"]
-   > [How to Activate your licenses in a Modeling and Simulation Workbench chamber](./howtoguide-licenses.md)
+   > [How to Activate your licenses in a Modeling and Simulation Workbench chamber](./how-to-guide-licenses.md)

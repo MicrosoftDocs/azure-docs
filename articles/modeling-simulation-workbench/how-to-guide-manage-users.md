@@ -86,4 +86,4 @@ When you need to remove user access to your chamber, you need to remove the **Ch
 
 ## Next steps
 
-To learn how to set up networking for an Azure Modeling and Simulation Workbench chamber, check [How to Setup Networking](./howtoguide-setup-networking.md)
+To learn how to set up networking for an Azure Modeling and Simulation Workbench chamber, check [How to Setup Networking](./how-to-guide-setup-networking.md)

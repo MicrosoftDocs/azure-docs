@@ -52,21 +52,21 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage users
-            url: ./howtoguide-manage-users.md
+            url: ./how-to-guide-manage-users.md
           - text: Setup networking
-            url: ./howtoguide-setup-networking.md
+            url: ./how-to-guide-setup-networking.md
           - text: Manage license service
-            url: ./howtoguide-licenses.md
+            url: ./how-to-guide-licenses.md
           - text: Import data
-            url: ./howtoguide-upload-data.md
+            url: ./how-to-guide-upload-data.md
           - text: Export data
-            url: ./howtoguide-download-data.md
+            url: ./how-to-guide-download-data.md
           - text: Manage chamber storage
-            url: ./howtoguide-manage-storage.md
+            url: ./how-to-guide-manage-storage.md
 #          - name: Disaster Recovery
-#            href: ./howtoguide-disaster-recovery.md
+#            href: ./how-to-guide-disaster-recovery.md
           - text: Troubleshooting
-            url: ./howtoguide-troubleshooting.md
+            url: ./how-to-guide-troubleshooting.md
   # Card: Reference
 #  - title: Reference
 #    linkLists:

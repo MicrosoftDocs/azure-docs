@@ -106,4 +106,4 @@ Perform the following steps to export an approved file request from a chamber. N
 
 ## Next steps
 
-To learn how to manage your chamber storage, [How to Manage Chamber Storage](./howtoguide-manage-storage.md)
+To learn how to manage your chamber storage, [How to Manage Chamber Storage](./how-to-guide-manage-storage.md)

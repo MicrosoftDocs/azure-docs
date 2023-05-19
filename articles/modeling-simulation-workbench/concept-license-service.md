@@ -28,7 +28,7 @@ This flow is extendible and can include other software vendors as well across in
 
 ## Next steps
 
-- [What's Next - How to manage chamber users](./howtoguide-manage-users.md)
+- [What's Next - How to manage chamber users](./how-to-guide-manage-users.md)
 
 Choose an article to know more:
 

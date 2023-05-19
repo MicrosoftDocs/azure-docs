@@ -40,21 +40,21 @@ items:
     - name: Manage chamber
       items: 
         - name: Manage users
-          href: ./howtoguide-manage-users.md
+          href: ./how-to-guide-manage-users.md
         - name: Setup networking
-          href: ./howtoguide-setup-networking.md
+          href: ./how-to-guide-setup-networking.md
         - name: Manage license services
-          href: ./howtoguide-licenses.md
+          href: ./how-to-guide-licenses.md
         - name: Import data
-          href: ./howtoguide-upload-data.md
+          href: ./how-to-guide-upload-data.md
         - name: Export data
-          href: ./howtoguide-download-data.md
+          href: ./how-to-guide-download-data.md
         - name: Manage chamber storage
-          href: ./howtoguide-manage-storage.md          
+          href: ./how-to-guide-manage-storage.md          
 #        - name: Disaster Recovery
-#          href: ./howtoguide-disaster-recovery.md
+#          href: ./how-to-guide-disaster-recovery.md
         - name: Troubleshooting
-          href: ./howtoguide-troubleshooting.md
+          href: ./how-to-guide-troubleshooting.md
 #- name: Reference
 #  items: 
 #    - name: Azure CLI

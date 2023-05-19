@@ -1,6 +1,6 @@
 ---
 title: How to Troubleshoot Modeling and Simulation Workbench issues
-description: In this How-to guide, learn how to troubleshoot some issues with a Modeling and Simulation Workbench deployment.
+description: In this how-to guide, learn how to troubleshoot some issues with a Modeling and Simulation Workbench deployment.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -112,7 +112,7 @@ If you receive an error that all licenses are in use for the remote desktop tool
 
 1. If licenses are unexpired, restart license server from the Azure portal. Check if license file can be checked out. <!---TODO screenshot from within chamber showing how command or output of how to check out license file. Or sample code/command line call to check out license --->
 
-1. If not, reupload the original license file from the license provider. Make sure no edits were made to the file provided by the license provider prior to uploading. See [how to upload license](./howtoguide-licenses.md)
+1. If not, reupload the original license file from the license provider. Make sure no edits were made to the file provided by the license provider prior to uploading. See [how to upload license](./how-to-guide-licenses.md)
 
 1. Run 'lmstat' command to check the status of the license server, if it's running try to check out your license file. <!---TODO screenshot of lmstat output without any proprietary information--->
 
@@ -126,19 +126,19 @@ If you receive an error that all licenses are in use for the remote desktop tool
     1. If you're connecting in through an allow listed IP address, validate your current Public IP is listed.
     1. If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.
 1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User. <!--- TODO screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set --->
-1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [how to upload data](./howtoguide-upload-data.md)
+1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [how to upload data](./how-to-guide-upload-data.md)
 1. Check your version of azcopy, while we recommend 'latest', there are known issues with v10.18.0 so that version doesn't work.
 1. If the issue persists, contact your Microsoft account representative.
 
 ### Unable to request data download request
 
 1. You must be a Chamber Admin to request a file download.
-1. Once file download request is made, check for the file request in the chamber 'requested files' area in Azure portal. See [request download](./howtoguide-download-data.md).
+1. Once file download request is made, check for the file request in the chamber 'requested files' area in Azure portal. See [request download](./how-to-guide-download-data.md).
 
 ### Unable to approve data download request
 
 1. You must be a Workbench Owner to approve a data download request. A Workbench Owner has Subscription Owner or Subscription Contributor role assigned to them.
-1. You can't be the same user who requested the download. See [approve download](./howtoguide-download-data.md).
+1. You can't be the same user who requested the download. See [approve download](./how-to-guide-download-data.md).
 
 ### Data export from chamber not working
 
@@ -148,7 +148,7 @@ If you're unable to export data from chamber using the SAS URI.
     1. If you're connecting in through an allow listed IP address, validate your current Public IP is listed.
     1. If you're connecting in through VPN/Express Route, ensure that you're connecting in from a device in that network.
 1. Ensure that you're provisioned into the workbench's chamber as an authorized user; Workbench Owner, Chamber Admin, or Chamber User. <!--- TODO screenshot showing instance/chamber/IAM role and Chamber Admin/Chamber Users roles set --->
-1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [download file from chamber](./howtoguide-download-data.md).
+1. Ensure your SAS URI isn't expired, expiration date is in the SAS URI. If it's expired, generate a new one and try again. See [download file from chamber](./how-to-guide-download-data.md).
 1. If the issue persists, contact your Microsoft account representative.
 
 ## Quota/capacity troubleshooting

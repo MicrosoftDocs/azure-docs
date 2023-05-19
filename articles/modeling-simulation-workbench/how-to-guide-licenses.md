@@ -45,4 +45,4 @@ ms.date: 01/01/2023
 
 ## Next steps
 
-To learn how to import data into an Azure Modeling and Simulation Workbench chamber, check [How to Import Data](./howtoguide-upload-data.md)
+To learn how to import data into an Azure Modeling and Simulation Workbench chamber, check [How to Import Data](./how-to-guide-upload-data.md)
