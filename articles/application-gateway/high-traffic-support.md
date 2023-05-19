@@ -38,7 +38,7 @@ The v2 SKU offers autoscaling to ensure that your Application Gateway can scale 
  
 For Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed. This allows it to handle the possible increase in traffic to your applications. You are only be charged for the Capacity Units (CUs) you use. 
 
-Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you must to re-create your gateway in the same or different subnet which has enough capacity. 
+Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you must recreate your gateway in the same or different subnet which has enough capacity. 
 
 :::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 autoscaling configuration" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
 
