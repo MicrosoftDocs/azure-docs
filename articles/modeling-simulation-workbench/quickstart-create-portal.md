@@ -129,7 +129,7 @@ Take note of the properties in the next steps:
    - Leave the other options to their defaults.
 1. After providing the information as instructed, select **Create**.
 
-   :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes.":::
+   :::image type="content" source="/azure/key-vault/media/quick-create-portal/vault-properties.png" alt-text="Screenshot of the Key Vault after creation completes.":::
 
 #### Key Vault role assignment
 

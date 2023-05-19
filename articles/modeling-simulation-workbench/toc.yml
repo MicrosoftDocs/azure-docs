@@ -42,7 +42,7 @@ items:
         - name: Manage users
           href: ./how-to-guide-manage-users.md
         - name: Setup networking
-          href: ./how-to-guide-setup-networking.md
+          href: ./how-to-guide-set-up-networking.md
         - name: Manage license services
           href: ./how-to-guide-licenses.md
         - name: Import data

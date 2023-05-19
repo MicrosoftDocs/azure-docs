@@ -1,6 +1,6 @@
 ---
 title: How to manage users for a Modeling and Simulation Workbench chamber
-description: In this how-to guide, you learn how to manage user's access to our Modeling and Simulation Workbench chamber.
+description: In this how-to guide, you learn how to manage users' access to our Modeling and Simulation Workbench chamber.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -86,4 +86,4 @@ When you need to remove user access to your chamber, you need to remove the **Ch
 
 ## Next steps
 
-To learn how to set up networking for an Azure Modeling and Simulation Workbench chamber, check [How to Setup Networking](./how-to-guide-setup-networking.md)
+To learn how to set up networking for an Azure Modeling and Simulation Workbench chamber, check [How to Setup Networking](./how-to-guide-set-up-networking.md)

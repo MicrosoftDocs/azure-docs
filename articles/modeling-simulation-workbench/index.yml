@@ -54,7 +54,7 @@ landingContent:
           - text: Manage users
             url: ./how-to-guide-manage-users.md
           - text: Setup networking
-            url: ./how-to-guide-setup-networking.md
+            url: ./how-to-guide-set-up-networking.md
           - text: Manage license service
             url: ./how-to-guide-licenses.md
           - text: Import data
