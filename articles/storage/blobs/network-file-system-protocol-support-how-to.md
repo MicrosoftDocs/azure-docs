@@ -74,13 +74,15 @@ The following image shows the squash options as they appear in the Azure portal.
 
 ## Step 5: Install the AZNFS Mount Helper package
 
-The ASNFS Mount Helper package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which detects any change to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. To learn more, see [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
+The ASNFS Mount Helper package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which monitors changes to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. To learn more, see [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
 
 1. Determine whether the AZNFS Mount Helper package is installed on your client.
 
    ```
    systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
    ```
+
+   If the package is installed, then the message `AZNFS mounthelper is installed!` appears.
 
 2. If the package is not yet installed, then use the following command to install it. 
 
@@ -94,11 +96,10 @@ The ASNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
-   > - SUSE (SLES 15)After this command runs, a message appears that indicates whether the package is installed.
 
 ## Step 6: Mount the container
 
-Create a directory on your Linux system, install the AZNFS Mount Helper package, and then mount the container in the storage account.
+Create a directory on your Linux system and then mount the container in the storage account.
 
 1. On your Linux system, create a directory:
 
