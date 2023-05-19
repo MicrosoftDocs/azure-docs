@@ -249,7 +249,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
 
     Registration of the Azure AD Password Protection proxy service is necessary only once in the lifetime of the service. After that, the Azure AD Password Protection proxy service will automatically perform any other necessary maintenance.
 
-1. To make sure that the changes have taken effect, run `Test-AzureADPasswordProtectionDCAgentHealth -TestAll`. For help resolving errors, see [Troubleshoot: On-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md).
+1. To make sure that the changes have taken effect, run `Test-AzureADPasswordProtectionProxyHealth -TestAll`. For help resolving errors, see [Troubleshoot: On-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md).
 
 1. Now register the on-premises Active Directory forest with the necessary credentials to communicate with Azure by using the `Register-AzureADPasswordProtectionForest` PowerShell cmdlet.
 
@@ -304,7 +304,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
     
     For `Register-AzureADPasswordProtectionForest` to succeed, at least one DC running Windows Server 2012 or later must be available in the Azure AD Password Protection proxy server's domain. The Azure AD Password Protection DC agent software doesn't have to be installed on any domain controllers prior to this step.
 
-1. To make sure that the changes have taken effect, run `Test-AzureADPasswordProtectionDCAgentHealth -TestAll`. For help resolving errors, see [Troubleshoot: On-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md).
+1. To make sure that the changes have taken effect, run `Test-AzureADPasswordProtectionProxyHealth -TestAll`. For help resolving errors, see [Troubleshoot: On-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md).
 
 ### Configure the proxy service to communicate through an HTTP proxy
 

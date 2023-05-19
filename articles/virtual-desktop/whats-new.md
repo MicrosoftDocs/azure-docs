@@ -36,7 +36,7 @@ Here's what changed in March 2023:
 
 ### Redesigned connection bar for the Windows Desktop client
 
-The latest version of the Windows Desktop client includes a redesigned connection bar. For more information, see [Updates for version 1.2.4155](whats-new-client-windows.md#updates-for-version-124157). 
+The latest version of the Windows Desktop client includes a redesigned connection bar. For more information, see [Updates for version 1.2.4159](whats-new-client-windows.md#updates-for-version-124159). 
 
 ### Shutdown session host status
 

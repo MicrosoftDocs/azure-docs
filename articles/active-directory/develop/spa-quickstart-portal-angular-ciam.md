@@ -20,9 +20,9 @@ ms.date: 05/05/2023
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > 1. Make sure you've installed [Node.js](https://nodejs.org/en/download/).
 >
-> 1. Unzip the sample, `cd` into the folder that contains `package.json`, then run the following commands:
+> 1. Unzip the sample app, `cd` into the folder that contains `package.json`, then run the following commands:
 >     ```console
 >     npm install && npm start
 >     ```
-> 1. Open your browser, visit `http://locahost:4200`, select **Sign-in**, then follow the prompts.
+> 1. Open your browser, visit `http://localhost:4200`, select **Sign-in**, then follow the prompts.
 >

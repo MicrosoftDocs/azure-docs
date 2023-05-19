@@ -69,7 +69,7 @@ For apps that run on servers (such as web services and service/daemon apps), if 
 [Azure Active Directory (Azure AD) authentication]: ../active-directory/fundamentals/active-directory-whatis.md
 [Shared Access Signature (SAS) Token authentication]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [role-based access control (RBAC)]: azure-maps-authentication.md#authorization-with-role-based-access-control
-[Configurable token lifetimes in the Microsoft identity platform (preview)]: ../active-directory/develop/active-directory-configurable-token-lifetimes.md
+[Configurable token lifetimes in the Microsoft identity platform (preview)]: ../active-directory/develop/configurable-token-lifetimes.md
 [Create SAS tokens]: azure-maps-authentication.md#create-sas-tokens
 [Public client and confidential client applications]: ../active-directory/develop/msal-client-applications.md
 [Cross origin resource sharing (CORS)]: azure-maps-authentication.md#cross-origin-resource-sharing-cors

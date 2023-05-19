@@ -1,8 +1,8 @@
 ---
 title: Support and prerequisites for data-aware security posture - Microsoft Defender for Cloud
 description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
@@ -30,7 +30,7 @@ The table summarizes support for data-aware posture management.
 --- | ---
 What Azure data resources can I discover? | [Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage accounts encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: [Public network access is disabled](../storage/common/storage-network-security.md#change-the-default-network-access-rule); Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).
 What AWS data resources can I discover? | AWS S3 buckets<br/><br/> Defender for Cloud can discover KMS-encrypted data, but not data encrypted with a customer-managed key.
-What permissions do I need for discovery? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
+What permissions do I need for discovery? | Storage account: Subscription Owner<br/> **or**<br/> Microsoft.Authorization/roleAssignments/* (read, write, delete) **and** Microsoft.Security/pricings/* (read, write, delete) **and** Microsoft.Security/pricings/SecurityOperators (read, write)<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .csv, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
 What Azure regions are supported? | You can discover Azure storage accounts in:<br/><br/> Australia Central; Australia Central 2; Australia East; Australia Southeast; Brazil South; Canada Central; Canada East; Central India; Central US; East Asia; East US; East US 2; France Central; Germany West Central; Japan East; Japan West: Jio India West: North Central US; North Europe; Norway East; South Africa North: South Central US; South India; Sweden Central; Switzerland North; UAE North; UK South; UK West: West Central US; West Europe; West US, West US3.<br/><br/> Discovery is done locally in the region.
 What AWS regions are supported? | Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/> Discovery is done locally in the region.

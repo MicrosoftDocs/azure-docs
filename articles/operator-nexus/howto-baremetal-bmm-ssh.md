@@ -12,11 +12,11 @@ ms.custom: template-how-to
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster baremetalmachinekeyset`
 
 > [!CAUTION]
-> Please note this process is used in emergency situations when all other troubleshooting options using Azure have been exhausted. SSH access to these bare metal machines (BMM) is restricted to users managed via this method from the specified jump host list.
+> Please note this process is used in emergency situations when all other troubleshooting options using Azure have been exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these BMM.
+There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these bare metal machines.
 
-When the command runs, it executes on each BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There is a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each bare metal machine in the Cluster. If a bare metal machine is unavailable or powered off at the time of command execution, the status of the command reflects which bare metal machines couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
 There's no limit to the number of users in a group.
 
@@ -25,29 +25,27 @@ There's no limit to the number of users in a group.
 
 - The keyset create/update process adds the jump host IP addresses to the IP tables for the Cluster. The process adds these addresses to IP tables and restricts SSH access to only those IPs.
 - It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses may be different than the public facing IP address used to access the jump host.
-- Once added, users are able to access BMMs from any specified jump host IP including a jump host IP defined in another BMM keyset group.
-- Existing SSH access remains when adding first BMM keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
+- Once added, users are able to access bare metal machines from any specified jump host IP including a jump host IP defined in another bare metal machine keyset group.
+- Existing SSH access remains when adding the first bare metal machine keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
 
 ## Prerequisites
 
-- Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
+- Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
 - The on-premises Cluster must have connectivity to Azure.
-- Get the Resource group name that you created for `Cluster` resource
-- The process applies keysets to all running BMMs.
+- Get the Resource Group name for the `Cluster` resource.
+- The process applies keysets to all running bare metal machines.
 - The added users must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
-- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`, `/write` and `/delete`.
-
+- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`, `/write`, and `/delete`.
 
 ## Creating a bare metal machine keyset
 
-The `baremetalmachinekeyset create` command creates SSH access to the BMM in a Cluster for a group of users.
+The `baremetalmachinekeyset create` command creates SSH access to the bare metal machine in a Cluster for a group of users.
 
 The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset create \
-  --name <BMM Keyset Name> \
+  --name <bare metal machine Keyset Name> \
   --extended-location name=<Extended Location ARM ID> \
     type="CustomLocation" \
   --location <Azure Region> \
@@ -95,7 +93,7 @@ az networkcloud cluster baremetalmachinekeyset create \
                                                            configure --defaults group=<name>`.
   --user-list                                 [Required] : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. The Azure Active Directory user name (email name).
+      azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public ssh key of the user.
 
@@ -157,13 +155,13 @@ For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand
 
 ## Deleting a bare metal machine keyset
 
-The `baremetalmachinekeyset delete` command removes SSH access to the BMM for a group of users. All members of the group no longer have SSH access to any of the BMM in the Cluster.
+The `baremetalmachinekeyset delete` command removes SSH access to the bare metal machine for a group of users. All members of the group no longer have SSH access to any of the bare metal machines in the Cluster.
 
 The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset delete \
-  --name <BMM Keyset Name> \
+  --name <bare metal machine Keyset Name> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group Name>
 ```
@@ -199,7 +197,7 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset update \
-  --name <BMM Keyset Name> \
+  --name <bare metal machine Keyset Name> \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Standard" or "Superuser"> \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
@@ -212,11 +210,11 @@ az networkcloud cluster baremetalmachinekeyset update \
 ### Update Arguments
 
 ```azurecli
-  --bare-metal-machine-key-set-name --name -n [Required] : The name of the BMM key set.
+  --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key set.
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                           : The date and time after which the users
                                                            in this key set are removed from
-                                                           the BMMs. Format is:
+                                                           the bare metal machines. Format is:
                                                            "YYYY-MM-DDTHH:MM:SS.000Z"
   --jump-hosts-allowed                                   : The list of IP addresses of jump hosts
                                                            with management network access from
@@ -227,7 +225,7 @@ az networkcloud cluster baremetalmachinekeyset update \
                                                            "Standard" or "Superuser".
   --user-list                                            : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. The Azure Active Directory user name (email name).
+      azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public SSH key of the user.
 

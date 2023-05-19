@@ -255,8 +255,26 @@ The following tasks are executed on Linux virtual machines:
 
 # [Windows](#tab/windows)
 
+- Add local groups and permissions
 - Connects to the Windows file shares
 
 ---
+
+### Local software download
+
+This playbooks downloads the installation media from the control plane to the installation media source. The installation media can be shared out from the Central Services instance or from Azure Files or Azure NetApp Files.
+
+# [Linux](#tab/linux)
+
+The following tasks are executed on the Central services instance virtual machine:
+- Download the software
+
+# [Windows](#tab/windows)
+
+The following tasks are executed on the Central services instance virtual machine:
+- Download the software
+
+---
+
 
 

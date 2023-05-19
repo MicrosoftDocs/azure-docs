@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -16,13 +16,7 @@ zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 
 # Scoping users or groups to be provisioned with scoping filters
 
-::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
-
-This article describes how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute-based rules that determine which users or groups are provisioned.
+Learn how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute based rules. The rules are used to determine which users or groups are provisioned.
 
 ## Scoping filter use cases
 
@@ -51,9 +45,9 @@ Scoping filters can be used optionally, in addition to scoping by assignment. A 
 
 A scoping filter consists of one or more *clauses*. Clauses determine which users are allowed to pass through the scoping filter by evaluating each user's attributes. For example, you might have one clause that requires that a user's "State" attribute equals "New York", so only New York users are provisioned into the application. 
 
-A single clause defines a single condition for a single attribute value. If multiple clauses are created in a single scoping filter, they're evaluated together by using "AND" logic. This means all clauses must evaluate to "true" in order for a user to be provisioned.
+A single clause defines a single condition for a single attribute value. If multiple clauses are created in a single scoping filter, they're evaluated together using "AND" logic. The "AND" logic means all clauses must evaluate to "true" in order for a user to be provisioned.
 
-Finally, multiple scoping filters can be created for a single application. If multiple scoping filters are present, they're evaluated together by using "OR" logic. This means that if all the clauses in any of the configured scoping filters evaluate to "true", the user is provisioned.
+Finally, multiple scoping filters can be created for a single application. If multiple scoping filters are present, they're evaluated together by using "OR" logic. The "OR" logic means that if all the clauses in any of the configured scoping filters evaluate to "true", the user is provisioned.
 
 Each user or group processed by the Azure AD provisioning service is always evaluated individually against each scoping filter.
 
@@ -117,7 +111,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
    g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: `([1-9][0-9])` matches any number between 10 and 99 (case sensitive).
 
-   h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern. It will return "false" if the attribute is null / empty.
+   h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern. It returns "false" if the attribute is null / empty.
    
    i. **Greater_Than.** Clause returns "true" if the evaluated attribute is greater than the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
@@ -148,10 +142,10 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 ## Common scoping filters
 | Target Attribute| Operator | Value | Description|
 |----|----|----|----|
-|userPrincipalName|REGEX MATCH|`.\*@domain.com`|All users with userPrincipal that has the domain @domain.com will be in scope for provisioning|
-|userPrincipalName|NOT REGEX MATCH|`.\*@domain.com`|All users with userPrincipal that has the domain @domain.com will be out of scope for provisioning|
+|userPrincipalName|REGEX MATCH|`.\*@domain.com`|All users with `userPrincipal` that have the domain `@domain.com` are in scope for provisioning. |
+|userPrincipalName|NOT REGEX MATCH|`.\*@domain.com`|All users with `userPrincipal` that has the domain `@domain.com` are out of scope for provisioning. |
 |department|EQUALS|`sales`|All users from the sales department are in scope for provisioning|
-|workerID|REGEX MATCH|`(1[0-9][0-9][0-9][0-9][0-9][0-9])`| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
+|workerID|REGEX MATCH|`(1[0-9][0-9][0-9][0-9][0-9][0-9])`| All employees with `workerID` between 1000000 and 2000000 are in scope for provisioning.|
 
 ## Related articles
 * [Automate user provisioning and deprovisioning to SaaS applications](../app-provisioning/user-provisioning.md)
