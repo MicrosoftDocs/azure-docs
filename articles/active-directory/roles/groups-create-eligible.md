@@ -139,6 +139,25 @@ POST https://graph.microsoft.com/v1.0/groups
 
 For this type of group, `isPublic` will always be false and `isSecurityEnabled` will always be true.
 
+## Azure CLI
+
+Use the Azure CLI to create a role-assignable group.
+
+```json
+body='{
+    "description": "Group assignable to a role",
+    "displayName": "My Role assignable group",
+    "groupTypes": ["Unified"],
+    "isAssignableToRole": true,
+    "mailEnabled": true,
+    "securityEnabled": true,
+    "mailNickname": "my-role-assignable-group"
+}'
+```
+```azurecli
+az rest  --method POST --url https://graph.microsoft.com/v1.0/groups --body "$body"
+```
+
 ## Next steps
 
 - [Assign Azure AD roles to groups](groups-assign-role.md)
