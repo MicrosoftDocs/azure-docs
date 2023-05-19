@@ -160,20 +160,20 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ### [yaml](#tab/yaml)
 
-    ```yaml
-    spring:
-    cloud:
-        azure:
-        appconfiguration:
-            stores:
-            - endpoint: ${APP_CONFIGURATION_ENDPOINT}
-    ```
+```yaml
+spring:
+cloud:
+    azure:
+    appconfiguration:
+        stores:
+        - endpoint: ${APP_CONFIGURATION_ENDPOINT}
+```
 
 ### [properties](#tab/properties)
 
-    ```properties
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
-    ```
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+```
 
 ---
 
