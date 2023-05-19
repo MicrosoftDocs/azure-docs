@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 09/09/2022
+ms.date: 05/19/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-* Existing AKS private clusters can't be converted to API Server VNet Integration clusters.
+* Existing AKS private clusters can't be converted to API Server VNet Integration clusters. 
 
 ## Create an AKS cluster with API Server VNet Integration using Managed VNet
 
