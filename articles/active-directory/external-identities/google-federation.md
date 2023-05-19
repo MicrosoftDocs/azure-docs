@@ -171,15 +171,16 @@ First, create a new project in the Google Developers Console to obtain a client 
 1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Azure AD B2B`. Under **Authorized redirect URIs**, add the following URIs:
 
     - `https://login.microsoftonline.com`
-    - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
-    - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
-    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oidc/accounts.google.com` <br>(where `<tenant ID>` is your tenant ID)
-    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oidc/accounts.google.com` <br>(where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name)
-    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oauth2` <br>(where `<tenant ID>` is your tenant ID)
-    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oauth2` <br>(where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name)
+    - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`
+    - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp`
+    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oidc/accounts.google.com`
+    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oidc/accounts.google.com`
+    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oauth2`
+    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oauth2`
+    where `<tenant ID>` is your tenant ID and `<tenant name>` is your tenant name
    
     > [!NOTE]
-    > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
+    > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**. To find the tenant name, in the same location copy the **Name**.
 
 1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
 
