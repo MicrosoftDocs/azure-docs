@@ -35,7 +35,7 @@ For more information on Red Hat support policies for all versions of RHEL, see [
 
 - RHEL SAP PAYG images in Azure are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification. RHEL SAP PAYG images in Azure include RHEL for SAP, RHEL for SAP HANA, and RHEL for SAP Business Applications.
 
-- Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519). If you proxy all VM traffic by using an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI. If that is the case, user-defined routes need to be added for *all* RHUI IP addresses.
+- Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=56519). If you proxy all VM traffic by using an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI. If that is the case, user-defined routes need to be added for *all* RHUI IP addresses.
 
 ## Image update behavior
 
@@ -217,7 +217,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
    - If the reference points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
-1. Verify that access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+1. Verify that access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).
 
 1. If you're using the new configuration and you've verified that the VM connects from the Azure IP range, and you still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
 
@@ -272,6 +272,6 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
 ## Next steps
 
-- To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rhel-20190605).
+- To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-20190605).
 - To learn more about the Red Hat images in Azure, see [Overview of Red Hat Enterprise Linux images](./redhat-images.md).
 - Information on Red Hat support policies for all versions of RHEL can be found at [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
