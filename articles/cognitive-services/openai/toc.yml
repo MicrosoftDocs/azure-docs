@@ -33,7 +33,7 @@ items:
       href: ./concepts/prompt-engineering.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
-    - name: Red teaming large language models(LLMs)
+    - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
     - name: System messages & metaprompts
       href: ./concepts/metaprompt.md
