@@ -88,3 +88,17 @@ Audit logs of security contact, just-in-time, and alert updates are maintained i
 ## Next steps
 
 [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)
+
+## Respond to data subject export requests for Defender for APIs
+The right of data portability allows data subjects to request a copy of their personal data in a structured, common, electronic format that can be transmitted to another data controller.
+
+### Manage export and view requests
+Manage requests to export customer or user data.
+
+#### Export customer data (tenant admin)
+As a tenant administrator, export customer data.
+
+1. Send an email to D4APIS_DSRRequests@microsoft.com specifying the customer’s email address in the request. The Defender for APIs team will send an email to the registered tenant admin email address, asking for confirmation to export data.
+2. Acknowledge the confirmation to export the data for the requested customer.
+3. Receive the exported data through the tenant admin email address.
+
