@@ -23,8 +23,8 @@ The available Linux OS versions are:
 
 ## Next steps
 
-Learn how to identify and interact with BareMetal instances through the Azure portal.
+Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Manage BareMetal instances through the Azure portal](../../connect-baremetal-infrastructure.md)
+> [Manage ALI instances through the Azure portal](../../connect-baremetal-infrastructure.md)
 
