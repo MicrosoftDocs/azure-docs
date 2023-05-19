@@ -38,6 +38,9 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
+> [!NOTE]
+> In case if a self-hosted integration runtime is used in either source or sink data store within a copy activity, than both the source and sink must be accessible from the server hosting the integartion runtime for the copy activity to be successful.
+
 ## Supported data stores and formats
 
 [!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]

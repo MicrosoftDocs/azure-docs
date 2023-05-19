@@ -1,26 +1,24 @@
 ---
 title: Deploy IPv6 dual stack application - Standard Load Balancer - CLI
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure CLI.
+description: This article shows how to deploy an IPv6 dual stack application in Azure virtual network using Azure CLI.
 services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2020
-ms.author: kumud
+ms.date: 04/17/2023
+ms.author: mbender
+ms.custom: template-how-to, devx-track-azurecli, engagement-fy23
 ---
 
-# Deploy an IPv6 dual stack application in Azure virtual network - CLI
+# Deploy an IPv6 dual stack application in Azure virtual network using Azure CLI
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network with a dual stack subnet, a Standard Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -180,7 +178,7 @@ az vm availability-set create \
 
 ### Create network security group
 
-Create a network security group for the rules that will govern inbound and outbound communication in your VNet.
+Create a network security group for the rules that govern inbound and outbound communication in your VNet.
 
 #### Create a network security group
 
@@ -323,7 +321,7 @@ az network nic ip-config create \
 
 ### Create virtual machines
 
-Create the VMs with [az vm create](/cli/azure/vm#az-vm-create). The following example creates two VMs and the required virtual network components if they do not already exist. 
+Create the VMs with [az vm create](/cli/azure/vm#az-vm-create). The following example creates two VMs and the required virtual network components if they don't already exist. 
 
 Create virtual machine *dsVM0* as follows:
 

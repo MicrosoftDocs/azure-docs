@@ -34,7 +34,7 @@ Access the sample code for this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Prerequisites
 
-1. Finish all the prerequisite steps in [Chat Quickstart](/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-swift)
+1. Finish all the prerequisite steps in [Chat Quickstart](../quickstarts/chat/get-started.md?pivots=programming-language-swift)
 
 2. ANH Setup  
 Create an Azure Notification Hub within the same subscription as your Communication Services resource and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
@@ -143,4 +143,4 @@ In protocol extension, chat SDK provides the implementation of `decryptPayload(n
 
 5. Plug the IOS device into your mac, run the program and click “allow” when asked to authorize push notification on device. 
 
-6. As User B, send a chat message. You (User A) should be able to receive a push notification in your IOS device. 
+6. As User B, send a chat message. You (User A) should be able to receive a push notification in your IOS device.

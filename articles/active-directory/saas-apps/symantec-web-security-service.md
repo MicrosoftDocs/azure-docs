@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Symantec Web Security Service (WSS) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Symantec Web Security Service (WSS) for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Symantec Web Security Service (WSS).
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 04/05/2023
 ms.author: thwimmer
 ---
 
@@ -26,8 +26,8 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sy
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant
-* [A Symantec Web Security Service (WSS) tenant](https://www.websecurity.symantec.com/buy-renew?inid=brmenu_nav_brhome)
+* An Azure AD tenant.
+* [A Symantec Web Security Service (WSS) tenant](https://www.websecurity.digicert.com/buy-renew?inid=brmenu_nav_brhome).
 * A user account in Symantec Web Security Service (WSS) with Admin permissions.
 
 ## Assigning users to Symantec Web Security Service (WSS)

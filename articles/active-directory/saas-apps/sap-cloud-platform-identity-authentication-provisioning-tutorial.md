@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to SAP Cloud Platform Identity Authentication.
 services: active-directory
 author: twimmers
@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure SAP Cloud Platform Identity Authentication for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in SAP Cloud Platform Identity Authentication and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to SAP Cloud Platform Identity Authentication.
+The objective of this tutorial is to demonstrate the steps to be performed in SAP Cloud Platform Identity Authentication and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users to SAP Cloud Platform Identity Authentication.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -35,14 +34,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Assigning users to SAP Cloud Platform Identity Authentication
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to SAP Cloud Platform Identity Authentication. Once decided, you can assign these users and/or groups to SAP Cloud Platform Identity Authentication by following the instructions here:
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+Before configuring and enabling automatic user provisioning, you should decide which users in Azure AD need access to SAP Cloud Platform Identity Authentication. Once decided, you can assign these users to SAP Cloud Platform Identity Authentication by following the instructions here:
+* [Assign a user to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## Important tips for assigning users to SAP Cloud Platform Identity Authentication
 
-* It is recommended that a single Azure AD user is assigned to SAP Cloud Platform Identity Authentication to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to SAP Cloud Platform Identity Authentication to test the automatic user provisioning configuration. Additional users may be assigned later.
 
 * When assigning a user to SAP Cloud Platform Identity Authentication, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -55,9 +54,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 2. 	Press the **+Add** button on the left hand panel in order to add a new administrator to the list. Choose **Add System** and enter the name of the system.   
 
 > [!NOTE]
-> The admininistrator user in SAP Cloud Platform Identity Authentication must be of type **System**. Creating a normal administrator user can lead to *unauthorized* errors while provisioning.   
+> The administrator user in SAP Cloud Platform Identity Authentication must be of type **System**. Creating a normal administrator user can lead to *unauthorized* errors while provisioning.   
 
-3.	Under Configure Authorizations, switch on the toggle button against **Manage Users** and **Manage Groups**.
+3.	Under Configure Authorizations, switch on the toggle button against **Manage Users**.
 
 	![SAP Cloud Platform Identity Authentication Add SCIM](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
@@ -89,7 +88,7 @@ Before configuring SAP Cloud Platform Identity Authentication for automatic user
 
 ## Configuring automatic user provisioning to SAP Cloud Platform Identity Authentication 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in SAP Cloud Platform Identity Authentication based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in SAP Cloud Platform Identity Authentication based on users assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for SAP Cloud Platform Identity Authentication, following the instructions provided in the [SAP Cloud Platform Identity Authentication Single sign-on tutorial](./sap-hana-cloud-platform-identity-authentication-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
@@ -136,7 +135,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to SAP Cloud Platform Identity Authentication by choosing the desired values in **Scope** in the **Settings** section.
+12. Define the users that you would like to provision to SAP Cloud Platform Identity Authentication by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -144,7 +143,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on SAP Cloud Platform Identity Authentication.
+This operation starts the initial synchronization of all users defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on SAP Cloud Platform Identity Authentication.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 

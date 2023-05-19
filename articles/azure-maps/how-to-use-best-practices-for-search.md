@@ -1,8 +1,9 @@
 ---
-title: Best practices for Azure Maps Search Service | Microsoft Azure Maps 
-description: Learn how to apply the best practices when using the Search Service from Microsoft Azure Maps.
-author: stevemunk
-ms.author: v-munksteve
+title: Best practices for Azure Maps Search service
+titleSuffix: Microsoft Azure Maps
+description: Learn how to apply the best practices when using the Search service from Microsoft Azure Maps.
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -10,11 +11,11 @@ services: azure-maps
 
 ---
 
-# Best practices for Azure Maps Search Service
+# Best practices for Azure Maps Search service
 
-Azure Maps [Search Service](/rest/api/maps/search) includes APIs that offer various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example,[Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy) allows users to search for an address or Point of Interest (POI).
+Azure Maps [Search service] includes API that offers various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
 
-This article explains how to apply sound practices when you call data from Azure Maps Search Service. You'll learn how to:
+This article explains how to apply sound practices when you call data from Azure Maps Search service. You'll learn how to:
 > [!div class="checklist"]
 >
 > * Build queries to return relevant matches
@@ -24,16 +25,16 @@ This article explains how to apply sound practices when you call data from Azure
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+* An [Azure Maps account]
+* A [subscription key]
 
-This article uses the [Postman app](https://www.postman.com/downloads/) to build REST calls, but you can choose any API development environment.
+This article uses the [Postman] application to build REST calls, but you can choose any API development environment.
 
 ## Best practices to geocode addresses
 
-When you search for a full or partial address by using Azure Maps Search Service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*.
+When you search for a full or partial address by using Azure Maps Search service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*.
 
-The ability to geocode in a country/region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage](./geocoding-coverage.md).
+The ability to geocode in a country/region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage].
 
 ### Limit search results
 
@@ -54,7 +55,7 @@ To geobias results to the relevant area for your user, always add as many locati
 
 #### Fuzzy search parameters
 
-We recommend that you use the Azure Maps [Search Fuzzy API](/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. For example, input from the user could be an address or the type of Point of Interest (POI), like *shopping mall*. The API combines POI searching and geocoding into a canonical *single-line search*: 
+We recommend that you use [Search Fuzzy] when you don't know your user inputs for a search query. For example, input from the user could be an address or the type of Point of Interest (POI), like *shopping mall*. The API combines POI searching and geocoding into a canonical *single-line search*:
 
 * The `minFuzzyLevel` and `maxFuzzyLevel` parameters help return relevant matches even when query parameters don't exactly match the information that the user wants. To maximize performance and reduce unusual results, set search queries to defaults of `minFuzzyLevel=1` and `maxFuzzyLevel=2`.
 
@@ -65,7 +66,7 @@ We recommend that you use the Azure Maps [Search Fuzzy API](/rest/api/maps/searc
 * `Addr` - **Address ranges**: Address points that are interpolated from the beginning and end of the street. These points are represented as address ranges.
 * `Geo` - **Geographies**: Administrative divisions of land. A geography can be a country/region, state, or city, for example.
 * `PAD` - **Point addresses**: Addresses that include a street name and number. Point addresses can be found in an index. An example is *Soquel Dr 2501*. A point address provides the highest level of accuracy available for addresses.  
-* `POI` - **Points of interest**: Points on a map that are considered to be worth attention or that might be interesting. The [Search Address API](/rest/api/maps/search/getsearchaddress) doesn't return POIs.  
+* `POI` - **Points of interest**: Points on a map that are considered to be worth attention or that might be interesting. [Search Address] doesn't return POIs.  
 * `Str` - **Streets**: Streets on the map.
 * `XStr` - **Cross streets or intersections**: Junctions or places where two streets intersect.
 
@@ -77,14 +78,14 @@ We recommend that you use the Azure Maps [Search Fuzzy API](/rest/api/maps/searc
 
 ### Reverse-geocode and filter for a geography entity type
 
-When you do a reverse-geocode search in the [Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests.
+When you do a reverse-geocode search using [Search Address Reverse], the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests.
 
-The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service](/rest/api/maps/search/getsearchpolygon).
+The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service].
 
 #### Sample request
 
 ```HTTP
-https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
+https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
 #### Response
@@ -122,9 +123,9 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 ### Set the results language
 
-Use the `language` parameter to set the language for the returned search results. If the request doesn't set the language, then by default Search Service uses the most common language in the country or region. When no data is available in the specified language, the default language is used.
+Use the `language` parameter to set the language for the returned search results. If the request doesn't set the language, then by default Search service uses the most common language in the country or region. When no data is available in the specified language, the default language is used.
 
-For more information, see [Azure Maps supported languages](./supported-languages.md).
+For more information, see [Azure Maps supported languages].
 
 
 ### Use predictive mode (automatic suggestions)
@@ -136,7 +137,7 @@ In the following sample query, the Search Address service is queried for *Micros
 #### Sample query
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
+https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
 #### Response
@@ -488,12 +489,12 @@ To improve the relevance of the results and the information in the response, a P
 
 In a request, you can submit a comma-separated list of brand names. Use the list to restrict the results to specific brands by setting the `brandSet` parameter. In your list, item order doesn't matter. When you provide multiple brand lists, the results that are returned must belong to at least one of your lists.
 
-To explore brand searching, let's make a [POI category search](/rest/api/maps/search/getsearchpoicategory) request. In the following example, we look for gas stations near the Microsoft campus in Redmond, Washington. The response shows brand information for each POI that was returned.
+To explore brand searching, let's make a [POI category search] request. In the following example, we look for gas stations near the Microsoft campus in Redmond, Washington. The response shows brand information for each POI that was returned.
 
 #### Sample query
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
+https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
 #### Response
@@ -744,23 +745,23 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Pr
 By using the Search POI API, you can look for airports by using their official code. For example, you can use *SEA* to find the Seattle-Tacoma International Airport:
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=SEA 
+https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=SEA 
 ```
 
 ### Nearby search
 
-To retrieve POI results around a specific location, you can try using the [Search Nearby API](/rest/api/maps/search/getsearchnearby). The endpoint returns only POI results. It doesn't take in a search query parameter.
+To retrieve POI results around a specific location, you can try using [Search Nearby]. The endpoint returns only POI results. It doesn't take in a search query parameter.
 
 To limit the results, we recommend that you set the radius.
 
 ## Understanding the responses
 
-Let's find an address in Seattle by making an address-search request to the Azure Maps Search Service. In the following request URL, we set the `countrySet` parameter to `US` to search for the address in the USA.
+Let's find an address in Seattle by making an address-search request to the Azure Maps Search service. In the following request URL, we set the `countrySet` parameter to `US` to search for the address in the USA.
 
 ### Sample query
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
 ### Supported types of results
@@ -787,7 +788,7 @@ Let's look at the response structure. In the response that follows, the types of
 
 Notice that the address search doesn't return POIs.  
 
-The `Score` parameter for each response object indicates how the matching score relates to the scores of other objects in the same response. For more information about response object parameters, see [Get Search Address](/rest/api/maps/search/getsearchaddress).
+The `Score` parameter for each response object indicates how the matching score relates to the scores of other objects in the same response. For more information about response object parameters, see [Get Search Address].
 
 ```JSON
 {
@@ -951,9 +952,9 @@ The `Score` parameter for each response object indicates how the matching score 
 
 ### Geometry
 
-A response type of *Geometry* can include the geometry ID that's returned in the `dataSources` object under `geometry` and `id`. For example, you can use the [Search Polygon service](/rest/api/maps/search/getsearchpolygon) to request the geometry data in a GeoJSON format. By using this format, you can get a city or airport outline for a set of entities. You can then use this boundary data to [Set up a geofence](./tutorial-geofence.md) or [Search POIs inside the geometry](/rest/api/maps/search/postsearchinsidegeometry).
+A response type of *Geometry* can include the geometry ID that's returned in the `dataSources` object under `geometry` and `id`. For example, you can use the [Search Polygon service] to request the geometry data in a GeoJSON format. By using this format, you can get a city or airport outline for a set of entities. You can then use this boundary data to [Set up a geofence] or [Search POIs inside the geometry].
 
-Responses for the [Search Address](/rest/api/maps/search/getsearchaddress) API or the [Search Fuzzy](/rest/api/maps/search/getsearchfuzzy) API can include the geometry ID that's returned in the `dataSources` object under `geometry` and `id`:
+Responses for [Search Address] or the [Search Fuzzy] can include the geometry ID that's returned in the `dataSources` object under `geometry` and `id`:
 
 ```JSON
 "dataSources": { 
@@ -968,7 +969,24 @@ Responses for the [Search Address](/rest/api/maps/search/getsearchaddress) API o
 To learn more, please see:
 
 > [!div class="nextstepaction"]
-> [How to build Azure Maps Search Service requests](./how-to-search-for-address.md)
+> [How to build Azure Maps Search service requests](./how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Search Service API documentation](/rest/api/maps/search)
+> [Search service API documentation](/rest/api/maps/search)
+
+[Search service]: /rest/api/maps/search
+[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Postman]: https://www.postman.com/downloads/
+[Geocoding coverage]: geocoding-coverage.md
+[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[POI category search]: /rest/api/maps/search/getsearchpoicategory
+[Search Nearby]: /rest/api/maps/search/getsearchnearby
+[Get Search Address]: /rest/api/maps/search/getsearchaddress
+
+[Azure Maps supported languages]: supported-languages.md
+[Search Address]: /rest/api/maps/search/getsearchaddress
+[Search Polygon service]: /rest/api/maps/search/getsearchpolygon
+[Set up a geofence]: tutorial-geofence.md
+[Search POIs inside the geometry]: /rest/api/maps/search/postsearchinsidegeometry

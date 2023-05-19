@@ -1,11 +1,11 @@
 ---
 title: Monitor Stream Analytics job with Azure portal
 description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 12/21/2022
 ms.custom: seodec18
 ---
 # Monitor Stream Analytics job with Azure portal
@@ -17,7 +17,7 @@ To see Azure Stream Analytics job metrics, browse to the Stream Analytics job yo
 
 :::image type="content" source="./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png" alt-text="Diagram that shows the Stream Analytics job monitoring section." lightbox="./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png":::
 
-Alternatively, browse to the **Monitoring** blade in the left panel and click the **Metrics**, then the metric page will be shown for adding the specific metric you'd like to check:
+Alternatively, browse to the **Monitoring** blade in the left panel and select the **Metrics**, then the metric page will be shown for adding the specific metric you'd like to check:
 
 :::image type="content" source="./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png" alt-text="Diagram that shows Stream Analytics job monitoring dashboard." lightbox="./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png":::
 
@@ -29,7 +29,7 @@ You can also use these metrics to [monitor the performance of your Stream Analyt
 
 There are several options available for you to operate and aggregate the metrics in portal monitor page. 
 
-To check the metrics data for a specific dimension, you can use **Add filter**. There are 3 important metrics dimensions available. To learn more about the metric dimensions, see [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md).
+To check the metrics data for a specific dimension, you can use **Add filter**. There are three important metrics dimensions available. To learn more about the metric dimensions, see [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md).
 
 :::image type="content" source="./media/stream-analytics-monitoring/03-stream-analytics-monitoring-filter.png" alt-text="Diagram that shows Stream Analytics job metrics filter." lightbox="./media/stream-analytics-monitoring/03-stream-analytics-monitoring-filter.png":::
 
@@ -37,7 +37,7 @@ To check the metrics data per dimension, you can use **Apply splitting**.
 
 :::image type="content" source="./media/stream-analytics-monitoring/04-stream-analytics-monitoring-splitter.png" alt-text="Diagram that shows Stream Analytics job metrics splitter." lightbox="./media/stream-analytics-monitoring/04-stream-analytics-monitoring-splitter.png":::
 
-You can also specify the time range to view the metrics you are interested in. 
+You can also specify the time range to view the metrics you're interested in. 
 
 :::image type="content" source="./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png" alt-text="Diagram that shows the Stream Analytics monitor page with time range." lightbox="./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png":::
 

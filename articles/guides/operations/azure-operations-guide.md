@@ -4,6 +4,7 @@ description: Get started guide for Azure IT operators
 author: RicksterCDN
 ms.author: rclaus
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
@@ -157,7 +158,7 @@ In addition to creating, managing, and deleting resources by using the Azure por
 
 #### Azure PowerShell
 
-Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Azure CLI
 
@@ -209,7 +210,7 @@ In addition to viewing the billing in the portal, you can access the billing inf
 
 - You can use the Azure Usage API to retrieve your usage data. You can fine-tune the billing usage information by tagging related Azure resources. For example, you can tag each of the resources in a resource group with a department name or project name, and then track the costs specifically for that one tag.
 
-- You can use the [Azure consumption API overview](../../cost-management-billing/manage/consumption-api-overview.md) to list all the available resources, along with the metadata. For more information on prices, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
+- You can use the [Cost Management automation overview](../../cost-management-billing/automate/automation-overview.md) to list all the available resources, along with the metadata. For more information on prices, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### Forecast cost with the pricing calculator
 

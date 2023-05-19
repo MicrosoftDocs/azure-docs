@@ -1,16 +1,17 @@
 ---
 title: Collect custom metrics for Linux VM with the InfluxData Telegraf agent
 description: Instructions on how to deploy the InfluxData Telegraf agent on a Linux VM in Azure and configure the agent to publish metrics to Azure Monitor. 
-author: anirudhcavale
 services: azure-monitor
 ms.reviewer: priyamishra
 ms.topic: conceptual
 ms.date: 06/16/2022
-ms.author: ancav
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 
 This article explains how to deploy and configure the [InfluxData](https://www.influxdata.com/) Telegraf agent on a Linux virtual machine to send metrics to Azure Monitor. 
+
+> [!NOTE]
+> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues wuth the Telegraf connector, please refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
 
 ## InfluxData Telegraf agent 
 
@@ -34,20 +35,49 @@ In the **Connect to virtual machine** page, keep the default options to connect 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
 ```
-
 Paste the SSH connection command into a shell, such as Azure Cloud Shell or Bash on Ubuntu on Windows, or use an SSH client of your choice to create the connection. 
 
 ## Install and configure Telegraf 
 
 To install the Telegraf Debian package onto the VM, run the following commands from your SSH session: 
 
+# [Ubuntu, Debian](#tab/ubuntu)
+
+Add the repository:
+
 ```bash
 # download the package to the VM 
 curl -s https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/lsb-release
-echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key --keyring /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg add
 ```
+Instal the package:
 
+```bash
+   apt-get update
+   apt-get install telegraf
+```
+# [RHEL, CentOS, Oracle Linux](#tab/redhat) 
+
+Add the repository:
+
+```bash
+cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
+[influxdb]
+name = InfluxDB Repository - RHEL $releasever
+baseurl = https://repos.influxdata.com/rhel/$releasever/$basearch/stable
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+EOF
+```
+Instal the package:
+
+```bash
+   sudo yum -y install telegraf
+```
+---
 Telegraf's configuration file defines Telegraf's operations. By default, an example configuration file is installed at the path **/etc/telegraf/telegraf.conf**. The example configuration file lists all possible input and output plug-ins. However, we'll create a custom configuration file and have the agent use it by running the following commands: 
 
 ```bash
@@ -66,8 +96,8 @@ Finally, to have the agent start using the new configuration, we force the agent
 ```bash
 # stop the telegraf agent on the VM 
 sudo systemctl stop telegraf 
-# start the telegraf agent on the VM to ensure it picks up the latest configuration 
-sudo systemctl start telegraf 
+# start and enable the telegraf agent on the VM to ensure it picks up the latest configuration 
+sudo systemctl enable --now telegraf 
 ```
 Now the agent will collect metrics from each of the input plug-ins specified and emit them to Azure Monitor. 
 

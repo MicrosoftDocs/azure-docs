@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure OpenText Directory Services for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure OpenText Directory Services for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to OpenText Directory Services.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: ad55ba5f-c56c-4ed0-bdfd-163d2883ed80
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -75,7 +75,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 6. Select **client_credentials** for the grant_type and click **Execute**.
 
-      ![Execute buton](media/open-text-directory-services-provisioning-tutorial/execute.png)
+      ![Execute button](media/open-text-directory-services-provisioning-tutorial/execute.png)
 
 7. The access token in the response should be used in the **Secret Token** field in Azure AD.
 
@@ -117,7 +117,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your OpenText Directory Services Tenant URL
-   * Non-specifc tenant URL : {OTDS URL}/scim/{partitionName}
+   * Non-specific tenant URL : {OTDS URL}/scim/{partitionName}
    * Specific tenant URL :  {OTDS URL}/otdstenant/{tenantID}/scim/{partitionName}
 
 6. Enter the Secret Token retrieved from Step 2. Click **Test Connection** to ensure Azure AD can connect to OpenText Directory Services. If the connection fails, ensure your OpenText Directory Services account has Admin permissions and try again.

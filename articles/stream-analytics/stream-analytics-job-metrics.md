@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics job metrics
 description: This article describes job metrics in Azure Stream Analytics.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/07/2022

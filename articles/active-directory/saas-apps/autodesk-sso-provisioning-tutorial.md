@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Configure Autodesk SSO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Autodesk SSO for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Autodesk SSO.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 07782ca6-955c-441e-b28c-5e7f3c3775ac
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/10/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -120,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	i. Click **Save**.
 	
-    > Repeat steps c-i to add both custom attibutes.
+    > Repeat steps c-i to add both custom attributes.
 	
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Edit** to open the dialog. Click **...** next to the Active certificate and select **PEM certificate download** to download the certificate and save it to your local drive.

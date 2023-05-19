@@ -3,11 +3,11 @@ title: How to discover data sources in Azure Data Catalog
 description: This article highlights how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 12/14/2022
 ---
 # How to discover data sources in Azure Data Catalog
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 ## Introduction
 
@@ -35,7 +35,7 @@ Although the default free text search is simple and intuitive, you can also use 
 | Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially with Boolean operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Comparison operators |Use comparisons other than equality for properties that have numeric and date data types. |`modifiedTime > "11/05/2014"` |
 
-For more information about Data Catalog search, see the [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference) article.
+For more information about Data Catalog search, see the [Azure Data Catalog REST API](/rest/api/datacatalog/#search-syntax-reference) article.
 
 ## Hit highlighting
 

@@ -9,8 +9,9 @@ ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 01/29/2023
 ms.author: justinha
 ---
 

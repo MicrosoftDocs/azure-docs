@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: service-bus-messaging
  ms.topic: include
- ms.date: 04/26/2022
+ ms.date: 10/28/2022
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -16,12 +16,12 @@
 4. Enter a **name** for the topic. Leave the other options with their default values.
 5. Select **Create**.
 
-    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-topic.png" alt-text="Screenshot of the Create topic page.":::
+    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/create-topic.png" lightbox="./media/service-bus-create-topics-subscriptions-portal/create-topic.png" alt-text="Screenshot of the Create topic page.":::
 
 ## Create subscriptions to the topic
 1. Select the **topic** that you created in the previous section. 
     
-    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/select-topic.png" alt-text="Screenshot of the Topics page with your topic selected.":::
+    :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/select-topic.png" lightbox="./media/service-bus-create-topics-subscriptions-portal/select-topic.png" alt-text="Screenshot of the Topics page with your topic selected.":::
 2. On the **Service Bus Topic** page, select **Subscriptions** from the left menu, and then select **+ Subscription** on the toolbar. 
 
     :::image type="content" source="./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png" alt-text="Screenshot of the Subscriptions page with the Add subscription button selected.":::

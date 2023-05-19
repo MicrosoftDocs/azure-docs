@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure H5mag for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure H5mag for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to H5mag.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 87b4715b-c4b4-4e4b-aa25-21dfc5135a0a
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/21/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

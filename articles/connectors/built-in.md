@@ -73,7 +73,7 @@ For more information, review the following documentation:
 
 You can use the following built-in connectors to perform general tasks, for example:
 
-* Run workflows using custom and advanced schedules. For more information about scheduling, review the [Recurrence behavior in the connector overview for Azure Logic Apps](apis-list.md#recurrence-behavior).
+* Run workflows using custom and advanced schedules. For more information about scheduling, review the [Recurrence behavior for connectors in Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-behavior).
 
 * Organize and control your workflow's structure, for example, using loops and conditions.
 

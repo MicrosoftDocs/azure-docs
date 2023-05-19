@@ -1,7 +1,6 @@
 ---
 title: Add-ons, extensions, and other integrations with Azure Kubernetes Service
 description: Learn about the add-ons, extensions, and open-source integrations you can use with Azure Kubernetes Service.
-services: container-service
 ms.topic: overview
 ms.custom: event-tier1-build-2022
 ms.date: 02/22/2022
@@ -13,7 +12,7 @@ Azure Kubernetes Service (AKS) provides additional, supported functionality for 
 
 ## Add-ons
 
-Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. Add-ons' installation, configuration, and lifecycle is managed by AKS. Use `az aks addon` to install an add-on or manage the add-ons for your cluster.
+Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. Add-ons' installation, configuration, and lifecycle is managed by AKS. Use `az aks enable-addons` to install an add-on or manage the add-ons for your cluster.
 
 The following rules are used by AKS for applying updates to installed add-ons:
 
@@ -53,7 +52,7 @@ Both extensions and add-ons are supported ways to add functionality to your AKS 
 
 ## GitHub Actions
 
-GitHub Actions helps you automate your software development workflows from within GitHub. For more details on using GitHub Actions with Azure, see [What is GitHub Actions for Azures][github-actions]. For an example of using GitHub Actions with an AKS cluster, see [Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions][github-actions-aks].
+GitHub Actions helps you automate your software development workflows from within GitHub. For more details on using GitHub Actions with Azure, see [What is GitHub Actions for Azure][github-actions]. For an example of using GitHub Actions with an AKS cluster, see [Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions][github-actions-aks].
 
 ## Open source and third-party integrations
 

@@ -7,7 +7,7 @@ ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/15/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, ignite-2022
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
@@ -70,8 +70,8 @@ The following services do not currently support managed identity-based access:
 - Azure Flexible MySQL
 - Azure Flexible PostgreSQL
 - Azure Database for MariaDB
-- Azure Cosmos DB - Mongo DB
-- Azure Cosmos DB - Cassandra
+- Azure Cosmos DB for MongoDB
+- Azure Cosmos DB for Apache Cassandra
 - Azure Databricks
 
 ---

@@ -4,7 +4,7 @@ description: Learn about troubleshooting and diagnostics for Azure IoT Edge for 
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 08/03/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge for Linux on Windows networking
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 If you experience networking issues using Azure IoT Edge for Linux on Windows (EFLOW) in your environment, use this article as a guide for troubleshooting and diagnostics. Also, check [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md) for more EFLOW virtual machine troubleshooting help.
 
@@ -105,7 +105,7 @@ The IoT Edge for Linux on Windows is still dependent on the underlying Windows h
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED (Default)|BLOCKED (Default)| Configure *Outgoing (Outbound)* to be *Open* when using MQTT as the communication protocol. <br><br> 1883 for MQTT isn't supported by IoT Edge. - Incoming (Inbound) connections should be blocked.|
 |AMQP|5671|BLOCKED (Default)|OPEN (Default)| Default communication protocol for IoT Edge. <br><br> Must be configured to be *Open* if Azure IoT Edge isn't configured for other supported protocols or AMQP is the desired communication protocol. <br><br>5672 for AMQP isn't supported by IoT Edge.<br><br>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<br><br>Incoming (Inbound) connections should be blocked.|
-|HTTPS|443|BLOCKED (Default)|OPEN (Default)|Configure *Outgoing (Outbound)* to be *Open* on port 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <br><br><a id="anchortext">*Incoming (Inbound)* connection</a> should be *Open* only for two specific scenarios: <br>1. If you have a transparent gateway with leaf devices that may send method requests. In this case, port 443 doesn't need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open *Incoming (Inbound)* from the internal network.<br>2. For *client to device (C2D)* scenarios.<br><br>80 for HTTP isn't supported by IoT Edge.<br><br>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.|
+|HTTPS|443|BLOCKED (Default)|OPEN (Default)|Configure *Outgoing (Outbound)* to be *Open* on port 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <br><br><a id="anchortext">*Incoming (Inbound)* connection</a> should be *Open* only for two specific scenarios: <br>1. If you have a transparent gateway with downstream devices that may send method requests. In this case, port 443 doesn't need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open *Incoming (Inbound)* from the internal network.<br>2. For *client to device (C2D)* scenarios.<br><br>80 for HTTP isn't supported by IoT Edge.<br><br>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.|
 
 >[!NOTE]
 > If you are using an external virtual switch, make sure to add the appropriate firewall rules for the module port mappings you're using inside the EFLOW virtual machine. 

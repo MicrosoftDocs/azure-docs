@@ -8,8 +8,6 @@ ms.date: 06/10/2022
  
 # Tutorial: create an ARM-based account with Azure portal
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 To start using unlimited features and robust capabilities of Azure Video Indexer, you need to create an Azure Video Indexer unlimited account. 
@@ -104,7 +102,7 @@ Add new managed identities, switch the default managed identity between user-ass
 
 ## Next steps
 
-Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
+Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/).
 
 
 <!-- links -->

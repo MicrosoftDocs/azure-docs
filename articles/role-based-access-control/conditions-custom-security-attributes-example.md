@@ -140,4 +140,4 @@ Create one or more role assignments that use a condition at a higher scope to ma
 
 - [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 - [What are custom security attributes in Azure AD?](../active-directory/fundamentals/custom-security-attributes-overview.md)
-- [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
+- [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)

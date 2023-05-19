@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
   * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+  * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create resources and assign permissions
 
@@ -128,7 +128,7 @@ Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName
 
 ## Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux-vm-connect.md).
 
 ## Set up the console app
 
@@ -201,7 +201,7 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
             Console.Write("Input the value of your secret > ");
             string secretValue = Console.ReadLine();
 
-            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "' ...");
 
             client.SetSecret(secretName, secretValue);
 

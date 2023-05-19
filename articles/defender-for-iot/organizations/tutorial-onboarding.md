@@ -1,16 +1,18 @@
 ---
-title: Tutorial - Get started with Microsoft Defender for IoT for OT security
-description: This tutorial describes how to use Microsoft Defender for IoT to set up a network for OT system security.
+title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
+description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
-ms.date: 07/11/2022
+ms.date: 04/18/2023
 ---
 
-# Tutorial: Get started with Microsoft Defender for IoT for OT security
+# Tutorial: Onboard and activate a virtual OT sensor
 
-This tutorial describes how to set up your network for OT system security monitoring, using a virtual, cloud-connected sensor, on a virtual machine (VM), using a trial subscription of Microsoft Defender for IoT. 
+This tutorial describes the basics of setting up a Microsoft Defender for IoT OT sensor, using a trial subscription of Microsoft Defender for IoT and a virtual machine.
+
+For a full, end-to-end deployment, make sure to follow steps to plan and prepare your system, and also fully calibrate and fine-tune your settings. For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
 
 > [!NOTE]
-> If you're looking to set up security monitoring for enterprise IoT systems, see [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md) instead.
+> If you're looking to set up security monitoring for enterprise IoT systems, see [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md).
 
 In this tutorial, you learn how to:
 
@@ -18,7 +20,7 @@ In this tutorial, you learn how to:
 > * Download software for a virtual sensor
 > * Create a VM for the sensor
 > * Install the virtual sensor software
-> * Configure a SPAN port
+> * Configure a virtual SPAN port
 > * Verify your cloud connection
 > * Onboard and activate the virtual sensor
 
@@ -28,9 +30,9 @@ Before you start, make sure that you have the following:
 
 - Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have an Azure subscription added to Defender for IoT.
 
-- Azure permissions of **Security admin**, **Subscription contributor**, or **Subscription owner** on your subscription
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
-- At least one device to monitor, with the device connected to a SPAN port on a switch.
+- Make sure that you have a network switch that supports traffic monitoring via a SPAN port. You'll also need at least one device to monitor, connected to the switch's SPAN port.
 
 - VMware, ESXi 5.5 or later, installed and operational on your sensor.
 
@@ -40,6 +42,8 @@ Before you start, make sure that you have the following:
     |--|--|--|--|
     | **Maximum bandwidth** | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
     | **Maximum protected devices** | 12,000 | 10,000 | 800 |
+
+- An understanding of [OT monitoring with virtual appliances](ot-virtual-appliances.md).
 
 - Details for the following network parameters to use for your sensor appliance:
 
@@ -131,15 +135,17 @@ This procedure describes how to install the sensor software on your VM.
 
 1. The following credentials are automatically generated and presented. Copy the usernames and passwords to a safe place, because they're required to sign-in and manage your sensor. The usernames and passwords won't be presented again.
 
-    - **Support**: The administrative user for user management.
+    - **support**: The administrative user for user management.
 
-    - **CyberX**: The equivalent of root for accessing the appliance.
+    - **cyberx**: The equivalent of root for accessing the appliance.
+
+    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 1. When the appliance restarts, access the sensor via the IP address previously configured: `https://<ip_address>`.
 
 ### Post-installation validation
 
-This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the **Support** and **CyberX** sensor users.
+This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the *support* and *cyberx* sensor users.
 
 **To validate your installation**:
 
@@ -218,6 +224,8 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
     |**Site**     | Define the site where you want to associate your sensor, or select **Create site** to create a new site. Define a display name for your site and optional tags to help identify the site later.       |
     |**Zone**     |  Define the zone where you want to deploy your sensor, or select **Create zone** to create a new one.       |
 
+    For more information, see [Plan OT sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+
 1. Select **Register** to add your sensor to Defender for IoT. A success message is displayed and your activation file is automatically downloaded. The activation file is unique for your sensor and contains instructions about your sensor's management mode.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
@@ -265,20 +273,7 @@ This procedure describes how to use the sensor activation file downloaded from D
 
 Your sensor is activated and onboarded to Defender for IoT. In the **Sites and sensors** page, you can see that the **Sensor status** column shows a green check mark, and lists the status as **OK**.
 
-
-
 ## Next steps
 
-After your OT sensor is connected, continue with any of the following to start analyzing your data:
-
-- [View assets from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-
-- [Manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
-
-- [Detect threats with Microsoft Sentinel](../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json)
-For more information, see:
-
-- [Defender for IoT installation](how-to-install-software.md)
-- [Microsoft Defender for IoT system architecture](architecture.md)
+> [!div class="step-by-step"]
+> [Full deployment path for OT monitoring](ot-deploy/ot-deploy-path.md)

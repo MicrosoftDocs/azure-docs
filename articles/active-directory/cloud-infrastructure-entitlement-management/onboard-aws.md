@@ -17,7 +17,7 @@ ms.author: jfields
 This article describes how to onboard an Amazon Web Services (AWS) account on Permissions Management.
 
 > [!NOTE]
-> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+> A *global administrator* or *root user* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## Explanation
 
@@ -66,13 +66,13 @@ There are several moving parts across AWS and Azure, which are required to be co
 
 1. Return to Permissions Management, and in the **Permissions Management Onboarding - AWS OIDC Account Setup** page, select **Next**.
 
-### 3. Set up an AWS master account (Optional)
+### 3. Set up the AWS master account connection (Optional)
 
 1. If your organization has Service Control Policies (SCPs) that govern some or all of the member accounts, set up the master account connection in the **Permissions Management Onboarding - AWS Master Account Details** page.
 
     Setting up the master account connection allows Permissions Management to auto-detect and onboard any AWS member accounts that have the correct Permissions Management role.
 
-    - In the **Permissions Management Onboarding - AWS Master Account Details** page, enter the **Master Account ID** and **Master Account Role**.
+1. In the **Permissions Management Onboarding - AWS Master Account Details** page, enter the **Master Account ID** and **Master Account Role**.
 
 1. Open another browser window and sign in to the AWS console for your master account.
 
@@ -90,7 +90,7 @@ There are several moving parts across AWS and Azure, which are required to be co
 
 1.  Return to Permissions Management, and in **Permissions Management Onboarding - AWS Master Account Details**, select **Next**.
 
-### 4. Set up an AWS Central logging account (Optional but recommended)
+### 4. Set up the AWS Central logging account connection (Optional but recommended)
 
 1. If your organization has a central logging account where logs from some or all of your AWS account are stored, in the **Permissions Management Onboarding - AWS Central Logging Account Details** page, set up the logging account connection.
 

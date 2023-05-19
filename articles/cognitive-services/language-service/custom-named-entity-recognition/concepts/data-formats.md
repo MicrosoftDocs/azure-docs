@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 10/17/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -31,9 +31,11 @@ Your Labels file should be in the `json` format below to be used in [importing](
     "projectName": "{PROJECT-NAME}",
     "multilingual": false,
     "description": "Project-description",
-    "language": "en-us"
+    "language": "en-us",
+    "settings": {}
   },
   "assets": {
+    "projectKind": "CustomEntityRecognition",
     "entities": [
       {
         "category": "Entity1"
@@ -102,7 +104,7 @@ Your Labels file should be in the `json` format below to be used in [importing](
 | `regionOffset` |  |  The inclusive character position of the start of the text.      |`0`|
 | `regionLength` |  |  The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.      |`500`|
 | `category` |  |  The type of entity associated with the span of text specified. | `Entity1`|
-| `offset` |  |  The type of entity associated with the span of text specified. | `25`|
+| `offset` |  |  The start position for the entity text. | `25`|
 | `length` |  |  The length of the entity in terms of UTF16 characters. | `20`|
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [Language support](../language-support.md) for more information about supported language codes. |`en-us`|
 

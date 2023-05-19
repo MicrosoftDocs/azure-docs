@@ -1,6 +1,6 @@
 ---
-title: Review your access to resources in access reviews - Azure AD
-description: Learn how to review your own access to resources in Azure Active Directory access reviews.
+title: Review your access to resources in access reviews
+description: Learn how to review your own access to resources in access reviews.
 services: active-directory
 author: amsliu
 manager: amycolannino
@@ -16,9 +16,9 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Self-review of access packages and resources in Azure AD entitlement management
+# Self-review of access packages and resources in Microsoft entitlement management
 
-Azure Active Directory (Azure AD) entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how you can do a self-review of your assigned access packages.
+Microsoft entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how you can do a self-review of your assigned access packages.
 
 ## Review your own access by using My Access
 

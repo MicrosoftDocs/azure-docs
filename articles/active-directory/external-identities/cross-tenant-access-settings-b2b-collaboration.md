@@ -1,22 +1,22 @@
 ---
-title: Configure B2B collaboration cross-tenant access - Azure AD
+title: Configure B2B collaboration cross-tenant access
 description: Use cross-tenant collaboration settings to manage how you collaborate with other Azure AD organizations. Learn how to configure  outbound access to external organizations and inbound access from external Azure AD for B2B collaboration.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 05/05/2023
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: engagement-fy23, "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
 # Configure cross-tenant access settings for B2B collaboration
 
-Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, as well as the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
+Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, and the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
 ## Before you begin
 
@@ -92,9 +92,13 @@ With inbound settings, you select which external users and groups will be able t
 
 ### To change inbound B2B collaboration settings
 
-1. Select the **B2B collaboration** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
-1. (This step applies to **Organizational settings** only.) If you're configuring inbound access settings for a specific organization, select one of the following:
+1. Select **External Identities** > **Cross-tenant access settings**.
+
+1. Under **Organizational settings** select the link in the **Inbound access** column and the **B2B collaboration** tab.
+
+1. If you're configuring inbound access settings for a specific organization, select one of the following:
 
    - **Default settings**: Select this option if you want the organization to use the default inbound settings (as configured on the **Default** settings tab). If customized settings were already configured for this organization, you'll need to select **Yes** to confirm that you want all settings to be replaced by the default settings. Then select **Save**, and skip the rest of the steps in this procedure.
 
@@ -175,13 +179,25 @@ With inbound settings, you select which external users and groups will be able t
 
    - **Trust multi-factor authentication from Azure AD tenants**: Select this checkbox to allow your Conditional Access policies to trust MFA claims from external organizations. During authentication, Azure AD will check a user's credentials for a claim that the user has completed MFA. If not, an MFA challenge will be initiated in the user's home tenant.  
 
-   - **Trust compliant devices**: Allows your Conditional Access policies to trust compliant device claims from an external organization when their users access your resources.
+   - **Trust compliant devices**: Allows your Conditional Access policies to trust [compliant device claims](../conditional-access/howto-conditional-access-policy-compliant-device.md) from an external organization when their users access your resources.
 
    - **Trust hybrid Azure AD joined devices**: Allows your Conditional Access policies to trust hybrid Azure AD joined device claims from an external organization when their users access your resources.
 
     ![Screenshot showing trust settings.](media/cross-tenant-access-settings-b2b-collaboration/inbound-trust-settings.png)
 
+1. (This step applies to **Organizational settings** only.) Review the consent prompt option:
+
+   - **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**: Select this checkbox if you want to automatically redeem invitations so users from the specified tenant don't have to accept the consent prompt when they're added to this tenant using B2B collaboration. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
+
+    ![Screenshot that shows the inbound suppress consent prompt check box.](../media/external-identities/inbound-consent-prompt-setting.png)
+
 1. Select **Save**.
+
+### Allow users to sync into this tenant
+
+If you select **Inbound access** of the added organization, you'll see the **Cross-tenant sync** tab and the **Allow users sync into this tenant** check box. Cross-tenant synchronization is a one-way synchronization service in Azure AD that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md) and the [Multi-tenant organizations documentation](../multi-tenant-organizations/index.yml).
+
+:::image type="content" source="media/cross-tenant-access-settings-b2b-collaboration/cross-tenant-sync-tab.png" alt-text="Screenshot that shows the Cross-tenant sync tab with the Allow users sync into this tenant check box." lightbox="media/cross-tenant-access-settings-b2b-collaboration/cross-tenant-sync-tab.png":::
 
 ## Modify outbound access settings
 
@@ -232,7 +248,7 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting the users and groups you want to add, choose **Select**.
 
    > [!NOTE]
-   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-1.0) to add the user's object ID directly or target a group the user belongs to.
+   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview) to add the user's object ID directly or target a group the user belongs to.
 
 1. Select the **External applications** tab.
 
@@ -260,6 +276,20 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing selecting applications for b2b collaboration.](media/cross-tenant-access-settings-b2b-collaboration/outbound-b2b-collaboration-add-apps.png)
+
+1. Select **Save**.
+
+### To change outbound trust settings
+
+(This section applies to **Organizational settings** only.)
+
+1. Select the **Trust settings** tab.
+
+1. Review the consent prompt option:
+
+   - **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**: Select this checkbox if you want to automatically redeem invitations so users from this tenant don't have to accept the consent prompt when they're added to the specified tenant using B2B collaboration. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
+
+    ![Screenshot that shows the outbound suppress consent prompt check box.](../media/external-identities/outbound-consent-prompt-setting.png)
 
 1. Select **Save**.
 

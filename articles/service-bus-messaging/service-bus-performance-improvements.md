@@ -4,6 +4,7 @@ description: Describes how to use Service Bus to optimize performance when excha
 ms.topic: article
 ms.date: 09/28/2022
 ms.devlang: csharp
+ms.custom: ignite-2022
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -27,7 +28,7 @@ Service Bus offers various pricing tiers. It's recommended to pick the appropria
 > [!NOTE]
 > If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
 >
-> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default retry policy to ensure that the data is eventually accepted by Service Bus.
+> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) to ensure that the data is eventually accepted by Service Bus.
 >
 
 ### Calculating throughput for Premium
@@ -40,7 +41,7 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 #### Benchmarks
 
-Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) which you can run to see the expected throughput you'll receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you'll receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
 The benchmarking sample doesn't use any advanced features, so the throughput your applications observe will be different based on your scenarios.
 
@@ -92,9 +93,11 @@ For more information on minimum .NET Standard platform support, see [.NET implem
 
 ## Reusing factories and clients
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-The Service Bus objects that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
+The Service Bus clients that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared).  ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
 
-We recommend that you don't close or dispose these objects after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
+We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
+
+This guidance does not apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself.  For applications working with the `ServiceBusSessionReceiver`, it is recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which will spawn a new `ServiceBusSessionReceiver` bound to that session.  Once the application finishes processing that session it should dispose the associated `ServiceBusSessionReceiver`.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -322,7 +325,7 @@ There are some challenges with having a greedy approach, that is, keeping the pr
 
 ## Multiple queues or topics
 
-If a single queue or topic can't handle the expected, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+If a single queue or topic can't handle the expected number of messages, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
 More queues or topics mean that you have more entities to manage at deployment time. From a scalability perspective, there really isn't too much of a difference that you would notice as Service Bus already spreads the load across multiple logs internally, so if you use six queues or topics or two queues or topics won't make a material difference.
 
@@ -339,7 +342,6 @@ Goal: Maximize the throughput of a single queue. The number of senders and recei
 * To increase the overall send rate into the queue, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from the queue, use multiple message factories to create receivers.
 * Use asynchronous operations to take advantage of client-side batching.
-* Set the batching interval to 50 ms to reduce the number of Service Bus client protocol transmissions. If multiple senders are used, increase the batching interval to 100 ms.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
@@ -368,7 +370,6 @@ To maximize throughput, follow these steps:
 
 * If each sender is in a different process, use only a single factory per process.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
@@ -394,7 +395,6 @@ To maximize throughput, follow these guidelines:
 * To increase the overall send rate into the topic, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from a subscription, use multiple message factories to create receivers. For each receiver, use asynchronous operations or multiple threads.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
@@ -407,7 +407,6 @@ Topics with a large number of subscriptions typically expose a low overall throu
 To maximize throughput, try the following steps:
 
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the expected receive rate in seconds. This count reduces the number of Service Bus client protocol transmissions.
 

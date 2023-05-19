@@ -192,7 +192,7 @@ Please submit an issue!
 
 Other helpful resources include:
 
-- [Overview of Azure IoT device types](/azure/iot-develop/concepts-iot-device-types)
-- [Overview of Azure IoT Device SDKs](/azure/iot-develop/about-iot-sdks)
-- [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c)
+- [Overview of Azure IoT device types](./concepts-iot-device-types.md)
+- [Overview of Azure IoT Device SDKs](./about-iot-sdks.md)
+- [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](./quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c)
 - [AzureRTOS ThreadX Documentation](/azure/rtos/threadx/)

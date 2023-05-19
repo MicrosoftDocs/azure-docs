@@ -3,6 +3,7 @@ title: Auto-pause an Azure Stream Analytics with PowerShell
 description: This article describes how to auto-pause an Azure Stream Analytics job on a schedule with PowerShell
 services: stream-analytics
 ms.service: stream-analytics
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/03/2021
 ---
@@ -89,7 +90,7 @@ We highly recommend local development using [VSCode](https://code.visualstudio.c
 
 ## Writing the PowerShell script locally
 
-The best way to develop the script is locally. PowerShell being cross-platform, the script can be written and tested on any OS. On Windows we can use [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) with [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows), and [Az PowerShell](/powershell/azure/install-az-ps).
+The best way to develop the script is locally. PowerShell being cross-platform, the script can be written and tested on any OS. On Windows we can use [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) with [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows), and [Az PowerShell](/powershell/azure/install-azure-powershell).
 
 The final script that will be used is available for [Functions](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1) (and [Azure Automation](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1)). It's different than the one explained below, having been wired to the hosting environment (Functions or Automation). We'll discuss that aspect later. First, let's step through a version of it that only **runs locally**.
 
@@ -360,7 +361,7 @@ To check that the alert was set up properly, we can add `throw "Testing the aler
 
 First we'll need a new **Automation Account**. An Automation Account is similar to a solution that can host multiple runbooks.
 
-The procedure is [here](/azure/automation/quickstarts/create-azure-automation-account-portal). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
+The procedure is [here](../automation/quickstarts/create-azure-automation-account-portal.md). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
 
 For reference, the Automation team has a [good tutorial](../automation/learn/powershell-runbook-managed-identity.md) to get started on PowerShell runbooks.
 

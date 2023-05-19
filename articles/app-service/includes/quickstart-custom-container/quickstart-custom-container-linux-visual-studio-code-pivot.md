@@ -2,6 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
+ms.custom: ignite-2022
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin
@@ -28,7 +29,7 @@ This quickstart uses Azure Container Registry as the registry of choice. You're 
 Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](../../../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
+> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#vi-configure-the-web-app).
 
 ## 2 - Sign in
 
@@ -162,17 +163,36 @@ Congratulations, you've successfully completed this quickstart.
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 > [!div class="nextstepaction"]
-> [Configure custom container](../../configure-custom-container.md)
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
-> [Custom container tutorial](../../tutorial-custom-container.md)
+> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+
+> [!div class="nextstepaction"]
+> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
+
+> [!div class="nextstepaction"]
+> [Azure Monitor overview](/azure/azure-monitor/overview)
+
+> [!div class="nextstepaction"]
+> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+
+> [!div class="nextstepaction"]
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+
+> [!div class="nextstepaction"]
+> [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
 > [Multi-container app tutorial](../../tutorial-multi-container-app.md)
 
+
 Other Azure extensions:
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

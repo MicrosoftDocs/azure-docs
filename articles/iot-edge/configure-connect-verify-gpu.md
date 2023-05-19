@@ -4,7 +4,7 @@ description: Configure your environment to connect and verify your GPU to proces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 7/22/2022
+ms.date: 9/22/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -12,11 +12,13 @@ services: iot-edge
 
 # Tutorial: Configure, connect, and verify an IoT Edge module for a GPU
 
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+
 This tutorial shows you how to build a GPU-enabled virtual machine (VM). From the VM, you'll see how to run an IoT Edge device that allocates work from one of its modules to your GPU. 
 
 We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to:
 * Build a GPU-capable VM
-* Install the [NVIDIA driver extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM
+* Install the [NVIDIA driver extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) on the VM
 * Configure a module on an IoT Edge device to allocate work to a GPU
 
 ## Prerequisites
@@ -27,7 +29,7 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
 
 * Azure IoT Edge device
 
-  If you don't already have an IoT Edge device and need to quickly create one, run the following command. Use the [Azure Cloud Shell](/azure/cloud-shell/overview) located in the Azure portal. Create a new device name for `<DEVICE-NAME>` and replace the IoT `<IOT-HUB-NAME>` with your own. 
+  If you don't already have an IoT Edge device and need to quickly create one, run the following command. Use the [Azure Cloud Shell](../cloud-shell/overview.md) located in the Azure portal. Create a new device name for `<DEVICE-NAME>` and replace the IoT `<IOT-HUB-NAME>` with your own. 
     
   ```azurecli
   az iot hub device-identity create --device-id <YOUR-DEVICE-NAME> --edge-enabled --hub-name <YOUR-IOT-HUB-NAME>
@@ -37,9 +39,9 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
 
 ## Create a GPU-optimized virtual machine
 
-To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes will accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
+To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes will accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
-Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template in GitHub, then configure it to be GPU-optimized.
+Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) template in GitHub, then configure it to be GPU-optimized.
 
 1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4).
 
@@ -64,7 +66,7 @@ Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](/azure/azure
    >
    > Check which GPU VMs are supported in each region: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=us-central,us-east,us-east-2,us-north-central,us-south-central,us-west-central,us-west,us-west-2,us-west-3&products=virtual-machines).
    >
-   > To check [which region your Azure subscription allows](/azure/azure-resource-manager/troubleshooting/error-sku-not-available?tabs=azure-cli#solution), try this Azure command from the Azure portal. The `N` in `Standard_N` means it's a GPU-enabled VM.
+   > To check [which region your Azure subscription allows](../azure-resource-manager/troubleshooting/error-sku-not-available.md?tabs=azure-cli#solution), try this Azure command from the Azure portal. The `N` in `Standard_N` means it's a GPU-enabled VM.
    > ```azurecli
    > az vm list-skus --location <YOUR-REGION> --size Standard_N --all --output table
    > ```
@@ -72,7 +74,7 @@ Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](/azure/azure
 1. Select the **Review + create** button at the bottom, then the **Create** button. Deployment can take up one minute to complete.
 
 ## Install the NVIDIA extension
-Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM using the Azure portal. 
+Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) on the VM using the Azure portal. 
 
 1. Open your VM in the Azure portal and select **Extensions + applications** from the left menu.
 
@@ -111,7 +113,7 @@ Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](/azure
    :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the NVIDIA driver table.":::
 
 > [!NOTE]
-> The NVIDIA extension is a simplified way to install the NVIDIA drivers, but you may need more customization. For more information about custom installations on N-series VMs, see [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup).
+> The NVIDIA extension is a simplified way to install the NVIDIA drivers, but you may need more customization. For more information about custom installations on N-series VMs, see [Install NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md).
 
 ## Enable a module with GPU acceleration
 
@@ -166,7 +168,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
    You should see the parameters you specified for `DeviceRequests` in the JSON printout in the console.
 
 > [!NOTE]
-> To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/host_config.go)
+> To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/hostconfig.go)
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
@@ -184,7 +186,7 @@ Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.h
 
 1. Select the **Environment Variables** tab.
 
-1. Add the environment variable name `NVIDIA_VISIBLE_DEVICES` with the value `0`. The value represents a list of your modules on your device, with `0` being the beginning of the list. This value is how many devices you want assigned to a GPU. Since we only have one module here, we want the first one on our list to be GPU-enabled.
+1. Add the environment variable name `NVIDIA_VISIBLE_DEVICES` with the value `0`. This variable controls which GPUs are visible to the containerized application running on the edge device. The `NVIDIA_VISIBLE_DEVICES` environment variable can be set to a comma-separated list of device IDs, which correspond to the physical GPUs in the system. For example, if there are two GPUs in the system with device IDs 0 and 1, the variable can be set to "NVIDIA_VISIBLE_DEVICES=0,1" to make both GPUs visible to the container. In this article, since the VM only has one GPU, we will use the first (and only) one.
 
    | Name                   | Type | Value |
    | :--------------------- | ---- | ----- |

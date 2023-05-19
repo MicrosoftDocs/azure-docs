@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 03/28/2023
 
 ---
 
@@ -31,15 +31,15 @@ To use spell check, you'll need the following:
 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that has "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages). Spell check works on strings passed in the "search" parameter. It's not supported for filters.
 
-Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
+Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), another web client, or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
 
 | Client library | Versions |
 |----------|----------|
 | REST API | [2021-04-30-Preview](/rest/api/searchservice/index-preview) or 2020-06-30-Preview |
-| Azure SDK for .NET | [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
-| Azure SDK for Java |  [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
-| Azure SDK for JavaScript | [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
-| Azure SDK for Python | [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
+| Azure SDK for .NET | [version 11.5.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.2) | 
+| Azure SDK for Java |  [version 11.6.0-beta.5](https://repo1.maven.org/maven2/com/azure/azure-search-documents/11.6.0-beta.5/azure-search-documents-11.6.0-beta.5.jar) 
+| Azure SDK for JavaScript | [version 11.3.0-beta.8](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8) |
+| Azure SDK for Python | [version 11.4.0b3](https://pypi.org/project/azure-search-documents/11.4.0b3/) |
 
 ## Spell correction with simple search
 
@@ -80,7 +80,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with semantic search
 
-This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
+This query, with typos in every term except one, undergoes spelling corrections to return relevant results. To learn more, see [Configure semantic ranking](semantic-how-to-query-request.md).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview     

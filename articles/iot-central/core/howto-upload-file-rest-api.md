@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to add upload storage account configuration in Azure IoT Central
 description: How to use the IoT Central REST API to add upload storage account configuration in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 05/12/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -137,7 +137,7 @@ The response to this request looks like the following example:
 Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 The request body has the following fields:
@@ -157,7 +157,7 @@ The request body has the following fields:
 }
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -176,7 +176,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -197,7 +197,7 @@ The response to this request looks like the following example:
 Use the following request to update a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ```json
@@ -228,14 +228,14 @@ The response to this request looks like the following example:
 Use the following request to delete a  storage account configuration:
 
 ```http
-DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
+DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ## Test file upload
 
 After you [configure file uploads](#add-a-file-upload-storage-account-configuration) in your IoT Central application, you can test it with the sample code. If you haven't already cloned the file upload sample repository, use the following commands to clone it to a suitable location on your local machine and install the dependent packages:
 
-```
+```cmd/sh
 git clone https://github.com/azure-Samples/iot-central-file-upload-device
 cd iotc-file-upload-device
 npm i
@@ -256,7 +256,7 @@ To test the file upload you run a sample device application. Create a device tem
 
 1. On the **Review** page, select **Create**.
 
-1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* manifest file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
+1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* model file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
 
 1. Select **Publish** to publish the device template.
 
@@ -278,7 +278,7 @@ Copy the values for `ID scope`, `Device ID`, and `Primary key`. You'll use these
 
 Open the git repository you downloaded in VS code. Create an ".env" file at the root of your project and add the values you copied above. The file should look like the sample below with the values you made a note of previously.
 
-```
+```cmd/sh
 scopeId=<YOUR_SCOPE_ID>
 deviceId=<YOUR_DEVICE_ID>
 deviceKey=<YOUR_PRIMARY_KEY>
@@ -287,8 +287,7 @@ modelId=dtmi:IoTCentral:IotCentralFileUploadDevice;1
 
 Open the git repository you downloaded in VS code. Press F5 to run/debug the sample. In your terminal window you see that the device is registered and is connected to IoT Central:
 
-```
-
+```cmd/sh
 Starting IoT Central device...
  > Machine: Windows_NT, 8 core, freemem=6674mb, totalmem=16157mb
 Starting device registration...

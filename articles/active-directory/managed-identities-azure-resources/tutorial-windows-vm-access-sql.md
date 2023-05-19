@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows - Azure AD'
+title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows'
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL Database.
 services: active-directory
 documentationcenter: ''
@@ -63,7 +63,7 @@ This section shows how to create a contained user in the database that represent
 - [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/azure-sql/database/authentication-mfa-ssms-overview)
 - [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-configure)
 
-SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique Azure AD display name for a given account.
+SQL DB requires unique Azure AD display names. With this, the Azure AD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in Azure AD regarding their display names. SQL DB checks the Azure AD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique Azure AD display name for a given account.
 
 **To create a contained user:**
 
@@ -101,50 +101,21 @@ Code running in the VM can now get a token using its system-assigned managed ide
 
 ## Access data
 
-This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. You use the **access token** method of creating a connection to SQL. This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
+This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. This method doesn't require supplying credentials on the connection string.
 
-Here's a .NET code example of opening a connection to SQL using an access token. The code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6** or higher or **.NET Core 2.2** or higher is required to use the access token method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly. Note the resource ID for Azure SQL is `https://database.windows.net/`.
+Here's a .NET code example of opening a connection to SQL using Active Directory Managed Identity authentication. The code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6.2** or higher or **.NET Core 3.1** or higher is required to use this method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly and add a NuGet reference to the Microsoft.Data.SqlClient library.
 
 ```csharp
-using System.Net;
-using System.IO;
-using System.Data.SqlClient;
-using System.Web.Script.Serialization;
-
-//
-// Get an access token for SQL.
-//
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
-request.Headers["Metadata"] = "true";
-request.Method = "GET";
-string accessToken = null;
+using Microsoft.Data.SqlClient;
 
 try
 {
-    // Call managed identities for Azure resources endpoint.
-    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-    // Pipe response Stream to a StreamReader and extract access token.
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream());
-    string stringResponse = streamResponse.ReadToEnd();
-    JavaScriptSerializer j = new JavaScriptSerializer();
-    Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
-    accessToken = list["access_token"];
-}
-catch (Exception e)
-{
-    string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
-}
-
 //
-// Open a connection to the server using the access token.
+// Open a connection to the server using Active Directory Managed Identity authentication.
 //
-if (accessToken != null) {
-    string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
-    SqlConnection conn = new SqlConnection(connectionString);
-    conn.AccessToken = accessToken;
-    conn.Open();
-}
+string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>; Authentication=Active Directory Managed Identity; Encrypt=True";
+SqlConnection conn = new SqlConnection(connectionString);
+conn.Open();
 ```
 
 >[!NOTE]
@@ -153,7 +124,7 @@ if (accessToken != null) {
 Alternatively, a quick way to test the end-to-end setup without having to write and deploy an app on the VM is using PowerShell.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
-2. Enter in your **Username** and **Password** for which you added when you created the Windows VM.
+2. Enter in your **VM admin credential** which you added when you created the Windows VM.
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session.
 4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local managed identity's endpoint to get an access token for Azure SQL.
 
@@ -177,7 +148,7 @@ Alternatively, a quick way to test the end-to-end setup without having to write 
 
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
-    $SqlConnection.ConnectionString = "Data Source = <AZURE-SQL-SERVERNAME>; Initial Catalog = <DATABASE>"
+    $SqlConnection.ConnectionString = "Data Source = <AZURE-SQL-SERVERNAME>; Initial Catalog = <DATABASE>; Encrypt=True;"
     $SqlConnection.AccessToken = $AccessToken
     $SqlConnection.Open()
     ```

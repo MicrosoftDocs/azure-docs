@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
-ms.custom: template-quickstart
+ms.date: 04/10/2023
+ms.custom: template-quickstart, devx-track-azurecli
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure CLI
@@ -16,7 +16,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -188,7 +188,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
     --resource-group CreatePubLBQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
-    --address-prefixes 10.1.1.0/27
+    --address-prefixes 10.1.1.0/26
 ```
 
 ### Create bastion host

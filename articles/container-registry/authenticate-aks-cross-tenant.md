@@ -2,9 +2,9 @@
 title: Authenticate from AKS cluster to Azure container registry in different AD tenant
 description: Configure an AKS cluster's service principal with permissions to access your Azure container registry in a different AD tenant
 ms.topic: article
-author: dlepow
-ms.author: danlep
-ms.date: 09/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Pull images from a container registry to an AKS cluster in a different Azure AD tenant
@@ -68,7 +68,7 @@ In **Tenant B**, assign the AcrPull role to the service principal, scoped to the
 
 ### Step 4: Update AKS with the Azure AD application secret
 
-Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials.md#update-aks-cluster-with-service-principal-credentials).
 
 Updating the service principal can take several minutes.
 

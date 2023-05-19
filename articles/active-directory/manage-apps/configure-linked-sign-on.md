@@ -2,14 +2,16 @@
 title: Add linked single sign-on to an application
 description: Add linked single sign-on to an application in Azure Active Directory.
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/22/2021
-ms.author: alamaral
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement linked single sign-on in Azure Active Directory.
 ---
 

@@ -3,7 +3,7 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
+ms.date: 04/03/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -60,6 +60,11 @@ In this case, you can pass the following value to the parameter.
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+For PowerShell 7.1 runbooks, provide array input parameters in below format:
+
+| **Name** | **Value** |
+| --- | --- |
+| TESTPARAMETER | does,this,even,work |
 
 > [!NOTE]
 > When you do not pass a value to an optional String parameter with a null default value, the value of the parameter is an empty string instead of Null.
@@ -110,6 +115,9 @@ Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks 
 
 For an example of how to use input parameters in a Python runbook, see
 [My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
+
+>[!NOTE]
+>Arguments with spaces are currently not supported. As a workaround, you could use \\\t in addition to \\\n.
 
 ## Assign values to input parameters in runbooks
 

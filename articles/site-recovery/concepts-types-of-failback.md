@@ -4,6 +4,8 @@ description: This article provides an overview of various types of failback and 
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 

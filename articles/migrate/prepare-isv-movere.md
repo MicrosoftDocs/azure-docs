@@ -5,7 +5,8 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 10/15/2020
+ms.custom: engagement-fy23
 ---
 
 # Prepare to work with an ISV tool or Movere

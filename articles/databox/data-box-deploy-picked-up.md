@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 07/20/2022
+ms.date: 01/23/2023
 ms.author: alkohli
 zone_pivot_groups: data-box-shipping
 
@@ -111,6 +111,10 @@ If using Microsoft managed shipping, follow these steps.
 ### [UAE](#tab/in-uae)
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
+
+### [India](#tab/in-india)
+
+[!INCLUDE [data-box-shipping-in-india](../../includes/data-box-shipping-in-india.md)]
 
 
 ::: zone-end

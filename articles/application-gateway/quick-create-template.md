@@ -8,7 +8,7 @@ ms.author: greglin
 ms.date: 06/10/2022
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template
@@ -31,7 +31,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-For the sake of simplicity, this template creates a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+For the sake of simplicity, this template creates a simple setup with a public frontend IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 

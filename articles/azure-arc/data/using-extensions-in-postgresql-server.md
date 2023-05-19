@@ -14,210 +14,129 @@ ms.topic: how-to
 
 # Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL server
 
-PostgreSQL is at its best when you use it with extensions. In fact, a key element of our own Hyperscale functionality is the Microsoft-provided `citus` extension that is installed by default, which allows Postgres to transparently shard data across multiple nodes.
+PostgreSQL is at its best when you use it with extensions.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Supported extensions
-The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc-enabled PostgreSQL server:
-- [`citus`](https://github.com/citusdata/citus), v: 10.2. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL server is not supported.
-- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.3
-- [`pgaudit`](https://www.pgaudit.org/), v: 1.4
-- plpgsql, v: 1.0
-- [`postgis`](https://postgis.net), v: 3.0.2
-- [`plv8`](https://plv8.github.io/), v: 2.3.14
-- [`pg_partman`](https://github.com/pgpartman/pg_partman), v: 4.4.1/
-- [`tdigest`](https://github.com/tvondra/tdigest), v: 1.0.1
+The following extensions are deployed by default in the containers of your Azure Arc-enabled PostgreSQL server, some of them are standard [`contrib`](https://www.postgresql.org/docs/14/contrib.html) extensions:
+- `address_standardizer_data_us` 3.3.1
+- `adminpack` 2.1
+- `amcheck` 1.3
+- `autoinc` 1
+- `bloom` 1
+- `btree_gin` 1.3
+- `btree_gist` 1.6
+- `citext` 1.6
+- `cube` 1.5
+- `dblink` 1.2
+- `dict_int` 1
+- `dict_xsyn` 1
+- `earthdistance` 1.1
+- `file_fdw` 1
+- `fuzzystrmatch` 1.1
+- `hstore` 1.8
+- `hypopg` 1.3.1
+- `insert_username` 1
+- `intagg` 1.1
+- `intarray` 1.5
+- `isn` 1.2
+- `lo` 1.1
+- `ltree` 1.2
+- `moddatetime` 1
+- `old_snapshot` 1
+- `orafce` 4
+- `pageinspect` 1.9
+- `pg_buffercache` 1.3
+- `pg_cron` 1.4-1
+- `pg_freespacemap` 1.2
+- `pg_partman` 4.7.1
+- `pg_prewarm` 1.2
+- `pg_repack` 1.4.8
+- `pg_stat_statements` 1.9
+- `pg_surgery` 1
+- `pg_trgm` 1.6
+- `pg_visibility` 1.2
+- `pgaudit` 1.7
+- `pgcrypto` 1.3
+- `pglogical` 2.4.2
+- `pglogical_origin` 1.0.0
+- `pgrouting` 3.4.1
+- `pgrowlocks` 1.2
+- `pgstattuple` 1.5
+- `plpgsql` 1
+- `postgis` 3.3.1
+- `postgis_raster` 3.3.1
+- `postgis_tiger_geocoder` 3.3.1
+- `postgis_topology` 3.3.1
+- `postgres_fdw` 1.1
+- `refint` 1
+- `seg` 1.4
+- `sslinfo` 1.2
+- `tablefunc` 1
+- `tcn` 1
+- `timescaledb` 2.8.1
+- `tsm_system_rows` 1
+- `tsm_system_time` 1
+- `unaccent` 1.1
 
 Updates to this list will be posted as it evolves over time.
 
-> [!IMPORTANT]
-> While you may bring to your server group an extension other than those listed above, in this Preview, it will not be persisted to your system. It means that it will not be available after a restart of the system and you would need to bring it again.
+## Enable extensions in Arc-enabled PostgreSQL server
+You can create an Arc-enabled PostgreSQL server with any of the supported extensions enabled by passing a comma separated list of extensions to the `--extensions` parameter of the `create` command. 
 
-This guide will take in a scenario to use two of these extensions:
-- [`PostGIS`](https://postgis.net/)
-- [`pg_cron`](https://github.com/citusdata/pg_cron)
-
-## Which extensions need to be added to the shared_preload_libraries and created?
-
-|Extensions   |Requires to be added to shared_preload_libraries  |Requires to be created |
-|-------------|--------------------------------------------------|---------------------- |
-|`pg_cron`      |No       |Yes        |
-|`pg_audit`     |Yes       |Yes        |
-|`plpgsql`      |Yes       |Yes        |
-|`postgis`      |No       |Yes        |
-|`plv8`      |No       |Yes        |
-
-## Add extensions to the `shared_preload_libraries`
-For details about that are `shared_preload_libraries`, read the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
-- This step isn't needed for the extensions that are part of `contrib`
-- this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next paragraph [Create extensions](#create-extensions).
-
-### Add an extension to an instance that already exists
 ```azurecli
-az postgres server-arc server edit -n <postgresql server> --extensions <extension names> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc create -n <name> --k8s-namespace <namespace> --extensions "pgaudit,pg_partman" --use-k8s
+```
+*NOTE*: Enabled extensions are added to the configuration ``shared_preload_libraries``. Extensions must be installed in your database before you can use it. To install a particular extension, you should run the [`CREATE EXTENSION`](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+
+For example, connect to your database and issue the following PostgreSQL command to install pgaudit extension:
+
+```SQL
+CREATE EXTENSION pgaudit;
 ```
 
-## Show the list of extensions added to shared_preload_libraries
-Run either of the following command.
+## Update extensions
+You can add or remove extensions from an existing Arc-enabled PostgreSQL server.
 
-### With CLI command
-```azurecli
-az postgres server-arc show -n <server name> --k8s-namespace <namespace> --use-k8s
-```
-Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
+You can run the kubectl describe command to get the current list of enabled extensions:
 ```console
-  "spec": {
-    "dev": false,
-    "engine": {
-      "extensions": [
-        {
-          "name": "citus"
-        }
-      ],
+kubectl describe postgresqls <server-name> -n <namespace>
 ```
-### With kubectl
-```console
-kubectl describe postgresqls/<server name> -n <namespace>
-```
-Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
-```console
-Spec:
-  Dev:  false
-  Engine:
-    Extensions:
-      Name:   citus
+If there are extensions enabled the output contains a section like this:
+```yml
+  config:
+    postgreSqlExtensions: pgaudit,pg_partman
 ```
 
-
-## Create extensions
-Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
-```console
-CREATE EXTENSION <extension name>;
-```
-
-## Show the list of extensions created
-Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
-```console
+Check whether the extension is installed after connecting to the database by running following PostgreSQL command:
+```SQL
 select * from pg_extension;
 ```
 
-## Drop an extension
-Connect to your server group with the client tool of your choice and run the standard PostgreSQL query:
-```console
-drop extension <extension name>;
-```
-
-## The `PostGIS` extension
-You do not need to add the `PostGIS` extension to the `shared_preload_libraries`.
-Get [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Run `apt-get install unzip` to install unzip as needed.
-
-```console
-wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
-unzip intro-postgis-datasets.zip
-```
-
-Let's connect to our database, and create the `PostGIS` extension:
-
-```console
-CREATE EXTENSION postgis;
-```
-
-> [!NOTE]
-> If you would like to use one of the extensions in the `postgis` package (for example `postgis_raster`, `postgis_topology`, `postgis_sfcgal`, `fuzzystrmatch`...) you need to first create the postgis extension and then create the other extension. For instance: `CREATE EXTENSION postgis`; `CREATE EXTENSION postgis_raster`;
-
-And create the schema:
-
-```sql
-CREATE TABLE coffee_shops (
-  id serial NOT NULL,
-  name character varying(50),
-  address character varying(50),
-  city character varying(50),
-  state character varying(50),
-  zip character varying(10),
-  lat numeric,
-  lon numeric,
-  geom geometry(POINT,4326)
-);
-CREATE INDEX coffee_shops_gist ON coffee_shops USING gist (geom);
-```
-
-Now, we can combine `PostGIS` with the scale-out functionality, by making the coffee_shops table distributed:
-
-```sql
-SELECT create_distributed_table('coffee_shops', 'id');
-```
-
-Let's load some data:
-
-```console
-\copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
-```
-
-And fill the `geom` field with the correctly encoded latitude and longitude in the `PostGIS` `geometry` data type:
-
-```sql
-UPDATE coffee_shops SET geom = ST_SetSRID(ST_MakePoint(lon,lat),4326);
-```
-
-Now we can list the coffee shops closest to MIT (77 Massachusetts Ave at 42.359055, -71.093500):
-
-```sql
-SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint(-71.093500,42.359055),4326);
-```
-
-
-## The `pg_cron` extension
-
-Now, let's enable `pg_cron` on our PostgreSQL server group by adding it to the shared_preload_libraries:
+Enable new extensions by appending them to the existing list, or remove extensions by removing them from the existing list. Pass the desired list to the update command. For example, to add `pgcrypto` and remove `pg_partman` from the server in the example above:
 
 ```azurecli
-az postgres server-arc update -n pg2 -ns arc --extensions pg_cron
+az postgres server-arc update -n <name> --k8s-namespace <namespace> --extensions "pgaudit,pgrypto" --use-k8s
 ```
 
-Your server group will restart complete the installation of the  extensions. It may take 2 to 3 minutes.
+Once allowed extensions list is updated. Connect to the database and install newly added extension by the following command:
 
-We can now connect again, and create the `pg_cron` extension:
-
-```sql
-CREATE EXTENSION pg_cron;
+```SQL
+CREATE EXTENSION pgcrypto;
 ```
 
-For test purposes, lets make a table `the_best_coffee_shop` that takes a random name from our earlier `coffee_shops` table, and inserts the table contents:
+Similarly, to remove an extension from an existing database issue the command [`DROP EXTENSION`](https://www.postgresql.org/docs/current/sql-dropextension.html) :
 
-```sql
-CREATE TABLE the_best_coffee_shop(name text);
+```SQL
+DROP EXTENSION pg_partman;
 ```
 
-We can use `cron.schedule` plus a few SQL statements, to get a random table name (notice the use of a temporary table to store a distributed query result), and store it in `the_best_coffee_shop`:
-
-```sql
-SELECT cron.schedule('* * * * *', $$
-  TRUNCATE the_best_coffee_shop;
-  CREATE TEMPORARY TABLE tmp AS SELECT name FROM coffee_shops ORDER BY random() LIMIT 1;
-  INSERT INTO the_best_coffee_shop SELECT * FROM tmp;
-  DROP TABLE tmp;
-$$);
+## Show the list of installed extensions
+Connect to your database with the client tool of your choice and run the standard PostgreSQL query:
+```SQL
+select * from pg_extension;
 ```
-
-And now, once a minute, we'll get a different name:
-
-```sql
-SELECT * FROM the_best_coffee_shop;
-```
-
-```console
-      name
------------------
- B & B Snack Bar
-(1 row)
-```
-
-See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details on the syntax.
-
 
 ## Next steps
-- Read documentation on [`plv8`](https://plv8.github.io/)
-- Read documentation on [`PostGIS`](https://postgis.net/)
-- Read documentation on [`pg_cron`](https://github.com/citusdata/pg_cron)
+- **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 

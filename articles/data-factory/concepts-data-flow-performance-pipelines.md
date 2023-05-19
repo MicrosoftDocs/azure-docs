@@ -8,10 +8,10 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
+ms.date: 10/26/2022
 ---
 
-# Using data flows in pipelines 
+# Using data flows in pipelines
 
 When building complex pipelines with multiple data flows, your logical flow can have a big impact on timing and cost. This section covers the impact of different architecture strategies.
 
@@ -39,6 +39,10 @@ The default behavior of data flow sinks is to execute each sink sequentially, in
 Data flows allow you to group sinks together into groups from the data flow properties tab in the UI designer. You can both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask the service to run sinks in the same group, to run in parallel.
 
 On the pipeline execute data flow activity under the "Sink Properties" section is an option to turn on parallel sink loading. When you enable "run in parallel", you are instructing data flows write to connected sinks at the same time rather than in a sequential manner. In order to utilize the parallel option, the sinks must be group together and connected to the same stream via a New Branch or Conditional Split.
+
+## Access Azure Synapse database templates in pipelines
+
+You can use an [Azure Synapse database template](../synapse-analytics/database-designer/overview-database-templates.md) when crating a pipeline. When creating a new dataflow, in the source or sink settings, select **Workspace DB**. The database dropdown will list the databases created through the database template. The Workspace DB option is only available for new data flows, it's not available when you use an existing pipeline from the Synapse studio gallery.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 11/17/2022
 ---
 
 ## Model ID announcement
@@ -27,7 +27,7 @@ The new `ClientOptions` overload is available in all `DeviceClient` methods used
 
 ## DPS payload
 
-Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload:
+Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process by using the following JSON payload:
 
 ```json
 {
@@ -37,13 +37,13 @@ Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-
 
 ## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in the following sections.
+As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections.
 
 ## Telemetry
 
 A default component doesn't require any special property added to the telemetry message.
 
-When using nested components, devices must set a message property with the component name:
+When you use nested components, devices must set a message property with the component name:
 
 ```c#
 public async Task SendComponentTelemetryValueAsync(string componentName, string serializedTelemetry)
@@ -76,7 +76,7 @@ The device twin is updated with the following reported property:
 }
 ```
 
-When using nested components, properties must be created within the component name and include a marker:
+When you use nested components, create properties within the component name and include a marker:
 
 ```csharp
 TwinCollection reportedProperties = new TwinCollection();
@@ -102,7 +102,7 @@ The device twin is updated with the following reported property:
 
 ## Writable properties
 
-These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the back-end application. If the back-end application updates a property, the client receives a notification as a callback in the `DeviceClient` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
 If the property type is `Object`, the service must send a complete object to the device even if it's only updating a subset of the object's fields. The acknowledgment the device sends must also be a complete object.
 
@@ -281,7 +281,8 @@ null);
 
 ### Request and response payloads
 
-Commands use types to define their request and response payloads. A device must deserialize the incoming input parameter and serialize the response. 
+Commands use types to define their request and response payloads. A device must deserialize the incoming input parameter and serialize the response.
+
 The following example shows how to implement a command with complex types defined in the payloads:
 
 ```json
@@ -357,5 +358,5 @@ await client.SetMethodHandlerAsync("start", (MethodRequest req, object ctx) =>
 },null);
 ```
 
-> [!Tip]
+> [!TIP]
 > The request and response names aren't present in the serialized payloads transmitted over the wire.

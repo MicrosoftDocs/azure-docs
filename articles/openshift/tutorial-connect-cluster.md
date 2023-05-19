@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Connect to an Azure Red Hat OpenShift 4 cluster
 description: Learn how to connect a Microsoft Azure Red Hat OpenShift cluster
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: johnmarco
+ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020

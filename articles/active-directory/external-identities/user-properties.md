@@ -1,14 +1,14 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
+title: Properties of a B2B guest user
 description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/30/2022
-ms.author: mimart
-author: msmimart
+ms.date: 01/23/2023
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
@@ -27,6 +27,10 @@ The following table describes B2B collaboration users based on how they authenti
 - **Internal guest**: Before Azure AD B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest. If you have internal guest users like these, you can invite them to use B2B collaboration instead so they can use their own credentials, allowing their external identity provider to manage authentication and their account lifecycle.
 - **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
 
+The user type you choose has the following limitations for apps or services (but aren't limited to):
+    
+[!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
+
 > [!IMPORTANT]
 > The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
@@ -36,23 +40,21 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 ### Before invitation redemption
 
-B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Issuer** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the **Invitation accepted** property in the invited user’s Azure AD portal profile will be set to **No** and querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
+B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Identities** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the invited user’s profile will show an **External user state** of **PendingAcceptance**. Querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
 
 ![Screenshot of user profile before redemption.](media/user-properties/before-redemption.png)
 
 ### After invitation redemption
 
-After the B2B collaboration user accepts the invitation, the **Issuer** property is updated based on the user’s identity provider.
+After the B2B collaboration user accepts the invitation, the **Identities** property is updated based on the user’s identity provider.
 
-If the B2B collaboration user is using credentials from another Azure AD organization, the **Issuer** is **External Azure AD**.
+- If the B2B collaboration user is using a Microsoft account or credentials from another external identity provider, **Identities** reflects the identity provider, for example **Microsoft Account**, **google.com**, or **facebook.com**.
 
-![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
+   ![Screenshot of user profile after redemption.](media/user-properties/after-redemption-state-1.png)
 
-If the B2B collaboration user is using a Microsoft account or credentials from another external identity provider, the **Issuer** reflects the identity provider, for example **Microsoft Account**, **google.com**, or **facebook.com**.
+- If the B2B collaboration user is using credentials from another Azure AD organization, **Identities** is **External Azure AD**.
 
-![Screenshot of user profile showing an external identity provider.](media/user-properties/after-redemption-state-2.png)
-
-For external users who are using internal credentials, the **Issuer** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
+- For external users who are using internal credentials, the **Identities** property is set to the host’s organization domain. The **Directory synced** property is **Yes** if the account is homed in the organization’s on-premises Active Directory and synced with Azure AD, or **No** if the account is a cloud-only Azure AD account. The directory sync information is also available via the `onPremisesSyncEnabled` property in Microsoft Graph.
 
 ## Key properties of the Azure AD B2B collaboration user
 
@@ -71,23 +73,22 @@ This property indicates the relationship of the user to the host tenancy. This p
 > [!NOTE]
 > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
-### Issuer
+### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting issuer in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
-> Issuer and UserType are independent properties. A value of issuer does not imply a particular value for UserType
+> Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
 
-Issuer property value | Sign-in state
+Identities property value | Sign-in state
 --------------------- | -------------------------
 External Azure AD | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization.
 Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account.
 {host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
-mail | This user has an email address that doesn't match with verified Azure AD or SAML/WS-Fed domains, and isn't a Gmail address or a Microsoft account.
-phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and isn't a Gmail address or Microsoft account.
-{issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the issuer field is clicked.
+mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
+{issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
 ### Directory synced
 
@@ -98,6 +99,11 @@ The **Directory synced** property indicates whether the user is being synced wit
 Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azure AD B2B collaboration user is added as a user with **UserType** set to **Guest** by default. However, in some cases, the partner organization is a member of a larger organization to which the host organization also belongs. If so, the host organization might want to treat users in the partner organization as members instead of guests. Use the Azure AD B2B Invitation Manager APIs to add or invite a user from the partner organization to the host organization as a member.
 
 ## Filter for guest users in the directory
+
+In the **Users** list, you can use **Add filter** to display only the guest users in your directory.
+
+![Screenshot showing how to add a User type filter for guests.](media/user-properties/add-guest-filter.png)
+
 
 ![Screenshot showing the filter for guest users.](media/user-properties/filter-guest-users.png)
 

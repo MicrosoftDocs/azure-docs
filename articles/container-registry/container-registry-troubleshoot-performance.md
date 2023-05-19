@@ -2,7 +2,9 @@
 title: Troubleshoot registry performance
 description: Symptoms, causes, and resolution of common problems with the performance of a registry
 ms.topic: article
-ms.date: 08/11/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Troubleshoot registry performance

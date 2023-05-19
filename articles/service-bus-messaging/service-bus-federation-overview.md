@@ -11,7 +11,7 @@ Within namespaces, Azure Service Bus supports [creating topologies of chained qu
 
 Many sophisticated solutions also require messages to be replicated across namespace boundaries in order to implement these and other patterns. Messages may have to flow between namespaces associated with multiple, different application tenants, or across multiple, different Azure regions. 
 
-Your solution will maintain multiple Service Bus namespaces in different regions and replicate messages between Queues and Topics, and/or that you will exchange messages with sources and targets like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure IoT Hub](../iot-fundamentals/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
+Your solution will maintain multiple Service Bus namespaces in different regions and replicate messages between Queues and Topics, and/or that you will exchange messages with sources and targets like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure IoT Hub](../iot/iot-introduction.md), or [Apache Kafka](https://kafka.apache.org). 
 
 These scenarios are the focus of this article. 
 
@@ -50,7 +50,7 @@ A subscription with a respective rule can be easily added to any topic using the
 ```azurecli
 
 az servicebus topic subscription rule create --resource-group myresourcegroup \
-   --namespace mynamespace --topic-name mytopic 
+   --namespace mynamespace --topic-name mytopic \
    --subscription-name replication --name replication \
    --action-sql-expression "set replication = 1" \
    --filter-sql-expression "replication IS NULL"

@@ -4,7 +4,8 @@ metadata:
   description: Answers for frequently asked questions related to the Azure Container Registry service 
   author: sajayantony
   ms.topic: faq
-  ms.date: 09/17/2021
+  ms.custom: devx-track-azurecli
+  ms.date: 10/11/2022
   ms.author: sajaya
 title: Frequently asked questions - Azure Container Registry
 summary: |
@@ -32,7 +33,7 @@ sections:
       - question: |
           How do I configure Kubernetes with Azure Container Registry?
         answer: |
-          See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
+          See the documentation for [Kubernetes](https://kubernetes.io/docs/concepts/containers/images/) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
           
       - question: |
           How do I get admin credentials for a container registry?
@@ -439,8 +440,8 @@ sections:
           To resolve the problem, you need to follow redirects manually without the headers. Print the response headers with the `-D -` option of `curl` and then extract: the `Location` header:
           
           ```bash
-          redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
-          curl $redirect_url
+          REDIRECT_URL=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
+          curl $REDIRECT_URL
           ```
           
       - question:  |
@@ -466,7 +467,7 @@ sections:
         answer: |
           Here are some scenarios where operations may be disallowed:
           * Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az-acr-update) or the Azure portal.
-          * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
+          * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr repository show](./container-registry-image-lock.md) command to view current attributes.
           * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
           * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
           

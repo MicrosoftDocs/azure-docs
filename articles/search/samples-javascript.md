@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 01/04/2023
 ---
 
-# JavaScript code samples for Azure Cognitive Search
+# JavaScript samples for Azure Cognitive Search
 
 Learn about the JavaScript code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/javascript/api/overview/azure/search-documents-readme) for the [**Azure SDK for JavaScript**](/azure/developer/javascript/), which you can explore through the following links.
 
@@ -53,9 +53,9 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | Samples | Article |
 |---------|---------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Source code for [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md). Covers the basic workflow for creating, loading, and querying a search index using sample data. |
-| [search-website](https://github.com/azure-samples/azure-search-javascript-samples/tree/master/search-website) | Source code for [Tutorial: Add search to web apps](tutorial-javascript-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
+| [search-website](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/search-website-functions-v4) | Source code for [Tutorial: Add search to web apps](tutorial-javascript-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 
-> [!Tip]
+> [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples

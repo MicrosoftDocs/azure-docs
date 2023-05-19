@@ -11,6 +11,7 @@ ms.date: 08/23/2022
 ms.author: pauljewell
 ms.reviewer: artek
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

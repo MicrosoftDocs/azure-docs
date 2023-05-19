@@ -1,10 +1,11 @@
 ---
 title: Manage your Azure subscriptions at scale with management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 08/02/2022
+ms.date: 12/01/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.custom: devx-track-azurepowershell
+ms.author: tomfitz
+author: tfitzmac
 ---
 # Manage your Azure subscriptions at scale with management groups
 
@@ -229,7 +230,7 @@ If you're doing the move action, you need permission at each of the following la
 
 - Child subscription / management group
   - `Microsoft.management/managementgroups/write`
-  - `Microsoft.management/managementgroups/subscription/write` (only for Subscriptions)
+  - `Microsoft.management/managementgroups/subscriptions/write` (only for Subscriptions)
   - `Microsoft.Authorization/roleAssignments/write`
   - `Microsoft.Authorization/roleAssignments/delete`
   - `Microsoft.Management/register/action`
@@ -299,7 +300,7 @@ To move a subscription in PowerShell, you use the New-AzManagementGroupSubscript
 New-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-To remove the link between and subscription and the management group use the
+To remove the link between the subscription and the management group use the
 Remove-AzManagementGroupSubscription command.
 
 ```azurepowershell-interactive

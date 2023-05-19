@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/27/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -40,7 +40,9 @@ ms.reviewer: chmutali
 
 **Suggested workarounds**
  * **Option 1: Using Workday Provisioning Groups**: Check if the calculated field value can be represented as a provisioning group in Workday. Using the same logic that is used for the calculated field, your Workday Admin may be able to assign a Provisioning Group to the user. Reference Workday doc that requires Workday login: [Set Up Account Provisioning Groups](https://doc.workday.com/reader/3DMnG~27o049IYFWETFtTQ/keT9jI30zCzj4Nu9pJfGeQ). Once configured, this Provisioning Group assignment can be [retrieved in the provisioning job](../app-provisioning/workday-integration-reference.md#example-3-retrieving-provisioning-group-assignments) and used in attribute mappings and scoping filter. 
-* **Option 2: Using Workday Custom IDs**: Check if the calculated field value can be represented as a Custom ID on the Worker Profile. Use `Maintain Custom ID Type` task in Workday to define a new type and populate values in this custom ID. Make sure the [Workday ISU account used for the integration](../saas-apps/workday-inbound-tutorial.md#configuring-domain-security-policy-permissions) has domain security permission for `Person Data: ID Information`. For example, you can define "External_Payroll_ID" as a custom ID in Workday and retrieved it using the XPATH: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Identification_Data/wd:Custom_ID/wd:Custom_ID_Data[wd:ID_Type_Reference/wd:ID[@wd:type=\"Custom_ID_Type_ID\"]=\"External_Payroll_ID\"]/wd:ID/text()`
+* **Option 2: Using Workday Custom IDs**: Check if the calculated field value can be represented as a Custom ID on the Worker Profile. Use `Maintain Custom ID Type` task in Workday to define a new type and populate values in this custom ID. Make sure the [Workday ISU account used for the integration](../saas-apps/workday-inbound-tutorial.md#configuring-domain-security-policy-permissions) has domain security permission for `Person Data: ID Information`. 
+  * Example 1: Let's say you have a calculated field called Payroll ID. You can define "External_Payroll_ID" as a custom ID in Workday and retrieve it using an XPATH that uses "Custom_ID_Type_ID" as the selecting mechanism:  `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Identification_Data/wd:Custom_ID/wd:Custom_ID_Data[string(wd:ID_Type_Reference/wd:ID[@wd:type='Custom_ID_Type_ID']='External_Payroll_ID']/wd:ID/text()`
+  * Example 2: Let's say you have a calculated field called Badge ID. You can define "Badge ID" as a custom ID in Workday and retrieve the "Descriptor" attribute corresponding to it with an XPATH that uses "wd:ID_Type_Reference/@wd:Descriptor" as the selecting mechanism:  `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Identification_Data/wd:Custom_ID[string(wd:Custom_ID_Data/wd:ID_Type_Reference/@wd:Descriptor)='BADGE ID']/wd:Custom_ID_Reference/@wd:Descriptor`
 
 
 ## Next steps

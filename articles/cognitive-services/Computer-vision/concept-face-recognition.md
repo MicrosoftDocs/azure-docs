@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 12/27/2022
 ms.author: pafarley
 ---
 
@@ -22,7 +22,9 @@ You can try out the capabilities of face recognition quickly and easily using Vi
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 
-## Recognition operations
+## Face recognition operations
+
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
 This section details how the underlying operations use the above data structures to identify and verify a face.
 

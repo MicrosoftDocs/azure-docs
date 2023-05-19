@@ -3,7 +3,7 @@ title: "Tutorial: Use GitHub Actions to deploy to an App Service custom containe
 description: Learn how to deploy an ASP.NET core app to Azure and to Azure SQL Database with GitHub Actions
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 01/09/2023
 ms.author: jukullam
 ms.custom: github-actions-azure
 ---
@@ -47,32 +47,11 @@ Open the Azure Cloud Shell at https://shell.azure.com. You can alternately use t
 
 ## Generate deployment credentials
 
-You'll need to authenticate with a service principal for the resource deployment script to work. You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
-
-```azurecli-interactive
-    az ad sp create-for-rbac --name "{service-principal-name}" --sdk-auth --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-In the example, replace the placeholders with your subscription ID, resource group name, and service principal name. The output is a JSON object with the role assignment credentials that provide access to your App Service app. Copy this JSON object for later. For help, go to [configure deployment credentials](https://github.com/Azure/login#configure-deployment-credentials).
-
-```output
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-```
-
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
+[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-openid-credentials.md)]
 
 ## Configure the GitHub secret for authentication
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
-
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-openid-only.md)]
 
 ## Add a SQL Server secret
 

@@ -22,5 +22,3 @@ ms.service: azure-communication-services
 - [UI Components](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)
 - [Composites](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page)
 - [Stateful Client (Calling)](https://azure.github.io/communication-ui-library/?path=/story/composites-call-basicexample--basic-example)
-- [Stateful Client (Chat)](https://azure.github.io/communication-ui-library/?path=/story/composites-chat-basicexample--basic-example)
-- [Stateful Client (Meeting)](https://azure.github.io/communication-ui-library/?path=/story/composites-meeting-basicexample--basic-example)

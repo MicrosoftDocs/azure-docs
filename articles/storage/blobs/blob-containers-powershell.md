@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: shaas
 ms.subservice: blobs
-ms.custom: template-how-to
+ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage blob containers using PowerShell
@@ -23,7 +24,7 @@ This how-to article explains how to work with both individual and multiple stora
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with an Azure Active Directory (Azure AD) account or using a shared key. The examples in this article use Azure AD authentication in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them on subsequent data operations, eliminating the need to reauthenticate.
 
@@ -333,4 +334,4 @@ loop-container4
 ## See also
 
 - [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
-- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)

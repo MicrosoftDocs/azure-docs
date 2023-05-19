@@ -8,8 +8,9 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 09/14/2022
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -51,7 +52,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. At the top, select the **Samples** tab.
 
-1. Open the **v1 (`<version>`)** folder. The version number represents the current v1 release for the Python SDK.
+1. Open the **SDK v1** folder.
 
 1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
 
@@ -350,7 +351,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 
 ## Next steps
 
-+ Learn about all of the [deployment options for Azure Machine Learning](../how-to-deploy-managed-online-endpoints.md).
++ Learn about all of the [deployment options for Azure Machine Learning](../how-to-deploy-online-endpoints.md).
 + Learn how to [authenticate to the deployed model](../how-to-authenticate-online-endpoint.md).
 + [Make predictions on large quantities of data](../tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).

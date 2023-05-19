@@ -113,7 +113,7 @@ Some programming languages and tools behave differently. For instance, some requ
 ```
 curl --request POST "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"
 --header "Accept: application/dicom+json"
---header "Content-Type: multipart/related; type=\"application/dicom\"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
 --header "Authorization: Bearer {token value}"
 --form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"
 ```

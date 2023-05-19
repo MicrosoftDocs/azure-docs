@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harness | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harness'
 description: Learn how to configure single sign-on between Azure Active Directory and Harness.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. On the **SAML Provider** pop-up, perform the following steps:
 
-	![Screenshot that shows teh "S A M L Provider" pop-up with the "U R L" and "Display Name" fields highlighted, and the "Choose File" and "Submit" buttons selected.](./media/harness-tutorial/file.png)
+	![Screenshot that shows the "S A M L Provider" pop-up with the "U R L" and "Display Name" fields highlighted, and the "Choose File" and "Submit" buttons selected.](./media/harness-tutorial/file.png)
 
     a. Copy the **In your SSO Provider, please enable SAML-based login, then enter the following URL** instance and paste it in Reply URL textbox in **Basic SAML Configuration** section on Azure portal.
 

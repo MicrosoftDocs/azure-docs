@@ -3,13 +3,13 @@ title: how to call the Key Phrase Extraction API
 titleSuffix: Azure Cognitive Services
 description: How to extract key phrases by using the Key Phrase Extraction API.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 07/27/2022
-ms.author: aahi
+ms.date: 01/10/2023
+ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
 
@@ -22,6 +22,9 @@ This feature is useful if you need to quickly identify the main points in a coll
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
+## Development options
+
+[!INCLUDE [development options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 

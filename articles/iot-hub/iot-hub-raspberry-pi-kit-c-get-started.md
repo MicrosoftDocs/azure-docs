@@ -1,13 +1,13 @@
 ---
-title: Connect Raspberry Pi to Azure IoT Hub using C | Microsoft Docs
+title: Connect Raspberry Pi to Azure IoT Hub using C
 description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: c
-ms.topic: conceptual
-ms.date: 06/14/2021
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: tutorial
+ms.date: 06/14/2021
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -225,7 +225,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Read the messages received by your hub
 
-One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Hub extension for Visual Studio Code. To learn more, see [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
 

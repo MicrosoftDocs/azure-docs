@@ -36,7 +36,7 @@ This article discusses the technical details regarding the migration tool as per
 - Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployment are no longer grouped into a cloud service using slots.
 - If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
-- The DNS name and domain (cloudapp.azure.net) for the migrated cloud service remains the same. 
+- The DNS name and domain (cloudapp.net) for the migrated cloud service remains the same. 
 
 ### Virtual network migration
 - If a Cloud Services deployment is in a virtual network, then during migration all Cloud Services and associated virtual network resources are migrated together. 
@@ -70,6 +70,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Affinity Groups | Not supported. Remove any affinity groups before migration.  | 
 | Virtual networks using [virtual network peering](../virtual-network/virtual-network-peering-overview.md)| Before migrating a virtual network that is peered to another virtual network, delete the peering, migrate the virtual network to Resource Manager and re-create peering. This can cause downtime depending on the architecture. | 
 | Virtual networks that contain App Service environments | Not supported | 
+| Virtual networks with Azure Batch Deployments | Not supported | 
 | Virtual networks that contain HDInsight services | Not supported. 
 | Virtual networks that contain Azure API Management deployments | Not supported. <br><br> To migrate the virtual network, change the virtual network of the API Management deployment. This is a no downtime operation. | 
 | Classic Express Route circuits | Not supported. <br><br>These circuits need to be migrated to Azure Resource Manager before beginning PaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-howto-move-arm.md). |  

@@ -19,7 +19,7 @@ Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutori
 
 Rich-text editing of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
 
-Markdown is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for batch testing.
+Markdown is a better tool when you need to autogenerate content to create projects to be imported as part of a CI/CD pipeline or for batch testing.
 
 ## Supported markdown format
 
@@ -44,7 +44,7 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n questio
 
 * Question answering doesn't process the image in any way. It is the client application's role to render the image.
 
-If you want to add content using update/replace knowledge base APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
+If you want to add content using update/replace project APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
 
 | Preserve HTML  | Representation in the API request  | Representation in KB |
 |-----------|---------|-------------------------|
@@ -55,4 +55,4 @@ Additionally, `CR LF(\r\n)` are converted to `\n` in the KB. `LF(\n)` is kept as
 
 ## Next steps
 
-* [Import a knowledge base](../how-to/migrate-knowledge-base.md)
+* [Import a project](../how-to/migrate-knowledge-base.md)

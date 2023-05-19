@@ -2,16 +2,15 @@
 title: "Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an offline migration from MySQL on-premises to Azure Database for MySQL by using Azure Database Migration Service."
-services: dms
-author: "sumitgaurin"
-ms.author: "sgaur"
-manager: "arthiaga"
-ms.reviewer: "arthiaga"
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: tutorial
+author: karlaescobar
+ms.author: karlaescobar
+ms.reviewer: arthiaga
 ms.date: 04/11/2021
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - ignite-2022
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS
@@ -50,7 +49,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > During virtual networkNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >

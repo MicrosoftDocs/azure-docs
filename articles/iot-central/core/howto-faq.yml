@@ -46,7 +46,7 @@ sections:
         answer: |
           If you need help, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
           
-          For more information, including other support options, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
+          For more information, including other support options, see [Azure IoT support and help options](../../iot/iot-support-help.md).
           
       - question: |
           Where can I learn more about IoT Hub?

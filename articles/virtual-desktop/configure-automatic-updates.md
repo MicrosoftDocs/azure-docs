@@ -1,6 +1,6 @@
 ---
-title: Update session hosts using Microsoft Endpoint Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts - Azure
-description: How to configure Microsoft Endpoint Configuration Manager to deploy software updates to Windows 10 Enterprise multi-session on Azure Virtual Desktop.
+title: Update session hosts using Microsoft Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts - Azure
+description: How to configure Microsoft Configuration Manager to deploy software updates to Windows 10 Enterprise multi-session on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/05/2022
@@ -8,9 +8,9 @@ ms.author: daknappe
 ms.reviewer: v-cawood; clemr
 manager: femila
 ---
-# Use Microsoft Endpoint Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts
+# Use Microsoft Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts
 
-Azure Virtual Desktop session hosts running Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session can be grouped together in Microsoft Endpoint Configuration Manager to automatically apply updates. A collection is created based on a query which you can then use as the target collection for a servicing plan.
+Azure Virtual Desktop session hosts running Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session can be grouped together in Microsoft Configuration Manager to automatically apply updates. A collection is created based on a query which you can then use as the target collection for a servicing plan.
 
 You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session with the corresponding Windows client updates. For example, you can update Windows 10 Enterprise multi-session, version 21H2 by installing the client updates for Windows 10, version 21H2.
 
@@ -18,8 +18,8 @@ You can update Windows 10 Enterprise multi-session and Windows 11 Enterprise mul
 
 To create this query-based collection, you'll need to do the following:
 
-   - Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your session host virtual machines (VMs) and they're assigned to a site in Configuration Manager.
-   - Make sure your version of Microsoft Endpoint Configuration Manager is at least on branch level 1910 for Windows 10, or 2107 for Windows 11.
+   - Make sure you've installed the Microsoft Configuration Manager Agent on your session host virtual machines (VMs) and they're assigned to a site in Configuration Manager.
+   - Make sure your version of Microsoft Configuration Manager is at least on branch level 1910 for Windows 10, or 2107 for Windows 11.
 
 ## Create a query-based collection
 
@@ -55,6 +55,6 @@ To create the collection:
 
 ## Deploy software updates
 
-You can use an automatic deployment rule (ADR) in Microsoft Endpoint Configuration Manager to automatically approve and deploy software updates. You specify the collection you created above as the target collection for deployment to deploy these updates to your session host VMs.
+You can use an automatic deployment rule (ADR) in Microsoft Configuration Manager to automatically approve and deploy software updates. You specify the collection you created above as the target collection for deployment to deploy these updates to your session host VMs.
 
-For more information about deploying software updates with Microsoft Endpoint Configuration Manager, see [Deploy software updates](/mem/configmgr/sum/deploy-use/deploy-software-updates). For the steps to create an ADR, see [Automatically deploy software updates](/mem/configmgr/sum/deploy-use/automatically-deploy-software-updates).
+For more information about deploying software updates with Microsoft Configuration Manager, see [Deploy software updates](/mem/configmgr/sum/deploy-use/deploy-software-updates). For the steps to create an ADR, see [Automatically deploy software updates](/mem/configmgr/sum/deploy-use/automatically-deploy-software-updates).

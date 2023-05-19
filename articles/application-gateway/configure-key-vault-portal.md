@@ -3,11 +3,11 @@ title: Configure TLS termination with Key Vault certificates - Portal
 titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates. 
 author: gaking
-ms.author: tcsougan
+ms.author: greglin
 ms.service: application-gateway
 ms.topic: how-to 
 ms.date: 10/01/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure portal
@@ -78,7 +78,7 @@ At this point, your Azure account is the only one authorized to perform operatio
     :::image type="content" source="media/configure-key-vault-portal/create-key-vault-certificate.png" alt-text="Screenshot of key vault certificate creation":::
 
 > [!Important]
-> Issuance policies only affect certificates that will be issued in the future. Modifying this issuance policy will not affect any existing certificates.
+> Issuance policies only affect certificates that will be issued in the future. Modifying this issuance policy won't affect any existing certificates.
 
 ### Create a Virtual Network
 
@@ -147,7 +147,7 @@ You can configure the Frontend IP to be Public or Private as per your use case. 
 
 **Backends tab**
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
