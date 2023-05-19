@@ -2,7 +2,7 @@
 title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
-ms.date: 01/06/2023
+ms.date: 05/19/2023
 author: flang-msft
 ms.author: franlanglois
 ms.custom: references_regions, mode-other
@@ -10,7 +10,7 @@ ms.custom: references_regions, mode-other
 
 # QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+In this quickstart, you link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Provide the following values.
 |:-----------|:-------- |
 | Subscription | Select the Azure subscription you want to use for creating the Datadog resource. You must have owner access. |
 | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
-| Resource name | Specify a name for the Datadog resource. This name will be the name of the new Datadog organization, when creating a new Datadog organization. |
+| Resource name | Specify a name for the Datadog resource. This name is the name of the new Datadog organization, when creating a new Datadog organization. |
 | Location | Select West US 2. Currently, West US 2 is the only supported region. |
 
 Select **Link to Datadog organization**. The link opens a Datadog authentication window. Sign in to Datadog.
@@ -95,9 +95,15 @@ To send subscription level logs to Datadog, select **Send subscription activity 
 
 To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).  To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
 
-The logs sent to Datadog will be charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+The logs sent to Datadog are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
 Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
+
+### Unable to link a subscription to an existing Datadog organization
+
+If the subscription is already linked to an organization through a Datadog resource, an attempt to link the subscription to the same organization through a different Datadog resource would be blocked. It's blocked to avoid scenarios where duplicate logs and metrics get shipped to the same organization for the same subscription.
+
+<!-- screenshot - showing the message that "Subscription cannot be linked to an orgnaization through multiple resources." -->
 
 ## Configure single sign-on
 
