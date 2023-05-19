@@ -43,7 +43,7 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#additional-information).
-1. For **Security type** select **Trusted launch virtual machines**. This will make three more options appear - **Secure boot**, **vTPM**, and **Integrity Monitoring** . Select the appropriate options for your deployment. To learn more about [Trusted launch for Azure virtual machines: Microsoft Defender for Cloud integration](trusted-launch#microsoft-defender-for-cloud-integration).
+1. For **Security type** select **Trusted launch virtual machines**. This will make three more options appear - **Secure boot**, **vTPM**, and **Integrity Monitoring** . Select the appropriate options for your deployment. To learn more about [Trusted Launch Enabled Security Features](trusted-launch.md#microsoft-defender-for-cloud-integration).
     :::image type="content" source="./media/trusted-launch/tvm-popup.png" alt-text="Screenshot showing the options for Trusted Launch.":::
 1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [trusted launch](trusted-launch.md#virtual-machines-sizes).
    > [!TIP]
