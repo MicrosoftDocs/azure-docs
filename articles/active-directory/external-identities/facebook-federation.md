@@ -36,7 +36,13 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 > [!NOTE]  
 > Use the following URLs in the steps 9 and 16 below.
 > - For **Site URL** enter the address of your application, such as `https://contoso.com`.
-> - For **Valid OAuth redirect URIs**, enter `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. You can find your `<tenant-ID>` in the Azure Active Directory Overview blade.
+> - For **Valid OAuth redirect URIs**, enter:
+> 	- `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
+> 	- `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oidc/www.facebook.com`
+> 	- `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/www.facebook.com`
+> 	- `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
+> 	- `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
+> You can find your `<tenant-ID>` `<tenant-name>`and in the Azure Active Directory Overview blade.
 
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
