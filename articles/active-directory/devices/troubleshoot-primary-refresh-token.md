@@ -29,9 +29,12 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 ### Step 1: Get the status of the PRT
 
 1. Sign in to Windows under the user account in which you experience PRT issues.
+
 1. On the Windows **Start** menu, search for and select **Command Prompt**.
+
 1. Enter `dsregcmd /status` to run the [dsregcmd command](./troubleshoot-device-dsregcmd.md).
-1. Locate the `SSO state` section of the command output. Here's an example of this output:
+
+1. Locate the `SSO state` section of the command output. The following text shows an example of this section:
 
    ```output
    +----------------------------------------------------------------------+
