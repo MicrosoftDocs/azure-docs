@@ -28,17 +28,17 @@ Accessing raw audio media gives you access to the incoming call's audio stream, 
 Make an options object specifying the raw stream properties we want to send. 
 
 ```csharp
-    RawOutgoingAudioProperties outgoingAudioProperties = new RawOutgoingAudioProperties()
+    RawOutgoingAudioStreamProperties outgoingAudioProperties = new RawOutgoingAudioStreamProperties()
     {
-        AudioFormat = AudioFormat.Pcm16Bit,
-        SampleRate = AudioSampleRate.Hz48000,
-        ChannelMode = AudioChannelMode.Stereo,
-        DataPerBlock = DataPerBlock.InMs20
+        Format = ACSAudioStreamFormat.Pcm16Bit,
+        SampleRate = AudioStreamSampleRate.Hz48000,
+        ChannelMode = AudioStreamChannelMode.Stereo,
+        BufferDuration = AudioStreamBufferDuration.InMs20
     };
 
     RawOutgoingAudioStreamOptions outgoingAudioStreamOptions = new RawOutgoingAudioStreamOptions()
     {
-        RawOutgoingAudioProperties = outgoingAudioProperties
+        Properties = outgoingAudioProperties
     };
 ```
 
@@ -50,7 +50,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
     RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioStreamOptions);
 
-    outgoingAudioOptions.OutgoingAudioStream = rawOutgoingAudioStream;
+    outgoingAudioOptions.Stream = rawOutgoingAudioStream;
     options.OutgoingAudioOptions = outgoingAudioOptions;
 
     // Start or Join call with those call options.
@@ -88,7 +88,7 @@ The audio buffer format should match the specified stream properties.
 ```csharp
     void Start()
     {
-        RawOutgoingAudioProperties properties = outgoingAudioStream.RawOutgoingAudioProperties;
+        RawOutgoingAudioStreamProperties properties = outgoingAudioStream.Properties;
         RawAudioBuffer buffer;
         new Thread(() =>
         {
@@ -126,16 +126,16 @@ We can also receive the call audio stream samples as [`MemoryBuffer`](/uwp/api/w
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
 
 ```csharp
-    RawIncomingAudioProperties properties = new RawIncomingAudioProperties()
+    RawIncomingAudioStreamProperties properties = new RawIncomingAudioStreamProperties()
     {
-        AudioFormat = AudioFormat.Pcm16Bit,
-        SampleRate = AudioSampleRate.Hz44100,
-        ChannelMode = AudioChannelMode.Stereo
+        Format = AudioStreamFormat.Pcm16Bit,
+        SampleRate = AudioStreamSampleRate.Hz44100,
+        ChannelMode = AudioStreamChannelMode.Stereo
     };
 
     RawIncomingAudioStreamOptions options = new RawIncomingAudioStreamOptions()
     {
-        RawIncomingAudioProperties = properties
+        Properties = properties
     };
 ```
 
@@ -147,7 +147,7 @@ Create a `RawIncomingAudioStream` and attach it to join call options
     RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
     IncomingAudioOptions incomingAudioOptions = new IncomingAudioOptions()
     {
-        IncomingAudioStream = rawIncomingAudioStream
+        Stream = rawIncomingAudioStream
     };
 
     options.IncomingAudioOptions = incomingAudioOptions;
