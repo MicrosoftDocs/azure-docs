@@ -1,15 +1,12 @@
 ---
 # Required metadata
-		# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-		# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-		title:   QuickStart: Send and View Events using Azure Event Hubs Data Generator
-description: This quickstart helps you to send and view events using Data generator in Azure event Hubs without using any code. 
-author:      Saglodha # GitHub alias
-ms.author:   saglodha # Microsoft alias
-ms.prod:   azure-event-hubs
-ms.topic:   quickstart
-ms.date:     05/15/2023
+title: Send and View Events using Azure Event Hubs Data Generator
+description:This quickstart helps you to send and view events using Data generator in Azure event Hubs without using any code. 
+author: Saglodha # GitHub alias
+ms.author: saglodha # Microsoft alias
+ms.prod: azure-event-hubs
+ms.topic: quickstart
+ms.date: 05/15/2023
 ---
 
 # QuickStart: Send and Receive Events using Azure Event Hubs Data Generator
@@ -22,7 +19,7 @@ If you're new to Azure Event Hubs, see the [Event Hubs overview](/azure/event-hu
 
 To complete this QuickStart, you need the following prerequisites: 
 
-Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/en-us/). 
+Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/). 
 
 Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create)
 
@@ -49,13 +46,11 @@ d) **Repeat send**:-If you want to send the same payload as multiple events, you
 
 e) **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
 
-![User's image](media/sendandreceiveeventsusingdatagenerator/image1.png)
+![Datagenlandingpage.](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
 > Pre-canned datasets are collection of events. For pre-canned datasets, each event in the dataset is sent separately. For example, if the dataset has 20 events and the value of repeat send is 10, then 200 events are sent to the event hub.
-
-<Portal snapshot for Event Hubs entity level Data generator> 
 
 ### Maximum Message size support with different SKU
 
@@ -72,11 +67,11 @@ Maximum Payload Size| 	256Kb		| 	1MB 	     | 1MB     | 1MB
 
 As soon as you click send, data generator would take care of sending the events to event hubs of your choice and new collapsible “View Events” window would load automatically. You could expand any tabular row to review the event content sent to event hubs. 
 
-![User's image](image2.png)
+![ViewEventslandingpage.](image2.png)
 
 ## Frequently Asked Questions
 
-##### I am getting the error “We couldn’t read events from Event Hub- <your event hub name>. Please make sure that there is no active consumer reading events from $Default Consumer group”
+##### I am getting the error “We couldn’t read events from Event Hub- `<your event hub name>`. Please make sure that there is no active consumer reading events from $Default Consumer group”
 
 Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. 
 
@@ -84,13 +79,14 @@ Please disconnect any active consumer reading from $Default consumer group and t
 
 ##### I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?
 
-Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data 	generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
+Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
 
 ## Next Steps
 
 [Send and Receive events using Event Hubs SDKs(AMQP)](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?tabs=passwordless%2Croles-azure-portal)
 
 [Send and Receive events using Apache Kafka](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?tabs=passwordless)
+
 
 
 
