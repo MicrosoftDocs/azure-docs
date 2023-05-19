@@ -52,7 +52,7 @@ If you don't have an Azure account with an active subscription, create a  before
 
 ## Create a virtual network and a Bastion host
 
-In this section, you create a virtual network with two subnets. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host. You also create a network security group and apply it to the first subnet.
+In this section, you create a virtual network with two subnets and an Azure Bastion host. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host. You also create a network security group and apply it to the first subnet.
 
 # [**Portal**](#tab/portal)
 
@@ -186,7 +186,7 @@ In this section, you create a virtual network with two subnets. The first subnet
 
 ## Create a virtual machine
 
-In this section, you create the virtual machines and a network security group applied to its network interface.
+In this section, you create a virtual machine and a network security group applied to its network interface.
 
 # [**Portal**](#tab/portal)
 
@@ -232,12 +232,19 @@ In this section, you create the virtual machines and a network security group ap
 
 # [**PowerShell**](#tab/powershell)
 
-Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm). When prompted, enter a username and password.
+1. Create a default network security group using [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-```azurepowershell-interactive
-# Create a virtual machine.
-New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -VirtualNetworkName 'myVNet' -SubnetName 'mySubnet' -SecurityGroupName 'myVM-nsg' -ImageName 'MicrosoftWindowsServer:WindowsServer:2022-Datacenter-azure-edition:latest'
-```
+    ```azurepowershell-interactive
+    # Create 
+    New-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup' -Location  eastus
+    ```
+
+1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm). When prompted, enter a username and password.
+
+    ```azurepowershell-interactive
+    # Create a virtual machine.
+    New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -VirtualNetworkName 'myVNet' -SubnetName 'mySubnet' -SecurityGroupName 'myVM-nsg' -ImageName 'MicrosoftWindowsServer:WindowsServer:2022-Datacenter-azure-edition:latest'
+    ```
 
 # [**Azure CLI**](#tab/cli)
 
@@ -248,7 +255,7 @@ New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -V
     az network nsg create --name 'myVM-nsg' --resource-group 'myResourceGroup' --location 'eastus'
     ```
 
-1. Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine. When prompted, enter a username and password.
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create). When prompted, enter a username and password.
 
     ```azurecli-interactive
     # Create a virtual machine.
@@ -257,7 +264,7 @@ New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -V
 
 ---
 
-## Manage network security groups
+## Add a security rule to the network security group
 
 In this section, you add a security rule to the network security group associated with the network interface of **myVM**. The rule denies any inbound traffic from the virtual network.
 
