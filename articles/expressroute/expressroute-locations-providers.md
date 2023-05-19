@@ -172,7 +172,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
 * Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
-  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
+  * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
   * [Equinix Cloud Exchange](https://www.equinix.com/resources/videos/cloud-exchange-overview)
   * [InterXion](https://www.interxion.com/)
   * [NextDC](https://www.nextdc.com/)
