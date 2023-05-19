@@ -578,10 +578,6 @@ items:
     href: insights/troubleshoot-workbooks.md 
 - name: Monitoring scenarios
   items:
-  - name: Insights
-    href: insights/insights-overview.md
-  - name: Troubleshoot insights
-    href: insights/troubleshoot-workbooks.md 
   - name: Application Insights
     items:
     - name: Application Insights overview
