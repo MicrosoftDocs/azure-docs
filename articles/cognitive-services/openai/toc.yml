@@ -35,6 +35,8 @@ items:
       href: ./concepts/advanced-prompt-engineering.md
     - name: Red teaming large language models(LLMs)
       href: ./concepts/red-teaming.md
+    - name: System messages & metaprompts
+      href: ./concepts/metaprompt.md
 - name: How-to 
   items:
     - name: Resource creation & model deployment
@@ -74,6 +76,8 @@ items:
       href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
 - name: Responsible AI
   items:
+    - name: Overview
+      href: https://aka.ms/cogsvs/azopenai/raioverview
     - name : Transparency note
       href: /legal/cognitive-services/openai/transparency-note?context=/azure/cognitive-services/openai/context/context
     - name: Limited access

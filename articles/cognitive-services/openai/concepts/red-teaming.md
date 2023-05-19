@@ -5,7 +5,7 @@ description: Learn about how red teaming and adversarial testing is an essential
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/18/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: 
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
