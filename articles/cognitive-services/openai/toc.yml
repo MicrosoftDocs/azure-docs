@@ -36,7 +36,7 @@ items:
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
     - name: System message templates
-      href: ./concepts/metaprompt.md
+      href: ./concepts/system-message.md
 - name: How-to 
   items:
     - name: Resource creation & model deployment
