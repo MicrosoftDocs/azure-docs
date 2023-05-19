@@ -25,11 +25,11 @@ Azure AD supports preintegrated connectors for applications that support the fol
 > - [REST](on-premises-ldap-connector-configure.md)
 > - [SOAP](on-premises-ldap-connector-configure.md)
 
-For connectivity to applications that don't support the aforementioned protocols and standards, customers and partners have built custom [ECMA 2.0](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the Azure AD provisioning agent, without needing MIM sync deployed. We also have a healthy ecosystem of custom connectors built by partners that you can use to connect to popular applications. For a full list, please see [here](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx).  
+For connectivity to applications that don't support the aforementioned protocols and standards, customers and [partners](https://social.technet.microsoft.com/wiki/contents/articles/1589.fim-2010-mim-2016-management-agents-from-partners.aspx) have built custom [ECMA 2.0](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)) connectors for Microsoft Identity Manager (MIM) 2016. You can now use those ECMA 2.0 connectors with the lightweight Azure AD provisioning agent, without needing MIM sync deployed.  
 
 ## Limitations 
 
-Custom connectors built for MIM rely on the [ECMA framework](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). The following table describes the parts of the ECMA to framework that the ECMA host supports. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](https://learn.microsoft.com/azure/active-directory/app-provisioning/known-issues?pivots=app-provisioning#on-premises-application-provisioning).  
+Custom connectors built for MIM rely on the [ECMA framework](https://learn.microsoft.com/previous-versions/windows/desktop/forefront-2010/hh859557(v=vs.100)). The following table includes capabilities of the ECMA framework that are either partially supported or not supported by the Azure AD provisioning agent. For a list of known limitations for the Azure AD provisioning service and on-premises application provisioning, see [here](https://learn.microsoft.com/azure/active-directory/app-provisioning/known-issues?pivots=app-provisioning#on-premises-application-provisioning).  
 
 
 | **Scenario**   | **Support**   | **Comments**   | 
