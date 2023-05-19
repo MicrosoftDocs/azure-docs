@@ -75,7 +75,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need a YAML fi
 1. Convert each of the values you collected in [Collect the information for Kubernetes Secret Objects](#collect-the-information-for-kubernetes-secret-objects) into Base64 format. For example, you can run the following command in an Azure Cloud Shell **Bash** window:
 
     ```bash    
-        echo -n <Value> | base64
+    echo -n <Value> | base64
     ```
 
 1. Create a *secret-azure-ad-local-monitoring.yaml* file containing the Base64-encoded values to configure distributed tracing and the packet core dashboards. The secret for distributed tracing must be named **sas-auth-secrets**, and the secret for the packet core dashboards must be named **grafana-auth-secrets**.
