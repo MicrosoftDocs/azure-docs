@@ -317,13 +317,12 @@ For more information related to schema inference, see the full [schema inference
 
 The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides more advanced settings for writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details, see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
 
----
 
 ## Azure Active Directory authentication
 
 1. Following the instructions on how to [register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 
-1. You should still be in Azure Portal > Azure Active Directory > App Registrations. In the `Certificates & secrets` section, create a new secret. Save the value for later. 
+1. You should still be in Azure portal > Azure Active Directory > App Registrations. In the `Certificates & secrets` section, create a new secret. Save the value for later. 
 
 1. Click on the overview tab and find the values for `clientId` and `tenantId`, along with `clientSecret` that you created earlier, and `cosmosEndpoint`, `subscriptionId`, and `resourceGroupName`from your account. Create a notebook as below and replace the configurations with the appropriate values:
 
@@ -378,8 +377,6 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
        .save()
     
     ```
-    > [!TIP]
-    > In this quickstart example credentials are assigned to variables in clear-text, but for security we recommend the usage of secrets. Review instructions on how to secure credentials in Azure Synapse Apache Spark with [linked services using the TokenLibrary](../../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md). Or if using Databricks, review how to create an [Azure Key Vault backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope) or a [Databricks backed secret scope](/azure/databricks/security/secrets/secret-scopes#create-a-databricks-backed-secret-scope). For configuring secrets, review how to [add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
     
     #### [Scala](#tab/scala)
     
@@ -429,9 +426,10 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
        .mode("APPEND")
        .save()
     ```
+    --- 
+
     > [!TIP]
     > In this quickstart example credentials are assigned to variables in clear-text, but for security we recommend the usage of secrets. Review instructions on how to secure credentials in Azure Synapse Apache Spark with [linked services using the TokenLibrary](../../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md). Or if using Databricks, review how to create an [Azure Key Vault backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope) or a [Databricks backed secret scope](/azure/databricks/security/secrets/secret-scopes#create-a-databricks-backed-secret-scope). For configuring secrets, review how to [add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
-
 
 1. Create a role using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `SparkConnectorAAD` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
 
@@ -489,7 +487,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
         ]
     ```
 
-1. Now go to Azure Portal > Azure Active Directory > **Enterprise Applications** and search for the application you created earlier. Record the Object ID found here.
+1. Now go to Azure portal > Azure Active Directory > **Enterprise Applications** and search for the application you created earlier. Record the Object ID found here.
 
     > [!NOTE]
     > Make sure to use its Object ID as found in the **Enterprise applications** section of the Azure Active Directory portal blade (and not the App registrations section you used earlier).
@@ -505,9 +503,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
     ```
 
-1. Now that you have created an AAD application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
-
---- 
+1. Now that you have created an Azure Active Directory application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
 
 ## Migrate to Spark 3 Connector
 
