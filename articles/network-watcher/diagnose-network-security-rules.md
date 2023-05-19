@@ -20,8 +20,6 @@ The example in this article shows you how a misconfigured network security group
 
 ## Prerequisites
 
-If you don't have an Azure account with an active subscription, create a  before you begin. Complete one of these tasks before starting the remainder of this article:
-
 # [**Portal**](#tab/portal)
 
 - An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
