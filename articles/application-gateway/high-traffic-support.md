@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/19/2023
 ms.author: greglin
 ---
 
@@ -19,6 +19,8 @@ You can use Application Gateway with Web Application Firewall (WAF) for a scalab
 It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you're prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
 
 Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
+
+For details and recommendations on performance efficiency for Application Gateway, see [Azure Well-Architected Framework review - Azure Application Gateway v2](/azure/well-architected/services/networking/azure-application-gateway#performance-efficiency).
 
 ## Scaling for Application Gateway v1 SKU (Standard/WAF SKU)
 
