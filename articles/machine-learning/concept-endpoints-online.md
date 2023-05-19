@@ -1,7 +1,7 @@
 ---
 title: What are online endpoints?
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning uses online endpoints to simplify machine learning deployments.
+description: Learn about online endpoints for real-time inference in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -14,13 +14,11 @@ ms.date: 04/01/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# Online endpoints
+# Online endpoints for real-time inference
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-After you train a machine learning model, you need to deploy it so that others can consume its predictions. Such execution mode of a model is called *inference*. Azure Machine Learning uses the concept of [endpoints and deployments](concept-endpoints.md) for machine learning models inference.
-
-**Online endpoints** are endpoints that are used for online (real-time) inferencing. They deploy models under a web server that can return predictions under the HTTP protocol.
+Azure Machine Learning allows you to perform real-time inferencing (or predictions) on data by using models that are deployed to _online endpoints_. **Online endpoints** deploy models under a web server that can return predictions under the HTTP protocol.
 
 The following diagram shows an online endpoint that has two deployments, 'blue' and 'green'. The blue deployment uses VMs with a CPU SKU, and runs version 1 of a model. The green deployment uses VMs with a GPU SKU, and uses version 2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while green receives the remaining 10%.
 

@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 ---
 
-# Safe rollout for online endpoints
+# Perform safe rollout of new deployments for real-time inference
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 

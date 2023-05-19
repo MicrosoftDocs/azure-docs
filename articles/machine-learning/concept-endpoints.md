@@ -1,7 +1,7 @@
 ---
-title: Use endpoints for inference
+title: Endpoints for inference
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
+description: Learn how Azure Machine Learning endpoints simplify deployments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -14,13 +14,14 @@ ms.date: 02/07/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# Use endpoints for inference
+# Endpoints for inference in production
+Inference
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-After you train a machine learning model or a machine learning pipeline, you need to deploy them so others can consume their predictions. Such execution mode is called *inference*. Azure Machine Learning uses the concept of __endpoints and deployments__ for machine learning inference.
+After you train machine learning models or pipelines, you need to deploy them so that others can use them for _inference_, that is, to make predictions on new data. In Azure Machine Learning, you perform inference by using __endpoints and deployments__.
 
-Endpoints and deployments are two constructs that allow you to decouple the interface of your production workload from the implementation that serves it. 
+Endpoints and deployments are two constructs that allow you to decouple the interface of your production workload from the implementation that serves it.
 
 ## Intuition
 
