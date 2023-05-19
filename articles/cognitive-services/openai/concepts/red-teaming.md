@@ -25,7 +25,7 @@ Microsoft has conducted red teaming exercises and implemented safety systems (in
 - Identify and mitigate shortcomings in the existing default filters or mitigation strategies.
 - Provide feedback on failures so we can make improvements.
 
-Here is how you can get started in your process of red teaming LLMs. Advance planning is critical to a productive red teaming exercise.
+Here's how you can get started in your process of red teaming LLMs. Advance planning is critical to a productive red teaming exercise.
 
 ## Getting started
 
@@ -41,13 +41,13 @@ Having red teamers with an adversarial mindset and security-testing experience i
 
 **Remember that handling potentially harmful content can be mentally taxing.**
 
-You will need to take care of your red teamers, not only by limiting the amount of time they spend on an assignment, but also by letting them know they can opt out at any time. Also, avoid burnout by switching red teamers’ assignments to different focus areas.
+You'll need to take care of your red teamers, not only by limiting the amount of time they spend on an assignment, but also by letting them know they can opt out at any time. Also, avoid burnout by switching red teamers’ assignments to different focus areas.
 
 ### Planning your red teaming
 
 #### Where to test
 
-Because a system is developed using a LLM base model, you may need to test at several different layers:
+Because a system is developed using an LLM base model, you may need to test at several different layers:
 
 - The LLM base model with its [safety system](./content-filter.md) in place to identify any gaps that may need to be addressed in the context of your application system. (Testing is usually through an API endpoint.)
 - Your application system. (Testing is usually through a UI.)
@@ -57,12 +57,12 @@ Because a system is developed using a LLM base model, you may need to test at se
 
 Consider conducting iterative red teaming in at least two phases:
 
-1. Open-ended red teaming, where red teamers are encouraged to discover a variety of harms. This can help you develop a taxonomy of harms to guide further testing. Note that developing a taxonomy of undesired LLM outputs for your application system is crucial to being able to measure the success of specific mitigation efforts.
+1. Open-ended red teaming, where red teamers are encouraged to discover various harms. This can help you develop a taxonomy of harms to guide further testing. Note that developing a taxonomy of undesired LLM outputs for your application system is crucial to being able to measure the success of specific mitigation efforts.
 2. Guided red teaming, where red teamers are assigned to focus on specific harms listed in the taxonomy while staying alert for any new harms that may emerge. Red teamers can also be instructed to focus testing on specific features of a system for surfacing potential harms.
 
 Be sure to:
 
-- Provide your red teamers with clear instructions for what harms or system features they will be testing.
+- Provide your red teamers with clear instructions for what harms or system features they'll be testing.
 - Give your red teamers a place for recording their findings. For example, this could be a simple spreadsheet specifying the types of data that red teamers should provide, including basics such as:
     - The type of harm that was surfaced.
     - The input prompt that triggered the output.
@@ -72,7 +72,7 @@ Be sure to:
 
 ### Reporting red teaming findings
 
-You will want to summarize and report red teaming top findings at regular intervals to key stakeholders, including teams involved in the measurement and mitigation of LLM failures so that the findings can inform critical decision making and prioritizations.
+You'll want to summarize and report red teaming top findings at regular intervals to key stakeholders, including teams involved in the measurement and mitigation of LLM failures so that the findings can inform critical decision making and prioritizations.
 
 ## Next steps
 
