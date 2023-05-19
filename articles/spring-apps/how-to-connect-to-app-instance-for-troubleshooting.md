@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to access the shell environment inside your application instances to do advanced troubleshooting.
 
@@ -188,14 +188,14 @@ The following list describes some of the pre-installed tools that you can use fo
 
 You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 
-The available tools depend on your service tier and type of app deployment. The following table describes the availability of troubleshooting tools:
+The available tools depend on your service plan and type of app deployment. The following table describes the availability of troubleshooting tools:
 
-| Tier                  | Deployment type         | Common tools                                 | JDK tools                   | Notes                                    |
+| Plan                  | Deployment type         | Common tools                                 | JDK tools                   | Notes                                    |
 |-----------------------|-------------------------|----------------------------------------------|-----------------------------|------------------------------------------|
-| Basic / Standard tier | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                          |
-| Basic / Standard tier | Custom image            | N                                            | N                           | Up to your installed tool set.           |
-| Enterprise Tier       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the OS stack of your builder. |
-| Enterprise Tier       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
+| Basic / Standard plan | Source code / Jar       | Y                                            | Y (for Java workloads only) |                                          |
+| Basic / Standard plan | Custom image            | N                                            | N                           | Up to your installed tool set.           |
+| Enterprise plan       | Source code / Artifacts | Y (for full OS stack), N (for base OS stack) | Y (for Java workloads only) | Depends on the OS stack of your builder. |
+| Enterprise plan       | Custom image            | N                                            | N                           | Depends on your installed tool set.           |
 
 > [!NOTE]
 > JDK tools aren't included in the path for the *source code* deployment type. Run `export PATH="$PATH:/layers/paketo-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.

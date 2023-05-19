@@ -62,7 +62,7 @@ landingContent:
         url: how-to-use-enterprise-spring-cloud-gateway.md
       - text: Deploy polyglot enterprise applications
         url: how-to-enterprise-deploy-polyglot-apps.md
-      - text: View Enterprise Tier offering
+      - text: View Enterprise plan offering
         url: how-to-enterprise-marketplace-offer.md
       - text: Application Insights using Java In-Process Agent
         url: how-to-application-insights.md?pivots=sc-enterprise-tier

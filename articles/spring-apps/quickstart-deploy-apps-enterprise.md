@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
-description: Describes app deployment to Azure Spring Apps Enterprise tier.
+title: "Quickstart - Build and deploy apps to the Azure Spring Apps Enterprise plan"
+description: Describes app deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
@@ -9,19 +9,19 @@ ms.date: 05/31/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier
+# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise tier.
+This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise plan.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
@@ -47,7 +47,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
@@ -57,7 +57,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --plan asa-ent-hr-mtr
    ```
 
-1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
+1. Select a location. This location must be a location supporting the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
 
 1. Use the following command to create a resource group:
 
