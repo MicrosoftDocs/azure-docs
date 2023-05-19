@@ -17,7 +17,8 @@ This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.
 > - Developer expertise capable of authoring custom code for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
 > [!NOTE]
-> [Standard tests](availability-standard-tests.md) should always be used if possible as they require little investment and have few prerequisites.
+> - TrackAvailability() requires that you have made a developer investment in custom code.
+> - [Standard tests](availability-standard-tests.md) should always be used if possible as they require little investment and have few prerequisites.
 
 ## Check availability
 
