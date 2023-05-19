@@ -116,15 +116,6 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ---
 
-### Test your workflow
-
-1. On the designer toolbar, select **Run** to trigger a run for your logic app workflow.
-
-1. Open the run, and check the outputs for the **Generate schemas** action.
-
-   The outputs show the generated schemas for the specified list of messages.
-
-
 <a name="test-workflow"></a>
 
 ### Test your workflow
