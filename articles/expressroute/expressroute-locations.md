@@ -73,7 +73,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported | Chicago, Chicago2, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** |Supported |Supported | Dallas, Phoenix, Silicon Valley, Washington DC |
 | **Crown Castle** |Supported |Supported | New York |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
+| **[DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland, Melbourne, Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/managed-platform-services/azure-managed-services/cloudconnect-for-azure)** | Supported |Supported | Frankfurt2, Hong Kong2 |
@@ -135,7 +135,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** |Supported |Supported | Doha, Doha2, London2, Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** |Supported |Supported | Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported | Amsterdam, Amsterdam2, Chicago, Dallas, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Mumbai2, Melbourne, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
-| **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
+| **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Supported |Supported | Amsterdam, Chicago, Dallas, Denver, Las Vegas, London, Los Angeles2, Miami, New York, Silicon Valley, Toronto, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported | Chicago, Hong Kong, Hong Kong2, London, Singapore, Singapore2, Tokyo2 |
 | **PitChile** | Supported | Supported | Santiago |
@@ -224,7 +224,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
 * Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
-  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
+  * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
   * [Equinix Cloud Exchange](https://www.equinix.com/interconnection-services/equinix-fabric)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)
@@ -315,7 +315,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 | Provider | Exchange |
 | --- | --- |
-| **[CyrusOne](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport, PacketFabric |
+| **[CyrusOne](https://www.cyrusone.com/cloud-solutions/microsoft-azure)** | Megaport, PacketFabric |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport, PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
