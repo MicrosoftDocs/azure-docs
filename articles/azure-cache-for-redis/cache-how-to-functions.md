@@ -6,8 +6,8 @@ zone_pivot_groups: cache-redis-zone-pivot-group
 
 ms.author: franlanglois
 ms.service: cache
-ms.topic: tutorial
-ms.date: 04/20/2023
+ms.topic: conceptual
+ms.date: 05/19/2023
 
 ---
 
@@ -52,11 +52,6 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 > [!IMPORTANT]
 > In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](cache-configure.md#keyspace-notifications-advanced-settings).
-
-## How to get started
-
-See [Azure Cache for Redis trigger for Azure Functions overview (preview)]() for information on how to install the Functions extension.
-See [Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) for a step-by-step tutorial on how to get started.
 
 ## Prerequisites and limitations
 
@@ -375,6 +370,7 @@ public static void StreamsTrigger(
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+
 ```json
 {
   "bindings": [
@@ -393,6 +389,7 @@ public static void StreamsTrigger(
   "scriptFile": "__init__.py"
 }
 ```
+
 :::zone-end
 
 ### Return Values
@@ -428,14 +425,16 @@ public class RedisMessageModel {
 :::zone-end
 
 ::: zone pivot="programming-language-python"
-```
+
+```python
 class RedisMessageModel:
     def __init__(self, trigger, message):
         self.Trigger = trigger
         self.Message = message
 ```
+
 :::zone-end
 
 ## Next steps
 
-- [Tutorial: Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
