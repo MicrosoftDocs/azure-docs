@@ -16,7 +16,7 @@ ms.reviewer: azureidcic, gudlapreethi
 ---
 # Troubleshoot primary refresh token issues on Windows devices
 
-This article discusses how to troubleshoot issues that involve the primary refresh token (PRT) when you authenticate onto a Microsoft Azure Active Directory (Azure AD)-joined Windows device by using your Azure AD credentials.
+This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate onto a Microsoft Azure Active Directory (Azure AD)-joined Windows device by using your Azure AD credentials.
 
 On devices that are joined to Microsoft Azure Active Directory (Azure AD) or joined to Hybrid Azure AD, the main artifact of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Azure AD credentials on an Azure AD-joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
 
@@ -32,9 +32,9 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 1. On the Windows **Start** menu, search for and select **Command Prompt**.
 
-1. Enter `dsregcmd /status` to run the [dsregcmd command](./troubleshoot-device-dsregcmd.md).
+1. Enter `dsregcmd /status` to run the device registration command ([dsregcmd](./troubleshoot-device-dsregcmd.md)).
 
-1. Locate the `SSO state` section of the command output. The following text shows an example of this section:
+1. Locate the [SSO state](./troubleshoot-device-dsregcmd.md#sso-state) section of the device registration command's output. The following text shows an example of this section:
 
    ```output
    +----------------------------------------------------------------------+
@@ -55,14 +55,88 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, there was an error acquiring the PRT from Azure AD.
 
-1. Check the value of the `AzureAdPrtUpdateTime` field. If the AzureAdPrtUpdateTime is more than 4 hours there is likely an issue refreshing PRT. Lock and unlock the device to force PRT refresh and check if the time got updated.
+1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours <!-- Is there a missing phrase here? -->, there's probably an issue that's preventing the PRT from refreshing. Lock and unlock the device to force PRT refresh, and then check whether the time is updated.
 
 ### Step 2: Get the error code
 
+The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires Windows Server 2022. The other method is to find the error code in Azure AD analytic and operational logs.
 
+#### Method 1: Examine the device registration command output (Windows Server 2022 and later versions only)
+
+To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO State` section. Under the `AzureAdPrt` field, the `Attempt Status` field contains the error code. In the following example, the error code is `0xc000006d`. <!-- The Server Error Description gives an error code name (although it differs from the attempt status) and an error description. Shouldn't we mention that, too? -->
+
+```output
+                AzureAdPrt : NO
+       AzureAdPrtAuthority : https://login.microsoftonline.com/01234567-89ab-cdef-0123-456789abcdef
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2020-09-18 20:20:09.760 UTC
+            Attempt Status : 0xc000006d
+             User Identity : user@contoso.com
+           Credential Type : Password
+            Correlation ID : 12345678-9abc-def0-1234-56789abcdef0
+              Endpoint URI : https://login.microsoftonline.com/01234567-89ab-cdef-0123-456789abcdef/oauth2/token
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_grant
+  Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
+```
+
+#### Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs
+
+1. On the Windows **Start** menu, search for and select **Event Viewer**.
+1. In the **Event Viewer** window, if the console tree isn't showing, select the **Show/Hide Console Tree** icon to make the console tree visible.
+1. In the console tree, select **Event Viewer (Local)**. If there aren't child nodes showing underneath that item, double-click your selection to show them.
+1. Select the **View** menu. If there isn't a check mark next to **Show Analytic and Debug Logs**, select that menu item to enable that feature.
+1. In the console tree, expand **Applications and Services Logs**. Expand **Microsoft**. Expand **Windows**. Expand **AAD**. The **Operational** and **Analytic** child nodes appear. 
+
+   > [!NOTE]  
+   > In the Azure AD Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You need to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
+
+1. In the console tree, select the **Analytic** node to view Azure AD-related analytic events.
+1. In the list of analytic events, search for Event ID 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that are logged timewise between Event ID 1006 and Event ID 1007 are logged as part of the PRT acquisition flow. The following table shows an example event listing.
+
+   | Level           | Date and Time            | Source  | Event ID | Task Category                  |
+   |-----------------|--------------------------|---------|----------|--------------------------------|
+   | **Information** | **6/24/2020 3:35:35 AM** | **AAD** | **1006** | **AadCloudAPPlugin Operation** |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1018     | AadCloudAPPlugin Operation     |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1144     | AadCloudAPPlugin Operation     |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1022     | AadCloudAPPlugin Operation     |
+   | Error           | 6/24/2020 3:35:35 AM     | AAD     | 1084     | AadCloudAPPlugin Operation     |
+   | Error           | 6/24/2020 3:35:35 AM     | AAD     | 1086     | AadCloudAPPlugin Operation     |
+   | Error           | 6/24/2020 3:35:35 AM     | AAD     | 1160     | AadCloudAPPlugin Operation     |
+   | **Information** | **6/24/2020 3:35:35 AM** | **AAD** | **1007** | **AadCloudAPPlugin Operation** |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1157     | AadCloudAPPlugin Operation     |
+   | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1158     | AadCloudAPPlugin Operation     |
+
+1. Double-click the row that has Event ID 1007. The **Event Properties** dialog box for this event appears.
+1. In the **General** tab's description box, copy the error code. The error code is a 10-character string that begins with `0x`, followed by an 8-digit hexadecimal number.
 
 ### Step 3: 
 
 
 
 ### Step 4: Collect the logs
+
+#### Regular logs
+
+1. Download the [Auth script archive](https://aka.ms/authscripts) and extract the scripts onto a local directory. If necessary, review the usage instructions in [KB4487175](https://aka.ms/howto-authscripts).
+1. Open an administrative PowerShell session, and then change the current directory to the directory in which you saved the Auth scripts.
+1. Enter the following command to begin the error tracing:
+
+   ```powershell
+   .\Start-auth.ps1 -v -acceptEULA
+   ```
+
+1. Switch the Windows user account to go to your problem user's session.
+1. Lock and unlock the device. For Hybrid-joined devices, wait 60 seconds to let the PRT acquisition task complete.
+1. Switch the Windows user account back to your administrative session that's running the tracing.
+1. After you reproduce the issue, run the following command to end the tracing:
+
+   ```powershell
+   .\stop-auth.ps1
+   ```
+
+   Wait for all tracing to stop completely.
+
+#### TimeTravel Traces (TTT)
