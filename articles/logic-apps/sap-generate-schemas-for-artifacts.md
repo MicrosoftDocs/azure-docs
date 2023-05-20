@@ -67,11 +67,13 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the designer, [follow these general steps to find and add the SAP managed action named **Generate schemas**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
+   For more information about this SAP managed action, see [Generate schemas](/connectors/sap/#generate-schemas).
+
 1. If prompted, provide the [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
    By default, when you create a connection for an SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](sap-create-example-scenario-workflows.md#safe-typing). For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
-   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
+   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
 
    ![Screenshot shows Consumption workflow and SAP managed action named Generate schemas.](./media/logic-apps-using-sap-connector/sap-generate-schemas-consumption.png)
 
@@ -81,7 +83,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
       > [!NOTE]
       >
-      > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
+      > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](sap-create-example-scenario-workflows.md#bad-gateway-request).
 
       ![Screenshot shows Consumption workflow, Generate schemas action, and selecting IDOC.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-idoc-consumption.png)
 
@@ -113,6 +115,75 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Single-tenant](#tab/single-tenant)
+
+1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
+
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **Generate Schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+   For more information about this SAP built-in action, see [Generate Schema](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)).
+
+1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
+
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Connection name** | Yes | Enter a name for the connection. |
+   | **Client** | Yes | The SAP client ID to use for connecting to your SAP server |
+   | **Authentication Type** | Yes | The authentication type to use for your connection. To create an SNC connection, see [Enable Secure Network Communications (SNC)](logic-apps-using-sap-connector.md?tabs=single-tenant#enable-secure-network-communications). |
+   | **SAP Username** | Yes | The username for your SAP server |
+   | **SAP Password** | Yes | The password for your SAP server |
+   | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
+   | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](sap-create-example-scenario-workflows.md#change-language-headers). |
+
+   After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](sap-create-example-scenario-workflows.md#troubleshoot-connections).
+
+   ![Screenshot shows Standard workflow and SAP built-in action named Generate Schema.](./media/logic-apps-using-sap-connector/sap-generate-schemas-standard.png)
+
+   > [!NOTE]
+   >
+   > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
+
+1. In the [**Generate Schema** action](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)), provide the following information about the artifact for which to generate the schema.
+
+   This action's parameters change based on the **Operation Type** value that you select. This example selects 
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Operation Type** | **BAPI**, **RFC**, **IDoc**, **RFC**, or **tRFC** | This example selects and continues with **IDoc**. |
+   | **IDoc Type** | <*IDoc-type*> | This parameter varies with your operation selection. Select the IDoc type for which to generate the schema. This example selects **ORDERS05** as the IDoc type. |
+   1. From the **Release** list, select the SAP system release version.
+
+
+      ![Screenshot shows Standard workflow, Generate Schema action, and selecting IDoc.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-idoc-standard.png)
+
+   1. 
+
+
+
+      This example selects **720**.
+
+ > **720** > **Send**
+
+      If you can't find the action you want, you can manually enter a path, for example:
+
+      ![Screenshot shows Standard workflow and manually entering a path to an SAP action.](./media/logic-apps-using-sap-connector/sap-generate-schemas-manual-standard.png)
+
+      > [!TIP]
+      >
+      > For the **Body ActionUri** parameter, you can use the expression editor to provide the parameter value. 
+      > That way, you can use the same SAP action for different message types.
+
+      For more information about this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+
+   1. To generate schemas for more than one artifact, in the **Body ActionUri** section, select **Add new item**.
+
+      ![Screenshot shows selecting the option to add a new item.](./media/logic-apps-using-sap-connector/sap-generate-schemas-add-item-consumption.png)
+
+   1. For each artifact, provide the SAP action that you want to use for schema generation, for example:
+
+      ![Screenshot shows multiple SAP actions to use for generating multiple schemas.](./media/logic-apps-using-sap-connector/sap-generate-schemas-multiples-consumption.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
 
 ---
 
