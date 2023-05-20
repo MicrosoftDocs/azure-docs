@@ -238,9 +238,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 ## Filter received messages with SAP actions
 
-You can optionally filter the messages that your workflow receives from your SAP server by providing a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
-
-Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
+You can optionally filter the messages that your workflow receives from your SAP server by providing a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong. Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to test sending IDocs to Azure Logic Apps from SAP](logic-apps-using-sap-connector.md#test-sending-idocs-from-sap).
 
 If you can't send IDoc packets from SAP to your trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
@@ -503,7 +501,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
 ---
 
-<a name="send-idoc-flat-file"></a>
+<a name="send-flat-file-idocs"></a>
 
 #### Send flat file IDocs to SAP server
 

@@ -203,7 +203,7 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
 > [!NOTE]
 >
 > If your Consumption workflow uses the deprecated SAP connectors, **SAP Application Server** or **SAP Message Server**, 
-> you must [migrate to the current SAP connector](#migrate-to-current-connector) before you can connect to your SAP server.
+> you must [migrate to the current SAP connector](#migrate-from-deprecated-connectors) before you can connect to your SAP server.
 
 1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](logic-apps-gateway-install.md).
 
@@ -604,6 +604,8 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
 
 ---
 
+<a name="migrate-from-deprecated-connectors"></a>
+
 ### Migrate from deprecated SAP connectors
 
 For Consumption workflows, the **SAP Application Server** and **SAP Message Server** connectors were deprecated February 29, 2020. If your Consumption workflow uses these deprecated connectors, you must migrate to the current SAP connector before you can connect to your SAP server by following these steps:
@@ -617,6 +619,8 @@ For Consumption workflows, the **SAP Application Server** and **SAP Message Serv
 1. Reconnect to your SAP system using the new action.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
+
+<a name="test-sending-idocs-from-sap"></a>
 
 ### Set up and test sending IDocs to your workflow from SAP
 
@@ -768,7 +772,7 @@ For production environments, you must create two partner profiles. The first pro
 
     * Enter your [receiver port's identifier](#create-receiver-port).
 
-    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](#receive-idoc-packets-from-sap), select **Pass IDoc Immediately**.
+    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](sap-create-example-scenario-workflows.md#receive-idoc-packets-sap), select **Pass IDoc Immediately**.
 
 1. Save your changes.
 
@@ -806,7 +810,7 @@ For the how-to guide to creating workflows for common SAP integration workloads,
 
 ## Find extended error logs
 
-For full error messages, check your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
+For full error messages, check your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#set-up-extended-sap-logging).
 
 * For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
@@ -823,6 +827,8 @@ For full error messages, check your SAP Adapter's extended logs. You can also [e
        <value>Verbose</value>
     </setting>
     ```
+
+<a name="set-up-extended-sap-logging"></a>
 
 ## Set up extended SAP logging in on-premises data gateway
 
