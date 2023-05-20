@@ -3,13 +3,13 @@ author: bwren
 ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 03/30/2023
+ms.date: 05/19/2023
 ---
 
 ### Design checklist
 
 > [!div class="checklist"]
-> - Use Azure Sentinel for collection and analysis of security events. 
+> - Use Microsoft Sentinel for collection and analysis of security events. 
 > - Consider using Azure private link for VMs to connect to Azure Monitor using a private endpoint.
 
 ### Configuration recommendations
