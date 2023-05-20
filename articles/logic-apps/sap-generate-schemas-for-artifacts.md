@@ -73,7 +73,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    After Azure Logic Apps sets up and tests your connection, the action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows SAP managed action named Generate schemas.](./media/logic-apps-using-sap-connector/sap-generate-schemas-consumption.png)
+   ![Screenshot shows Consumption workflow and SAP managed action named Generate schemas.](./media/logic-apps-using-sap-connector/sap-generate-schemas-consumption.png)
 
 1. In the [**Generate schemas** action](/connectors/sap/#generate-schemas), provide a path to the artifact for which you want to generate the schema by selecting an available SAP action on your SAP server.
 
@@ -83,17 +83,17 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
       >
       > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
 
-      ![Screenshot shows selecting IDOC for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-idoc-consumption.png)
+      ![Screenshot shows Consumption workflow, Generate schemas action, and selecting IDOC.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-idoc-consumption.png)
 
    1. Browse the SAP action types folders using the arrows to find and select the SAP action that you want to use.
 
       This example selects **ORDERS** > **ORDERS05** > **720** > **Send**.
 
-      ![Screenshot shows finding an Orders action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-artifact-consumption.png)
+      ![Screenshot shows Consumption workflow, Generate schemas action, and finding an Orders action.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-artifact-consumption.png)
 
       If you can't find the action you want, you can manually enter a path, for example:
 
-      ![Screenshot shows manually entering a path to an SAP action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-generate-schemas-manual-consumption.png)
+      ![Screenshot shows Consumption workflow and manually entering a path to an SAP action.](./media/logic-apps-using-sap-connector/sap-generate-schemas-manual-consumption.png)
 
       > [!TIP]
       >
@@ -117,6 +117,8 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 ---
 
 <a name="test-workflow"></a>
+
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### Test your workflow for schema generation
 
@@ -192,7 +194,7 @@ For more information about reviewing workflow run history, see [Monitor logic ap
 
 ## Upload schemas to an integration account
 
-Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app workflow by using the Azure Resource Manager connector.
+Optionally, you can download or store the generated schemas in repositories, such as an [integration account](logic-apps-enterprise-integration-create-integration-account.md) or Azure storage account, for example, in a blob container. Integration accounts provide a first-class experience with XML actions for workflows in Azure Logic Apps. You have the option to upload generated schemas to an existing integration account within the same workflow that generates those schemas by using the Azure Resource Manager action named **Create or update a resource**.
 
 > [!NOTE]
 >
@@ -207,13 +209,22 @@ Optionally, you can download or store the generated schemas in repositories, suc
 > }
 > ```
 
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps to upload schemas to an integration account from your workflow after schema generation.
+
+### Prerequisites
+
+* An [integration account](logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one
+
 ### [Multi-tenant](#tab/multi-tenant)
 
-1. In the workflow designer, under the trigger, select **New step**.
+1. In the workflow designer, under the SAP managed action named **Generate schemas**, select **New step**.
 
-1. In the search box, enter `resource manager` as your filter. Select **Create or update a resource**.
+1. [Follow these general steps to find and add the Azure Resource Manager managed action named **Create or update a resource**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   ![Screenshot that shows selecting an Azure Resource Manager action.](./media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
+   ![Screenshot shows Consumption workflow and Azure Resource Manager action.](./media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
+   ![Screenshot shows Consumption workflow and an Azure Resource Manager action named Create or update a resource.](./media/logic-apps-using-sap-connector/sap-generate-schemas-consumption.png)
+
+   After Azure Logic Apps sets up and tests your connection, the action information box appears.
 
 1. Enter the details for the action, including your Azure subscription, Azure resource group, and integration account. To add SAP tokens to the fields, click inside the boxes for those fields, and select from the dynamic content list that appears.
 
