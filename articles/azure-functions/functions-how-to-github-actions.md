@@ -108,7 +108,7 @@ The following parameters are most commonly used with this action:
 |_**slot-name**_ | (Optional) The name of a specific [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already exist in your function app. When not specified, the code is deployed to the active slot. |
 |_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. |
 
-The following parameters are also supported, but are required only in specific cases:
+The following parameters are also supported, but are used only in specific cases:
 
 |Parameter |Explanation  |
 |---------|---------|
@@ -170,7 +170,7 @@ GitHub can now authenticate to your function app in Azure.
 ::: zone-end
 ::: zone pivot="method-manual"
 
-## Get the development template
+## Create the workflow from a template
 
 The best way to manually create a workflow configuration is to start from the officially supported template. 
 
