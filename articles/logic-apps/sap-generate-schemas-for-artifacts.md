@@ -144,46 +144,21 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the [**Generate Schema** action](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)), provide the following information about the artifact for which to generate the schema.
 
-   This action's parameters change based on the **Operation Type** value that you select. This example selects 
+   This action's parameters change based on the **Operation Type** value that you select.
 
-   | Parameter | Value | Description |
-   |-----------|-------|-------------|
-   | **Operation Type** | **BAPI**, **RFC**, **IDoc**, **RFC**, or **tRFC** | This example selects and continues with **IDoc**. |
-   | **IDoc Type** | <*IDoc-type*> | This parameter varies with your operation selection. Select the IDoc type for which to generate the schema. This example selects **ORDERS05** as the IDoc type. |
-   1. From the **Release** list, select the SAP system release version.
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Operation Type** | Yes | **BAPI**, **RFC**, **IDoc**, **RFC**, or **tRFC** | The operation type to use for the schema generation. This example selects and continues with **IDoc**. |
+   | **IDoc Type** | Yes | <*IDoc-type*> | Select the IDoc type to use for schema generation. This example selects **ORDERS05**. |
+   | **Release** | Yes | <*IDoc-release-number*> | Select the IDoc release number. This example selects **720**. |
+   | **Version** | Yes | <*IDoc-release-version*> | Select the IDoc release version. This example selects **3**. |
+   | **Direction** | Yes | <*request-direction*> | Select the direction for the request. This example selects **Send**. |
 
+   ![Screenshot shows Standard workflow, Generate Schema action, and IDoc artifact information.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-idoc-standard.png)
 
-      ![Screenshot shows Standard workflow, Generate Schema action, and selecting IDoc.](./media/logic-apps-using-sap-connector/sap-generate-schemas-select-idoc-standard.png)
-
-   1. 
-
-
-
-      This example selects **720**.
-
- > **720** > **Send**
-
-      If you can't find the action you want, you can manually enter a path, for example:
-
-      ![Screenshot shows Standard workflow and manually entering a path to an SAP action.](./media/logic-apps-using-sap-connector/sap-generate-schemas-manual-standard.png)
-
-      > [!TIP]
-      >
-      > For the **Body ActionUri** parameter, you can use the expression editor to provide the parameter value. 
-      > That way, you can use the same SAP action for different message types.
-
-      For more information about this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
-
-   1. To generate schemas for more than one artifact, in the **Body ActionUri** section, select **Add new item**.
-
-      ![Screenshot shows selecting the option to add a new item.](./media/logic-apps-using-sap-connector/sap-generate-schemas-add-item-consumption.png)
-
-   1. For each artifact, provide the SAP action that you want to use for schema generation, for example:
-
-      ![Screenshot shows multiple SAP actions to use for generating multiple schemas.](./media/logic-apps-using-sap-connector/sap-generate-schemas-multiples-consumption.png)
+   For more information schemas for this SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Save your workflow. On the designer toolbar, select **Save**.
-
 
 ---
 
