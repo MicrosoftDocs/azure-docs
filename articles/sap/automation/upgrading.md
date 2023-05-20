@@ -213,7 +213,7 @@ az network private-endpoint list  --resource-group <WorkloadZoneResourceGroup> -
 ```
 
 
-If you're using private endpoints, run the following command before performing the upgrade to update the DNS settings for the private endpoint. Replace the <privateDNSzoneResourceId> and <keyvaultEndpointName> with the values retrieved in the previous step.
+If you're using private endpoints, run the following command before performing the upgrade to update the DNS settings for the private endpoint. Replace the '<privateDNSzoneResourceId>' and '<keyvaultEndpointName>' placeholders with the values retrieved in the previous step.
 
 ```azurecli
 
