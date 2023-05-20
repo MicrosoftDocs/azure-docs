@@ -25,11 +25,17 @@ Translator service supports language translation for more than 100 languages. If
 
 ## May 2023
 
-**Announcing the release of Text Translation SDKs (preview) for Build 2023**
+**Announcing new releases for Build 2023**
+
+### Text Translation SDK (prview)
 
 * The Text translation SDKs are now available in public preview for C#/.NET, Java, JavaScript/TypeScript, and Python programming languages.
 * To learn more, see [Text translation SDK overview](text-sdk-overview.md).
 * To get started, try a [Text Translation SDK quickstart](quickstart-translator-sdk.md) using a programming language of your choice.
+
+### Microsoft Translator V3 Connector (preview)
+
+The Translator V3 Connector is now available in public preview. The connector creates a connection between your Translator Service instance and Microsoft Power Automate and enables you to use one or more prebuilt operations as steps in your apps and workflows.
 
 ## February 2023
 
