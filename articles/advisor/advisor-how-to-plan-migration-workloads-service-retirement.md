@@ -20,7 +20,7 @@ Here is how to get started:
 1.	Open **Service Retirement (Preview)** workbook template.
 1.	Select a service from the list to display a detailed view of impacted resources.
 
-The wokbooks shows a list and a map of service retirements that impact your resources. For each of the services, there is a planned retirement date, number of impacted resources and migration instructions including recommended alternative service.
+The workbook shows a list and a map view of service retirements that impact your resources. For each of the services, there is a planned retirement date, number of impacted resources and migration instructions including recommended alternative service.
 
 *	Use subscription, resource group and location filters to focus on a specific workload.
 *	Use sorting to find services, which are retiring soon and have the biggest impact on your workloads. 
