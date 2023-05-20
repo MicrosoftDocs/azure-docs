@@ -62,7 +62,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
 * Table direction parameters, both input and output, for older SAP releases.
-* Changing parameters, which replaces the table direction parameters for newer SAP releases.
+* Changing parameters, which replace the table direction parameters for newer SAP releases.
 * Hierarchical table parameters.
 
 ## Known issues and limitations
@@ -368,7 +368,7 @@ The following relationships exist between the SAP client library, the .NET Frame
 
 ### [Multi-tenant](#tab/multi-tenant)
 
-For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway with optional SNC , you must also configure the following settings. For workflows that run in an ISE, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
+For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway and optionally SNC , you must also configure the following settings. For workflows that run in an ISE, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
 
 * Make sure the on-premises data gateway is installed on a computer that's in the same network as your SAP system.
 
