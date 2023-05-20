@@ -206,7 +206,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. On your logic app's **Overview** pane, under **Runs history**, find and open the workflow run.
 
-1. Find the **Generate schemas** action, and review the acton's outputs.
+1. Find the **Generate schemas** action, and review the action's outputs.
 
    The outputs show the generated schemas for the specified messages.
 
@@ -240,7 +240,7 @@ For more information about reviewing workflow run history, see [Monitor logic ap
 
 1. On your workflow's **Overview** pane, under **Run History**, find and open the workflow run.
 
-1. Find the **Generate Schema** action, and review the acton's outputs.
+1. Find the **Generate Schema** action, and review the action's outputs.
 
    The outputs show the generated schemas for the specified messages.
 

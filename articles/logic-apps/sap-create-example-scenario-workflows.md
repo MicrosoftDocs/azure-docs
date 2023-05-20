@@ -99,7 +99,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    Your workflow is now ready to receive messages from your SAP server.
 
-1. After the trigger fires and your workflow runs, review the workflow's trigger history to confirm that trigger registration succeeded.
+1. After the trigger fires and runs your workflow, review the workflow's trigger history to confirm that trigger registration succeeded.
 
 ### [Single-tenant](#tab/single-tenant)
 
@@ -145,7 +145,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
    Your workflow is now ready to receive messages from your SAP server.
 
-1. After the trigger fires and your workflow runs, review the workflow's trigger history to confirm that trigger registration succeeded.
+1. After the trigger fires and runs your workflow, review the workflow's trigger history to confirm that trigger registration succeeded.
 
 ---
 
@@ -258,11 +258,12 @@ If you're receiving this error message and experience intermittent failures call
 
 1. Check the SAP settings in your on-premises data gateway service configuration file named **Microsoft.PowerBI.EnterpriseGateway.exe.config**.
 
-   1. Under the `configuration` root node, add a `configSections` element, if none exists.
+   1. Under the `configuration` root node, add a `configSections` element, if none exist.
 
    1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
 
       > [!IMPORTANT]
+      >
       > Don't change the attributes in existing `section` elements, if such elements already exist.
 
       Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:

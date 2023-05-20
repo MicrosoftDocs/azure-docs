@@ -62,7 +62,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
 * Table direction parameters, both input and output, for older SAP releases.
-* Changing parameters, which replace the table direction parameters for newer SAP releases.
+* Changing parameters, which replaces the table direction parameters for newer SAP releases.
 * Hierarchical table parameters.
 
 ## Known issues and limitations
@@ -386,7 +386,7 @@ For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premi
   > environment variables for **SNC_LIB** and **SNC_LIB_64**. Otherwise, these variables 
   > take precedence over the SNC library value passed through the connector.
 
-* To use SNC with Single Sign-On (SSO), make sure the data gateway service is running as a user who is mapped to an SAP user. To change the default account for the gateway service account, select **Change account**, and enter the user credentials.
+* To use SNC with single sign-on (SSO), make sure the data gateway service is running as a user who is mapped to an SAP user. To change the default account for the gateway service account, select **Change account**, and enter the user credentials.
 
   ![Screenshot that shows the on-premises data gateway installer and Service Settings page with button to change gateway service account selected.](./media/logic-apps-using-sap-connector/gateway-account.png)
 
@@ -884,7 +884,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. To trigger your workflow, send a message from your SAP system.
 
-1. Return to your workflow's **Overview** pane. Under **Run History**, find an new runs for your workflow.
+1. Return to your workflow's **Overview** pane. Under **Run History**, find any new runs for your workflow.
 
 1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
 
@@ -902,22 +902,17 @@ With the August 2021 update for the on-premises data gateway, SAP connector oper
 
 *Metrics* are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
 
-* Whether system health is declining.
-
+* System health decline.
 * Unusual events.
-
-* Heavy load on your system.
+* Heavy system load.
 
 This information is sent to the Application Insights table named **customMetrics**. By default, metrics are sent at 30-second intervals.
 
 SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
 
 * RfcDestinationMonitor.
-
 * RfcConnectionMonitor.
-
 * RfcServerMonitor.
-
 * RfcRepositoryMonitor.
 
 For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
