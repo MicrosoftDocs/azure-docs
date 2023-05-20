@@ -44,50 +44,23 @@ This article describes the key steps to configure cross-tenant synchronization u
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
-## Step 1: Sign in to tenants and consent to permissions
+## Step 1: Sign in to the target tenant
 
-![Icon for the source tenant.](./media/common/icon-tenant-source.png) ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Source and target tenants**
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
 ::: zone pivot="ms-powershell"
 1. Start PowerShell.
 
 1. If necessary, install the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?branch=main).
 
-1. Get the tenant ID of the source and target tenants and initialize variables:
+1. Get the tenant ID of the source and target tenants and initialize variables.
 
     ```powershell
     $SourceTenantId = "<SourceTenantId>"
     $TargetTenantId = "<TargetTenantId>"
     ```
 
-1. Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph) command to sign in to the source tenant and consent to the following required permissions:
-
-    - `Policy.Read.All`
-    - `Policy.ReadWrite.CrossTenantAccess`
-    - `Application.ReadWrite.All`
-    - `Directory.ReadWrite.All`
-    - `AuditLog.Read.All`
-
-    ```powershell
-    Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All"
-    ```
-
-1. Use the [Select-MgProfile](/powershell/microsoftgraph/authentication-commands?branch=main#using-select-mgprofile) command to change to the beta version:
-
-    ```powershell
-    Select-MgProfile -Name "beta"
-    ```
-
-1. Start another instance of PowerShell.
-
-1. Get the tenant ID of the source and target tenants and initialize variables:
-
-    ```powershell
-    $SourceTenantId = "<SourceTenantId>"
-    $TargetTenantId = "<TargetTenantId>"
-    ```
-
-1. Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph) command to sign in to the target tenant and consent to the following required permissions:
+1. Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph) command to sign in to the target tenant and consent to the following required permissions.
 
     - `Policy.Read.All`
     - `Policy.ReadWrite.CrossTenantAccess`
@@ -96,7 +69,7 @@ This article describes the key steps to configure cross-tenant synchronization u
     Connect-MgGraph -TenantId $TargetTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess"
     ```
 
-1. Use the [Select-MgProfile](/powershell/microsoftgraph/authentication-commands?branch=main#using-select-mgprofile) command to change to the beta version:
+1. Use the [Select-MgProfile](/powershell/microsoftgraph/authentication-commands?branch=main#using-select-mgprofile) command to change to the beta version.
 
     ```powershell
     Select-MgProfile -Name "beta"
@@ -108,32 +81,18 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Start [Microsoft Graph Explorer tool](https://aka.ms/ge).
 
-1. Sign in to the source tenant.
+1. Sign in to the target tenant.
 
 1. Select your profile and then select **Consent to permissions**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure-graph/graph-explorer-profile.png" alt-text="Screenshot of Graph Explorer profile with Consent to permissions link." lightbox="./media/cross-tenant-synchronization-configure-graph/graph-explorer-profile.png":::
 
-1. Consent to the following required permissions:
-
-    - `Policy.Read.All`
-    - `Policy.ReadWrite.CrossTenantAccess`
-    - `Application.ReadWrite.All`
-    - `Directory.ReadWrite.All`
-    - `AuditLog.Read.All`
-
-    If you see a **Need admin approval** page, you'll need to sign in with a user that has been assigned the Global Administrator role to consent.
-
-1. Start another instance of [Microsoft Graph Explorer tool](https://aka.ms/ge).
-
-1. Sign in to the target tenant.
-
-1. Consent to the following required permissions:
+1. Consent to the following required permissions.
 
     - `Policy.Read.All`
     - `Policy.ReadWrite.CrossTenantAccess`
 
-1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs:
+1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs.
 
     - Source tenant ID: {sourceTenantId}
     - Target tenant ID: {targetTenantId}
@@ -298,7 +257,56 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 ::: zone-end
 
-## Step 4: Automatically redeem invitations in the source tenant
+## Step 4: Sign in to the source tenant
+
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
+
+::: zone pivot="ms-powershell"
+1. Start an instance of PowerShell.
+
+1. Get the tenant ID of the source and target tenants and initialize variables.
+
+    ```powershell
+    $SourceTenantId = "<SourceTenantId>"
+    $TargetTenantId = "<TargetTenantId>"
+    ```
+
+1. Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph) command to sign in to the source tenant and consent to the following required permissions.
+
+    - `Policy.Read.All`
+    - `Policy.ReadWrite.CrossTenantAccess`
+    - `Application.ReadWrite.All`
+    - `Directory.ReadWrite.All`
+    - `AuditLog.Read.All`
+
+    ```powershell
+    Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All"
+    ```
+
+1. Use the [Select-MgProfile](/powershell/microsoftgraph/authentication-commands?branch=main#using-select-mgprofile) command to change to the beta version.
+
+    ```powershell
+    Select-MgProfile -Name "beta"
+    ```
+::: zone-end
+
+::: zone pivot="ms-graph"
+1. Start an instance of [Microsoft Graph Explorer tool](https://aka.ms/ge).
+
+1. Sign in to the source tenant.
+
+1. Consent to the following required permissions.
+
+    - `Policy.Read.All`
+    - `Policy.ReadWrite.CrossTenantAccess`
+    - `Application.ReadWrite.All`
+    - `Directory.ReadWrite.All`
+    - `AuditLog.Read.All`
+
+    If you see a **Need admin approval** page, you'll need to sign in with a user that has been assigned the Global Administrator role to consent.
+::: zone-end
+
+## Step 5: Automatically redeem invitations in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -398,7 +406,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 ::: zone-end
 
-## Step 5: Create a configuration application in the source tenant
+## Step 6: Create a configuration application in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -498,7 +506,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 1. Save the service principal object ID.
 ::: zone-end
 
-## Step 6: Test the connection to the target tenant
+## Step 7: Test the connection to the target tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -569,7 +577,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 ::: zone-end
 
-## Step 7: Create a provisioning job in the source tenant
+## Step 8: Create a provisioning job in the source tenant
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -660,7 +668,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
     ```
 ::: zone-end
 
-## Step 8: Save your credentials
+## Step 9: Save your credentials
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -722,7 +730,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
     ```
 ::: zone-end
 
-## Step 9: Assign a user to the configuration
+## Step 10: Assign a user to the configuration
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -789,7 +797,7 @@ For cross-tenant synchronization to work, at least one internal user must be ass
     ```
 ::: zone-end
 
-## Step 10: Test provision on demand
+## Step 11: Test provision on demand
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -850,7 +858,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```
 ::: zone-end
 
-## Step 11: Start the provisioning job
+## Step 12: Start the provisioning job
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -879,7 +887,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```
 ::: zone-end
 
-## Step 12: Monitor provisioning
+## Step 13: Monitor provisioning
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
@@ -1144,11 +1152,11 @@ Either the signed-in user doesn't have sufficient privileges, or you need to con
 1. Make sure you're assigned the required roles. See [Prerequisites](#prerequisites) earlier in this article.
 
 ::: zone pivot="ms-powershell"
-2. When you sign in with [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph), make sure you specify the required scopes. See [Step 1: Sign in to tenants and consent to permissions](#step-1-sign-in-to-tenants-and-consent-to-permissions) earlier in this article.
+2. When you sign in with [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph), make sure you specify the required scopes. See [Step 1: Sign in to the target tenant](#step-1-sign-in-to-the-target-tenant) and [Step 4: Sign in to the source tenant](#step-4-sign-in-to-the-source-tenant) earlier in this article.
 ::: zone-end
 
 ::: zone pivot="ms-graph"
-2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to tenants and consent to permissions](#step-1-sign-in-to-tenants-and-consent-to-permissions) earlier in this article.
+2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to the target tenant](#step-1-sign-in-to-the-target-tenant) and [Step 4: Sign in to the source tenant](#step-4-sign-in-to-the-source-tenant) earlier in this article.
 ::: zone-end
 
 ::: zone pivot="ms-powershell"
