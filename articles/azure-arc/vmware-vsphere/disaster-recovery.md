@@ -8,11 +8,11 @@ ms.date: 08/16/2022
 
 # Recover from accidental deletion of resource bridge VM
 
-In this article, you'll learn how to recover the Arc resource bridge connection into a working state in case of disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc will fail.
+In this article, you will learn how to recover the Azure Arc resource bridge (preview) connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc will fail.
 
 ## Recovering the Arc resource bridge in case of VM deletion
 
-To recover from Arc resource bridge VM deletion, you will need to deploy a new resource bridge with the same resource id as the current resource bridge using the following steps.
+To recover from Arc resource bridge VM deletion, you need to deploy a new resource bridge with the same resource ID as the current resource bridge using the following steps.
 
 1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and vCenter Azure resources.
 
@@ -49,7 +49,7 @@ To recover from Arc resource bridge VM deletion, you will need to deploy a new r
 
 [Troubleshoot Azure Arc resource bridge (preview) issues](../resource-bridge/troubleshoot-resource-bridge.md)
 
-If the recovery steps above are unsuccessful in restoring Arc resource bridge to its original state, try one of the following channels for support:
+If the recovery steps mentioned above are unsuccessful in restoring Arc resource bridge to its original state, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
