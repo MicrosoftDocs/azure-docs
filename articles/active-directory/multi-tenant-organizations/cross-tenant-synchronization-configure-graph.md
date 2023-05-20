@@ -66,6 +66,7 @@ This article describes the key steps to configure cross-tenant synchronization u
     - `Policy.ReadWrite.CrossTenantAccess`
     - `Application.ReadWrite.All`
     - `Directory.ReadWrite.All`
+    - `AuditLog.Read.All`
 
     ```powershell
     Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All"
@@ -119,6 +120,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     - `Policy.ReadWrite.CrossTenantAccess`
     - `Application.ReadWrite.All`
     - `Directory.ReadWrite.All`
+    - `AuditLog.Read.All`
 
     If you see a **Need admin approval** page, you'll need to sign in with a user that has been assigned the Global Administrator role to consent.
 
@@ -148,7 +150,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
     ```powershell
     $Params = @{
-    	TenantId = $SourceTenantId
+        TenantId = $SourceTenantId
     }
     New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
     ```
@@ -165,9 +167,9 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
     ```powershell
     $Params = @{
-	    userSyncInbound = @{
-		    isSyncAllowed = $true
-	    }
+        userSyncInbound = @{
+            isSyncAllowed = $true
+        }
     }
     Invoke-MgGraphRequest -Method PUT -Uri "https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/partners/$SourceTenantId/identitySynchronization" -Body $Params
     ```
@@ -587,7 +589,13 @@ In the source tenant, to enable provisioning, create a provisioning job.
     ```Output
     Id         TemplateId
     --         ----------
-    {JobId}    Azure2Azure
+    <JobId>    Azure2Azure
+    ```
+
+1. Initialize the job ID for a later step.
+
+    ```powershell
+    $JobId = "<JobId>"
     ```
 ::: zone-end
 
@@ -661,16 +669,16 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
     ```powershell
     $Params = @{
-    	"value" = @(
-    		@{
-    			"key" = "AuthenticationType"
-    			"value" = "SyncPolicy"
-    		}
-    		@{
-    			"key" = "CompanyId"
-    			"value" = $TargetTenantId
-    		}
-    	)
+        "value" = @(
+            @{
+                "key" = "AuthenticationType"
+                "value" = "SyncPolicy"
+            }
+            @{
+                "key" = "CompanyId"
+                "value" = $TargetTenantId
+            }
+        )
     }
     Invoke-MgGraphRequest -Method PUT -Uri "https://graph.microsoft.com/beta/servicePrincipals/$ServicePrincipalId/synchronization/secrets" -Body $Params
     ```
@@ -725,11 +733,23 @@ For cross-tenant synchronization to work, at least one internal user must be ass
 
     ```powershell
     $Params = @{
-    	PrincipalId = "<PrincipalId>"
-    	ResourceId = $ServicePrincipalId
-    	AppRoleId = "<AppRoleId>"
+        PrincipalId = "<PrincipalId>"
+        ResourceId = $ServicePrincipalId
+        AppRoleId = "<AppRoleId>"
     }
-    New-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $ServicePrincipalId -BodyParameter $Params
+    New-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $ServicePrincipalId -BodyParameter $Params | Format-List
+    ```
+
+    ```Output
+    AppRoleId            : <AppRoleId>
+    CreationTimestamp    : 5/20/2023 8:02:19 PM
+    Id                   : <Id>
+    PrincipalDisplayName : User1
+    PrincipalId          : <PrincipalId>
+    PrincipalType        : User
+    ResourceDisplayName  : Fabrikam
+    ResourceId           : <ServicePrincipalId>
+    AdditionalProperties : {[@odata.context, https://graph.microsoft.com/beta/$metadata#appRoleAssignments/$entity]}
     ```
 ::: zone-end
 
@@ -776,19 +796,32 @@ For cross-tenant synchronization to work, at least one internal user must be ass
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
 ::: zone pivot="ms-powershell"
-1. In the source tenant, use the [New-MgApplicationSynchronizationJobOnDemand](/powershell/module/microsoft.graph.applications/new-mgapplicationsynchronizationjobondemand?view=graph-powershell-beta&preserve-view=true&branch=main) command to provision a test user on demand.
+1. In the source tenant, use the [New-MgServicePrincipalSynchronizationJobOnDemand](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjobondemand?view=graph-powershell-beta&preserve-view=true&branch=main) command to provision a test user on demand.
 
     ```powershell
     $Params = @{
-    	RuleId = "<RuleId>"
-        Subjects = @(
+        Parameters = @(
             @{
-                ObjectId = "<UserObjectId>"
-                ObjectTypeName = "User"
+                Subjects = @(
+                    @{
+                        ObjectId = "<UserObjectId>"
+                        ObjectTypeName = "User"
+                    }
+                )
+                RuleId = "<RuleId>"
             }
         )
     }
-    New-MgApplicationSynchronizationJobOnDemand -ApplicationId $ServicePrincipalId -SynchronizationJobId $JobId -BodyParameter $Params
+    New-MgServicePrincipalSynchronizationJobOnDemand -ServicePrincipalId $ServicePrincipalId -SynchronizationJobId $JobId -BodyParameter $Params | Format-List
+    ```
+
+    ```Output
+    Key                  : Microsoft.Identity.Health.CPP.Common.DataContracts.SyncFabric.StatusInfo
+    Value                : [{"provisioningSteps":[{"name":"EntryImport","type":"Import","status":"Success","description":"Retrieved User
+                           'user1@fabrikam.com' from Azure Active Directory","timestamp":"2023-05-20T20:10:07.3900245Z","details":{"objectId":
+                           "<UserObjectId>","accountEnabled":"True","displayName":"User1","mailNickname":"user1","userPrincipalName":"use
+                           ...
+    AdditionalProperties : {[@odata.context, https://graph.microsoft.com/beta/$metadata#microsoft.graph.stringKeyStringValuePair]}
     ```
 ::: zone-end
 
@@ -854,13 +887,57 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 1. Now that the provisioning job is running, in the source tenant, use the [Get-MgServicePrincipalSynchronizationJob](/powershell/module/microsoft.graph.applications/get-mgserviceprincipalsynchronizationjob?view=graph-powershell-beta&preserve-view=true&branch=main) command to monitor the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system.
 
     ```powershell
-    Get-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -SynchronizationJobId $JobId
+    Get-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -SynchronizationJobId $JobId | Format-List
+    ```
+
+    ```Output
+    Id                         : <JobId>
+    Schedule                   : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationSchedule
+    Schema                     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationSchema
+    Status                     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationStatus
+    SynchronizationJobSettings : {AzureIngestionAttributeOptimization, LookaheadQueryEnabled}
+    TemplateId                 : Azure2Azure
+    AdditionalProperties       : {[@odata.context, https://graph.microsoft.com/beta/$metadata#servicePrincipals('<ServicePrincipalId>')/synchro
+                                 nization/jobs/$entity]}
     ```
 
 1. In addition to monitoring the status of the provisioning job, use the [Get-MgAuditLogProvisioning](/powershell/module/microsoft.graph.reports/get-mgauditlogprovisioning?view=graph-powershell-beta&preserve-view=true&branch=main) command to retrieve the provisioning logs and get all the provisioning events that occur. For example, query for a particular user and determine if they were successfully provisioned.
 
     ```powershell
-    Get-MgAuditLogProvisioning
+    Get-MgAuditLogDirectoryAudit | Select -First 10 | Format-List
+    ```
+
+    ```Output
+    ActivityDateTime     : 5/20/2023 8:40:20 PM
+    ActivityDisplayName  : Synchronization rule action
+    AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
+    Category             : ProvisioningManagement
+    CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_DXMK5_110895927
+    InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
+    LoggedByService      : Account Provisioning
+    OperationType        :
+    Result               : success
+    ResultReason         : The state of the entry in both the source and target systems already match. No change to the User
+                           'user4@fabrikam.com' currently needs to be made.
+    TargetResources      : {<ServicePrincipalId>, }
+    UserAgent            :
+    AdditionalProperties : {}
+    
+    ActivityDateTime     : 5/20/2023 8:40:19 PM
+    ActivityDisplayName  : Import
+    AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
+    Category             : ProvisioningManagement
+    CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_DXMK5_1108962569
+    InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
+    LoggedByService      : Account Provisioning
+    OperationType        :
+    Result               : success
+    ResultReason         : Retrieved  'user5@fabrikam.com' from Azure Active Directory (target tenant)
+    TargetResources      : {<ServicePrincipalId>, }
+    UserAgent            :
+    AdditionalProperties : {}
     ```
 ::: zone-end
 
@@ -1126,9 +1203,9 @@ You are likely trying to create a policy that already exists, possibly from a pr
 
     ```powershell
     $Params = @{
-	    userSyncInbound = @{
-		    isSyncAllowed = $true
-	    }
+        userSyncInbound = @{
+            isSyncAllowed = $true
+        }
     }
     Update-MgPolicyCrossTenantAccessPolicyPartnerIdentitySynchronization -CrossTenantAccessPolicyConfigurationPartnerTenantId $SourceTenantId -BodyParameter $Params
     ```
