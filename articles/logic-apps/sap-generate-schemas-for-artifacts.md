@@ -174,9 +174,9 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 <a name="test-workflow"></a>
 
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
-
 ### Test your workflow for schema generation
+
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Multi-tenant](#tab/multi-tenant)
 

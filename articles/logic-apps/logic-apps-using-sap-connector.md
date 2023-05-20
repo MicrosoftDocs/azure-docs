@@ -3,9 +3,7 @@ title: Connect to SAP
 description: Connect to an SAP server from a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: daviburg
-ms.author: daviburg
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
 ms.date: 05/23/2023
 tags: connectors
@@ -64,9 +62,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
 * Table direction parameters, both input and output, for older SAP releases.
-
 * Changing parameters, which replace the table direction parameters for newer SAP releases.
-
 * Hierarchical table parameters.
 
 ## Known issues and limitations
@@ -198,7 +194,7 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### Azure Logic Apps environment prerequisites
 
-#### [Multi-tenant](#tab/multi-tenant)
+### [Multi-tenant](#tab/multi-tenant)
 
 <a name="multi-tenant-prerequisites"></a>
 
@@ -206,7 +202,7 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
 
 > [!NOTE]
 >
-> If your workflow uses the deprecated SAP connector, **SAP Application Server** or **SAP Message Server**, 
+> If your Consumption workflow uses the deprecated SAP connectors, **SAP Application Server** or **SAP Message Server**, 
 > you must [migrate to the current SAP connector](#migrate-to-current-connector) before you can connect to your SAP server.
 
 1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](logic-apps-gateway-install.md).
@@ -242,13 +238,13 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
      sapmsDV6           3601/tcp              # SAP system ID DV6 message service port
      ```
 
-#### [Single-tenant](#tab/single-tenant)
+### [Single-tenant](#tab/single-tenant)
 
 <a name="single-tenant-prerequisites"></a>
 
 For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
 
-##### Upload assemblies to Azure portal
+#### Upload assemblies to Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -283,11 +279,11 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 
    1. In the **net472** folder, upload the assembly files larger than 4 MB.
 
-##### SAP trigger requirements
+#### SAP trigger requirements
 
 The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
-#### [ISE](#tab/ise)
+### [ISE](#tab/ise)
 
 <a name="ise-prerequisites"></a>
 
@@ -370,7 +366,7 @@ The following relationships exist between the SAP client library, the .NET Frame
 
 ### SNC prerequisites
 
-#### [Multi-tenant](#tab/multi-tenant)
+### [Multi-tenant](#tab/multi-tenant)
 
 For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway with optional SNC , you must also configure the following settings. For workflows that run in an ISE, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
 
@@ -396,11 +392,11 @@ For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premi
 
 For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
-#### [Single-tenant](#tab/single-tenant)
+### [Single-tenant](#tab/single-tenant)
 
 For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
-#### [ISE](#tab/ise)
+### [ISE](#tab/ise)
 
 <a name="snc-prerequisites-ise"></a>
 
@@ -511,7 +507,7 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
 ### Enable Secure Network Communications (SNC)
 
-#### [Multi-tenant](#tab/multi-tenant)
+### [Multi-tenant](#tab/multi-tenant)
 
 For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](logic-apps-using-sap-connector.md?tabs=multi-tenant#prerequisites) and [SNC prerequisites](logic-apps-using-sap-connector.md?tabs=multi-tenant#snc-prerequisites).
 
@@ -545,7 +541,7 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
 
    If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message. To troubleshoot connection parameter issues, you can use the on-premises data gateway installation and the gateway's local logs.
 
-#### [Single-tenant](#tab/single-tenant)
+### [Single-tenant](#tab/single-tenant)
 
 For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](logic-apps-using-sap-connector.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](logic-apps-using-sap-connector.md?tabs=single-tenant#snc-prerequisites).
 
@@ -572,7 +568,7 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 1. To finish creating your connection, select **Create**.
 
-#### [ISE](#tab/ise)
+### [ISE](#tab/ise)
 
 For a Consumption workflow that runs in an ISE, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](#prerequisites) and [SNC prerequisites for ISE](#snc-prerequisites-ise).
 
@@ -608,23 +604,195 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
 
 ---
 
-### Migrate to current connector
+### Migrate from deprecated SAP connectors
 
-In Consumption workflows, the **SAP Application Server** and **SAP Message Server** connectors were deprecated February 29, 2020. To migrate to the current SAP connector, follow these steps:
+For Consumption workflows, the **SAP Application Server** and **SAP Message Server** connectors were deprecated February 29, 2020. If your Consumption workflow uses these deprecated connectors, you must migrate to the current SAP connector before you can connect to your SAP server by following these steps:
 
 1. Update your [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) to the current version. For more information, review [Install an on-premises data gateway for Azure Logic Apps](logic-apps-gateway-install.md).
 
-1. In your logic app workflow that uses the deprecated SAP connector, delete the **Send to SAP** action.
+1. In your Consumption workflow that uses the deprecated SAP connector, delete the **Send to SAP** action.
 
-1. Find the current SAP connector, and add the action named **Send message to SAP**.
+1. Find the current SAP managed connector, and add the action named **Send message to SAP**.
 
 1. Reconnect to your SAP system using the new action.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
+### Set up and test sending IDocs to your workflow from SAP
+
+Follow these steps only for testing your SAP configuration with your logic app workflow. Production environments require additional configuration. 
+
+To send IDocs from SAP to your workflow, you need the following minimum configuration:
+
+1. [Create an RFC destination.](#create-rfc-destination)
+1. [Create an ABAP connection.](#create-abap-connection)
+1. [Create a receiver port.](#create-receiver-port)
+1. [Create a sender port.](#create-sender-port)
+1. [Create a logical system partner.](#create-logical-system-partner)
+1. [Create a partner profile.](#create-partner-profiles)
+1. [Test sending messages.](#test-sending-messages)
+
+#### Create RFC destination
+
+This destination identifies your logic app workflow as the receiver port.
+
+1. In SAP, open the **Configuration of RFC Connections** settings. You can use the **sm59** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **TCP/IP Connections** > **Create**.
+
+1. Create a new RFC destination with the following settings:
+
+   1. For **RFC Destination**, enter a name.
+
+   1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
+
+   1. For **Program ID**, enter a value. In your SAP server, your workflow's trigger is registered using this identifier.
+
+      > [!IMPORTANT]
+      >
+      > The SAP **Program ID** is case-sensitive. Make sure that you consistently use the same case format 
+      > for your **Program ID** when you configure your workflow and SAP server. Otherwise, you might 
+      > receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
+      >
+      > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
+      > * **Non-ABAP RFC client (partner type ) not supported**
+      >
+      > For more information from SAP, review the following notes (login required):
+      >
+      > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
+      > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
+
+   1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
+
+      > [!NOTE]
+      >
+      > SAP .NET Client libraries support only Unicode character encoding. If you get the error 
+      > **Non-ABAP RFC client (partner type) not supported** when you send an IDoc from SAP to 
+      > Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
+
+1. Save your changes.
+
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP managed trigger named **When a message is received**.
+
+   That way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
+
+1. In your workflow's trigger history, the on-premises data gateway SAP Adapter logs, if applicable, and the SAP Gateway trace logs, check the registration status.
+
+   In the SAP Gateway monitor box (T-Code SMGW), under **Logged-On Clients**, the new registration appears as **Registered Server**.
+
+1. To test your connection, under your new **RFC Destination**, select **Connection Test**.
+
+#### Create ABAP connection
+
+This destination identifies your SAP system as the sender port.
+
+1. In SAP, open the **Configuration of RFC Connections** settings. You can use the **sm59** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **ABAP Connections** > **Create**.
+
+1. For **RFC Destination**, enter the identifier for your test SAP system.
+
+1. In **Technical Settings**, leave the target host empty to create a local connection to the SAP system.
+
+1. Save your changes.
+
+1. To test your connection, select **Connection Test**.
+
+#### Create receiver port
+
+1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **Ports** > **Transactional RFC** > **Create**.
+
+1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
+
+1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
+
+1. Save your changes.
+
+#### Create sender port
+
+1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **Ports** > **Transactional RFC** > **Create**.
+
+1. In the settings box that opens, select **own port name**.
+
+1. For your test port, enter a **Name** that starts with **SAP**. Save your changes.
+
+   All sender port names must start with the letters **SAP**, for example, **SAPTEST**.
+
+1. In the settings for your new sender port, for **RFC destination**, enter the identifier for [your ABAP connection](#create-abap-connection).
+
+1. Save your changes.
+
+#### Create logical system partner
+
+1. In SAP, open the **Change View "Logical Systems": Overview** settings. You can use the **bd54** transaction code (T-Code).
+
+1. Accept the following warning message that appears: **Caution: The table is cross-client**
+
+1. Above the list that shows your existing logical systems, select **New Entries**.
+
+1. For your new logical system, enter a **Log.System** identifier and a short **Name** description. Save your changes.
+
+1. When the **Prompt for Workbench** appears, create a new request by providing a description, or if you already created a request, skip this step.
+
+1. After you create the workbench request, link that request to the table update request. To confirm that your table was updated, save your changes.
+
+#### Create partner profiles
+
+For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app resource and workflow.
+
+1. In SAP, open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
+
+1. Under **Partner Profiles**, select **Partner Type LS** > **Create**.
+
+1. Create a new partner profile with the following settings:
+
+   | Setting | Description |
+   |---------|-------------|
+   | **Partner No.** | Enter [your logical system partner's identifier](#create-logical-system-partner). |
+   | **Partn. Type** | Enter **LS**. |
+   | **Agent** | Enter the identifier for the SAP user account to use when you register program identifiers for Azure Logic Apps or other non-SAP systems. |
+
+1. Save your changes.
+
+   If you haven't [created the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
+
+1. In your partner profile's settings, under **Outbound parmtrs.**, select **Create outbound parameter**.
+
+1. Create a new outbound parameter with the following settings:
+
+    * Enter your **Message Type**, for example, **CREMAS**.
+
+    * Enter your [receiver port's identifier](#create-receiver-port).
+
+    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](#receive-idoc-packets-from-sap), select **Pass IDoc Immediately**.
+
+1. Save your changes.
+
+#### Test sending messages
+
+1. In SAP, open the **Test Tool for IDoc Processing** settings. You can use the **we19** transaction code (T-Code) with the **/n** prefix.
+
+1. Under **Template for test**, select **Via message type**. Enter your message type, for example, **CREMAS**. Select **Create**.
+
+1. Confirm the **Which IDoc type?** message by selecting **Continue**.
+
+1. Select the **EDIDC** node. Enter the appropriate values for your receiver and sender ports. Select **Continue**.
+
+1. Select **Standard Outbound Processing**.
+
+1. To start outbound IDoc processing, select **Continue**.
+
+   When the tool finishes processing, the **IDoc sent to SAP system or external program** message appears.
+
+1. To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
+
 ## Create workflows for common SAP scenarios
 
-For a how-to guide to creating workflows for common SAP integration workloads, see the following sections in [Create workflows for common SAP scenarios](sap-create-example-scenario-workflows.md):
+For the how-to guide to creating workflows for common SAP integration workloads, see the following steps:
 
 * [Receive message from SAP](sap-create-example-scenario-workflows.md#receive-messages-sap)
 * [Receive IDoc packets from SAP](sap-create-example-scenario-workflows.md#receive-idoc-packets-sap)
@@ -634,7 +802,7 @@ For a how-to guide to creating workflows for common SAP integration workloads, s
 ## Create workflows for advanced SAP scenarios
 
 * [Change language headers for sending data to SAP](sap-create-example-scenario-workflows.md#change-language-headers)
-* [Confirm transaction separately and explicitly](sap-create-example-scenario-workflows.md#confirm-transaction-explicitly)
+* [Confirm transaction separately and avoid duplicate IDocs](sap-create-example-scenario-workflows.md#confirm-transaction-explicitly)
 
 ## Find extended error logs
 
@@ -656,19 +824,21 @@ For full error messages, check your SAP Adapter's extended logs. You can also [e
     </setting>
     ```
 
-### Extended SAP logging in on-premises data gateway
+## Set up extended SAP logging in on-premises data gateway
 
 If you use an [on-premises data gateway for Azure Logic Apps](logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
 
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
-> Extended logging might affect your logic app workflow's performance when always enabled. As a best practice, 
+> Extended logging might affect your workflow's performance when always enabled. As a best practice, 
 > turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
-#### Capture ETW events
+### Capture ETW events
 
-Optionally, advanced users can capture ETW events directly. You can then [consume your data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). You can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) to work with the resulting ETL files, or you can write your own program. This walkthrough uses PerfView:
+As an optional advanced logging task, you can directly capture ETW events, and then [consume the data in Azure Diagnostics in Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data).
+
+To work with the resulting ETL files, you can use [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md), or you can write your own program. The following walkthrough uses PerfView:
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
@@ -692,172 +862,33 @@ Optionally, advanced users can capture ETW events directly. You can then [consum
 
 ### Test your workflow
 
-1. To trigger your logic app workflow, send a message from your SAP system.
+Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-1. On the logic app menu, select **Overview**. Review the **Runs history** for any new runs for your logic app workflow.
+### [Multi-tenant](#tab/multi-tenant)
 
-1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
+1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-### Test sending IDocs from SAP
+1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
 
-To send IDocs from SAP to your logic app workflow, you need the following minimum configuration:
+1. To trigger your workflow, send a message from your SAP system.
 
-> [!IMPORTANT]
-> Use these steps only when you test your SAP configuration with your logic app workflow. Production environments require additional configuration.
+1. Return to your logic app's **Overview** pane. Under **Runs history**, find any new runs for your workflow.
 
-1. [Create an RFC destination.](#create-rfc-destination)
-1. [Create an ABAP connection.](#create-abap-connection)
-1. [Create a receiver port.](#create-receiver-port)
-1. [Create a sender port.](#create-sender-port)
-1. [Create a logical system partner.](#create-logical-system-partner)
-1. [Create a partner profile.](#create-partner-profiles)
-1. [Test sending messages.](#test-sending-messages)
+1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
 
-#### Create RFC destination
+### [Single-tenant](#tab/single-tenant)
 
-This destination will identify your logic app workflow for the receiver port.
+1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-Code) with the **/n** prefix.
+1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. Select **TCP/IP Connections** > **Create**.
+1. To trigger your workflow, send a message from your SAP system.
 
-1. Create a new RFC destination with the following settings:
+1. Return to your workflow's **Overview** pane. Under **Run History**, find an new runs for your workflow.
 
-    1. For your **RFC Destination**, enter a name.
+1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
 
-    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
-
-    1. For your **Program ID**, enter a value. In the SAP server, your logic app workflow's trigger is registered by using this identifier.
-
-       > [!IMPORTANT]
-       > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
-       > when you configure your logic app workflow and SAP server. Otherwise, you might receive the following errors in the 
-       > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
-       >
-       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-       > * **Non-ABAP RFC client (partner type ) not supported**
-       >
-       > For more information from SAP, review the following notes (login required):
-       >
-       > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
-       > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
-
-    1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
-
-       > [!NOTE]
-       > SAP .NET Client libraries support only Unicode character encoding. If you get the error 
-       > `Non-ABAP RFC client (partner type ) not supported` when sending IDoc from SAP to 
-       > Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
-
-1. Save your changes.
-
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received**.
-
-   This way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
-
-1. In your workflow's trigger history, the on-premises data gateway SAP Adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
-
-1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
-
-#### Create ABAP connection
-
-This destination will identify your SAP system for the sender port.
-
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **ABAP Connections** > **Create**.
-
-1. For **RFC Destination**, enter the identifier for your test SAP system.
-
-1. By leaving the target host empty in the Technical Settings, you are creating a local connection to the SAP system itself.
-
-1. Save your changes.
-
-1. To test your connection, select **Connection Test**.
-
-#### Create receiver port
-
-1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **Ports** > **Transactional RFC** > **Create**.
-
-1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
-
-1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
-
-1. Save your changes.
-
-#### Create sender port
-
-1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **Ports** > **Transactional RFC** > **Create**.
-
-1. In the settings box that opens, select **own port name**. For your test port, enter a **Name** that starts with **SAP**. All sender port names must start with the letters **SAP**, for example, **SAPTEST**. Save your changes.
-
-1. In the settings for your new sender port, for **RFC destination**, enter the identifier for [your ABAP connection](#create-abap-connection).
-
-1. Save your changes.
-
-#### Create logical system partner
-
-1. To open the **Change View "Logical Systems": Overview** settings, in your SAP interface, use the **bd54** transaction code (T-Code).
-
-1. Accept the warning message that appears: **Caution: The table is cross-client**
-
-1. Above the list that shows your existing logical systems, select **New Entries**.
-
-1. For your new logical system, enter a **Log.System** identifier and a short **Name** description. Save your changes.
-
-1. When the **Prompt for Workbench** appears, create a new request by providing a description, or if you already created a request, skip this step.
-
-1. After you create the workbench request, link that request to the table update request. To confirm that your table was updated, save your changes.
-
-#### Create partner profiles
-
-For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app.
-
-1. To open the **Partner profiles** settings, in your SAP interface, use the **we20** transaction code (T-Code) with the **/n** prefix.
-
-1. Under **Partner Profiles**, select **Partner Type LS** > **Create**.
-
-1. Create a new partner profile with the following settings:
-
-    * For **Partner No.**, enter [your logical system partner's identifier](#create-logical-system-partner).
-
-    * For **Partn. Type**, enter **LS**.
-
-    * For **Agent**, enter the identifier for the SAP user account to use when you register program identifiers for Azure Logic Apps or other non-SAP systems.
-
-1. Save your changes. If you haven't [created the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
-
-1. In your partner profile's settings, under **Outbound parmtrs.**, select **Create outbound parameter**.
-
-1. Create a new outbound parameter with the following settings:
-
-    * Enter your **Message Type**, for example, **CREMAS**.
-
-    * Enter your [receiver port's identifier](#create-receiver-port).
-
-    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](#receive-idoc-packets-from-sap), select **Pass IDoc Immediately**.
-
-1. Save your changes.
-
-#### Test sending messages
-
-1. To open the **Test Tool for IDoc Processing** settings, in your SAP interface, use the **we19** transaction code (T-Code) with the **/n** prefix.
-
-1. Under **Template for test**, select **Via message type**, and enter your message type, for example, **CREMAS**. Select **Create**.
-
-1. Confirm the **Which IDoc type?** message by selecting **Continue**.
-
-1. Select the **EDIDC** node. Enter the appropriate values for your receiver and sender ports. Select **Continue**.
-
-1. Select **Standard Outbound Processing**.
-
-1. To start outbound IDoc processing, select **Continue**. When the tool finishes processing, the **IDoc sent to SAP system or external program** message appears.
-
-1. To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
+---
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
@@ -877,7 +908,7 @@ With the August 2021 update for the on-premises data gateway, SAP connector oper
 
 * Heavy load on your system.
 
-This information is sent to the Application Insights table, `customMetrics`. By default, metrics are sent at 30-second intervals.
+This information is sent to the Application Insights table named **customMetrics**. By default, metrics are sent at 30-second intervals.
 
 SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
 
@@ -891,7 +922,7 @@ SAP NCo metrics and traces are based on SAP NCo metrics, specifically the follow
 
 For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
 
-*Traces* include text information that is used with metrics. This information is sent to the Application Insights table named `traces`. By default, traces are sent at 10-minute intervals.
+*Traces* include text information that is used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
 
 ### Set up SAP telemetry for Application Insights
 
@@ -905,7 +936,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. Download the NuGet package for **Microsoft.ApplicationInsights.EventSourceListener.dll** from this location: [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
 
-1. Add the downloaded file to your on-premises data gateway installation directory, for example, "C:\Program Files\On-Premises Data Gateway".
+1. Add the downloaded file to your on-premises data gateway installation directory, for example, **C:\Program Files\On-Premises Data Gateway**.
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
@@ -958,7 +989,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    The following screenshot shows the Azure portal with Application Insights, which is open to the **Logs** pane:
 
-   [![Screenshot showing the Azure portal with Application Insights open to the "Logs" pane for creating queries.](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
+   [![Screenshot shows Azure portal with Application Insights open to the "Logs" pane for creating queries.](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
 
 1. On the **Logs** pane, you can create a [query](/azure/data-explorer/kusto/query/) using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/concepts/) that's based on your specific requirements.
 
@@ -976,11 +1007,11 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    The following screenshot shows the example query's metrics results table:
 
-   [![Screenshot showing Application Insights with the metrics results table.](./media/logic-apps-using-sap-connector/application-insights-metrics.png)](./media/logic-apps-using-sap-connector/application-insights-metrics.png#lightbox)
+   [![Screenshot shows Application Insights with the metrics results table.](./media/logic-apps-using-sap-connector/application-insights-metrics.png)](./media/logic-apps-using-sap-connector/application-insights-metrics.png#lightbox)
 
    * **MaxUsedCount** is "The maximal number of client connections that were simultaneously used by the monitored destination." as described in the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). You can use this value to understand the number of simultaneously open connections.
 
-   * The **valueCount** column shows **2** for each reading because metrics are generated at 30-second intervals, and Application Insights aggregates these metrics by the minute.
+   * The **valueCount** column shows **2** for each reading because metrics are generated at 30-second intervals. Application Insights aggregates these metrics by the minute.
 
    * The **DestinationName** column contains a character string that is a Microsoft SAP Adapter internal name.
 
@@ -1004,7 +1035,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
 You can also create metric charts or alerts using those capabilities in Application Insights, for example:
 
-[![Screenshot showing Application Insights with the results in chart format.](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png)](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png#lightbox)
+[![Screenshot shows Application Insights with the results in chart format.](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png)](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png#lightbox)
 
 ### Traces from Microsoft SAP Adapter
 
@@ -1022,7 +1053,7 @@ traces
 
 The following screenshot shows the example query's traces results table:
 
-[![Screenshot showing Application Insights with the traces results table.](./media/logic-apps-using-sap-connector/application-insights-traces.png)](./media/logic-apps-using-sap-connector/application-insights-traces.png#lightbox)
+[![Screenshot shows Application Insights with the traces results table.](./media/logic-apps-using-sap-connector/application-insights-traces.png)](./media/logic-apps-using-sap-connector/application-insights-traces.png#lightbox)
 
 ## Next steps
 

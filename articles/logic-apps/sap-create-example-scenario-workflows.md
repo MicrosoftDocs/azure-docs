@@ -829,7 +829,7 @@ When you connect to SAP from Azure Logic Apps, English is the default language u
 
 <a name="confirm-transaction-explicitly"></a>
 
-## Confirm transaction explicitly
+## Confirm transaction separately and explicitly
 
 When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true).
 
