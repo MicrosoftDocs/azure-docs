@@ -27,6 +27,10 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - If you want to upload your generated schemas to a repository, such as an [integration account](logic-apps-enterprise-integration-create-integration-account.md), make sure that the repository already exists.
 
+## Generate schemas for an SAP artifact
+
+The following example logic app workflow triggers when the workflow's SAP trigger receives a request from an SAP server. The workflow then runs an SAP action that generates schemas for the specified SAP artifact.
+
 ### Add the Request trigger
 
 To have your workflow receive requests from your SAP server over HTTP, you can use the [Request built-in trigger](../connectors/connectors-native-reqres.md). This trigger creates an endpoint with a URL where your SAP server can send HTTP POST requests to your workflow. When your workflow receives these requests, the trigger fires and runs the next step in your workflow.
