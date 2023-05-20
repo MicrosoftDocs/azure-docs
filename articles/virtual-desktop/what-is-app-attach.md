@@ -22,28 +22,21 @@ In an Azure Virtual Desktop deployment, MSIX app attach delivers apps to session
 
 MSIX app attach allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the custom image and make them available them to users later.
 
-## App attach components
+## Terminology
 
 The following table lists the components that make up MSIX app attach.
 
-|Term|Definition|
+| Term | Definition |
 |---|---|
-|MSIX container| A lightweight app container. All apps within the container are isolated using file system and registry virtualization. For more information, see [MSIX container](/windows/msix/msix-container). |
-|MSIX application| An application stored within an MSIX container. The application and all its child processes run inside of the container. |
-|MSIX package| The .MSIX file that the container and its applications are stored inside. |
-|MSIX share| A network share that holds expanded MSIX packages. MSIX shares must support SMB 3 or later, and be accessible to VMs in the host pool system account. MSIX packages get staged from the share without having to move application files ot the system drive. |
-|MSIX image| A VHD, VHDx, or CIM file that contains one or more MSIX packaged applications. Each application is delivered in the MSIX image using the MSIXMGR tool. |
+| MSIX container | A lightweight app container. All apps within the container are isolated using file system and registry virtualization. For more information, see [MSIX container](/windows/msix/msix-container). |
+| MSIX application | An application stored within an MSIX container. The application and all its child processes run inside of the container. |
+| MSIX package | The .MSIX file that the container and its applications are stored inside. |
+| MSIX share | A network share that holds expanded MSIX packages. MSIX shares must support SMB 3 or later, and be accessible to VMs in the host pool system account. MSIX packages get staged from the share without having to move application files ot the system drive. |
+| MSIX image | A VHD, VHDx, or CIM file that contains one or more MSIX packaged applications. Each application is delivered in the MSIX image using the MSIXMGR tool. |
 
 ## Phases of MSIX app attach
 
-To use MSIX packages outside of Azure Virtual Desktop, there are four distinct phases that you must perform in the following order, otherwise it won't work:
-
-1. Stage
-2. Register
-3. Deregister
-4. Destage
-
-Staging and destaging are machine-level operations, while registering and deregistering are user-level operations. The commands you'll need to use will vary based on which version of PowerShell you're using and whether your disk images are in *CimFS* or *VHD(X)* format.
+In order to use MSIX packages, you must stage and register them. After you're finished using the packages, you destage and deregister them. For more detailed information about each stage and how to perform them, see [Test and troubleshoot MSIX packages with MSIX app attach](app-attach.md).
 
 >[!NOTE]
 >All MSIX application packages include a certificate. You're responsible for making sure the certificates for MSIX applications are trusted in your environment.
