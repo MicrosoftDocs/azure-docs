@@ -894,6 +894,10 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
 
+### [ISE](#tab/ise)
+
+See [Multi-tenant](#tab-multi-tenant).
+
 ---
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
