@@ -1014,5 +1014,4 @@ You might get a similar error when SAP Application server or Message server name
 
 ## Next steps
 
-- [SAP managed connector reference](/connectors/sap/)
-- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/)
+- [Generate schemas for artifacts in SAP](sap-generate-schemas-for-artifacts.md)
