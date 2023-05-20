@@ -17,17 +17,17 @@ This article describes some common solutions when you exceed the limits in Azure
 
 ## Prerequisites
 
-- [Reader](./built-in-roles.md#reader) to run Azure Resource Graph queries.
+- [Reader](./built-in-roles.md#reader) role to run Azure Resource Graph queries.
 - [User Access Administrator](./built-in-roles.md#user-access-administrator) or [Owner](./built-in-roles.md#owner) role to add role assignments, remove role assignments, or delete custom roles.
-- [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator), [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator) to create groups.
+- [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator), [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator) role to create groups.
 
-##  Symptom - No more role assignments can be created
+## Symptom - No more role assignments can be created
 
 When you try to assign a role, you get the following error message:
 
 `No more role assignments can be created (code: RoleAssignmentLimitExceeded)`
 
-**Cause**
+#### Cause
 
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. You should try to reduce the number of role assignments in the subscription.
 
@@ -39,13 +39,13 @@ $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($s
 $ras.Count
 ```
 
-**Solution 1 - Replace user role assignments with a group**
+#### Solution 1 - Replace principal-based role assignments with group-based role assignments
 
-To reduce the number of role assignments in the subscription, add users to groups and assign roles to the groups instead. Follow these steps to identify where multiple role assignments for users can be replaced with a single role assignment for a group.
+To reduce the number of role assignments in the subscription, add principals (users, service principals, and managed identities) to groups and assign roles to the groups instead. Follow these steps to identify where multiple role assignments for principals can be replaced with a single role assignment for a group.
 
 1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
-1. Run the following query to get role assignments that assign the same role at the same scope, but for different principals. 
+1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
     ```kusto
     AuthorizationResources  
@@ -65,15 +65,23 @@ To reduce the number of role assignments in the subscription, add users to group
     | order by count_ desc
     ```
 
-    The following shows an example of the output. The results are ordered by the number of principals.
+    The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png":::
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png":::
 
 1. For a row, select **See details** to open the **Details** pane.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png":::
+    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png":::
 
-1. Under **AllPrincipals**, get the list of the principal IDs with the same role assignment.
+    | Column | Description |
+    | --- | --- |
+    | RoleDefinitionId | [ID](./built-in-roles.md) of the currently assigned role. |
+    | Scope | Scope for the role assignment, which will be a subscription, resource group, or resource. |
+    | RoleDefinitionName | [Name](./built-in-roles.md) of the currently assigned role. |
+    | count_ | Number of principals assigned the same role and at the same scope. |
+    | AllPrincipals | List of principal IDs assigned the same role and at the same scope. |
+    
+1. Under **AllPrincipals**, get the list of the principal IDs.
 
 1. If necessary, get the principal name from the principal ID.
 
@@ -95,25 +103,27 @@ To reduce the number of role assignments in the subscription, add users to group
 
 1. Replace the principal role assignments with a single role assignment for the group.
 
-**Solution 2 - Combine multiple built-in roles with a custom role**
+#### Solution 2 - Combine multiple built-in roles with a custom role
 
 To reduce the number of role assignments in the subscription, combine multiple built-in roles with a custom role and assigning the custom role instead.
 
-**Solution 3 - Make role assignments eligible**
+#### Solution 3 - Make role assignments eligible
 
 To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned.
 
-**Solution 4 - Add an additional subscription**
+#### Solution 4 - Add an additional subscription
 
 Add an additional subscription.
 
-**Solution 5 - Replace role assignments at a higher scope**
+#### Solution 5 - Remove redundant role assignments
 
-If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, make common role assignments at a higher scope. Follow these steps to identify where multiple role assignments can be replaced with a single role assignment at a higher scope. This solution might not follow [best practices of least privilege](best-practices.md#only-grant-the-access-users-need), so other solutions should be explored first.
+If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since role assignments at a higher scope already grant access.
+
+You should follow [best practices of least privilege](best-practices.md#only-grant-the-access-users-need) when determining which role assignment can be removed. The role assignment at the higher scope might be granting more access to the principal than what is needed. In that case, you should remove the role assignment with the higher scope. For example, a user might not need a Virtual Machine Contributor role assignment at subscription scope when a Virtual Machine Contributor role assignment at a lower resource group scope grants the required access.
 
 1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
 
-1. Run the following query to get role assignments for the same principal and role, but at different scopes.
+1. Run the following query to get the role assignments with the same principal and same role, but at different scopes.
 
     ```kusto
     AuthorizationResources  
@@ -135,9 +145,17 @@ If you still need to reduce the number of role assignments in the subscription a
      | order by count_ desc
     ```
 
-    The following shows an example of the output. The results are ordered by the number of scopes.
+    The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same principal and same role. The count is sorted in descending order.
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope.png":::
+
+    | Column | Description |
+    | --- | --- |
+    | RoleDefinitionId | [ID](./built-in-roles.md) of the currently assigned role. |
+    | RoleDefinitionName | [Name](./built-in-roles.md) of the currently assigned role. |
+    | PrincipalId | ID of the principal assigned the role. |
+    | count_ | Number of different scopes for role assignments with the same principal and same role. |
+    | Scopes | Scopes for role assignments with the same principal and same role. |
 
 1. For a row, select **See details** to open the **Details** pane.
 
@@ -146,15 +164,14 @@ If you still need to reduce the number of role assignments in the subscription a
 1. Under **Scopes**, get the list of the scopes for the same principal and role.
 
 1. If necessary, get the principal name from the principal ID.
-
-    
+  
     - For Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
     - For PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
     - For Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Replace the multiple role assignments with a single role assignment at the highest scope.
 
-##  Symptom - No more role assignments can be created at management group scope
+## Symptom - No more role assignments can be created at management group scope
 
 You're unable to assign a role at management group scope.
 
@@ -175,11 +192,11 @@ When you try to create a new custom role, you get the following message:
 
 `Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)`
 
-**Cause**
+#### Cause
 
 Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
 
-**Solution**
+#### Solution
 
 Follow these steps to find and delete unused Azure custom roles.
 
@@ -203,9 +220,15 @@ Follow these steps to find and delete unused Azure custom roles.
     | project RoleDefinitionId = rdId, RoleDefinitionName = name, Scope
     ```
 
-    The following shows an example of the output:
+    The following shows an example of the results:
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-custom-roles-unused.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows custom roles without role assignments." lightbox="media/troubleshoot-resource-graph/resource-graph-custom-roles-unused.png":::
+
+    | Column | Description |
+    | --- | --- |
+    | RoleDefinitionId | ID of the unused custom role. |
+    | RoleDefinitionName | Name of the unused custom role. |
+    | Scope | [Assignable scopes](./role-definitions.md#assignablescopes) for the unused custom role. |
 
 1. Open your list of custom roles and delete the custom roles you no longer need.
 
