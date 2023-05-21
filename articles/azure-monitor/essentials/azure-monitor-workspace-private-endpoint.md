@@ -1,5 +1,5 @@
 ---
-title: Use private endpoints for Managed Prometheus and Azure Monitor workspaces.
+title: Use private endpoints for Managed Prometheus and Azure Monitor workspaces
 description: Overview of private endpoints for secure query access to Azure Monitor workspace from virtual networks.
 author: EdB-MSFT
 ms.author: edbaynash 
@@ -23,13 +23,13 @@ Using private endpoints for your workspace enables you to:
 
 ## Conceptual overview
 
-:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/amw-private-endpoints-overview.png" alt-text="A diagram showing an overview of private endpoints for Azure Monitor workspace."  lightbox="./media/azure-monitor-workspace-private-endpoint/amw-private-endpoints-overview.png" :::
+:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-private-endpoints-overview.png" alt-text="A diagram showing an overview of private endpoints for Azure Monitor workspace."  lightbox="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-private-endpoints-overview.png" :::
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your workspace, it provides secure connectivity between clients on your VNet and your workspace. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the workspace uses a secure private link.
 
 Applications in the VNet can connect to the workspace over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**.
 
-Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can therefor connect to a workspace using a private endpoint, while using service endpoints to access other services.
+Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in the subnet can then connect to a workspace using a private endpoint, while using service endpoints to access other services.
 
 When you create a private endpoint for a workspace in your VNet, a consent request is sent for approval to the workspace account owner. If the user requesting the creation of the private endpoint is also an owner of the workspace, this consent request is automatically approved.
 
@@ -69,7 +69,7 @@ When you resolve the query endpoint URL from outside the VNet with the private e
 
 For the example below we're using `k8s02-workspace` located in the East US region. The resource name is not guaranteed to be unique, which requires us to add a few characters after the name to make the URL path unique; for example, `k8s02-workspace-<key>`. This unique query endpoint is shown on the Azure Monitor workspace Overview page.
 
-:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/amw-overview.png" alt-text="A screenshot showing an Azure Monitor workspace overview page." lightbox="./media/azure-monitor-workspace-private-endpoint/amw-overview.png":::
+:::image type="content" source="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-overview.png" alt-text="A screenshot showing an Azure Monitor workspace overview page." lightbox="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-overview.png":::
 
 The DNS resource records for the Azure Monitor workspace when resolved from outside the VNet hosting the private endpoint, are:
 

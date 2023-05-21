@@ -22,7 +22,7 @@ Find the DCEs associated with your Azure Monitor workspace.
 2. Select your workspace
 3. Select Data Collection Endpoints from the workspace menu
 
-:::image type="content" source="media/private-link-data-ingestion/amw-data-collection-endpoints.png" alt-text="A screenshot show the data collection endpoints page for an Azure Monitor workspace" lightbox="media/private-link-data-ingestion/amw-data-collection-endpoints.png" :::
+:::image type="content" source="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-endpoints.png" alt-text="A screenshot show the data collection endpoints page for an Azure Monitor workspace." lightbox="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-endpoints.png" :::
 
 The page displays all of the DCEs that are associated with the Azure Monitor workspace and that enable data ingestion into the workspace. Select the DCE you want to configure with Private Link and then follow the steps to [create an Azure Monitor private link scope](../logs/private-link-configure.md) to complete the process.
 
