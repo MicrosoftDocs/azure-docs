@@ -138,9 +138,9 @@ RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = "azure"
 openai.api_key = API_KEY
 openai.api_base = RESOURCE_ENDPOINT
-openai.api_version = "2022-12-01"
+openai.api_version = "2023-05-15"
 
-url = openai.api_base + "/openai/deployments?api-version=2022-12-01" 
+url = openai.api_base + "/openai/deployments?api-version=2023-05-15" 
 
 r = requests.get(url, headers={"api-key": API_KEY})
 

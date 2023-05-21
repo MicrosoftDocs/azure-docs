@@ -162,7 +162,7 @@ You can also configure more granular details of the cluster autoscaler by changi
 > [!IMPORTANT]
 > When using the autoscaler profile, keep the following information in mind:
 >
-> * The cluster autoscaler profile affects **all node pools** that use the cluster autoscaler. You can't set an autoscaler profile per node pool. When you est the profile, any existing node pools with the cluster autoscaler enabled immediately start using the profile.
+> * The cluster autoscaler profile affects **all node pools** that use the cluster autoscaler. You can't set an autoscaler profile per node pool. When you set the profile, any existing node pools with the cluster autoscaler enabled immediately start using the profile.
 > * The cluster autoscaler profile requires version *2.11.1* or greater of the Azure CLI. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Set the cluster autoscaler profile on a new cluster
