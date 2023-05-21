@@ -89,7 +89,7 @@ To ensure that you can access your files, be sure that the target path of your g
     }
 ```
 
-Alternately, you can use the following command to append to persistent storage.
+Alternatively, you can use the following command to append to persistent storage.
 
 ```azurecli
 az spring app append-persistent-storage \
