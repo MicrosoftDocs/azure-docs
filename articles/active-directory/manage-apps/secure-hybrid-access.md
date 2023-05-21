@@ -61,6 +61,7 @@ The following partners offer solutions to support [Conditional Access policies p
 |---|---|
 |Akamai Technologies|[Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md)|
 |Citrix Systems, Inc.|[Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)|
+|Cloudflare, Inc.|[Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-azure-ad-integration.md)|
 |Datawiza|[Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](datawiza-with-azure-ad.md)|
 |F5, Inc.|[Integrate F5 BIG-IP with Azure AD](f5-aad-integration.md)</br>[Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)|
 |Progress Software Corporation, Progress Kemp|[Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)|
@@ -75,7 +76,6 @@ The following partners offer solutions to support [Conditional Access policies p
 |Amazon Web Service, Inc.|[Tutorial: Azure AD SSO integration with AWS ClientVPN](../saas-apps/aws-clientvpn-tutorial.md)|
 |Check Point Software Technologies Ltd.|[Tutorial: Azure AD single SSO integration with Check Point Remote Secure Access VPN](../saas-apps/check-point-remote-access-vpn-tutorial.md)|
 |Cisco Systems, Inc.|[Tutorial: Azure AD SSO integration with Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)|
-|Cloudflare, Inc.|[Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-azure-ad-integration.md)|
 |Fortinet, Inc.|[Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)|
 |Palo Alto Networks|[Tutorial: Azure AD SSO integration with Palo Alto Networks Admin UI](../saas-apps/paloaltoadmin-tutorial.md)|
 |Pulse Secure|[Tutorial: Azure AD SSO integration with Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)|

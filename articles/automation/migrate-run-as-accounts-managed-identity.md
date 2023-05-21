@@ -49,7 +49,7 @@ To migrate from an Automation Run As account or Classic Run As account to a mana
 
    We recommend that you test the managed identity to verify if the runbook works as expected by creating a copy of your production runbook. Update your test runbook code to authenticate by using the managed identity. This method ensures that you don't override `AzureRunAsConnection` in your production runbook and break the existing Automation instance. After you're sure that the runbook code runs as expected via the managed identity, update your production runbook to use the managed identity.
 
-    For managed identity support, use the `Connect-AzAccount` cmdlet. To learn more about this cmdlet, see [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?branch=main&view=azps-8.3.0) in the PowerShell reference.
+    For managed identity support, use the `Connect-AzAccount` cmdlet. To learn more about this cmdlet, see [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?branch=main&view=azps-8.3.0&preserve-view=true) in the PowerShell reference.
 
     - If you're using `Az` modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](./automation-update-azure-modules.md?branch=main#update-az-modules) article. 
     - If you're using AzureRM modules, update `AzureRM.Profile` to the latest version and replace it by using the `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
@@ -99,7 +99,7 @@ try
 { 
 
     "Logging in to Azure..." 
-    Connect-AzAccount -Identity -AccountId <Client Id of myUserAssignedIdentity>
+    Connect-AzAccount -Identity -AccountId <Client Id of myUserAssignedIdentity>
 } 
 catch { 
     Write-Error -Message $_.Exception 
@@ -227,7 +227,7 @@ For example, in the runbook **Start Azure V2 VMs** in the runbook gallery, you m
 For more information, see the sample runbook name **AzureAutomationTutorialWithIdentityGraphical** that's created with the Automation account.
 
 > [!NOTE]
-> AzureRM PowerShell modules are retiring on 29 February 2024. If you are using AzureRM PowerShell modules in Graphical runbooks, you must upgrade them to use Az PowerShell modules. [Learn more](https://learn.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0).
+> AzureRM PowerShell modules are retiring on 29 February 2024. If you are using AzureRM PowerShell modules in Graphical runbooks, you must upgrade them to use Az PowerShell modules. [Learn more](/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0&preserve-view=true).
 
 ## Next steps
 

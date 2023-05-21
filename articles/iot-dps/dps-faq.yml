@@ -62,7 +62,7 @@ sections:
       - question: |
          Where does DPS store customer data?
         answer: |
-         Device Provisioning Service doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Data residency considerations](about-iot-dps.md#data-residency-consideration).
+         Device Provisioning Service stores customer data in the region where you deployed the service instance, and replicates data to a secondary region to support disaster recovery scenarios. For more information, see [Data residency considerations](about-iot-dps.md#data-residency-consideration).
          
   - name: Billing
     questions:

@@ -20,7 +20,7 @@ You can use any of the following resources for a training compute target for mos
 |[Local computer](../articles/machine-learning/v1/how-to-attach-compute-targets.md#local-computer)| Yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-cluster.md)| Yes | Yes | Yes |
 |[Azure Machine Learning compute instance](../articles/machine-learning/how-to-create-manage-compute-instance.md) | Yes (through SDK)  | Yes | Yes |
-|[Azure Machine Learning Kubernetes](../articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | Yes | Yes | Yes |
+|[Azure Machine Learning Kubernetes](../articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | | Yes | Yes |
 |[Remote VM](../articles/machine-learning/v1/how-to-attach-compute-targets.md#remote-virtual-machines) | Yes  | Yes | &nbsp; |
 |[Apache Spark pools (preview)](../articles/machine-learning/how-to-attach-compute-targets.md#apache-spark-pools)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/v1/how-to-attach-compute-targets.md#azure-databricks)| Yes (SDK local mode only) | Yes | &nbsp; |

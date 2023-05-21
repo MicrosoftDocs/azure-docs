@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022, build-2023
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -22,6 +22,23 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## May 2023
+
+**Announcing new releases for Build 2023**
+
+### Text Translation SDK (preview)
+
+* The Text translation SDKs are now available in public preview for C#/.NET, Java, JavaScript/TypeScript, and Python programming languages.
+* To learn more, see [Text translation SDK overview](text-sdk-overview.md).
+* To get started, try a [Text Translation SDK quickstart](quickstart-translator-sdk.md) using a programming language of your choice.
+
+### Microsoft Translator V3 Connector (preview)
+
+The Translator V3 Connector is now available in public preview. The connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows. To learn more, see the following documentation:
+
+* [Automate document translation](connector/document-translation-flow.md)
+* [Automate text translation](connector/text-translator-flow.md)
 
 ## February 2023
 
@@ -77,17 +94,17 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document translation support for Faroese](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/)
 
-* Translator service has [text and document translation language support](language-support.md) for Faroese, a Germanic language originating on the Faroe Islands. The Faroe Islands are a self-governing country within the Kingdom of Denmark located between Norway and Iceland. Faroese is descended from Old West Norse spoken by Vikings in the Middle Ages.
+* Translator service has [text and document translation language support](language-support.md) for Faroese, a Germanic language originating on the Faroe Islands. The Faroe Islands are a self-governing region within the Kingdom of Denmark located between Norway and Iceland. Faroese is descended from Old West Norse spoken by Vikings in the Middle Ages.
 
 ### [Text and document translation support for Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
 
-* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language. It's spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are co-official languages of Spain.
+* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language. It's spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are official languages of Spain.
 
 ## March 2022
 
 ### [Text and document translation support for Somali and Zulu languages](https://www.microsoft.com/translator/blog/2022/03/29/translator-welcomes-two-new-languages-somali-and-zulu/)
 
-* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu. The Somali language is spoken throughout Africa by more than 21 million people and is in the Cushitic branch of the Afroasiatic language family. The Zulu language is spoken by 12 million people and is recognized as one of South Africa's 11 official languages.
+* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu. The Somali language, spoken throughout Africa, has more than 21 million speakers and is in the Cushitic branch of the Afroasiatic language family. The Zulu language has 12 million speakers and is recognized as one of South Africa's 11 official languages.
 
 ## February 2022
 
@@ -116,13 +133,13 @@ Document Translation .NET and Python client-library SDKs are now generally avail
   * **Dhivehi**. Also known as Maldivian, it's an Indo-Aryan language primarily spoken in the island country of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
-  * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It's spoken by approximately 2 million people.
+  * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It has approximately 2 million people.
   * **Mongolian (Traditional)**. Traditional Mongolian script is the first writing system created specifically for the Mongolian language. Mongolian is the official language of Mongolia.
   * **Tatar**. A Turkic language used by speakers in modern Tatarstan. It's closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
   * **Tibetan**. It has nearly 6 million speakers and can be found in many Tibetan Buddhist publications.
   * **Turkmen**. The official language of Turkmenistan. It's similar to Turkish and Azerbaijani.
   * **Uyghur**. A Turkic language with nearly 15 million speakers. It's spoken primarily in Western China.
-  * **Uzbek (Latin)**. A Turkic language that is the official language of Uzbekistan. It's spoken by 34 million native speakers.
+  * **Uzbek (Latin)**. A Turkic language that is the official language of Uzbekistan. It has 34 million native speakers.
 
 These additions bring the total number of languages supported in Translator to 103.
 
@@ -198,7 +215,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Custom Translator upgrade to v2](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 
-* **New release**: Custom Translator V2 phase 1 is available. The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Microsoft Translator blog: Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
+* **New release**: Custom Translator V2 phase 1 is available. The newest version of Custom Translator rolls out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Microsoft Translator blog: Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 
 ### [Text and document translation support for two Kurdish regional languages](https://www.microsoft.com/translator/blog/2020/08/20/translator-adds-two-kurdish-dialects-for-text-translation/)
 

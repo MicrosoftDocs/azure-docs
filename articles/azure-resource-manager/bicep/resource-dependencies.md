@@ -3,7 +3,7 @@ title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/05/2022
+ms.date: 05/17/2023
 ---
 
 # Resource dependencies in Bicep
@@ -22,7 +22,7 @@ resource exampleDnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
   location: 'global'
 }
 
-resource otherResource 'Microsoft.Example/examples@2020-06-01' = {
+resource otherResource 'Microsoft.Example/examples@2023-05-01' = {
   name: 'exampleResource'
   properties: {
     // get read-only DNS zone property
@@ -34,7 +34,7 @@ resource otherResource 'Microsoft.Example/examples@2020-06-01' = {
 A nested resource also has an implicit dependency on its containing resource.
 
 ```bicep
-resource myParent 'My.Rp/parentType@2020-01-01' = {
+resource myParent 'My.Rp/parentType@2023-05-01' = {
   name: 'myParent'
   location: 'West US'
 
@@ -57,7 +57,7 @@ For more information about nested resources, see [Set name and type for child re
 
 ## Explicit dependency
 
-An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency.
+An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency. You can specify a nested resource dependency by using the [`::` operator](./operators-access.md#nested-resource-accessor).
 
 The following example shows a DNS zone named `otherZone` that depends on a DNS zone named `dnsZone`:
 

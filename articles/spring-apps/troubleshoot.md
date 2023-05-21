@@ -20,9 +20,11 @@ This article provides instructions for troubleshooting Azure Spring Apps develop
 
 ## Availability, performance, and application issues
 
-### My application can't start (for example, the endpoint can't be connected, or it returns a 502 after a few retries)
+### My application can't start
 
-Export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+When your application can't start, you may find that its endpoint can't be connected or it returns a 502 after a few retries.
+
+For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 The following error message might appear in your logs: `org.springframework.context.ApplicationContextException: Unable to start web server`
 

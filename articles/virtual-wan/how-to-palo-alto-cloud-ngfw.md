@@ -37,9 +37,6 @@ The following section describes the common security use cases for Palo Alto Netw
 
 ### Private (on-premises and virtual network) traffic 
 
->[!NOTE] 
-> Traffic between connections to Virtual Hubs in **different** Azure regions will be dropped. Support for inter-region traffic flows is coming soon and are delineated with dotted lines.
- 
 #### East-west traffic inspection
 
 Virtual WAN routes traffic from  Virtual Networks to Virtual Network or from  on-premises (Site-to-site VPN, ExpressRoute, Point-to-site VPN) to on-premises to Cloud NGFW deployed in the hub for inspection.

@@ -22,7 +22,7 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 > [!IMPORTANT]
 > * Migration is a long-running operation. Your instance will experience downtime during the last 10-15 minutes of migration. Plan your migration accordingly.
-> * The VIP address(es) of your API Management will change.
+> * The VIP address(es) of your API Management will change if you're using scenario 2 mentioned below (service injected in a VNET). For scenario 1 (not injected in a VNET), the VIP will temporarily change during migration for up to 15 minutes, but the original VIP of the service will be restored at the end of the migration operation. 
 > * Migration to `stv2` is not reversible.
 
 > [!IMPORTANT]

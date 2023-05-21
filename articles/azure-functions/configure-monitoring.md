@@ -62,13 +62,15 @@ The example below defines logging based on the following rules:
 + For logs of `Host.Results` or `Function`, only log events at `Error` or a higher level.
 + For logs of `Host.Aggregator`, log all generated metrics (`Trace`).
 + For all other logs, including user logs, log only `Information` level and higher events.
++ For `fileLoggingMode` the default is `debugOnly`. The value `always` should only be used for short periods of time to review logs in the filesystem. Revert this setting when you are done debugging. 
+
 
 # [v2.x+](#tab/v2)
 
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "default": "Information",
       "Host.Results": "Error",

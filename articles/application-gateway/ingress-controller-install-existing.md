@@ -23,7 +23,7 @@ resources, and creates and applies Application Gateway config based on the statu
     - Option 2: [Using a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
 - [Shared Application Gateway](#shared-application-gateway): Install AGIC in an environment, where Application Gateway is
-shared between one or more AKS clusters and/or other Azure components.
+shared between one AKS clusters and/or other Azure components.
 
 ## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:

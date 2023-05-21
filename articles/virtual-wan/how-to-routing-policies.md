@@ -52,7 +52,7 @@ Consider the following configuration where Hub 1 and Hub 2  have Routing Policie
 The following are the traffic flows that result from such a configuration.
 
 > [!NOTE]
-> Internet Traffic must egress through the **local** seurity solution in the hub as the default route (0.0.0.0/0) does **not** propagate across hubs.
+> Internet Traffic must egress through the **local** security solution in the hub as the default route (0.0.0.0/0) does **not** propagate across hubs.
 
 | From |   To |  Hub 1 VNets | Hub 1 branches | Hub 2 VNets | Hub 2 branches| Internet|
 | -------------- | -------- | ---------- | ---| ---| ---| ---|

@@ -108,7 +108,7 @@ The following block diagram shows the proof of concept. The guidance will show h
 
       ```xml
       <TechnicalProfile Id="REST-login-NonInteractive-APAC">
-        <DisplayName>non interactive authetnication to APAC</DisplayName>
+        <DisplayName>non interactive authentication to APAC</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
           <Item Key="ServiceUrl">https://login.microsoftonline.com/b2capac.onmicrosoft.com/oauth2/v2.0/token</Item>

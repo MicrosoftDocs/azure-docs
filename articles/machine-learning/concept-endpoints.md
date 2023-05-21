@@ -41,7 +41,7 @@ Finally, let's imagine that after running for a couple of months, the organizati
 An **endpoint**, is a stable and durable URL that can be used to request or invoke the model, provide the required inputs, and get the outputs back. An endpoint provides:
 
 - a stable and durable URL (like endpoint-name.region.inference.ml.azure.com).
-- An authentication and authentication mechanism.
+- An authentication and authorization mechanism.
 
 A **deployment** is a set of resources required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments which can host independent assets and consume different resources based on what the actual assets require. Endpoints have a routing mechanism that can route the request generated for the clients to specific deployments under the endpoint.
 

@@ -7,7 +7,7 @@ ms.reviewer: wiassaf
 ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 05/17/2023
 ms.custom: template-overview, ignite-fall-2021
 ---
 
@@ -41,6 +41,7 @@ A typical database template addresses the core requirements of a specific indust
 
 Currently, you can choose from the following database templates in Azure Synapse Studio to start creating your lake database: 
 
+* **Airlines** - For companies operating passenger or cargo airline services.
 * **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
 * **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
 * **Banking** - For companies providing a wide range of banking and related financial services.
@@ -60,6 +61,7 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **Property & Casualty Insurance** - For companies that provide insurance against risks to property and various forms of liability coverage.
 * **R&D and Clinical Trials** - For companies involved in research and development and clinical trials of pharmaceutical products or devices.
 * **Retail** - For sellers of consumer goods or services to customers through multiple channels.
+* **Travel Services** - For companies providing booking services for airlines, hotels, car rentals, cruises, and vacation packages.
 * **Utilities** - For gas, electric, and water utilities; power generators; and water desalinators.
  
 As emission and carbon management is an important discussion in all industries, so we've included those components in all the available database templates. These components make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
