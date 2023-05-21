@@ -167,6 +167,8 @@ After you have followed either of these options, you'll be navigated to the revi
 
 If you require any assistance updating permissions, you can [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
+You can also learn more about [Defender for DevOps](defender-for-devops-introduction.md).
+
 ## April 2023
 Updates in April include:
 
