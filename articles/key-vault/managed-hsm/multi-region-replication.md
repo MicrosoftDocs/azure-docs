@@ -53,7 +53,7 @@ The following regions are supported as primary regions (Regions where you can re
 - US East 2
 - US North
 - Europe West
-- US West 
+- US West
 - Canada East
 - Qatar Central
 - Asia East
@@ -77,6 +77,8 @@ The following regions are supported as primary regions (Regions where you can re
 - France Central
 - Japan West
 - US South
+- Poland Central
+- Switzerland West
 
 > [!NOTE]
 > US Central, US East, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central cannot be extended as a secondary region at this time.
@@ -119,11 +121,8 @@ In the diagram below, private endpoint is created only in the UK South region, o
 
 If creating a new Managed HSM pool and then extending to a secondary, refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create a secondary HSM into  another region.  
 
-### Install the multi-region managed HSM replication extension
-
-```azurecli-interactive
-az extension add -n keyvault-preview
-```
+> [!NOTE]
+> These commands requires Azure CLI version 2.48.1 or higher. To install the latest version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Add a secondary HSM in another region
 
