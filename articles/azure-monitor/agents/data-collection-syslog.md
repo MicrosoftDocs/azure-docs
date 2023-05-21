@@ -14,7 +14,7 @@ Syslog is an event logging protocol that's common to Linux. You can use the Sysl
 
 ![Diagram that shows Syslog collection.](media/data-sources-syslog/overview.png)
 
-![Diagram that shows Syslog daemon and Azure Monitor Agent communication.](media/azure-monitor-agent/linux_agent_syslog_communication.png)
+![Diagram that shows Syslog daemon and Azure Monitor Agent communication.](media/azure-monitor-agent/linux-agent-syslog-communication.png)
 
 The following facilities are supported with the Syslog collector:
 * auth
@@ -71,7 +71,7 @@ A data collection rule is an Azure resource that allows you to define the way  d
 
 1. Select **Add data source**.
 1. For **Data source type**, select **Linux syslog**.
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot of page to select data source type and minimum log level":::
+   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot of page to select data source type and minimum log level.":::
 1. For **Minimum log level**, leave the default values **LOG_DEBUG**.
 1. Select **Next: Destination**.
 

@@ -19,7 +19,7 @@ Here's how AMA collects syslog events:
 	> [!NOTE]
 	> AMA uses local persistency by default, all events received from `rsyslog` / `syslog-ng` are queued in `/var/opt/microsoft/azuremonitoragent/events` if they fail to be uploaded.
 	
-## Rsyslog data not uploaded due to Full Disk space issue on AMA Linux Agent
+## Rsyslog data not uploaded due to full disk space issue on Azure Monitor Linux Agent
 
 ### Symptom
 **Syslog data is not uploading**: When inspecting the error logs at `/var/opt/microsoft/azuremonitoragent/log/mdsd.err`, you'll see entries about *Error while inserting item to Local persistent store…No space left on device* similar to the following snippet:
@@ -31,7 +31,7 @@ Here's how AMA collects syslog events:
 ### Cause
 Linux AMA buffers events to `/var/opt/microsoft/azuremonitoragent/events` prior to ingestion. On a default Linux AMA install, this directory will take ~650MB of disk space at idle. The size on disk will increase when under sustained logging load. It will get cleaned up about every 60 seconds and will reduce back to ~650 MB when the load returns to idle.
 
-### Confirming the issue of Full Disk
+### Confirming the issue of full disk
 The `df` command shows almost no space available on `/dev/sda1`, as shown below:
 
 ```
@@ -85,7 +85,7 @@ If you're sending a high log volume through rsyslog, consider modifying the defa
 	```
 2. `sudo systemctl restart rsyslog`
 
-## Issue: AMA Event Buffer is Filling Disk
+## Issue: Azure Monitor Linux Agent Event Buffer is Filling Disk
 If you observe the `/var/opt/microsoft/azuremonitor/events` directory growing unbounded (10 GB or higher) and not reducing in size, [file a ticket](#file-a-ticket) with **Summary** as 'AMA Event Buffer is filling disk' and **Problem type** as 'I need help configuring data collection from a VM'.
 
 [!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
