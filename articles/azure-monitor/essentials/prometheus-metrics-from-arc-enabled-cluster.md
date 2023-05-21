@@ -1,5 +1,5 @@
 ---
-title: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview).
+title: Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview)
 description: How to configure your Azure Arc-enabled Kubernetes cluster (preview) to send data to Azure Monitor managed service for Prometheus.
 author: EdB-MSFT
 ms.author: edbaynash 
@@ -33,7 +33,7 @@ The following configurations are not supported:
 
 + Prerequisites listed in [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions#prerequisites)
 + An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace ](./azure-monitor-workspace-manage.md).
-+ The cluster must use [managed identity authentication](https://review.learn.microsoft.com/azure/aks/use-managed-identity).
++ The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
 + The following resource providers must be registered in the subscription of the Arc-enabled Kubernetes cluster and the Azure Monitor workspace:
   + Microsoft.Kubernetes
   + Microsoft.Insights
@@ -77,6 +77,11 @@ The following configurations are not supported:
 
 ### [CLI](#tab/cli)
 
+### Prerequisites
+
++ The k8s-extension extension must be installed. Install the extension  using the command `az extension add --name k8s-extension`.
++ The k8s-extension version 1.4.1 or higher is required. Check the k8s-extension version by using the `az version` command.
+
 ### Create an extension with default values
 
 + A default Azure Monitor workspace is created in the DefaultRG-<cluster_region> following the format `DefaultAzureMonitorWorkspace-<mapped_region>`.
@@ -102,7 +107,7 @@ az k8s-extension create\
 --resource-group <resource-group>\
 --cluster-type connectedClusters\
 --extension-type Microsoft.AzureMonitor.Containers.Metrics\
---azure-monitor-workspace-resource-id <workspace-name-resource-id> 
+--configuration-settings azure-monitor-workspace-resource-id=<workspace-name-resource-id>  
 ```
 
 ### Create an extension with an existing Azure Monitor workspace and link with an existing Grafana workspace
@@ -116,8 +121,8 @@ az k8s-extension create\
 --resource-group <resource-group>\
 --cluster-type connectedClusters\
 --extension-type Microsoft.AzureMonitor.Containers.Metrics\
---azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id>\
---grafana-resource-id <grafana-workspace-name-resource-id> 
+--configuration-settings azure-monitor-workspace-resource-id=<workspace-name-resource-id> \
+grafana-resource-id=<grafana-workspace-name-resource-id>
 ```
 
 ### Create an extension with optional parameters
@@ -133,14 +138,23 @@ You can use the following optional parameters with the previous commands:
 
 
 ```azurecli
-az k8s-extension create \
---name azuremonitor-metrics \
---cluster-name <cluster-name> \
---resource-group <resource-group> \
---cluster-type connectedClusters \
---extension-type Microsoft.AzureMonitor.Containers.Metrics \
---configurationsettings.AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist "namespaces=[k8s-label-1,k8s-label-n]" \
---configurationSettings.AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList "pods=[k8s-annotation-1,k8s-annotation-n]" 
+az k8s-extension create\
+--name azuremonitor-metrics\
+--cluster-name <cluster-name>\
+--resource-group <resource-group>\
+--cluster-type connectedClusters\
+--extension-type Microsoft.AzureMonitor.Containers.Metrics\
+--configuration-settings azure-monitor-workspace-resource-id=<workspace-name-resource-id> \
+grafana-resource-id=<grafana-workspace-name-resource-id> \
+AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList="pods=[k8s-annotation-1,k8s-annotation-n]" \
+AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist "namespaces=[k8s-label-1,k8s-label-n]" 
+```
+
+### Delete the extension instance
+The following command only deletes the extension instance. The Azure Monitor workspace and its data are not deleted.
+
+```azurecli
+az k8s-extension delete --name azuremonitor-metrics -g <cluster_resource_group> -c<cluster_name> -t connectedClusters
 ```
 
 ### [Resource Manager](#tab/resource-manager)
@@ -254,8 +268,7 @@ az k8s-extension show \
 --name azuremonitor-metrics \
 --cluster-name <cluster-name> \
 --resource-group <resource-group> \
---cluster-type connectedClusters \
--n azuremonitor-metrics 
+--cluster-type connectedClusters 
 ```
 ---
 
