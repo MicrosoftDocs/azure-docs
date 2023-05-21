@@ -91,7 +91,7 @@ Business considerations may require that you apply your existing IoT sensors to 
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan](#cancel-a-defender-for-iot-plan). <!--how to do this in m365?-->
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see the [Microsoft 365 admin center documentation.](/microsoft-365/commerce/subscriptions/cancel-your-subscription?view=o365-worldwide).
 
 > [!NOTE]
 > If the previous subscription was connected to Microsoft Sentinel, you'll need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md).
