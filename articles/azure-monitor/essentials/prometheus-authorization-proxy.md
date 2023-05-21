@@ -333,7 +333,7 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
             app: azuremonitor-query
     ```
 
-1. Deploy they proxy using command:
+1. Deploy the proxy using command:
 
     ```bash
     # create the namespace if it doesn't already exist
@@ -384,7 +384,7 @@ A successful query returns a response similar to the following:
 ## Troubleshooting
 
 + The proxy container doesn't start.  
-Run the following command to show any errors the proxy container.
+Run the following command to show any errors for the proxy container.
 
     ```bash
     kubectl --namespace <Namespace> describe pod <Prometheus-Pod-Name>`
