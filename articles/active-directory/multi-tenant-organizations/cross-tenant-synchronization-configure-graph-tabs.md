@@ -111,13 +111,24 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     $Params = @{
         TenantId = $SourceTenantId
     }
-    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
+    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params | Format-List
     ```
 
     ```Output
-    IsServiceProvider TenantId
-    ----------------- --------
-                      <SourceTenantId>
+    AutomaticUserConsentSettings : Microsoft.Graph.PowerShell.Models.MicrosoftGraphInboundOutboundPolicyConfiguration
+    B2BCollaborationInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BCollaborationOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    IdentitySynchronization      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantIdentitySyncPolicyPartner
+    InboundTrust                 : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyInboundTrust
+    IsServiceProvider            :
+    TenantId                     : <SourceTenantId>
+    TenantRestrictions           : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyTenantRestrictions
+    AdditionalProperties         : {[@odata.context, https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity],
+                                   [crossCloudMeetingConfiguration,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]], [protectedContentSharing,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]]}
     ```
 
 1. Use the [Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest) command to enable user synchronization in the target tenant.
@@ -284,7 +295,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     - `AuditLog.Read.All`
 
     ```powershell
-    Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All"
+    Connect-MgGraph -TenantId $SourceTenantId -Scopes "Policy.Read.All","Policy.ReadWrite.CrossTenantAccess","Application.ReadWrite.All","Directory.ReadWrite.All","AuditLog.Read.All"
     ```
 
 1. Use the [Select-MgProfile](/powershell/microsoftgraph/authentication-commands?branch=main#using-select-mgprofile) command to change to the beta version.
@@ -325,13 +336,25 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     $Params = @{
         TenantId = $TargetTenantId
     }
-    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
+    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params | Format-List
     ```
 
     ```Output
-    IsServiceProvider TenantId
-    ----------------- --------
-                      <TargetTenantId>
+    AutomaticUserConsentSettings : Microsoft.Graph.PowerShell.Models.MicrosoftGraphInboundOutboundPolicyConfiguration
+    B2BCollaborationInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BCollaborationOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectInbound      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    B2BDirectConnectOutbound     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyB2BSetting
+    IdentitySynchronization      : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantIdentitySyncPolicyPartner
+    InboundTrust                 : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyInboundTrust
+    IsServiceProvider            :
+    TenantId                     : <TargetTenantId>
+    TenantRestrictions           : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCrossTenantAccessPolicyTenantRestrictions
+    AdditionalProperties         : {[@odata.context, https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity],
+                                   [crossCloudMeetingConfiguration,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]], [protectedContentSharing,
+                                   System.Collections.Generic.Dictionary`2[System.String,System.Object]]}
+    
     ```
 
 1. Use the [Update-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to automatically redeem invitations and suppress consent prompts for outbound access.
@@ -428,13 +451,42 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 1. Use the [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?branch=main) command to get the service principal ID.
 
     ```powershell
-    Get-MgServicePrincipal -Filter "DisplayName eq 'Fabrikam'"
+    Get-MgServicePrincipal -Filter "DisplayName eq 'Fabrikam'" | Format-List
     ```
 
     ```Output
-    Id                      DisplayName AppId      SignInAudience PublisherName
-    --                      ----------- -----      -------------- -------------
-    <ServicePrincipalId>    Fabrikam    <AppId>    AzureADMyOrg   Contoso
+    AccountEnabled                      : True
+    AddIns                              : {}
+    AlternativeNames                    : {}
+    AppDescription                      :
+    AppDisplayName                      : Fabrikam
+    AppId                               : <AppId>
+    AppManagementPolicies               :
+    AppOwnerOrganizationId              : <AppOwnerOrganizationId>
+    AppRoleAssignedTo                   :
+    AppRoleAssignmentRequired           : True
+    AppRoleAssignments                  :
+    AppRoles                            : {<AppRolesId>}
+    ApplicationTemplateId               : 518e5f48-1fc8-4c48-9387-9fdf28b0dfe7
+    ClaimsMappingPolicies               :
+    CreatedObjects                      :
+    CustomSecurityAttributes            : Microsoft.Graph.PowerShell.Models.MicrosoftGraphCustomSecurityAttributeValue
+    DelegatedPermissionClassifications  :
+    DeletedDateTime                     :
+    Description                         :
+    DisabledByMicrosoftStatus           :
+    DisplayName                         : Fabrikam
+    Endpoints                           :
+    ErrorUrl                            :
+    FederatedIdentityCredentials        :
+    HomeRealmDiscoveryPolicies          :
+    Homepage                            : https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=aad2aadsync|ISV9.1|primary|z
+    Id                                  : <ServicePrincipalId>
+    Info                                : Microsoft.Graph.PowerShell.Models.MicrosoftGraphInformationalUrl
+    KeyCredentials                      : {}
+    LicenseDetails                      :
+    
+    ...
     ```
 
 # [Microsoft Graph](#tab/ms-graph)
@@ -602,13 +654,18 @@ In the source tenant, to enable provisioning, create a provisioning job.
 1. In the source tenant, use the [New-MgServicePrincipalSynchronizationJob](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalsynchronizationjob?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a provisioning job based on a template.
 
     ```powershell
-    New-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -TemplateId "Azure2Azure"
+    New-MgServicePrincipalSynchronizationJob -ServicePrincipalId $ServicePrincipalId -TemplateId "Azure2Azure" | Format-List
     ```
 
     ```Output
-    Id         TemplateId
-    --         ----------
-    <JobId>    Azure2Azure
+    Id                         : <JobId>
+    Schedule                   : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationSchedule
+    Schema                     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationSchema
+    Status                     : Microsoft.Graph.PowerShell.Models.MicrosoftGraphSynchronizationStatus
+    SynchronizationJobSettings : {AzureIngestionAttributeOptimization, LookaheadQueryEnabled}
+    TemplateId                 : Azure2Azure
+    AdditionalProperties       : {[@odata.context, https://graph.microsoft.com/beta/$metadata#servicePrincipals('<ServicePrincipalId>')/synchro
+                                 nization/jobs/$entity]}
     ```
 
 1. Initialize the job ID for a later step.
@@ -937,33 +994,48 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```
 
     ```Output
-    ActivityDateTime     : 5/20/2023 8:40:20 PM
-    ActivityDisplayName  : Synchronization rule action
+    ActivityDateTime     : 5/21/2023 12:08:17 AM
+    ActivityDisplayName  : Export
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
     CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
-    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_DXMK5_110895927
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_L5BFV_161778479
     InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
     LoggedByService      : Account Provisioning
     OperationType        :
     Result               : success
-    ResultReason         : The state of the entry in both the source and target systems already match. No change to the User
-                           'user4@fabrikam.com' currently needs to be made.
+    ResultReason         : User 'user2@fabrikam.com' was created in Azure Active Directory (target tenant)
     TargetResources      : {<ServicePrincipalId>, }
     UserAgent            :
     AdditionalProperties : {}
     
-    ActivityDateTime     : 5/20/2023 8:40:19 PM
-    ActivityDisplayName  : Import
+    ActivityDateTime     : 5/21/2023 12:08:17 AM
+    ActivityDisplayName  : Export
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
     CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
-    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_DXMK5_1108962569
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_L5BFV_161778264
     InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
     LoggedByService      : Account Provisioning
     OperationType        :
     Result               : success
-    ResultReason         : Retrieved  'user5@fabrikam.com' from Azure Active Directory (target tenant)
+    ResultReason         : User 'user2@fabrikam.com' was updated in Azure Active Directory (target tenant)
+    TargetResources      : {<ServicePrincipalId>, }
+    UserAgent            :
+    AdditionalProperties : {}
+    
+    ActivityDateTime     : 5/21/2023 12:08:14 AM
+    ActivityDisplayName  : Synchronization rule action
+    AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
+    Category             : ProvisioningManagement
+    CorrelationId        : cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec
+    Id                   : Sync_cc519f3b-fb72-4ea2-9b7b-8f9dc271c5ec_L5BFV_161778395
+    InitiatedBy          : Microsoft.Graph.PowerShell.Models.MicrosoftGraphAuditActivityInitiator1
+    LoggedByService      : Account Provisioning
+    OperationType        :
+    Result               : success
+    ResultReason         : User 'user2@fabrikam.com' will be created in Azure Active Directory (target tenant) (User is active and assigned
+                           in Azure Active Directory, but no matching User was found in Azure Active Directory (target tenant))
     TargetResources      : {<ServicePrincipalId>, }
     UserAgent            :
     AdditionalProperties : {}
