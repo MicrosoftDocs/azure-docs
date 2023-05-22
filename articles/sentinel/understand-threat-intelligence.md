@@ -75,7 +75,7 @@ For more information, see [Connect your threat intelligence platform to Microsof
 
 Much like the existing TIP data connector, the **Threat Intelligence Upload Indicators API data connector** uses an API allowing your TIP or custom solution to send indicators into Microsoft Sentinel. 
 
-:::image type="content" source="media/understand-threat-intelligence/threat-intel-upload-api.png" alt-text="Threat intelligence import path":::
+:::image type="content" source="media/understand-threat-intelligence/threat-intel-upload-api.png" alt-text="Upload indicators API import path diagram.":::
 
 This data connector utilizes a new API however and offers the following improvements:
 - The threat indicator fields are based off of the STIX standardized format.
