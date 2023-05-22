@@ -1,6 +1,6 @@
 ---
-title: Overview of how to extend Microsoft Teams Virtual appointments with Azure Communication Services
-description: Learn concepts for virtual appointments apps
+title: Overview of extensibility options for  Microsoft Teams Virtual appointments
+description: Overview of how to extend Microsoft Teams Virtual appointments with Azure Communication Services and Microsoft Graph API
 author: tchladek
 manager: chpalm
 services: azure-communication-services
