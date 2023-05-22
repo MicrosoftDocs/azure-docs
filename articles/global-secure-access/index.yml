@@ -50,7 +50,7 @@ landingContent:
           - text: Deploy on premises connectors
             url: how-to-deploy-on-premises-connectors.md
           - text: Configure traffic forwarding
-            url: how-to-configure-traffic-forwarding.md
+            url: concept-traffic-forwarding.md
           - text: Install the Windows client
             url: how-to-install-windows-client.md
           - text: Manage branch locations
