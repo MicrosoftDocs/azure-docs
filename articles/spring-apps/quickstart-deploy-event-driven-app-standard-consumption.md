@@ -281,7 +281,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 ## Clean up resources
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
