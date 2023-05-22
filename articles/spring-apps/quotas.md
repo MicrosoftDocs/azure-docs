@@ -22,9 +22,9 @@ All Azure services set default limits and quotas for resources and features. Azu
 
 ## Azure Spring Apps service plans and limits
 
-The following table defines limits for the pricing tiers in Azure Spring Apps.
+The following table defines limits for the pricing plans in Azure Spring Apps.
 
-| Resource                            | Scope                                  | Basic              | Standard                                        | Enterprise                                      | Standard Consumption                            | Standard Dedicated                                    |
+| Resource                            | Scope                                  | Basic              | Standard                                        | Enterprise                                      | Standard consumption                            | Standard dedicated                                    |
 |-------------------------------------|----------------------------------------|--------------------|-------------------------------------------------|-------------------------------------------------|-------------------------------------------------|-------------------------------------------------------|
 | vCPU                                | per app instance                       | 1                  | 4                                               | 8                                               | 4                                               | based on workload profile (for example, 16 in D16)    |
 | Memory                              | per app instance                       | 2 GB               | 8 GB                                            | 32 GB                                           | 8 GB                                            | based on workload profile (for example, 128GB in E16) |

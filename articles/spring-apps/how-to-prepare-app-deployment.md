@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Apps. Azure Spring Apps provides robust services to host, monitor, scale, and update a Steeltoe app.
@@ -90,7 +90,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ## Enable Eureka Server service discovery
 
 > [!NOTE]
-> Eureka is not applicable to enterprise tier. If you're using enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
+> Eureka is not applicable to the Enterprise plan. If you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
 In the configuration source that will be used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project will be deployed.
 
@@ -149,7 +149,7 @@ Azure Spring Apps will support the latest Spring Boot or Spring Cloud major vers
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
-### [Basic/Standard tier](#tab/basic-standard-tier)
+### [Basic/Standard plan](#tab/basic-standard-plan)
 
 | Spring Boot version | Spring Cloud version  |
 |---------------------|-----------------------|
@@ -157,7 +157,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 | 2.7.x               | 2021.0.3+ aka Jubilee |
 | 2.6.x               | 2021.0.0+ aka Jubilee |
 
-### [Enterprise tier](#tab/enterprise-tier)
+### [Enterprise plan](#tab/enterprise-plan)
 
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
@@ -282,7 +282,7 @@ public class GatewayApplication {
 
 ### Distributed configuration
 
-#### [Basic/Standard tier](#tab/basic-standard-tier)
+#### [Basic/Standard plan](#tab/basic-standard-plan)
 
 To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
 
@@ -300,11 +300,11 @@ To enable distributed configuration, include the following `spring-cloud-config-
 > [!WARNING]
 > Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
 
-#### [Enterprise tier](#tab/enterprise-tier)
+#### [Enterprise plan](#tab/enterprise-plan)
 
-To enable distributed configuration in Enterprise tier, use [Application Configuration Service for VMware Tanzu®](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu®](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
-In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
+In the Enterprise plan, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 
 To use Application Configuration Service for Tanzu, do the following steps for each of your apps:
 

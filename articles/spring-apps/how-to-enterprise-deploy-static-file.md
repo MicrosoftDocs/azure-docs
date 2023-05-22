@@ -1,6 +1,6 @@
 ---
 title: Deploy web static files
-titleSuffix: Azure Spring Apps Enterprise tier
+titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to deploy web static files.
 author: karlerickson
 ms.author: yili7
@@ -17,11 +17,11 @@ ms.custom: event-tier1-build-2022, devx-track-java
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
+This article shows you how to deploy your static files to an Azure Spring Apps Enterprise plan instance using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 - One or more applications running in Azure Spring Apps. For more information on creating apps, see [How to Deploy Spring Boot applications from Azure CLI](./how-to-launch-from-source.md).
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 - Your static files or dynamic front-end application - for example, a React app.
@@ -122,13 +122,13 @@ You can configure web server by using a customized server configuration file. Yo
 
 ## Buildpack bindings
 
-Deploying static files to Azure Spring Apps Enterprise tier supports the Dynatrace buildpack binding. The `htpasswd` buildpack binding isn't supported.
+Deploying static files to the Azure Spring Apps Enterprise plan supports the Dynatrace buildpack binding. The `htpasswd` buildpack binding isn't supported.
 
 For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 ## Common build and deployment errors
 
-Your deployment of static files to Azure Spring Apps Enterprise tier may generate the following common build errors:
+Your deployment of static files to the Azure Spring Apps Enterprise plan may generate the following common build errors:
 
 - `ERROR: No buildpack groups passed detection.`
 - `ERROR: Please check that you're running against the correct path.`
@@ -136,7 +136,7 @@ Your deployment of static files to Azure Spring Apps Enterprise tier may generat
 
 The root cause of these errors is that the web server type isn't specified. To resolve these errors, set the environment variable `BP_WEB_SERVER` to *nginx* or *httpd*.
 
-The following table describes common deployment errors when you deploy static files to Azure Spring Apps Enterprise tier.
+The following table describes common deployment errors when you deploy static files to the Azure Spring Apps Enterprise plan.
 
 | Error message                                                                     | Root cause                                                          | Solution                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

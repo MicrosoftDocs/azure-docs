@@ -28,7 +28,7 @@ Spring Cloud Config Server provides server and client-side support for an extern
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An already provisioned and running Azure Spring Apps service of basic or standard tier. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md). Spring Cloud Config Server isn't applicable to enterprise tier.
+- An already provisioned and running Azure Spring Apps service instance using the Basic or Standard plan. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md). Spring Cloud Config Server isn't applicable to the Enterprise plan.
 - [Git](https://git-scm.com/downloads).
 
 ## Restriction

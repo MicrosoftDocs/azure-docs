@@ -181,8 +181,8 @@ The following articles help you get started using the Enterprise plan:
 
 * [The Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
 * [Introduction to Fitness Store sample app](quickstart-sample-app-acme-fitness-store-introduction.md)
-* [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
-* [Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
+* [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md)
+* [Configure single sign-on for applications using Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md)
 * [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
 * [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 * [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
@@ -198,7 +198,7 @@ As a quick reference, the articles listed previously and the articles in the fol
 * [Use Tanzu Service Registry](how-to-enterprise-service-registry.md)
 * [Use API portal for VMware Tanzu](how-to-use-enterprise-api-portal.md)
 * [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md)
-* [Deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md)
+* [Deploy polyglot apps in Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md)
 * [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier)
 * [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md?pivots=sc-enterprise-tier)
 

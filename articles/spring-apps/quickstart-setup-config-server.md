@@ -24,7 +24,7 @@ Config Server is a centralized configuration service for distributed systems. It
 ## Prerequisites
 
 - Completion of the previous quickstart in this series: [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
-- Azure Spring Apps Config Server is only applicable to basic or standard tier.
+- Azure Spring Apps Config Server is only applicable to the Basic or Standard plan.
 
 ## Config Server procedures
 

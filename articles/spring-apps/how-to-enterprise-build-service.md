@@ -1,6 +1,6 @@
 ---
-title: How to use Tanzu Build Service in Azure Spring Apps Enterprise tier
-description: Learn how to use Tanzu Build Service in Azure Spring Apps Enterprise tier.
+title: How to use Tanzu Build Service in the Azure Spring Apps Enterprise plan
+description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -14,9 +14,9 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Tanzu® Build Service™ with Azure Spring Apps Enterprise tier.
+This article shows you how to use VMware Tanzu® Build Service™ with the Azure Spring Apps Enterprise plan.
 
 VMware Tanzu Build Service automates container creation, management, and governance at enterprise scale. Tanzu Build Service uses the open-source [Cloud Native Buildpacks](https://buildpacks.io/) project to turn application source code into container images. It executes reproducible builds aligned with modern container standards and keeps images up to date.
 
@@ -32,7 +32,7 @@ A [Builder](https://docs.vmware.com/en/Tanzu-Build-Service/1.6/vmware-tanzu-buil
 
 ## Build agent pool
 
-Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
+Tanzu Build Service in the Enterprise plan is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
 
 The following table shows the build agent pool scale set sizes available:
 
@@ -62,7 +62,7 @@ The following image shows the resources given to the Tanzu Build Service Agent P
 
 ## Use the default builder to deploy an app
 
-In Enterprise tier, the `default` builder includes all the language family buildpacks supported in Azure Spring Apps so you can use it to build polyglot apps.
+In the Enterprise plan, the `default` builder includes all the language family buildpacks supported in Azure Spring Apps so you can use it to build polyglot apps.
 
 The `default` builder is read only, so you can't edit or delete it. When you deploy an app, if you don't specify the builder, the `default` builder will be used, making the following two commands equivalent.
 
@@ -79,11 +79,11 @@ az spring app deploy \
     --builder default
 ```
 
-For more information about deploying a polyglot app, see [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
+For more information about deploying a polyglot app, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
 ## Configure APM integration and CA certificates
 
-By using Tanzu Partner Buildpacks and CA Certificates Buildpack, Enterprise tier provides a simplified configuration experience to support application performance monitor (APM) integration and certificate authority (CA) certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+By using Tanzu Partner Buildpacks and CA Certificates Buildpack, the Enterprise plan provides a simplified configuration experience to support application performance monitor (APM) integration and certificate authority (CA) certificates integration scenarios for polyglot apps. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 ## Manage custom builders
 
@@ -118,7 +118,7 @@ The builder is a resource that continuously contributes to your deployments. The
 
 You can't delete a builder when existing active deployments are built by the builder. To delete such a builder, save the configuration as a new builder first. After you deploy apps with the new builder, the deployments are linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and then delete the original builder.
 
-For more information about deploying a polyglot app, see  [How to deploy polyglot apps in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md).
+For more information about deploying a polyglot app, see  [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
 ## Real-time build logs
 
