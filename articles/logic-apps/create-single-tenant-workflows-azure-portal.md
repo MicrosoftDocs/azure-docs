@@ -195,33 +195,13 @@ This example workflow starts with the [built-in Request trigger](../connectors/c
 
 ### [Standard](#tab/standard)
 
-1. On the workflow designer, make sure that your blank workflow is open and that the **Choose an operation** prompt is selected on the designer surface.
+1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
 1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
-   ![Screenshot showing pane named Add a trigger with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
-
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot showing the trigger information pane.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
-
-   > [!NOTE]
-   >
-   > If the information pane doesn't appear, makes sure that the trigger is selected on the designer.
-
-1. Save your workflow. On the designer toolbar, select **Save**.
-
-### [Standard (Preview)](#tab/standard-preview)
-
-1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
-
-1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-trigger) to your workflow.
-
-   ![Screenshot showing preview picker with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-preview.png)
-
-   When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
-
-   ![Screenshot showing the preview workflow designer and trigger information pane.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer-preview.png)
+   ![Screenshot showing the workflow designer and trigger information pane.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -237,11 +217,11 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
 1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
-   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane opens so that you can select the next action.
+   The **Browse operations** pane opens so that you can select the next action.
 
-1. By using **office 365 send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
-   ![Screenshot showing the designer, the pane named Add an action, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
+   ![Screenshot showing the designer, the picker pane, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
 1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
 
@@ -262,53 +242,6 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 1. In the action information pane, on the **Parameters** tab, provide the required information for the action, for example:
 
    ![Screenshot that shows the designer and the "Send an email" information pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details.png)
-
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, **sophiaowen@fabrikam.com**. |
-   | **Subject** | Yes | **An email from your example workflow** | The email subject |
-   | **Body** | Yes | **Hello from your example workflow!** | The email body content |
-
-   > [!NOTE]
-   > When making any changes in the information pane on the **Settings**, **Static Result**, or **Run After** tabs, 
-   > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
-   > Otherwise, the designer won't keep your changes.
-
-1. Save your work. On the designer toolbar, select **Save**.
-
-1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified domain names, review [Find domain names for firewall access](#firewall-setup).
-
-   Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
-
-### [Standard (Preview)](#tab/standard-preview)
-
-1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
-
-   The **Browse operations** pane opens so that you can select the next action.
-
-1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-action) to your workflow.
-
-   ![Screenshot showing the preview designer, the picker pane, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action-preview.png)
-
-1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
-
-   ![Screenshot showing the preview designer, the pane named Send an email (V2) with Sign in button.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in-preview.png)
-
-1. When you're prompted for access to your email account, sign in with your account credentials.
-
-   > [!NOTE]
-   > If you get the error message, **"Failed with error: 'The browser is closed.'. Please sign in again"**, 
-   > check whether your browser blocks third-party cookies. If these cookies are blocked, 
-   > try adding **https://portal.azure.com** to the list of sites that can use cookies. 
-   > If you're using incognito mode, make sure that third-party cookies aren't blocked while working in that mode.
-   > 
-   > If necessary, reload the page, open your workflow, add the email action again, and try creating the connection.
-
-   After Azure creates the connection, the **Send an email** action appears on the designer and is selected by default. If the action isn't selected, select the action so that its information pane is also open.
-
-1. In the action information pane, on the **Parameters** tab, provide the required information for the action, for example:
-
-   ![Screenshot that shows the designer and the "Send an email" information pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details-preview.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
