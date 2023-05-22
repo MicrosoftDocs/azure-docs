@@ -13,9 +13,9 @@ ms.reviewer: amberb
 
 # Understand and optimize your cloud costs with AI-powered functionality in Cost Management
 
-Whether you're part of a large organization, a budding developer, or a student, understanding and optimizing cloud spending is crucial in your cloud journey. Cloud services present incredible opportunities for scalability, flexibility, and innovation. However, to maximize the value derived from your cloud investment, it's crucial to prioritize proper cost management. Cost Management helps you to control expenses and make informed decisions, ensuring that your cloud investments are utilized effectively.
+Whether you're part of a large organization, a budding developer, or a student, understanding and optimizing cloud spending is crucial in your cloud journey. Cloud services present incredible opportunities for scalability, flexibility, and innovation. However, to maximize the value derived from your cloud investment, it's crucial to prioritize proper cost management. Cost management helps you to control expenses and make informed decisions, ensuring your cloud investments are utilized effectively.
 
-That's where Microsoft Cost Management comes in.
+Microsoft Cost Management comes in at this point.
 
 Today, we're excited to announce the preview of new AI-powered functionality in Microsoft Cost Management. The new interactive experience, accessible through the Azure portal, offers quick analysis, insights, and recommendations. The new functionality simplifies the process of understanding, analyzing, managing, and forecasting your cloud costs and bills.
 
