@@ -386,6 +386,90 @@ Now go back to the Azure portal to get your connection string information and la
 
 ---
 
+## Use Throughput Control
+
+Having throughput control helps to isolate the performance needs of applications running against a container, by limiting the amount of [request units](../request-units.md) that can be consumed by a given Java SDK client. 
+
+There are several advanced scenarios that benefit from client-side throughput control:
+
+- **Different operations and tasks have different priorities** - there can be a need to prevent normal transactions from being throttled due to data ingestion or copy activities. Some operations and/or tasks aren't sensitive to latency, and are more tolerant to being throttled than others.
+
+- **Provide fairness/isolation to different end users/tenants** - An application will usually have many end users. Some users may send too many requests, which consume all available throughput, causing others to get throttled.
+
+- **Load balancing of throughput between different Azure Cosmos DB clients** - in some use cases, it's important to make sure all the clients get a fair (equal) share of the throughput
+
+### Global throughput control
+
+Global throughput control in the Java SDK is configured by first creating a container that will define throughput control metadata. This container must have a partition key of `groupId`, and `ttl` enabled. Assuming you already have objects for client, database, and container as defined in the examples above, you can create this container as below. Here we name the container `ThroughputControl`:
+
+## [Sync API](#tab/async)
+
+```java
+    database = client.getDatabase("ThroughputControlDatabase")
+    CosmosContainerProperties throughputContainerProperties = new CosmosContainerProperties("ThroughputControl", "/groupId").setDefaultTimeToLiveInSeconds(-1);
+    ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
+    database.createContainerIfNotExists(throughputContainerProperties, throughputProperties);
+```
+
+## [Async API](#tab/async)
+
+```java
+    database = client.getDatabase("ThroughputControlDatabase")
+    CosmosContainerProperties throughputContainerProperties = new CosmosContainerProperties("ThroughputControl", "/groupId").setDefaultTimeToLiveInSeconds(-1);
+    ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
+    database.createContainerIfNotExists(throughputContainerProperties, throughputProperties).block();
+```
+---
+
+> [!NOTE]
+> the throughput control container must be created with a partition key `/groupId` and must have ttl value set, or throughput control will not function correctly. 
+
+Then, to enable the container object used by the current client to use a shared global control group, we need to create two sets of config. The first is to define the control group name. If the group does not already exist, an entry for it will be created in the throughput control container. Otherwise, the existing group of this name will be used:
+
+```java
+    ThroughputControlGroupConfig groupConfig =
+        new ThroughputControlGroupConfigBuilder()
+            .groupName("globalControlGroup")
+            //.targetThroughputThreshold(0.1)
+            .targetThroughput(100)
+            .build();
+```
+
+> [!NOTE]
+> In the above, we define a `targetThroughput` value of `100`, meaning that only a maximum of 100 RUs of the container's provisioned throughput can be used, before the SDK will attempt to rate limit the client locally. You can also define `targetThroughputThreshold` to provide a percentage of the container's throughput as the threshold instead. 
+
+The second config you need to create will reference to the throughput container you created earlier, and define some behaviours for it. Here, we define consumed throughput to be re-evaluated every 5 seconds (this is the lowest interval) and that metadata for the client using this container object to expire when dormant for 20 seconds or more.  
+
+```java
+    GlobalThroughputControlConfig globalControlConfig =
+        this.client.createGlobalThroughputControlConfigBuilder("ThroughputControlDatabase", "ThroughputControl")
+            .setControlItemRenewInterval(Duration.ofSeconds(5))
+            .setControlItemExpireInterval(Duration.ofSeconds(20))
+            .build();
+```
+
+Now we're ready to enable global throughput control for this container object. Other Cosmos clients running in other JVMs can share the same throughput control group, and as long as they are referencing the same throughput control metadata container, and reference the same throughput control group name. 
+
+```java
+    container.enableGlobalThroughputControlGroup(groupConfig, globalControlConfig);
+```
+
+> [!NOTE]
+> Throughput control does not do RU pre-calculation of each operation. Instead, it tracks the RU usages *after* the operation based on the response header. As such, throughput control is based on an approximation - and **does not guarantee** that amount of throughput will be available for the group at any given time. This means that if the configured RU is so low that a single operation can use it all, then throughput control cannot avoid the RU exceeding the configured limit. Therefore, throughput control works best when the configured limit is higher than any single operation that can be executed by a client in the given control group. With that in mind, when reading via query or change feed, you should configure the page size in `spark.cosmos.read.maxItemCount` (default 1000) to be a modest amount, so that client throughput control can be re-calculated with higher frequency, and therefore reflected more accurately at any given time. However, when using throughput control for a write-job using bulk, the number of documents executed in a single request will automatically be tuned based on the throttling rate to allow the throughput control to kick-in as early as possible.
+
+### Local throughput control
+
+You can also use local throughput control, without defining a shared control group that multiple clients will use. However, with this approach, each client will be unaware of how much throughput other clients are consuming from the total available throughput in the container, while global throughput control attempts to load balance the consumption of each client.   
+
+```java
+    ThroughputControlGroupConfig groupConfig =
+        new ThroughputControlGroupConfigBuilder()
+            .groupName("localControlGroup")
+            .targetThroughputThreshold(0.1)
+            .build();
+    container.enableLocalThroughputControlGroup(groupConfig);
+```
+
 ## Review SLAs in the Azure portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
