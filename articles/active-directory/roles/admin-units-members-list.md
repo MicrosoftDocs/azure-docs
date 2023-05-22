@@ -94,6 +94,8 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 1. In the **Restricted management** column, look for administrative units that are set to **Yes**.
 
+    ![Screenshot of the Administrative units page with the Restricted management column.](./media/admin-units-members-list/list-restricted-management-admin-unit.png)
+
 ## PowerShell
 
 Use the [Get-AzureADMSAdministrativeUnit](/powershell/module/azuread/get-azureadmsadministrativeunit) and [Get-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/get-azureadmsadministrativeunitmember) commands to list users or groups for an administrative unit.
