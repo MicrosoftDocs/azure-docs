@@ -50,6 +50,7 @@ e) **Authentication Type**: Under settings, you can choose from two different au
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
+> 
 > Pre-canned datasets are collection of events. For pre-canned datasets, each event in the dataset is sent separately. For example, if the dataset has 20 events and the value of repeat send is 10, then 200 events are sent to the event hub.
 
 ### Maximum Message size support with different SKU
@@ -86,6 +87,7 @@ Multiple applications can connect to Azure Event Hubs at the same time. If in ca
 [Send and Receive events using Event Hubs SDKs(AMQP)](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send?tabs=passwordless%2Croles-azure-portal)
 
 [Send and Receive events using Apache Kafka](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?tabs=passwordless)
+
 
 
 
