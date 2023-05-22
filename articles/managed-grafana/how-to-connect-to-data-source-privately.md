@@ -49,7 +49,7 @@ You can create a managed private endpoint for your Managed Grafana workspace to 
 
 1. In the *New managed private endpoint* pane, fill out required information for resource to connect to.
 
-   :::image type="content" source="media/managed-private-endpoint/new-mpe.png" alt-text="Screenshot of the Azure portal new managed private endpoint.":::
+   :::image type="content" source="media/managed-private-endpoint/new-mpe-details.png" alt-text="Screenshot of the Azure portal new managed private endpoint details.":::
 
 1. Select an Azure *Resource type* (for example, **Microsoft.Monitor/accounts** for Azure Monitor Managed Service for Prometheus). 
 1. Click **Create** to add the managed private endpoint resource.
