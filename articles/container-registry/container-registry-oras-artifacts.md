@@ -395,9 +395,10 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 [oci-spec]:                 https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 [oci-1_1-spec]:             https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1
 [oras-docs]:                https://oras.land/
-[oras-install-docs]:        https://oras.land/cli/
-[oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
-[oras-cli]:                 https://oras.land/cli_reference/
+[oras-install-docs]:        https://oras.land/docs/category/cli
+[oras-cli]:                 https://oras.land/docs/category/cli-reference
+[oras-push-multifiles]:     https://oras.land/docs/cli/pushing/#pushing-artifacts-with-multiple-files
+
 
 <!-- LINKS - internal -->
 [acr-authentication]:       ./container-registry-authentication.md?tabs=azure-cli
