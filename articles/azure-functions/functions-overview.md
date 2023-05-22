@@ -19,7 +19,7 @@ For more information, see [Azure Functions Scenarios](functions-scenarios.md).
 
 Functions provides a simple, affordable, and scalable way to run your code in the cloud. Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called _functions_. Functions can perform any number of tasks required by your cloud-based solutions. A comprehensive set of [triggers and bindings](functions-triggers-bindings.md) makes it easy to connect your functions to other services with minimal code. 
 
-:::image type="content" source="media/functions-overview/integrated-programming-model-small.png" alt-text="Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings."  lightbox="media/functions-overview/integrated-programming-model.png":::
+:::image type="content" source="media/functions-overview/integrated-programming-model.png" alt-text="Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings." :::
 
 The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the compute resources for running your code in the Azure cloud. 
 
