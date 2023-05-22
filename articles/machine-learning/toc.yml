@@ -185,12 +185,6 @@
       href: concept-v2.md
     - name: Work with Data
       items:
-        # v1
-        - name: Data access
-          href: ./v1/concept-data.md
-        - name: Studio network data access
-          href: ./v1/concept-network-data-access.md
-        # end v1
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly
@@ -208,20 +202,13 @@
         - name: MLflow
           href: ./v1/concept-mlflow-v1.md
         # end v1
-        - name: MLflow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
+
     - name: Foundation Models
       items:
         - name: Foundation Models
           href: concept-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
-        # v1
-        - name: MLOps capabilities
-          displayName: deploy, deployment, publish, production, operationalize, operationalization
-          href: ./v1/concept-model-management-and-deployment.md
-        # end v1
     - name: Responsible AI
       items:
         - name: Responsible AI overview
@@ -1055,52 +1042,13 @@
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
-        - name: Data administration and authentication
-          displayName: Data administration and authentication
-          href: how-to-administrate-data-authentication.md
         # v1
         - name: Access data
           items:
-            - name: Connect to Azure storage with datastores
-              displayName: blob, get, fileshare, access, mount, download, data lake, datastore
-              href: ./v1/how-to-access-data.md
-            - name: Identity-based data access to storage
-              displayName: blob, access, data lake, datastore, managed identity
-              href: ./v1/how-to-identity-based-data-access.md
-            - name: Get data from storage with datasets
-              displayName: data, data set, register, access data
-              href: ./v1/how-to-create-register-datasets.md
-            - name: Connect to data (UI)
-              displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
-              href: ./v1/how-to-connect-data-ui.md
         - name: Manage & consume data
           items:
-            - name: Train with datasets
-              displayName: data, dataset, mount
-              href: ./v1/how-to-train-with-datasets.md
-            - name: Detect drift on datasets
-              displayName: data, dataset
-              href: ./v1/how-to-monitor-datasets.md
-            - name: Version & track datasets
-              displayName: data, data set
-              href: ./v1/how-to-version-track-datasets.md
-            - name: Create datasets with labels
-              displayName: data, labels, torchvision
-              href: ./v1/how-to-use-labeled-dataset.md
         - name: Get & prepare data
           items:
-            - name: Data ingestion with Azure Data Factory
-              displayName: data, ingestion, adf
-              href: ./v1/how-to-data-ingest-adf.md
-            - name: Data preparation with Azure Synapse
-              displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
-              href: ./v1/how-to-data-prep-synapse-spark-pool.md
-            - name: DevOps for data ingestion
-              displayName: data, ingestion, devops
-              href: ./v1/how-to-cicd-data-ingestion.md
-            - name: Import data in the designer
-              displayName: designer, data, import, dataset, datastore
-              href: ./v1/how-to-designer-import-data.md
         # end v1
     - name: Deploy models
       items:
@@ -1194,27 +1142,12 @@
           items:
             - name: Manage models with MLflow
               href: how-to-manage-models-mlflow.md
-            - name: Manage experiments and runs with MLflow
-              href: how-to-track-experiments-mlflow.md
         - name: Deploy & consume models
           items:
-            - name: Guidelines for deploying MLflow models
-              displayName: mlflow models deployment plugin
-              href: how-to-deploy-mlflow-models.md
-            - name: Using MLflow models for no-code deployment
-              href: how-to-log-mlflow-models.md
             - name: Online inference
               items:
-                - name: Deploy MLflow models to Online Endpoints
-                  href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Progressive rollout of MLflow models to Online Endpoints
-                  href: how-to-deploy-mlflow-models-online-progressive.md
             - name: Batch inference
               items:
-                - name: Deploy MLflow models to Batch Endpoints
-                  href: how-to-mlflow-batch.md
-                - name: Deploy and run MLflow models in Spark jobs
-                  href: how-to-deploy-mlflow-model-spark-jobs.md
     - name: Work with Foundation Models
       items:
         - name: How to use Foundation Models
@@ -1224,20 +1157,6 @@
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
-            - name: Create ML pipelines using components (CLI v2)
-              href: how-to-create-component-pipelines-cli.md
-            - name: Create ML pipelines using components (Python SDK v2)
-              href: how-to-create-component-pipeline-python.md
-            - name: Create ML pipelines using components (UI)
-              href: how-to-create-component-pipelines-ui.md
-            - name: How to use sweep in pipelines (v2)
-              href: how-to-use-sweep-in-pipeline.md
-            - name: Build and debug pipelines (UI)
-              href: how-to-use-pipeline-ui.md
-            - name: How to use parallel job in pipeline
-              href: how-to-use-parallel-job-in-pipeline.md
-            - name: How to use pipeline component in pipeline
-              href: how-to-use-pipeline-component.md
             - name: How to debug pipeline reuse issues
               href: how-to-debug-pipeline-reuse-issues.md
             # v1
@@ -1275,22 +1194,9 @@
           href: ./v1/how-to-convert-ml-experiment-to-production.md
         # end v1
     - name: Implement Responsible AI in Practice
-
       items:
         - name: Generate Responsible AI insights
           items:
-            - name: Responsible AI insights (V2)
-              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-              href: how-to-responsible-ai-insights-sdk-cli.md
-            - name: Responsible AI insights (UI)
-              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-              href: how-to-responsible-ai-insights-ui.md
-        - name: Using the Responsible AI dashboard in studio
-          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-          href: how-to-responsible-ai-dashboard.md
-        - name: Using the Responsible AI scorecard in studio
-          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
-          href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity
