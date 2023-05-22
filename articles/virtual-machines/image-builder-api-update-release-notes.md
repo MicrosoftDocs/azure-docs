@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 05/08/2023
+ms.date: 05/22/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
@@ -38,6 +38,7 @@ This article contains all major API changes and feature updates for the Azure VM
 - VHDs can now be distributed to a custom blob or container in a custom storage account
 - `targetRegions` array added and applied only to "SharedImage" type distribute. For more information on `targetRegions`, see [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
 - Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template. Direct Shared Gallery is currently in preview.
+- Triggers are now available in public preview to set up automatic image builds. For more information, see [How to use AIB triggers](./image-builder-triggers-how-to.md)
 
 
 
