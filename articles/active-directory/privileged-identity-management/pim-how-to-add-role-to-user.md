@@ -27,7 +27,7 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be asigned for a duration of less than five minutes
+>- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
