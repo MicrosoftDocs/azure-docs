@@ -31,7 +31,7 @@ The 'Model catalog' (preview) in Azure Machine Learning Studio is a hub for disc
 
 You can filter the list of models in the Model catalog by Task, or by license. Select a specific model name and the see a model card for the selected model, which lists detailed information about the model. For example:
 
-:::image type="content" source="./media/how-to-use-foundation-models/model-card.png" lightbox="./media/how-to-use-foundation-models/model-card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
+:::image type="content" source="./media/how-to-use-foundation-models\model_card.png" lightbox="./media/how-to-use-foundation-models\model_card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
 
 `Task` calls out the inferencing task that this pre-trained model can be used for. `Finetuning-tasks` list the tasks that this model can be fine tuned for. `License` calls out the licensing info.
 
