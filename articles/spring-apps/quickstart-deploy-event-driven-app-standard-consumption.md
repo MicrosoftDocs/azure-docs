@@ -181,7 +181,7 @@ Use the following steps to create the environment:
 
 ## Create the Azure Spring Apps instance
 
-An instance of an Azure Spring Apps Standard consumption and dedicated plan hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
+An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
 1. Use the following command to install the Azure CLI extension designed for Azure Spring Apps:
 
