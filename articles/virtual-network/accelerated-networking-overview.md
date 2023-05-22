@@ -139,6 +139,9 @@ Unmanaged=yes
 EOF 
 ```
 
+>[!NOTE]
+>It is strongly advised that that custom images do not run competing network inteface software (ifupdown and networkd, etc.) and do not run dhcpclient directly on multiple interfaces.
+
 --- 
 
 ## Next steps
