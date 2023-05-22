@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Connect services in Azure Container Apps'
+title: 'Tutorial: Connect services in Azure Container Apps (preview)'
 description: Connect a service in development and then promote to production in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/22/2023
 ms.author: cshoe
 ---
 
-# Tutorial: Connect services in Azure Container Apps
+# Tutorial: Connect services in Azure Container Apps (preview)
 
 Azure Container Apps allows you to connect to services that support your app that run in the same environment as your container app.
 
@@ -33,14 +33,15 @@ In this tutorial, you learn to:
 |---|---|
 | Azure account | An active subscription is required. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli) if you don't have it on your machine. |
-| Azure Cache for Redis | Create an instance of [Azure Cache for Redis](/cli/azure/redis?view=azure-cli-latest). Note the value for enter for the DNS name when you create the service.  |
+| Azure resource group | Create a resource group named **my-services-resource-group** in the **East US** region. |
+| Azure Cache for Redis | Create an instance of [Azure Cache for Redis](/cli/azure/redis?view=azure-cli-latest) in the **my-services-resource-group**.  |
 
 ## Set up
 
 1. Set up resource group and location variables.
 
     ```azurecli
-    RESOURCE_GROUP="my-container-apps"
+    RESOURCE_GROUP="my-services-resource-group"
     LOCATION="eastus"
     ```
 
@@ -70,14 +71,6 @@ In this tutorial, you learn to:
 
     ``` azurecli
     az login
-    ```
-
-1. Create a resource group.
-
-    ```bash
-    az group create \
-      --name "$RESOURCE_GROUP" \
-      --location "$LOCATION"
     ```
 
 1. Upgrade the Container Apps CLI extension.

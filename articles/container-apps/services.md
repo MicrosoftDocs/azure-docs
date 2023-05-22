@@ -1,5 +1,5 @@
 ---
-title: Connect to services in Azure Container Apps
+title: Connect to services in Azure Container Apps (preview)
 description: Learn how to use runtime services in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
