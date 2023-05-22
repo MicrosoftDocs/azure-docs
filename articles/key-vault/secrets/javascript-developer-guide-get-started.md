@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 05/17/2023
+ms.date: 05/22/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to know the high level steps necessary to use Key Vault secrets in JavaScript.
 ---
@@ -19,9 +19,9 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
   
 ## Prerequisites  
   
-- An Azure subscription
-- [Azure Key Vault](/azure/key-vault/) instance with appropriate access policies configured
-- Node.js version LTS  
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Azure Key Vault](../general/quick-create-cli.md) instance. Review [the access policies](../general/assign-access-policy.md) on your Key Vault to include the permissions necessary for the specific tasks performed in code.
+- [Node.js version LTS](https://nodejs.org/)  
 
 ## Set up your project
 

@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 05/17/2023
+ms.date: 05/22/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to backup a secret from the Key Vault with the SDK.
 ---

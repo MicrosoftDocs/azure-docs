@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 05/17/2023
+ms.date: 05/22/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to enable a secret from the Key Vault with the SDK.
 ---
@@ -38,7 +38,7 @@ This method returns the [SecretProperties](/javascript/api/@azure/keyvault-secre
 
 ## Disable a new secret
 
-To disable a secret when it's created, use the [setSecret]() method with the option for **enabled** set to false.
+To disable a secret when it's created, use the [setSecret](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-setsecret) method with the option for **enabled** set to false.
 
 ```javascript
 const mySecretName = 'mySecret';

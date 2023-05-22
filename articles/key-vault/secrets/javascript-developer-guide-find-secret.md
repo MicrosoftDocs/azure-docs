@@ -7,7 +7,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 05/17/2023
+ms.date: 05/22/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to find or list a secret from the Key Vault with the SDK.
 ---
@@ -15,9 +15,9 @@ ms.author: mbaldwin
 
 Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to find a secret from Azure Key Vault.
 
-All list methods return an iterable. You can get all items in the list or chain the [byPage()](/javascript/api/@azure/core-paging/pagedasynciterableiterator#@azure-core-paging-pagedasynciterableiterator-bypage) method to iterate a page of items at a time. 
+All list methods return an iterable. You can get all items in the list or chain the [byPage](/javascript/api/@azure/core-paging/pagedasynciterableiterator#@azure-core-paging-pagedasynciterableiterator-bypage) method to iterate a page of items at a time. 
 
-Once you have a secret's properties, you can then use the [**getSecret**](javascript-developer-guide-get-secret.md#get-current-version-of-secret) method to get the secret's value.
+Once you have a secret's properties, you can then use the [getSecret](javascript-developer-guide-get-secret.md#get-current-version-of-secret) method to get the secret's value.
 
 ## List all secrets
 
