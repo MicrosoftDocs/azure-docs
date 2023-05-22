@@ -121,7 +121,7 @@ Follow the steps below to create the template:
    > [!NOTE]
    >  Change the `resource group` and `arc_hosts` to match the names of your Azure resources. If you have a large number of  Arc hosts, use Jinja2 formatting to extract the list from your inventory sources.
 
-1. Check the **Prompt on launch** box for Variables so you can change the extension at run timel
+1. Check the **Prompt on launch** box for Variables so you can change the extension at run time.
 1. Select **Save**.
 
 ### Disable Azure Arc VM extensions
@@ -160,7 +160,7 @@ This template is responsible for disabling an Azure Arc-enabled server VM extens
    > [!NOTE]
    >  Change the `resource group` and `arc_hosts` to match the names of your Azure resources. If you have a large number of  Arc hosts, use Jinja2 formatting to extract the list from your inventory sources.
 
-1. Check the **Prompt on launch** box for Variables so you can change the extension at run timel
+1. Check the **Prompt on launch** box for Variables so you can change the extension at run time.
 1. Select **Save**.
 
 ### Run the automation
