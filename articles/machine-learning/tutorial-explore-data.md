@@ -97,7 +97,7 @@ ml_client = MLClient(
     credential=credential,
     subscription_id="<SUBSCRIPTION_ID>",
     resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>",
+    workspace_name="<AML_WORKSPACE_NAME>"
 )
 ```
 
@@ -143,7 +143,7 @@ my_data = Data(
     version=v1,
     description="Credit card data",
     path=my_path,
-    type=AssetTypes.URI_FILE,
+    type=AssetTypes.URI_FILE
 )
 
 # create data asset
@@ -265,7 +265,7 @@ my_data = Data(
     description="Default of credit card clients data.",
     tags={"training_data": "true", "format": "parquet"},
     path=my_path,
-    type=AssetTypes.URI_FILE,
+    type=AssetTypes.URI_FILE
 )
 
 ## create the data asset
