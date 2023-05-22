@@ -30,6 +30,16 @@ To complete this QuickStart, you need the following prerequisites:
 You could follow the steps below to send events to Azure Event Hubs Data Generator: 
 
 1. Click on Generate data blade under “Overview” section of Event Hubs namespace. 
+  ![User's image](media/sendandreceiveeventsusingdatagenerator/image.png)
+
+2. On Generate Data blade, you would find below properties for Data generation: 
+   1. **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “create Event Hub” to [create a new event hub](/azure/event-hubs/event-hubs-create) within namespace and stream data post creation of event hub.  
+   2. **Select Payload:** You could send custom payload to event hubs using User defined payload or make use of different pre-canned datasets available in data generator. 
+   3.  **Select Content-Type:** Based on the type of data you’re sending; you could choose the Content-type Option. As of today, Data generator supports sending data in following content-type - JSON, XML, Text and Binary. 
+   4.  **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions.
+   5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
+   
+   ![Datagenlandingpage.](media/sendandreceiveeventsusingdatagenerator/image1.png)
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
