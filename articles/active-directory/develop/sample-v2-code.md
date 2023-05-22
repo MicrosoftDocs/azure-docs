@@ -182,7 +182,7 @@ The following samples show how to build applications for the C# language and pla
 > | Desktop | &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/1-Calling-MSGraph/1-1-AzureAD) <br/> &#8226; [Call Microsoft Graph with token cache](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/2-TokenCache) <br/> &#8226; [Call Microsoft Graph with custom web UI HTML](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/3-CustomWebUI/3-1-CustomHTML) <br/> &#8226; [Call Microsoft Graph with custom web browser](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/3-CustomWebUI/3-2-CustomBrowser) <br/> &#8226; [Sign in users with device code flow](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/4-DeviceCodeFlow) <br/> &#8226; [Authenticate users with MSAL.NET in a WinUI desktop application](https://github.com/Azure-Samples/ms-identity-netcore-winui) | [MSAL.NET](/entra/msal/dotnet) |&#8226; Authorization code with PKCE <br/> &#8226; Device code |
 > | Mobile | &#8226; [Call Microsoft Graph using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppBasic) <br/> &#8226; [Call Microsoft Graph using MAUI with broker](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppWithBroker) <br/> &#8226; [Call Active Directory B2C tenant using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppB2C) | MSAL MAUI | Authorization code with PKCE |
 > | Headless | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | [MSAL.NET](/entra/msal/dotnet) | Device code|
-
+> | Service/</div>daemon | &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) <br/> &#8226; [Call web API](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi) <br/> &#8226; [Using managed identity and Azure key vault](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/3-Using-KeyVault)| [MSAL.NET](/entra/msal/dotnet) | Client credentials grant|
 
 #### ASP.NET 
 
@@ -349,6 +349,15 @@ The following samples show how to build applications with Kotlin.
 > | ----------- | ----------- |----------- |----------- |
 > | Mobile | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin) | MSAL Android | Authorization code with PKCE |
 
+### PowerShell
+
+The following samples show how to build applications with PowerShell.
+
+> [!div class="mx-tdCol2BreakAll"]
+> | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
+> | ----------- | ----------- |----------- |----------- |
+> | Desktop | [Call Microsoft Graph by signing in users using username/password](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | [MSAL.NET](/entra/msal/dotnet) | Resource owner password credentials |
+
 ### Ruby 
 
 The following samples show how to build applications with Ruby.
@@ -386,7 +395,6 @@ The following samples show how to build applications with Windows Presentation F
 > | Desktop | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
 
 ---
-
 
 ## Next steps
 
