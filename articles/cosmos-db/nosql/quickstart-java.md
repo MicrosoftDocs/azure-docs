@@ -420,7 +420,7 @@ Global throughput control in the Java SDK is configured by first creating a cont
 ---
 
 > [!NOTE]
-> the throughput control container must be created with a partition key `/groupId` and must have `ttl` value set, or throughput control will not function correctly. 
+> The throughput control container must be created with a partition key `/groupId` and must have `ttl` value set, or throughput control will not function correctly. 
 
 Then, to enable the container object used by the current client to use a shared global control group, we need to create two sets of config. The first is to define the control group name. If the group does not already exist, an entry for it will be created in the throughput control container. Otherwise, the existing group of this name will be used:
 
