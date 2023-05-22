@@ -76,7 +76,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
-1. In addition to above, Cisco Expressway application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Cisco Expressway application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
@@ -104,7 +104,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Cisco Expressway Sign-on URL where you can initiate the login flow. 
 
-* Go to Cisco Expressway Sign-on URL directly and initiate the login flow from there.
+* Go to Cisco Expressway Sign on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Cisco Expressway tile in the My Apps, this will redirect to Cisco Expressway Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
