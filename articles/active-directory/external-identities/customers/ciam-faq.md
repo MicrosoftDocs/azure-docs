@@ -50,7 +50,7 @@ We remain fully committed to support of the current Azure AD B2C product. The SL
 We recognize the large investments in building and managing custom policies. We’ve listened to many customers who, like you, have shared that custom policies are too hard to build and manage. Our next generation platform will resolve the need for intricate custom policies. In addition to many other platform and feature improvements, you’ll have equivalent functionality in the new platform but a much easier way to build and manage it. We expect to share migration options closer to general availability of the next generation platform.  
 
 ### I’ve heard I can preview the Microsoft Entra External ID platform. Where can I learn more about preview and the features you’re delivering on the new platform?  
-Learn more at [Microsoft Entra External ID for customers](index.md).
+Learn more at [Microsoft Entra External ID for customers](index.yml).
 
 ### As a new customer, how do I know which solution is a better fit, the current Azure AD B2C product or the next generation Microsoft Entra External ID platform?
 
@@ -68,4 +68,4 @@ Learn more at [Microsoft Entra External ID for customers](index.md).
 
 ## Next steps
 
-[Learn more about Microsoft Entra External ID for customers](index.md)
+[Learn more about Microsoft Entra External ID for customers](index.yml)
