@@ -1,5 +1,5 @@
 ---
-title: Delete JavaScript Key Vault secret
+title: Delete Azure Key Vault secret with JavaScript
 description: Delete, restore, or purge a Key Vault secret using JavaScript.
 services: key-vault
 author: msmbaldwin

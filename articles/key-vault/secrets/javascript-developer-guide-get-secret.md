@@ -1,5 +1,5 @@
 ---
-title: Get JavaScript Key Vault secret
+title: Get Azure Key Vault secret with JavaScript
 description: Get the current secret or a specific version of a secret in Azure Key Vault with JavaScript.
 services: key-vault
 author: msmbaldwin

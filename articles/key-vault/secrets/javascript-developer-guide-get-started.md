@@ -1,5 +1,5 @@
 ---
-title: Getting started with Key Vault secret in JavaScript
+title: Getting started with Azure Key Vault secret in JavaScript
 description: Set up your environment, install npm packages, and authenticate to Azure to get started using Key Vault secrets in JavaScript
 services: key-vault
 author: msmbaldwin
@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) provides the most secure connection by managin
 
 Before programmatically authenticating to Azure to use Azure Key Vault secrets, make sure you set up your environment. 
 
-:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-js/main/sdk/identity/identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg" alt-text="Azure SDK for JavaScript credential flow.":::
+:::image type="content" source="../media/authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="Diagram of Azure SDK for JavaScript credential flow.":::
 
 #### [Developer authentication](#tab/developer-auth)
 

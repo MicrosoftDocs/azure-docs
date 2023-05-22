@@ -1,5 +1,5 @@
 ---
-title: Enable a JavaScript Key Vault secret
+title: Enable a Azure Key Vault secret with JavaScript
 description: Enable or disable a Key Vault secret using JavaScript.
 services: key-vault
 author: msmbaldwin

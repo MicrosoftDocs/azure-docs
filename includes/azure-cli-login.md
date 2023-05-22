@@ -17,7 +17,7 @@ az login
 
 ##### [PowerShell](#tab/az-login-terminal-ps)
 
-To authenticate with Azure PowerShell users can run the Connect-AzAccount cmdlet. By default, ike the Azure CLI, Connect-AzAccount will launch the default web browser to authenticate a user account.
+To authenticate with Azure PowerShell users can run the Connect-AzAccount cmdlet. By default, like the Azure CLI, Connect-AzAccount will launch the default web browser to authenticate a user account.
 
 ```powershell
 Connect-AzAccount
@@ -25,6 +25,6 @@ Connect-AzAccount
 
 ##### [Visual Studio Code](#tab/az-login-vscode)
 
-If you are using Visual Studio Code, you can also sign in to Azure with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+If you're using Visual Studio Code, you can also sign in to Azure with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ---

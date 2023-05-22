@@ -1,5 +1,5 @@
 ---
-title: Crete or update, or rotate secrets with JavaScript
+title: Create, update, or rotate Azure Key Vault secrets with JavaScript
 description: Create or update with the set method, or rotate secrets with JavaScript. 
 services: key-vault
 author: msmbaldwin

@@ -1,5 +1,5 @@
 ---
-title: Back up a JavaScript Key Vault secret
+title: Back up Azure Key Vault secret with JavaScript
 description: Back up and restore Key Vault secret using JavaScript. 
 services: key-vault
 author: msmbaldwin
@@ -11,7 +11,7 @@ ms.date: 05/22/2023
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to backup a secret from the Key Vault with the SDK.
 ---
-# Backup and restore a secret in Azure Key Vault with JavaScript
+# Back up and restore a secret in Azure Key Vault with JavaScript
 
 Create the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to back up and restore an existing secret from Azure Key Vault.
 

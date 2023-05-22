@@ -1,5 +1,5 @@
 ---
-title: Find or list JavaScript Key Vault secrets
+title: Find or list Azure Key Vault secrets with JavaScript
 description: Find a set of secrets or list secrets or secret version in a Key Vault JavaScript.
 services: key-vault
 author: msmbaldwin
