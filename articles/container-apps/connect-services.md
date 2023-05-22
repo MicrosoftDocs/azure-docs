@@ -57,6 +57,15 @@ In this tutorial, you learn to:
     az login
     ```
 
+1. Create a resource group.
+
+    ```bash
+    az group create \
+      --name "$RESOURCE_GROUP" \
+      --location "$LOCATION"
+    ```
+
+
 1. Upgrade the Container Apps CLI extension.
 
     ```azurecli
@@ -69,7 +78,7 @@ In this tutorial, you learn to:
     az provider register --namespace Microsoft.App
     ```
 
-1. Set the location.
+<!-- 1. Set the location.
   
     ```azurecli
     az config set defaults.location="$LOCATION"
@@ -79,12 +88,15 @@ In this tutorial, you learn to:
   
     ```azurecli
     az config set defaults.group="$RESOURCE_GROUP"
-    ```
+    ``` -->
 
 1. Create a new environment.
   
     ```azurecli
-    az containerapp env create --name "$ENVIRONMENT"
+    az containerapp env create \
+      --location "$LOCATION" \
+      --resource-group "$RESOURCE_GROUP" \
+      --name "$ENVIRONMENT"
     ```
 
 With the CLI configured and an environment created, you can now create an application and dev service.
@@ -98,6 +110,7 @@ Create the Redis dev service and name it `myredis`.
 ``` azurecli
 az containerapp service redis create \
   --name myredis \
+  --resource-group "$RESOURCE_GROUP" \
   --environment "$ENVIRONMENT"
 ```
 
@@ -113,11 +126,15 @@ Next, create your internet-accessible container app.
       --image mcr.microsoft.com/k8se/samples/sample-service-redis:latest \
       --ingress external \
       --target-port 8080 \
-      --bind myredis
+      --bind myredis \
+      --environment "$ENVIRONMENT" \
+      --resource-group "$RESOURCE_GROUP" \
       --query properties.configuration.ingress.fqdn
     ```
 
     This command returns the fully qualified domain name (FQDN). Paste this location into a web browser so you can inspect the application'e behavior throughout this tutorial.
+
+    :::image type="content" source="media/services/azure-container-apps-cache-service.png" alt-text="Screenshot of container app running a Redis cache service.":::
 
     The `containerapp create` command uses the `--bind` option to create a link between the container app and the Redis dev service.
 
@@ -141,7 +158,10 @@ Next, create your internet-accessible container app.
     To remove a binding from a container app, use the `--unbind` option.
 
     ``` azurecli
-    az containerapp update --name myapp --unbind myredis
+    az containerapp update \
+      --name myapp \
+      --unbind myredis \
+      --resource-group "$RESOURCE_GROUP"
     ```
 
     The application is written so that if the environment variables aren't defined, then the text strings are stored in memory.
