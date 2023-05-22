@@ -158,7 +158,7 @@ In this step, we'll assign the new service (`service_allow_internal_forwarding` 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
 
 
-1. Select the SIM policy you want to modify and select **Modify the selected SIM policy**
+1. Select the SIM policy you want to modify and select **Modify the selected SIM policy**.
 
     :::image type="content" source="media/sim-policies-modify-button.png" alt-text="Screenshot of the Azure portal showing the modify SIM policies option.":::    
 
