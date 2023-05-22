@@ -402,7 +402,7 @@ There are several advanced scenarios that benefit from client-side throughput co
 
 Global throughput control in the Java SDK is configured by first creating a container that will define throughput control metadata. This container must have a partition key of `groupId`, and `ttl` enabled. Assuming you already have objects for client, database, and container as defined in the examples above, you can create this container as below. Here we name the container `ThroughputControl`:
 
-## [Sync API](#tab/sync)
+## [Sync API](#tab/sync-throughput)
 
 ```java
     CosmosContainerProperties throughputContainerProperties = new CosmosContainerProperties("ThroughputControl", "/groupId").setDefaultTimeToLiveInSeconds(-1);
@@ -410,7 +410,7 @@ Global throughput control in the Java SDK is configured by first creating a cont
     database.createContainerIfNotExists(throughputContainerProperties, throughputProperties);
 ```
 
-## [Async API](#tab/async)
+## [Async API](#tab/async-throughput)
 
 ```java
     CosmosContainerProperties throughputContainerProperties = new CosmosContainerProperties("ThroughputControl", "/groupId").setDefaultTimeToLiveInSeconds(-1);
