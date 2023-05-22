@@ -82,6 +82,18 @@ You can list the users, groups, or devices in administrative units using the Azu
 
     ![Screenshot of All devices page with an administrative unit filter.](./media/admin-units-members-list/device-admin-unit-filter.png)
 
+### List the restricted management administrative units for a single user or group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Azure Active Directory**.
+
+1. Select **Users** or **Groups** and then select the user or group you want to list their restricted management administrative units.
+
+1. Select **Administrative units** to list all the administrative units where the user or group is a member.
+
+1. In the **Restricted management** column, look for administrative units that are set to **Yes**.
+
 ## PowerShell
 
 Use the [Get-AzureADMSAdministrativeUnit](/powershell/module/azuread/get-azureadmsadministrativeunit) and [Get-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/get-azureadmsadministrativeunitmember) commands to list users or groups for an administrative unit.
@@ -152,11 +164,15 @@ Use the [List members (Beta)](/graph/api/administrativeunit-list-members?view=gr
 
 ### List the administrative units for a user
 
+Use the [List memberOf](/graph/api/user-list-memberof) API to list the administrative units a user is a direct member of.
+
 ```http
 GET https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ### List the administrative units for a group
+
+Use the [List memberOf](/graph/api/user-list-memberof) API to list the administrative units a group is a direct member of.
 
 ```http
 GET https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -170,6 +186,8 @@ GET https://graph.microsoft.com/beta/devices/{device-id}/memberOf/$/Microsoft.Gr
 
 ### List the groups for an administrative unit
 
+Use the [List members](/graph/api/administrativeunit-list-members) API to list the users or groups for an administrative unit.
+
 ```http
 GET https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
 ```
@@ -180,6 +198,23 @@ GET https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-i
 GET https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.device
 ```
 
+### List whether a single user is in a restricted management administrative unit
+
+Use the [Get a user](/graph/api/user-get) API to determine whether a user is in a restricted management administrative unit. Look at the value of the `isManagementRestricted` property. If the property is `true`, it is in a restricted management administrative unit. If the property is `false`, empty, or null, it is not in a restricted management administrative unit.
+
+```http
+GET https://graph.microsoft.com/beta/users/{user-id}
+```
+
+Response
+
+```
+{ 
+  "displayName": "John",
+  "isManagementRestricted": true,
+  "userPrincipalName": "john@contoso.com", 
+}
+```
 
 ## Next steps
 

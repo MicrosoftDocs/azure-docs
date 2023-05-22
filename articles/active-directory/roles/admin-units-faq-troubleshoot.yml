@@ -117,6 +117,21 @@ sections:
         answer: |
           No.
 
+  - name: Restricted management administrative units (Preview)
+    questions:
+      - question: |
+          I am the owner of a protected group. How are my permissions affected?
+        answer: |
+          As an owner of a protected group, you won't be able to manage it just based on ownership. Managing protected resources currently require a role to be assigned at the restricted management administrative unit scope of the protected resource.
+      - question: |
+          How are my Microsoft 365 resources affected by using restricted management administrative units?
+        answer: |
+          Currently, securing Azure AD resources in restricted management administrative units is supported. Resources managed outside of Azure AD aren't supported.
+      - question: |
+          I'm unable to modify a member of a restricted management administrative unit.
+        answer: |
+          The user, group, or device is a member of restricted management administrative unit. Management rights are limited to administrators scoped to that administrative unit.
+
 additionalContent: |
 
   ## Next steps

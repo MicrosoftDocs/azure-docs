@@ -28,6 +28,7 @@ This article describes how to create or delete administrative units to restrict 
 - Azure AD Free licenses for administrative unit members
 - Privileged Role Administrator or Global Administrator
 - AzureAD module when using PowerShell
+- AzureADPreview module when using PowerShell and restricted management administrative units
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -48,6 +49,8 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 1. In the **Name** box, enter the name of the administrative unit. Optionally, add a description of the administrative unit.
 
+1. If you don't want tenant-level administrators to be able to access this administrative unit, set the **Restricted management administrative unit** toggle to **Yes**. For more information, see [Restricted management administrative units](admin-units-restricted-management.md).
+
     ![Screenshot showing the Add administrative unit page and the Name box for entering the name of the administrative unit.](./media/admin-units-manage/add-new-admin-unit.png)
 
 1. Optionally, on the **Assign roles** tab, select a role and then select the users to assign the role to with this administrative unit scope.
@@ -63,7 +66,13 @@ You can create a new administrative unit by using either the Azure portal, Power
 Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azureadmsadministrativeunit) command to create a new administrative unit.
 
 ```powershell
-New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+$adminUnitObj = New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+```
+
+Use the [New-AzureADMSAdministrativeUnit (preview)](/powershell/module/azuread/new-azureadmsadministrativeunit?view=azureadps-2.0-preview&preserve-view=true) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` parameter to `$true`.
+
+```powershell
+$restrictedAU = New-AzureADMSAdministrativeUnit -DisplayName "Contoso Executive Division" -IsMemberManagementRestricted $true
 ```
 
 ### Microsoft Graph PowerShell
@@ -96,6 +105,24 @@ Body
 {
   "displayName": "North America Operations",
   "description": "North America Operations administration"
+}
+```
+
+Use the [Create administrativeUnit (beta)](/graph/api/directory-post-administrativeunits?view=graph-rest-beta&preserve-view=true&branch=main) API to create a new restricted management administrative unit. Set the `isMemberManagementRestricted` property to `true`.
+
+Request
+
+```http
+POST https://graph.microsoft.com/beta/administrativeUnits
+```
+
+Body
+
+```http
+{ 
+  "displayName": "Contoso Executive Division",
+  "description": "This administrative unit contains executive accounts of Contoso Corp.", 
+  "isMemberManagementRestricted": true
 }
 ```
 
@@ -144,3 +171,4 @@ DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-uni
 
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
