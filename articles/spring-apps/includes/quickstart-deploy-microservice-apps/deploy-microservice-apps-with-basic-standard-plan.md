@@ -57,7 +57,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
     - **Service Details**:
 
-        - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+        - **Name**: Create the name for the Azure Spring Apps instance.
         - **Plan**: Select **Standard** for the **Plan** option.
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
@@ -72,7 +72,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
-1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/spring-petclinic/spring-petclinic-microservices-config.git* as **URI**, enter *main* as **Label**, select **Validate**.
+1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* as **URI**, enter *master* as **Label**, select **Validate**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of Azure portal showing config server for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
@@ -118,7 +118,6 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io
    
    ...
-   
    
    [INFO] Getting public url of app(api-gateway)...
    [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
