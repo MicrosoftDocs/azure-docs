@@ -13,7 +13,7 @@ ms.author: dougdavis
 
 Azure Container Apps allows you to connect to services that support your app that run in the same environment as your container app.
 
-When in development, your application can quickly create and connect to [dev mode services](services.md). These services easy to create and are development-grade services designed for nonproduction environments.
+When in development, your application can quickly create and connect to [dev mode services](services.md). These services are easy to create and are development-grade services designed for nonproduction environments.
 
 As you move to production, your application can connect production-grade managed services.
 
@@ -121,7 +121,7 @@ Next, create your internet-accessible container app.
 
     The `containerapp create` command uses the `--bind` option to create a link between the container app and the Redis dev mode service.
 
-    The bind request gathers connection information, including credentials and  connection strings, and injects it into the application as environment variables. These values are now available to the application code via environment variables.
+    The bind request gathers connection information, including credentials and  connection strings, and injects it into the application as environment variables. These values are now available to the application code to use in order to create a connection to the service.
 
     In this case, the following environment variables are available to the application:
 
@@ -132,11 +132,11 @@ Next, create your internet-accessible container app.
     REDIS_PORT=6379
     ```
 
-    If you access the application via a browser, you can add and remove strings from the Redis database. The Redis cache is responsible for storing application data, so data is available even after the application is restarted after scaling in to zero.
+    If you access the application via a browser, you can add and remove strings from the Redis database. The Redis cache is responsible for storing application data, so data is available even after the application is restarted after scaling to zero.
 
     The application is written such that if these environment variables aren't
     defined then the text strings are stored in memory. Meaning, if the
-    application scales in to zero then the data is lost. So, let's
+    application scales to zero then the data is lost. So, let's
     unbind the application from Redis.
 
 1. Unbind the Redis dev mode service.
@@ -145,7 +145,7 @@ Next, create your internet-accessible container app.
     az containerapp update --name myapp --unbind myredis
     ```
 
-    Now that the service is disconnected, data is now stored in an in-memory cache instead. You can verify location of the data by returning to your web browser and refreshing the web application.
+    Now that the service is disconnected, data is now stored in an in-memory cache instead. You can verify this change by returning to your web browser and refreshing the web application. You can now see the configuration information displayed indicates an in-memory storage is being used.
 
     If you then rebind the application back to the Redis service, you should see
     that all of the previously stored text strings are still there.
@@ -162,7 +162,7 @@ Next, create your internet-accessible container app.
 
 When your application is ready to move to production, you can bind your application to a managed service instead of a dev mode service.
 
-The following steps bind your application to Azure Cache for Redis.
+The following steps bind your application to an existing instance of Azure Cache for Redis called `azureRedis`.
 
 1. Bind to Azure Cache for Redis.
 
@@ -183,6 +183,11 @@ The following steps bind your application to Azure Cache for Redis.
     AZURE_REDIS_PORT=6380
     AZURE_REDIS_SSL=true
     ```
+
+> [!NOTE]
+> As of now the environment variable names used for dev-mode services and managed service will vary slightly. In the future the same names will be used - meaning, application code will no longer need to differentiate between the two usages.
+>
+> If you'd like to see the sample code used for this tutorial please see https://github.com/Azure-Samples/sample-service-redis.
 
     Now when you add new strings, the values are stored in an instance Azure Cache for Redis instead of the dev mode service.
 
