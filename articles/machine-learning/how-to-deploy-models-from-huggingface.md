@@ -166,7 +166,7 @@ Hugging Face models are featured in the Azure Machine Learning model catalog thr
 **How to deploy the models for batch inference?**
 Deploying these models to batch endpoints for batch inference is currently not supported. 
 
-**Can I use models from the HuggingFaceHub registry as input to jobs so that I can finetune these models using transformers SDK?**
+**Can I use models from the `HuggingFace` registry as input to jobs so that I can finetune these models using transformers SDK?**
 Since the model weights aren't stored in the HuggingFaceHub registry, you cannot access model weights by using these models as inputs to jobs.
 
 **How do I get support if my deployments fail or inference doesn't work as expected?**
