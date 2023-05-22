@@ -1,19 +1,14 @@
 ---
-# Required metadata
-		# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-		# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-		title:       # Add a title for the browser tab
-description: # Add a meaningful description for search results
+title: Send and receive events using Azure Event Hubs Data Generator. 
+description: This quickstart would help you send and receive events to Azure event hubs using Data generator.
 author:      Saglodha # GitHub alias
 ms.author:   saglodha # Microsoft alias
-ms.service:  # Add the ms.service or ms.prod value
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # Add the ms.topic value
+ms.service:  Azure Event Hubs
+ms.topic:    quickstart
 ms.date:     05/22/2023
 ---
 
-# QuickStart: Send and Receive Events using Azure Event Hubs Data Generator
+# QuickStart: Send and receive events using Azure Event Hubs Data Generator
 
 In this QuickStart, you learn how to Send and Receive Events using Azure Event Hubs Data Generator.  
 
