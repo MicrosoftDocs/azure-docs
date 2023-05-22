@@ -173,7 +173,7 @@ This visual supports up to 30,000 data points.
 
 **Can addresses or other location strings be used in this visual?**
 
-Yes, addresses and other location strings can be used in the Azure Maps Power BI visual.
+Yes, addresses and other location strings can be used in the Azure Maps Power BI visual. For more information on addresses and other location strings, see [The location field] in the *Geocoding in Azure Maps Power BI Visual* article.
 
 ## Next steps
 
@@ -218,3 +218,4 @@ Customize the visual:
 [Tips and tricks for color formatting in Power BI]: /power-bi/visuals/service-tips-and-tricks-for-color-formatting
 [Understanding layers in the Azure Maps Power BI visual]: power-bi-visual-understanding-layers.md
 [view]: #view
+[The location field]: power-bi-visual-geocode.md#the-location-field
