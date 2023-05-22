@@ -13,8 +13,7 @@ zone_pivot_groups: python-mode-functions
 This guide is an introduction to developing Azure Functions by using Python. The article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
 > [!IMPORTANT]
-> This article supports both the v1 and v2 programming model for Python in Azure Functions. 
-> The Python v2 programming model is currently in preview.
+> This article supports both the v1 and v2 programming model for Python in Azure Functions.
 > The Python v1 model uses a *functions.json* file to define functions, and the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure, and it's more code-centric. Choose the **v2** selector at the top of the article to learn about this new programming model. 
 
 As a Python developer, you might also be interested in one of the following articles:
@@ -138,7 +137,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-During preview, the entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
+The entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
 ::: zone-end
 
 ## Folder structure
@@ -405,16 +404,14 @@ At this time, only specific triggers and bindings are supported by the Python v2
 
 | Type | Trigger | Input binding | Output binding |
 | --- | :---: | :---: | :---: |
-| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
-| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
-| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
-| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
-| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
-| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#azure-blob-storage-trigger) | x | x | x |
-| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
-
-For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
+| [HTTP](aka.ms/azure-function-binding-http) | x |   |   |
+| [Timer](aka.ms/azure-function-binding-timer) | x |   |   |
+| [Azure Queue Storage](aka.ms/azure-function-binding-queue) | x |   | x |
+| [Azure Service Bus topic](aka.ms/azure-function-binding-service-bus) | x |   | x |
+| [Azure Service Bus queue](aka.ms/azure-function-binding-service-bus) | x |   | x |
+| [Azure Cosmos DB](aka.ms/azure-function-binding-cosmosdb-v2) | x | x | x |
+| [Azure Blob Storage](aka.ms/azure-function-binding-storage-blob) | x | x | x |
+| [Azure Hub](aka.ms/azure-function-binding-event-hubs) | x |   | x |
 
 ::: zone-end
 
