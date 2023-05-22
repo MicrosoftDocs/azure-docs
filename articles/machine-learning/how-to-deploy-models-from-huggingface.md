@@ -156,6 +156,24 @@ EOF
 az ml online-endpoint invoke --name $endpoint_name --request-file $scoring_file
 ``` 
 
+## Troubleshooting: Deployment errors and unsupported models
+
+HuggingFace hub has thousands of models with hundreds being updated each day. Only the most popular models in the collection are tested and others may fail with one of the below errors.
+
+### Gated models
+[Gated models](https://huggingface.co/docs/hub/models-gated) require users to agree to share their contact information and accept the model owners’ terms and conditions in order to access the model. Attempting to deploy such models will fail with a `KeyError`.
+
+### Models that need to run remote code
+Models typically use code from the transformers SDK but some models run code from the model repo. Such models need to set the parameter `trust_remote_code` to `True`. Such models are not supported from keeping security in mind. Attempting to deploy such models will fail with the following error: `ValueError: Loading <model> requires you to execute the configuration file in that repo on your local machine. Make sure you have read the code there to avoid malicious use, then set the option trust_remote_code=True to remove this error.`
+
+### Models with incorrect tokenizers
+Incorrectly specified or missing tokenizer in the model package can result in `OSError: Can't load tokenizer for <model>` error.
+
+### Missing libraries
+Some models need additional python libraries. You can install missing libraries when running models locally. Models that need special libraries beyond the standard transformers libraries will fail with `ModuleNotFoundError` or `ImportError` error.
+
+### Insufficient memory
+If you see the `OutOfQuota: Container terminated due to insufficient memory`, try using a `instance_type` with more memory. 
 
 ## Frequently asked questions
 
