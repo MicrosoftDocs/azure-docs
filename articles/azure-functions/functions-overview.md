@@ -9,42 +9,39 @@ ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 
 # Azure Functions overview
 
-Azure Functions is an event-based, serverless compute experience that accelerates application development and provides up-to-date resources to keep your apps running. Compute tasks you can perform using Azure Functions can include: processing file uploads, responding in near real time to streams, performing machine learning model inference, running code as a schedule task, and building serverless workflows. For more information, see [Azure Functions Scenarios](functions-scenarios.md).
+Azure Functions is an event-based, serverless compute experience that accelerates application development and provides up-to-date resources to keep your apps running. Compute tasks you can perform using Azure Functions can include: processing file uploads, responding in near real time to streams, performing machine learning model inference, running code as a schedule task, and building serverless workflows. 
 
-Using Azure Functions provides the following benefits:
+:::image type="content" source="media/functions-overview/functions-scenarios-overview.png" alt-text="Diagram that represents a set of seven scenarios supported by Azure Functions. ":::
 
-- **[Integrated programming model and runtime](#integrated-programming-model-and-runtime)**: Use the Functions runtime host and available triggers and bindings to run your function app and react to events.
+For more information, see [Azure Functions Scenarios](functions-scenarios.md).
 
-- **[End-to-end development experience](#end-to-end-development-experience)**: Take advantage of a complete, end-to-end development experience—from building and debugging locally on major platforms like Windows, macOS, and Linux, to deploying and monitoring in the cloud.
+## Run your code in the cloud
 
-- **[Hosting options flexibility](#flexible-hosting-options)**: Choose the hosting model that best fits your business needs, including containers, without compromising development experience.
+Functions provides a simple, affordable, and scalable way to run your code in the cloud. Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called _functions_. Functions can perform any number of tasks required by your cloud-based solutions. A comprehensive set of [triggers and bindings](functions-triggers-bindings.md) makes it easy to connect your functions to other services with minimal code. 
 
-- **[Fully managed and cost-effective](#fully-managed-and-cost-effective)**: Automated and flexible scaling based on your workload volume, lets you focus on adding value in your code instead of managing infrastructure.
+:::image type="content" source="media/functions-overview/integrated-programming-model-small.png" alt-text="Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings."  lightbox="media/functions-overview/integrated-programming-model.png":::
 
-## Integrated programming model and runtime
+The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the compute resources for running your code in the Azure cloud. 
 
-The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the functionality that's required to run your function app. Various [triggers and bindings](functions-triggers-bindings.md) mean you can easily connect to other services with minimal code. 
+Functions lets you manage one or more individual functions together as a _function app_. The function app is a unit of deployment, management, and scaling for your functions. Function apps benefit from the existing infrastructure provided by Azure App Service, including deployments, authentication/authorization, configuration, monitoring, and networking. 
 
-![Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings.](./media/functions-overview/integrated-programming-model.png)
+## Event-driven execution
 
-## End-to-end development experience
+Any cloud-based compute service must be responsive HTTP requests and scheduled executions, however you also need to execute code in response to key events. Functions uses triggers to receive events from other services, including event and message-based services like Azure Event Hubs, Azure Event Grid, Azure IoT Hub, and Azure Service Bus. This means that your function code can easily consume events and related data from other Azure and select partner services. 
 
-Azure Functions offers a complete, end-to-end development experience—from developing and debugging in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), and [other languages](./functions-custom-handlers.md), to [deploying](functions-deployment-technologies.md) and [monitoring in the cloud](functions-monitoring.md).
+## Integrated development lifecycle
 
-![Diagram of the end-to-end development experience using Azure Functions with developing, debugging locally, and then deploying to Azure.](./media/functions-overview/end-to-end-development-experience.png)
+With Functions, you write your function code in your language of choice using your favorite development tools and then deploy your code to the Azure cloud. Functions provides native support for developing in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), plus the ability to use [more languages](./functions-custom-handlers.md), such as Rust and Go. 
+
+The Functions host integrates directly with Visual Studio, Visual Studio Code, Maven, and other popular development tools to enable seemless debugging and [deployments](functions-deployment-technologies.md). 
+
+Functions also integrates with Azure Application Insights to provide comprehensive runtime telemetry and analysis of your [functions in the cloud](functions-monitoring.md).
 
 ## Flexible hosting options
 
-Choose the right Functions [hosting plan](functions-scale.md) for your business needs and application workload, from serverless and elastic scale options to plans that offer features for specialized needs, including containerized options.
+There's a right Functions [hosting plan](functions-scale.md) for your business needs and application workload. Dynamic scale plans range from fully serverless, where you only pay for execution time (Consumption plan), to always warm instances kept ready for fastest response times (Premium plan). [Event-driven scaling hosting options](./functions-scale.md#scale) in dynamic scale plans mean functions run only when needed, and you don't have to pay for more resources than you need.
 
-![Diagram of the Azure Functions flexibility in the various hosting options supported by Functions.](./media/functions-overview/hosting-options-flexibility.png)
-
-## Fully managed and cost-effective
-
-You can focus on building your app while Azure Functions takes care of the infrastructure with serverless computing. [Event driven scaling hosting options](./functions-scale.md#scale) mean functions run only when needed. 
-
-![Diagram of how Azure Functions enables fully-managed and cost-effective resources that scale up and down with demand.](./media/functions-overview/fully-managed-and-cost-effective.png)
-
+If you want complete control over your functions runtime environment and dependencies, you can deploy your functions in containers that you can fully customize. These custom containers can be hosted by Functions, deployed as part of a microservices architecture in Azure Container Apps, or even self-hosted in Kubernetes. 
 
 ## Next Steps
 
