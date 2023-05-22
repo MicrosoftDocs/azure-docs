@@ -15,7 +15,7 @@ ms.custom:
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit)
+:::image type="content" source="media/common/browse-code.svg" alt-text="An icon that links to GitHub source code." https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit:::
 
 In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (from now on, the Renesas RX65N) to Azure IoT.
 
@@ -145,7 +145,7 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
 
 1. Complete the following steps using the following image as a reference.
     
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/renesas-rx65n.jpg" alt-text="Locate reset, USB, and E1/E2Lite on the Renesas RX65N board":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/renesas-rx65n.jpg" alt-text="Photo of the Renesas RX65N board that shows the reset, USB, and E1/E2Lite.":::
 
 1. Remove the **EJ2** link from the board to enable the E2 Lite debugger. The link is located underneath the **USER SW** button.
     > [!WARNING] 
@@ -167,17 +167,17 @@ To connect the Renesas RX65N to Azure, you modify a configuration file for Wi-Fi
     * **Tool**: E2 emulator Lite
     * **Interface**: FINE
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-new.png" alt-text="Screenshot of Renesas Flash Programmer, New Project":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/rfp-new.png" alt-text="Screenshot of Renesas Flash Programmer, New Project.":::
 
 3. Select the *Tool Details* button, and navigate to the *Reset Settings* tab.
 
 4. Select *Reset Pin as Hi-Z* and press the *OK* button.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-reset.png" alt-text="Screenshot of Renesas Flash Programmer, Reset Settings":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/rfp-reset.png" alt-text="Screenshot of Renesas Flash Programmer, Reset Settings.":::
 
 5. Press the *Connect* button and, when prompted, check the *Auto Authentication* checkbox and then press *OK*.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication.":::
 
 6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.  
     > [!IMPORTANT]
@@ -200,7 +200,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your Renesas RX65N is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app.":::
 
 1. Select OK.
 1. Press the **Reset** button on the device.
