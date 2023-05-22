@@ -55,6 +55,41 @@ const { statusCode, container} = await database.containers.create({ id: containe
 
 The statusCode is an HTTP response code. A successful response is in the 200-299 range.
 
+## Access a container
+
+A container is accessed from the [Container](/javascript/api/@azure/cosmos/container) object either directly or chained from the [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) or [Database](/javascript/api/@azure/cosmos/database) objects.
+
+```javascript
+const databaseName = 'myDb';
+const containerName = 'myContainer';
+
+// Chained - assumes database and container already exis
+const { container, statusCode } = await client.database(databaseName).container(containerName);
+
+// Direct - assumes database and container already exist
+const { database, statusCode } = await database(databaseName);
+if(statusCode < 400){
+    const { container, statusCode } = await database.container(containerName);
+}
+
+// Query - assumes database and container already exist
+const { resources } = await client.database(databaseName).containers
+.query({
+    query: `SELECT * FROM root r where r.id =@containerId`,
+    parameters: [
+    {
+        name: '@containerId',
+        value: containerName
+    }
+    ]
+})
+.fetchAll();
+```
+
+> [!TIP]
+> [Containers](/javascript/api/@azure/cosmos/containerss) (plural): create or query containers
+> [Container](/javascript/api/@azure/cosmos/container) (singular): delete container, work with items
+
 ## Delete a container
 
 Once you get the [Container](/javascript/api/@azure/cosmos/container) object, you can use the Container object to [delete](/javascript/api/@azure/cosmos/container#@azure-cosmos-container-delete) the container:

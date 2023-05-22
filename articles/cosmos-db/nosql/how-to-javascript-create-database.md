@@ -55,6 +55,34 @@ const {statusCode, database } = await client.databases.create({ id: databaseName
 
 The statusCode is an HTTP response code. A successful response is in the 200-299 range.
 
+## Access a database
+
+A database is accessed from the [Database](/javascript/api/@azure/cosmos/database) object either directly or through a query result from the [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient).
+
+```javascript
+const databaseName = 'myDb';
+
+// Direct - assumes database already exists
+const { database, statusCode } = await client.database(databaseName);
+
+// Query - assumes database already exists   
+const { resources } = await client.databases
+.query({
+    query: `SELECT * FROM root r where r.id =@dbId`,
+    parameters: [
+    {
+        name: '@dbId',
+        value: databaseName
+    }
+    ]
+})
+.fetchAll();
+```
+
+> [!TIP]
+> [Databases](/javascript/api/@azure/cosmos/databases) (plural): Used for creating new databases, or querying/reading all databases.
+> [Database](/javascript/api/@azure/cosmos/database) (singular): Used for reading, updating, or deleting a existing database by id or accessing containers belonging to that database.
+
 ## Delete a database
 
 Once you get the [Database](/javascript/api/@azure/cosmos/database) object, you can use the Database object to [delete](/javascript/api/@azure/cosmos/database#@azure-cosmos-database-delete) the database:
