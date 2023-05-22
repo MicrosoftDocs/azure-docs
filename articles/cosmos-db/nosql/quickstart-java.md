@@ -402,7 +402,7 @@ There are several advanced scenarios that benefit from client-side throughput co
 
 Global throughput control in the Java SDK is configured by first creating a container that will define throughput control metadata. This container must have a partition key of `groupId`, and `ttl` enabled. Assuming you already have objects for client, database, and container as defined in the examples above, you can create this container as below. Here we name the container `ThroughputControl`:
 
-## [Sync API](#tab/async)
+## [Sync API](#tab/sync)
 
 ```java
     database = client.getDatabase("ThroughputControlDatabase")
@@ -422,7 +422,7 @@ Global throughput control in the Java SDK is configured by first creating a cont
 ---
 
 > [!NOTE]
-> the throughput control container must be created with a partition key `/groupId` and must have ttl value set, or throughput control will not function correctly. 
+> the throughput control container must be created with a partition key `/groupId` and must have `ttl` value set, or throughput control will not function correctly. 
 
 Then, to enable the container object used by the current client to use a shared global control group, we need to create two sets of config. The first is to define the control group name. If the group does not already exist, an entry for it will be created in the throughput control container. Otherwise, the existing group of this name will be used:
 
@@ -436,7 +436,7 @@ Then, to enable the container object used by the current client to use a shared 
 ```
 
 > [!NOTE]
-> In the above, we define a `targetThroughput` value of `100`, meaning that only a maximum of 100 RUs of the container's provisioned throughput can be used, before the SDK will attempt to rate limit the client locally. You can also define `targetThroughputThreshold` to provide a percentage of the container's throughput as the threshold instead. 
+> In the above, we define a `targetThroughput` value of `100`, meaning that only a maximum of 100 RUs of the container's provisioned throughput can be used by all clients consuming the throughput control group, before the SDK will attempt to rate limit clients. You can also define `targetThroughputThreshold` to provide a percentage of the container's throughput as the threshold instead. 
 
 The second config you need to create will reference to the throughput container you created earlier, and define some behaviours for it. Here, we define consumed throughput to be re-evaluated every 5 seconds (this is the lowest interval) and that metadata for the client using this container object to expire when dormant for 20 seconds or more.  
 
