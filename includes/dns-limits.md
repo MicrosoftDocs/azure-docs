@@ -2,7 +2,7 @@
 author: greg-lindsay
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 12/16/2022    
+ms.date: 05/22/2023  
 ms.author: greglin
 ---
 **Public DNS zones**
@@ -27,6 +27,11 @@ ms.author: greglin
 | Virtual Networks Links per private DNS zones with auto-registration enabled |100|
 | Number of private DNS zones a virtual network can get linked to with auto-registration enabled |1|
 | Number of private DNS zones a virtual network can get linked |1000|
+
+**Azure DNS resolver**
+
+| Resource | Limit |
+| --- | --- |
 | Number of DNS queries a virtual machine can send to Azure DNS resolver, per second |1000 <sup>1</sup> |
 | Maximum number of DNS queries queued (pending response) per virtual machine |200 <sup>1</sup> |
 
