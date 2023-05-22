@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 05/23/2023
 # As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
@@ -121,11 +121,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **compose**.
-
-1. From the actions list, select the action named **Compose**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "compose" entered, and the "Compose" action selected.](./media/logic-apps-perform-data-operations/select-compose-action-standard.png)
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Compose**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
    > [!NOTE]
    >

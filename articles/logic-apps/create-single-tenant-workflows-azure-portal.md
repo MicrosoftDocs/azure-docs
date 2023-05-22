@@ -1,11 +1,11 @@
 ---
-title: Create example Standard logic app workflow in the Azure portal
+title: Create example Standard logic app workflow in Azure portal
 description: Create your first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/23/2023
 ms.custom: ignite-fall-2021
 
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide shows how to create an example automated workflow that waits for an inbound web request and then sends a message to an email account. More specifically, you'll create a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), which can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run in single-tenant Azure Logic Apps. 
+This how-to guide shows how to create an example automated workflow that waits for an inbound web request and then sends a message to an email account. More specifically, you'll create a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), which can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run in single-tenant Azure Logic Apps. 
 
 > [!NOTE]
 >
