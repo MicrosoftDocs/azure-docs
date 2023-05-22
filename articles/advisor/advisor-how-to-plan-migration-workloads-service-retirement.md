@@ -32,6 +32,6 @@ The workbook shows a list and a map view of service retirements that impact your
 
  
 For more information about Advisor recommendations, see:
-* [Reliability recommendations](advisor-reference-reliability-recommendations.md)
+* [Azure Service Health](/service-health/overview.md)
 * [Introduction to Advisor](advisor-overview.md)
-* [Get started with Advisor](advisor-get-started.md)
+
