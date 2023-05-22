@@ -3,7 +3,7 @@ title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.topic: conceptual
 
-ms.date: 05/19/2023
+ms.date: 05/22/2023
 author: flang-msft
 ms.author: franlanglois
 
@@ -80,7 +80,8 @@ You can limit network access to a [private link](../../private-link/private-link
 
 To manage how Elastic deployments can be accessed, you can set Traffic filters for Azure Private Links.
 
-<!-- Screenshot -->
+<!-- Screenshot - added if primitive -->
+:::image type="content" source="media/manage/elastic-traffic-filter.png" alt-text="Screenshot showing Traffic Filter selected in the Resource menu.":::
 
 There are two types of filters available:
 
