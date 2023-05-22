@@ -17,9 +17,9 @@ ms.subservice: teams-interop
 This article focuses on the available options for extending Microsoft Teams out-of-the-box experience for Virtual appointments with Azure Communication Services and Microsoft Graph. To learn more about the current experience provided by Microsoft Teams, click [here](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1). 
 
 Microsoft provides three main approaches to Virtual appointments:
-1.	Microsoft Teams out-of-the-box experience – This ready-to-use solution integrated into the Microsoft Teams application allows you to schedule and manage Virtual appointments from Microsoft Teams.
-2.	Extend Microsoft Teams Virtual appointments experience – With this approach, you learn the tools needed to customize and integrate individual phases of Virtual appointments.`
-3.	Build your own Virtual appointments solution – With this approach, you build your own experience for Virtual appointments customized to your processes and products using Azure Communication Services.
+-	Microsoft Teams out-of-the-box experience – This ready-to-use solution integrated into the Microsoft Teams application allows you to schedule and manage Virtual appointments from Microsoft Teams.
+-	Extend Microsoft Teams Virtual appointments experience – With this approach, you learn the tools needed to customize and integrate individual phases of Virtual appointments.`
+-	Build your own Virtual appointments solution – With this approach, you build your own experience for Virtual appointments customized to your processes and products using Azure Communication Services.
 
 
 ## Overview of Virtual appointments
