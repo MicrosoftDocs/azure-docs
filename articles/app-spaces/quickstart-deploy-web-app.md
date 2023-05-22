@@ -5,7 +5,7 @@ ms.author: chcomley
 author: chcomley
 ms.service: app-spaces
 ms.topic: quickstart
-ms.date: 05/12/2023
+ms.date: 05/22/2023
 ---
 
 # Quickstart: Deploy a web app with Azure App Spaces

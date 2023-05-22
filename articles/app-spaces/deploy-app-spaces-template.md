@@ -5,12 +5,12 @@ ms.service: app-spaces
 ms.topic: how-to
 ms.author: chcomley
 author: chcomley
-ms.date: 05/10/2023
+ms.date: 05/22/2023
 ---
 
 # Use a sample app with Azure App Spaces
 
-This article describes how to deploy a sample app to [Azure App Spaces](overview.md). If you don't have your own repository, you can select one of the templates provided to provision new resources on Azure.
+This article describes how to deploy a sample app to [Azure App Spaces](overview.md). If you don't have your own repository, you can select one of the templates provided to provision new resources on Azure. For more information, see [About Azure App Spaces](overview.md). 
 
 ## Prerequisites
 
