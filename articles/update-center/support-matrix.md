@@ -62,7 +62,7 @@ Update management center (preview) is supported in the following regions current
 
 **Geography** | **Supported Regions**
 --- | ---
-Africa | South Africa </br> North Africa
+Africa | South Africa North
 Asia Pacific | East Asia </br> South East Asia
 Australia | Australia East
 Brazil | Brazil South
