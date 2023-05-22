@@ -18,7 +18,7 @@ In addition to sending traffic to Global Secure Access, administrators can use C
 
 Conditional Access on traffic profiles provides administrators with enormous control over their security posture. Administrators can enforce [Zero Trust principles](/security/zero-trust/) using policy to manage access to the network. Using traffic profiles allows consistent application of policy. For example, applications that may only support basic authentication can now be protected behind a traffic profile.
 
-This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profile](how-to-configure-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365, private, or internet with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
+This functionality allows administrators to consistently enforce Conditional Access policy based on [traffic profiles](concept-traffic-forwarding.md), not just applications or actions. Administrators can target specific traffic profiles like Microsoft 365, private, or internet with these policies. Users can access these configured endpoints or traffic profiles only when they satisfy the configured Conditional Access policies. 
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ This functionality allows administrators to consistently enforce Conditional Acc
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running.
-* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [Learn how to configure traffic forwarding for Global Secure Access](how-to-configure-traffic-forwarding.md).
+* You must be routing your Microsoft 365, Internet, or private network traffic through the **Global Secure Access preview** using the steps in [How to enable the M365 profile](how-to-enable-m365-profile.md).
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 

@@ -119,4 +119,4 @@ Once you have your Quick access app configured, your private websites and apps a
 
 ## Next steps
 
-- [Learn about traffic management profiles](how-to-configure-traffic-forwarding.md)
+- [Learn about traffic management profiles](concept-traffic-forwarding.md)

@@ -35,4 +35,4 @@ For each traffic forwarding profile, you can configure three main details:
 ## Next steps
 
 - [Enable the M365 traffic profile](how-to-enable-m365-profile.md)
-- [Enable the Private access profile](how-to-enable-private-access-profile.md)
+- [How to enable the Private access traffic profile](how-to-enable-private-access-profile.md)

@@ -75,4 +75,4 @@ Traffic profiles can be assigned to branches, so that the network traffic is for
 
 ## Next steps
 
-- [How to enable the Private access traffic profile](how-to-enable-private-access.md)
+- [How to enable the Private access traffic profile](how-to-enable-private-access-profile.md)
