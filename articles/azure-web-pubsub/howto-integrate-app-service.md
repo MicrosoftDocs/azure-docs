@@ -95,27 +95,27 @@ git clone https://github.com/Azure/awps-webapp-sample.git
 
 ## Deploy the application to App Service
 1. App Service supports many deployment workflows. For this guide, we are going to deploy a ZIP package. Run the following commands to prepare the ZIP.
-```bash
-npm install
-npm run build
-zip -r app.zip *
-```
+    ```bash
+    npm install
+    npm run build
+    zip -r app.zip *
+    ```
 
 2. Use the following command to deploy it to Azure App Service.
-```azurecli-interactive
-az webapp deployment source config-zip \
-  --resource-group "whiteboard-group" \
-  --name "whiteboard-app" \
-  --src app.zip
-```
+    ```azurecli-interactive
+    az webapp deployment source config-zip \
+    --resource-group "whiteboard-group" \
+    --name "whiteboard-app" \
+    --src app.zip
+    ```
 
 3. Set Azure Web PubSub connection string in the application settings. This is the `primaryConnectionString` you stored from an earlier step.
-```azurecli-interactive
-az webapp config appsettings set \
-  --resource-group "whiteboard-group" \
-  --name "whiteboard-app" \
-  --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
-```
+    ```azurecli-interactive
+    az webapp config appsettings set \
+    --resource-group "whiteboard-group" \
+    --name "whiteboard-app" \
+    --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
+    ```
 
 ## Configure upstream server to handle events coming from Web PubSub
 Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages, for example, if you can persist messages in a database of choice. 
@@ -139,7 +139,7 @@ As is with HTTP requests, Web PubSub service needs to know where to locate your 
 > [!IMPORTANT]
 > `url-template` has three parts: protocol + hostname + path, which in our case is `https://<The hostname of your Web App resource>/eventhandler`.
 
-## View the whiteboard app in a broswer
+## View the whiteboard app in a browser
 Now head over to your browser and visit your deployed Web App. It is recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
 
 ## Data flow
