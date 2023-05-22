@@ -8,7 +8,7 @@ ms.date: 05/19/2023
 
 # Prepare migration of the workloads impacted by service retirement
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. It is important to be aware of upcoming Azure products and feature retirements to assess the impact on their workloads and plan for migration to replacement products and features. 
+Azure Advisor helps you assess and improve the continuity of your business-critical applications. It is important to be aware of upcoming Azure products and feature retirements to assess their impact on your workloads and plan migration.
 
 ## Service Retirement workbook
 
