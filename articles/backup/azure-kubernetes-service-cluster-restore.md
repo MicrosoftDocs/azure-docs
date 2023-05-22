@@ -30,12 +30,12 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/start-kubernetes-cluster-restore.png" alt-text="Screenshot shows how to start the restore process.":::
 
-2. On the next page, click **Select Backup Instance**, select the *instance* that you want to restore, and then select **Continue**.
+2. On the next page, click **Select backup instance**, select the *instance* that you want to restore, and then select **Continue**.
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/select-backup-instance-for-restore.png" alt-text="Screenshot shows selection of backup instance for restore.":::
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/choose-instances-for-restore.png" alt-text="Screenshot shows choosing instances for restore.":::
-
+   
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/starting-kubernetes-restore.png" alt-text="Screenshot shows starting restore.":::
 
 3. Click **Select restore point** to select the restore point you want to restore.
@@ -54,9 +54,9 @@ To restore the backed-up AKS cluster, follow these steps:
 
 5. To select the *backed-up cluster resources* for restore, click **Select resources**.
 
-   :::image type="content" source="./media/azure-kubernetes-cluster-backup/select-resources-to-restore-page.png" alt-text="Screenshot shows the Select Resources to restore page.":::
-
    Learn more about [restore configurations](#restore-configurations).
+
+   :::image type="content" source="./media/azure-kubernetes-cluster-backup/select-resources-to-restore-page.png" alt-text="Screenshot shows the Select Resources to restore page.":::
 
 6. Select **Validate** to run validation on the backed-up cluster selections.
 
@@ -66,7 +66,7 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/grant-permissions-for-restore.png" alt-text="Screenshot shows how to grant permissions for restore.":::
 
-7.	Once the validation is successful, select **Review + restore** and restore the backups to the selected cluster.
+7. Once the validation is successful, select **Review + restore** and restore the backups to the selected cluster.
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/review-restore-tab.png" alt-text="Screenshot shows the Review + restore tab for restore.":::
 

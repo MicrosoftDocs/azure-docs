@@ -95,23 +95,24 @@ To configure backups for AKS cluster, follow these steps:
 
 1. Provide a *storage account* and *blob container* as input.
 
-  Your AKS cluster backups will be stored in this blob container. The storage account needs to be in the same region and subscription as the cluster.
+   Your AKS cluster backups will be stored in this blob container. The storage account needs to be in the same region and subscription as the cluster.
 
-   Select **Next**.
+    Select **Next**.
 
-   :::image type="content" source="./media/azure-kubernetes-cluster-backup/add-storage-details-for-backup.png" alt-text="Screenshot shows how to add storage and blob details for backup."::: 
+    :::image type="content" source="./media/azure-kubernetes-cluster-backup/add-storage-details-for-backup.png" alt-text="Screenshot shows how to add storage and blob details for backup."::: 
 
-1. Review the extension installation details provided, and then select **Create**.
+1.  Review the extension installation details provided, and then select **Create**.
 
-   :::image type="content" source="./media/azure-kubernetes-cluster-backup/install-extension.png" alt-text="Screenshot shows how to review and install the backup extension.":::
+    The deployment begins to install the extension.
 
-   The deployment begins to install the extension.
+    :::image type="content" source="./media/azure-kubernetes-cluster-backup/install-extension.png" alt-text="Screenshot shows how to review and install the backup extension.":::
 
 5. Once the  backup extension is installed successfully, start configuring backups for your AKS cluster by selecting **Configure Backup**.
 
+   You can also perform this action from the **Backup centre**.
+
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/configure-backup.png" alt-text="Screenshot shows the selection of Configure Backup.":::
 
-   You can also perform this action from the **Backup centre**. 
 
 1. Now, select the *Backup vault* to configure backup.
 
@@ -147,9 +148,11 @@ To configure backups for AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot shows validation error when appropriate permissions aren't assigned.":::
 
-1. To resolve the error, select the checkbox next to the **Datasource**, and then select **Assign Missing Role**.
+1. To resolve the error, select the checkbox next to the **Datasource**, and then select **Assign missing roles**.
  
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/start-role-assignment.png" alt-text="Screenshot shows how to start assigning roles.":::
+
+   The following screenshot shows the list of roles you can select.
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/select-missing-roles.png" alt-text="Screenshot shows how to select missing roles.":::
 
@@ -157,7 +160,7 @@ To configure backups for AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/proceed-for-backup.png" alt-text="Screenshot shows how to proceed for backup.":::
 
-1. Select **Configure Backup**.
+1. Select **Configure backup**.
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/finish-backup-configuration.png" alt-text="Screenshot shows how to finish backup configuration.":::
 
