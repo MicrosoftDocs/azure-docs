@@ -45,10 +45,7 @@ Links are provided to more information for each supported scenario.
 
 ### JavaScript Auto-Instrumentation
 
-Auto-instrumentation for JavaScript web comes in these flavors:
-
-- In [Supported environments, languages, and resource providers](#supported-environments-languages-and-resource-providers), we show where it's available via the portal. 
-- Alternatively, if you’re using the following supported SDKs, you can configure the SDK Loader Script to inject from the server-side SDK onto each page.
+If you’re using the following supported SDKs, you can configure the SDK Loader Script to inject from the server-side SDK onto each page.
 
    | SDK   | More information
    |	:---	|	:---	|
