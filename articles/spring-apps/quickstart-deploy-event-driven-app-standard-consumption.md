@@ -88,7 +88,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 ::: zone-end
 
-1. Use the following command to sign in to Azure:
+2. Use the following command to sign in to Azure:
 
    ```azurecli
    az login
@@ -126,26 +126,24 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 ## Create a Service Bus instance
 
-Create a Service Bus instance by using the following steps.
+Use the following command to create a Service Bus namespace:
 
-1. Use the following command to create a Service Bus namespace:
-
-   ```azurecli
-   az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
-   ```
+```azurecli
+az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
+```
 
 ## Create queues in your Service Bus instance
 
-1. Use the following commands to create two queues named `lower-case` and `upper-case`:
+Use the following commands to create two queues named `lower-case` and `upper-case`:
 
-   ```azurecli
-   az servicebus queue create \
-       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-       --name lower-case
-   az servicebus queue create \
-       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-       --name upper-case
-   ```
+```azurecli
+az servicebus queue create \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name lower-case
+az servicebus queue create \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name upper-case
+```
 
 ::: zone pivot="sc-consumption-plan"
 
@@ -194,7 +192,7 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 ::: zone pivot="sc-consumption-plan"
 
-1. Use the following command to register the `Microsoft.AppPlatform` provider for Azure Spring Apps:
+2. Use the following command to register the `Microsoft.AppPlatform` provider for Azure Spring Apps:
 
    ```azurecli
    az provider register --namespace Microsoft.AppPlatform
@@ -222,7 +220,7 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 ::: zone pivot="sc-standard"
 
-1. Use the following command to create your Azure Spring Apps instance:
+2. Use the following command to create your Azure Spring Apps instance:
 
    ```azurecli
    az spring create --name ${AZURE_SPRING_APPS_INSTANCE}
@@ -232,7 +230,7 @@ An instance of an Azure Spring Apps Standard consumption and dedicated plan host
 
 ::: zone pivot="sc-enterprise"
 
-1. Use the following command to create your Azure Spring Apps instance:
+2. Use the following command to create your Azure Spring Apps instance:
 
    ```azurecli
    az spring create \
@@ -301,30 +299,30 @@ az spring app create \
 
 ::: zone pivot="sc-standard,sc-enterprise"
 
-1. Create an app in the Azure Spring Apps instance by using the following command:
+Create an app in the Azure Spring Apps instance by using the following command:
 
 ::: zone-end
 
 ::: zone pivot="sc-standard"
 
-   ```azurecli
-   az spring app create \
-       --service ${AZURE_SPRING_APPS_INSTANCE} \
-       --name ${APP_NAME} \
-       --runtime-version Java_17 \
-       --assign-endpoint true
-   ```
+```azurecli
+az spring app create \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME} \
+    --runtime-version Java_17 \
+    --assign-endpoint true
+```
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
-   ```azurecli
-   az spring app create \
-       --service ${AZURE_SPRING_APPS_INSTANCE} \
-       --name ${APP_NAME} \
-       --assign-endpoint true
-   ```
+```azurecli
+az spring app create \
+    --service ${AZURE_SPRING_APPS_INSTANCE} \
+    --name ${APP_NAME} \
+    --assign-endpoint true
+```
 
 ::: zone-end
 
