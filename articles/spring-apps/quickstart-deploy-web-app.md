@@ -413,13 +413,13 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 ::: zone pivot="sc-standard,sc-enterprise"
 
-1. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
+2. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
 
 ::: zone-end
 
 ::: zone pivot="sc-consumption-plan"
 
-1. After the deployment has completed, use the following command to access the app with the URL retrieved:
+2. After the deployment has completed, use the following command to access the app with the URL retrieved:
 
    ```azurecli
    az spring app show \
@@ -433,7 +433,7 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 ::: zone-end
 
-1. Use the following command to check the app's log to investigate any deployment issue:
+3. Use the following command to check the app's log to investigate any deployment issue:
 
    ```azurecli
    az spring app logs \
