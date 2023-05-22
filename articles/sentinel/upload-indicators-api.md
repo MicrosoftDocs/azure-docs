@@ -10,7 +10,7 @@ ms.author: austinmc
 
 # Reference the upload indicators API (Preview) to import threat intelligence to Microsoft Sentinel
 
-The Microsoft Sentinel upload indicators API allows for threat intelligence platforms or custom applications to import indicators of compromise in the STIX format into a Microsoft Sentinel workspace. Whether you use the API with the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md) or as part of a custom solution, this documents serves as a reference.
+The Microsoft Sentinel upload indicators API allows for threat intelligence platforms or custom applications to import indicators of compromise in the STIX format into a Microsoft Sentinel workspace. Whether you use the API with the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md) or as part of a custom solution, this document serves as a reference.
 
 > [!IMPORTANT]
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -34,7 +34,7 @@ This section covers the first three of the five components discussed earlier. Yo
 
 ### Acquire an access token
 
-Acquire an Azure AD access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](../active-directory/develop/access-tokens.md#token-formats) tokens are accepted by the API.
+Acquire an Azure AD access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](../active-directory/develop/access-tokens.md#token-formats) are valid tokens accepted by the API.
 
 To get a v1.0 token, use [ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) or send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/token`
@@ -75,47 +75,46 @@ The JSON object for the body contains the following fields:
 
 |Field name	|Data Type	|Description|
 |---|---|---|
-|SourceSystem (required)| string | Source system name and the value `Microsoft Sentinel` is restricted.|
+|SourceSystem (required)| string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
 |Value (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
 Create the array of indicators using the STIX 2.1 indicator format specification which has been condensed here for your convenience with links to important sections.
 
 |Property Name	|Type |	Description |
 |----|----|----|
-|`id` (required)| string | An ID used to identify the indicator. See section [2.9] for specifications on how to create an `id`. The format will look something like `indicator--<UUID>`|
-|`spec_version` (optional) | string | STIX indicator version. This is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, if this field is not set, the API will default to `2.1`|
+|`id` (required)| string | An ID used to identify the indicator. See section [2.9] for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
+|`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API will default to `2.1`|
 |`type` (required)|	string | The value of this property *must* be `indicator`.|
 |`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
-|`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this
-indicator actually does. |
+|`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does. |
 |`indicator_types` (optional) | list of strings | A set of categorizations for this indicator.<br><br>The values for this property *should* come from the [indicator-type-ov](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_cvhfwe3t9vuo) |
 |`pattern` (required) | string | The detection pattern for this indicator *may* be expressed as a [STIX Patterning](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_e8slinrhxcc9) or another appropriate language such as SNORT, YARA, etc. |
 |`pattern_type` (required) | string | The pattern language used in this indicator.<br><br>The value for this property *should* come from [pattern types](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_9lfdvxnyofxw).<br><br>The value of this property *must* match the type of pattern data included in the pattern property.|
-|`pattern_version` (optional) | string | The version of the pattern language that is used for the data in the pattern property which *must* match the type of pattern data included in the pattern property.<br><br>For patterns that do not have a formal specification, the build or code version that the pattern is known to work with *should* be used.<br><br>For the STIX pattern language, the default value is determined by the specification version of the object.<br><br>For other languages, the default value *should* be the latest version of the patterning language at the time of this object's creation.|
-|`valid_from` (required) | timestamp | The time from which this indicator is considered a valid indicator of the behaviors it is related or represents.|
-|`valid_until` (optional) | timestamp | The time at which this indicator should no longer be considered a valid indicator of the behaviors it is related to or represents.<br><br>If the valid_until property is omitted, then there is no constraint on the latest time for which the Indicator is valid.<br><br>This *must* be greater than the timestamp in the valid_from property.|
+|`pattern_version` (optional) | string | The version of the pattern language used for the data in the pattern property, which *must* match the type of pattern data included in the pattern property.<br><br>For patterns that don't have a formal specification, the build or code version that the pattern is known to work with *should* be used.<br><br>For the STIX pattern language, the specification version of the object determines the default value.<br><br>For other languages, the default value *should* be the latest version of the patterning language at the time of this object's creation.|
+|`valid_from` (required) | timestamp | The time from which this indicator is considered a valid indicator of the behaviors its related to or represents.|
+|`valid_until` (optional) | timestamp | The time at which this indicator should no longer be considered a valid indicator of the behaviors its related to or represents.<br><br>If the valid_until property is omitted, then there is no constraint on the latest time for which the indicator is valid.<br><br>This timestamp *must* be greater than the valid_from timestamp.|
 |`kill_chain_phases` (optional) | list of string | The kill chain phase(s) to which this indicator corresponds.<br><br>The value for this property *should* come from the [Kill Chain Phase](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_i4tjv75ce50h).|
-|`created_by_ref` (optional) | string | The created_by_ref property specifies the ID property of the entity that created this object.<br><br>If this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous.|
+|`created_by_ref` (optional) | string | The created_by_ref property specifies the ID property of the entity that created this object.<br><br>If this attribute is omitted, the source of this information is undefined. For object creators who wish to remain anonymous, keep this value undefined.|
 |`revoked` (optional) | boolean | Revoked objects are no longer considered valid by the object creator. Revoking an object is permanent; future versions of the object with this `id` *must not* be created.<br><br>The default value of this property is false.|
-|`labels` (optional) | list of strings | The `labels` property specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined. These will display as **Tags** in Microsoft Sentinel.|
+|`labels` (optional) | list of strings | The `labels` property specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined. These labels will display as **Tags** in Microsoft Sentinel.|
 |`confidence` (optional) | integer | The `confidence` property identifies the confidence that the creator has in the correctness of their data. The confidence value *must* be a number in the range of 0-100.<br><br>[Appendix A](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_1v6elyto0uqg) contains a table of normative mappings to other confidence scales that *must* be used when presenting the confidence value in one of those scales.<br><br>If the confidence property is not present, then the confidence of the content is unspecified.|
-|`lang` (optional) | string | The `lang` property identifies the language of the text content in this object. When present, it *must* be a language code conformant to [RFC5646](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#kix.yoz409d7eis1). If the property is not present, then the language of the content is `en` (English).<br><br>This property *should* be present if the object type contains translatable text properties (e.g. name, description).<br><br>The language of individual fields in this object *may* be overridden by the lang property in granular markings (see section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr)).|
-|`object_marking_refs` (optional) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it cannot contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
+|`lang` (optional) | string | The `lang` property identifies the language of the text content in this object. When present, it *must* be a language code conformant to [RFC5646](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#kix.yoz409d7eis1). If the property isn't present, then the language of the content is `en` (English).<br><br>This property *should* be present if the object type contains translatable text properties (for example, name, description).<br><br>The language of individual fields in this object *may* override the `lang` property in granular markings (see section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr)).|
+|`object_marking_refs` (optional) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
 |`external_references` (optional) | list of object | The `external_references` property specifies a list of external references which refers to non-STIX information. This property is used to provide one or more URLs, descriptions, or IDs to records in
 other systems.|
-|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is `en` but the description is `de`.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it cannot contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
+|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is `en` but the description is `de`.<br><br>In some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
 
 
 ### Process the response message
 
-The response header will contain an HTTP status code. Reference this table for more information about how to interpret the API call result.
+The response header contains an HTTP status code. Reference this table for more information about how to interpret the API call result.
 
 |Status code  |Description  |
 |---------|---------|
 |**200**     |   Success. The API returns 200 when one or more indicators are successfully validated and published. |
-|**400**     |   Bad format. Something in the requests aren't correctly formatted.    |
+|**400**     |   Bad format. Something in the request isn't correctly formatted.    |
 |**401**     |   Unauthorized. |
-|**404**     |   File not found. Usually this occurs when the workspace ID isn't found.   |
+|**404**     |   File not found. Usually this error occurs when the workspace ID isn't found.   |
 |**429**     |   The number of requests in a minute has exceeded.   |
 |**500**     |   Server error. Usually an error in the API or Microsoft Sentinel services.
 
@@ -227,7 +226,7 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
 ```
 
 ### Sample response body with validation error
-For example, if you send an array with four indicators, and the first three are good but the fourth doesn't have an `id` (a required field), then you'll receive an HTTP status code 200 response and the following body:
+For example, if you send an array with four indicators, and the first three are good but the fourth doesn't have an `id` (a required field), then an HTTP status code 200 response is generated along with the following body:
 
 ```json
 {
