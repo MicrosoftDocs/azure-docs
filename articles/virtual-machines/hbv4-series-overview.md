@@ -63,31 +63,31 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <details>
 <summary>Click to view lstopo output for Standard_HB176rs_v4</summary>
 
-![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176.png)
+![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176rs-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
 
-![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv3-96-lstopo.png)
+![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv4-144rs-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
 
-![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv3-64-lstopo.png)
+![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96rs-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
 
-![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv3-32-lstopo.png)
+![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48rs-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
 
-![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv3-16-lstopo.png)
+![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24rs-lstopo.png)
 </details>
 
 ## InfiniBand networking
@@ -106,31 +106,33 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 | Hardware specifications          | HBv4-series VMs              |
 |----------------------------------|----------------------------------|
-| Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               | 
-| CPU                              | AMD EPYC 7V73X                   | 
-| CPU Frequency (non-AVX)          | 3.0 GHz (all cores), 3.5 GHz (up to 10 cores)    | 
-| Memory                           | 448 GB (RAM per core depends on VM size)         | 
-| Local Disk                       | 2 * 960 GB NVMe (block), 480 GB SSD (page file) | 
-| Infiniband                       | 200 Gb/s Mellanox ConnectX-6 HDR InfiniBand | 
-| Network                          | 50 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
+| Cores                            | 176, 144, 96, 48, or 24 (SMT disabled)           | 
+| CPU                              | AMD EPYC 9V33X                   | 
+| CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
+| Memory                           | 688 GB (RAM per core depends on VM size)         | 
+| Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
+| Infiniband                       | 400 Gb/s Mellanox ConnectX-7 NDR InfiniBand | 
+| Network                          | 80 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
 
 ## Software specifications 
 
 | Software specifications        | HBv4-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
-| Max MPI Job Size               | 36,000 cores (300 VMs in a single Virtual Machine Scale Set with singlePlacementGroup=true) |
-| MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
-| Additional Frameworks          | UCX, libfabric, PGAS                  |
-| Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
-| OS Support for SRIOV RDMA      | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 12 SP4+, WinServer 2016+           |
-| Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
+| Max MPI Job Size               | 52,800 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
+| MPI Support                    | HPC-X (2.13 or higher), Intel MPI (2021.7.0 or higher), OpenMPI (4.1.3 or higher), MVAPICH2 (2.3.7 or higher), MPICH (4.1 or higher)  |
+| Additional Frameworks          | UCX, libfabric, PGAS, or other InfiniBand based runtimes                  |
+| Azure Storage Support          | Standard and Premium Disks (maximum 32 disks), Azure NetApp Files, Azure Files, Azure HPC Cache, Azure Managed Lustre File System             |
+| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 18.04+            |
+| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 18.04+    |
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+> These VMs support Generation 2 ONLY
+> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6
+> Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+> 
 
 ## Next steps
 
