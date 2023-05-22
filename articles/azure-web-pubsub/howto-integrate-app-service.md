@@ -15,7 +15,8 @@ A new class of applications are re-imagining what modern work could be. While [M
 ## Overview
 In this how-to guide, we will take a cloud-native approach and leverage Azure services to build a real-time collaborative whiteboard and we will deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
-"GIF Missing - Finished project | Mobile and Browser"
+:::image type="content" source="./media/howto-integrate-app-service/result.jpg" alt-text="GIT of finished project":::
+
 > [!div class="nextstepaction"]
 > [Check out live whiteboard demo](https://azure.github.io/azure-webpubsub/demos/whiteboard)
 
