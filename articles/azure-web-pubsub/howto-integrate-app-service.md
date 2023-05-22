@@ -13,18 +13,20 @@ ms.date: 05/17/2023
 A new class of applications are re-imagining what modern work could be. While [Microsoft Word](https://www.microsoft.com/en-ww/microsoft-365/word) brings editors together, [Figma](https://www.figma.com) gathers up designers on the same creative endeavor. This class of applications builds on a user experience that makes us feel connected with our remote collaborators. From a technical point of view, user's activities need to be synchronized across users' screens at a low latency.
 
 ## Overview
-In this how-to guide, we will take a cloud-native approach and leverage Azure services to build a real-time collaborative whiteboard and we will deploy the project as a Web App to Azure App Service. The whiteboard app is accessable in the browser and allows anyone can draw on the same canvas.
+In this how-to guide, we will take a cloud-native approach and leverage Azure services to build a real-time collaborative whiteboard and we will deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
 "GIF Missing - Finished project | Mobile and Browser"
+> [!div class="nextstepaction"]
+> [Check out live whiteboard demo](https://azure.github.io/azure-webpubsub/demos/whiteboard)
 
 ### Architecture
 
-|Azure service name | Purpose | Benefits   | 
-|-------------------|-------------------|------------------|
+|Azure service name    | Purpose           | Benefits         | 
+|----------------------|-------------------|------------------|
 |[Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)  | Provides the hosting environment for the backend application, which is built with [Express](https://expressjs.com/) | Fully managed environment for application backends, with no need to worry about infrastructure where the code runs 
-|[Azure Web PubSub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Frees server from managing persistent WebSocket connections and scales to 100K concurrent client connections with just one resource
+|[Azure Web PubSub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview) | Provides low-latency, bi-directional data exchange channel between the backend application and clients | Drastically reduces server load by freeing server from managing persistent WebSocket connections and scales to 100K concurrent client connections with just one resource
 
-"Image Missing - Architecture diagram Missing"
+:::image type="content" source="./media/howto-integrate-app-service/architecture.jpg" alt-text="Architecture diagram of the collaborative whiteboard app":::
 
 ## Prerequisites
 You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide as we are going to focus on building and deloying the whiteboard app first.
@@ -44,35 +46,35 @@ In order to follow the step-by-step guide, you will need
 1. Create a resource group on Azure.
     ```azurecli-interactive
     az group create \
-        --location "westus" \  
-        --name "whiteboard-group"
+      --location "westus" \  
+      --name "whiteboard-group"
     ```
 
 # [2. Create a Web App resource](#tab/create-web-app)
 1. Create a free App Service plan.
     ```azurecli-interactive
     az appservice plan create \ 
-        --resource-group "whiteboard-group" \ 
-        --name "demo" \ 
-        --sku FREE
-        --is-linux
+      --resource-group "whiteboard-group" \ 
+      --name "demo" \ 
+      --sku FREE
+      --is-linux
     ```
 
 1. Create a Web App resource 
-    ```azurecli-interactive.
+    ```azurecli-interactive
     az webapp create \
-        --resource-group "whiteboard-group" \
-        --name "whiteboard-app" \ 
-        --plan "demo" \
-        --runtime "NODE:18-lts"
+      --resource-group "whiteboard-group" \
+      --name "whiteboard-app" \ 
+      --plan "demo" \
+      --runtime "NODE:18-lts"
     ```
 
 # [3. Create a Web PubSub resource](#tab/create-web-pubsub)
 1. Create a Web PubSub resource.
     ```azurecli-interactive
     az webpubsub create \
-      --name whiteboard-app \
-      --resource-group whiteboard-group \
+      --name "whiteboard-app" \
+      --resource-group "whiteboard-group" \
       --location "westus" \
       --sku Free_F1
     ```
@@ -85,7 +87,7 @@ In order to follow the step-by-step guide, you will need
     ```
 ---
 ## Get the application code
-Run the following command to get a copy of the application code. You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide
+Run the following command to get a copy of the application code. You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide.
 ```bash
 git clone https://github.com/Azure/awps-webapp-sample.git
 ```
@@ -115,9 +117,9 @@ az webapp config appsettings set \
 ```
 
 ## Configure upstream server to handle events coming from Web PubSub
-Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages to fulfill your business requirements. 
+Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This is the mechanism your backend server uses to further process messages, for example, if you can persist messages in a database of choice. 
 
-As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a publically accesable domain name for it. 
+As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a publically accessible domain name for it. 
 1. Show and store the value of `name` somewhere.
     ```azurecli-interactive
     az webapp config hostname list \
@@ -125,18 +127,13 @@ As is with HTTP requests, Web PubSub service needs to know where to locate your 
       --webapp-name "whiteboard-app" 
     ```
 
-1. The endpoint we decided to expose on the backend server is [`/eventhandler`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L17) and the `hub` name for whiteboard app [`sample_draw`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#l14)
-    ```azurecli-interactive
-    az webapp config hostname list \
-      --resource-group "whiteboard-group"
-      --webapp-name "whiteboard-app" 
-    ```
+1. The endpoint we decided to expose on the backend server is [`/eventhandler`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L17) and the `hub` name for whiteboard app [`"sample_draw"`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#l14)
     ```azurecli-interactive
     az webpubsub hub create \ 
-    --resource-group "whiteboard-group" \
-    --name "whiteboard-app" \
-    --hub-name "sample_draw" \
-    --event-handler url-template="https://<Replace with the hostname of your Web App resource>/eventhandler" user-event-pattern="*" system-event="connected" system-event="disconnected" 
+      --resource-group "whiteboard-group" \
+      --name "whiteboard-app" \
+      --hub-name "sample_draw" \
+      --event-handler url-template="https://<Replace with the hostname of your Web App resource>/eventhandler" user-event-pattern="*" system-event="connected" system-event="disconnected" 
     ```
 > [!IMPORTANT]
 > `url-template` has three parts: protocol + hostname + path, which in our case is `https://<The hostname of your Web App resource>/eventhandler`.
@@ -145,12 +142,16 @@ As is with HTTP requests, Web PubSub service needs to know where to locate your 
 Now head over to your browser and visit your deployed Web App. It is recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
 
 ## Data flow
+### Overview
+The data flow section dives deeper into how the whiteboard app was built. The whiteboard app has two transport
+- HTTP service written as an Express app and hosted on App Service. 
+- WebSocket connections managed by Azure Web PubSub.
 :::row:::
     :::column span="2":::
         The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service. {...Code link missing}
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-1.jpg" alt-text="Step one of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-1.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -159,7 +160,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
         When the backend application successfully returns the Client Access Token to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  {...Code link missing}
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-2.jpg" alt-text="Step two of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-2.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -168,7 +169,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
         If the handshake with Azure Web PubSub is successful, the client will be added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the `draw` group. {...Code link missing}
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-3.jpg" alt-text="Step three of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-3.jpg":::
     :::column-end:::
 :::row-end:::
 > [!NOTE]
@@ -179,7 +180,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
         The backend application is notified by Azure Web PubSub that a client has connected and it handles the `onConnected` event by calling the `sendToAll()`, with a payload of the latest number of connected clients.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-4.jpg" alt-text="Step four of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-4.jpg":::
     :::column-end:::
 :::row-end:::
 > [!NOTE]
@@ -190,7 +191,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
         As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-5.jpg" alt-text="Step five of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-5.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -199,7 +200,7 @@ Now head over to your browser and visit your deployed Web App. It is recommended
         Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, is managed by the backend application and delivered through Web PubSub. {code missing}
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/logo/web-pubsub-logo-large.png" alt-text="Azure Web PubsSub logo" lightbox="./media/logo/web-pubsub-logo-large.png":::
+        :::image type="content" source="./media/howto-integrate-app-service/dataflow-6.jpg" alt-text="Step six of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-6.jpg":::
     :::column-end:::
 :::row-end:::
 
@@ -208,7 +209,7 @@ Although the application uses only the free tiers of both services, it is best p
 
 ```azurecli-interactive
 az group delete 
---name "whiteboard-group"
+  --name "whiteboard-group"
 ```
 
 ## Next steps
