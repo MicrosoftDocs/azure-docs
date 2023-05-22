@@ -30,7 +30,7 @@ The sample project is an event-driven application that subscribes to a [Service 
 
 ::: zone pivot="sc-enterprise"
 
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise tier in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ::: zone-end
 
@@ -222,8 +222,7 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
 1. Use the following command to create your Azure Spring Apps instance:
 
    ```azurecli
-   az spring create \
-       --name ${AZURE_SPRING_APPS_INSTANCE}
+   az spring create --name ${AZURE_SPRING_APPS_INSTANCE}
    ```
 
 ::: zone-end
