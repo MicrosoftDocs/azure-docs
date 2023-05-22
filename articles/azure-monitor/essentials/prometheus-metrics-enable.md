@@ -69,28 +69,28 @@ By default the following resources are created as part of onboarding.
 
 #### Install the metrics add-on
 
-Use `az aks update` with the `-enable-azure-monitor-metrics` option to install the metrics add-on. Depending on the Azure Monitor workspace and Grafana workspace you want to use, choose one of the following options:
+Use `az aks create` or `az aks update` with the `-enable-azure-monitor-metrics` option to install the metrics add-on. Depending on the Azure Monitor workspace and Grafana workspace you want to use, choose one of the following options:
 
 - **Create a new default Azure Monitor workspace.**<br>
 If no Azure Monitor workspace is specified, a default Azure Monitor workspace is created in a resource group with the name `DefaultRG-<cluster_region>` and is named `DefaultAzureMonitorWorkspace-<mapped_region>`.
 
 
     ```azurecli
-    az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+    az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
     ```
 
 - **Use an existing Azure Monitor workspace.**<br>
 If the existing Azure Monitor workspace is already linked to one or more Grafana workspaces, data is available in that Grafana workspace.
 
     ```azurecli
-    az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
+    az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
     ```
 
 - **Use an existing Azure Monitor workspace and link with an existing Grafana workspace.**<br>
 This option creates a link between the Azure Monitor workspace and the Grafana workspace.
 
     ```azurecli
-    az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
+    az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
     ```
 
 The output for each command looks similar to the following example:
@@ -117,7 +117,7 @@ You can use the following optional parameters with the previous commands:
 **Use annotations and labels.**
 
 ```azurecli
-az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
+az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
 ```
 
 The output is similar to the following example:
