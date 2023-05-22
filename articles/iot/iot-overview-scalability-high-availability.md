@@ -18,7 +18,7 @@ This overview introduces the key concepts around the options for scalability, hi
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to scalability, high availability, and disaster recover in an IoT solution.
 
-:::image type="content" source="media/iot-overview-scalability-hadr/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false":::
+:::image type="content" source="media/iot-overview-scalability-high-availability/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false" lightbox="media/iot-overview-scalability-high-availability/iot-architecture.svg":::
 
 ## IoT solution scalability
 

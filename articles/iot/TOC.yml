@@ -23,7 +23,7 @@ items:
       - name: Manage your solution
         href: iot-overview-solution-management.md
       - name: Scalability, high availability
-        href: iot-overview-scalability-hadr.md
+        href: iot-overview-scalability-high-availability.md
     - name: Azure IoT services and technologies
       href: iot-services-and-technologies.md
 
