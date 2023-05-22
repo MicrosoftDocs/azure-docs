@@ -57,9 +57,9 @@ Use the following procedure to create a subscription for yourself or for someone
 
 After the new subscription is created, the owner of the subscription can see it in on the **Subscriptions** page.
 
-## Can't view subscription
+## View all subscriptions
 
-If you created a subscription but can't find it in the Subscriptions list view, a view filter might be applied. 
+If you created a subscription but can't find it in the Subscriptions list view, a view filter might be applied.
 
 To clear the filter and view all subscriptions:
 
