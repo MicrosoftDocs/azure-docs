@@ -42,11 +42,13 @@ If you have created [WAF Security solution](partner-integration.md#add-data-sour
 > [!NOTE]
 > Only WAF v1 is supported and will work with Microsoft Defender for Cloud.
 
+To deploy Azure's Application Gateway WAF, do the following:
+
 1. From the Azure portal, open **Defender for Cloud**.
 
 1. From Defender for Cloud's menu, select **Security solutions**.
 
-1. Select **Add** to deploy the Azure Application Gateway WAF.
+1. In the add data sources section, select **Add** for Azure's Application Gateway WAF.
 
     :::image type="content" source="media/other-threat-protections/deploy-azure-waf.png" alt-text="Screenshot showing where to select add to deploy WAF." lightbox="media/other-threat-protections/deploy-azure-waf.png"::: 
 
