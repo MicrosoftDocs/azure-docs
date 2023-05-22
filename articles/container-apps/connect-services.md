@@ -33,6 +33,7 @@ In this tutorial, you learn to:
 |---|---|
 | Azure account | An active subscription is required. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli) if you don't have it on your machine. |
+| Azure Cache for Redis | Create an instance of [Azure Cache for Redis](/cli/azure/redis?view=azure-cli-latest). Note the value for enter for the DNS name when you create the service.  |
 
 ## Set up
 
@@ -41,6 +42,20 @@ In this tutorial, you learn to:
     ```azurecli
     RESOURCE_GROUP="my-container-apps"
     LOCATION="eastus"
+    ```
+
+1. Create a variable for the Azure Cache for Redis DNS name.
+
+    To display a list of the Azure Cache for Redis instances, run the following command.
+
+    ```azurecli
+    az redis list --resource-group "$RESOURCE_GROUP" --query "[].name" -o table
+    ```
+
+    Make sure to replace `<YOUR_DNS_NAME>` with the DNS name of your instance of Azure Cache for Redis.
+
+    ```azurecli
+    AZURE_REDIS_DNS_NAME=<YOUR_DNS_NAME>
     ```
 
 1. Create a variable to hold your environment name.
@@ -65,7 +80,6 @@ In this tutorial, you learn to:
       --location "$LOCATION"
     ```
 
-
 1. Upgrade the Container Apps CLI extension.
 
     ```azurecli
@@ -78,17 +92,11 @@ In this tutorial, you learn to:
     az provider register --namespace Microsoft.App
     ```
 
-<!-- 1. Set the location.
-  
-    ```azurecli
-    az config set defaults.location="$LOCATION"
-    ```
+1. Register the `Microsoft.ServiceLinker` namespace.
 
-1. Set the resource group.
-  
-    ```azurecli
-    az config set defaults.group="$RESOURCE_GROUP"
-    ``` -->
+  ```azurecli
+  az provider register –namespace Microsoft.ServiceLinker
+  ```
 
 1. Create a new environment.
   
@@ -175,7 +183,10 @@ Next, create your internet-accessible container app.
 1. Rebind the Redis dev service.
 
     ``` azurecli
-    az containerapp update --name myapp --bind myredis
+    az containerapp update \
+      --name myapp \
+      --bind myredis \
+      --resource-group "$RESOURCE_GROUP"
     ```
 
     With the service reconnected, you can refresh the web application to see data stored in Redis.
@@ -189,7 +200,11 @@ The following steps bind your application to an existing instance of Azure Cache
 1. Bind to Azure Cache for Redis.
 
     ``` azurecli
-    az containerapp update --name myapp --unbind myredis --bind azureRedis
+    az containerapp update \
+      --name myapp \
+      --unbind myredis \
+      --bind "$AZURE_REDIS_DNS_NAME" \
+      --resource-group "$RESOURCE_GROUP"
     ```
 
     This command simultaneously removes the development binding and establishes the binding to the production-grade managed service.
