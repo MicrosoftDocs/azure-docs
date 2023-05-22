@@ -34,8 +34,9 @@ The Azure Maps Power BI visual connects to cloud service hosted in Azure to retr
 Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
 
 > [!TIP]
-> If using the Azure Maps [Geographic API endpoints], your firewall may need to be updated to allow access to the Azure Maps platform using either or both of the following URLs:
+> If using the Azure Maps [Geographic API endpoints], your firewall may need to be updated to allow access to the Azure Maps platform using either or all of the following URLs:
 >
+> - `https://atlas.microsoft.com`
 > - `https://us.atlas.microsoft.com`
 > - `https://eu.atlas.microsoft.com`
 
@@ -111,7 +112,7 @@ The following settings are available in the **Style** section:
 
 | Setting     | Description  |
 |-------------|--------------|
-| Style       | The style of the map. The dropdown list contains [greyscale light], [greyscale dark], [night], [road shaded relief], [satellite] and [satellite road labels]. |
+| Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], ,[high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
 | Show labels | A toggle switch that enables you to either show or hide map labels. For more information, see list item number five in the previous section. |
 
 ### View
@@ -197,16 +198,23 @@ Customize the visual:
 [controls]: #controls
 [Customize visualization titles, backgrounds, and legends]: /power-bi/visuals/power-bi-visualization-customize-title-background-and-legend
 [Geographic coverage information]: geographic-coverage.md
-[greyscale dark]: supported-map-styles.md#grayscale_dark
-[greyscale light]: supported-map-styles.md#grayscale_light
+[style]: #style
+<!-------  Styles   ----------------------------------------->
+[blank and blank accessible]: supported-map-styles.md#blank-and-blank_accessible
+[grayscale dark]: supported-map-styles.md#grayscale_dark
+[grayscale light]: supported-map-styles.md#grayscale_light
+[high contrast dark]: supported-map-styles.md#high_contrast_dark
+[high contrast light]: supported-map-styles.md#high_contrast_light
+[night]: supported-map-styles.md#night
+[road]: supported-map-styles.md#road
+[road shaded relief]: supported-map-styles.md#road_shaded_relief
+[satellite]: supported-map-styles.md#satellite
+[satellite road labels]: supported-map-styles.md#satellite_road_labels
+
+
 [Manage the Azure Maps Power BI visual within your organization]: power-bi-visual-manage-access.md
 [Microsoft Azure Legal Information]: https://azure.microsoft.com/support/legal/
 [Navigating the map]: map-accessibility.md#navigating-the-map
-[night]:supported-map-styles.md#night
-[road shaded relief]: supported-map-styles.md#road_shaded_relief
-[satellite road labels]: supported-map-styles.md#satellite_road_labels
-[satellite]: supported-map-styles.md#satellite
-[style]: #style
 [Tips and tricks for color formatting in Power BI]: /power-bi/visuals/service-tips-and-tricks-for-color-formatting
 [Understanding layers in the Azure Maps Power BI visual]: power-bi-visual-understanding-layers.md
 [view]: #view
