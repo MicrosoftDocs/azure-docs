@@ -12,9 +12,9 @@ ms.custom:
 
 # How to enable the Private access profile
 
-The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. The apps and sites that make up your private access profile is defined by your [Quick access groups](how-to-define-quick-access-ranges.md).
+The **Private access profile** looks at traffic going to your organization's private, internal applications and sites. Your [Quick access groups](how-to-define-quick-access-ranges.md) define the apps and sites that make up your Private access profile.
 
-Quick access groups are similar to the M365 traffic policies, except the IP addresses adn FQDNs in the M365 profile are pre-defined. Quick access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. Just like with the M365 profile, you can also apply a Conditional Access policy or assign the profile to specific branch locations.
+Quick access groups are similar to the M365 traffic policies, except the IP addresses and FQDNs in the M365 profile are predefined. Quick access groups allow you to create your own collection of fully qualified domain names (FQDN), IP addresses, and IP address ranges. Just like with the M365 profile, you can also apply a Conditional Access policy or assign the profile to specific branch locations.
 
 ### Private access policies
 
@@ -46,7 +46,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 **To create a Conditional Access policy for the M365 profiles**:
 
-1. Go to **Microsoft Entra ID** > **Conditional Access** and create a new policy.
+1. Create a new Conditional Access policy. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
 1. Under **Target Resources** select **No target resources selected**.
 1. Select **Network Access (Preview)** from the menu.
 1. From the new menu that appears, select one or more traffic profiles to apply the policy to. 
@@ -55,7 +55,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 ### Private access branch assignments
 
-Traffic profiles can be assigned to branches, so that the network traffic is forwarded to Microsoft Entra Private Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client is not required.  You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-manage-branch-locations.md).
+Traffic profiles can be assigned to branches, so that the network traffic is forwarded to Microsoft Entra Private Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client isn't required.  You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-manage-branch-locations.md).
 
 ## Next steps
 

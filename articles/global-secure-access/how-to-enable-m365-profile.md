@@ -35,7 +35,7 @@ The policy groups include the following details:
 - **Protocol**: TCP (Transmission Control Protocol) or UDP (User Datagram Protocol)
 - **Action**: Forward or Bypass
 
-If the M365 profile isn't enabled, or a specific FQDN or IP address bypassed, users can still access the Microsoft 365 service; however, the traffic isn't processed by the service. 
+If the M365 profile isn't enabled, or a specific FQDN or IP address bypassed, users can still access the site; however, the service doesn't process the traffic. 
 
 ## M365 Conditional Access policies
 
@@ -53,8 +53,9 @@ Conditional Access policies are created and applied to the profile in the Condit
 
     ![Screenshot of the applied Conditional Access policies.](media/how-to-enable-m365-profile/conditional-access-applied-policies.png)
 
-**To create a Conditional Access policy for the M365 profile**s:
+**To create a Conditional Access policy for the M365 profile**:
 
+1. Create a new Conditional Access policy. For more information, see [Building a Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-policies.md).
 1. Under **Target Resources** select **No target resources selected**.
 1. Select **Network Access (Preview)** from the menu.
 1. From the new menu that appears, select one or more traffic profiles to apply the policy to. 
@@ -63,7 +64,7 @@ Conditional Access policies are created and applied to the profile in the Condit
 
 ## M365 branch assignments
 
-Traffic profiles can be assigned to branches, so that the network traffic is forwarded to Global Secure Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client is not required.  You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-manage-branch-locations.md).
+Traffic profiles can be assigned to branches, so that the network traffic is forwarded to Global Secure Access without having to install the client on end user devices. As long as the device is behind the customer premises equipment (CPE), the client isn't required.  You must create a branch before you can add it to the profile. For more information, see [How to create a branch](how-to-manage-branch-locations.md).
 
 **To assign a branch to the M365 profile**:
 

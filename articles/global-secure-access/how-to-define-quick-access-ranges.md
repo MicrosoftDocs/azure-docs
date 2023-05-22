@@ -25,7 +25,7 @@ To define Quick Access ranges, you must have:
 
 ## How it works
 
-Configuring your Quick access settings is a major component to utilizing Microsoft Entra Private Access. Without configuring these settings, the service has no sites or apps to forward traffic to. 
+Configuring your Quick access settings is a major component to utilizing Microsoft Entra Private Access. If you don't configure these settings, the service has no sites or apps to forward traffic to. 
 
 When you configure Quick access for the first time, Entra Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Entra Private Access. 
 
@@ -35,7 +35,7 @@ You also need to have an Application Proxy connector group set up. This connecto
 - [Understand App Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md)
 - [Publish apps on separate networks and locations using connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md) 
 
-With the Quick access app and connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick access app are predefined. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
+Once you have the Quick access app and connector group configured, you need to grant access to the app. As mentioned, the properties of the Quick access app are predefined. One of those properties requires that you assign users and groups through Enterprise Applications. For more information, see [Properties of an enterprise application](../active-directory/manage-apps/application-properties.md).
 
 To summarize, overall the process is as follows:
 
@@ -61,8 +61,8 @@ On the Quick access page, you provide a name, select a connector group, and add 
     ![Screenshot of the Quick access app name.](media/how-to-define-quick-access-ranges/new-quick-access-name.png)
     
     - Before you can set up Quick access, you must have an App Proxy connector group set up.
-    - Your connector groups appear in the dropdown menu on the create Quick access page.
-1. Select the **Save** button at the bottom of the page to create your QuickAccess app without adding webites and apps.
+    - Your connector groups appear in the dropdown menu on the Quick access page.
+1. Select the **Save** button at the bottom of the page to create your QuickAccess app without adding websites and apps.
 
 ### Add Quick access ranges
 
@@ -110,7 +110,7 @@ You need to grant access to the Quick access app you created by assigning users 
 
 ## Enable Microsoft Entra Private Access
 
-Once you have your Quick access app configured, your private websites and apps added, users assigned to the app, you can enable the Private access profile from **Traffic forwarding**. You can enable the profile before configuring Quick access, but without the app and profile set up, there's no traffic to forward.
+Once you have your Quick access app configured, your private websites and apps added, users assigned to the app, you can enable the Private access profile from **Traffic forwarding**. You can enable the profile before configuring Quick access, but without the app and profile configured, there's no traffic to forward.
 
 1. Go to **Global Secure Access** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
