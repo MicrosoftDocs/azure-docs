@@ -40,7 +40,7 @@ You can use the Azure portal to monitor your deployment's health and performance
 
 1. Select the **Monitoring** tab.
 
-    :::image type="content" source="media/packetcore-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab." lightbox="media/packetcore-metrics-dashboard.png":::
+    :::image type="content" source="media/packet-core-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab." lightbox="media/packet-core-metrics-dashboard.png":::
 
 You should now see the Azure Monitor dashboard displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
 
