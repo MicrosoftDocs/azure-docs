@@ -8,19 +8,19 @@ ms.date: 05/19/2023
 
 # Prepare migration of the workloads impacted by service retirement
 
-Azure Advisor helps you assess and improve the continuity of your business-critical applications. It is important to be aware of upcoming Azure products and feature retirements to assess their impact on your workloads and plan migration.
+Azure Advisor helps you assess and improve the continuity of your business-critical applications. It's important to be aware of upcoming Azure products and feature retirements to assess their impact on your workloads and plan migration.
 
 ## Service Retirement workbook
 
 The Service Retirement workbook provides a single centralized resource level view of product retirements. It helps you assess impact, evaluate options, and plan for migration from retiring products and features. The workbook template is available in Azure Advisor gallery.
-Here is how to get started:
+Here's how to get started:
 
 1.	Sign-in to the Azure portal and navigate to [**Azure Advisor**](https://portal.azure.com).
 1.	Select **Workbooks** from the left menu.
 1.	Open **Service Retirement (Preview)** workbook template.
 1.	Select a service from the list to display a detailed view of impacted resources.
 
-The workbook shows a list and a map view of service retirements that impact your resources. For each of the services, there is a planned retirement date, number of impacted resources and migration instructions including recommended alternative service.
+The workbook shows a list and a map view of service retirements that impact your resources. For each of the services, there's a planned retirement date, number of impacted resources and migration instructions including recommended alternative service.
 
 *	Use subscription, resource group and location filters to focus on a specific workload.
 *	Use sorting to find services, which are retiring soon and have the biggest impact on your workloads. 
