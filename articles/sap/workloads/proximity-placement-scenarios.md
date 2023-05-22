@@ -1,6 +1,6 @@
 ---
-title: Azure proximity placement groups for SAP applications | Microsoft Docs
-description: Describes SAP deployment scenarios with Azure proximity placement groups
+title: Configuration options for optimal network latency with SAP applications | Microsoft Docs
+description: Describes SAP deployment scenarios to achieve optimal network latency
 author: msjuergent
 manager: bburns
 ms.service: sap-on-azure
