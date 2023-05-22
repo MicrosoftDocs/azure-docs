@@ -176,7 +176,7 @@ When using our embeddings models, keep in mind their limitations and risks.
 ## Model Summary table and region availability
 
 > [!IMPORTANT]
-> South Central US is temporarily unavailable for creating new resources due to high demand.
+> South Central US is temporarily unavailable for creating new resources and deployment due to high demand.
 
 ### GPT-3 Models
 
