@@ -14,7 +14,7 @@ ms.topic: how-to
 
 Project environment types are a subset of the [environment types configured for a dev center](how-to-configure-devcenter-environment-types.md). They help preconfigure the environments that a specific development team can create. 
 
-In Azure Deployment Environments Preview, [environment types](concept-environments-key-concepts.md#project-environment-types) that you add to the project will be available to developers when they deploy environments. Environment types determine the subscription and identity that are used for those deployments.
+In Azure Deployment Environments, [environment types](concept-environments-key-concepts.md#project-environment-types) that you add to the project will be available to developers when they deploy environments. Environment types determine the subscription and identity that are used for those deployments.
 
 Project environment types enable development infrastructure teams to:
 
@@ -29,9 +29,6 @@ In this article, you'll learn how to:
 * Update a project environment type.
 * Enable or disable a project environment type.
 * Delete a project environment type. 
-
-> [!IMPORTANT]
-> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 Before you configure a project environment type, you need:

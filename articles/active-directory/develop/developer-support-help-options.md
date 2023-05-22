@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/29/2022
+ms.date: 05/11/2023
 ms.author: davidmu
 ms.custom: has-adal-ref
 ---
@@ -43,6 +43,7 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 | Component/area                                            | Tags                                                                                         |
 | ----------------------------------------------------------| ---------------------------------------------------------------------------------------------|
+| Azure AD for customers / External Identities              | [Azure Active Directory for customers](https://aka.ms/microsoftentraexternalid)              |
 | Azure AD B2B / External Identities                        | [Azure Active Directory External Identities](/answers/tags/231/azure-active-directory-b2c)   |
 | Azure AD B2C                                              | [Azure Active Directory External Identities](/answers/tags/231/azure-active-directory-b2c)   |
 | All other Azure Active Directory areas                    | [Azure Active Directory](/answers/tags/49/azure-active-directory)                             |

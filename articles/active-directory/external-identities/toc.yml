@@ -1,5 +1,7 @@
-- name: External Identities documentation
+- name: Azure Active Directory External Identities documentation
   href: index.yml
+- name: External Identities documentation
+  href: index-b2b.yml
 - name: Overview
   expanded: true
   items:

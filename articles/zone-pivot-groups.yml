@@ -324,6 +324,18 @@ groups:
     title: PowerShell
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-functions-data-explorer
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions
   title: Programming languages
   prompt: Choose a programming language
@@ -412,6 +424,16 @@ groups:
     title: v4 (preview)
   - id: nodejs-model-v3
     title: v3
+- id: functions-container-hosting
+  title: Container hosting
+  prompt: Choose a container host
+  pivots:
+  - id: azure-functions
+    title: Azure Functions
+  - id: container-apps
+    title: Azure Container Apps (preview)
+  - id: azure-arc
+    title: Azure Arc (preview)    
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -653,6 +675,15 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-content-safety
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-rest
+    title: REST
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-two-with-js-spx
 # Owner: erhopf
   title: Programming languages
@@ -1982,6 +2013,15 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: cshoe
+- id: container-apps-job-types
+  title: Job types
+  prompt: Select the type of Container Apps job you want run
+  pivots:
+  - id: container-apps-job-manual
+    title: Manual (on demand)
+  - id: container-apps-job-scheduled
+    title: Scheduled
 # Owner: v-ksreedevan
 - id: migrate-agentlessvmware-hyperv-agentbased
   title: Migration methods
@@ -2385,3 +2425,16 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+# Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+  - id: api-gremlin
+    title: Apache Gremlin
+  - id: api-table
+    title: Table
