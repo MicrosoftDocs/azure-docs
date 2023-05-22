@@ -28,7 +28,7 @@ ms.author: greglin
 | Number of private DNS zones a virtual network can get linked to with autoregistration enabled |1|
 | Number of private DNS zones a virtual network can get linked |1000|
 
-**Azure DNS resolver**
+**Azure-provided DNS resolver**
 
 | Resource | Limit |
 | --- | --- |
