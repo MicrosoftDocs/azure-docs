@@ -40,7 +40,7 @@ An MSIX image is a VHD, VHDx, or CIM file that contains one or more MSIX package
 
 ## Upload an MSIX package 
 
-Uploading an MSIX package involves uploading the VHD(x) or [CIM](#cim) that contains an expanded MSIX package to the MSIX share.
+Uploading an MSIX package involves uploading the VHD(x) or CIM that contains an expanded MSIX package to the MSIX share.
 
 In Azure Virtual Desktop, uploads happen once per MSIX share. Once you upload a package, all host pools in the same subscription can reference it.
 
