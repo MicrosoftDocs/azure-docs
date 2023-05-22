@@ -14,43 +14,25 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## Clone and run the sample project locally
+## Prepare Spring Project
 
 Use the following steps to prepare the sample locally.
 
 1. The sample project is ready on GitHub. Clone sample project by using the following command:
 
    ```bash
-   git clone https://github.com/spring-petclinic/spring-petclinic-microservices.git
+   git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
    ```
 
-1. Change to the sample root path, and follow the below steps to run the sample project:
+1. Change to the sample root path, and execute the below shell script to run the sample project locally:
 
-   - Use the following command to start the Config Server.
+   ```bash
+   ./script/run_all_without_infra.sh
+   ```
 
-     ```bash
-     ./mvnw -f spring-petclinic-config-server/pom.xml spring-boot:run
-     ```
+1. After the script is successfully executed, go to `http://localhost:8080` in your browser to access the PetClinic.
 
-   - Use the following command to start the Discovery Server.
-
-      ```bash
-      ./mvnw -f spring-petclinic-discovery-server/pom.xml spring-boot:run
-      ```
-
-   - Execute the following commands respectively to start other modules.
-
-     ```bash
-     ./mvnw -f spring-petclinic-customers-service/pom.xml spring-boot:run
-     ./mvnw -f spring-petclinic-vets-service/pom.xml spring-boot:run
-     ./mvnw -f spring-petclinic-visits-service/pom.xml spring-boot:run
-     ./mvnw -f spring-petclinic-api-gateway/pom.xml spring-boot:run
-     ./mvnw -f spring-petclinic-admin-server/pom.xml spring-boot:run
-     ```
-
-1. Go to `http://localhost:8080` in your browser to access the PetClinic.
-
-## Prepare the cloud environment
+## Provision
 
 The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
 
@@ -82,6 +64,10 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png":::
 
+1. Navigate to the tab **Application Insights** on the Azure Spring Apps **Create** page, select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, then select **OK** to confirm the creation.
+
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of Azure portal showing application insights creation" lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
+
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
@@ -92,53 +78,48 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 
-## Deploy the app to Azure Spring Apps
+## Deployment
 
 Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
-
-1. Since Azure Spring Apps uses the name of the app as the service name of the built-in eureka service, the Maven plugin for Azure Spring Apps extracts the artifact ID in the POM file as the app name by default, so it needs to be consistent with the `spring.application.name` of each module. Update the artifact id of each submodule to a non `spring-petclinic-` prefix. The detailed changes are as follows:
-
-   - Update the artifact ID `spring-petclinic-customers-service` to `customers-service`.
-   - Update the artifact ID `spring-petclinic-vets-service` to `vets-service`.
-   - Update the artifact ID `spring-petclinic-visits-service` to `visits-service`.
-   - Update the artifact ID `spring-petclinic-api-gateway` to `api-gateway`.
-   - Update the artifact ID `spring-petclinic-admin-server` to `admin-server`.
 
 1. Navigate to the sample project directory and execute the following command to config the apps in Azure Spring Apps:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   ./mvnw -P spring-apps com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
    ```
 
    Command interaction description:
-   - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Exclude `spring-petclinic-config-server` and `spring-petclinic-discovery-server`, others need to be configured, enter `1,2,3,4,7`.
+   - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Press Enter to select all.
    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
-   - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter `5` for `api-gateway`.
+   - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter `1,5` for `admin-server` and `api-gateway`.
    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration won't be saved in the POM files.
 
-1. Build the sample project by using the following commands. Skip this step if doesn't update the Maven plugin configuration.
+1. Use the following command to build and deploy each application:
 
    ```bash
-   ./mvnw clean package -DskipTests
-   ```
-
-1. Use the following command to deploy each application:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ./mvnw -P spring-apps com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
    ```
 
    Command interaction description:
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+
+   > [!NOTE]
+   > Deployment to Azure Spring Apps can take up to 20 minutes.
 
    After the command is executed, you can finally see a log similar to the following, indicating that all deployments are successful.
 
    ```text
    [INFO] Deployment(default) is successfully updated.
    [INFO] Deployment Status: Running
-   [INFO]   InstanceName:api-gateway-default-xx-xx-xxx  Status:Running Reason:null       DiscoverStatus:UP
+   [INFO]   InstanceName:admin-server-default-xx-xx-xxx  Status:Running Reason:null       DiscoverStatus:UP
+   [INFO] Getting public url of app(admin-server)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io
+   
+   ...
+   
+   
    [INFO] Getting public url of app(api-gateway)...
    [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
    ```
