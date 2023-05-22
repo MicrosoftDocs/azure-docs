@@ -106,8 +106,8 @@ To add a Dynamic scope to an existing configuration, follow the steps:
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to edit an existing Dynamic scope. 
 1. In the given maintenance configuration page > select **Dynamic scopes** and select the scope you want to edit. Under **Actions** column, select the edit icon.
 1. In the **Edit Dynamic scope**, select the edit icon in the **Filter By** to edit the filters as needed and select **Ok**.
-> [!NOTE]
-> After you create the dynamic scope, you can't edit the subscription.
+   > [!NOTE]
+   > After you create the dynamic scope, you can't edit the subscription.
 1. Select **Save**.
 
 ### Delete a Dynamic scope
