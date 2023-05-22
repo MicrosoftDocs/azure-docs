@@ -22758,8 +22758,7 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
-        }
-        ,
+        },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
