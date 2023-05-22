@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 05/22/2023
 ms.author: helohr
 manager: femila
 ---
@@ -24,7 +24,7 @@ MSIX app attach allows you to dynamically attach apps from an MSIX package to a 
 
 ## Terminology
 
-The following table lists the components that make up MSIX app attach.
+There are certain terms you should familiarize yourself with as you read about MSIX app attach. We've listed them in the following table.
 
 | Term | Definition |
 |---|---|
@@ -36,37 +36,25 @@ The following table lists the components that make up MSIX app attach.
 
 ## Phases of MSIX app attach
 
-In order to use MSIX packages, you must stage and register them. After you're finished using the packages, you destage and deregister them. For more detailed information about each stage and how to perform them, see [Test and troubleshoot MSIX packages with MSIX app attach](app-attach.md).
+In order to use MSIX packages, you must stage and register them. After you're finished using the packages, you destage and deregister them.
+
+When you stage a package, you mount the VHD(x) or [CIM](#cim) to the VM, then notify the OS that the MSIX package is available for registration.
+
+Next, you register the package to make it available for your users on a per-user basis. There are two types of registration:
+
+- Regular registration, in which each application you assign to a user is fully registered. Registration happens while the user is signing in to their session, which may impact the startup time for Azure Virtual Desktop.
+- Delayed registration, where the applications are only partially registered and complete registration when the user runs the application in their remote session. This method doesn't affect the time it takes to start up Azure Virtual Desktop, and is therefore the default registration method for MSIX app attach.
+
+When you're finished using the package, you then deregister the package to make it unavailable to users. Finally, you destage the package to unmount and remove it from the VM.
+
+For more detailed information about each stage and how to perform them, see [Test and troubleshoot MSIX packages with MSIX app attach](app-attach.md).
 
 >[!NOTE]
 >All MSIX application packages include a certificate. You're responsible for making sure the certificates for MSIX applications are trusted in your environment.
 
-## Staging
-
-Staging involves two things:
-
-- Mounting the VHD(x) or [CIM](#cim) to the VM.
-- Notifying the OS that the MSIX package is available for registration.
-
-## Registration
-
-Registration makes a staged MSIX package available for your users. Registering is on a per-user basis. If you haven't explicitly registered an app for that specific user, they won't be able to run the app.
-
-There are two types of registration: regular and delayed.
-
-### Regular registration
-
-In regular registration, each application assigned to a user is fully registered. Registration happens during the time the user signs in to the session, which might impact the time it takes for them to start using Azure Virtual Desktop.
-
-### Delayed registration
-
-In delayed registration, each application assigned to the user is only partially registered. Partial registration means that the Start menu tile and double-click file associations are registered. Registration happens while the user signs in to their session, so it has minimal impact on the time it takes to start using Azure Virtual Desktop. Registration completes only when the user runs the application in the MSIX package.
-
-Delayed registration is currently the default configuration for MSIX app attach.
-
 ## CIM
 
-.CIM is a new file extension associated with Composite Image Files System (CimFS). Mounting and unmounting CIM files is faster that VHD files. CIM also consumes less CPU and memory than VHD.
+.CIM is a new file extension associated with Composite Image Files System (CimFS). Mounting and unmounting CIM files is faster than VHD files. CIM also consumes less CPU and memory than VHD.
 
 A CIM file is a file with a .CIM extension that contains metadata and at least two additional files that contain actual data. The files within the CIM file don't have extensions. The following table is a list of example files you'd find inside a CIM:
 
