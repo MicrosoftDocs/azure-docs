@@ -2060,8 +2060,8 @@ groups:
     title: Elastic pool
 # Owner: karler
 - id: spring-apps-tier-selection
-  title: Azure Spring Apps tier
-  prompt: Select an Azure Spring Apps tier
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
   pivots:
   - id: sc-standard
     title: Basic/Standard
