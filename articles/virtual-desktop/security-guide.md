@@ -135,6 +135,10 @@ Consider session hosts as an extension of your existing desktop deployment. We r
 
 In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
 
+### User profile security
+
+User profiles can contain sensitive information. You should restrict who has access to user profiles and the methods of accessing them, especially if you're using [FSLogix Profile Container](/fslogix/tutorial-configure-profile-containers) to store user profiles in a virtual hard disk file (VHDX) on an SMB share. You should follow the security recommendations for the provider of your SMB share. For example, If you're using Azure Files to store these VHDX files, you can use [private endpoints](../storage/files/storage-files-networking-overview.md#private-endpoints) to make them only accessible within an Azure virtual network. 
+
 ### Other security tips for session hosts
 
 By restricting operating system capabilities, you can strengthen the security of your session hosts. Here are a few things you can do:
