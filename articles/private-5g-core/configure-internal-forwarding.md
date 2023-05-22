@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Configure UE to UE internal forwarding for Azure Private 5G Core - Azure portal
 
-By default, traffic flowing between user equipment (UEs) attached to the same AP5GC data network stays within that network. This is called *internal forwarding*. Internal forwarding minimizes latency and maximizes security and privacy. Alternatively, you can disable internal forwarding to force internal traffic to use an external gateway.
+By default, traffic flowing between user equipment (UEs) attached to the same data network stays within that network. This is called *internal forwarding*. Internal forwarding minimizes latency and maximizes security and privacy. Alternatively, you can disable internal forwarding to force internal traffic to use an external gateway.
 
 If you are using the [Default service and allow-all SIM policy](default-service-sim-policy.md), internal forwarding will be enabled. If you are using a more restrictive policy, you may need to enable internal forwarding.
 
@@ -117,7 +117,7 @@ To create the service:
     |**Preemption vulnerability**     | Select **Not preemptible**.        |
 
     > [!IMPORTANT]
-    > The **Service precedence** must be a lower value than any conflicting service (such as an allow all service). Services are matched to traffic in order of precedence.
+    > The **Service precedence** must be a lower value than any conflicting service (such as an "allow all" service). Services are matched to traffic in order of precedence.
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
