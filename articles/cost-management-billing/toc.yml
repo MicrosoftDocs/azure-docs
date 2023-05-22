@@ -42,6 +42,8 @@
   items:
   - name: Cost Management
     items:
+    - name: AI-powered Cost Management
+      href: costs/ai-powered-cost-management.md
     - name: Cost Management best practices
       href: costs/cost-mgt-best-practices.md
     - name: Understand Cost Management data
