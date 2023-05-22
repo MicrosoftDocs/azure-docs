@@ -37,13 +37,13 @@ The SAP connector supports the following message and data integration types from
 
 The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html).
 
-* To use the SAP connector operations, you have to first authenticate your connection. For authentication, you have the following options:
+To use the SAP connector operations, you have to first authenticate your connection and have the following options:
 
-  * You can provide a username and password.
+* You can provide a username and password.
 
-  * The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/viewer/e73bba71770e4c0ca5fb2a3c17e8e229/7.31.25/en-US/e656f466e99a11d1a5b00000e835363f.html).
+* The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/viewer/e73bba71770e4c0ca5fb2a3c17e8e229/7.31.25/en-US/e656f466e99a11d1a5b00000e835363f.html).
 
-    You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
+You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
 ## Connector technical reference
 
@@ -53,7 +53,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label and built-in connector (preview), which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector (preview), which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
 <a name="connector-parameters"></a>
 
@@ -69,7 +69,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 ### SAP managed connector
 
-* The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system that you want to connect.
+* The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on a virtual network where the gateway can directly reach the SAP system that you want to connect.
 
 * In general, the SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior.
 
@@ -154,16 +154,25 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
   > [!NOTE]
   >
-  > This SAP trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal 
-  > operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior 
-  > might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is 
-  > still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+  > In Consumption and Standard workflows, the SAP managed trigger named **When a message is received from SAP** uses 
+  > the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the 
+  > HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a 
+  > renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a 
+  > renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+  >
+  > In Standard workflows, the SAP built-in trigger uses the Azure Functions trigger instead, and shows only the actual callbacks from SAP.
 
 * The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](/connectors/sap/#actions) that you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](sap-create-example-scenario-workflows.md#send-flat-file-idocs).
 
 ### Network prerequisites
 
-The SAP system requires network connectivity from the host of the SAP .NET Connector (NCo) library. The multi-tenant host of the SAP .NET Connector (NCo) library is the on-premises data gateway. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system. The ISE host of the SAP .NET Connector (NCo) library is within the ISE virtual network.
+The SAP system requires network connectivity from the host of the SAP .NET Connector (NCo) library:
+
+* For logic app workflows in multi-tenant Azure Logic Apps, the on-premises dta gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
+
+* For logic app workflows in an ISE, the ISE virtual network hosts the SAP .NET Connector (NCo) library.
+
+* For logic app workflows in single-tenant Azure Logic Apps, the logic app resource hosts the SAP .NET Connector (NCo) library. So, the logic app resource itself must enable virtual network integration, and that virtual network must have network connectivity to the SAP system.
 
 The SAP system-required network connectivity includes the following servers and services:
 
