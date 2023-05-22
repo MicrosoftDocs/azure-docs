@@ -173,7 +173,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         **Step 6.**
         1. Open *DotNetCoreSqlDb/Program.cs* in the explorer.
         1. In the `options.UseSqlServer` method, change the connection string name `MyDbConnection` to `AZURE_SQL_CONNECTIONSTRING`. This is where the connection string is used by the sample application.
-        1. Remove the `builder.Services.Add...` method and replace it with the following code. It changes your code from using an in-memory cache to the Redis cache in Azure, and it does so by using `AZURE_REDIS_CONNECTIONSTRING` from earlier.
+        1. Remove the `builder.Services.AddDistributedMemoryCache();` method and replace it with the following code. It changes your code from using an in-memory cache to the Redis cache in Azure, and it does so by using `AZURE_REDIS_CONNECTIONSTRING` from earlier.
         ```csharp
         builder.Services.AddStackExchangeRedisCache(options =>
         {
