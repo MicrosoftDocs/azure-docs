@@ -1,10 +1,10 @@
 ---
 title: Managed container registries
 description: Introduction to the Azure Container Registry service, providing cloud-based, managed registries.
-author: tejaswikolli
+author: tejaswikolli-web
 ms.topic: overview
 ms.date: 10/11/2022
-ms.author: tejaswikolli-web
+ms.author: tejaswikolli
 ms.custom: "seodec18, mvc"
 ---
 # Introduction to Container registries in Azure
