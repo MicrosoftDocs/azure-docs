@@ -13,17 +13,15 @@ ms.reviewer: amberb
 
 # Understand and optimize your cloud costs with AI-powered functionality in Cost Management
 
-Whether you're part of a large organization, a budding developer, or a student, understanding and optimizing cloud spending is crucial in your cloud journey. Cloud services present incredible opportunities for scalability, flexibility, and innovation. However, to maximize the value derived from your cloud investment, it's crucial to prioritize proper cost management. Cost management helps you to control expenses and make informed decisions, ensuring your cloud investments are utilized effectively.
+Today, we're pleased to announce the  preview of Microsoft Cost Management's new AI-powered functionality. This interactive experience, available through the Azure portal, provides users with quick analysis, insights, and recommendations to help them better understand, analyze, manage, and forecast their cloud costs and bills.
 
-Microsoft Cost Management comes in at this point.
-
-## AI-powered Cost Management preview
-
-Today, we're excited to announce the preview of new AI-powered functionality in Microsoft Cost Management. The new interactive experience, accessible through the Azure portal, offers quick analysis, insights, and recommendations. The new functionality simplifies the process of understanding, analyzing, managing, and forecasting your cloud costs and bills.
+Whether you're part of a large organization, a budding developer, or a student you can use the new experience. With it you can gain greater control over your cloud spending and ensure that your investments are utilized in the most effective way possible.
 
 >[!VIDEO https://www.youtube.com/embed/TLXn_GnAr1k]
 
-With new AI-powered functionality in Cost Management, AI can assist you in the following scenarios:
+## AI-powered Cost Management preview
+
+With new AI-powered functionality in Cost Management, AI can assist you improve visibility, accountability and optimization in the following scenarios:
 
 **Analysis** - Provide prompts in natural language, such as "Summarize my invoice" or "Why is my cost higher this month?" and receive instant responses. The AI assistant can summarize, organize, or drill into the details that matter to you, simplifying the process of analyzing your costs, credits, refunds, and taxes.
 
