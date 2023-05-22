@@ -40,7 +40,7 @@ The following guidelines can help you decide whether to start maintenance at a t
 
 Self-service maintenance isn't recommended for deployments that use *availability sets*. Availability sets are highly available setups in which only one update domain is affected at any time. For availability sets:
 
-- Let Azure trigger the maintenance. For maintenance that requires a reboot, maintenance is done update domain by update domain. Update domains don't necessarily receive the maintenance sequentially. There's a 30-minute pause between update domains.
+- Let Azure trigger the maintenance. For maintenance that requires a reboot, maintenance is done by update domain. Update domains don't necessarily receive the maintenance sequentially. There's a 30-minute pause between update domains.
 - If a temporary loss of some of your capacity (1/update domain count) is a concern, you can easily compensate for the loss by allocating additional instances during the maintenance period.
 - For maintenance that doesn't require a reboot, updates are applied at the fault domain level. 
 	
