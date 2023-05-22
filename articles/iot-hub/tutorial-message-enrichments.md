@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Use Azure IoT Hub message enrichments
+title: Tutorial - Use message enrichments
+titleSuffix: Azure IoT Hub
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
 author: kgremban
 ms.service: iot-hub
@@ -118,8 +119,6 @@ Create a second endpoint and route for the enriched messages.
    | **Azure Storage container** | Select **Pick a container**. Follow the prompts to select the storage account and **enriched** container that you created in the previous section. |
    | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region doesn't support JSON. In that case, continue with the default **AVRO**. |
 
-   :::image type="content" source="media/tutorial-routing/add-storage-endpoint.png" alt-text="Screenshot that shows the Add a storage endpoint pane with the correct options selected.":::
-
    :::image type="content" source="./media/tutorial-message-enrichments/create-storage-endpoint.png" alt-text="Screenshot showing selecting a container for an endpoint.":::
 
 1. Accept the default values for the rest of the parameters and select **Create + next**.
@@ -192,7 +191,7 @@ Create three message enrichments that will be routed to the **enriched** storage
    | DeviceLocation | `$twin.tags.location` (assumes that the device twin has a location tag) |
    | customerID | `6ce345b8-1e4a-411e-9398-d34587459a3a` |
 
-   When you're finished, your pane should look similar to this image:
+   When you're finished, your enrichments should look similar to this image:
 
    :::image type="content" source="./media/tutorial-message-enrichments/all-message-enrichments.png" alt-text="Screenshot of table with all enrichments added.":::
 
@@ -237,7 +236,7 @@ Follow these steps to add a location tag to your device's twin:
 
 1. Navigate to your IoT hub in the Azure portal.
 
-1. Select **Devices** on the left-pane of the IoT hub, then select your device.
+1. Select **Devices** on the navigation menu of the IoT hub, then select your device.
 
 1. Select the **Device twin** tab at the top of the device page and add the following line just before the closing brace at the bottom of the device twin. Then select **Save**.
 

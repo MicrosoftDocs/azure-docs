@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 05/22/2023
 ms.author: kgremban
 ---
 

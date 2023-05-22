@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Configure message routing | Azure IoT Hub
+title: Tutorial - Configure message routing
+titleSuffix: Azure IoT Hub
 description: Tutorial - Route device messages to an Azure Storage account with message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: kgremban
 ms.service: iot-hub
@@ -13,9 +14,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 # Tutorial: Send device data to Azure Storage using IoT Hub message routing
 
-Use [message routing](iot-hub-devguide-messages-d2c.md) in Azure IoT Hub to send telemetry data from your IoT devices to Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs.
-
-Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining  [routing queries](iot-hub-devguide-routing-query-syntax.md). Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
+Use [message routing](iot-hub-devguide-messages-d2c.md) in Azure IoT Hub to send telemetry data from your IoT devices to Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining  [routing queries](iot-hub-devguide-routing-query-syntax.md). Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
 
 In this tutorial, you perform the following tasks:
 
@@ -63,7 +62,7 @@ Register a new device in your IoT hub.
 
 1. Select **Add device**.
 
-   ![Add a new device in the Azure portal.](./media/tutorial-routing/add-device.png)
+   ![Screenshot that shows adding a new device in the Azure portal.](./media/tutorial-routing/add-device.png)
 
 1. Provide a device ID and select **Save**.
 
@@ -71,7 +70,7 @@ Register a new device in your IoT hub.
 
 1. Copy one of the device keys and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
 
-   ![Copy the primary key from the device details page.](./media/tutorial-routing/copy-device-key.png)
+   ![Screenshot that shows copying the primary key from the device details page.](./media/tutorial-routing/copy-device-key.png)
 
 # [Azure CLI](#tab/cli)
 
@@ -159,7 +158,7 @@ Now, use that connection string to configure IoT Explorer for your IoT hub.
 1. Open IoT Explorer on your development machine.
 1. Select **Add connection**.
 
-   ![Add IoT hub connection in IoT Explorer.](./media/tutorial-routing/iot-explorer-add-connection.png)
+   ![Screenshot that shows adding an IoT hub connection in IoT Explorer.](./media/tutorial-routing/iot-explorer-add-connection.png)
 
 1. Paste your hub's connection string into the text box.
 1. Select **Save**.
@@ -204,7 +203,7 @@ Create an Azure Storage account and a container within that account, which will 
    | **Storage account name** | Provide a globally unique name for your storage account. |
    | **Performance** | Accept the default **Standard** value. |
 
-   ![Create a storage account.](./media/tutorial-routing/create-storage-account.png)
+   ![Screenshot that shows creating a storage account.](./media/tutorial-routing/create-storage-account.png)
 
 1. You can accept all the other default values by selecting **Review + create**.
 
@@ -216,7 +215,7 @@ Create an Azure Storage account and a container within that account, which will 
 
 1. Select **+ Container** to create a new container.
 
-   ![Create a storage container](./media/tutorial-routing/create-storage-container.png)
+   ![Screenshot that shows creating a storage container](./media/tutorial-routing/create-storage-container.png)
 
 1. Provide a name for your container and select **Create**.
 
@@ -283,10 +282,10 @@ Now set up the routing for the storage account. In this section you define a new
    | -------- | ----- |
    | **Name** | Create a name for your route. |
    | **Data source** | Verify that **Device Telemetry Messages** is selected from the dropdown list. |
-   | **Enable route** | Verify that this field is set to `enabled`. |
+   | **Enable route** | Verify that this field is checked. |
    | **Routing query** | Enter `level="storage"` as the query string. |
 
-   ![Save the routing query information](./media/tutorial-routing/create-storage-route.png)
+   ![Screenshot that shows adding a route with a routing query.](./media/tutorial-routing/create-storage-route.png)
 
 1. Select **Create + skip enrichments**.
 
@@ -355,7 +354,7 @@ Verify that the messages are arriving in the storage container.
 
 1. There should be a folder with the name of your IoT hub. Drill down through the file structure until you get to a **.json** file.
 
-   ![Find routed messages in storage.](./media/tutorial-routing/view-messages-in-storage.png)
+   ![Screenshot that shows finding routed messages in storage.](./media/tutorial-routing/view-messages-in-storage.png)
 
 1. Select the JSON file, then select **Download** to download the JSON file. Confirm that the file contains messages from your device that have the `level` property set to `storage`.
 
@@ -365,8 +364,7 @@ Verify that the messages are arriving in the storage container.
 
 If you want to remove all of the Azure resources you used for this tutorial, delete the resource group. This action deletes all resources contained within the group. If you don't want to delete the entire resource group, use the Azure portal to locate and delete the individual resources.
 
->[!TIP]
->If you intend to complete [Tutorial: Use Azure IoT Hub message enrichments](tutorial-message-enrichments.md), be sure to maintain the resources you created here.
+If you intend to continue to the next tutorial, keep the resources that you created here.
 
 # [Azure portal](#tab/portal)
 
