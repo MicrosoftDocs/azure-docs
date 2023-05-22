@@ -5,7 +5,7 @@ author: mumian
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.author: jgao
-ms.date: 03/15/2023
+ms.date: 05/22/2023
 ---
 
 # Lambda functions for ARM templates
