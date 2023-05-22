@@ -385,7 +385,7 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 
 ## Next steps
 
-* Learn more about [the ORAS CLI](https://oras.land/cli/)
+* Learn more about [the ORAS CLI](https://oras.land/docs/category/cli)
 * Learn more about [OCI Artifact Manifest][oci-artifact-manifest] for how to push, discover, pull, copy a graph of supply chain artifacts
 
 <!-- LINKS - external -->
