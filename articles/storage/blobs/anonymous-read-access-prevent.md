@@ -264,13 +264,19 @@ To disallow public access for a storage account with a template, create a templa
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
 
-### Responses to the anonymous bearer challenge
+### Responses to anonymous requests
 
-When anonymous public access is allowed for a storage account, all requests made with the anonymous bearer challenge return a 401 error (Unauthorized).
+When Blob Storage receives an anonymous request, that request will succeed if all of the following conditions are true:
 
-If anonymous public access is allowed for the account, and a request that doesn't use the anonymous bearer challenge is made to a container that isn't public, Blob Storage returns a 404 error (Not Found). Read requests that don't use the anonymous bearer challenge and that are made to public containers will succeed.
+- Anonymous public access is allowed for the storage account.
+- The container is configured to allow anonymous public access.
+- The request is for read access.
 
-After anonymous public access is disallowed for a storage account, all requests made with the anonymous bearer challenge return a 409 error (Conflict).
+If any of those conditions are not true, then the request will fail. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge:
+
+- If the anonymous request was made with a service version that supports the bearer challenge, then the service returns error code 401 (Unauthorized).
+- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous public access is disallowed for the storage account, then the service returns error code 409 (Conflict).
+- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous public access is allowed for the storage account, then the service returns error code 404 (Not Found).
 
 ## Sample script for bulk remediation
 
