@@ -15,7 +15,7 @@ ms.custom:
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-:::image type="content" source="media/common/browse-code.svg" alt-text="An icon that links to GitHub source code." https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit:::
+:::image type="content" source="media/common/browse-code.svg" alt-text="An icon that links to GitHub source code."  link="https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit":::
 
 In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (from now on, the Renesas RX65N) to Azure IoT.
 
