@@ -50,7 +50,7 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 
         Here's an example of data in the **raw format**: 
     
-        :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in a table format." lightbox="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png":::
+        :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in the raw format." lightbox="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png":::
 1. Select **Test query** to see the snapshot of test results of your query in the **Test results** tab. You can also download the results.
 
     :::image type="content" source="./media/process-data-azure-stream-analytics/test-results.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in the raw format." lightbox="./media/process-data-azure-stream-analytics/test-results.png":::
@@ -74,7 +74,7 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 1. Your Stream Analytics job is now created where your query is the same that you tested, and input is your event hub. 
 
     :::image type="content" source="./media/process-data-azure-stream-analytics/add-output-link.png" alt-text="Screenshot showing the Stream Analytics job page with a link to add an output.":::    
-9.	Add an [output](stream-analytics-define-outputs.md) of your choice. 
+9.	Add an [output](../stream-analytics/stream-analytics-define-outputs.md) of your choice. 
 1. Navigate back to Stream Analytics job page by clicking the name of the job in breadcrumb link. 
 1. Select **Edit query** above the **Query** window.
 1. Update `[OutputAlias]` with your output name, and select **Save query** link above the query. Close the Query page by selecting X in the top-right corner.  
