@@ -54,7 +54,7 @@ Once the deployment completes, you can find the REST endpoint for the model in t
 
 ### Find the model to deploy
 
-Browse the model catalog in Azure Machine Learning studio and find the model you want to deploy. Copy the model name you want to deploy. Import the required libraries. The models shown in the catalog are listed from the `HuggingFaceHub` registry. Create the `model_id` using the model name you copied from the model catalog and the `HuggingFaceHub` registry. You deploy the `bert_base_uncased` model with the latest version in this example. 
+Browse the model catalog in Azure Machine Learning studio and find the model you want to deploy. Copy the model name you want to deploy. Import the required libraries. The models shown in the catalog are listed from the `HuggingFace` registry. Create the `model_id` using the model name you copied from the model catalog and the `HuggingFace` registry. You deploy the `bert_base_uncased` model with the latest version in this example. 
 
 ```python
 from azure.ai.ml import MLClient
