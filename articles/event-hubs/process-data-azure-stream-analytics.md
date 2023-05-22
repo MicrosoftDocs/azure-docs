@@ -46,7 +46,7 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 
         Here's an example of data in the **table format**: 
 
-        :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in a table format.":::
+        :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in a table format." lightbox="./media/process-data-azure-stream-analytics/snapshot-results.png":::
 
         Here's an example of data in the **raw format**: 
     
