@@ -86,3 +86,4 @@ There are two ways to deploy [WebJob](webjobs-create.md) files when you [enable 
 
 - [Continuous deployment for Azure App Service](deploy-continuous-deployment.md)
 - [Deploy code with a ZIP or WAR file](deploy-zip.md)
+- [Get Free New Relic Monitoring with Your Azure Application](https://azuremarketplace.microsoft.com/en/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg)
