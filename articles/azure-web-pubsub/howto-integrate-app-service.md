@@ -15,7 +15,7 @@ A new class of applications are re-imagining what modern work could be. While [M
 ## Overview
 In this how-to guide, we will take a cloud-native approach and leverage Azure services to build a real-time collaborative whiteboard and we will deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
-:::image type="content" source="./media/howto-integrate-app-service/result.jpg" alt-text="GIT of finished project":::
+:::image type="content" source="./media/howto-integrate-app-service/result.gif" alt-text="GIT of finished project":::
 
 > [!div class="nextstepaction"]
 > [Check out live whiteboard demo](https://azure.github.io/azure-webpubsub/demos/whiteboard)
@@ -148,7 +148,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 - HTTP service written as an Express app and hosted on App Service. 
 - WebSocket connections managed by Azure Web PubSub.
 :::row:::
-    :::column span="2":::
+    :::column:::
         The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service. {...Code link missing}
     :::column-end:::
     :::column:::
@@ -157,7 +157,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 :::row-end:::
 
 :::row:::
-    :::column span="2":::
+    :::column:::
         When the backend application successfully returns the Client Access Token to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  {...Code link missing}
     :::column-end:::
     :::column:::
@@ -166,7 +166,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 :::row-end:::
 
 :::row:::
-    :::column span="2":::
+    :::column:::
         If the handshake with Azure Web PubSub is successful, the client will be added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the `draw` group. {...Code link missing}
     :::column-end:::
     :::column:::
@@ -177,7 +177,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 > To keep this how-to guide focused, all connecting clients are added to the same group named `draw` and is given the permission to send messages to this group. To manage client connections at a granular level, see the full references of the APIs provided by Azure Web PubSub. {...missing link}
 
 :::row:::
-    :::column span="2":::
+    :::column:::
         The backend application is notified by Azure Web PubSub that a client has connected and it handles the `onConnected` event by calling the `sendToAll()`, with a payload of the latest number of connected clients.
     :::column-end:::
     :::column:::
@@ -188,7 +188,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 > It is important to note that if there are a large number of online users in the `draw` group, with **a single** network call from the backend application, all the online users will be notified that a new user has just joined. This drastically reduces the complexity and load of the backend application.
 
 :::row:::
-    :::column span="2":::
+    :::column:::
         As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
     :::column-end:::
     :::column:::
@@ -197,7 +197,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 :::row-end:::
 
 :::row:::
-    :::column span="2":::
+    :::column:::
         Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, is managed by the backend application and delivered through Web PubSub. {code missing}
     :::column-end:::
     :::column:::
