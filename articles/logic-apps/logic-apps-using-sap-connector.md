@@ -373,7 +373,7 @@ The following list describes the prerequisites for the SAP client library that y
 
 The following relationships exist between the SAP client library, the .NET Framework, the .NET runtime, and the data gateway:
 
-* Both the Microsoft SAP Adapter and the gateway host service use .NET Framework 4.7.2.
+* The Microsoft SAP Adapter and the gateway host service use .NET Framework 4.7.2.
 
 * The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.8.
 
@@ -385,7 +385,7 @@ The following relationships exist between the SAP client library, the .NET Frame
 
 ### [Consumption](#tab/consumption)
 
-For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway and optionally SNC , you must also configure the following settings. For workflows that run in an ISE, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
+For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings. For workflows that run in an ISE, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
 
 * Make sure the on-premises data gateway is installed on a computer that's in the same network as your SAP system.
 
@@ -554,7 +554,7 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
    | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
    | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because your Enter your SNC Personal Security Environment (PSE) might contain multiple private certificates. However, this **SNC Certificate** parameter identifies the certificates that this connection must use. For more information, review the next parameter. |
-   | **PSE** | Optional: Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificate, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. <br><br>- If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection. |
+   | **PSE** | Optional: Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. <br><br>- If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection. |
 
 1. To finish creating your connection, select **Create**.
 
