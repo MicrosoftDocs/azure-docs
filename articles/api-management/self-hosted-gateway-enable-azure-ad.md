@@ -6,15 +6,15 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/18/2023
+ms.date: 05/22/2023
 ms.author: danlep
 ---
 
 # Enable Azure AD authentication in the self-hosted gateway
 
-The default authentication mechanism provided with the self-hosted gateway to connect with its associated API Management instance is an access token (authentication key). The access token to be valid for at most 30 days, after which it must be regenerated and the gateway configuration refreshed.
+The Azure API Management [self-hosted gateway](self-hosted-gateway-overview.md) by default uses an access token (authentication key) to connect with its associated cloud-based API Management instance. The access token is valid for at most 30 days, after which it must be regenerated and the gateway configuration refreshed.
 
-This article shows you how to enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Azure AD app](../active-directory/develop/app-objects-and-service-principals.md). With Azure AD authentication, you can configure longer expiry times for secrets and scope access more closely to the API Management instance. 
+This article shows you how to enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Azure AD app](../active-directory/develop/app-objects-and-service-principals.md) instead. With Azure AD authentication, you can configure longer expiry times for secrets and use standard steps to rotate secrets in Active Directory. 
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This article shows you how to enable the self-hosted gateway to authenticate to 
 
 ## Create custom roles
 
-Create the following two [custom roles](../role-based-access-control/custom-roles.md) that are assigned in later steps. You can use the permissions listed following JSON templates to create the custom roles with the [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), or other Azure tools.
+Create the following two [custom roles](../role-based-access-control/custom-roles.md) that are assigned in later steps. You can use the permissions listed in the following JSON templates to create the custom roles using the [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), or other Azure tools.
 
 When configuring the custom roles, update the [`AssignableScopes`](../role-based-access-control/role-definitions.md#assignablescopes) property with appropriate scope values for your directory, such as a subscription in which your API Management instance is deployed. 
 
@@ -112,7 +112,7 @@ Deploy the self-hosted gateway to Kubernetes, adding Azure AD app registration s
 > [!IMPORTANT]
 > If you're following the existing Kubernetes [deployment guidance](how-to-deploy-self-hosted-gateway-kubernetes.md):
 > * Make sure to omit the step to store the default authentication key using the `kubectl create secret generic` command. 
-> * Use the following basic configuration file in place of the default YAML file that's generated for you in the Azure portal. That file includes configuration to use an authentication key.
+> * Substitute the following basic configuration file for the default YAML file that's generated for you in the Azure portal. The following file adds Azure AD configuration in place of configuration to use an authentication key.
   
 ```yml
 ---
@@ -235,30 +235,7 @@ Deploy the gateway to Kubernetes with the following command:
 kubectl apply -f mygw.yaml
 ```
 
-## Confirm that the gateway is running
-
-1. Run the following command to check if the deployment succeeded. It might take a little time for all the objects to be created and for the pods to initialize.
-
-    ```console
-    kubectl get deployments
-    ```
-    It should return
-    ```console
-        NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-    <gateway-name>   1/1     1            1           18s
-    ```
-1. Run the following command to check if the service was successfully created. Your service IPs and ports will be different.
-
-    ```console
-    kubectl get services
-    ```
-    It should return
-    ```console
-    NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-    <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
-    ```
-1. Go back to the Azure portal and select **Overview**.
-1. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
+[!INCLUDE [api-management-self-hosted-gateway-kubernetes-services](../../includes/api-management-self-hosted-gateway-kubernetes-services.md)]
 
 
 ## Next steps
