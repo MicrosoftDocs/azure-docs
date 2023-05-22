@@ -11,7 +11,7 @@ ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 
 Azure Functions is a managed, event-based, serverless compute experience that provides scalable compute resources for your cloud-based solutions. You can use Functions to perform key tasks, such as process file uploads, respond in near real time to streams, perform machine learning model inference, run code as a schedule task, and build serverless workflows. 
 
-:::image type="content" source="media/functions-overview/functions-scenarios-overview.png" alt-text="Diagram that represents a set of seven scenarios supported by Azure Functions. ":::
+[![Diagram that represents a set of seven scenarios supported by Azure Functions.](media/functions-overview/functions-scenarios-overview.png)](./functions-scenarios.md)
 
 For more information, see [Azure Functions Scenarios](functions-scenarios.md).
 
@@ -25,21 +25,23 @@ The open source [Functions runtime](https://github.com/Azure/azure-functions-hos
 
 ## Event-driven execution
 
-Functions uses triggers to receive events from other services, including event and message-based services like Azure Event Hubs, Azure Event Grid, Azure IoT Hub, and Azure Service Bus. This means that your function code can easily consume events and related data from other Azure and select partner services. 
+Functions uses triggers to receive events from other services, including event and message-based services like Azure Event Hubs, Azure Event Grid, Azure IoT Hub, and Azure Service Bus. Your function code can easily consume events and related data from these and other Azure and select partner services. 
 
-## Flexible development options
+## Familiar development options
 
 With Functions, you write your function code in your preferred language using your favorite development tools and then deploy your code to the Azure cloud. Functions provides native support for developing in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), plus the ability to use [more languages](./functions-custom-handlers.md), such as Rust and Go. 
 
 Functions integrates directly with Visual Studio, Visual Studio Code, Maven, and other popular development tools to enable seemless debugging and [deployments](functions-deployment-technologies.md). 
 
-Functions also integrates with Azure Application Insights to provide comprehensive runtime telemetry and analysis of your [functions in the cloud](functions-monitoring.md).
+Functions also integrates with Azure Monitor and Azure Application Insights to provide comprehensive runtime telemetry and analysis of your [functions in the cloud](functions-monitoring.md).
 
 ## Flexible hosting options
 
-Functions provides a variety [hosting options](functions-scale.md) for your business needs and application workload. Dynamic scale plans range from fully serverless, where you only pay for execution time (Consumption plan), to always warm instances kept ready for fastest response times (Premium plan). [Event-driven scaling hosting options](./functions-scale.md#scale) in dynamic scale plans mean functions run only when needed, and you don't have to pay for more resources than you need.
+Functions provides a variety [hosting options](functions-scale.md#overview-of-plans) for your business needs and application workload. [Event-driven scaling hosting options](./event-driven-scaling.md) range from fully serverless, where you only pay for execution time (Consumption plan), to always warm instances kept ready for fastest response times (Premium plan). 
 
-If you want complete control over your functions runtime environment and dependencies, you can even deploy your functions in containers that you can fully customize. These custom containers can be hosted by Functions, deployed as part of a microservices architecture in Azure Container Apps, or even self-hosted in Kubernetes. 
+When you have excess App Service hosting resources, you can host your functions an existing App Service plan. This kind of Dedicated hosting plan is also a good choice when you need predictable scaling behaviors and costs from your functions. 
+
+If you want complete control over your functions runtime environment and dependencies, you can even deploy your functions in containers that you can fully customize. Your custom containers can be hosted by Functions, deployed as part of a microservices architecture in Azure Container Apps, or even self-hosted in Kubernetes. 
 
 ## Next Steps
 
