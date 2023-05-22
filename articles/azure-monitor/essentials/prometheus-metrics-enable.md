@@ -46,7 +46,7 @@ By default the following resources are created as part of onboarding.
     - `NodeRecordingRulesRuleGroup-<cluster_name>`
     - `NodeRecordingRulesRuleGroup-Win-<cluster_name>` (disabled by default)
     - `NodeAndKubernetesRecordingRulesRuleGroup-Win-<cluster_name>` (disabled by default)
-- Azure Monitor Workspace : If an azure monitor workspace is not specified while using the Az CLI then one will be created for you in a resource group following the format `DefaultResourceGroup-<azure_monitor_workspace_region>` with a name following the format ` "DefaultAzureMonitorWorkspace-<azure_monitor_workspace_region>`. The default Azure Monitor Workspace region will be the cluster region unless Azure Monitor Workspace creation is not supported in that region. Then one will be picked randomly from the [supported region list](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=monitor)
+- Azure Monitor Workspace : If an azure monitor workspace is not specified while using the Az CLI then one will be created for you in a resource group following the format `DefaultResourceGroup-<azure_monitor_workspace_region>` with a name following the format ` "DefaultAzureMonitorWorkspace-<azure_monitor_workspace_region>`. The default Azure Monitor Workspace region will be the cluster region unless Azure Monitor Workspace creation is not supported in that region. Then one will be picked randomly from the [supported region list](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=monitor)
 
 ### [Azure portal](#tab/azure-portal)
 > [!NOTE]
