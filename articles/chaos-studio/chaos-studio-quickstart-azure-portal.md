@@ -82,7 +82,7 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
    ![Screenshot that shows Access control (IAM) in the left pane.](images/quickstart-access-control.png)
 1. Select **Add**.
 
-   ![Screenshot that shows the Add button.](images/add.png)
+   ![Screenshot that shows Add.](images/add.png)
 
 1. Select **Add role assignment**.
 
