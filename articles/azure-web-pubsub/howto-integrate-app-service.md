@@ -144,12 +144,17 @@ Now head over to your browser and visit your deployed Web App. It is recommended
 
 ## Data flow
 ### Overview
-The data flow section dives deeper into how the whiteboard app was built. The whiteboard app has two transport
+The data flow section dives deeper into how the whiteboard app is built. The whiteboard app has two transport methods.
 - HTTP service written as an Express app and hosted on App Service. 
 - WebSocket connections managed by Azure Web PubSub.
+
+By leveraging Azure Web PubSub to manage WebSocket connections, the load on the Web App is significantly reduced. Apart from authenticating the client and serving images, the Web App is not involved syncronizing drawing actitivies. A client's drawing activities are directly sent to Web PubSub and broadcasted to all clients in a group. 
+
+At any point in time, there maybe more than one client drawing. If the Web App were to manage WebSocket connections on its own, it needed to broadcast every drawing activity to all other clients. The huge traffic and processing will be a big burden to the server. 
+
 :::row:::
     :::column:::
-        The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service. {...Code link missing}
+        The client, built with [Vue](https://vuejs.org/), makes an HTTP request for a Client Access Token to an endpoint `/negotiate`. The backend application is an [Express app](https://expressjs.com/) and hosted as a Web App using Azure App Service.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/howto-integrate-app-service/dataflow-1.jpg" alt-text="Step one of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-1.jpg":::
@@ -158,7 +163,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 
 :::row:::
     :::column:::
-        When the backend application successfully returns the Client Access Token to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  {...Code link missing}
+        When the backend application successfully [returns the Client Access Token](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L62) to the connecting client, the client uses it to establish a WebSocket connection with Azure Web PubSub.  
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/howto-integrate-app-service/dataflow-2.jpg" alt-text="Step two of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-2.jpg":::
@@ -167,14 +172,14 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 
 :::row:::
     :::column:::
-        If the handshake with Azure Web PubSub is successful, the client will be added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the `draw` group. {...Code link missing}
+        If the handshake with Azure Web PubSub is successful, the client will be added to a group named `draw`, effectively subscribing to messages published to this group. Also, the client is given the permission to send messages to the [`draw` group](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L64). 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/howto-integrate-app-service/dataflow-3.jpg" alt-text="Step three of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-3.jpg":::
     :::column-end:::
 :::row-end:::
 > [!NOTE]
-> To keep this how-to guide focused, all connecting clients are added to the same group named `draw` and is given the permission to send messages to this group. To manage client connections at a granular level, see the full references of the APIs provided by Azure Web PubSub. {...missing link}
+> To keep this how-to guide focused, all connecting clients are added to the same group named `draw` and is given the permission to send messages to this group. To manage client connections at a granular level, see the full references of the APIs provided by Azure Web PubSub.
 
 :::row:::
     :::column:::
@@ -189,7 +194,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 
 :::row:::
     :::column:::
-        As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at `/diagram`. This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
+        As soon as a client establishes a persistent connection with Web PubSub, it makes an HTTP request to the backend application to fetch the latest shape and background data at [`/diagram`](https://github.com/Azure/awps-webapp-sample/blob/main/whiteboard/server.js#L70). This demonstrates how an HTTP service hosted on App Service can be combined with Web PubSub, App Service being a scalable and highly available HTTP service and Web PubSub taking care of real-time communication.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/howto-integrate-app-service/dataflow-5.jpg" alt-text="Step five of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-5.jpg":::
@@ -198,7 +203,7 @@ The data flow section dives deeper into how the whiteboard app was built. The wh
 
 :::row:::
     :::column:::
-        Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, is managed by the backend application and delivered through Web PubSub. {code missing}
+        Now that the clients and backend application have two ways to exchange data. One is the conventional HTTP request-response cycle and the other is the persistent, bi-directional channel through Web PubSub. The drawing activities *(editing vector shapes)*, which originate from one user and need to be immediately broadcasted to all users, are delivered through Web PubSub without the involvement of the backend application.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/howto-integrate-app-service/dataflow-6.jpg" alt-text="Step six of app data flow" lightbox="./media/howto-integrate-app-service/dataflow-6.jpg":::
