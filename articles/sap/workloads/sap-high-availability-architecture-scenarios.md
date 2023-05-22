@@ -182,7 +182,7 @@ You usually don't need a specific high-availability solution for the SAP applica
 
 Depending on the deployment type (flexible scale set with FD=1, availability zone or availability set), you must distribute your SAP application server instances accordingly to achieve redundancy.
 
-* **Flexible scale set with platformFaultDomainCount=1 (FD=1):** SAP application servers deployed with flexible scale set (FD=1) would distributes the virtual machines across different availability zones and the scales set would also distribute VMs across different fault domains within each zone on a best effort basis. This ensures that if one zone is unavailable, the SAP application servers deployed in another zone continues to be available.
+* **Flexible scale set with platformFaultDomainCount=1 (FD=1):** SAP application servers deployed with flexible scale set (FD=1) distribute the virtual machines across different availability zones and the scales set would also distribute VMs across different fault domains within each zone on a best effort basis. This ensures that if one zone is unavailable, the SAP application servers deployed in another zone continues to be available.
 * **Availability zone:** SAP application servers deployed across availability zones ensure that VMs are span across different zones to achieve redundancy. This ensures that if one zone is unavailable, the SAP application servers deployed in another zone continues to be available.  For more information, see [SAP workload configurations with Azure Availability Zones](./high-availability-zones.md)
 * **Availability set:** SAP application servers deployed in availability set ensure that VMs are distributed across different [fault domains](./planning-guide.md#fault-domains) and [update domains](./planning-guide.md#update-domains). On placing VMs across different update domains, ensure that VMs aren't updated at the same time during planned maintenance downtime. Whereas, placing VMs in different fault domain ensures that VM is protected from hardware failures or power interruptions within a data center. But the number of fault and update domains that could be used by an Azure availability set within an Azure scale unit is finite. If you keep adding VMs to a single availability set, two or more VMs would eventually end up in the same fault or update domain. For more information, see the [Azure availability sets](./planning-guide.md#availability-sets) section of the Azure virtual machines planning and implementation for SAP NetWeaver document.
 
@@ -216,15 +216,15 @@ On Linux, the configuration of SAP ASCS/SCS instance clustering depends on the o
 
 * **SUSE Linux Enterprise Server (SLES)**
   
-  * [High Availability of SAP ASCS/SCS instance using NFS with simple mount](.high-availability-guide-suse-nfs-simple-mount.md).
-  * [High Availability of SAP ASCS/SCS instance using NFS on Azure Files](.high-availability-guide-suse-nfs-azure-files.md).
+  * [High Availability of SAP ASCS/SCS instance using NFS with simple mount](./high-availability-guide-suse-nfs-simple-mount.md).
+  * [High Availability of SAP ASCS/SCS instance using NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md).
   * [High Availability of SAP ASCS/SCS instance using NFS on Azure NetApp Files](./high-availability-guide-suse-netapp-files.md).
-  * [High Availability of SAP ASCS/SCS instance using NFS Server](.high-availability-guide-suse-nfs.md).
+  * [High Availability of SAP ASCS/SCS instance using NFS Server](./high-availability-guide-suse-nfs.md).
 
 * **Red Hat Enterprise Linux (RHEL)**
   
-  * [High Availability of SAP ASCS/SCS instance using NFS on Azure Files](.high-availability-guide-rhel-nfs-azure-files.md).
-  * [High Availability of SAP ASCS/SCS instance using NFS on Azure NetApp Files](.high-availability-guide-rhel-netapp-files.md).
+  * [High Availability of SAP ASCS/SCS instance using NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md).
+  * [High Availability of SAP ASCS/SCS instance using NFS on Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md).
 
 ### SAP NetWeaver multi-SID configuration for a clustered SAP ASCS/SCS instance
 
