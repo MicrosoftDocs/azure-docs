@@ -16,12 +16,12 @@ ms.custom: mode-other
 # QuickStart: Add messaging to your calling app using DataChannel feature API
 
 ::: zone pivot="platform-web"
-[!INCLUDE [DataChannel feature with JavaScript](./includes/datachannel/datachannel-javascript.md)]
+[!INCLUDE [Data Channel feature with JavaScript](./includes/datachannel/data-channel-javascript.md)]
 ::: zone-end
 
 ## Next steps
 
 For more information, see the following articles:
 
-- Learn about [DataChannel feature concept document](../../concepts/voice-video-calling/datachannel.md)
+- Learn about [Data Channel feature concept document](../../concepts/voice-video-calling/data-channel.md)
 - Learn more about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
