@@ -667,8 +667,6 @@
         href: data-connectors/threat-intelligence-taxii.md
       - name: Threat Intelligence Platforms
         href: data-connectors/threat-intelligence-platforms.md
-      - name: Threat Intelligence Upload Indicators API (Preview)
-        href: data-connectors/threat-intelligence-upload-indicators-api.md
       - name: Trend Micro Apex One
         href: data-connectors/trend-micro-apex-one.md
       - name: Trend Micro Deep Security
@@ -708,7 +706,7 @@
       - name: Zero Networks Segment Audit
         href: data-connectors/zero-networks-segment-audit.md
       - name: Zero Networks Segment Audit (Function) (using Azure Functions)
-        href: data-connectors/zero-networks-segment-audit-function-using-azure-functions.md
+        href: data-connectors/zero-networks-segment-audit-function-using-azure-function.md
       - name: Zimperium Mobile Threat Defense
         href: data-connectors/zimperium-mobile-threat-defense.md
       - name: Zoom Reports (using Azure Function)

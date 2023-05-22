@@ -1,6 +1,6 @@
 ---
-title: "Braodcom Symantec DLP connector for Microsoft Sentinel"
-description: "Learn how to install the connector Braodcom Symantec DLP to connect your data source to Microsoft Sentinel."
+title: "Broadcom Symantec DLP connector for Microsoft Sentinel"
+description: "Learn how to install the connector Broadcom Symantec DLP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 05/22/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Braodcom Symantec DLP connector for Microsoft Sentinel
+# Broadcom Symantec DLP connector for Microsoft Sentinel
 
 The [Broadcom Symantec Data Loss Prevention (DLP)](https://www.broadcom.com/products/cyber-security/information-protection/data-loss-prevention) connector allows you to easily connect your Symantec DLP with Microsoft Sentinel, to create custom dashboards, alerts, and improve investigation. This gives you more insight into your organization’s information, where it travels, and improves your security operation capabilities.
 
