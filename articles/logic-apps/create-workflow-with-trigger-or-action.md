@@ -76,7 +76,7 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, select **Add a trigger**, if not already selected.
 
-   The **Browse operations** pane opens and shows the available connectors with triggers.
+   The **Add a trigger** pane opens and shows the available connectors with triggers.
 
    :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-triggers-standard.png" alt-text="Screenshot showing Azure portal, the designer for Standard logic app with blank workflow, and connectors with triggers gallery.":::
 
@@ -84,9 +84,9 @@ The following steps use the Azure portal, but you can also use the following too
 
    - To filter the connectors or triggers list by name, in the search box, enter the name for the connector or trigger that you want.
 
-   - To filter the connectors based on the following groups, open the **Filter** list, and select either **In-App** or **Shared**, based on the group that contains the trigger that you want.
+   - To filter the connectors based on the following groups, open the **Runtime** list, and select either **In-App** or **Shared**, based on the group that contains the trigger that you want.
 
-     | Group | Description |
+     | Runtime | Description |
      |-------|-------------|
      | **In-App** | Connectors and triggers that run directly and natively within the Azure Logic Apps runtime. In the previous designer version, this group is the same as the **Built-in** group. |
      | **Shared** | For stateful workflows only, connectors and triggers that are Microsoft-managed, hosted, and run in multi-tenant Azure. In the previous designer version, this group is the same as the **Azure** group. |
@@ -165,7 +165,9 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. On the designer, select **Add an action**, if not already selected.
 
-   The **Browse operations** pane opens and shows the available connectors.
+   The **Add an action** pane opens and shows the available connectors.
+
+   :::image type="content" source="media/create-workflow-with-trigger-or-action/designer-overview-actions-standard.png" alt-text="Screenshot showing Azure portal, the designer for Standard logic app with a workflow, and connectors with actions gallery.":::
 
 1. Choose either option:
 

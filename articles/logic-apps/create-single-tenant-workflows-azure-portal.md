@@ -211,13 +211,13 @@ This example workflow starts with the [built-in Request trigger](../connectors/c
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-### [Standard (Preview)](#tab/standard-preview)
+### [Standard](#tab/standard)
 
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-trigger) to your workflow.
+1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
-   ![Screenshot showing preview picker with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-preview.png)
+   ![Screenshot showing preview picker with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
