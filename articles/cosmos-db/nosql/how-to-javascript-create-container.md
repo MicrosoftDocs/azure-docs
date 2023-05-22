@@ -87,7 +87,7 @@ const { resources } = await client.database(databaseName).containers
 ```
 
 > [!TIP]
-> [Containers](/javascript/api/@azure/cosmos/containerss) (plural): create or query containers
+> [Containers](/javascript/api/@azure/cosmos/containers) (plural): create or query containers
 > [Container](/javascript/api/@azure/cosmos/container) (singular): delete container, work with items
 
 ## Delete a container

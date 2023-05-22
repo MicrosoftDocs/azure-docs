@@ -72,7 +72,7 @@ const { statusCode, item, resource, activityId, etag} = await container.items.cr
 
 ## Access an item
 
-Access an item through the [Item](/javascript/api/@azure/cosmos/item) object. This can accessed from the [Container](/javascript/api/@azure/cosmos/container) object or changed from either the [Database](/javascript/api/@azure/cosmos/database) or [CosmosClient](javascript/api/@azure/cosmos/cosmosclient) objects.
+Access an item through the [Item](/javascript/api/@azure/cosmos/item) object. This can accessed from the [Container](/javascript/api/@azure/cosmos/container) object or changed from either the [Database](/javascript/api/@azure/cosmos/database) or [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) objects.
 
 ```javascript
 // Chained, then use a method of the Item object such as `read`
