@@ -70,7 +70,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Insights'
     New-AzNetworkWatcherFlowLog -Name 'myFlowLog' -Location 'eastus' -TargetResourceId $nsg.Id -StorageId $sa.Id -Enabled $true
     ```
 
-## Create a flow log with traffic analytics
+## Create a flow log and traffic analytics workspace
 
 1. Get the properties of the network security group that you want to create the flow log for and the storage account that you want to use to store the created flow log using [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) respectively.
 
