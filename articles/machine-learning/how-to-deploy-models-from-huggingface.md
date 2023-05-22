@@ -65,7 +65,7 @@ from azure.ai.ml.entities import (
     Environment,
     CodeConfiguration,
 )
-registry_name = "HuggingFaceHub"
+registry_name = "HuggingFace"
 model_name = "bert_base_uncased"
 model_id = f"azureml://registries/{registry_name}/models/{model_name}/labels/latest"
 ```
