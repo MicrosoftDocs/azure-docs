@@ -2,7 +2,7 @@
 title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 05/22/2023
 ms.author: dacurwin
 author: dcurwin
 ---
@@ -156,8 +156,17 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 You can also learn more about defending your Kubernetes nodes and clusters with [Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
+### Simulate alerts for App Service
+
+You can simulate alerts for resources running on [App Service](https://learn.microsoft.com/azure/app-service/overview).
+
+1. Create a new website and wait 24 hours for it to be registered with Defender for Cloud, or use an existing web site. 
+
+1. Once the web site is created, access it using the following URL: **https://<web site name>.azurewebsites.net/This_Will_Generate_ASC_Alert/**<br> An alert will be generated within about 1-2 hours.
+
 ## Next steps
-This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
+
+This article introduced you to the alerts validation process. Now that you're familiar with this validation, explore the following articles:
 
 - [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 - [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
