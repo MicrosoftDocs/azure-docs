@@ -1,23 +1,23 @@
 ---
-title: HX-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HX-series VM size in Azure.  
+title: HBv4-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
+description: Learn about the HBv4-series VM size in Azure.  
 services: virtual-machines 
 tags: azure-resource-manager 
 ms.service: virtual-machines 
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 04/06/2023
+ms.date: 04/24/2023
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas
 ---
 
-# HX-series virtual machine overview 
+# HBv4-series virtual machine overview 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-An [HX-series](hx-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
+An [HBv4-series](hbv4-series.md) server features 2 * 96-core EPYC 9V33X CPUs for a total of 192 physical "Zen4" cores with AMD 3D-V Cache. Simultaneous Multithreading (SMT) is disabled on HBv4 and HX. These 192 cores are divided into 24 sections (12 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv4 and HX servers also run the following AMD BIOS settings: 
 
 ```bash
 Nodes per Socket (NPS) = 2
@@ -26,77 +26,77 @@ NUMA domains within VM OS = 4
 C-states = Enabled
 ```
 
-As a result, the server boots with 4 NUMA domains (2 per socket) each 32 cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3200 MT/s.
+As a result, the server boots with 4 NUMA domains (2 per socket) each 48-cores in size. Each NUMA has direct access to 6 channels of physical DRAM. 
 
-To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 8 physical cores per server.
+To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 16 physical cores per server. 
 
 ## VM topology
 
-The following diagram shows the topology of the server. We reserve these 8 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) on each NUMA domain, with the remaining cores for the HX-series VM (green).
+The following diagram shows the topology of the server. We reserve these 16 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) in each NUMA domain, with the remaining cores for the HBv4-series VM (green).
 
-![Topology of the HX-series server](./media/hpc/architecture/hbv3/hbv3-topology-server.png)
+![Topology of the HBv4-series server](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
-The CCD boundary is not equivalent to a NUMA boundary. On HX, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HX VM sizes expose 4 NUMA domains that appear to an OS and application as shown. 4 uniform NUMA domains, each with different number of cores depending on the specific [HX VM size](hx-series.md).
+The CCD boundary is not equivalent to a NUMA boundary. On HBv4, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv4 VM sizes expose 4 uniform NUMA domains that will appear to an OS and application as shown below, each with different number of cores depending on the specific [HBv4 VM size](hbv4-series.md).
 
-![Topology of the HX-series VM](./media/hpc/architecture/hbv3/hbv3-topology-vm.png)
+![Topology of the HBv4-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
-Each HX VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 7003-series, as follows:
+Each HBv4 VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 7003-series, as follows:
 
-| HX-series VM size               | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
+| HBv4-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
-Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7773X           |
-Standard_HB120r-96s_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
-Standard_HB120r-64s_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
-Standard_HB120r-32s_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
-Standard_HB120r-16s_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
+Standard_HB176rs_v4               | 4            | 44                     | Dual-socket EPYC 9V33X           |
+Standard_HB176r-144s_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
+Standard_HB120r-64s_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
+Standard_HB120r-32s_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
+Standard_HB120r-16s_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
 
-The virtual NUMA mapping of each HX VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology. 
+The virtual NUMA mapping of each HBv4 VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology. 
 
-The exact topology for the various [HX VM size](hx-series.md) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
+The exact topology for the various [HBv4 VM size](hbv4-series.md) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
 ```bash
 lstopo-no-graphics --no-io --no-legend --of txt
 ```
 <br>
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176rs_v4</summary>
 
-![lstopo output for HX-120 VM](./media/hpc/architecture/hbv3/hbv3-120-lstopo.png)
+![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176rs-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-96_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
 
-![lstopo output for HX-96 VM](./media/hpc/architecture/hbv3/hbv3-96-lstopo.png)
+![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv4-144rs-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-64_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
 
-![lstopo output for HX-64 VM](./media/hpc/architecture/hbv3/hbv3-64-lstopo.png)
+![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96rs-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-32_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
 
-![lstopo output for HX-32 VM](./media/hpc/architecture/hbv3/hbv3-32-lstopo.png)
+![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48rs-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-16_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
 
-![lstopo output for HX-16 VM](./media/hpc/architecture/hbv3/hbv3-16-lstopo.png)
+![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24rs-lstopo.png)
 </details>
 
 ## InfiniBand networking
-HX VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-6) operating at up to 200 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv3 VMs as they would a bare metal environment.
+HBv4 VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-6) operating at up to 200 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv3 VMs as they would a bare metal environment.
 
-HX VMs support Adaptive Routing, the Dynamic Connected Transport (DCT, along with standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-6 adapter. These features enhance application performance, scalability, and consistency, and usage of them is recommended.
+HBv4 VMs support Adaptive Routing, the Dynamic Connected Transport (DCT, along with standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-6 adapter. These features enhance application performance, scalability, and consistency, and usage of them is recommended.
 
 ## Temporary storage
-HX VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and it appeared within your VM as a generic "SSD" device.
+HBv4 VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and it appeared within your VM as a generic "SSD" device.
 
 Two other, larger SSDs are provided as unformatted block NVMe devices via NVMeDirect. As the block NVMe device bypasses the hypervisor, it has higher bandwidth, higher IOPS, and lower latency per IOP.
 
@@ -104,30 +104,35 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 ## Hardware specifications 
 
-| Hardware specifications          | HX-series VMs              |
+| Hardware specifications          | HBv4-series VMs              |
 |----------------------------------|----------------------------------|
-| Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               | 
-| CPU                              | AMD EPYC 7V73X                   | 
-| CPU Frequency (non-AVX)          | 3.0 GHz (all cores), 3.5 GHz (up to 10 cores)    | 
-| Memory                           | 448 GB (RAM per core depends on VM size)         | 
-| Local Disk                       | 2 * 960 GB NVMe (block), 480 GB SSD (page file) | 
-| Infiniband                       | 200 Gb/s Mellanox ConnectX-6 HDR InfiniBand | 
-| Network                          | 50 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
+| Cores                            | 176, 144, 96, 48, or 24 (SMT disabled)           | 
+| CPU                              | AMD EPYC 9V33X                   | 
+| CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
+| Memory                           | 688 GB (RAM per core depends on VM size)         | 
+| Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
+| Infiniband                       | 400 Gb/s Mellanox ConnectX-7 NDR InfiniBand | 
+| Network                          | 80 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
 
 ## Software specifications 
 
-| Software specifications        | HX-series VMs                                            | 
+| Software specifications        | HBv4-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
-| Max MPI Job Size               | 36,000 cores (300 VMs in a single Virtual Machine Scale Set with singlePlacementGroup=true) |
-| MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
-| Additional Frameworks          | UCX, libfabric, PGAS                  |
-| Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
-| OS Support for SRIOV RDMA      | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 12 SP4+, WinServer 2016+           |
-| Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
+| Max MPI Job Size               | 52,800 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
+| MPI Support                    | HPC-X (2.13 or higher), Intel MPI (2021.7.0 or higher), OpenMPI (4.1.3 or higher), MVAPICH2 (2.3.7 or higher), MPICH (4.1 or higher)  |
+| Additional Frameworks          | UCX, libfabric, PGAS, or other InfiniBand based runtimes                  |
+| Azure Storage Support          | Standard and Premium Disks (maximum 32 disks), Azure NetApp Files, Azure Files, Azure HPC Cache, Azure Managed Lustre File System             |
+| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 18.04+            |
+| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 18.04+    |
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+> These VMs support Generation 2 ONLY
+> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6
+> Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
+
+> [!IMPORTANT] 
+> 
 
 ## Next steps
 
