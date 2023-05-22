@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -48,6 +48,10 @@ When scanning erwin Mart source, Microsoft Purview supports:
 - Fetching static lineage on assets relationships among entities, views and stored procedures.
 
 When setting up scan, you can choose to scan an entire erwin Mart server, or scope the scan to a list of models matching the given name(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 

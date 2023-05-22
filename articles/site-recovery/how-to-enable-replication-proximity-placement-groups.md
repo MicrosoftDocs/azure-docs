@@ -95,7 +95,7 @@ You can easily update your selection of a proximity placement group in the DR re
 
 ### Prerequisites 
 
-- Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow the [guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow the [guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 - The minimum Azure PowerShell Az version should be 4.1.0. To check the current version, use the following command:
 
     ```

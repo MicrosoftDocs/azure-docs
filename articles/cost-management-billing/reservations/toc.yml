@@ -29,14 +29,14 @@
       href: understand-cosmosdb-reservation-charges.md
     - name: Azure Cosmos DB for PostgreSQL
       href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md
-    - name: Database for PostgreSQL - Single Server
-      href: understand-reservation-charges-postgresql.md
     - name: Databricks
       href: reservation-discount-databricks.md
     - name: Data Explorer

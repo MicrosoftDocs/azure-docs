@@ -41,11 +41,11 @@ After you finish the Cloud Access enablement steps, Red Hat validates your eligi
 
 ## Use the Red Hat Gold Images from the Azure portal
 
-1. After your Azure subscription receives access to Red Hat Gold Images, you can locate them in the [Azure portal](https://portal.azure.com). Go to **Create a Resource** > **See all**.
+1. After your Azure subscription receives access to Red Hat Gold Images, you can locate them in the [Azure portal](https://portal.azure.com). Go to **Create a Resource** > **MarketPlace**.
 
 1. At the top of the page, you'll see that you have private offers.
 
-    ![Marketplace private offers](./media/rhel-byos-privateoffers.png)
+    ![Marketplace private offers](./media/rhel-byos-privateoffers-2.png)
 
 1. Select the purple link, or scroll down to the bottom of the page to see your private offers.
 

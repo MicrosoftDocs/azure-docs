@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 01/24/2023
+ms.date: 04/20/2023
 ms.topic: overview
 author: tfitzmac
 ms.author: tomfitz
@@ -139,11 +139,10 @@ details on moving items within the hierarchy.
 
 ## Azure custom role definition and assignment
 
-Azure custom role support for management groups is currently in preview with some
-[limitations](#limitations). You can define the management group scope in the Role Definition's
-assignable scope. That Azure custom role will then be available for assignment on that management
-group and any management group, subscription, resource group, or resource under it. This custom role
-will inherit down the hierarchy like any built-in role.
+You can define a management group as an assignable scope in an Azure custom role definition.
+The Azure custom role will then be available for assignment on that management
+group and any management group, subscription, resource group, or resource under it. The custom role
+will inherit down the hierarchy like any built-in role. For information about the limitations with custom roles and management groups, see [Limitations](#limitations).
 
 ### Example definition
 
@@ -231,13 +230,6 @@ There are limitations that exist when using custom roles on management groups.
 - Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
-
-> [!IMPORTANT]
-> Adding a management group to `AssignableScopes` is currently in preview. This preview version is
-> provided without a service-level agreement, and it's not recommended for production workloads.
-> Certain features might not be supported or might have constrained capabilities. For more
-> information, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Moving management groups and subscriptions
 
