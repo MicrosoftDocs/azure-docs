@@ -104,7 +104,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 1. Make a minor change to the template. For example, update the `storageAccountName` variable to:
 
     ```json
-    "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
+    "storageAccountName": "[format('azstore{0}', uniquestring(resourceGroup().id))]"
     ```
 
 1. Select **Save**. Now you see the portal template deployment interface. Notice the two parameters that you defined in the template.

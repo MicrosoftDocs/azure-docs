@@ -78,10 +78,10 @@ Add a virtual machine extension resource to the existing template with the follo
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "apiVersion": "2021-04-01",
-  "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
+  "name": "[format('{0}/{1}', variables('vmName'), 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
+    "[format('Microsoft.Compute/virtualMachines/{0}',variables('vmName'))]"
   ],
   "properties": {
     "publisher": "Microsoft.Compute",

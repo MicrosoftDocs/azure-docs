@@ -153,7 +153,7 @@ The following example template creates a failover group for databases that are p
     }
   },
   "variables": {
-    "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    "failoverName": "[format('{0}/{1}failovergroups', parameters('primaryServerName'), parameters('primaryServerName'))]"
   },
   "resources": [
     {
@@ -222,7 +222,7 @@ You can use resource and property iterations together. Reference the property it
 {
   "type": "Microsoft.Network/virtualNetworks",
   "apiVersion": "2018-04-01",
-  "name": "[concat(parameters('vnetname'), copyIndex())]",
+  "name": "[format('{0}{1}', parameters('vnetname'), copyIndex())]",
   "copy":{
     "count": 2,
     "name": "vnetloop"
@@ -239,7 +239,7 @@ You can use resource and property iterations together. Reference the property it
         "name": "subnets",
         "count": 2,
         "input": {
-          "name": "[concat('subnet-', copyIndex('subnets'))]",
+          "name": "[format('subnet-{0}', copyIndex('subnets'))]",
           "properties": {
             "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
           }

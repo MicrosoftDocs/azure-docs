@@ -65,7 +65,7 @@ The following example shows a logical SQL server and database. Notice that an ex
           "tier": "Standard"
           },
         "dependsOn": [
-          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+          "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
         ]
       }
     ]
@@ -143,7 +143,7 @@ The following example shows how to deploy multiple virtual machines. The templat
   "name": "[format('{0}{1}', variables('vmPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "dependsOn": [
-    "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]"
+    "[resourceId('Microsoft.Network/networkInterfaces',format('{0}-{1}', variables('nicPrefix'),copyIndex()))]"
   ],
   "copy": {
     "name": "vmCopy",
@@ -153,7 +153,7 @@ The following example shows how to deploy multiple virtual machines. The templat
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]",
+          "id": "[resourceId('Microsoft.Network/networkInterfaces',format('(0)-(1)', variables('nicPrefix'), copyIndex()))]",
           "properties": {
             "primary": "true"
           }

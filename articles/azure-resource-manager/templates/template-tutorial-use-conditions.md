@@ -122,7 +122,7 @@ Here is the procedure to make the changes:
 1. Update the `storageUri` property of the virtual machine resource definition with the following value:
 
     ```json
-    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    "storageUri": "[format('https://{0}.blob.core.windows.net', parameters('storageAccountName'))]"
     ```
 
     This change is necessary when you use an existing storage account under a different resource group.
