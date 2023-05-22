@@ -87,9 +87,9 @@ In this tutorial, you learn to:
 
 1. Register the `Microsoft.ServiceLinker` namespace.
 
-  ```azurecli
-  az provider register –namespace Microsoft.ServiceLinker
-  ```
+    ```azurecli
+    az provider register –namespace Microsoft.ServiceLinker
+    ```
 
 1. Create a new environment.
   
@@ -188,7 +188,7 @@ Next, create your internet-accessible container app.
 
 When your application is ready to move to production, you can bind your application to a managed service instead of a dev service.
 
-The following steps bind your application to an existing instance of Azure Cache for Redis called `azureRedis`.
+The following steps bind your application to an existing instance of Azure Cache for Redis.
 
 1. Bind to Azure Cache for Redis.
 
@@ -232,6 +232,13 @@ Run the following commands to delete your container app and the dev service.
 ``` azurecli
 az containerapp delete --name myapp
 az containerapp service redis delete --name myredis
+```
+
+Alternatively you can delete the resource group to remove the container app and all services.
+
+```azurecli
+az group delete \
+  --resource-group "$RESOURCE_GROUP"
 ```
 
 ## Next steps
