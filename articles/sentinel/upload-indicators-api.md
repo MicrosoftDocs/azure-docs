@@ -125,6 +125,7 @@ The response body is an array of error messages in JSON format:
 |errors	| Array of error objects | List of validation errors |
 
 **Error object**
+
 |Field name | Data Type | Description |
 |----|----|----|
 |recordIndex | int | Index of the indicators in the request |

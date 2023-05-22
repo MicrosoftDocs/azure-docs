@@ -101,7 +101,7 @@ The following configuration information required by the upload indicators API:
     - Microsoft Sentinel workspace ID
 
 1. Enter these values in the configuration of your integrated TIP or custom solution where required.
-1. Submit the indicators to the Microsoft Sentinel upload API. To learn more about the upload indicators API, see the reference document [Microsoft Sentinel upload indicators API](upload-indicators-api-reference.md). 
+1. Submit the indicators to the Microsoft Sentinel upload API. To learn more about the upload indicators API, see the reference document [Microsoft Sentinel upload indicators API](upload-indicators-api.md). 
 1. Within a few minutes, threat indicators should begin flowing into your Microsoft Sentinel workspace. Find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
 1. The data connector status reflects the **Connected** status and the **Data received** graph is updated once indicators are submitted successfully. 
 
