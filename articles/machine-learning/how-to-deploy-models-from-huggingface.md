@@ -117,7 +117,7 @@ Browse the model catalog in Azure Machine Learning studio and find the model you
 
 You need the `model` and `instance_type` to deploy the model. You can find the optimal CPU or GPU `instance_type` for a model by opening the quick deployment dialog from the model page in the model catalog. Make sure you use an `instance_type` for which you have quota. 
 
-The models shown in the catalog are listed from the `HuggingFaceHub` registry. You deploy the `bert_base_uncased` model with the latest version in this example. The fully qualified `model` asset id based on the model name and registry is `azureml://registries/HuggingFaceHub/models/bert-base-uncased/labels/latest`. We create the `deploy.yml` file used for the `az ml online-deployment create` command inline. 
+The models shown in the catalog are listed from the `HuggingFace` registry. You deploy the `bert_base_uncased` model with the latest version in this example. The fully qualified `model` asset id based on the model name and registry is `azureml://registries/HuggingFace/models/bert-base-uncased/labels/latest`. We create the `deploy.yml` file used for the `az ml online-deployment create` command inline. 
 
 Create an online endpoint. Next, create the deployment.
 
