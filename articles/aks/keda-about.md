@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Event-driven Autoscaling (KEDA) (Preview)
+title: Kubernetes Event-driven Autoscaling (KEDA)
 description: Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on.
 author: tomkerkhove
 ms.topic: article
@@ -7,15 +7,13 @@ ms.date: 05/24/2022
 ms.author: tomkerkhove
 ---
 
-# Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on (Preview)
+# Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on
 
 Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight component that strives to make application autoscaling simple and is a CNCF Incubation project.
 
 It applies event-driven autoscaling to scale your application to meet demand in a sustainable and cost-efficient manner with scale-to-zero.
 
 The KEDA add-on makes it even easier by deploying a managed KEDA installation, providing you with [a rich catalog of 50+ KEDA scalers][keda-scalers] that you can scale your applications with on your Azure Kubernetes Services (AKS) cluster.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Architecture
 

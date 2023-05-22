@@ -626,7 +626,7 @@
           href: istio-upgrade.md
     - name: Track releases and region availability
       href: release-tracker.md
-    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
+    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on
       items:
         - name: About Kubernetes Event-driven Autoscaler (KEDA)
           href: keda-about.md
