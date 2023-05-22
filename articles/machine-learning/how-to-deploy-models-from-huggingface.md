@@ -161,7 +161,7 @@ az ml online-endpoint invoke --name $endpoint_name --request-file $scoring_file
 
 **Where are the model weights stored?**
 
-Hugging Face models are featured in the Azure Machine Learning model catalog through the HuggingFaceHub registry. Hugging Face creates and manages this registry and is made available to Azure Machine Learning as a Community Registry. The model weights aren't hosted on Azure. The weights are downloaded directly from Hugging Face hub to the online endpoints in your workspace when these models deploy. HuggingFaceHub registry works as a catalog to help discover and deploy HuggingFace hub models in Azure Machine Learning.
+Hugging Face models are featured in the Azure Machine Learning model catalog through the `HuggingFace` registry. Hugging Face creates and manages this registry and is made available to Azure Machine Learning as a Community Registry. The model weights aren't hosted on Azure. The weights are downloaded directly from Hugging Face hub to the online endpoints in your workspace when these models deploy. `HuggingFace` registry in AzureML works as a catalog to help discover and deploy HuggingFace hub models in Azure Machine Learning.
 
 **How to deploy the models for batch inference?**
 Deploying these models to batch endpoints for batch inference is currently not supported. 
