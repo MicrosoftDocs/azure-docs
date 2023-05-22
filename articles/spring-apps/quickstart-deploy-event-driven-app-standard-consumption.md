@@ -134,6 +134,8 @@ Create a Service Bus instance by using the following steps.
    az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
    ```
 
+## Create queues in your Service Bus instance
+
 1. Use the following commands to create two queues named `lower-case` and `upper-case`:
 
    ```azurecli
