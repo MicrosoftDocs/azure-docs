@@ -6,8 +6,6 @@ items:
   items:   
     - name: What is Azure Active Directory for customers?  
       href: overview-customers-ciam.md 
-    - name: Demo overview
-      href: overview-solutions-customers.md 
 - name: Quickstarts
   expanded: true
   items: 

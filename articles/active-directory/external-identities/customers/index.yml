@@ -30,8 +30,6 @@ landingContent:
             url: concept-planning-your-solution.md 
           - text: Security and governance
             url: concept-security-customers.md
-          - text: Demo - Woodgrove Groceries
-            url: overview-solutions-customers.md
   - title: Add sign-in to your application
     linkLists:
       - linkListType: concept
