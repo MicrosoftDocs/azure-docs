@@ -27,7 +27,7 @@ Foundation models are machine learning models that have been pre-trained on vast
 
 The 'Model catalog' (preview) in Azure Machine Learning Studio is a hub for discovering foundation models. The Open Source Models catalog is a repository of the most popular open source foundation models curated by AzureML. These models are packaged for out of the box usage and are optimized for use in AzureML. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
 
-:::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png" lightbox="./media/how-to-use-foundation-models/model-catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
+:::image type="content" source="./media/how-to-use-foundation-models/model_catalog.png" lightbox="./media/how-to-use-foundation-models/model_catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
 
 You can filter the list of models in the Model catalog by Task, or by license. Select a specific model name and the see a model card for the selected model, which lists detailed information about the model. For example:
 
@@ -165,7 +165,7 @@ If you're looking to use an open source model that isn't included in the Model C
 
 You can select the "Import" button on the top-right of the Model Catalog to use the Model Import Notebook.
 
-:::image type="content" source="./media/how-to-use-foundation-models/model-import.png" alt-text="Screenshot showing the model import button as it's displayed in the top right corner on the foundation model catalog.":::
+:::image type="content" source="./media/how-to-use-foundation-models/model_import.png" alt-text="Screenshot showing the model import button as it's displayed in the top right corner on the foundation model catalog.":::
 
 The model import notebook is also included in the azureml-examples git repo [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
 
