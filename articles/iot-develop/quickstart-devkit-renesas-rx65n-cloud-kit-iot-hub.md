@@ -1,6 +1,6 @@
 ---
 title: Connect a Renesas RX65N Cloud Kit to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect a Renesas RX65N Cloud Kit device to Azure IoT Hub and send telemetry.
+description: Use Azure RTOS embedded software to connect a Renesas RX65N Cloud Kit to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -84,7 +84,7 @@ To install the tools:
     ```
 To install the remaining tools:
 
-* Install [Renesas Flash Programmer](https://www.renesas.com/software-tool/renesas-flash-programmer-programming-gui) for Windows. The Renesas Flash Programmer development environment includes the drivers and tools needed to flash the Renesas RX65N via the Renesas E2 Lite.
+* Install [Renesas Flash Programmer](https://www.renesas.com/software-tool/renesas-flash-programmer-programming-gui) for Windows. The Renesas Flash Programmer development environment includes drivers and tools needed to flash the Renesas RX65N.
 
 [!INCLUDE [iot-develop-create-cloud-components](../../includes/iot-develop-create-cloud-components.md)]
 
