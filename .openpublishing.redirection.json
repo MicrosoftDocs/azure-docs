@@ -22743,6 +22743,21 @@
             "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
             "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-meraki.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
         }
 
     ]
