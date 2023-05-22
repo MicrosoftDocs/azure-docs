@@ -32,7 +32,7 @@ You can evaluate the reliability of posture of your applications, assess risks a
 
 1. Open **Reliability** workbook template. 
 
-:::image type="content" source="media/advisor-reliability-workbook.png#lightbox" alt-text="Screenshot of the Azure Advisor reliability workbook template.":::
+:::image type="content" source="media/advisor-reliability-workbook.png" alt-text="Screenshot of the Azure Advisor reliability workbook template." lightbox="media/advisor-reliability-workbook.png":::
 
 Reliability considerations for individual Azure services are provided in the [resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
 
