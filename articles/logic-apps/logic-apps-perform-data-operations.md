@@ -131,7 +131,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 1. In the **Inputs** box, enter the inputs to use for creating the output.
 
-   For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
+   For this example, when you click inside the **Inputs** box, open the dynamic content list (function icon) so you that can select the previously created variables:
 
    ![Screenshot showing the designer for a Standard workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-standard.png)
 
