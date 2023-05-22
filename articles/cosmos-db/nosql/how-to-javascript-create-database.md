@@ -79,9 +79,9 @@ const { resources } = await client.databases
 .fetchAll();
 ```
 
-> [!TIP]
-> [Databases](/javascript/api/@azure/cosmos/databases) (plural): Used for creating new databases, or querying/reading all databases.
-> [Database](/javascript/api/@azure/cosmos/database) (singular): Used for reading, updating, or deleting a existing database by id or accessing containers belonging to that database.
+Access by object:
+* [Databases](/javascript/api/@azure/cosmos/databases) (plural): Used for creating new databases, or querying/reading all databases.
+* [Database](/javascript/api/@azure/cosmos/database) (singular): Used for reading, updating, or deleting a existing database by id or accessing containers belonging to that database.
 
 ## Delete a database
 

@@ -67,7 +67,7 @@ const containerName = 'myContainer';
 const { container, statusCode } = await client.database(databaseName).container(containerName);
 
 // Direct - assumes database and container already exist
-const { database, statusCode } = await database(databaseName);
+const { database, statusCode } = await client.database(databaseName);
 if(statusCode < 400){
     const { container, statusCode } = await database.container(containerName);
 }
@@ -86,9 +86,11 @@ const { resources } = await client.database(databaseName).containers
 .fetchAll();
 ```
 
-> [!TIP]
-> [Containers](/javascript/api/@azure/cosmos/containers) (plural): create or query containers
-> [Container](/javascript/api/@azure/cosmos/container) (singular): delete container, work with items
+Access by object:
+* [Containers](/javascript/api/@azure/cosmos/containers) (plural): Create or query containers.
+* [Container](/javascript/api/@azure/cosmos/container) (singular): Delete container, work with items.
+
+
 
 ## Delete a container
 

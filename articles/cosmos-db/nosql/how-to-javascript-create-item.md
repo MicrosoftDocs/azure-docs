@@ -79,9 +79,9 @@ Access an item through the [Item](/javascript/api/@azure/cosmos/item) object. Th
 const { statusCode, item, resource, activityId, etag} = await client.database(databaseId).container(containerId).item(itemId).read();
 ```
 
-> [!TIP]
-> [Items](/javascript/api/@azure/cosmos/items) (plural): Create, batch, watch change feed, read all, upsert, or query items.
-> [Item](/javascript/api/@azure/cosmos/item) (singular): Read, patch, replace, or delete an item.
+Access by object:
+* [Items](/javascript/api/@azure/cosmos/items) (plural): Create, batch, watch change feed, read all, upsert, or query items.
+* [Item](/javascript/api/@azure/cosmos/item) (singular): Read, patch, replace, or delete an item.
 
 ## Replace an item
 
