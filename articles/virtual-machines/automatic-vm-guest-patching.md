@@ -139,7 +139,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
-- This mode will [automatically assess the VM](https://learn.microsoft.com/en-us/azure/update-center/assessment-options#periodic-assessment) (preview) after applying initial updates to validate all updates are installed on the machine.
+- During the installation process, this mode will [assess the VM](https://learn.microsoft.com/en-us/azure/update-center/assessment-options#periodic-assessment) (preview) for available patches and save the details in [Azure Resource Graph](https://learn.microsoft.com/en-us/azure/update-center/query-logs). (preview).
 - This mode is required for availability-first patching.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
