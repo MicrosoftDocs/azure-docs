@@ -405,7 +405,6 @@ Global throughput control in the Java SDK is configured by first creating a cont
 ## [Sync API](#tab/sync)
 
 ```java
-    database = client.getDatabase("ThroughputControlDatabase")
     CosmosContainerProperties throughputContainerProperties = new CosmosContainerProperties("ThroughputControl", "/groupId").setDefaultTimeToLiveInSeconds(-1);
     ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
     database.createContainerIfNotExists(throughputContainerProperties, throughputProperties);
@@ -414,7 +413,6 @@ Global throughput control in the Java SDK is configured by first creating a cont
 ## [Async API](#tab/async)
 
 ```java
-    database = client.getDatabase("ThroughputControlDatabase")
     CosmosContainerProperties throughputContainerProperties = new CosmosContainerProperties("ThroughputControl", "/groupId").setDefaultTimeToLiveInSeconds(-1);
     ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
     database.createContainerIfNotExists(throughputContainerProperties, throughputProperties).block();
