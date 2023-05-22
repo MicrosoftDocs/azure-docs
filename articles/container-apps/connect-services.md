@@ -34,7 +34,7 @@ In this tutorial, you learn to:
 | Azure account | An active subscription is required. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli) if you don't have it on your machine. |
 | Azure resource group | Create a resource group named **my-services-resource-group** in the **East US** region. |
-| Azure Cache for Redis | Create an instance of [Azure Cache for Redis](/cli/azure/redis?view=azure-cli-latest) in the **my-services-resource-group**.  |
+| Azure Cache for Redis | Create an instance of [Azure Cache for Redis](/cli/azure/redis) in the **my-services-resource-group**.  |
 
 ## Set up
 
