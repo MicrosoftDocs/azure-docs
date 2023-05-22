@@ -21,7 +21,7 @@ Microsoft Cost Management comes in at this point.
 
 Today, we're excited to announce the preview of new AI-powered functionality in Microsoft Cost Management. The new interactive experience, accessible through the Azure portal, offers quick analysis, insights, and recommendations. The new functionality simplifies the process of understanding, analyzing, managing, and forecasting your cloud costs and bills.
 
->[!VIDEO https://aka.ms/cmbaiassistant]
+>[!VIDEO https://www.youtube.com/embed/TLXn_GnAr1k]
 
 With new AI-powered functionality in Cost Management, AI can assist you in the following scenarios:
 
