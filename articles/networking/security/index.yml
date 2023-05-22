@@ -88,7 +88,7 @@ additionalContent:
               url: /training/modules/configure-network-security-groups/
             - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
               url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
-    - title: Protect your apps  # < 60 chars (optional)
+    - title: Protect your apps
       items:
         # Card
         - title: Overview
