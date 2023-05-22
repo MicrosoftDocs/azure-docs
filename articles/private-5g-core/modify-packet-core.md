@@ -95,9 +95,6 @@ To modify the packet core and/or access network configuration:
    - If you want to configure **UE Usage tracking**:
        1. Set **UE Metric monitoring** to **Enabled**.
        1. Use the information you collected in [Collect UE Usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to configure the **Event hub connection string**.
-
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Configuration tab.":::
-
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
