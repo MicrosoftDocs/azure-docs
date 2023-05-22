@@ -17,7 +17,7 @@ For example, you can use Azure Route Server with dynamic routing and network vir
 
 This article shows you how you can use Azure Firewall with static user defined routes (UDRs) to route a multi hub and spoke topology. The following diagram shows the topology:
 
-:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-architecture-highres.png" alt-text="Conceptual diagram showing hub and spoke architecture.":::
+:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-architecture.png" alt-text="Conceptual diagram showing hub and spoke architecture." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-architecture.png":::
 
 
 ## Baseline architecture
