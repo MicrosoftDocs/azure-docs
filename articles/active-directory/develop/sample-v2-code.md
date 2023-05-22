@@ -98,10 +98,10 @@ The following samples show public client mobile applications that access the Mic
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
-> | .NET Core | &#8226; [Call Microsoft Graph using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppBasic) <br/> &#8226; [Call Microsoft Graph using MAUI with broker](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppWithBroker) <br/> &#8226; [Call Active Directory B2C tenant using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppB2C) | MSAL MAUI | Authorization code with PKCE |
-> | iOS | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | MSAL iOS | Authorization code with PKCE |
-> | Java | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java) | MSAL Android | Authorization code with PKCE |
-> | Kotlin | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin) | MSAL Android | Authorization code with PKCE |
+> | .NET Core | &#8226; [Call Microsoft Graph using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppBasic) <br/> &#8226; [Call Microsoft Graph using MAUI with broker](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppWithBroker) <br/> &#8226; [Call Active Directory B2C tenant using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppB2C) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
+> | iOS | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | [MSAL iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | Authorization code with PKCE |
+> | Java | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | Authorization code with PKCE |
+> | Kotlin | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | Authorization code with PKCE |
 > | Xamarin | &#8226; [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/1-Basic) <br/>&#8226; [Sign in users with broker and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
 
 ### Service / daemon
@@ -180,7 +180,7 @@ The following samples show how to build applications for the C# language and pla
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
 > | Desktop | &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/1-Calling-MSGraph/1-1-AzureAD) <br/> &#8226; [Call Microsoft Graph with token cache](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/2-TokenCache) <br/> &#8226; [Call Microsoft Graph with custom web UI HTML](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/3-CustomWebUI/3-1-CustomHTML) <br/> &#8226; [Call Microsoft Graph with custom web browser](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/3-CustomWebUI/3-2-CustomBrowser) <br/> &#8226; [Sign in users with device code flow](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/4-DeviceCodeFlow) <br/> &#8226; [Authenticate users with MSAL.NET in a WinUI desktop application](https://github.com/Azure-Samples/ms-identity-netcore-winui) | [MSAL.NET](/entra/msal/dotnet) |&#8226; Authorization code with PKCE <br/> &#8226; Device code |
-> | Mobile | &#8226; [Call Microsoft Graph using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppBasic) <br/> &#8226; [Call Microsoft Graph using MAUI with broker](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppWithBroker) <br/> &#8226; [Call Active Directory B2C tenant using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppB2C) | MSAL MAUI | Authorization code with PKCE |
+> | Mobile | &#8226; [Call Microsoft Graph using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppBasic) <br/> &#8226; [Call Microsoft Graph using MAUI with broker](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppWithBroker) <br/> &#8226; [Call Active Directory B2C tenant using MAUI](https://github.com/Azure-Samples/ms-identity-dotnetcore-maui/tree/main/MauiAppB2C) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
 > | Headless | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | [MSAL.NET](/entra/msal/dotnet) | Device code|
 > | Service/</div>daemon | &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) <br/> &#8226; [Call web API](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi) <br/> &#8226; [Using managed identity and Azure key vault](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/3-Using-KeyVault)| [MSAL.NET](/entra/msal/dotnet) | Client credentials grant|
 
@@ -237,7 +237,7 @@ The following samples show how to build applications for the iOS platform.
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
-> | Mobile | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | MSAL iOS | Authorization code with PKCE |
+> | Mobile | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/> &#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) | [MSAL iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | Authorization code with PKCE |
 
 
 ### JavaScript 
@@ -293,7 +293,7 @@ The following samples show how to build applications for the Java language and p
 > | ----------- | ----------- |----------- |----------- |
 > | Web API | [Sign in users](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/4.%20Spring%20Framework%20Web%20App%20Tutorial/3-Authorization-II/protect-web-api) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | On-Behalf-Of (OBO) |
 > | Desktop | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/2.%20Client-Side%20Scenarios/Integrated-Windows-Auth-Flow) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Integrated Windows authentication |
-> | Mobile | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java) | MSAL Android | Authorization code with PKCE |
+> | Mobile | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | Authorization code with PKCE |
 > | Headless | [Sign in users and invoke protected API from text-only device](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/2.%20Client-Side%20Scenarios/Device-Code-Flow) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Device code |
 > | Service/</br>daemon | &#8226; [Call Microsoft Graph with Secret](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1.%20Server-Side%20Scenarios/msal-client-credential-secret) <br/> &#8226; [Call Microsoft Graph with Certificate](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/1.%20Server-Side%20Scenarios/msal-client-credential-certificate)| [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Client credentials grant|
 
@@ -347,7 +347,7 @@ The following samples show how to build applications with Kotlin.
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
-> | Mobile | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin) | MSAL Android | Authorization code with PKCE |
+> | Mobile | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | Authorization code with PKCE |
 
 ### PowerShell
 
