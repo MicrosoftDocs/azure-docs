@@ -275,7 +275,7 @@ With the SQL Database protected by the virtual network, the easiest way to run R
 :::row-end:::
 
 > [!TIP]
-> The sample application implements simple caching logic. When you visit a data view for the second time, or reload the same page after making data changes,  **Processing time** in the webpage shows a much faster time because it's loading the data from the cache instead of the database.
+> The sample application implements the [cache-aside](/azure/architecture/patterns/cache-aside) pattern. When you visit a data view for the second time, or reload the same page after making data changes,  **Processing time** in the webpage shows a much faster time because it's loading the data from the cache instead of the database.
 
 ## 6. Stream diagnostic logs
 
