@@ -78,7 +78,7 @@ The JSON object for the body contains the following fields:
 |SourceSystem (required)| string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
 |Value (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
-Create the array of indicators using the STIX 2.1 indicator format specification which has been condensed here for your convenience with links to important sections.
+Create the array of indicators using the STIX 2.1 indicator format specification.  which has been condensed here for your convenience with links to important sections.
 
 |Property Name	|Type |	Description |
 |----|----|----|
@@ -151,7 +151,8 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
 
 ```json
 {
-    "sourcesystem": "test", "value":[
+    "sourcesystem": "test", 
+    "value":[
         {
             "type": "indicator",
             "spec_version": "2.1",
