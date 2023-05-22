@@ -33,13 +33,13 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
 ![EventHubNamespaceOverviewpage.](media/send-and-receive-events-using-data-generator/highlightedfinaloverview1.jpg)
 
 2. On Generate Data blade, you would find below properties for Data generation: 
-1. **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “create Event Hub” to [create a new event hub](/azure/event-hubs/event-hubs-create) within namespace and stream data post creation of event hub.  
+   1. **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “create Event Hub” to [create a new event hub](/azure/event-hubs/event-hubs-create) within namespace and stream data post creation of event hub.  
    2. **Select Payload:** You could send custom payload to event hubs using User defined payload or make use of different pre-canned datasets available in data generator. 
    3.  **Select Content-Type:** Based on the type of data you’re sending; you could choose the Content-type Option. As of today, Data generator supports sending data in following content-type - JSON, XML, Text and Binary. 
    4.  **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions.
    5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
    
-y=>y.attrs.isDirty&&!d_(y)&&y.attrs.depth!==void 0?(l.delim=l.repeat(" ",3*y.attrs.depth),l.delim):""![LandingpageforDataGenerator.](media/send-and-receive-events-using-data-generator/highlighteddatageneratorlanding.jpg)
+   ![LandingpageforDataGenerator.](media/send-and-receive-events-using-data-generator/highlighteddatageneratorlanding.jpg)
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
@@ -57,7 +57,7 @@ Maximum Payload Size| 	256Kb		| 	1MB 	     | 1MB     | 1MB
 ## View events using Event Hubs Data Generator
 
 > [!IMPORTANT]
-> View Events is meant to act like a magnifying glass to the stream of events that you had sent. The tabular section under View events would let you glance at the last 15 events that have been sent to Azure Event hubs.  
+> View Events is meant to act like a magnifying glass to the stream of events that you had sent. The tabular section under View events would let you glance at the last 15 events that have been sent to Azure Event hubs.If the event content is in format that cannot be loaded, View events would show metadata for the event.
 
 As soon as you click send, data generator would take care of sending the events to event hubs of your choice and new collapsible “View Events” window would load automatically. You could expand any tabular row to review the event content sent to event hubs. 
 
@@ -65,13 +65,15 @@ As soon as you click send, data generator would take care of sending the events 
 
 ## Frequently asked questions
 
-- - **I am getting the error “We couldn’t read events from Event Hub- `<your event hub name>`. Please make sure that there is no active consumer reading events from $Default Consumer group**”
+- **I am getting the error “Oops! We couldn't read events from Event Hub -`<your event hub name>`. Please make sure that there is no active consumer reading events from $Default Consumer group**”
 
-Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. Please disconnect any active consumer reading from $Default consumer group and try again. 
+
+   Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. Please disconnect any active consumer reading from $Default consumer group and try again. 
 
 - **I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?**
 
-Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
+
+   Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
 
 ## Next Steps
 
