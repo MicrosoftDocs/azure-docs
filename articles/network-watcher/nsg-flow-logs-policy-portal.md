@@ -25,7 +25,7 @@ To audit your flow logs by using the built-in policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter **policy**. Select **Policy** in the search results.
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/portal.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/portal.png":::
 
@@ -37,7 +37,7 @@ To audit your flow logs by using the built-in policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-scope.png":::
 
-1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter **flow log** in the search box, and then select the **Built-in** filter. From the search results, select **Flow logs should be configured for every network security group**, and then select **Add**.
+1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and then select the **Built-in** filter. From the search results, select **Flow logs should be configured for every network security group**, and then select **Add**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/audit-policy.png" alt-text="Screenshot of selecting the audit policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy.png":::
 
@@ -65,7 +65,7 @@ To assign the *deployIfNotExists* policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter **policy**. Select **Policy** in the search results.
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/portal.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/portal.png":::
 
@@ -77,7 +77,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-scope.png":::
 
-1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter **flow log** in the search box, and the select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
+1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and the select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy.png" alt-text="Screenshot of selecting the deployment policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy.png":::
 
