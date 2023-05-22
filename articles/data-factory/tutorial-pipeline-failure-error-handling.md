@@ -134,7 +134,7 @@ In some cases, you may want to invoke a shared error handling or logging step, i
 ```json
 @or(equals(activity('ActivityFailed').Status, 'Failed'), equals(activity('ActivitySucceeded').Status, 'Failed'))
 ```
-* Note: you need concatenated or if you've more than two dependency activities, for instance, 
+* Note: you need concatenated or if you have more than two dependency activities, for instance, 
 ```json
 @or(or(equals(activity('ActivityFailed').Status, 'Failed'), equals(activity('ActivitySucceeded1').Status, 'Failed')),equals(activity('ActivitySucceeded1').Status, 'Failed'))
 ```
@@ -167,16 +167,40 @@ The pattern is a combination of two: conditional and + error handling. The pipel
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-complex-1.png" alt-text="Screenshot showcasing pipeline proceeds to next step if any of the activities pass, or else runs error handling code.":::
 
+## Common patterns
 
 ### Try-Catch-Proceed 
-The pattern is equivalent to try catch block in coding. It states that if either the activity or the error handling code succeeds, the pipeline should proceed. We've simplified and streamlined the implementation for our customers. Try catch block doesn't need an if block.
+The pattern is equivalent to try catch block in coding. An activity might fail in a pipeline. When it fails, customer needs to run an error handling job to deal with it. However, the single activity failure shouldn't block next activities in the pipeline. For instance, I attempt to run a copy job, moving files into storage. However it might fail half way through. And in that case, I want to delete the partially copied, unreliable files from the storage account (my error handling step). But I'm OK to proceed with other activities afterwards.
+
+To set up the pattern:
 
 * Add first activity
 * Add error handling to the UponFailure path
 * Add second activity, but don't connect to the first activity
 * Connect both UponFailure and UponSkip paths from the error handling activity to the second activity
 
-:::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-complex-2.png" alt-text="Screenshot showcasing pipeline with try catch block.":::
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-1-try-catch.png" alt-text="Screenshot showcasing pipeline with try catch block.":::
+
+Error Handling job runs only when First Activity fails. Next Activity will run regardless if First Activity succeeds or not.
+
+### Generic error handling
+Commonly, we have multiple activities running sequentially in the pipeline. If any fails, I need to run an error handling job to clear the state, and/or log the error. For instance, I have sequential copy activities in the pipeline. If any of these fails, I need to run a script job to log the pipeline failure.
+
+To set up the pattern:
+
+* Build sequential data processing pipeline
+* Add generic error handling step to the end of the pipeline
+* Connect both UponFailure and UponSkip paths from the last activity to the error handling activity
+
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-3-generic-no-branching.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching.":::
+
+The last step, Generic Error Handling, will only run if any of the previous activities fails. It will not run if they all succeed.
+
+You can add multiple activities for error handling.
+
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-4-generic-no-branching-multiple.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching and multiple activities.":::
+
+
 
 ## Next steps
 

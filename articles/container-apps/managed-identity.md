@@ -2,12 +2,12 @@
 title: Managed identities in Azure Container Apps
 description: Using managed identities in Container Apps
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Managed identities in Azure Container Apps

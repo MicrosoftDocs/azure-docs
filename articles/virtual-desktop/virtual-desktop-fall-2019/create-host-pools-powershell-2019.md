@@ -12,7 +12,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../create-host-pools-powershell.md).
 
-Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop.
 
 ## Use your PowerShell client to create a host pool
 
@@ -36,13 +36,13 @@ Run the next cmdlet to create a registration token to authorize a session host t
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
-After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
+After that, run this cmdlet to add Azure Active Directory users to the default desktop application group for the host pool.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
+The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the application group. If you want to add multiple users to the application group, rerun the cmdlet with the appropriate user principal names.
 
 Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Azure Virtual Desktop host pool](#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
 
@@ -101,7 +101,7 @@ To register the Azure Virtual Desktop agents, do the following on each virtual m
 
 ## Next steps
 
-Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage app groups tutorial.
+Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Azure Virtual Desktop, see the Manage application groups tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](../manage-app-groups.md)
+> [Manage application groups tutorial](../manage-app-groups.md)

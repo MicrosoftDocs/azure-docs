@@ -19,7 +19,7 @@ Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, an
 
 Azure Cosmos DB normalizes the cost of all database operations using Request Units (or RUs, for short). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
 
-The cost to do a point read (fetching a single item by its ID and partition key value) for a 1-KB item is one Request Unit (or one RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos DB container, RUs measure the actual costs of using that API. Whether the database operation is a write, point read, or query, costs are always measured in RUs.
+The cost to do a [point read](optimize-cost-reads-writes.md#point-reads) (fetching a single item by its ID and partition key value) for a 1-KB item is one Request Unit (or one RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos DB container, RUs measure the actual costs of using that API. Whether the database operation is a write, point read, or query, costs are always measured in RUs.
 
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=772fba63-62c7-488c-acdb-a8f686a3b5f4]
 

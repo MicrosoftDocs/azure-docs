@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 04/19/2023
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -28,9 +28,6 @@ When you try to assign a role, you get the following error message:
 **Cause**
 
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
-
-> [!NOTE]
-> For specialized clouds, such as Azure Government and Azure China 21Vianet, the limit is **2000** role assignments per subscription.
 
 **Solution**
 

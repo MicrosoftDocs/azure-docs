@@ -24,6 +24,8 @@
       displayName: Resource Manager
       href: manage-ddos-protection-template.md
       expanded: true
+    - name: Terraform
+      href: manage-ddos-protection-terraform.md
   - name: DDoS IP Protection
     items:
     - name: Portal

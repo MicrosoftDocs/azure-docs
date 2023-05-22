@@ -186,6 +186,8 @@
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
       displayName: notification, notifications
+    - name: Create data mining reports
+      href: how-to-create-data-mining-queries.md
   - name: Manage alerts
     items:
     - name: Azure portal
@@ -210,8 +212,6 @@
       displayName: graphs, vulnerabilities
     - name: Create OT sensor reports
       items:
-      - name: Create data mining reports
-        href: how-to-create-data-mining-queries.md
       - name: Create risk assessment reports
         href: how-to-create-risk-assessment-reports.md
       - name: Create trends and statistics reports
@@ -365,6 +365,8 @@
       - name: Overview
         href: appliance-catalog/index.yml
         displayName: appliance catalog
+      - name: Hardware support policy
+        href: /legal/defender-for-iot/hardware-support-policy?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
       - name: Corporate environments
         items:
         - name: HPE ProLiant DL360
@@ -457,13 +459,17 @@
       href: faqs-ot.md
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
-  - name: Custom columns sample script
-    href: custom-columns-sample-script.md
+  - name: Architecture icons
+    href: /azure/architecture/icons/
+  - name: Compliance resources
+    href: compliance.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-defender/
+    href: https://azure.microsoft.com/pricing/details/iot-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Release notes archive
     href: release-notes-archive.md
+  - name: Custom columns sample script
+    href: custom-columns-sample-script.md

@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 04/13/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
@@ -39,6 +39,7 @@ Before you start this tutorial, ensure you have these prerequisites in place.
 **Appliance** | You need a server to run the Azure Migrate appliance. The server should have:<br/><br/> - Windows Server 2016 installed.<br/> _(Currently the deployment of appliance is only supported on Windows Server 2016.)_<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.<br/><br/> - Outbound internet connectivity to the required [URLs](migrate-appliance.md#url-access) from the appliance.
 **Windows servers** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.<br /><br />   To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements).
 **Linux servers** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
+**SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](migrate-support-matrix-physical.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
 
 > [!NOTE]
 > It is unsupported to install the Azure Migrate Appliance on a server that has the [replication appliance](migrate-replication-appliance.md) or mobility service agent installed.  Ensure that the appliance server has not been previously used to set up the replication appliance or has the mobility service agent installed on the server.

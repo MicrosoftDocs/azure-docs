@@ -2,7 +2,7 @@
 metadata:
   title: Speech service containers frequently asked questions (FAQ)
   titleSuffix: Azure Cognitive Services
-  description: Install and run containers for speech-to-text and text-to-speech.
+  description: Install and run containers for speech to text and text to speech.
   services: cognitive-services
   author: eric-urban
   manager: nitinme
@@ -22,13 +22,13 @@ sections:
       - question: |
           How do Speech containers work and how do I set them up?
         answer: |
-          For an overview, see [Install and run Speech containers](speech-container-howto.md). When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, should not be a large issue. If you are experiencing problems, it may be a hardware-related issue - so we would first look at resource, that is; CPU and memory specifications.
+          For an overview, see [Install and run Speech containers](speech-container-howto.md). When setting up the production cluster, there are several things to consider. First, setting up single language, multiple containers, on the same machine, shouldn't be a large issue. If you're experiencing problems, it may be a hardware-related issue - so we would first look at resource, that is; CPU and memory specifications.
           
-          Consider for a moment, the `ja-JP` container and latest model. The acoustic model is the most demanding piece CPU-wise, while the language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech-to-text request when audio is flowing in at real-time, for example, from a microphone. If you are feeding audio faster than real-time, for example, from a file, that usage can double (1.2x cores). Meanwhile, the memory in this context is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. It's an additional 2 GB for `ja-JP`; for `en-US`, it may be more (6-7 GB).
+          Consider for a moment, the `ja-JP` container and latest model. The acoustic model is the most demanding piece CPU-wise, while the language model demands the most memory. When we benchmarked the use, it takes about 0.6 CPU cores to process a single speech to text request when audio is flowing in at real-time, for example, from a microphone. If you're feeding audio faster than real-time, for example, from a file, that usage can double (1.2x cores). Meanwhile, the memory in this context is operating memory for decoding speech. It does *not* take into account the actual full size of the language model, which will reside in file cache. It's an extra 2 GB for `ja-JP`; for `en-US`, it may be more (6-7 GB).
           
-          If you have a machine where memory is scarce, and you are trying to deploy multiple languages on it, it is possible that file cache is full, and the OS is forced to page models in and out. For a running transcription, that could be disastrous, and may lead to slowdowns and other performance implications.
+          If you have a machine where memory is scarce, and you're trying to deploy multiple languages on it, it's possible that file cache is full, and the OS is forced to page models in and out. For a running transcription that could be disastrous and may lead to slowdowns and other performance implications.
           
-          Furthermore, we pre-package executables for machines with the [advanced vector extension (AVX2)](speech-container-howto.md#advanced-vector-extension-support) instruction set. A machine with the AVX512 instruction set will require code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one will appear in the docker logs:
+          Furthermore, we prepackage executables for machines with the [advanced vector extension (AVX2)](speech-container-howto.md#advanced-vector-extension-support) instruction set. A machine with the AVX512 instruction set requires code generation for that target, and starting 10 containers for 10 languages may temporarily exhaust CPU. A message like this one appears in the docker logs:
           
           ```console
           2020-01-16 16:46:54.981118943 
@@ -39,11 +39,11 @@ sections:
           You can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. Start with your CPU and memory SKU and then refer to the recommended host machine resource specifications.  
           
       - question: |
-          Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?
+          Could you help with capacity planning and cost estimation of on-premises Speech to text containers?
         answer: |
-          For container capacity in batch processing mode, each decoder could handle 2-3x in real-time, with two CPU cores, for a single recognition. We do not recommend keeping more than two concurrent recognitions per container instance, but recommend running more instances of containers for reliability and availability reasons, behind a load balancer.
+          For container capacity in batch processing mode, each decoder could handle 2-3x in real-time, with two CPU cores, for a single recognition. We don't recommend keeping more than two concurrent recognitions per container instance, but recommend running more instances of containers for reliability and availability reasons, behind a load balancer.
           
-          Though we could have each container instance running with more decoders. For example, we may be able to set up seven decoders per container instance on an eight-core machine at more than 2x each, yielding 15x throughput. There is a param `DECODER_MAX_COUNT` to be aware of. For the extreme case, reliability and latency issues arise, with throughput increased significantly. For a microphone, it will be at 1x real-time. The overall usage should be at about one core for a single recognition.
+          Though we could have each container instance running with more decoders. For example, we may be able to set up seven decoders per container instance on an eight-core machine at more than 2x each, yielding 15x throughput. There's a param `DECODER_MAX_COUNT` to be aware of. For the extreme case, reliability and latency issues arise, with throughput increased significantly. For a microphone, it is at 1x real-time. The overall usage should be at about one core for a single recognition.
           
           For scenario of processing 1-K hours per day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
           
@@ -59,7 +59,7 @@ sections:
           
           When mapping to physical machine, a general estimation is 1 vCPU = 1 Physical CPU Core. In reality, 1vCPU is more powerful than a single core.
           
-          For on-prem, all of these additional factors come into play:
+          For on-premises, all of these extra factors come into play:
           
           - On what type the physical CPU is and how many cores on it
           - How many CPUs running together on the same box/machine
@@ -68,13 +68,13 @@ sections:
           - How memory is shared
           - The OS, etc.
           
-          Normally it is not as well tuned as Azure the environment. Considering other overhead, one estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have eight cores. With on-prem deployment, the cost will be higher than using Azure VMs. Also, consider the depreciation rate.
+          Normally it isn't as well tuned as Azure the environment. Considering other overhead, one estimation is 10 physical CPU cores = 8 Azure vCPU. Though popular CPUs only have eight cores. With on-premises deployment, the cost is higher than using Azure VMs. Also, consider the depreciation rate.
           
-          Service cost is the same as the online service: $1/hour for speech-to-text. The Speech service cost is:
+          Service cost is the same as the online service: $1/hour for speech to text. The Speech service cost is:
           
           > $1 * 1000 * 365 = $365 K
           
-          Maintenance cost paid to Microsoft depends on the service level and content of the service. People cost is not included. Other infrastructure costs such as storage, networks, and load balancers are not included.
+          Maintenance cost paid to Microsoft depends on the service level and content of the service. People cost isn't included. Other infrastructure costs such as storage, networks, and load balancers are not included.
 
           
       - question: |
@@ -83,7 +83,7 @@ sections:
           One model ID can be used, either a custom language model or custom acoustic model. Passing acoustic and language models concurrently is not supported.
           
       - question: |
-          Could you explain these errors from the custom speech-to-text container?
+          Could you explain these errors from the custom speech to text container?
         answer: |
           **Error 1:**
           
@@ -126,42 +126,15 @@ sections:
       - question: |
           What API protocols are supported, REST or WS?
         answer: |
-          For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
-          
-      - question: |
-          Why am I getting errors when attempting to call LUIS prediction endpoints?
-        answer: |
-          I am using the LUIS container in an IoT Edge deployment and am attempting to call the LUIS prediction endpoint from another container. The LUIS container is listening on port 5001, and the URL I'm using is this:
-          
-          ```csharp
-          var luisEndpoint =
-              $"ws://192.168.1.91:5001/luis/prediction/v3.0/apps/{luisAppId}/slots/production/predict";
-          var config = SpeechConfig.FromEndpoint(new Uri(luisEndpoint));
-          ```
-          
-          The error I'm getting is:
-          
-          ```cmd
-          WebSocket Upgrade failed with HTTP status code: 404 SessionId: 3cfe2509ef4e49919e594abf639ccfeb
-          ```
-          
-          I see the request in the LUIS container logs and the message says:
-          
-          ```cmd
-          The request path /luis//predict" does not match a supported file type.
-          ```        
-          
-          The Speech SDK should not be used for a LUIS container. For using the LUIS container, the LUIS SDK or LUIS REST API should be used. Speech SDK should be used for a speech container.
-          
-          A cloud is different than a container. A cloud can be composed of multiple aggregated containers. In this context there are two separate LUIS and Speech containers deployed in the cloud. The Speech container only does speech. The LUIS container only does LUIS. Performance would be slow for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS. So we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio. Since LUIS is a text-based service, a LUIS container doesn't accept streaming audio. With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers' premises, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.         
+          For speech to text and custom speech to text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. For more information, see [host URLs](speech-container-howto.md#host-urls).
           
       - question: |
           How can we benchmark a rough measure of transactions/second/core?
         answer: |
           Here are some of the rough numbers to expect from the model prior to general availability (GA):
           
-          - For files, the throttling will be in the Speech SDK, at 2x. First five seconds of audio are not throttled. Decoder is capable of doing about 3x real-time. For this, the overall CPU usage will be close to two cores for a single recognition.
-          - For mic, it will be at 1x real-time. The overall usage should be at about one core for a single recognition.
+          - For files, the throttling will be in the Speech SDK, at 2x. First five seconds of audio are not throttled. Decoder is capable of doing about 3x real-time. For this, the overall CPU usage is close to two cores for a single recognition.
+          - For mic, it is at 1x real-time. The overall usage should be at about one core for a single recognition.
           
           This can all be verified from the docker logs. We actually dump the line with session and phrase/utterance statistics, and that includes the RTF numbers.
           
@@ -173,9 +146,9 @@ sections:
   - name: Technical questions
     questions:
       - question: |
-          How can I get non-batch APIs to handle audio <15 seconds long?
+          How can I get real-time APIs to handle audio > 30 seconds long?
         answer: |
-          The `RecognizeOnce()` SDK operation in interactive mode processes up to 15 seconds of audio where utterances are expected to be short. You use `StartContinuousRecognition()` for dictation or conversation longer than 15 seconds.
+          The `RecognizeOnce()` SDK operation in interactive mode processes up to 30 seconds of audio where utterances are expected to be short. You use `StartContinuousRecognition()` for dictation or conversation longer than 30 seconds.
           
           
       - question: |
@@ -183,38 +156,38 @@ sections:
         answer: |
           How many concurrent requests will a 4-core, 4-GB RAM handle? If we have to serve for example, 50 concurrent requests, how many Core and RAM is recommended?
           
-          At real-time, 8 with our latest `en-US`, so we recommend using more docker containers beyond six concurrent requests. Beyond 16 cores it becomes non-uniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
+          At real-time, 8 with our latest `en-US`, so we recommend using more docker containers beyond six concurrent requests. Beyond 16 cores it becomes nonuniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
 
-          # [Speech-to-text](#tab/stt)
+          # [Speech to text](#tab/stt)
          
           | Container      | Minimum             | Recommended         |
           |----------------|---------------------|---------------------|
-          | Speech-to-text | 2-core, 2-GB memory | 4-core, 4-GB memory |
+          | Speech to text | 2-core, 2-GB memory | 4-core, 4-GB memory |
          
-          # [Custom Speech-to-text](#tab/cstt)
+          # [Custom Speech to text](#tab/cstt)
          
           | Container             | Minimum             | Recommended         |
           |-----------------------|---------------------|---------------------|
-          | Custom Speech-to-text | 2-core, 2-GB memory | 4-core, 4-GB memory |
+          | Custom Speech to text | 2-core, 2-GB memory | 4-core, 4-GB memory |
          
-          # [Text-to-speech](#tab/tts)
+          # [Text to speech](#tab/tts)
          
           | Container      | Minimum             | Recommended         |
           |----------------|---------------------|---------------------|
-          | Text-to-speech | 1-core, 2-GB memory | 2-core, 3-GB memory |
+          | Text to speech | 1-core, 2-GB memory | 2-core, 3-GB memory |
          
-          # [Custom Text-to-speech](#tab/ctts)
+          # [Custom Text to speech](#tab/ctts)
          
           | Container             | Minimum             | Recommended         |
           |-----------------------|---------------------|---------------------|
-          | Custom Text-to-speech | 1-core, 2-GB memory | 2-core, 3-GB memory |
+          | Custom Text to speech | 1-core, 2-GB memory | 2-core, 3-GB memory |
          
           ***
 
           - Each core must be at least 2.6 GHz or faster.
-          - For files, the throttling will be in the Speech SDK, at 2x. The first 5 seconds of audio are not throttled.
-          - The decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real-time in an eight-core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
-          - For microphone, it will be at 1x real-time. The overall usage should be at about one core for a single recognition.
+          - For files, the throttling is in the Speech SDK, at 2x. The first 5 seconds of audio aren't throttled.
+          - The decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage is close to two cores for a single recognition. That's why we don't recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real-time in an eight-core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
+          - For microphone, it is at 1x real-time. The overall usage should be at about one core for a single recognition.
          
           Consider the total number of hours of audio you have. If the number is large, to improve reliability and availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
          
@@ -223,7 +196,7 @@ sections:
       - question: |
           Does the Speech container support punctuation?
         answer: |
-          We have capitalization (ITN) available in the on-prem container. Punctuation is language-dependent, and not supported for some languages, including Chinese and Japanese.
+          We have capitalization (ITN) available in the on-premises container. Punctuation is language-dependent, and not supported for some languages, including Chinese and Japanese.
           
           We *do* have implicit and basic punctuation support for the existing containers, but it is `off` by default. What that means is that you can get the `.` character in your example, but not the `。` character. To enable this implicit logic, here's an example of how to do so in Python using our Speech SDK. It would be similar in other languages:
           
@@ -236,16 +209,16 @@ sections:
           ```
           
       - question: |
-          Why am I getting 404 errors when attempting to POST data to speech-to-text container?
+          Why am I getting 404 errors when attempting to POST data to speech to text container?
         answer: |        
-          Speech-to-text containers do not support REST API. The Speech SDK uses WebSockets. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
+          Speech to text containers don't support REST API. The Speech SDK uses WebSockets. For more information, see [host URLs](speech-container-howto.md#host-urls).
           
           
-      - question:  Why is the container running as a non-root user? What issues might occur because of this?
+      - question:  Why is the container running as a nonroot user? What issues might occur because of this?
         answer: |
-          Note that the default user inside the container is a non-root user. This provides protection against processes escaping the container and obtaining escalated permissions on the host node. By default, some platforms like the OpenShift Container Platform already do this by running containers using an arbitrarily assigned user ID. For these platforms, the non-root user will need to have permissions to write to any externally mapped volume that requires writes. For example a logging folder, or a custom model download folder.
+          The default user inside the container is a non-root user. This provides protection against processes escaping the container and obtaining escalated permissions on the host node. By default, some platforms like the OpenShift Container Platform already do this by running containers using an arbitrarily assigned user ID. For these platforms, the nonroot user must have permissions to write to any externally mapped volume that requires writes. For example a logging folder, or a custom model download folder.
       - question: |
-          When using the speech-to-text service, why am I getting this error?
+          When using the speech to text service, why am I getting this error?
         answer: |
           ```cmd
           Error in STT call for file 9136835610040002161_413008000252496:

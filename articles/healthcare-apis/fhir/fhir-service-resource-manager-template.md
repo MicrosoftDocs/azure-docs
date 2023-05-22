@@ -3,6 +3,7 @@ title: Deploy Azure Health Data Services FHIR service using ARM template
 description: Learn how to deploy FHIR service by using an Azure Resource Manager template (ARM template)
 author: expekesheth
 ms.service: healthcare-apis
+ms.custom: devx-track-arm-template
 ms.topic: tutorial
 ms.author: kesheth
 ms.date: 06/06/2022
@@ -20,7 +21,7 @@ An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](/powershell/azure/install-az-ps).
+    * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 

@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: Text-to-speech FAQ
+  title: Text to speech FAQ
   titleSuffix: Azure Cognitive Services
-  description: Get answers to frequently asked questions about the text-to-speech service.
+  description: Get answers to frequently asked questions about the text to speech service.
   services: cognitive-services
   author: eric-urban
   manager: nitinme
@@ -11,9 +11,9 @@ metadata:
   ms.topic: faq
   ms.date: 03/29/2023
   ms.author: eur
-title: Text-to-speech FAQ
+title: Text to speech FAQ
 summary: |
-  This article answers commonly asked questions about the text-to-speech (TTS) service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+  This article answers commonly asked questions about the text to speech (TTS) service. If you can't find answers to your questions here, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
   
 
 sections:
@@ -22,7 +22,7 @@ sections:
       - question: |
           How does the billing work for text to speech?
         answer: |
-          Text to Speech usage is billed per character. Check the definition of billable characters in the [pricing note](text-to-speech.md#pricing-note).
+          Text to speech usage is billed per character. Check the definition of billable characters in the [pricing note](text-to-speech.md#pricing-note).
       - question: |
           What is the rate limit for the text to speech synthesis requests?
         answer: |
@@ -86,7 +86,7 @@ sections:
       - question: |
           Is the model version the same as the engine version?
         answer: |
-          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text-to-speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
+          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure Cognitive Services text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
       - question: |
           Can we limit the number of trainings using Azure Policy or other features? Or is there any way to avoid false training?
         answer: |
@@ -98,7 +98,7 @@ sections:
       - question: |
           Do you have any tips about contracts or negotiation with voice actors?
         answer: |
-          We have no recommendations on contracts and it's up to the customer and the voice talent to negotiate the terms. However, you should make sure the voice talent understands the TTS technology, what it can do, its potential risks, and provide explicit consent to create a synthetic version of his/her voice in both the contract and a verbal statement. See [Disclosure for voice talent](/legal/cognitive-services/speech-service/custom-neural-voice/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context). 
+          We have no recommendations on contracts and it's up to the customer and the voice talent to negotiate the terms. However, you should make sure the voice talent understands the TTS technology, what it can do, its potential risks, and provide explicit consent to create a synthetic version of his/her voice in both the contract and a verbal statement. See [Disclosure for voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context). 
       - question: |
           Do we need to return the written permission from the voice talent back to Microsoft?
         answer: |

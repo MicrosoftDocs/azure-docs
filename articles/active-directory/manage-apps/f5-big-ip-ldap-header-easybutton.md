@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/14/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP Easy Button for header-based and LDAP single sign-on
@@ -248,7 +249,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 3. Check **Enable Redirect Port** and then enter **Redirect Port** to redirects incoming HTTP client traffic to HTTPS.
 4. The Client SSL Profile enables the virtual server for HTTPS, so client connections are encrypted over TLS. Select the **Client SSL Profile** you created or leave the default while testing.
 
-    ![Screenshot of Desitnation Address, Service Port, and Common entries under General Properties on Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+    ![Screenshot of Destination Address, Service Port, and Common entries under General Properties on Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
@@ -258,7 +259,7 @@ The **Application Pool** tab has the services behind a BIG-IP represented as a p
 2. Choose the **Load Balancing Method** such as Round Robin.
 3. For **Pool Servers** select a node or specify an IP and port for the server hosting the header-based application.
  
-    ![Screenshot of IP Address/Node Name and Port entries under Applicaiton Pool, on Pool Properties.](./media/f5-big-ip-oracle/application-pool.png)
+    ![Screenshot of IP Address/Node Name and Port entries under Application Pool, on Pool Properties.](./media/f5-big-ip-oracle/application-pool.png)
 
 >[!NOTE]
 >Our back-end application sits on HTTP port 80. Switch to 443 if yours is HTTPS.

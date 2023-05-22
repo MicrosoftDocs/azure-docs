@@ -2,10 +2,10 @@
 title: Resource Manager template samples for Container insights
 description: Sample Azure Resource Manager templates to deploy and configureContainer insights.
 ms.topic: sample
+ms.custom: devx-track-arm-template
 ms.author: bwren
 ms.date: 05/05/2022
 ms.reviewer: aulgit
-
 ---
 
 # Resource Manager template samples for Container insights

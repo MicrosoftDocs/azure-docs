@@ -36,37 +36,32 @@ Disaster recovery of physical servers | Replication of on-premises Windows/Linux
 vCenter Server | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7, 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server in your disaster recovery deployment.
 vSphere hosts | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7, 6.5, 6.0, or 5.5 | We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
 
-## Site Recovery configuration server
+## Azure Site Recovery replication appliance
 
-The configuration server is an on-premises machine that runs Site Recovery components, including the configuration server, process server, and master target server.
+The replication appliance is an on-premises machine that runs Site Recovery components, including various Site Recovery services that help with discovery of on-premises environment, orchestration of disaster recovery and act as a bridge between on-premises and Azure.
 
-- For VMware VMs, you set the configuration server by downloading an OVF template to create a VMware VM.
-- For physical servers, you set up the configuration server machine manually.
+- For VMware VMs, you can create the replication appliance by downloading an OVF template to create a VMware VM.
+- For physical servers, you can set up the replication appliance manually by running our PowerShell script.
 
 **Component** | **Requirements**
 --- |---
 CPU cores | 8
 RAM | 16 GB
-Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
-Disk free space | 600 GB of space for the process server cache.
-Disk free space | 600 GB  of space for the retention drive.
-Operating system  | Windows Server 2012 R2, or Windows Server 2016 with Desktop experience <br/><br> If you plan to use the in-built Master Target of this appliance for failback, ensure that the OS version is same or higher than the replicated items.|
+Number of disks | 2 disks<br/><br/> Disks include the OS disk and data disk.
+Operating system  | Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019 with Desktop experience 
 Operating system locale | English (en-us)
-[PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Not needed for configuration server version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) or later.
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V.
-Group policies| - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+Group policies| Don't enable these group policies: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/> - Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
-IP address type | Static
+Fully qualified domain name (FQDN) | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
-IP address | Make sure that configuration server and process server have a static IPv4 address, and doesn't have NAT configured.
+NAT | Supported
 
 > [!NOTE]
 > Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
 
 ## Replicated machines
-
-In Modernized, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-modernized.md).
 
 Site Recovery supports replication of any workload running on a supported machine.
 
@@ -263,7 +258,7 @@ Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
-Guest/server - NVMe interface | No
+Guest/server - NVMe interface | Yes
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
@@ -304,7 +299,8 @@ Soft delete | Not supported.
 
 **Feature** | **Supported**
 --- | ---
-Availability sets | Yes. Not supported for modernized experience.
+Availability sets | Yes 
+Proximity Placement Groups | Yes
 Availability zones | No
 HUB | Yes
 Managed disks | Yes

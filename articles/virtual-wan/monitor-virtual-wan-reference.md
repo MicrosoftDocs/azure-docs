@@ -154,7 +154,7 @@ The following diagnostics are available for Virtual WAN site-to-site VPN gateway
 | Metric | Description|
 | --- | --- |
 | **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and additional diagnostics.|
-| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics.|
+| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics. For connect and disconnect events, these logs will also display the remote IP address of the corresponding on-premises VPN device.|
 | **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, and additional diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
 
@@ -170,7 +170,7 @@ The following diagnostics are available for Virtual WAN point-to-site VPN gatewa
 
 ### ExpressRoute gateway diagnostics
 
-Diagnostic logs for ExpressRoute gateways in Azure Virtual WAN aren't supported.
+Diagnostic logs for ExpressRoute gateways in Azure Virtual WAN are supported.
 
 ### <a name="view-diagnostic"></a>View diagnostic logs configuration
 

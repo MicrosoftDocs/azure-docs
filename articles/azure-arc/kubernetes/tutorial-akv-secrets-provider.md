@@ -2,10 +2,8 @@
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 ms.custom: ignite-2022, devx-track-azurecli
-ms.date: 03/06/2023
-ms.topic: tutorial
-author: mayurigupta13
-ms.author: mayg
+ms.date: 04/21/2023
+ms.topic: how-to
 ---
 
 # Use the Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
@@ -40,7 +38,7 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
 
 ## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
 
-You can install the Azure Key Vault Secrets Provider extension on your connected cluster in the Azure portal, by using Azure CLI, or by deploying ARM template.
+You can install the Azure Key Vault Secrets Provider extension on your connected cluster in the Azure portal, by using Azure CLI, or by deploying an ARM template.
 
 > [!TIP]
 > If the cluster is behind an outbound proxy server, ensure that you connect it to Azure Arc using the [proxy configuration](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) option before installing the extension.
@@ -76,7 +74,7 @@ You can install the Azure Key Vault Secrets Provider extension on your connected
    az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider
    ```
 
-You should see output similar to this example. Note that it may take several minutes before the secrets provider Helm chart is deployed to the cluster.
+You should see output similar to this example. It may take several minutes before the secrets provider Helm chart is deployed to the cluster.
 
 ```json
 {
@@ -252,7 +250,7 @@ You should see output similar to this example.
 
 ## Create or select an Azure Key Vault
 
-Next, specify the Azure Key Vault to use with your connected cluster. If you don't already have one, create a new Key Vault by using the following commands. Keep in mind that the name of your Key Vault must be globally unique.
+Next, specify the Azure Key Vault to use with your connected cluster. If you don't already have one, create a new Key Vault by using the following commands. Keep in mind that the name of your key vault must be globally unique.
 
 Set the following environment variables:
 
@@ -262,7 +260,7 @@ export AZUREKEYVAULT_NAME=<AKV-name>
 export AZUREKEYVAULT_LOCATION=<AKV-location>
 ```
 
-Next, run the following command
+Next, run the following command:
 
 ```azurecli
 az keyvault create -n $AZUREKEYVAULT_NAME -g $AKV_RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
@@ -367,7 +365,7 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
 
 After the pod starts, the mounted content at the volume path specified in your deployment YAML is available.
 
-```Bash
+```bash
 ## show secrets held in secrets-store
 kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 
@@ -384,7 +382,7 @@ The following configuration settings are frequently used with the Azure Key Vaul
 | Configuration Setting | Default | Description |
 | --------- | ----------- | ----------- |
 | enableSecretRotation | false | Boolean type. If `true`, periodically updates the pod mount and Kubernetes Secret with the latest content from external secrets store |
-| rotationPollInterval | 2m | If `enableSecretRotation` is `true`, specifies the secret rotation poll interval duration. This duration can be adjusted based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest. |
+| rotationPollInterval | 2 m | If `enableSecretRotation` is `true`, specifies the secret rotation poll interval duration. This duration can be adjusted based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest. |
 | syncSecret.enabled | false | Boolean input. In some cases, you may want to create a Kubernetes Secret to mirror the mounted content. If `true`, `SecretProviderClass` allows the `secretObjects` field to define the desired state of the synced Kubernetes Secret objects. |
 
 These settings can be specified when the extension is installed by using the `az k8s-extension create` command:
@@ -405,7 +403,6 @@ You can use other configuration settings as needed for your deployment. For exam
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider --configuration-settings linux.kubeletRootDir=/path/to/kubelet secrets-store-csi-driver.linux.kubeletRootDir=/path/to/kubelet
 ```
 
-
 ## Uninstall the Azure Key Vault Secrets Provider extension
 
 To uninstall the extension, run the following command:
@@ -424,6 +421,12 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 ```
 
 If the extension was successfully removed, you won't see the Azure Key Vault Secrets Provider extension listed in the output. If you don't have any other extensions installed on your cluster, you'll see an empty array.
+
+If you no longer need it, be sure to delete the Kubernetes secret associated with the service principal by running the following command:
+
+```bash
+kubectl delete secret secrets-store-creds
+```
 
 ## Reconciliation and troubleshooting
 

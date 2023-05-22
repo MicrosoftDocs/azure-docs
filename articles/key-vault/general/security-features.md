@@ -38,7 +38,7 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 - Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with recent TLS versions, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
 
 > [!NOTE]
-> For Azure Key Vault, ensure that the application accessing the Keyvault service should be running on a platform that supports TLS 1.2 or recent version. If the application is dependent on .Net framework, it should be updated as well. You can also make the registry changes mentioned in [this article](/troubleshoot/azure/active-directory/enable-support-tls-environment) to explicitly enable the use of TLS 1.2 at OS level and for .Net framework. To meet with compliance obligations and to improve security posture, Key Vault connections via TLS 1.0 & 1.1 are considered a security risk, and any connections using old TLS protocols will be disallowed in 2023. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+> For Azure Key Vault, ensure that the application accessing the Keyvault service should be running on a platform that supports TLS 1.2 or recent version. If the application is dependent on .NET Framework, it should be updated as well. You can also make the registry changes mentioned in [this article](/troubleshoot/azure/active-directory/enable-support-tls-environment) to explicitly enable the use of TLS 1.2 at OS level and for .NET Framework. To meet with compliance obligations and to improve security posture, Key Vault connections via TLS 1.0 & 1.1 are considered a security risk, and any connections using old TLS protocols will be disallowed in 2023. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
 
 > [!WARNING]
 > TLS 1.0 and 1.1 is deprecated by Azure Active Directory and tokens to access key vault may not longer be issued for users or services requesting them with deprecated protocols. This may lead to loss of access to Key vaults. More information on AAD TLS support can be found in [Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made)
@@ -77,7 +77,7 @@ A security principal is an object that represents a user, group, service, or app
 
 For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md).
 
-## Conditional access 
+## Conditional access
 
 Key Vault provides support for Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
 

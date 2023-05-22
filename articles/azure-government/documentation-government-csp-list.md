@@ -332,7 +332,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
-|[Perspecta](https://perspecta.com/)|
 |[Phacil (By Light)](https://www.bylight.com/phacil/)|
 |[Pharicode LLC](https://pharicode.com)|
 |Philistin & Heller Group, Inc.|
@@ -439,7 +438,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[TestPros Inc.](https://www.testpros.com)|
 |[The Cram Group LLC](https://aeccloud.com/)|
 |[The Informatics Application Group Inc.](https://tiag.net)|
-|[The Porter Group, LLC](https://www.thepottergroupllc.com/)|
 |[Thundercat Technology](https://www.thundercattech.com/)|
 |[TIC Business Consultants, Ltd.](https://www.ticbiz.com/)|
 |[Tier1, Inc.](https://www.tier1inc.com)|
@@ -573,7 +571,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Novetta](https://www.novetta.com)|
 |[PAX 8](https://www.pax8.com)|
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
-|[Perspecta](https://perspecta.com)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Progeny Systems](https://www.progeny.net/)|
 |[Project Hosts](https://www.projecthosts.com)|

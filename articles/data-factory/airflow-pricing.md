@@ -24,5 +24,4 @@ Managed Airflow supports either small (D2v4) or large (D4v4) node sizing.  Small
 ## Next steps
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
 - [Changing password for Airflow environments](password-change-airflow.md)

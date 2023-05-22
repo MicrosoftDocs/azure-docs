@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/29/2023
+ms.date: 05/03/2023
 ms.author: cshoe
 ---
 
@@ -65,12 +65,12 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 | `X-Forwarded-For` | The IP address of the client that sent the request. |  |
 | `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
 
-### <a name="tcp"></a>TCP (preview) 
+### <a name="tcp"></a>TCP
 
 Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
-> TCP ingress is in public preview.  External TCP ingress setting is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
+> External TCP ingress is only supported for Container Apps environments that use a [custom VNET](vnet-custom.md).
 
 With TCP ingress enabled, your container app:
 
@@ -81,7 +81,7 @@ With TCP ingress enabled, your container app:
 
 You can access your app in the following ways:
 
-- The default fully qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+- The default fully-qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 - A custom domain name:  You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 - The app name: You can use the app name for communication between apps in the same environment.
 
@@ -105,6 +105,12 @@ Containers Apps allows you to split incoming traffic between active revisions.  
 ## Session affinity
 
 Session affinity, also known as sticky sessions, is a feature that allows you to route all HTTP requests from a client to the same container app replica. This feature is useful for stateful applications that require a consistent connection to the same replica.  For more information, see [Session affinity](sticky-sessions.md).
+
+## Cross origin resource sharing (CORS)
+
+By default, any requests made through the browser from a page to a domain that doesn't match the page's origin domain are blocked. To avoid this restriction for services deployed to Container Apps, you can enable cross-origin resource sharing (CORS).
+
+For more information, see [Configure CORS in Azure Container Apps](./cors.md).
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.custom:
    - devx-track-js
    - mode-other
    - kr2b-contr-experiment
-zone_pivot_groups: acs-azcli-js-csharp-java-python-power-platform
+zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 # Quickstart: Send an SMS message
 

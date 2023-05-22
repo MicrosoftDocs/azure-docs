@@ -10,7 +10,7 @@ ms.date: 05/31/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Monitor application end-to-end
+# Quickstart: Monitor applications end-to-end
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -26,7 +26,7 @@ This quickstart shows you how monitor apps running Azure Spring Apps Enterprise 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
@@ -46,7 +46,7 @@ You must manually provide the Application Insights connection string to the Orde
 
    ```azurecli
    INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group=<resource-group-name>
+       --resource-group=<resource-group-name> \
        --app <app-insights-name> | jq -r '.connectionString')
 
    az keyvault secret set \

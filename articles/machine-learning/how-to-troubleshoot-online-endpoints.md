@@ -242,6 +242,7 @@ We also recommend [deploying locally](#deploy-locally) to test and debug your mo
 This is a list of common resources that might run out of quota when using Azure services:
 
 * [CPU](#cpu-quota)
+* [Cluster](#cluster-quota)
 * [Disk](#disk-quota)
 * [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
@@ -259,9 +260,14 @@ Before deploying a model, you need to have enough compute quota. This quota defi
 
 A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
 
+#### Cluster quota
+
+This issue will occur when you do not have enough Azure ML Compute cluster quota. This quota defines the total number of clusters that may be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
+
+A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
+
 #### Disk quota
 
-This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more disk space or reducing the image and model size.
 This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a [SKU](reference-managed-online-endpoints-vm-sku-list.md) with more disk space or reducing the image and model size.
 
 #### Memory quota
@@ -510,14 +516,25 @@ Although we do our best to provide a stable and reliable service, sometimes thin
 
 ## Common errors specific to Kubernetes deployments
 
+Errors regarding to identity and authentication:
 * [ACRSecretError](#error-acrsecreterror)
+* [TokenRefreshFailed](#error-tokenrefreshfailed)
+* [GetAADTokenFailed](#error-getaadtokenfailed)
+* [ACRAuthenticationChallengeFailed](#error-acrauthenticationchallengefailed)
+* [ACRTokenExchangeFailed](#error-acrtokenexchangefailed)
+
+Errors regarding to crashloopbackoff:
 * [ImagePullLoopBackOff](#error-imagepullloopbackoff)
 * [DeploymentCrashLoopBackOff](#error-deploymentcrashloopbackoff)
 * [KubernetesCrashLoopBackOff](#error-kubernetescrashloopbackoff)
-* [NamespaceNotFound](#error-namespacenotfound)
+
+Errors regarding to scoring script:
 * [UserScriptInitFailed](#error-userscriptinitfailed)
 * [UserScriptImportError](#error-userscriptimporterror)
 * [UserScriptFunctionNotFound](#error-userscriptfunctionnotfound)
+
+Others:
+* [NamespaceNotFound](#error-namespacenotfound)
 * [EndpointAlreadyExists](#error-endpointalreadyexists)
 * [ScoringFeUnhealthy](#error-scoringfeunhealthy)
 * [ValidateScoringFailed](#error-validatescoringfailed)
@@ -535,6 +552,35 @@ This is a list of reasons you might run into this error when creating/updating t
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
   * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
+
+### ERROR: TokenRefreshFailed
+
+This is because extension cannot get principal credential from Azure because the Kubernetes cluster identity is not set properly, please re-install the [Azure Machine Learning extension](../machine-learning/how-to-deploy-kubernetes-extension.md) and try again. 
+
+
+### ERROR: GetAADTokenFailed
+
+This is because the Kubernetes cluster request AAD token failed or timeout, please check your network accessibility then try again. 
+
+* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute ) to check the outbound proxy, make sure the cluster can connect to workspace. 
+* The workspace endpoint url can be found in online endpoint CRD in cluster. 
+
+If your workspace is a private workspace which disabled public network access, the Kubernetes cluster should only communicate with that private workspace through the private link. 
+
+* You can check if the workspace access allows public access, no matter if an AKS cluster itself is public or private, it cannot access the private workspace. 
+* More information you can refer to [Secure Azure Kubernetes Service inferencing environment](../machine-learning/how-to-secure-kubernetes-inferencing-environment.md#what-is-a-secure-aks-inferencing-environment)
+
+### ERROR: ACRAuthenticationChallengeFailed
+
+This is because the Kubernetes cluster cannot reach ACR service of the workspace to do authentication challenge. Please check your network, especially the ACR public network access, then try again. 
+
+You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtokenfailed) to check the network.
+
+### ERROR: ACRTokenExchangeFailed
+
+This is because the Kubernetes cluster exchange ACR token failed because AAD token is unauthorized yet, since the role assignment takes some time, so you can wait a moment then try again.
+
+This failure may also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
 
 ### ERROR: ImagePullLoopBackOff
 
