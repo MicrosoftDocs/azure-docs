@@ -2,28 +2,28 @@
 title: 'Tutorial: Connect services in Azure Container Apps'
 description: Connect a service in development and then promote to production in Azure Container Apps.
 services: container-apps
-author: dougdavis
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 05/19/2023
-ms.author: dougdavis
+ms.date: 05/22/2023
+ms.author: cshoe
 ---
 
 # Tutorial: Connect services in Azure Container Apps
 
 Azure Container Apps allows you to connect to services that support your app that run in the same environment as your container app.
 
-When in development, your application can quickly create and connect to [dev mode services](services.md). These services are easy to create and are development-grade services designed for nonproduction environments.
+When in development, your application can quickly create and connect to [dev services](services.md). These services are easy to create and are development-grade services designed for nonproduction environments.
 
 As you move to production, your application can connect production-grade managed services.
 
-This tutorial shows you how to connect both dev mode and production grade services to your container app.
+This tutorial shows you how to connect both dev and production grade services to your container app.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Create a new Redis development service
-> * Connect a container app to the Redis dev mode service
+> * Connect a container app to the Redis dev service
 > * Disconnect the service from the application
 > * Inspect the service running an in-memory cache
 
@@ -72,33 +72,33 @@ In this tutorial, you learn to:
 1. Set the location.
   
     ```azurecli
-    az config set defaults.location=$LOCATION
+    az config set defaults.location="$LOCATION"
     ```
 
 1. Set the resource group.
   
     ```azurecli
-    az config set defaults.group=$RESOURCE_GROUP
+    az config set defaults.group="$RESOURCE_GROUP"
     ```
 
 1. Create a new environment.
   
     ```azurecli
-    az containerapp env create --name $ENVIRONMENT
+    az containerapp env create --name "$ENVIRONMENT"
     ```
 
-With the CLI configured and an environment created, you can now create an application and dev mode service.
+With the CLI configured and an environment created, you can now create an application and dev service.
 
-## Create a dev mode service
+## Create a dev service
 
 The sample application manages a set of strings, either in-memory, or in Redis cache.
 
-Create the Redis dev mode service and name it `myredis`.
+Create the Redis dev service and name it `myredis`.
 
 ``` azurecli
 az containerapp service redis create \
   --name myredis \
-  --environment $ENVIRONMENT
+  --environment "$ENVIRONMENT"
 ```
 
 ## Create a container app
@@ -117,9 +117,9 @@ Next, create your internet-accessible container app.
       --query properties.configuration.ingress.fqdn
     ```
 
-    This command returns the fully qualified domain name (FQDN). Paste this value into a web browser so you can inspect the application'e behavior throughout this tutorial.
+    This command returns the fully qualified domain name (FQDN). Paste this location into a web browser so you can inspect the application'e behavior throughout this tutorial.
 
-    The `containerapp create` command uses the `--bind` option to create a link between the container app and the Redis dev mode service.
+    The `containerapp create` command uses the `--bind` option to create a link between the container app and the Redis dev service.
 
     The bind request gathers connection information, including credentials and  connection strings, and injects it into the application as environment variables. These values are now available to the application code to use in order to create a connection to the service.
 
@@ -134,33 +134,35 @@ Next, create your internet-accessible container app.
 
     If you access the application via a browser, you can add and remove strings from the Redis database. The Redis cache is responsible for storing application data, so data is available even after the application is restarted after scaling to zero.
 
-    The application is written such that if these environment variables aren't
-    defined then the text strings are stored in memory. Meaning, if the
-    application scales to zero then the data is lost. So, let's
-    unbind the application from Redis.
+    You can also remove a binding from your application.
 
-1. Unbind the Redis dev mode service.
+1. Unbind the Redis dev service.
+
+    To remove a binding from a container app, use the `--unbind` option.
 
     ``` azurecli
     az containerapp update --name myapp --unbind myredis
     ```
 
-    Now that the service is disconnected, data is now stored in an in-memory cache instead. You can verify this change by returning to your web browser and refreshing the web application. You can now see the configuration information displayed indicates an in-memory storage is being used.
+    The application is written so that if the environment variables aren't defined, then the text strings are stored in memory.
 
-    If you then rebind the application back to the Redis service, you should see
-    that all of the previously stored text strings are still there.
+    In this state, if the application scales to zero, then data is lost.
 
-1. Rebind the Redis dev mode service.
+    You can verify this change by returning to your web browser and refreshing the web application. You can now see the configuration information displayed indicates data is stored in-memory.
+
+    Now you can rebind the application to the Redis service, to see your previously stored data.
+
+1. Rebind the Redis dev service.
 
     ``` azurecli
     az containerapp update --name myapp --bind myredis
     ```
 
-    Now that the service is reconnected, the web application displays the data stored in Redis.
+    With the service reconnected, you can refresh the web application to see data stored in Redis.
 
 ## Connecting to a managed service
 
-When your application is ready to move to production, you can bind your application to a managed service instead of a dev mode service.
+When your application is ready to move to production, you can bind your application to a managed service instead of a dev service.
 
 The following steps bind your application to an existing instance of Azure Cache for Redis called `azureRedis`.
 
@@ -184,12 +186,12 @@ The following steps bind your application to an existing instance of Azure Cache
     AZURE_REDIS_SSL=true
     ```
 
-> [!NOTE]
-> As of now the environment variable names used for dev-mode services and managed service will vary slightly. In the future the same names will be used - meaning, application code will no longer need to differentiate between the two usages.
->
-> If you'd like to see the sample code used for this tutorial please see https://github.com/Azure-Samples/sample-service-redis.
+    > [!NOTE]
+    > Environment variable names used for dev mode services and managed service vary slightly.
+    >
+    > If you'd like to see the sample code used for this tutorial please see https://github.com/Azure-Samples/sample-service-redis.
 
-    Now when you add new strings, the values are stored in an instance Azure Cache for Redis instead of the dev mode service.
+    Now when you add new strings, the values are stored in an instance Azure Cache for Redis instead of the dev service.
 
 ## Clean up resources
 
@@ -197,7 +199,7 @@ If you don't plan to continue to use the resources created in this tutorial, you
 
 The application and the service are independent. This independence means the service can be connected to any number of applications in the environment and exists until explicitly deleted, even if all applications are disconnect from it.
 
-Run the following commands to delete your container app and the dev mode service.
+Run the following commands to delete your container app and the dev service.
 
 ``` azurecli
 az containerapp delete --name myapp
