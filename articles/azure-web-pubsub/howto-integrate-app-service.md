@@ -220,5 +220,5 @@ az group delete
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Check out more demos built with Web PubSub](https://azure.github.io/azure-webpubsub/)
+> [Check out more demos built with Web PubSub](https://azure.github.io/azure-webpubsub/demos/chat)
 
