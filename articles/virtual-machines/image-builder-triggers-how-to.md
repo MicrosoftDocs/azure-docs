@@ -23,9 +23,9 @@ You can use triggers in Azure Image Builder (AIB) to set up automatic image buil
 ## Prerequisites
 Before setting up your first trigger, ensure you're using Azure Image Builder API version ***2022-07-01.** Also, we'll need to register the AFEC for your subscription, so please send your subscription ID(s) with the name of your team/service to the following email: aibrpdevsupport@microsoft.com with the subject "Triggers AFEC registration."
 
-# How to set up a trigger in Azure Image Builder
+## How to set up a trigger in Azure Image Builder
 
-## Set variables
+### Set variables
 First, you need to set some variables that you'll repeatedly use in commands.
 
 ```azurecli-interactive
@@ -47,14 +47,14 @@ runOutputName=ibTriggersTestRun
 subscriptionID=$(az account show --query id --output tsv)
 ```
 
-## Create resource group
+### Create resource group
 Now, you need to create a resource group where you can store your image template. Use the following command to make your resource group:
 
 ```azurecli-interactive
 az group create -n $resourceGroupName -l $location
 ```
 
-## Create managed identity for the service
+### Create managed identity for the service
 You'll also need to create a managed identity that will be used for the image template (and potentially the Azure Image Builder build VM). In this example, we create a managed identity with "Contributor" access, but you can refine the permissions or role assigned to the managed identity as you like as long as you include the permissions needed for the Azure Image Builder service to function properly.
 
 For more information on the permissions needed for the Azure Image Builder service, see the following documentation: Configure [Azure VM Image Builder permissions](/azure/virtual-machines/linux/image-builder-permissions-cli) by using the Azure CLI
@@ -81,7 +81,7 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$resourceGroupName
 ```
 
-## Create gallery and image definition
+### Create gallery and image definition
 To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
 
 If you don't already have a gallery and image definition to use, start by creating them.
@@ -107,7 +107,7 @@ az sig image-definition create \
    --os-type Linux
 ```
 
-## Create the image template
+### Create the image template
 Download the example JSON template and configure it with your variables. The following image template uses a Platform Image as its source, but you can change the source to an Azure Compute Gallery image if you'd like to set up automatic image builds anytime there's a new image version in your Azure Compute Gallery.
 
 ```azurecli-interactive
@@ -141,7 +141,7 @@ az resource show --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/r
 > [!NOTE]
 > When running the command above the `provisioningState` should say "Succeeded", which means the template was created without any issues. If the `provisioningState` does not say succeeded, you will not be able to make a trigger use the image template.
 
-## Create source trigger
+### Create source trigger
 
 Download the example trigger template and configure it with your variables. The following trigger starts a new image build anytime the source image is updated.
 
@@ -169,9 +169,9 @@ az resource show --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/r
 > [!NOTE]
 > When running the command above the `provisioningState` should say `Succeeded`, which means the trigger was created without any issues. In `status`, the code should say `Healthy` and the message should say `Trigger is active.`
 
-## Clean up your resources
+### Clean up your resources
 
-### Deleting the trigger
+#### Deleting the trigger
 
 > [!IMPORTANT]
 > You will not be able to delete the image template without deleting the trigger first. This is temporary and will change in the future.
@@ -181,7 +181,7 @@ Use the following command to delete the trigger:
 ```azurecli-interactive
 az resource delete --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/resourcegroups/$resourceGroupName/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/triggers/source
 ```
-### Deleting the image template
+#### Deleting the image template
 
 Use the following command to delete the image template:
 
