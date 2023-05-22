@@ -11,7 +11,7 @@ ms.date: 2/5/2023
 
 # Configure VSAN
 
-VSAN has additional capabilities that are set w/ every Azure VMWare Solution deployment (AVS).  Each cluster has their own VSAN.
+VSAN has additional capabilities that are set w/ every Azure VMware Solution deployment (AVS).  Each cluster has their own VSAN.
 AVS defaults with the following configurations per cluster:
 
    | **Field** | **Value** |
