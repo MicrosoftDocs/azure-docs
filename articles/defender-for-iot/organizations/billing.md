@@ -36,23 +36,6 @@ When purchasing a Defender for IoT license for an OT plan, or when onboarding or
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
 
-### Device coverage warning
-
-<!---->TBD MIA HOW IS THIS CHANGING?
-
-If the number of actual devices detected by Defender for IoT exceeds the number of devices you're licensed for or are covered by your pricing plan, a warning message will appear in Defender for IoT in the Azure portal. For example:
-
-:::image type="content" source="media/billing/device-coverage-warning.png" alt-text="Screenshot of the device coverage warning.":::
-
-This message indicates that you need to do one of the following:
-
-- **OT monitoring**: Purchase a new license for a larger site size. For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
-
-- **Enterprise IoT monitoring**: [Update the number of devices for your plan](manage-subscriptions-enterprise.md) to match the actual number of devices being monitored.
-
-> [!NOTE]
-> This warning is a reminder for you to update your plan, and does not affect Defender for IoT functionality.
-
 ## Next steps
 
 For more information, see:

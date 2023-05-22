@@ -73,10 +73,6 @@ You'd activated your on-premises management console as part of your deployment.
 
 You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](billing.md).
 
-> [!TIP]
-> If your OT sensors detect more devices than you're licensed for, your on-premises management console will show a warning message, prompting you to purchase a new license for a larger site. Make sure that you update your sensor's activation file after purchasing your new license. <!----> TBD IS THIS CORRECT?
->
-
 **To upload a new activation file to your on-premises management console**:
 
 1. In Defender for IoT on the Azure portal, select **Plans and pricing** > **Download on-premises management console activation file**.

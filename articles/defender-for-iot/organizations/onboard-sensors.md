@@ -25,6 +25,8 @@ Before you onboard an OT network sensor to Defender for IoT, make sure that you 
 
     Assigning sensors to specific sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md), and will help you monitor for unauthorized traffic crossing segments. For more information, see [List your planned OT sensors](best-practices/plan-prepare-deploy.md#list-your-planned-ot-sensors).
 
+    You'll define your site using a Microsoft 365 license, which is based on site size. For more information, see [Defender for IoT subscription billing](billing.md).
+
 This step is performed by your deployment teams.
 
 ## Onboard an OT sensor
@@ -60,25 +62,18 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
     1. (Optional) Toggle on the **Automatic Threat Intelligence updates** to have Defender for IoT automatically push [threat intelligence packages](how-to-work-with-threat-intelligence-packages.md) to your OT sensor.
 
-    1. In the **Sensor version** field, verify that **22.X and above** is selected.
+    1. In the **Site** section, define the details of your sensor's site, based on your Microsoft 365 licenses. 
 
-        If you're working with legacy OT sensor software, we recommend that you update your version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
-    1. In the **Site** section, enter the following details to define your OT sensor's site.
-
-        |Field  |Description  |
-        |---------|---------|
-        |**Resource name**     | In the **Resource name** field, select the site you want to use for your OT sensor, or select **Create site** to create a new one.        |
-        |**Display name**     | In the **Display name** field, enter a meaningful name for your site to be shown across Defender for IoT in Azure.        |
-        |**Tags** (Optional)     | In the **Tags** > **Key** and **Value** fields, enter tag values to help you identify and locate your site and sensor in the Azure portal.        |
+        Optional: In the **Tags** > **Key** and **Value** fields, enter tag values to help you identify and locate your site and sensor in the Azure portal.       
 
     1. In the **Zone** field, select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.
 
-        For example:
-
-        :::image type="content" source="media/sites-and-zones/sites-and-zones-azure.png" alt-text="Screenshot of the Set up OT/ICS Security page with site and zone details defined." lightbox="media/sites-and-zones/sites-and-zones-azure.png":::
-
 1. When you're done with all other fields, select **Register**.
+
+<!--
+    1. In the **Sensor version** field, verify that **22.X and above** is selected.<!--removing this. do we no longer have a sensor version field?-->
+<!-->
+       If you're working with legacy OT sensor software, we recommend that you update your version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).-->
 
 A success message appears and your activation file is automatically downloaded. Your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
 
