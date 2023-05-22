@@ -17,7 +17,7 @@ author: padmalathas
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-An [HBv4-series](hbv4-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv4. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
+An [HBv4-series](hbv4-series.md) server features 2 * 96-core EPYC 9V33X CPUs for a total of 192 physical "Zen4" cores with AMD 3D-V Cache. Simultaneous Multithreading (SMT) is disabled on HBv4 and HX. These 192 cores are divided into 24 sections (12 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv4 and HX servers also run the following AMD BIOS settings: 
 
 ```bash
 Nodes per Socket (NPS) = 2
@@ -26,17 +26,17 @@ NUMA domains within VM OS = 4
 C-states = Enabled
 ```
 
-As a result, the server boots with 4 NUMA domains (2 per socket) each 32 cores in size. Each NUMA has direct access to 4 channels of physical DRAM operating at 3200 MT/s.
+As a result, the server boots with 4 NUMA domains (2 per socket) each 48-cores in size. Each NUMA has direct access to 6 channels of physical DRAM. 
 
-To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 8 physical cores per server.
+To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve 16 physical cores per server. 
 
 ## VM topology
 
-The following diagram shows the topology of the server. We reserve these 8 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) on each NUMA domain, with the remaining cores for the HBv4-series VM (green).
+The following diagram shows the topology of the server. We reserve these 16 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) in each NUMA domain, with the remaining cores for the HBv4-series VM (green).
 
 ![Topology of the HBv4-series server](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
-The CCD boundary is not equivalent to a NUMA boundary. On HBv4, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv4 VM sizes expose 4 NUMA domains that appear to an OS and application as shown. 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv4 VM size](hbv4-series.md).
+The CCD boundary is not equivalent to a NUMA boundary. On HBv4, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv4 VM sizes expose 4 uniform NUMA domains that will appear to an OS and application as shown below, each with different number of cores depending on the specific [HBv4 VM size](hbv4-series.md).
 
 ![Topology of the HBv4-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
@@ -44,11 +44,11 @@ Each HBv4 VM size is similar in physical layout, features, and performance of a 
 
 | HBv4-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
-Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7773X           |
-Standard_HB120r-96s_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
-Standard_HB120r-64s_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
-Standard_HB120r-32s_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
-Standard_HB120r-16s_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
+Standard_HB176rs_v4               | 4            | 44                     | Dual-socket EPYC 9V33X           |
+Standard_HB176r-144s_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
+Standard_HB120r-64s_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
+Standard_HB120r-32s_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
+Standard_HB120r-16s_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
@@ -61,33 +61,33 @@ lstopo-no-graphics --no-io --no-legend --of txt
 ```
 <br>
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176rs_v4</summary>
 
-![lstopo output for HBv4-120 VM](./media/hpc/architecture/hbv3/hbv3-120-lstopo.png)
+![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-96_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
 
-![lstopo output for HBv4-96 VM](./media/hpc/architecture/hbv3/hbv3-96-lstopo.png)
+![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv3-96-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-64_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
 
-![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv3/hbv3-64-lstopo.png)
+![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv3-64-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-32_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
 
-![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv3/hbv3-32-lstopo.png)
+![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv3-32-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB120rs-16_v3</summary>
+<summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
 
-![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv3/hbv3-16-lstopo.png)
+![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv3-16-lstopo.png)
 </details>
 
 ## InfiniBand networking
