@@ -360,7 +360,7 @@
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
       items:
-      - name: Prerequisites
+      - name: Prerequisites and setup
         href: logic-apps-using-sap-connector.md
       - name: Create common example workflows
         href: sap-create-example-scenario-workflows.md
