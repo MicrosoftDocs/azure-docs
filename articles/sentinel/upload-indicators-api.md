@@ -62,12 +62,12 @@ The resource/scope value is the audience of the token. This API only accepts the
 ### Assemble the request message
 
 #### Request URI 
-API versioning: `api-version=2022-07-01`
-Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators?api-version=2022-07-01`
-Method: `POST`
+API versioning: `api-version=2022-07-01`<br>
+Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators?api-version=2022-07-01`<br>
+Method: `POST`<br>
 
 #### Request header
-`Authorization`: Contains the OAuth2 bearer token
+`Authorization`: Contains the OAuth2 bearer token<br>
 `Content-Type`: `application/json`
 
 #### Request body
@@ -82,7 +82,7 @@ Create the array of indicators using the STIX 2.1 indicator format specification
 
 |Property Name	|Type |	Description |
 |----|----|----|
-|`id` (required)| string | An ID used to identify the indicator. See section [2.9] for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
+|`id` (required)| string | An ID used to identify the indicator. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
 |`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API will default to `2.1`|
 |`type` (required)|	string | The value of this property *must* be `indicator`.|
 |`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
