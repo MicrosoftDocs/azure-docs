@@ -1,6 +1,6 @@
 ---
-title: Create a lab from an Azure VM
-description: Learn how to create a lab in Azure Lab Services from an existing Azure virtual machine.
+title: Create a lab from a Windows Azure VM
+description: Learn how to create a lab in Azure Lab Services from an existing Windows-based Azure virtual machine.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
@@ -9,9 +9,9 @@ ms.date: 05/17/2023
 ms.topic: how-to
 ---
 
-# Create a lab in Azure Lab Services from an Azure virtual machine image
+# Create a lab in Azure Lab Services from a Windows-based Azure virtual machine
 
-Learn how you can create a lab in Azure Lab Services from an Azure virtual machine image. Start from an Azure virtual machine, import the virtual machine as an image in an Azure compute gallery, and then create a lab from the image.
+Learn how you can create a lab in Azure Lab Services from a Windows-based Azure virtual machine image. Start from an Azure virtual machine, export the virtual machine as an image into an Azure compute gallery, and then create a lab from the compute gallery image.
 
 Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide the best approach for your scenario.
 
