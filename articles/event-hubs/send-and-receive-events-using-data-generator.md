@@ -30,7 +30,7 @@ To complete this QuickStart, you need the following prerequisites:
 You could follow the steps below to send events to Azure Event Hubs Data Generator: 
 
 1. Click on Generate data blade under “Overview” section of Event Hubs namespace.
-1. ![Highlightedfinaloverview](media/send-and-receive-events-using-data-generator/highlightedfinaloverview1.jpg)
+![EventHubNamespaceOverviewpage.](media/send-and-receive-events-using-data-generator/highlightedfinaloverview1.jpg)
 
 2. On Generate Data blade, you would find below properties for Data generation: 
 1. **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “create Event Hub” to [create a new event hub](/azure/event-hubs/event-hubs-create) within namespace and stream data post creation of event hub.  
@@ -39,7 +39,7 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
    4.  **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions.
    5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
    
-y=>y.attrs.isDirty&&!d_(y)&&y.attrs.depth!==void 0?(l.delim=l.repeat(" ",3*y.attrs.depth),l.delim):""![highlighteddatageneratorlanding](media/send-and-receive-events-using-data-generator/highlighteddatageneratorlanding.jpg)
+y=>y.attrs.isDirty&&!d_(y)&&y.attrs.depth!==void 0?(l.delim=l.repeat(" ",3*y.attrs.depth),l.delim):""![LandingpageforDataGenerator.](media/send-and-receive-events-using-data-generator/highlighteddatageneratorlanding.jpg)
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
@@ -70,6 +70,8 @@ As soon as you click send, data generator would take care of sending the events 
 Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. Please disconnect any active consumer reading from $Default consumer group and try again. 
 
 - **I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?**
+
+Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data parallelly to event hubs alongside Data generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
 
 ## Next Steps
 
