@@ -180,7 +180,7 @@ The value for `batchSize` can't exceed the value for `count` in the copy element
     {
       "copy": {
         "name": "storagecopy",
-        "count": "4",
+        "count": 4,
         "mode": "serial",
         "batchSize": 2
       },
