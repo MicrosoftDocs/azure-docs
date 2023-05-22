@@ -263,7 +263,7 @@ This sample shows the expected output of the above command:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-Azure Machine Learning Python SDK (preview) provides convenient functions for attaching and managing Synapse Spark pool, using Python code in Azure Machine Learning Notebooks.
+Azure Machine Learning Python SDK provides convenient functions for attaching and managing Synapse Spark pool, using Python code in Azure Machine Learning Notebooks.
 
 To attach a Synapse Compute using Python SDK, first create an instance of [azure.ai.ml.MLClient class](/python/api/azure-ai-ml/azure.ai.ml.mlclient). This provides convenient functions for interaction with Azure Machine Learning services. The following code sample uses `azure.identity.DefaultAzureCredential` for connecting to a workspace in resource group of a specified Azure subscription. In the following code sample, define the `SynapseSparkCompute` with the parameters:
 - `name` - user-defined name of the new attached Synapse Spark pool. 
