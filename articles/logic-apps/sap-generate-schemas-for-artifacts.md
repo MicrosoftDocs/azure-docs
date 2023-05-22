@@ -37,7 +37,7 @@ To have your workflow receive requests from your SAP server over HTTP, you can u
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource and blank workflow, which opens in the designer.
 
@@ -51,7 +51,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Consumption workflow.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url-consumption.png)
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow, which opens in the designer.
 
@@ -71,7 +71,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the workflow designer, under the Request trigger, select **New step**.
 
@@ -124,7 +124,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
@@ -178,7 +178,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
@@ -212,7 +212,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 For more information about reviewing workflow run history, see [Monitor logic app workflows](monitor-logic-apps.md?tabs=consumption).
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
@@ -267,7 +267,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 For this task, you'll need an [integration account](logic-apps-enterprise-integration-create-integration-account.md), if you don't already have one. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps to upload schemas to an integration account from your workflow after schema generation.
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the workflow designer, under the SAP managed action named **Generate schemas**, select **New step**.
 
@@ -293,7 +293,7 @@ For this task, you'll need an [integration account](logic-apps-enterprise-integr
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. In the workflow designer, under the SAP built-in action named **Generate Schema**, select the plus sign (**+**) > **Add an action**.
 

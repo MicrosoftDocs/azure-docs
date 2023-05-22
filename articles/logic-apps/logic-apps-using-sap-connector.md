@@ -194,7 +194,7 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### Azure Logic Apps environment prerequisites
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 <a name="multi-tenant-prerequisites"></a>
 
@@ -238,7 +238,7 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
      sapmsDV6           3601/tcp              # SAP system ID DV6 message service port
      ```
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 <a name="single-tenant-prerequisites"></a>
 
@@ -288,6 +288,23 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 <a name="ise-prerequisites"></a>
 
 For a Consumption workflow in an ISE, the ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
+
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
+> Logic Apps and provide the same capabilities plus more.
+>
+> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
+>
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).
 
@@ -366,7 +383,7 @@ The following relationships exist between the SAP client library, the .NET Frame
 
 ### SNC prerequisites
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway and optionally SNC , you must also configure the following settings. For workflows that run in an ISE, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
 
@@ -392,7 +409,7 @@ For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premi
 
 For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
@@ -507,7 +524,7 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
 ### Enable Secure Network Communications (SNC)
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](logic-apps-using-sap-connector.md?tabs=multi-tenant#prerequisites) and [SNC prerequisites](logic-apps-using-sap-connector.md?tabs=multi-tenant#snc-prerequisites).
 
@@ -541,7 +558,7 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
 
    If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message. To troubleshoot connection parameter issues, you can use the on-premises data gateway installation and the gateway's local logs.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](logic-apps-using-sap-connector.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](logic-apps-using-sap-connector.md?tabs=single-tenant#snc-prerequisites).
 
@@ -866,11 +883,13 @@ To work with the resulting ETL files, you can use [PerfView](https://github.com/
 
    1. Under **Filter**, filter by `Microsoft-LobAdapter` to only view relevant events and gateway processes.
 
+<a name="test-workflow-logging"></a>
+
 ### Test your workflow
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
@@ -882,7 +901,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
@@ -896,7 +915,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### [ISE](#tab/ise)
 
-See [Multi-tenant](#tab-multi-tenant).
+See the steps for [SAP logging for Consumption logic apps in multi-tenant workflows](?tabs=multi-tenant#test-workflow-logging).
 
 ---
 

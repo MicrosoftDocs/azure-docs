@@ -36,7 +36,7 @@ The following example logic app workflow triggers when the workflow's SAP trigge
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
@@ -101,7 +101,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. After the trigger fires and runs your workflow, review the workflow's trigger history to confirm that trigger registration succeeded.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
@@ -348,7 +348,7 @@ To receive IDocs over Common Programming Interface Communication (CPIC) as plain
 
 Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource and a blank workflow in the designer.
 
@@ -362,7 +362,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Consumption workflow.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url-consumption.png)
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow in the designer.
 
@@ -384,7 +384,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 Next, create an action to send your IDoc to SAP when the workflow's Request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the workflow designer, under the Request trigger, select **New step**.
 
@@ -456,7 +456,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
 1. Save your workflow.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
@@ -640,7 +640,7 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, add the [Request built-in action named **Response**](../connectors/connectors-native-reqres.md#add-response) to your workflow and include the output from the SAP action.
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. In the workflow designer, under the SAP action, select **New step**.
 
@@ -654,7 +654,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. Save your workflow.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. In the workflow designer, under the SAP action, select the plus sign (**+**) > **Add an action**.
 
@@ -698,7 +698,7 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 ### Test your workflow
 
-### [Multi-tenant](#tab/multi-tenant)
+### [Consumption](#tab/consumption)
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
@@ -726,7 +726,7 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 You've now created a workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
 
-### [Single-tenant](#tab/single-tenant)
+### [Standard](#tab/standard)
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
