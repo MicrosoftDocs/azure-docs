@@ -355,7 +355,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
       ```bash
       10.0.0.5 hn1-db-0
-      <IP address 2> <HANA SID>-db-<database 2>
+      10.0.0.6 hn1-db-1
       ```
 
 1. **[A]** Install the SAP HANA high availability packages:
