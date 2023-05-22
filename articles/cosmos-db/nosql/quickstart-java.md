@@ -436,9 +436,9 @@ Then, to enable the container object used by the current client to use a shared 
 > [!NOTE]
 > In the above, we define a `targetThroughput` value of `100`, meaning that only a maximum of 100 RUs of the container's provisioned throughput can be used by all clients consuming the throughput control group, before the SDK will attempt to rate limit clients. You can also define `targetThroughputThreshold` to provide a percentage of the container's throughput as the threshold instead. 
 
-The second config you need to create will reference to the throughput container you created earlier, and define some behaviours for it using two parameters:
+The second config you need to create will reference the throughput container you created earlier, and define some behaviours for it using two parameters:
 
-- Use `setControlItemRenewInterval` to determine how fast throughput will be re-balanced between clients. At each renewal interval, each client will update it's own throughput usage in a client item record stored in the throughput control container. It will also read all the throughput usage of all the other active clients, and adjust the throughput that should be assigned to itself.
+- Use `setControlItemRenewInterval` to determine how fast throughput will be re-balanced between clients. At each renewal interval, each client will update it's own throughput usage in a client item record stored in the throughput control container. It will also read all the throughput usage of all other active clients, and adjust the throughput that should be assigned to itself. The minimum value that can be set is 5 seconds.
 - Use `setControlItemExpireInterval` to determine when a dormant client should be considered offline and no longer part of any throughput control group. Upon expiry, the client item in the throughput container will be removed, and the data will no longer be used for re-balancing between clients.
 
 ```java
