@@ -82,7 +82,7 @@ You can find the service principals associated with an application object.
 
 In the [Azure portal](https://portal.azure.com), navigate to the application registration overview.  Select **Managed application in local directory**.
 
-:::image type="content" alt-text="Screen shot that shows" source="./media/multi-service-web-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="Screen shot that shows" source="./media/app-objects-and-service-principals/FindServicePrincipal.png" border="false":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -97,7 +97,7 @@ Get-AzureADServicePrincipal -Filter "appId eq '{AppId}'"
 Using Azure CLI:
 
 ```azurecli
-az ad sp list --filter "appId eq '{AppId}"
+az ad sp list --filter "appId eq '{AppId}'"
 ```
 ---
 
