@@ -428,7 +428,7 @@ The `imageanalysis:analyze` API does ordinary Image Analysis operations. By spec
 1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-version=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-name=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```

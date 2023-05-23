@@ -7,6 +7,7 @@ ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: gahllevy
+ms.subservice: mongodb
 ---
 
 # Configure role-based access control in Azure Cosmos DB for MongoDB
