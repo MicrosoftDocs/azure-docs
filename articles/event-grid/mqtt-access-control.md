@@ -18,7 +18,7 @@ A **[topic space](mqtt-topic-spaces.md)** represents multiple topics through a s
 
 A **permission binding** grants access to a specific client group to publish or subscribe on the topics represented by a specific topic space. The permission binding represents the role in the RBAC model.
 
-:::image type="content" source="media/mqtt-overview/access-control-high-res.png" alt-text="Access control model." border="false":::
+:::image type="content" source="media/mqtt-overview/access-control-high-res.png" alt-text="Diagram of the access control model." border="false":::
 
 ## Examples:
 
@@ -99,7 +99,7 @@ For example, consider the following configuration:
 
 With this configuration, only the client with client authentication name “machine1” can publish on topic "machines/machine1/telemetry", and only the machine with client authentication name “machine 2” can publish on topic "machines/machine2/telemetry", and so on. Accordingly, machine2 can't publish false information on behalf of machine1, even though it has access to the same topic space, and vice versa.
 
-:::image type="content" source="media/mqtt-access-control/access-control-example.png" alt-text="Granular access control example." border="false":::
+:::image type="content" source="media/mqtt-access-control/access-control-example.png" alt-text="Diagram of the granular access control example." border="false":::
 
 ## Next steps:
 

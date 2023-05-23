@@ -39,7 +39,7 @@ Multi-session support enables your application MQTT clients to have more scalabl
 #### Namespace configuration 
 Before using this feature, you need to configure the namespace to allow multiple sessions per client. Use the following steps to configure multiple sessions per client in the Azure portal:
 - Go to your namespace in the Azure portal.
-- Under **Configuration**, change the value for the **Maximum client sessions per authetication name** to the desired number of sessions per client.
+- Under **Configuration**, change the value for the **Maximum client sessions per authentication name** to the desired number of sessions per client.
 - Select **Apply**.
 
 >[!NOTE] 
@@ -62,7 +62,7 @@ For example, the following combinations of Username and ClientIds in the CONNECT
   - Username: Mgmt-application
   - ClientId: Mgmt-Session3
 
-:::image type="content" source="media/mqtt-support/mqtt-multi-session-high-res.png" alt-text="Multi-session example." border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-multi-session-high-res.png" alt-text="Diagram of a multi-session example." border="false":::
 
 For more information, see [How to establish multiple sessions for a single client](mqtt-establishing-multiple-sessions-per-client.md) 
 

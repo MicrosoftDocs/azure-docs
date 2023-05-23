@@ -1,6 +1,6 @@
 ---
 title: 'Automotive Messaging, Data & Analytics Reference Architecture'
-description: 'Describes the use case of Automotive Messaging'
+description: 'Describes the use case of automotive messaging'
 ms.topic: conceptual
 ms.date: 05/23/2023
 author: msmarioo
@@ -122,8 +122,8 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
     * Vehicle Data Aggregation, key performance indicators and insights.
     * Generation of training data for machine learning.
 1. Different applications consume refined and aggregated data.
-    1. Visualization using Power BI.
-    1. Business Integration workflows using Logic Apps with integration into the Dataverse.
+    - Visualization using Power BI.
+    - Business Integration workflows using Logic Apps with integration into the Dataverse.
 1. Generated Training Data is consumed by tools such as ML Studio to generate ML models.
 
 ### Scalability
@@ -183,7 +183,7 @@ Examples:
 * **Azure Batch** for High-Performance Computing tasks such as decoding large CAN Trace / Video Files
 * **Azure Kubernetes Service** for managed, full fledge orchestration of complex logic such as command & control workflow management.
 
-As an alternative to event-based data sharing, it's also possible to use (Azure Data Share)[/azure/data-share/] if the objective is to perform batch synchronization at the data lake level.
+As an alternative to event-based data sharing, it's also possible to use [Azure Data Share](/azure/data-share/) if the objective is to perform batch synchronization at the data lake level.
 
 ## Scenario details
 
