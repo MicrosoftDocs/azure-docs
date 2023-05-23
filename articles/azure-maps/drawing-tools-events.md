@@ -1,9 +1,9 @@
 ---
 title: Drawing tool events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
-author: brendansco
-ms.author: Brendanc
-ms.date: 12/05/2019
+author: eriklindeman
+ms.author: eriklind
+ms.date: 05/23/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
