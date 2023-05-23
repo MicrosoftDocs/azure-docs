@@ -10,7 +10,7 @@ author: qjxu
 ms.author: qiax
 ms.reviewer: franksolomon
 ms.date: 05/23/2023
-ms.custom: cliv2
+ms.custom: cliv2, build-2023
 ---
 
 # CLI (v2) feature set specification YAML schema

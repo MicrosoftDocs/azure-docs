@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video, ignite-2022
+ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
@@ -164,5 +164,3 @@ Currently the point in time restore functionality has the following limitations:
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
-
-

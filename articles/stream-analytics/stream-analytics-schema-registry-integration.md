@@ -6,7 +6,7 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2023
-ms.custom: seodec18
+ms.custom: seodec18, build-2023
 ---
 
 # Integrating with Schema Registry in Azure Stream Analytics (Public Preview)

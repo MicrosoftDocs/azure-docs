@@ -3,7 +3,7 @@ title: Configure project environment types
 titleSuffix: Azure Deployment Environments
 description: Learn how to add, update, and delete project environment types in Azure Deployment Environments. Define project-level deployment settings and permissions.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/25/2023

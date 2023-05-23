@@ -4,7 +4,7 @@ description: Describes the steps to publish and consume events or messages using
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.custom: references_regions
+ms.custom: references_regions, build-2023, build-2023-dataai
 ms.date: 05/23/2023
 ---
 

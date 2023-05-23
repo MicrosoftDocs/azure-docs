@@ -2,6 +2,7 @@
 title: Azure Event Grid concepts (push delivery)
 description: Describes Azure Event Grid and its concepts. Defines several key components of Event Grid.
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 05/08/2023
 ---
 

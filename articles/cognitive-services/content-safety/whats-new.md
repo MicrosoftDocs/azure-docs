@@ -7,6 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-safety
+ms.custom: build-2023
 ms.topic: overview
 ms.date: 04/07/2023
 ms.author: pafarley

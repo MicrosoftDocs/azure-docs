@@ -2,7 +2,7 @@
 title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 02/16/2023
 ---
 

@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
 
 # Revisions in Azure Container Apps
@@ -113,9 +113,17 @@ The format of a revision name is:
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
 
-For example, for a container app named *album-api*, setting the revision suffix name to *1st-revision* would create a revision with the name *album-api--1st-revision*.
+For example, for a container app named *album-api*, setting the revision suffix name to *first-revision* would create a revision with the name *album-api--first-revision*.
 
-You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
+A revision suffix name must:
+
+- consist of lower case alphanumeric characters or dashes ('-')
+- start with an alphabetic character
+- end with an alphanumeric character
+- not have two consecutive dashes (--)
+- not be more than 64 characters
+
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal. 
 
 ## Change types
 

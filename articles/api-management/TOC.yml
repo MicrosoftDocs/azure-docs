@@ -212,6 +212,8 @@
                   href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
                 - name: Migrate to self-hosted gateway v2
                   href: self-hosted-gateway-migration-guide.md
+                - name: Support policy for self-hosted gateway
+                  href: self-hosted-gateway-support-policies.md
       - name: Define and manage APIs
         items:
           - name: Create APIs
@@ -635,5 +637,3 @@
         href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
-      - name: Additional resources
-        href: https://aka.ms/apimlove

@@ -6,6 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-safety
+ms.custom: build-2023
 ms.topic: include
 ms.date: 04/11/2023
 ms.author: pafarley
@@ -108,4 +109,3 @@ The JSON fields in the output are defined here:
 | :------------- | :--------------- | ------ |
 | **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Harm categories](../../concepts/harm-categories.md)| String |
 | **Severity** | The higher the severity of input content, the larger this value is. The values can be: 0,2,4,6.	  | Integer |
-

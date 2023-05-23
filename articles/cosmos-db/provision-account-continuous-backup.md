@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, build-2023
 ms.devlang: azurecli
 ---
 
@@ -238,5 +238,3 @@ az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplate
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
-
-

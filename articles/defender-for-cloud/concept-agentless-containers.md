@@ -4,7 +4,7 @@ description: Learn how Agentless Container Posture offers discovery, visibility,
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 05/16/2023
-ms.custom: template-concept
+ms.custom: template-concept, build-2023
 ---
 
 # Agentless Container Posture (Preview)

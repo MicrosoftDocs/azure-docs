@@ -4,7 +4,7 @@ description: This article provides guidance for evaluating query parallelism and
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: how-to
 ms.date: 05/09/2023
 ---

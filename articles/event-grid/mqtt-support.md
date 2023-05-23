@@ -2,6 +2,7 @@
 title: 'MQTT Support in Azure Event Grid'
 description: 'Describes the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu

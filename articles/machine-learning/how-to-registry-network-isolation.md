@@ -5,6 +5,7 @@ description: Use Azure Machine Learning registry with Azure Virtual Networks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
+ms.custom: build-2023
 author: fkriti
 ms.author: kritifaujdar
 ms.reviewer: larryfr

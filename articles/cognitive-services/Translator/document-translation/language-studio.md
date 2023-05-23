@@ -9,7 +9,7 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 03/17/2023
 ms.author: lajanuar
-ms.custom: references_regions
+ms.custom: references_regions, build-2023
 recommendations: false
 ---
 
