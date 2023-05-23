@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 02/14/2023
+ms.date: 05/23/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -230,6 +230,42 @@ Learn more about [Application Gateway probe matching](./application-gateway-prob
 > [!NOTE]
 > For all TLS related error messages, to learn more about SNI behavior and differences between the v1 and v2 SKU, check the [TLS overview](ssl-overview.md) page.
 
+### Common Name (CN) doesn't match
+
+**Message:**
+(For V2) The Common Name of the leaf certificate presented by the backend server does not match the Probe or Backend Setting hostname of the application gateway.
+(For V1) The Common Name (CN) of the backend certificate doesn’t match.
+
+**Cause:**
+(For V2) This occurs when you have selected HTTPS protocol in the backend setting, and neither the Custom Probe’s nor Backend Setting’s hostname (in that order) matches the Common Name (CN) of the backend server’s certificate.
+(For V1) The FQDN of the backend pool target doesn’t match the Common Name (CN) of the backend server’s certificate.
+
+**Solution:** The hostname information is critical for backend HTTPS connection since that value is used to set the Server Name Indication (SNI) during TLS handshake. You can fix this problem in the following ways based on your gateway’s configuration.
+
+For V2,
+* If you’re using a Default Probe – You can specify a hostname in the associated Backend setting of your application gateway. You can select “Override with specific hostname” or “Pick hostname from backend target” in the backend setting.
+* If you’re using a Custom Probe – For Custom Probe, you can use the “host” field to specify the Common Name of the backend server certificate. Alternatively, if the Backend Setting is already configured with the same hostname, you can choose “Pick hostname from backend setting” in the probe settings.
+
+For V1, verify the backend pool target's FQDN is same the Common Name (CN).
+
+**Tips:** To determine the Common Name (CN) of the backend server(s)’ certificate, you can use any of these methods.
+
+* By using browser or any client:
+Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You will find it under the “Issued To” section.
+![Application Gateway backend health - Unknown](./media/application-gateway-backend-health-troubleshooting/browser-cert.png)
+
+* By logging into the backend server (Windows):
+1. Sign into the machine where your application is hosted.
+2. Select Win+R or right-click the Start button and select Run.
+3. Enter certlm.msc and select Enter. You can also search for Certificate Manager on the Start menu.
+4. Locate the certificate (typically in Certificates - Local Computer\Personal\Certificates), and open the certificate.
+5. On the Details tab, check the certificate Subject.
+
+* By logging to the backend server (Linux):
+Run this OpenSSL command by specifying the right certificate filename ` openssl x509 -in certificate.crt -subject -noout`
+
+
+
 ### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
@@ -295,42 +331,7 @@ If the output doesn't show the complete chain of the certificate being returned,
   \-----END CERTIFICATE-----
 ```
 
-### Backend certificate invalid common name (CN)
 
-**Message:** The Common Name (CN) of the backend certificate doesn't match the host header of the probe.
-
-**Cause:** Application Gateway checks whether the host name specified in the backend HTTP settings matches that of the CN presented by the backend server’s TLS/SSL certificate. This verification is Standard_v2 and WAF_v2 SKU (V2) behavior. The Standard and WAF SKU (v1) Server Name Indication (SNI) is set as the FQDN in the backend pool address. For more information on SNI behavior and differences between v1 and v2 SKU, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
-
-In the v2 SKU, if there's a default probe (no custom probe has been configured and associated), SNI will be set from the host name mentioned in the HTTP settings. Or, if “Pick host name from backend address” is mentioned in the HTTP settings, where the backend address pool contains a valid FQDN, this setting will be applied.
-
-If there's a custom probe associated with the HTTP settings, SNI will be set from the host name mentioned in the custom probe configuration. Or, if **Pick hostname from backend HTTP settings** is selected in the custom probe, SNI will be set from the host name mentioned in the HTTP settings.
-
-If **Pick hostname from backend address** is set in the HTTP settings, the backend address pool must contain a valid FQDN.
-
-If you receive this error message, the CN of the backend certificate doesn't match the host name configured in the custom probe, or the HTTP settings if **Pick hostname from backend HTTP settings** is selected. If you're using a default probe, the host name will be set as **127.0.0.1**. If that’s not a desired value, you should create a custom probe and associate it with the HTTP settings.
-
-**Solution:**
-
-To resolve the issue, follow these steps.
-
-For Windows:
-
-1. Sign in to the machine where your application is hosted.
-2. Select Win+R or right-click the **Start** button and select **Run**.
-3. Enter **certlm.msc** and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate (typically in `Certificates - Local Computer\Personal\Certificates`), and open the certificate.
-5. On the **Details** tab, check the certificate **Subject**.
-6. Verify the CN of the certificate from the details and enter the same in the host name field of the custom probe or in the HTTP settings (if **Pick hostname from backend HTTP settings** is selected). If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
-
-For Linux using OpenSSL:
-
-1. Run this command in OpenSSL:
-
-   ```
-   openssl x509 -in certificate.crt -text -noout
-   ```
-
-2. From the properties displayed, find the CN of the certificate and enter the same in the host name field of the http settings. If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
 
 ### Backend certificate is invalid
 
