@@ -5,6 +5,7 @@ description: Dive in to the process of training a model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023
 ms.topic: tutorial
 ms.reviewer: ssalgado
 author: ssalgadodev
@@ -94,6 +95,9 @@ ml_client = MLClient(
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next code cell).
 
 ## Create a compute cluster to run your job
+
+> [!NOTE]
+> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment).
 
 In Azure, a job can refer to several tasks that Azure allows its users to do: training, pipeline creation, deployment, etc. For this tutorial and our purpose of training a machine learning model, we'll use *job* as a reference to running training computations (*training job*).
 
@@ -355,6 +359,8 @@ Here, create input variables to specify the input data, split ratio, learning ra
 * Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -375,7 +381,7 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="aml-scikit-learn@latest",
-    compute="cpu-cluster",
+    compute="cpu-cluster", #delete this line to use serverless compute
     display_name="credit_default_prediction",
 )
 ```
