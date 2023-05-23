@@ -85,14 +85,14 @@ Event Grid supports user properties on MQTT v5 PUBLISH packets that allow you to
 ### Request-response pattern
 MQTTv5 introduced fields in the MQTT PUBLISH packet header that provide context for the response message in the request-response pattern. These fields include a response topic and a correlation ID that the responder can use in the response without prior configuration. The response information enables more efficient communication for the standard request-response pattern that is used in command-and-control scenarios.
 
-:::image type="content" source="media/mqtt-support/mqtt-request-response-high-res.png" alt-text="Request-response pattern example." border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-request-response-high-res.png" alt-text="Diagram of the request-response pattern example." border="false":::
 
 ### Message expiry interval:
 In MQTT v5, message expiry interval allows messages to have a configurable lifespan. The message expiry interval is defined as the time interval between the time a message is published to Event Grid and the time when the Event Grid needs to discard the message if it hasn't been delivered. This feature is useful in scenarios where messages are only valid for a certain amount of time, such as time-sensitive commands, real-time data streaming, or security alerts. By setting a message expiry interval, Event Grid can automatically remove outdated messages, ensuring that only relevant information is available to subscribers. If a message's expiry interval is set to zero, it means the message should never expire.
 ### Topic aliases:
 In MQTT v5, topic aliases allow a client to use a shorter alias in place of the full topic name in the published message. Event Grid maintains a mapping between the topic alias and the actual topic name. This feature can save network bandwidth and reduce the size of the message header, particularly for topics with long names. It's useful in scenarios where the same topic is repeatedly published in multiple messages, such as in sensor networks. Event Grid supports up to 10 topic aliases. A client can use a Topic Alias field in the PUBLISH packet to replace the full topic name with the corresponding alias.
 
-:::image type="content" source="media/mqtt-support/mqtt-topic-alias-highres.png" alt-text="Topic alias example." border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-topic-alias-high-res.png" alt-text="Diagram of the topic alias example." border="false":::
 
 ### Flow control
 In MQTT v5, flow control refers to the mechanism for managing the rate and size of messages that a client can handle. Flow control can be configured by setting the Maximum Packet Size and Receive Maximum parameters in the CONNECT packet. The Receive Maximum parameter allows the client to limit the number of messages sent by the broker to the number of messages that the client is able to handle. The Maximum Packet Size parameter defines the maximum size of packets that the client can receive. Event Grid has a message size limit of 512 KiB. This feature ensures reliability and stability of the communication for constrained devices with limited processing speed or storage capabilities.
