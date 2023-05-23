@@ -83,7 +83,8 @@ IP prefixes specify only the match conditions of route policies. They don't spec
 
 ### Parameters for IP prefix
 
-| **Parameter** | **Description** | **Example** | **Required** |
+| Parameter | Description | Example | Required |
+
 |-----------|-------------|---------|----------|
 | resource-group | Use an appropriate resource group name specifically for the IP prefix  of your choice |  ResourceGroupName |True |
 | resource-name | Resource Name of the IP prefix |  ipprefixv4-1204-cn1 |True |
