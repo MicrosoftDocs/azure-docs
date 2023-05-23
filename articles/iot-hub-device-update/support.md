@@ -44,7 +44,7 @@ The systems listed in the following tables are supported by Microsoft, either ge
 
 ## Releases and Support
 
-Device Update for IoT Hub release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. Support for the APIs, PnP Models and device update reference agents is covered in the table. 
+Device Update for IoT Hub release assets and release notes are available on the [Device Update Release](https://github.com/Azure/iot-hub-device-update/releases) page. Support for the APIs, PnP Models and device update reference agents is covered in the table. 
 
 Device Update for IoT Hub 1.0 is the first major release and will continue to receive security fixes and fixes to regressions.  
 
