@@ -23,7 +23,7 @@ landingContent:
           - text: About Azure AD for customers
             url: overview-customers-ciam.md 
           - text: Frequently asked questions
-            url: ciam-faq.md 
+            url: faq-customers.md 
       - linkListType: concept
         links:
           - text: Planning for customer identity and access management
