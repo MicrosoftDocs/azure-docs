@@ -67,8 +67,9 @@ The quote generation/verification collateral used to generate the Intel SGX or I
 The Intel QPL configuration file (“sgx_default_qcnl.conf”) contains three keys used to define the collateral endpoint(s). The “pccs_url” key defines the endpoint used to retrieve the PCK certificates. The “collateral_service” key can be used to define the endpoint used to retrieve all other quote generation/verification collateral. If the “collateral_service” key is not defined, all quote verification collateral will be retrieved from the endpoint defined with the “pccs_url” key.
 
 The following table lists how these keys can be set. 
+
 | Name | Possible Endpoints |
-| -- | -- |
+|--|--|
 | "pccs_url" | THIM endpoint: "https://global.acccache.azure.net/sgx/certification/v3" |
 | "collateral_service" | THIM endpoint: "https://global.acccache.azure.net/sgx/certification/v3" or Intel PCS endpoint: The following file will always list the most up-to-date endpoint in the “collateral_service” key: [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) |
 
