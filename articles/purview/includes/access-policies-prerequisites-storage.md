@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 05/08/2023
+ms.date: 05/23/2023
 ms.custom: references_regions
 ---
 
@@ -28,8 +28,7 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
 
 #### Region support
 - All [Microsoft Purview regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview) are supported.
-- Microsoft Purview access policies can be enforced in **all** Azure Storage regions in Public Cloud for **new** Azure Storage accounts. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*. See enablement process earlier in this document.
-- In addition, the following regions also support Storage accounts created in the subscription **before** the feature *AllowPurviewPolicyEnforcement* was set.
+- Storage accounts in the following regions require the feature *AllowPurviewPolicyEnforcement* to be set as described earlier. In those regions, all Storage accounts created after the feature is set are supported. In addition, all Storage accounts created before the feature is set are supported as well, unless they are configured for zone-redundant storage (ZRS).  
     - East US
     - East US2
     - South Central US
@@ -41,6 +40,6 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
     - UK South
     - Southeast Asia
     - Australia East
-- Only **new** Storage accounts with zone-redundant storage (ZRS) are supported. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*. Note, ZRS Storage accounts will start enforcing policies from Microsoft Purview within 2 hours.
+- Storage accounts in other regions in Public Cloud are supported without the need to set the feature *AllowPurviewPolicyEnforcement*.
 
 If needed, you can also create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
