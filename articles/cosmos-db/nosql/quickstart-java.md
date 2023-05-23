@@ -422,7 +422,7 @@ Global throughput control in the Java SDK is configured by first creating a cont
 > [!NOTE]
 > The throughput control container must be created with a partition key `/groupId` and must have `ttl` value set, or throughput control will not function correctly. 
 
-Then, to enable the container object used by the current client to use a shared global control group, we need to create two sets of config. The first is to define the control group name. If the group does not already exist, an entry for it will be created in the throughput control container. Otherwise, the existing group of this name will be used:
+Then, to enable the container object used by the current client to use a shared global control group, we need to create two sets of config. The first is to define the control group name. If the group does not already exist, an entry for it will be created in the throughput control container:
 
 ```java
     ThroughputControlGroupConfig groupConfig =
@@ -437,7 +437,7 @@ Then, to enable the container object used by the current client to use a shared 
 > In the above, we define a `targetThroughput` value of `100`, meaning that only a maximum of 100 RUs of the container's provisioned throughput can be used by all clients consuming the throughput control group, before the SDK will attempt to rate limit clients. You can also define `targetThroughputThreshold` to provide a percentage of the container's throughput as the threshold instead (the commented out example above defines a threshold of 25%).  
 
 > [!IMPORTANT]
-> If you reference a `groupName` that already exists, but change `targetThroughputThreshold` or `targetThroughput` to be different values than what was originally defined for the group, the new values will be applied to the group. However, you need to restart all applications that are using the group to ensure they all consume the new threshold or target throughput properly.
+> If you reference a `groupName` that already exists, but define `targetThroughputThreshold` or `targetThroughput` values to be different than what was originally defined for the group, this will be treated as a different group (even though it has the same name). To make sure all clients use the same group, make sure they all have the same settings for both `groupName` **and** `targetThroughputThreshold` (or `targetThroughput`). You also need to restart all applications after making any such changes, to ensure they all consume the new threshold or target throughput properly.
 
 The second config you need to create will reference the throughput container you created earlier, and define some behaviours for it using two parameters:
 
