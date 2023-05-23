@@ -83,9 +83,9 @@ To reduce the number of role assignments in the subscription, add principals (us
     | count_ | Number of principals assigned the same role and at the same scope. |
     | AllPrincipals | List of principal IDs assigned the same role and at the same scope. |
 
-1. In **RoleDefinitionId**, **RoleDefinitionName**, and **Scope**, get the role and scope.
+1. Use **RoleDefinitionId**, **RoleDefinitionName**, and **Scope** to get the role and scope.
 
-1. In **AllPrincipals**, get the list of the principal IDs with the same role assignment.
+1. Use **AllPrincipals** to get the list of the principal IDs with the same role assignment.
 
 1. Create an Azure AD group. For more information, see [Manage Azure Active Directory groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
 
@@ -107,7 +107,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. In the **Role** filter, select the role to just see the role assignments for this role.
 
-1. Find the principal-based role assignment.
+1. Find the principal-based role assignments.
 
     You should also see your group-based role assignment.
 
@@ -129,7 +129,7 @@ Add an additional subscription.
 
 #### Solution 5 - Remove redundant role assignments
 
-If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since role assignments at a higher scope already grant access.
+If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since a role assignment at a higher scope already grants access.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
@@ -173,11 +173,11 @@ If you still need to reduce the number of role assignments in the subscription a
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png":::
 
-1. In **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId**, get the role and principal ID.
+1. Use **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId** to get the role and principal ID.
 
-1. In **Scopes**, get the list of the scopes for the same principal and role.
+1. Use **Scopes** to get the list of the scopes for the same principal and role.
 
-1. Determine which scope is required. The other role assignments can be removed.
+1. Determine which scope is required for the role assignment. The other role assignments can be removed.
 
     You should follow [best practices of least privilege](best-practices.md#only-grant-the-access-users-need) when determining which role assignments can be removed. The role assignment at the higher scope might be granting more access to the principal than what is needed. In that case, you should remove the role assignment with the higher scope. For example, a user might not need a Virtual Machine Contributor role assignment at subscription scope when a Virtual Machine Contributor role assignment at a lower resource group scope grants the required access.
 
