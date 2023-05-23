@@ -50,7 +50,7 @@ You learn how to:
 
 To use Azure PowerShell locally for this article (rather than using Cloud Shell), complete the following steps:
 
-1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
 1. Sign in to Azure:
 

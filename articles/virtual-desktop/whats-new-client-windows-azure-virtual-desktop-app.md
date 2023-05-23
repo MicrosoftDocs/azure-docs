@@ -13,18 +13,9 @@ ms.date: 04/27/2023
 > The Azure Virtual Desktop Store app for Windows is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop](users/client-features-windows.md).
+In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop ](users/client-features-windows.md).
 
-## April 2023
-
-The Azure Virtual Desktop Store App is now in public preview for Windows 10 and 11. In this release, we've made the following changes:
-
-- Client updates are now automatic, unlike with the Remote Desktop client.
-- You can now pin remote apps to your Start menu to personalize your desktop and reduce clutter.
-
-For more information about the public preview release version, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-the-new-azure-virtual-desktop-app/ba-p/3785698).
-
-## March 7, 2023*
+## March 7, 2023
 
 In this release, we've made the following changes:
 

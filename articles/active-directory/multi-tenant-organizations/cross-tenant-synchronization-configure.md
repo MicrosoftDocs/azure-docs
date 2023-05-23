@@ -1,5 +1,5 @@
 ---
-title: Configure cross-tenant synchronization (preview)
+title: Configure cross-tenant synchronization
 description: Learn how to configure cross-tenant synchronization in Azure Active Directory using the Azure portal.
 services: active-directory
 author: rolyon
@@ -8,18 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Configure cross-tenant synchronization (preview)
-
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Configure cross-tenant synchronization
 
 This article describes the steps to configure cross-tenant synchronization using the Azure portal. When configured, Azure AD automatically provisions and de-provisions B2B users in your target tenant. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
@@ -75,7 +71,7 @@ By the end of this article, you'll be able to:
 
 1. Under **Inbound access** of the added organization, select **Inherited from default**.
 
-1. Select  the **Cross-tenant sync (Preview)** tab.
+1. Select  the **Cross-tenant sync** tab.
 
 1. Check the **Allow users sync into this tenant** check box.
 
@@ -129,7 +125,7 @@ In this step, you automatically redeem invitations in the source tenant.
 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/azure-ad-overview.png" alt-text="Screenshot that shows the Azure Active Directory Overview page." lightbox="./media/cross-tenant-synchronization-configure/azure-ad-overview.png":::
 
@@ -325,7 +321,7 @@ Attribute mappings allow you to define how data should flow between the source t
 
 Now that you have a configuration, you can test on-demand provisioning with one of your users.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. Select **Configurations** and then select your configuration.
 
@@ -363,7 +359,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
 The provisioning job starts the initial synchronization cycle of all users defined in **Scope** of the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. Select **Configurations** and then select your configuration.
 
@@ -419,7 +415,7 @@ This setting also applies to B2B collaboration and B2B direct connect, so if you
 
 Follows these steps to delete a configuration on the **Configurations** page.
 
-1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization**.
 
 1. On the **Configurations** page, add a check mark next to the configuration you want to delete.
 
@@ -527,13 +523,7 @@ $smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
 Users in scope fail to provision. The provisioning logs details include the following error message:
 
 ```
-The provisioning service was forbidden from performing an operation on Azure Active Directory, which is unusual. 
-A simultaneous change to the target object may have occurred, in which case, the operation might succeed when it is retried.
-Alternatively, the target of the operation, or one of its properties, may be mastered on-premises, in which case, 
-the provisioning service is not permitted to update it, and the corresponding source entry should be removed from the provisioning service's scope.
-Otherwise, authorizations may have been customized in such a way as to prevent the provisioning service from modifying the target object or one of its properties; 
-if so, then, again, the corresponding source entry should be removed from scope. 
-This operation was retried 0 times. 
+Guest invitations not allowed for your company. Contact your company administrator for more details.
 ```
 
 **Cause**

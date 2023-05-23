@@ -1,8 +1,6 @@
 ---
 title: ResourceSelector UI element
 description: Describes the Microsoft.Solutions.ResourceSelector UI element for Azure portal. Used for getting a list of existing resources.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: conceptual
 ms.date: 08/16/2022
 ---

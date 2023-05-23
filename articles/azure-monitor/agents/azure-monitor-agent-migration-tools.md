@@ -14,12 +14,12 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Tools for migrating from Log Analytics Agent to Azure Monitor Agent 
 
-Azure Monitor Agent (AMA) replaces the Log Analytics Agent (MMA/OMS) for Windows and Linux virtual machines, scale sets, on premise, 3rd party clouds and Arc-enabled servers. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
+[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for Windows and Linux machines, in Azure and non-Azure environments, including on-premises and third-party clouds. The [benefits of migrating to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) include enhanced security, cost-effectiveness, performance, manageability and reliability. This article explains how to use the AMA Migration Helper and DCR Config Generator tools to help automate and track the migration from Log Analytics Agent to Azure Monitor Agent.
 
 ![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
 
 > [!IMPORTANT]
-> Do not remove the legacy agents if being used by other [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features). Use the migration helper to discover which solutions/services you use today.
+> Do not remove legacy agents being used by other [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features). Use the migration helper to discover which solutions and services you use today.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -42,7 +42,7 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 Use the DCR Config Generator tool to parse Log Analytics Agent configuration from your workspaces and generate/deploy corresponding data collection rules automatically. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on Log Analytics Agent.
+> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features) dependent on Log Analytics Agent.
 
 ### Prerequisites
 To install DCR Config Generator, you need:
@@ -58,7 +58,7 @@ To install DCR Config Generator:
 
 1. Run the script:
 
-	Option 1: Outputs **ready-to-deploy ARM template files** only that will create the generated DCR in the specified subscription and resource group, when deployed.
+	Option 1: Outputs **ready-to-deploy ARM template files** only, which creates the generated DCR in the specified subscription and resource group, when deployed.
 
 	```powershell
 	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
@@ -86,6 +86,38 @@ To install DCR Config Generator:
 	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
 	
-	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
+	If the Log Analytics workspace wasn't [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but wasn't configured to send any data from the host machine.
 
-1. [Deploy the generated ARM template](../../azure-resource-manager/templates/deployment-tutorial-local-template.md) to associate the generated data collection rules with virtual machines running the new agent.
+1. Deploy the generated ARM templates:
+    
+
+    ### [Portal](#tab/portal-1)
+    1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
+    
+        :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot of the Deploy custom template screen.":::
+    
+    1. Select **Build your own template in the editor**.
+    
+        :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot of the template editor.":::
+    
+    1. Paste the generated template into the editor and select **Save**. 
+    1. On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
+    1. Select **Review + create** > **Create**.
+
+    ### [PowerShell](#tab/azure-powershell)
+
+    ```powershell-interactive
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+    ```
+    ---
+
+    > [!NOTE]
+    > You can include up to 100 'counterSpecifiers' in a data collection rule. 'samplingFrequencyInSeconds' must be between 1 and 300, inclusive.
+
+1. Associate machines to your data collection rules:
+
+    1. From the **Monitor** menu, select **Data Collection Rules**.
+    1. From the **Data Collection Rules** screen, select your data collection rule.
+    1. Select **View resources** > **Add**.
+    1. Select your machines > **Apply**.  
+    

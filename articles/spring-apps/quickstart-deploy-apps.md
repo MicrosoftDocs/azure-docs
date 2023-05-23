@@ -196,6 +196,7 @@ This article explains how to build and deploy Spring applications to Azure Sprin
   - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
   - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
 - [JDK 17](/azure/developer/java/fundamentals/java-jdk-install)
+- [Maven 3.0 or above](https://maven.apache.org/download.cgi)
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Optionally, [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 - Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
@@ -336,7 +337,7 @@ The following steps show you how to generate configurations and deploy to Azure 
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
    ```
 
    You're asked to select:
@@ -354,7 +355,7 @@ The following steps show you how to generate configurations and deploy to Azure 
            <plugin>
                <groupId>com.microsoft.azure</groupId>
                <artifactId>azure-spring-apps-maven-plugin</artifactId>
-               <version>1.10.0</version>
+               <version>1.17.0</version>
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>

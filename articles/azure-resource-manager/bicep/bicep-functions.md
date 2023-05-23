@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/05/2022
+ms.date: 04/21/2023
 ---
 
 # Bicep functions
@@ -75,6 +75,7 @@ The following functions are available for loading the content from external file
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
 * [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
+* [loadYamlContent](bicep-functions-files.md#loadyamlcontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## Lambda functions

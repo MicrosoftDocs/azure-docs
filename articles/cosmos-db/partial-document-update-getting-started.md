@@ -335,34 +335,46 @@ this.patchDocument = function (documentLink, patchSpec, options, callback) {
 > [!NOTE]
 > Find the definition of `validateOptionsAndCallback` in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
 
-Sample parameter for patch operation:
+Sample stored procedure for patch operation:
 
 ```javascript
-function () {
+function patchDemo() {
     var doc = {
-      "id": "exampleDoc",
-      "field1": {
-         "field2": 10,
-         "field3": 20
-      }
-   };
-   var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
-         if (err) throw err;
-         var patchSpec = [
-            {"op": "add", "path": "/field1/field2", "value": 20}, 
-            {"op": "remove", "path": "/field1/field3"}
-         ];
-         isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
-               if (err) throw err;
-               else {
-                  getContext().getResponse().setBody(docPatched);
-               }
-            }
-         }
-         if(!isAccepted) throw new Error("patch was't accepted")
-      }
-   }
-   if(!isAccepted) throw new Error("create wasn't accepted")
+        "id": "exampleDoc",
+        "fields": {
+            "field1": "exampleString",
+            "field2": 20,
+            "field3": 40
+        }
+    };
+    
+    var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            getContext().getResponse().setBody("Example document successfully created.");
+            
+            var patchSpec = [
+                { "op": "add", "path": "/fields/field1", "value": "newExampleString" },
+                { "op": "remove", "path": "/fields/field2" },
+                { "op": "incr", "path": "/fields/field3", "value": 10 }
+            ];
+            
+            var isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
+                if (err) {
+                    throw err;
+                }
+                else {
+                    getContext().getResponse().appendBody(" Example document successfully patched.");
+                }
+            });
+            
+            if (!isAccepted) throw new Error("Patch wasn't accepted");
+        }
+    });
+
+    if (!isAccepted) throw new Error("Create wasn't accepted.");
 }
 ```
 

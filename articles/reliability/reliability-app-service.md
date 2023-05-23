@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.service: app-service
-ms.date: 03/10/2023 
+ms.date: 05/22/2023 
 ---
 
 
@@ -68,8 +68,10 @@ Availability zone support is a property of the App Service plan. The following a
     - France Central
     - Germany West Central
     - Japan East
+    - Korea Central
     - North Europe
     - Norway East
+    - Poland Central
     - Qatar Central
     - South Africa North
     - South Central US
@@ -82,6 +84,7 @@ Availability zone support is a property of the App Service plan. The following a
     - West US 2
     - West US 3
     - Azure China - China North 3
+    - Azure Government - US Gov Virginia
 
 
 - To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).

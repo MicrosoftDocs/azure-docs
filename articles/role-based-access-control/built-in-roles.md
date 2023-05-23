@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/31/2023
+ms.date: 05/10/2023
 ms.custom: generated
 ---
 
@@ -73,6 +73,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Storage Blob Data Owner](#storage-blob-data-owner) | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | [Storage Blob Data Reader](#storage-blob-data-reader) | Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | [Storage Blob Delegator](#storage-blob-delegator) | Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | [Storage File Data Privileged Contributor](#storage-file-data-privileged-contributor) | Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers. | 69566ab7-960f-475b-8e7c-b3118f30c6bd |
+> | [Storage File Data Privileged Reader](#storage-file-data-privileged-reader) | Allows for read access on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers. | b8eda974-7b85-4f76-af95-65846b26df6d |
 > | [Storage File Data SMB Share Contributor](#storage-file-data-smb-share-contributor) | Allows for read, write, and delete access on files/directories in Azure file shares. This role has no built-in equivalent on Windows file servers. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | [Storage File Data SMB Share Elevated Contributor](#storage-file-data-smb-share-elevated-contributor) | Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares. This role is equivalent to a file share ACL of change on Windows file servers. | a7264617-510b-434b-a828-9731dc254ea7 |
 > | [Storage File Data SMB Share Reader](#storage-file-data-smb-share-reader) | Allows for read access on files/directories in Azure file shares. This role is equivalent to a file share ACL of read on  Windows file servers. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
@@ -3162,6 +3164,94 @@ Get a user delegation key, which can then be used to create a shared access sign
   "roleName": "Storage Blob Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Storage File Data Privileged Contributor
+
+Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write file backup sematics privilege. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/69566ab7-960f-475b-8e7c-b3118f30c6bd",
+    "properties": {
+        "roleName": "Storage File Data Privileged Contributor",
+        "description": "Customer has read, write, delete and modify NTFS permission access on Azure Storage file shares.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+                    "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Storage File Data Privileged Reader
+
+Allows for read access on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/b8eda974-7b85-4f76-af95-65846b26df6d",
+    "properties": {
+        "roleName": "Storage File Data Privileged Reader",
+        "description": "Customer has read access on Azure Storage file shares.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 

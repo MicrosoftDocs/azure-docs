@@ -10,7 +10,7 @@ author: msdpalam
 ms.author: meeral
 ms.reviewer: lagayhar
 ms.date: 03/15/2023
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, build-2023
 #Customer intent: This tutorial is intended to introduce Azure Machine Learning to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure Machine Learning and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
@@ -143,6 +143,9 @@ In the future, you can fetch the same dataset from the workspace using `credit_d
 
 ## Create a compute resource to run your pipeline
 
+> [!NOTE]
+> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment-for-pipeline-steps).
+
 Each step of an Azure Machine Learning pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
 In this section, you provision a Linux  [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -150,7 +153,6 @@ In this section, you provision a Linux  [compute cluster](how-to-create-attach-c
 For this tutorial, you only need a basic cluster so use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure Machine Learning Compute.
 > [!TIP]
 > If you already have a compute cluster, replace "cpu-cluster" in the next code block with the name of your cluster.  This will keep you from creating another one.
-
 
 
 ```python
@@ -209,9 +211,8 @@ os.makedirs(dependencies_dir, exist_ok=True)
 
 Now, create the file in the dependencies directory.
 
-
 ```python
-%%writefile {dependencies_dir}/conda.yml
+%%writefile {dependencies_dir}/conda.yaml
 name: model-env
 channels:
   - conda-forge
@@ -246,7 +247,7 @@ pipeline_job_env = Environment(
     name=custom_env_name,
     description="Custom environment for Credit Card Defaults pipeline",
     tags={"scikit-learn": "0.24.2"},
-    conda_file=os.path.join(dependencies_dir, "conda.yml"),
+    conda_file=os.path.join(dependencies_dir, "conda.yaml"),
     image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     version="0.1.0",
 )
@@ -511,7 +512,7 @@ First, create the *yaml* file describing the component:
 
 
 ```python
-%%writefile {train_src_dir}/train.yml
+%%writefile {train_src_dir}/train.yaml
 # <component>
 name: train_credit_defaults_model
 display_name: Train Credit Defaults Model
@@ -551,8 +552,8 @@ Now create and register the component.  Registering it allows you to re-use it i
 # importing the Component Package
 from azure.ai.ml import load_component
 
-# Loading the component from the yml file
-train_component = load_component(source=os.path.join(train_src_dir, "train.yml"))
+# Loading the component from the yaml file
+train_component = load_component(source=os.path.join(train_src_dir, "train.yaml"))
 
 # Now we register the component to the workspace
 train_component = ml_client.create_or_update(train_component)
@@ -577,14 +578,16 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
+> [!NOTE]
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), replace `compute=cpu_compute_target` with `compute=azureml:serverless` in this code.
 
-```python
+```pythons
 # the dsl decorator tells the sdk that we are defining an Azure Machine Learning pipeline
 from azure.ai.ml import dsl, Input, Output
 
 
 @dsl.pipeline(
-    compute=cpu_compute_target,
+    compute=cpu_compute_target, # to use serverless compute, change this to: compute=azureml:serverless
     description="E2E data_perp-train pipeline",
 )
 def credit_defaults_pipeline(

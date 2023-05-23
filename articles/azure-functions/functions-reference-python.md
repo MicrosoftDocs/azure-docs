@@ -739,8 +739,9 @@ async def get_name(
       "name": name,}
 
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
-    return AsgiMiddleware(app).handle(req, context)
+    return func.AsgiMiddleware(app).handle(req, context)
 ```
+For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/).
 
 # [WSGI](#tab/wsgi)
 
@@ -755,7 +756,7 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
   logging.info('Python HTTP trigger function processed a request.')
   return func.WsgiMiddleware(app).handle(req, context)
 ```
-For a full example, see [Use Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
+For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
 
 ---
 
@@ -963,7 +964,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.10 (Preview)<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.10<br/>3.9<br/> 3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
 | 2.x | 3.7 |
 

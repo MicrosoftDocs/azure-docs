@@ -126,7 +126,7 @@ In this section, you learn how to instantiate:
 * A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 * An administration client is useful for interacting with the Microsoft Purview Data Map itself, for operations like listing collections.
 
-First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 
 
 1.	Start with required import statements: our three clients, the credentials statement, and an Azure exceptions statement.

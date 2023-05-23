@@ -2,7 +2,7 @@
 title: Updates and maintenance in update management center (preview).
 description: The article describes the updates and maintenance options available in Update management center (preview).
 ms.service: update-management-center
-ms.date: 04/26/2023
+ms.date: 05/02/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -13,8 +13,7 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 > [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)*. If you fail to update the patch mode, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
-> - To update the patch mode, go to **Update management center (Preview)** home page > **Update Settings**. In **Change update settings**, add the machines and under **Patch orchestration**, select *Azure Managed - Safe Deployment*.
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
 
 
 This article provides an overview of the various update and maintenance options available by update management center (preview). 
@@ -33,13 +32,14 @@ Update management center (preview) uses maintenance control schedule instead of 
 Start using [scheduled patching](scheduled-patching.md) to create and save recurring deployment schedules.
 
 > [!NOTE]
-> Patch orchestration set to Azure-orchestrated is a pre-condition to enable schedule patching on Azure VM. For more information, see the [list of prerequisites](../update-center/scheduled-patching.md#prerequisites-for-scheduled-patching)
+> Patch orchestration property for Azure machines is set to **Customer Managed Schedules (Preview)** as it is a prerequisite for scheduled patching. For more information, see the [list of prerequisites](../update-center/scheduled-patching.md#prerequisites-for-scheduled-patching).
+
 
 ## Automatic VM Guest patching in Azure
 
 This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines following the availability-first principles. For more information, see [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).
 
-This VM property can be enabled by setting the value of Patch orchestration update setting to **Azure Orchestrated/Automatic by Platform** value. 
+In **Update management center** home page, go to **Update Settings** blade, select Patch orchestration as **Azure Managed - Safe Deployment** value to enable this VM property. 
 
 
 ## Windows automatic updates

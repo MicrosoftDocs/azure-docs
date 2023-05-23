@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 11/24/2022
 ms.author: jomondi
 ms.reviewer: saibandaru
-ms.custom: contperf-fy23q1
+ms.custom: contperf-fy23q1, enterprise-apps
 #Customer intent: As an Azure AD administrator, I want to make applications available to users in the My Apps portal.
 
 ---
@@ -96,6 +96,9 @@ To download and install the extension:
 - **Google Chrome** - From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
 An icon is added to the right of the address bar, which enables sign in and customization of the extension.
+
+> [!NOTE]
+> Sign-in into the extension is currently not supported for Guest B2B Microsoft Accounts (MSA).
 
 ### Permissions
 

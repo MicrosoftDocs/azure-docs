@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message to multiple recipients
 
-To send an email message to multiple recipients, add the new addresses in the appropriate `EmailMessage` setter. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+To send an email message to multiple recipients, add the new addresses in the appropriate `EmailMessage` setter. These addresses can be added as `To`, `CC`, or `BCC` recipients. Optionally, add an email address to the `replyTo` property if you want to receive any replies.
 
 ```java
 EmailMessage message = new EmailMessage()
@@ -21,7 +21,8 @@ EmailMessage message = new EmailMessage()
     .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.")
     .setToRecipients("<recipient1@emaildomain.com>", "<recipient2@emaildomain.com>")
     .setCcRecipients("<recipient3@emaildomain.com>")
-    .setBccRecipients("<recipient4@emaildomain.com>");
+    .setBccRecipients("<recipient4@emaildomain.com>")
+    .setReplyTo("<replytoemail@emaildomain.com>");
 
 SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
 PollResponse<EmailSendResult> response = poller.waitForCompletion();

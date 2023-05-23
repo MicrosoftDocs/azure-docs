@@ -285,10 +285,6 @@ Next, you register the custom extension. You register the custom extension by as
             "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",
             "resourceId": "{functionApp_IdentifierUri}"
         },
-        "clientConfiguration": {
-            "timeoutInMilliseconds": 2000,
-            "maximumRetries": 1
-        },
         "claimsForTokenConfiguration": [
             {
                 "claimIdInApiResponse": "DateOfBirth"
