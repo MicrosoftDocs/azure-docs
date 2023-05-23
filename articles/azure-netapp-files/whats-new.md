@@ -21,7 +21,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## May 2023 
 
-* Azure NetApp Files [customer-managed keys](configure-customer-managed-keys.md) now support source and data replication volumes with [cross-region replication](cross-region-replication-requirements-considerations.md)  or [cross-zone replication](cross-zone-replication-requirements-considerations.md) relationships. 
+* Azure NetApp Files now supports [customer-managed keys](configure-customer-managed-keys.md) on both source and data replication volumes with [cross-region replication](cross-region-replication-requirements-considerations.md)  or [cross-zone replication](cross-zone-replication-requirements-considerations.md) relationships. 
 
 * [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
