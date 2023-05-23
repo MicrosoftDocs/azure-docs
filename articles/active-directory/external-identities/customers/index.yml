@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory for customers documentation
-summary: Azure Active Directory (Azure AD) for customers is a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services.
+title: Microsoft Entra External ID for customers documentation
+summary: Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers, is a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services.
 
 metadata: 
    title: Azure AD for customers documentation
