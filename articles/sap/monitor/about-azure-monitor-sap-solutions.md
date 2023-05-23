@@ -112,7 +112,7 @@ Also see the [metrics specification](https://github.com/ClusterLabs/ha_cluster_e
 The following diagram shows, at a high level, how Azure Monitor for SAP solutions collects data from the SAP HANA database. The architecture is the same if SAP HANA is deployed on Azure VMs or Azure Large Instances.
 
 :::image type="complex" source="./media/about-azure-monitor-sap-solutions/azure-monitor-sap-architecture.png" lightbox="./media/about-azure-monitor-sap-solutions/azure-monitor-sap-architecture.png" alt-text="Diagram that shows the architecture of Azure Monitor for SAP solutions.":::
-   Diagram of the Azure Monitor for SAP solutions architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. A managed resource group contains Log Analytics, Azure Functions, Azure Key Vault, and Azure Queue Storage. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and JAVA), SAP HANA, Microsoft SQL Server, IBM Db2, Pacemaker clusters, and Linux OS.
+   Diagram of the Azure Monitor for SAP solutions architecture. The customer connects to the Azure Monitor for SAP solutions resource through the Azure portal. A managed resource group contains Log Analytics, Azure Functions, Azure Key Vault, and an Azure Storage account. The Azure function connects to the providers. Providers include SAP NetWeaver (ABAP and JAVA), SAP HANA, Microsoft SQL Server, IBM Db2, Pacemaker clusters, and Linux OS.
 :::image-end:::
 
 Important points about the architecture include:
