@@ -1,154 +1,203 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: Cost Management + Billing documentation
-summary: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+summary: Microsoft Cost Management helps you analyze, monitor, and optimize your Microsoft Cloud costs; understand and pay your bill; and manage your billing account and subscriptions.
+brand: azure
 metadata:
   title: Cost Management + Billing
   titleSuffix: Microsoft Cost Management
-  description: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+  description: Microsoft Cost Management helps you analyze, monitor, and optimize your Microsoft Cloud costs; understand and pay your bill; and manage your billing account and subscriptions.
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
+  ms.reviewer: micflan
   ms.author: banders
-  ms.date: 10/13/2022
-
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card (optional)
-  - title: Analyze your costs
-    linkLists:
-    - linkListType: overview
-      links:
-      - text: What is Cost Management and Billing?
-        url: cost-management-billing-overview.md
-      - text: What's new?
-        url: https://azure.microsoft.com/blog/tag/cost-management/
-    - linkListType: get-started
-      links:
-      - text: Learn at your own pace
-        url: /training/paths/control-spending-manage-bills/?WT.mc_id=ignite2020_collections
-      - text: Cost Management videos
-        url: https://www.youtube.com/c/AzureCostManagement
-      - text: Start analyzing costs
-        url: costs/quick-acm-cost-analysis.md
-    - linkListType: how-to-guide
-      links:
-      - text: Use cost analysis for common tasks
-        url: costs/cost-analysis-common-uses.md
-      - text: Analyze costs with the PowerBI template app
-        url: ./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md
-      - text: Connect with Power BI Desktop
-        url: /power-bi/desktop-connect-azure-cost-management
-    - linkListType: tutorial
-      links:
-      - text: Review your individual account bill
-        url: understand/review-individual-bill.md
-      - text: Review your Microsoft Customer Agreement bill
-        url: understand/review-customer-agreement-bill.md
-      - text: Review your Enterprise Agreement bill
-        url: understand/review-enterprise-agreement-bill.md
-
-  # Card (optional)
-  - title: Manage your costs
-    linkLists:
-    - linkListType: tutorial
-      links:
-      - text: Create and manage budgets
-        url: costs/tutorial-acm-create-budgets.md
-      - text: Export cost and usage data
-        url: costs/tutorial-export-acm-data.md
-    - linkListType: concept
-      links:
-      - text: Manage costs with automation
-        url: ./costs/manage-automation.md
-      - text: Usage terms explained
-        url: understand/understand-usage.md
-      - text: Invoice terms explained
-        url: understand/understand-invoice.md
-      - text: Microsoft Customer Agreement usage terms
-        url: understand/mca-understand-your-usage.md
-      - text: Microsoft Customer Agreement invoice terms
-        url: understand/mca-understand-your-invoice.md   
-    - linkListType: how-to-guide
-      links:
-      - text: Use cost alerts
-        url: costs/cost-mgt-alerts-monitor-usage-spending.md
-      - text: View and download your Azure invoice
-        url: understand/download-azure-invoice.md
-      - text: View and download your Azure usage and charges
-        url: understand/download-azure-daily-usage.md
-
-  # Card (optional)
-  - title: Optimize your costs
-    linkLists:
-    - linkListType: concept
-      links:
-      - text: Cost Management best practices
-        url: costs/cost-mgt-best-practices.md
-      - text: Save with Azure savings plans
-        url: savings-plan/index.yml
-      - text: Save money with Azure Reservations
-        url: reservations/save-compute-costs-reservations.md
-    - linkListType: tutorial
-      links:
-      - text: Act on recommendations
-        url: costs/tutorial-acm-opt-recommendations.md
-    - linkListType: how-to-guide
-      links:
-      - text: Analyze unexpected charges
-        url: understand/analyze-unexpected-charges.md
-    - linkListType: learn
-      links:
-      - text: Start optimizing your costs today
-        url: https://azure.microsoft.com/overview/cost-optimization/
-      - text: Predict costs and optimize spending for Azure
-        url: /training/modules/predict-costs-and-optimize-spending/
-      - text: Microsoft Azure Well-Architected Framework - Cost optimization
-        url: /training/modules/azure-well-architected-cost-optimization/
-
-  # Card (optional)
-  - title: Configure Cost Management + Billing
-    linkLists:
-    - linkListType: concept
-      links:     
-      - text: Understand and work with scopes
-        url: costs/understand-work-scopes.md
-      - text: Understand Cost Management data
-        url: costs/understand-cost-mgt-data.md
-      - text: EA roles in Azure
-        url: manage/understand-ea-roles.md
-      - text: Microsoft Customer Agreement roles in Azure
-        url: manage/understand-mca-roles.md
-    - linkListType: how-to-guide
-      links:
-      - text: Assign access to cost management data
-        url: costs/assign-access-acm-data.md
-      - text: View billing accounts
-        url: manage/view-all-accounts.md
-      - text: Create an additional subscription
-        url: manage/create-subscription.md
-      - text: Change credit card
-        url: manage/change-credit-card.md
-      - text: Change administrator
-        url: manage/add-change-subscription-administrator.md
-      - text: Pay by invoice
-        url: manage/pay-by-invoice.md
-
-  # Card (optional)
-  - title: Review Microsoft Customer Agreement accounts
-    linkLists:
-    - linkListType: concept
-      links:
-      - text: Billing accounts for Microsoft Customer Agreement
-        url: understand/mca-overview.md
-    - linkListType: how-to-guide
-      links:
-      - text: View and download tax documents
-        url: understand/mca-download-tax-document.md
-      - text: Pay your Microsoft Customer Agreement bill
-        url: understand/pay-bill.md
+  ms.date: 05/23/2023
+highlightedContent:
+  items:
+    - title: What is Cost Management and Billing?
+      itemType: overview
+      url: cost-management-billing-overview.md?toc=/azure/cost-management-billing/toc.json
+    - title: Costs included in Cost Management
+      itemType: concept
+      url: costs/understand-cost-mgt-data.md?toc=/azure/cost-management-billing/toc.json
+    - title: Understand and work with scopes
+      itemType: concept
+      url: costs/understand-work-scopes.md?toc=/azure/cost-management-billing/toc.json
+    - title: What are reservations?
+      itemType: overview
+      url: reservations/save-compute-costs-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - title: What are savings plans?
+      itemType: overview
+      url: savings-plan/savings-plan-compute-overview.md?toc=/azure/cost-management-billing/savings-plan/toc.json
+    - title: Start optimizing costs today
+      itemType: reference
+      url: https://azure.microsoft.com/overview/cost-optimization/
+    - title: What's new
+      itemType: whats-new
+      url: https://azure.microsoft.com/blog/tag/cost-management/
+    - title: Cost Management best practices
+      itemType: concept
+      url: costs/cost-mgt-best-practices.md?toc=/azure/cost-management-billing/toc.json
+    - title: Learn at your own pace
+      itemType: learn
+      url: /training/paths/control-spending-manage-bills/
+additionalContent:
+  sections:
+    - title: Billing + subscriptions
+      items:
+        - title: Manage your account
+          imageSrc: ./media/billing-hub.svg
+          imageSrc: ./media/team-project.svg
+          links:
+            - text: Get started with Microsoft Customer Agreement
+              url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
+            - text: View billing accounts
+              url: manage/view-all-accounts.md?toc=/azure/cost-management-billing/toc.json
+            - text: Change credit card
+              url: manage/change-credit-card.md?toc=/azure/cost-management-billing/toc.json
+        - title: Manage your subscription
+          imageSrc: ./media/subscription.svg
+          links:
+            - text: Create an additional subscription
+              url: manage/create-subscription.md?toc=/azure/cost-management-billing/toc.json
+            - text: Change administrator
+              url: manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/toc.json
+        - title: Access + permissions
+          imageSrc: ./media/download.svg
+          imageSrc: ./media/team-project.svg
+          links:
+            - text: Assign access to cost data
+              url: costs/assign-access-acm-data.md?toc=/azure/cost-management-billing/toc.json
+            - text: Microsoft Customer Agreement roles
+              url: manage/understand-mca-roles.md?toc=/azure/cost-management-billing/toc.json
+            - text: Enterprise Agreement roles
+              url: manage/understand-ea-roles.md?toc=/azure/cost-management-billing/toc.json
+        - title: Review your bill
+          imageSrc: ./media/invoices.svg
+          links:
+            - text: Review your individual account bill
+              url: understand/review-individual-bill.md?toc=/azure/cost-management-billing/toc.json
+            - text: Review your Microsoft Customer Agreement bill
+              url: understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+            - text: Review your Enterprise Agreement bill
+              url: understand/review-enterprise-agreement-bill.md?toc=/azure/cost-management-billing/toc.json
+        - title: Downloads + payments
+          imageSrc: ./media/download.svg
+          links:
+            - text: Download your invoice
+              url: understand/download-azure-invoice.md?toc=/azure/cost-management-billing/toc.json
+            - text: Investigate unexpected charges
+              url: understand/analyze-unexpected-charges.md
+            - text: See more >
+              url: index.yml
+        - title: Microsoft Customer Agreement
+          links:
+            - text: Overview
+              url: understand/mca-overview.md
+            - text: Review your bill
+              url: understand/review-customer-agreement-bill.md
+            - text: See more >
+              url: microsoft-customer-agreement/index.yml
+        - title: Cloud Solution Provider
+          links:
+            - text: Overview
+              url: costs/get-started-partners.md
+            - text: Review your bill
+              url: understand/review-partner-agreement-bill.md
+            - text: See more >
+              url: partner-agreement/index.yml
+        - title: Enterprise Agreement
+          links:
+            - text: Overview
+              url: manage/ea-portal-agreements.md
+            - text: Review your bill
+              url: understand/review-enterprise-agreement-bill.md
+            - text: See more >
+              url: enterprise-agreement/index.yml
+        - title: Microsoft Online Services Agreement
+          links:
+            - text: Overview
+              url: understand/review-individual-bill.md
+            - text: Review your bill
+              url: understand/review-individual-bill.md
+            - text: See more >
+              url: index.yml
+    - title: Cost Management
+      items:
+        - title: Pricing + estimation
+          links:
+            - text: Pricing calculator
+              url: https://azure.microsoft.com/pricing/calculator
+            - text: TCO calculator
+              url: https://azure.microsoft.com/pricing/tco/calculator
+            - text: Azure Migrate
+              url: ../migrate/index.yml
+        - title: Reporting + analytics
+          links:
+            - text: Overview - PLACEHOLDER
+              url: cost-management-billing-overview.md?toc=/azure/cost-management-billing/toc.json
+            - text: Start analyzing costs
+              url: costs/quick-acm-cost-analysis.md?toc=/azure/cost-management-billing/toc.json
+            - text: Connect with Power BI
+              url: costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md?toc=/azure/cost-management-billing/toc.json
+        - title: Monitoring
+          links:
+            - text: Overview
+              url: cost-management-billing-overview.md?toc=/azure/cost-management-billing/toc.json
+            - text: Create a budget
+              url: costs/tutorial-acm-create-budgets.md?toc=/azure/cost-management-billing/toc.json
+        - title: Optimization
+          links:
+            - text: Act on recommendations
+              url: costs/tutorial-acm-opt-recommendations.md?toc=/azure/cost-management-billing/toc.json
+        - title: Settings
+          links:
+            - text: Assign access to costs
+              url: costs/assign-access-acm-data.md?toc=/azure/cost-management-billing/toc.json
+            - text: Enable tag inheritance
+              url: costs/enable-tag-inheritance.md?toc=/azure/cost-management-billing/toc.json
+            - text: Split shared costs
+              url: costs/allocate-costs.md?toc=/azure/cost-management-billing/toc.json
+        - title: Automation + extensibility
+          links:
+            - text: Overview
+              url: automate/automation-overview.md?toc=/azure/cost-management-billing/toc.json
+            - text: Choose a cost details solution
+              url: automate/usage-details-best-practices.md?toc=/azure/cost-management-billing/toc.json
+    - title: Training
+      items:
+        - title: Cost Management basics
+          links:
+            - text: Intro to Cost Management
+              url: /training/modules/describe-cost-management-azure
+            - text: Plan and manage costs
+              url: /training/modules/plan-manage-azure-costs
+            - text: Analyze costs and create budgets
+              url: /training/modules/analyze-costs-create-budgets-azure-cost-management
+            - text: Cost Management for partners
+              url: /training/modules/manage-costs-partner-cost-management
+        - title: Cost optimization
+          links:
+            - text: Get started with Azure Advisor
+              url: /training/modules/get-started-azure-advisor
+            - text: Optimize costs with Power BI
+              url: /training/modules/optimize-costs-data-analysis-powerbi
+            - text: Well-Architected Framework
+              url: /training/modules/azure-well-architected-cost-optimization
+            - text: Save money with savings plans
+              url: /training/modules/azure-savings-plan-for-compute
+            - text: Save money with reservations
+              url: /modules/save-money-with-azure-reserved-instances
+        - title: Optimize services
+          links:
+            - text: Azure Kubernetes Service
+              url: /training/modules/aks-optimize-compute-costs
+            - text: Azure Virtual Desktop
+              url: /training/modules/m365-optimize-wvd/
+            - text: Azure Disk Storage
+              url: /training/modules/optimize-performance-and-costs-using-azure-disk-storage
+            - text: Azure Blob Storage
+              url: /training/modules/optimize-your-cost-azure-blob-storage
