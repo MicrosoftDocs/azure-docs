@@ -34,5 +34,5 @@ The workbook shows a list and a map view of service retirements that impact your
  
 For more information about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
-* [Azure Service Health](/service-health/overview.md)
+* [Azure Service Health](service-health/overview.md)
 * [Azure updates](https://azure.microsoft.com/updates/?updateType=retirements)
