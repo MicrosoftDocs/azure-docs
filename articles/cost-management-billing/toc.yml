@@ -42,6 +42,8 @@
   items:
   - name: Cost Management
     items:
+    - name: AI-powered Cost Management
+      href: costs/ai-powered-cost-management.md
     - name: Cost Management best practices
       href: costs/cost-mgt-best-practices.md
     - name: Understand Cost Management data
@@ -232,8 +234,6 @@
         href: manage/manage-billing-access.md
       - name: Microsoft Customer Agreements roles in Azure
         href: manage/understand-mca-roles.md
-      - name: Copy MCA billing roles across tenants
-        href: manage/mca-role-migration.md
       - name: Manage billing across tenants
         href: manage/manage-billing-across-tenants.md
       - name: Link partner ID
@@ -387,6 +387,8 @@
       href: manage/cost-management-budget-scenario.md
     - name: Use cost alerts
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - name: Reservation utilization alerts
+      href: costs/reservation-utilization-alerts.md
     - name: Export cost data with a Storage SAS key
       href: costs/export-cost-data-storage-account-sas-key.md
     - name: Cost allocation

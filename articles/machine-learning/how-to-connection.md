@@ -143,13 +143,13 @@ This YAML script creates an Azure SQL DB connection. Be sure to update the appro
 # my_sqldb_connection.yaml
 $schema: http://azureml/sdk-2-0/Connection.json
 
-type: azuresqldb
+type: azure_sql_db
 name: my_sqldb_connection
 
 target: Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30
 # add the sql servername, port addresss and database
 credentials:
-    type: sql_auth
+    type: username_password
     username: <username> # add the sql database user name here or leave this blank and type in CLI command line
     password: <password> # add the sql database password here or leave this blank and type in CLI command line
 ```

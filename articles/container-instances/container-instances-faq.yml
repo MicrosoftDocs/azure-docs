@@ -163,7 +163,7 @@ sections:
         answer: |
           Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
 
-  - name: Confidential containers on Azure Container Instances (Preview)
+  - name: Confidential containers on Azure Container Instances
     questions:
       - question: | 
           What is Confidential computing and how is it being applied to Azure Container Instances?
