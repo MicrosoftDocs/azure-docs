@@ -1,7 +1,7 @@
 ---
-title: Create a service SAS for a blob with .NET
+title: Create a service SAS for a container with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a service shared access signature (SAS) for a blob using the Azure Blob Storage client library for .NET.
+description: Learn how to create a service shared access signature (SAS) for a container using the Azure Blob Storage client library for .NET.
 author: pauljewellmsft
 
 ms.service: storage
@@ -14,11 +14,11 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, engagement-fy23
 ---
 
-# Create a service SAS for a blob with .NET
+# Create a service SAS for a container with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use the storage account key to create a service SAS for a blob with the Blob Storage client library for .NET.
+This article shows how to use the storage account key to create a service SAS for a container with the Blob Storage client library for .NET.
 
 ## About the service SAS
 
@@ -26,17 +26,17 @@ A service SAS is signed with the account access key. You can use the [StorageSha
 
 You can also use a stored access policy to define the permissions and duration of the SAS. If the name of an existing stored access policy is provided, that policy is associated with the SAS. To learn more about stored access policies, see [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy). If no stored access policy is provided, the code examples in this article show how to define permissions and duration for the SAS.
 
-## Create a service SAS for a blob
+## Create a service SAS for a container
 
-The following code example shows how to create a service SAS for a blob resource. First, the code verifies that the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object is authorized with a shared key credential by checking the [CanGenerateSasUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.cangeneratesasuri#azure-storage-blobs-specialized-blobbaseclient-cangeneratesasuri) property. Then, it generates the service SAS via the [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) class, and calls [GenerateSasUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.generatesasuri#azure-storage-blobs-specialized-blobbaseclient-generatesasuri(azure-storage-sas-blobsasbuilder)) to create a service SAS URI based on the client and builder objects. 
+The following code example shows how to create a service SAS for a container resource. First, the code verifies that the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object is authorized with a shared key credential by checking the [CanGenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.cangeneratesasuri) property. Then, it generates the service SAS via the [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) class, and calls [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) to create a service SAS URI based on the client and builder objects. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateServiceSASBlob":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateServiceSASContainer":::
 
 ## Use a service SAS to authorize a client object
 
-The following code example shows how to use the service SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
+The following code example shows how to use the service SAS to authorize a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseServiceSASBlob":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseServiceSASContainer":::
 
 ## Resources
 

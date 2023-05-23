@@ -1,7 +1,7 @@
 ---
-title: Create a user delegation SAS for a blob with .NET
+title: Create a user delegation SAS for a container with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a user delegation SAS for a blob with Azure Active Directory credentials by using the .NET client library for Blob Storage.
+description: Learn how to create a user delegation SAS for a container with Azure Active Directory credentials by using the .NET client library for Blob Storage.
 services: storage
 author: pauljewellmsft
 
@@ -15,11 +15,11 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Create a user delegation SAS for a blob with .NET
+# Create a user delegation SAS for a container with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -29,17 +29,17 @@ When an Azure AD security principal attempts to access blob data, that security 
 
 [!INCLUDE [storage-dev-guide-user-delegation-sas-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-dotnet.md)]
 
-## Create a user delegation SAS for a blob
+## Create a user delegation SAS for a container
 
-Once you've obtained the user delegation key, you can create a user delegation SAS. The following code example shows how to create a user delegation SAS for a blob:
+You can also create a user delegation SAS to delegate limited access to a container resource. The following code example shows how to create a user delegation SAS for a container:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASBlob":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASContainer":::
 
 ## Use a user delegation SAS to authorize a client object
 
-The following code example shows how to use the user delegation SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
+The following code example shows how to use the user delegation SAS to authorize a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASBlob":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASContainer":::
 
 ## Resources
 
