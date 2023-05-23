@@ -13,9 +13,10 @@ ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurec
 
 # Tutorial: Visualize real-time sensor data from your Azure IoT hub in a web application
 
-![End-to-end diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
-
 In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a Node.js web app running on your local computer. After running the web app locally, you can host the web app in Azure App Service.
+
+
+![End-to-end diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
 ## Prerequisites
 
@@ -232,6 +233,7 @@ If you come across any issues with this sample, try the steps in the following s
 
 You've successfully used your web app to visualize real-time sensor data from your IoT hub.
 
-For another way to visualize data from Azure IoT Hub, see [Use Power BI to visualize real-time sensor data from your IoT hub](iot-hub-live-data-visualization-in-power-bi.md).
+For another way to interact with data from Azure IoT Hub, see the following tutorial:
 
-Or, [use Logic Apps for remote monitoring and notifications](./iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+> [!div class="nextstepaction"]
+> [Use Logic Apps for remote monitoring and notifications](./iot-hub-monitoring-notifications-with-azure-logic-apps.md)
