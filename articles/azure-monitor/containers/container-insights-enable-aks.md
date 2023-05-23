@@ -124,7 +124,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 You'll either download template and parameter files or create your own depending on the authentication mode you're using.
 
-To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication):
+To enable [managed identity authentication](container-insights-onboard.md#authentication):
 
 1. Download the template in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
 
@@ -137,7 +137,7 @@ To enable [managed identity authentication (preview)](container-insights-onboard
    - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
    - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 
-To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication):
+To enable [managed identity authentication](container-insights-onboard.md#authentication):
 
 1. Save the following JSON as **existingClusterOnboarding.json**.
 
@@ -448,8 +448,7 @@ Use the following procedure if you're not using managed identity authentication.
 
 ## Limitations
 
-- Enabling managed identity authentication (preview) isn't currently supported by using Terraform or Azure Policy.
-- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
+- When you enable managed identity authentication, a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
 ## Next steps
 
