@@ -25,7 +25,7 @@ For a comprehensive comparison between isolated worker process and in-process .N
 
 ## Why .NET Functions isolated worker process?
 
-When it was introduced, Azure Functions only supported a tightly integrated mode for .NET functions. In this _in-process_ mode, your [.NET class library functions](functions-dotnet-class-library.md) run in the same process as the host. This mode provides deep integration between the host process and the functions. For example, when running in the same process .NET class library functions can share binding APIs and types. However, this integration also requires a tight coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. This means that your in-process functions can only run on version of .NET with Long Term Support (LTS). To enable you to run on non-LTS version of .NET, you can instead choose to run in an isolated worker process. This process isolation lets you develop functions that use current .NET releases not natively supported by the Functions runtime, including .NET Framework. Both isolated worker process and in-process C# class library functions run on LTS versions. To learn more, see [Supported versions](#supported-versions). 
+When it was introduced, Azure Functions only supported a tightly integrated mode for .NET functions. In this _in-process_ mode, your [.NET class library functions](functions-dotnet-class-library.md) run in the same process as the host. This mode provides deep integration between the host process and the functions. For example, when running in the same process .NET class library functions can share binding APIs and types. However, this integration also requires a tight coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. This means that your in-process functions can only run on version of .NET with Long Term Support (LTS). To enable you to run on non-LTS version of .NET, you can instead choose to run in an isolated worker process. This process isolation lets you develop functions that use current .NET releases not natively supported by the Functions runtime, including .NET Framework. Both isolated worker process and in-process C# class library functions run on LTS versions. To learn more, see [Supported versions][supported-versions]. 
 
 Because these functions run in a separate process, there are some [feature and functionality differences](./dotnet-isolated-in-process-differences.md) between .NET isolated function apps and .NET class library function apps.
 
@@ -238,13 +238,60 @@ The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-w
 
 ### HTTP trigger
 
-HTTP triggers translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optional a message `Body`. This object is a representation of the HTTP request object and not the request itself. 
+[HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. There are two different approaches that can be used:
+
+- A [built-in model](#built-in-http-model) which does not require additional dependencies and uses custom types for HTTP requests and responses
+- An [ASP.NET Core integration model (Preview)](#aspnet-core-integration-preview) that uses concepts familiar to ASP.NET Core developers
+
+#### Built-in HTTP model
+
+In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but is not directly connected to the underlying HTTP listener or the received message. 
 
 Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
 
-The following code is an HTTP trigger 
+The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+
+#### ASP.NET Core integration (preview)
+
+This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. Use of this feature for local testing requires [Core Tools version 4.0.5198 or later](./functions-run-local.md). This model is not available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
+
+> [!NOTE]
+> Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available. In the initial preview versions of the integration package, route info is missing from the `HttpRequest` and `HttpContext` objects, and accessing route parameters should be done through the `FunctionContext` object or via parameter injection.
+
+1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore) to your project.
+
+2. In your `Program.cs` file, update the host builder configuration to include the `UseAspNetCoreIntegration()` and `ConfigureAspNetCoreIntegration()` methods. The following example shows a minimal setup without other customizations:
+
+    ```csharp
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.Azure.Functions.Worker;
+    
+    var host = new HostBuilder()
+        .ConfigureFunctionsWorkerDefaults(workerApplication =>
+        {
+            workerApplication.UseAspNetCoreIntegration();
+        })
+        .ConfigureAspNetCoreIntegration()
+        .Build();
+    
+    host.Run();
+    ```
+
+    > [!NOTE]
+    > Initial preview versions of the integration package require both `UseAspNetCoreIntegration()` and `ConfigureAspNetCoreIntegration()` to be called, but these setup steps are not yet finalized.
+
+3. You can then update your HTTP-triggered functions to use the ASP.NET Core types. The following example shows `HttpRequest` and an `IActionResult` used for a simple "hello, world" function:
+
+    ```csharp
+    [Function("HttpFunction")]
+    public IActionResult Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+    {
+        return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+    }
+    ```
 
 ## Logging
 
@@ -310,12 +357,14 @@ After the debugger is attached, the process execution resumes, and you'll be abl
 ## Remote Debugging using Visual Studio
 
 Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
+
 ## Next steps
 
 + [Learn more about triggers and bindings](functions-triggers-bindings.md)
 + [Learn more about best practices for Azure Functions](functions-best-practices.md)
 
 
+[supported-versions]: #supported-versions
 [HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder
 [IHost]: /dotnet/api/microsoft.extensions.hosting.ihost
 [ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
@@ -332,5 +381,6 @@ Because your isolated worker process app runs outside the Functions runtime, you
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
-[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult
+[HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions

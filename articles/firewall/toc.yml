@@ -109,6 +109,8 @@ items:
       href: easy-upgrade.md
     - name: Explicit Proxy
       href: explicit-proxy.md
+    - name: Multi hub and spoke
+      href: firewall-multi-hub-spoke.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
