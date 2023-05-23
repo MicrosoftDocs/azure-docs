@@ -30,7 +30,7 @@ Azure maintains multiple copies of your storage account to ensure durability and
 
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
 
-If the primary region becomes unavailable for any reason, Microsoft will manage the failover or you can [initiate an account failover](../common/storage-initiate-account-failover.md) to the secondary region.  
+If the primary region becomes unavailable for any reason, you can [initiate an account failover](../common/storage-initiate-account-failover.md) to the secondary region.  
 
 > [!NOTE]  
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured as GRS or GZRS. The file shares won't be accessible in the secondary region unless a failover occurs.
@@ -84,7 +84,7 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 
 ## Pricing
 
-There's no additional cost to enable large file shares. Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Register for the preview
 
