@@ -71,7 +71,7 @@ az nf l2domain create \
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Disabled",
   "annotation": null,user
@@ -107,7 +107,7 @@ az nf l2domain show --resource-group "ResourceGroupName" --resource-name "exampl
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Disabled",
   "annotation": null,
@@ -143,7 +143,7 @@ az nf l2domain list --resource-group "ResourceGroupName"
 
 Expected output:
 
-```json
+```output
  {
     "administrativeState": "Enabled",
     "annotation": null,
@@ -179,7 +179,7 @@ az nf l2domain update-admin-state --resource-group "ResourceGroupName" --resourc
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Enabled",
   "annotation": null,
@@ -279,7 +279,7 @@ az nf l3domain create
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Disabled",
   "aggregateRouteConfiguration": null,
@@ -337,7 +337,7 @@ az nf l3domain show --resource-group "ResourceGroupName" --resource-name "exampl
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Disabled",
   "aggregateRouteConfiguration": null,
@@ -377,7 +377,7 @@ az nf l3domain list --resource-group "ResourceGroupName"
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Disabled",
   "aggregateRouteConfiguration": null,
@@ -417,7 +417,7 @@ az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resourc
 
 Expected output:
 
-```json
+```output
 {
     "administrativeState": "Enabled",
     "annotation": null,
@@ -514,7 +514,7 @@ az nf internalnetwork create
 
 Expected output:
 
-```json
+```output
 { 
   "administrativeState": "Enabled", 
   "annotation": null, 
@@ -600,7 +600,7 @@ az nf internalnetwork create
 
 Expected output:
 
-```json
+```output
 { 
 
   "administrativeState": "Enabled", 
@@ -683,7 +683,7 @@ az nf internalnetwork create
 
 Expected output:
 
-```json
+```output
 { 
   "administrativeState": "Enabled", 
   "annotation": null, 
@@ -765,7 +765,7 @@ az nf externalnetwork create
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": "Enabled",
   "annotation": null,
@@ -812,7 +812,7 @@ az nf externalnetwork create
 
 Expected output:
 
-```json
+```output
 { 
   "administrativeState": "Enabled", 
   "annotation": null, 
@@ -869,7 +869,7 @@ The supported primary and secondary IPv6 prefix size is /127.
 
 Expected output:
 
-```json
+```output
 {
   "administrativeState": null,
   "annotation": null,
