@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 05/16/2023
+ms.date: 05/23/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -18,7 +18,21 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |---------|----------------|----------|
 | Public  | 1.2.4240       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4240       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.4330       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.4330 (Insider)
+
+*Date published: May 23, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following changes:
+
+- The Windows Desktop client installer no longer supports Windows 8 and 8.1.
+- Improved connection bar resizing so that resizing the bar to its minimum width doesn't make its buttons disappear.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
+- Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
 
 ## Updates for version 1.2.4240 
 
