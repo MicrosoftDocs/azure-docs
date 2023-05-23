@@ -999,6 +999,22 @@
                   href: how-to-use-batch-scoring-pipeline.md
                 - name: Create batch endpoints from pipeline jobs
                   href: how-to-use-batch-pipeline-from-job.md
+            - name: Security
+              items:
+                - name: Authorization on batch endpoints
+                  href: how-to-authenticate-batch-endpoint.md
+                - name: Network isolation in batch endpoints
+                  href: how-to-secure-batch-endpoint.md
+            - name: Cost management
+              items:
+                - name: Use low priority VMs in batch deployments
+                  href: how-to-use-low-priority-batch.md
+            - name: Integrations
+              items:
+                - name: Run batch endpoints from Azure Data Factory
+                  href: how-to-use-batch-azure-data-factory.md
+                - name: Run batch endpoints from Event Grid events in storage
+                  href: how-to-use-event-grid-batch.md
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
