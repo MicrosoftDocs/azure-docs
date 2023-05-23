@@ -320,6 +320,10 @@ You can delete old terms of use policies using the following procedure.
 
    You should no longer see your terms of use policy.
 
+## Service limits
+
+You can add no more than 40 terms per tenant.
+
 ## User acceptance record deletion
 
 User acceptance records are deleted:
