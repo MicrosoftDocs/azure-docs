@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about continuous backup in-account restore (preview)
+  title: Frequently asked questions about continuous backup point-in-time restore in same account (preview)
   titleSuffix: Azure Cosmos DB
-  description: This article lists frequently asked questions about the in-account point-in-time restore feature for continuous backup in Azure Cosmos DB.
+  description: This article lists frequently asked questions about the same account restore feature for continuous backup in Azure Cosmos DB.
   author: kanshiG
   ms.author: govindk
   ms.reviewer: mjbrown
@@ -10,11 +10,11 @@ metadata:
   ms.custom: build-2023
   ms.topic: faq
   ms.date: 05/08/2023
-title: Frequently asked questions about continuous backup in-account point-in-time restore (preview)
+title: Frequently asked questions about continuous backup point-in-time restore in same account (preview)
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-  The in-account point-in-time restore capability of continuous backup in Azure Cosmos DB allows you to restore the deleted databases or containers within the same account. You can perform this restore operation via the Azure portal, Azure CLI, or Azure PowerShell. This feature helps in recovering the data from accidental deletions of databases or containers.
+  The same account restore capability of continuous backup in Azure Cosmos DB allows you to restore the deleted databases or containers within the same account. You can perform this restore operation via the Azure portal, Azure CLI, or Azure PowerShell. This feature helps in recovering the data from accidental deletions of databases or containers.
 sections:
   - name: Ignored
     questions:
@@ -23,13 +23,9 @@ sections:
         answer: |
           Yes, you can read or update other databases or containers while a restore operation is in progress on previously deleted resources. Deleted containers and databases aren't available for those same operations in that same time period. 
       - question: |
-          What is the supported granularity at which I'm able to restore into a different account? 
+          What is the granularity of resources which I'm able to restore into the same account? 
         answer: |
-          Databases, both shared throughput and otherwise, and containers can be individually restored into a new account. 
-      - question: |
-          What is the supported granularity of resources at which I'm able to restore into the same account? 
-        answer: |
-          You can restore many resources into the same account. The only exception is that shared-throughput containers can't be restored individually. An entire shared-throughput database must be restored entirely.
+          You can restore deleted containers, databases into the same account. The only exception is that shared-throughput containers can't be restored individually. An entire shared-throughput database must be restored entirely.
       - question: |
           Can I restore a particular container or database to a different restore timestamp multiple times? 
         answer: |
@@ -37,7 +33,7 @@ sections:
       - question: |
           Can I figure out the delete operations or timestamp on a particular container to figure out the correct timestamp to restore? 
         answer: |
-          Yes, we expose APIs to list the event feed of databases or containers. Based on this feed, you can find the event timestamp and operation type you need to configure your restore operation. You can then determine the correct restore timestamp to use for your scenario.
+          Yes, APIs to list the event feed of databases or containers. Based on this feed, you can find the event timestamp and operation type you need to configure your restore operation. You can then determine the correct restore timestamp to use for your scenario.
       - question: |
           How am I billed for restore? 
         answer: |
@@ -45,7 +41,7 @@ sections:
       - question: |
           What is the expected time for restore to finish? 
         answer: |
-          Restore time is a function of the data size, the amount of log backup that needs to be replayed, and the number of partitions that need to be restored. Restoring 1 TB of data typically takes 30-90 minutes. For an account with multiple regions, the timing to restore into the same account could vary. 
+          Restore time is a function of the data size, the amount of log backup that needs to be replayed, and the number of partitions that need to be restored. Restoring 1 TB of data typically takes 30-90 minutes. For an account with multiple regions, the timing to restore into the same account could vary and more than usual restore into new account capability. 
       - question: |
           Are deleted containers and databases restored in all regions?
         answer: |
@@ -53,9 +49,9 @@ sections:
       - question: |
           What are all the ways in which I can trigger a restore operation? 
         answer: |
-          You can trigger restore operations from the Azure CLI, Azure PowerShell, or the SDK. You can't trigger a restore operation from the Azure portal. 
+          You can trigger restore operations from the Azure CLI, Azure PowerShell, or the Azure Portal.
       - question: |
-          Is in-account restore supported for Azure Synapse Link enabled accounts? 
+          Is restore in same account supported for Azure Synapse Link enabled accounts? ? 
         answer: |
           No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same Azure Cosmos DB account. 
       - question: |
