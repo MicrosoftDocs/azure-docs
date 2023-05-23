@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from MFA Server on-premises to Azure 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/18/2023
+ms.date: 05/23/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
