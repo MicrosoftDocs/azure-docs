@@ -56,7 +56,7 @@ Begin by initializing a new Next.js application.
 
 ## Configure your Next.js app for deployment to Static Web Apps
 
-To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project. This will reduce the size of your Next.js project and ensure it is below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
+To configure your Next.js app for deployment to Static Web Apps, enable the standalone feature for your Next.js project. This step reduces the size of your Next.js project to ensure it's below the size limits for Static Web Apps. Refer to the [standalone](#enable-standalone-feature) section for more information.
 
 ```js
 module.exports ={
