@@ -10,8 +10,6 @@ In this quickstart, you learn how to start a 1:1 video call using the Azure Comm
 
 ## [UWP](#tab/uwp)
 
-**Universal Windows Platform**
-
 ### Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
@@ -390,9 +388,7 @@ Note: Calling `8:echo123` stops the video stream because echo bot doesn't suppor
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
 
-## [WinUI] (#tab/WinUI3)
-
-**WinUI 3 development**
+## [WinUI 3](#tab/WinUI3)
 
 ### Prerequisites
 

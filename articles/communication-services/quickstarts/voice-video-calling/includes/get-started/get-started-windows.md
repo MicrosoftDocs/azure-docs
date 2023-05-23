@@ -10,8 +10,6 @@ In this quickstart, you learn how to start a call using the Azure Communication 
 
 ## [UWP](#tab/uwp)
 
-**Universal Windows Platform**
-
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
 
 ### Prerequisites
@@ -209,9 +207,8 @@ You can make an outbound call by providing a user ID in the text field and click
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the UWP quickstart app":::
 
-## [WinUI] (#tab/WinUI)
+## [WinUI 3](#tab/WinUI3)
 
-**WinUI 3**
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
 
 ### Setting up
@@ -383,8 +380,10 @@ this.DispatcherQueue.TryEnqueue(() => {
 
 ### Run the code
 
-You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`.
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-winui-app.png" alt-text="Screenshot showing running the WinUI quickstart app":::
+
+---
