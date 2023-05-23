@@ -107,7 +107,7 @@ To configure backups for AKS cluster, follow these steps:
 
     :::image type="content" source="./media/azure-kubernetes-cluster-backup/install-extension.png" alt-text="Screenshot shows how to review and install the backup extension.":::
 
-5. Once the  backup extension is installed successfully, start configuring backups for your AKS cluster by selecting **Configure Backup**.
+1. Once the  backup extension is installed successfully, start configuring backups for your AKS cluster by selecting **Configure Backup**.
 
    You can also perform this action from the **Backup centre**.
 
@@ -116,9 +116,9 @@ To configure backups for AKS cluster, follow these steps:
 
 1. Now, select the *Backup vault* to configure backup.
 
-   The Backup vault should have *Trusted Access* enabled for the AKS cluster to be backed up. You can enable *Trusted Access* by selecting *Grant Permission*. If it's already enabled, select **Next**.
-
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/select-vault.png" alt-text="Screenshot shows how to choose a vault.":::
+
+   The Backup vault should have *Trusted Access* enabled for the AKS cluster to be backed up. You can enable *Trusted Access* by selecting *Grant Permission*. If it's already enabled, select **Next**.
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/grant-permission.png" alt-text="Screenshot shows how to proceed to the next step after granting permission.":::
 
