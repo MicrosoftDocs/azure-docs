@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 04/06/2023 
+ms.date: 05/23/2023 
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas
@@ -20,35 +20,58 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 | Workload                                        | HX                                                              |
 |-------------------------------------------------|-------------------------------------------------------------------|
-| STREAM Triad                                    | 750-770GB/s                                                       |
-| High-Performance Linpack (HPL)                  | Up to 6.1 TF (Rpeak, FP64) for 144-core VM size                   |
+| STREAM Triad                                    | 750-780GB/s                                                       |
+| High-Performance Linpack (HPL)                  | Up to 7.6 TF (Rpeak, FP64) for 144-core VM size                   |
 | RDMA latency & bandwidth                        | < 2 microseconds (1 byte), 400 GB/s (one-way)                     |
 | FIO on local NVMe SSDs (RAID0)                  | 12 GB/s reads, 7 GB/s writes; 186k IOPS reads, 201k IOPS writes |
 
-## Process pinning
+## Stream memory test 
 
-[Process pinning](./workloads/hpc/compiling-scaling-applications.md#process-pinning) works well on HBv4-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
+The stream memory test can be run using the scripts in this github repository. 
+```bash
+git clone https://github.com/Azure/woc-benchmarking 
+cd woc-benchmarking/apps/hpc/stream/ 
+sh build_stream.sh 
+sh stream_run_script.sh $PWD “hbrs_v4” 
+```
+ 
+## The HPL test 
+
+The high performance linpack(HPL) benchmark can be run using the script in this github repository. 
+```bash
+git clone https://github.com/Azure/woc-benchmarking 
+cd woc-benchmarking/apps/hpc/hpl 
+sh hpl_build_script.sh 
+sh hpl_run_scr_hbv4.sh $PWD 
+```
 
 ## MPI latency
 
 The MPI latency test from the OSU microbenchmark suite can be executed as shown. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
 ```bash
-./bin/mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu_b
+module load mpi/hpcx 
+mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu_latency
 ```
 
 ## MPI bandwidth
 The MPI bandwidth test from the OSU microbenchmark suite can be executed per below. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
+
 ```bash
-./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
+module load mpi/hpcx 
+mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu_bw ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
+[!NOTE]
+Define source(src) and destination(dst).
+
 ## Mellanox Perftest
 The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
+
 ## Next steps
 - Learn about [scaling MPI applications](./workloads/hpc/compiling-scaling-applications.md).
 - Review the performance and scalability results of HPC applications on the HX VMs at the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv4-vms/bc-p/2235843).
-- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure HPC Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
