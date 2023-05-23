@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: Deploy using the portal
             url: deploy-portal.md
-      - linkListType: howto
+      - linkListType: how-to-guide
         links:
           - text: How to Use Project Health Insights with containers 
             url: use-containers.md
