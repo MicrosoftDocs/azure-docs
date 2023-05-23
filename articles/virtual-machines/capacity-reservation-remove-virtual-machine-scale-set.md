@@ -3,7 +3,7 @@ title: Remove a Virtual Machine Scale Set association from a Capacity Reservatio
 description: Learn how to remove a Virtual Machine Scale Set from a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
@@ -221,7 +221,7 @@ To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powe
 
 - **Automatic Upgrade** – In this mode, the scale set VM instances are automatically dissociated from the Capacity Reservation group without any further action from you.
 - **Rolling Upgrade** – In this mode, the scale set VM instances are dissociated from the Capacity Reservation group without any further action from you. However, they are updated in batches with an optional pause time between them.
-- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the Virtual Machine Scale Set is updated. You will need to individually remove each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the Virtual Machine Scale Set is updated. You will need to individually remove each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md).
 
 
 ## Next steps

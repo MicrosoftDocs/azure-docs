@@ -22,7 +22,7 @@ At the core of IoT Plug and Play, is a device _model_ that describes a device's 
 
 To learn more about how IoT Plug and Play uses device models, see [IoT Plug and Play device developer guide](concepts-developer-guide-device.md) and [IoT Plug and Play service developer guide](concepts-developer-guide-service.md).
 
-To define a model, you use the Digital Twins Definition Language (DTDL) V2. DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
+To define a model, you use the Digital Twins Definition Language (DTDL). DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
 
 - Has a unique model ID: `dtmi:com:example:Thermostat;1`.
 - Sends temperature telemetry.
@@ -126,7 +126,7 @@ The thermostat model has a single interface. Later examples in this article show
 
 This article describes how to design and author your own models and covers topics such as data types, model structure, and tools.
 
-To learn more, see the [Digital Twins Definition Language V2](https://github.com/Azure/opendigitaltwins-dtdl) specification.
+To learn more, see the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) specification.
 
 ## Model structure
 
@@ -642,7 +642,7 @@ There's a DTDL authoring extension for VS Code.
 
 To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
 
-When you've installed the extension, use it to help you author DTDL model files in VS code:
+When you've installed the extension, use it to help you author DTDL model files in VS Code:
 
 - The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
 
@@ -690,5 +690,5 @@ The following list summarizes some key constraints and limits on models:
 
 Now that you've learned about device modeling, here are some more resources:
 
-- [Digital Twins Definition Language V2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [Model repositories](./concepts-model-repository.md)

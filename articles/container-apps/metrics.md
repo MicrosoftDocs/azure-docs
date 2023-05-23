@@ -2,12 +2,12 @@
 title: Monitor Azure Container Apps metrics
 description: Monitor your running apps metrics
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 08/30/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Monitor Azure Container Apps metrics

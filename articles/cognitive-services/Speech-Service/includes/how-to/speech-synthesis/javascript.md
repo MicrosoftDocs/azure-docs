@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
+The text to speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
 
@@ -70,7 +70,7 @@ Run the program. A synthesized audio is played from the speaker. This is a good 
 
 # [nodejs](#tab/nodejs)
 
-Next, you create a [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
+Next, you create a [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) object. This object executes text to speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
 - The [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) object that specifies how output results should be handled
@@ -93,7 +93,7 @@ function synthesizeSpeech() {
 
     const speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     speechSynthesizer.speakTextAsync(
-        "I'm excited to try text-to-speech",
+        "I'm excited to try text to speech",
         result => {
             speechSynthesizer.close();
             if (result) {
@@ -137,7 +137,7 @@ function synthesizeSpeech() {
     const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     speechSynthesizer.speakTextAsync(
-        "I'm excited to try text-to-speech",
+        "I'm excited to try text to speech",
         result => {
             speechSynthesizer.close();
             return result.audioData;
@@ -159,7 +159,7 @@ function synthesizeSpeech() {
     const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     speechSynthesizer.speakTextAsync(
-        "I'm excited to try text-to-speech",
+        "I'm excited to try text to speech",
         result => {
             const { audioData } = result;
 
@@ -196,7 +196,7 @@ function synthesizeSpeech() {
     const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     speechSynthesizer.speakTextAsync(
-        "I'm excited to try text-to-speech",
+        "I'm excited to try text to speech",
         result => {
             speechSynthesizer.close();
             return result.audioData;
@@ -218,7 +218,7 @@ function synthesizeSpeech() {
     const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     speechSynthesizer.speakTextAsync(
-        "I'm excited to try text-to-speech",
+        "I'm excited to try text to speech",
         result => {
             const { audioData } = result;
 
@@ -264,7 +264,7 @@ function synthesizeSpeech() {
 
     const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
     speechSynthesizer.speakTextAsync(
-        "I'm excited to try text-to-speech",
+        "I'm excited to try text to speech",
         result => {
             // Interact with the audio ArrayBuffer data
             const audioData = result.audioData;
@@ -281,7 +281,7 @@ function synthesizeSpeech() {
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
@@ -335,9 +335,9 @@ function synthesizeSpeech() {
 
 ## Subscribe to synthesizer events
 
-You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
 
-While using the [SpeechSynthesizer](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) for text-to-speech, you can subscribe to the events in this table:
+While using the [SpeechSynthesizer](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) for text to speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
 
@@ -438,4 +438,11 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
 }());
 ```
 
-You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).
+You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

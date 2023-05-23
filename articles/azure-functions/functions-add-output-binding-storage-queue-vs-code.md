@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Queue Storage by a
 ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
@@ -231,7 +231,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-javascript"  
 * [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-* [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+* [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 * [Examples of complete Function projects in Java](/samples/browse/?products=azure-functions&languages=java).
@@ -241,7 +241,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-typescript"  
 * [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
-* [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+* [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 * [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).

@@ -18,7 +18,7 @@ ms.date: 07/13/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/how-to-auto-train-image-models-v1.md)
+> * [v1](v1/how-to-auto-train-image-models-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
 
@@ -1156,4 +1156,4 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
-* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).
+* [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true).

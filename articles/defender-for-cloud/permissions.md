@@ -32,6 +32,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
+| Exempt security recommendations | - | - | ✔ | ✔ | ✔ |
 
 The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 
@@ -42,7 +43,7 @@ To allow the Security Admin role to automatically provision agents and extension
 | Service Principal | Roles |
 |:-|:-|
 | Defender for Containers provisioning AKS Security Profile | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor<br>• Log Analytics Contributor |
-| Defender for Containers provisioning ARC K8s Enabled | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
+| Defender for Containers provisioning Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
 | Defender for Containers provisioning Azure Policy Addon for Kubernetes | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor |
 | Defender for Containers provisioning Policy extension for Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor |
 

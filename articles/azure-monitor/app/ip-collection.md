@@ -2,7 +2,7 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 04/06/2023
 ms.custom: devx-track-js
 ms.reviewer: saars
 ---
@@ -73,18 +73,18 @@ If you need to modify the behavior for only a single Application Insights resour
 
 1. Select **Deploy**.
 
-    ![Screenshot that shows the Deploy button.](media/ip-collection/deploy.png)
+    :::image type="content" source="media/ip-collection/deploy.png" lightbox="media/ip-collection/deploy.png" alt-text="Screenshot that shows the Deploy button.":::
 
 1. Select **Edit template**.
 
-    ![Screenshot that shows the Edit button, along with a warning about the resource group.](media/ip-collection/edit-template.png)
+    :::image type="content" source="media/ip-collection/edit-template.png" lightbox="media/ip-collection/edit-template.png" alt-text="Screenshot that shows the Edit button, along with a warning about the resource group.":::
 
     > [!NOTE]
     > If you experience the error shown in the preceding screenshot, you can resolve it. It states: "The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group." Temporarily select a different resource group from the dropdown list and then re-select your original resource group.
 
 1. In the JSON template, locate `properties` inside `resources`. Add a comma to the last JSON field, and then add the following new line: `"DisableIpMasking": true`. Then select **Save**.
 
-    ![Screenshot that shows the addition of a comma and a new line after the property for request source.](media/ip-collection/save.png)
+    :::image type="content" source="media/ip-collection/save.png" lightbox="media/ip-collection/save.png" alt-text="Screenshot that shows the addition of a comma and a new line after the property for request source.":::
 
 1. Select **Review + create** > **Create**.
 
@@ -125,6 +125,16 @@ Content-Length: 54
        }
 }
 ```
+
+### Powershell
+
+The Powershell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+
+```powershell
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
+```
+
+For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](https://learn.microsoft.com/powershell/module/az.applicationinsights/update-azapplicationinsights)
 
 ## Telemetry initializer
 

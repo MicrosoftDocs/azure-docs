@@ -69,7 +69,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**| Choose `HTTP trigger`.|
     |**Provide a function name**| Enter `HttpExample`.|
     |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**| Choose `Add to workspace`.|
+    |**Select how you would like to open your project**| Choose `Open in current window`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
 ::: zone-end
@@ -80,7 +80,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**| Choose `Python (Programming Model V2)`.|
     |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
-    |**Select how you would like to open your project**| Choose `Add to workspace`.|
+    |**Select how you would like to open your project**| Choose `Open in current window`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project.   
 
@@ -208,6 +208,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to 
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python)
 
 [Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
 

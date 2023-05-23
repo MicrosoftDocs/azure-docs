@@ -4,6 +4,7 @@ description: Use the Azure Resource Manager template (ARM template) reference to
 author: mumian
 ms.date: 02/11/2022
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
 ---
 

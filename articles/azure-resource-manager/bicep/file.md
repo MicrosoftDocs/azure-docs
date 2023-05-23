@@ -2,6 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 07/06/2022
 ---
 
@@ -109,7 +110,7 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but there are many others that are available.
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available. 
 
 ```bicep
 @allowed([

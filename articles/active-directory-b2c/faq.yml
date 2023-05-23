@@ -27,7 +27,7 @@ sections:
       - question: |
           Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
         answer: |
-          Azure AD and Azure AD B2C are separate product offerings and can’t coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+          Azure AD and Azure AD B2C are separate product offerings. To use Azure AD B2C features, create a separate Azure AD B2C tenant from your existing employee-based Azure AD tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
       - question: |
           Can I use Azure AD B2C to provide social sign in (Facebook and Google+) into Microsoft 365?
@@ -164,7 +164,7 @@ sections:
           If the TOTP authenticator app codes aren't working with your Android or iPhone mobile phone or device, your device's clock time might be incorrect. In your device's settings, select the option to use the network-provided time or to set the time automatically.
           
       - question: |
-          How do I know that the Go-Local add-on available in my country? 
+          How do I know that the Go-Local add-on available in my country/region? 
         answer: |
           While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country, you're asked to enable it if you need it. 
       

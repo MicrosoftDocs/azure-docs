@@ -16,7 +16,7 @@ This article explains how to deploy and configure an elastic storage area networ
 
 ## Prerequisites
 
-- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-az-ps).
+- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 

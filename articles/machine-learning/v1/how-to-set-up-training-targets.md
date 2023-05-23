@@ -214,7 +214,7 @@ See these notebooks for examples of configuring jobs for various training scenar
 * **Job or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29#archive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
-    Permanent deletion of individual experiments or jobs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
+    Permanent deletion of individual experiments or jobs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](../how-to-export-delete-data.md).
 
 * **Metric Document is too large**: Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training job. If you encounter a "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
 

@@ -2,9 +2,8 @@
 title: Azure Monitor agent extension versions
 description: This article describes the version details for the Azure Monitor agent virtual machine extension.
 ms.topic: conceptual
-author: shseth
+ms.date: 4/2/2023
 ms.author: shseth
-ms.date: 3/7/2023
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -20,7 +19,9 @@ We strongly recommended to update to the latest version at all times, or opt in 
 ## Version details
 | Release Date | Release notes | Windows | Linux |
 |:---|:---|:---|:---|
-| Feb 2023 | **Windows** <ul><li>Reliability improvements in fluentbit buffering to handle larger text files</li></ul> | 1.13.1.0 | Coming soon |
+| Apr 2023 | **Windows** <ul><li>AMA: Enable Large Event support based on Region.</li><li>AMA: Upgrade to FluentBit version 2.0.9</li><li>Update Troubleshooter to 1.3.1</li><li>Update ME version to 2.2023.331.1521</li><li>Updating package version for AzSecPack 4.26 release</li></ul>|1.15.0.0| Comming soon|
+| Mar 2023 | **Windows** <ul><li>Text file collection improvements to handle high rate of logging and for continuous tailing in case of longer lines</li><li>VM Insights fixes for collecting metrics from non-English OS</li></ul> | 1.14.0.0 | Coming soon |
+| Feb 2023 | <ul><li>**Linux (hotfix)** Resolved potential data loss due to "Bad file descriptor" errors seen in the mdsd error log with previous version. Please upgrade to hotfix version</li><li>**Windows** Reliability improvements in fluentbit buffering to handle larger text files</li></ul> | 1.13.1.0 | 1.25.2<sup>Hotfix</sup> |
 | Jan 2023 | **Linux** <ul><li>RHEL 9 and Amazon Linux 2 support</li><li>Update to OpenSSL 1.1.1s and require TLS 1.2 or higher</li><li>Performance improvements</li><li>Improvements in Garbage Collection for persisted disk cache and handling corrupted cache files better</li><li>**Fixes** <ul><li>Set agent service memory limit for CentOS/RedHat 7 distros. Resolved MemoryMax parsing error</li><li>Fixed modifying rsyslog system-wide log format caused by installer on RedHat/Centos 7.3</li><li>Fixed permissions to config directory</li><li>Installation reliability improvements</li><li>Fixed permissions on default file so rpm verification doesn't fail</li><li>Added traceFlags setting to enable trace logs for agent</li></ul></li></ul> **Windows** <ul><li>Fixed issue related to incorrect *EventLevel* and *Task* values for Log Analytics *Event* table, to match Windows Event Viewer values</li><li>Added missing columns for IIS logs - *TimeGenerated, Time, Date, Computer, SourceSystem, AMA, W3SVC, SiteName*</li><li>Reliability improvements for metrics collection</li><li>Fixed machine restart issues on for Arc-enabled servers related to repeated calls to HIMDS service</li></ul> | 1.12.0.0 | 1.25.1 |
 | Nov-Dec 2022 | <ul><li>Support for air-gapped clouds added for [Windows MSI installer for clients](./azure-monitor-agent-windows-client.md) </li><li>Reliability improvements for using AMA with Custom Metrics destination</li><li>Performance and internal logging improvements</li></ul> | 1.11.0.0 | None | 
 | Oct 2022 | **Windows** <ul><li>Increased reliability of data uploads</li><li>Data quality improvements</li></ul> **Linux** <ul><li>Support for `http_proxy` and `https_proxy` environment variables for [network proxy configurations](./azure-monitor-agent-data-collection-endpoint.md#proxy-configuration) for the agent</li><li>[Text logs](./data-collection-text-log.md) <ul><li>Network proxy support enabled</li><li>Fixed missing `_ResourceId`</li><li>Increased maximum line size support to 1MB</li></ul></li><li>Support ingestion of syslog events whose timestamp is in the future</li><li>Performance improvements</li><li>Fixed `diskio` metrics instance name dimension to use the disk mount path(s) instead of the device name(s)</li><li>Fixed world writable file issue to lockdown write access to certain agent logs and configuration files stored locally on the machine</li></ul>  | 1.10.0.0 | 1.24.2 | 
@@ -39,7 +40,7 @@ We strongly recommended to update to the latest version at all times, or opt in 
 | July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
 | June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 
-<sup>Hotfix</sup> Do not use AMA Linux versions v1.10.7, v1.15.1 and AMA Windows v1.1.3.1, v1.1.5.0. Please use hotfix versions listed above.
+<sup>Hotfix</sup> Do not use AMA Linux versions v1.10.7, v1.15.1, v1.25.2 and AMA Windows v1.1.3.1, v1.1.5.0. Please use hotfix versions listed above.
 <sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers
 <sup>2</sup> Known issue: Linux performance counters data stops flowing on restarting/rebooting the machine(s)
 

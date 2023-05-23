@@ -3,7 +3,7 @@ title: Import SQL BACPAC files with templates
 description: Learn how to use Azure SQL Database extensions to import SQL BACPAC files with Azure Resource Manager templates (ARM templates).
 ms.date: 02/28/2022
 ms.topic: tutorial
-
+ms.custom: devx-track-arm-template
 #Customer intent: As a database administrator I want use ARM templates so that I can import a SQL BACPAC file.
 ---
 

@@ -4,6 +4,7 @@ description: Describes Bicep resource access operator and property access operat
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/10/2021
 ---
 

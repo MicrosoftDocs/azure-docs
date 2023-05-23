@@ -32,6 +32,8 @@ Adding custom branding requires one of the following licenses:
 - Azure AD Premium 2
 - Office 365 (for Office apps)
 
+At least one of the previously listed licenses is sufficient to add and manage the company branding in your tenant.
+
 Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).
 
 The **Global Administrator** role is required to customize company branding.

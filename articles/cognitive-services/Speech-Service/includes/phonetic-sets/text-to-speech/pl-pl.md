@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for pl-PL
 
 | `ipa` | `viseme` | Example 1          | Example 2          | Example 3           |
 |-------|----------|--------------------|--------------------|---------------------|
@@ -11,7 +19,7 @@
 | `ɔ̃`  | 3        |                    | m**ą**ż            | intelektualist**ą** |
 | `u`   | 7        | **u**nosimy        | ark**u**szy        | przeznaczeni**u**   |
 
-### Consonant
+### Consonant for pl-PL
 
 | `ipa` | `viseme` | Example 1          | Example 2          | Example 3           |
 |-------|----------|--------------------|--------------------|---------------------|

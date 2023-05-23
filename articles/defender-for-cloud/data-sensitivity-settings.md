@@ -1,14 +1,14 @@
 ---
 title: Customize data sensitivity settings in Microsoft Defender for Cloud
 description: Learn how to customize data sensitivity settings in Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 03/22/2023
 ---
 # Customize data sensitivity settings
 
-This article describes how to customize data sensitivity settings in Microsoft Defender for Cloud. 
+This article describes how to customize data sensitivity settings in Microsoft Defender for Cloud.
 
 Data sensitivity settings are used to identify and focus on managing the critical sensitive data in your organization.
 
@@ -20,16 +20,14 @@ This configuration helps you focus on your critical sensitive resources and impr
 
 ## Before you start
 
-You need one of these permissions in order to sign in and edit sensitivity settings: Global Administrator,  Compliance Administrator, Compliance Data Administrator, Security Administrator, Security Operator.
-
-- [Review the prerequisites](concept-data-security-posture-prepare.md#configuring-data-sensitivity-settings) for customizing data sensitivity settings.
+- Make sure that you [review the prerequisites and requirements](concept-data-security-posture-prepare.md#configuring-data-sensitivity-settings) for customizing data sensitivity settings.
 - In Defender for Cloud, enable sensitive data discovery capabilities in the [Defender CSPM](data-security-posture-enable.md) and/or [Defender for Storage](defender-for-storage-data-sensitivity.md) plans.
 
-Changes in sensitivity settings take effect the next time that resources are scanned.
+Changes in sensitivity settings take effect the next time that resources are discovered.
 
-## Import custom sensitive info types/labels from Microsoft Purview compliance portal
+## Import custom sensitive info types/labels
 
-Defender for Cloud uses built-in sensitive info types. You can optionally import your own custom sensitive info types and labels from Microsoft Purview compliance portal to align with your organization's needs. 
+Defender for Cloud uses built-in sensitive info types. You can optionally import your own custom sensitive info types and labels from Microsoft Purview compliance portal to align with your organization's needs.
 
 Import as follows (Import only once):
 

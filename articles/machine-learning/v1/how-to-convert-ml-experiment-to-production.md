@@ -436,7 +436,7 @@ The `train_aml.py` file found in the `diabetes_regression/training` directory in
 
 ### Create Python file for the Diabetes Ridge Regression Scoring notebook
 
-Covert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
+Convert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
 jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score

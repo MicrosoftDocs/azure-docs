@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 04/10/2023
 ms.author: franlanglois
 
 ---
@@ -62,7 +62,7 @@ Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, 
 
 ## Choose an appropriate tier
 
-Use Standard or Premium tier for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
+Use Standard, Premium, Enterprise, or Enterprise Flash tiers for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
 
 - they share a CPU core
 - use little memory
@@ -89,6 +89,10 @@ The public IP address assigned to your cache can change as a result of a scale o
 
 The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
+## Specific guidance for the Enterprise tiers
+
+Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in development best practices. See [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md) for more information.
+
 ## Use TLS encryption
 
 Azure Cache for Redis requires TLS encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.
@@ -106,7 +110,9 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 
 #### Does this change affect me?
 
-We expect that most Azure Cache for Redis customers aren't affected by the change. Your application may be impacted if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration.
+We expect that most Azure Cache for Redis customers aren't affected by the change. Your application might be affected if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration. 
+
+Azure Cache for Redis doesn't support [OCSP stapling](https://docs.redis.com/latest/rs/security/certificates/ocsp-stapling/).
 
 The following table provides information about the certificates that are being rolled. Depending on which certificate your application uses, you might need to update it to prevent loss of connectivity to your Azure Cache for Redis instance.
 
@@ -149,7 +155,7 @@ If your application validates certificate in code, you need to modify it to reco
 
 For more information, see [Client libraries](cache-best-practices-client-libraries.md#client-libraries).
 
-## Next steps
+## Next steps  
 
 - [Performance testing](cache-best-practices-performance.md)
 - [Failover and patching for Azure Cache for Redis](cache-failover.md)

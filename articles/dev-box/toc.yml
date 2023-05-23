@@ -10,23 +10,21 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up Microsoft Dev Box service
+    - name: Set up Microsoft Dev Box
       href: quickstart-configure-dev-box-service.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
-    - name: Connect with Remote Desktop App
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 - name: Tutorials
   expanded: true
   items:
-    - name: Connect with Remote Desktop App
+    - name: Connect with Remote Desktop App 
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 - name: Concepts
   expanded: true
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
-    - name: Components common to Dev Box and ADE
+    - name: Dev Box and Deployment Environments components
       href: concept-common-components.md
 - name: How-to guides
   expanded: true
@@ -55,20 +53,25 @@ items:
       href: how-to-customize-devbox-azure-image-builder.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
+    - name: Configure Azure Diagnostic Logs
+      href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference
   items:
     - name: Azure CLI
       href: https://aka.ms/CLI-reference
     - name: REST API
       href: https://aka.ms/dev-box/restapidocs
+    - name: Monitoring Microsoft DevCenter data reference
+      href: monitor-reference.md  
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Get support for Microsoft Dev Box
+      href: how-to-get-help.md  
     - name: Report a problem
       href: https://aka.ms/devbox/report
     - name: Suggest a feature
       href: https://aka.ms/devbox/suggest
-

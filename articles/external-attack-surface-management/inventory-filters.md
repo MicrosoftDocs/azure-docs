@@ -4,7 +4,7 @@ titleSuffix: Defender EASM inventory filters overview
 description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management (Defender EASM), helping users surface specific subsets of inventory assets based on selected parameters.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 12/14/2022
 ms.topic: how-to
 ---

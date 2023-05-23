@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 04/11/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -114,7 +114,7 @@ With premium SSD, the disk IOPS and throughput is fixed, for example, IOPS of a 
 
 ### Ultra Disk and Premium SSD v2 performance throttles
 
-Both Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes.
+Both Ultra Disks and Premium SSD v2 managed disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared Ultra Disks and shared Premium SSD v2 managed disks have two more attributes. Ultra Disks and Premium SSD v2 split these attributes across each attached VM. For some examples on how this distribution of capacity, IOPS, and throughput works, see the [Examples](#examples) section.
 
 
 |Attribute  |Description  |
@@ -171,3 +171,5 @@ Both shared Ultra Disks and shared Premium SSD v2 managed disks are priced based
 ## Next steps
 
 If you're interested in enabling and using shared disks for your managed disks, proceed to our article [Enable shared disk](disks-shared-enable.md)
+
+If you've additional questions, see the [shared disks](faq-for-disks.yml#azure-shared-disks) section of the FAQ.

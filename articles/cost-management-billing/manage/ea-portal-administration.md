@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/08/2022
+ms.date: 04/10/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -24,7 +24,7 @@ This article explains the common tasks that an administrator accomplishes in the
 
 ## Activate your enrollment
 
-To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
+To activate your enrollment, the initial enterprise administrator signs in to the [Azure Enterprise portal](https://ea.azure.com) using their work, school, or Microsoft account.
 
 If you've been set up as the enterprise administrator, you don't need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
 

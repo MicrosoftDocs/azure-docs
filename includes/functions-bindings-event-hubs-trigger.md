@@ -2,11 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/03/2023
+ms.date: 04/04/2023
 ms.author: glenga
 ---
 
-Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string. 
+Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string.
+
+Event Hubs scaling decisions for the Consumption and Premium plans are done via Target Based Scaling. For more information, see [Target Based Scaling](../articles/azure-functions/functions-target-based-scaling.md).
+
+For information about how Azure Functions responds to events sent to an event hub event stream using triggers, see [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions#consuming-events-with-azure-functions).
 
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
@@ -505,7 +509,7 @@ The following table explains the trigger configuration properties that you set i
 
 ## Usage
 
-To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs trigger](../articles/azure-functions/event-driven-scaling.md#event-hubs-triggers).
+To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Consuming Events with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions#consuming-events-with-azure-functions).
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 

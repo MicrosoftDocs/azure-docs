@@ -69,13 +69,13 @@ To use a smart card to authenticate to Azure AD, you must first [configure AD FS
 
 If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports.
 
-- The Windows Desktop client supports the following authentication methods:
+- The Windows Desktop client and Azure Virtual Desktop Store app both support the following authentication methods:
     - Username and password
     - Smart card
     - [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
     - [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
     - [Azure AD authentication](configure-single-sign-on.md)
-- The Windows Store client supports the following authentication method:
+- The Remote Desktop app supports the following authentication method: 
     - Username and password
 - The web client supports the following authentication method:
     - Username and password

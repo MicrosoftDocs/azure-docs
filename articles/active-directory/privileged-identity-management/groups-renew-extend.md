@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 01/12/2023
+ms.date: 4/12/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -23,7 +23,12 @@ Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part 
 
 ## Who can extend and renew
 
-Only Global Administrators, Privileged Role Administrators, or group owners can extend or renew group membership/ownership time-bound assignments. The affected user or group can request to extend assignments that are about to expire and request to renew assignments that are already expired.
+Only users with permissions to manage groups can extend or renew group membership or ownership time-bound assignments. The affected user or group can request to extend assignments that are about to expire and request to renew assignments that are already expired.
+
+Role-assignable groups can be managed by Global Administrator, Privileged Role Administrator, or Owner of the group. Non-role-assignable groups can be managed by Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator, or Owner of the group. Role assignments for administrators should be scoped at directory level (not Administrative Unit level). 
+
+> [!NOTE]
+> Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
 ## When notifications are sent
 

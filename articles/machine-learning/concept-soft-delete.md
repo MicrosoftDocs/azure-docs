@@ -11,6 +11,7 @@ ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
 ms.date: 11/07/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
 ---
 
@@ -18,17 +19,14 @@ ms.date: 11/07/2022
 
 The soft-delete feature for Azure Machine Learning workspace provides a data protection capability that enables you to attempt recovery of workspace data after accidental deletion. Soft delete introduces a two-step approach in deleting a workspace. When a workspace is deleted, it's first soft deleted. While in soft-deleted state, you can choose to recover or permanently delete a workspace and its data during a data retention period.
 
-> [!IMPORTANT]	
-> Workspace soft delete is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 	
+> [!IMPORTANT]    
+> Workspace soft delete is currently in public preview and will become general available on June 9th 2023. The preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.     
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > To enroll your Azure Subscription, see [Register soft-delete on an Azure subscription](#register-soft-delete-on-an-azure-subscription).
 
 ## How workspace soft delete works
 
 When a workspace is soft-deleted, data and metadata stored service-side get soft-deleted, but some configurations get hard-deleted. Below table provides an overview of which configurations and objects get soft-deleted, and which are hard-deleted.
-
-> [!IMPORTANT] 
-> Soft delete is not supported for workspaces encrypted with customer-managed keys (CMK), and these workspaces are always hard deleted.
 
 Data / configuration | Soft-deleted | Hard-deleted
 ---|---|---
@@ -62,13 +60,11 @@ A default retention period of 14 days holds for deleted workspaces. The retentio
 During the retention period, soft-deleted workspaces can be recovered or permanently deleted. Any other operations on the workspace, like submitting a training job,  will fail. You can't reuse the name of a workspace that has been soft-deleted until the retention period has passed. Once the retention period elapses, a soft deleted workspace automatically gets permanently deleted.
 
 > [!TIP]
-> During preview of workspace soft-delete, the retention period is fixed to 14 days and can’t be modified. 
+> During preview of workspace soft-delete, the retention period is fixed to 14 days and can't be modified. 
 
 ## Deleting a workspace
 
-The default deletion behavior when deleting a workspace is soft delete. This behavior excludes workspaces that are [encrypted with a customer-managed key](concept-customer-managed-keys.md), which aren't supported for soft delete.
-
-Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal. Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
+The default deletion behavior when deleting a workspace is soft delete. Optionally, you may permanently delete a workspace going to soft delete state first by checking __Delete the workspace permanently__ in the Azure portal. Permanently deleting workspaces can only be done one workspace at time, and not using a batch operation.
 
 Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This behavior may be useful in dev/test scenarios where you want to create and later delete a workspace. Permanently deleting a workspace may also be required for compliance if you manage highly sensitive data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-gdpr-implications) to learn more on how deletions are handled when soft delete is enabled.
 
@@ -105,13 +101,16 @@ When you select *Permanently delete* on a soft-deleted workspace, it triggers ha
 
 During the time of preview, workspace soft delete is enabled on an opt-in basis per Azure subscription. When soft delete is enabled for a subscription, it's enabled for all Azure Machine Learning workspaces in that subscription.
 
-To enable workspace soft delete on your Azure subscription, [register the preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature) in the Azure portal. Select `Workspace soft delete` under the `Microsoft.MachineLearningServices` resource provider. It may take 15 minutes for the UX to appear in the Azure portal after registering your subscription.
+To enable workspace soft delete on your Azure subscription, [register the preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature) in the Azure portal. Select `wssoftdeete` or `Workspace soft delete` under the `Microsoft.MachineLearningServices` resource provider. It may take 15 minutes for the UX to appear in the Azure portal after registering your subscription.
 
 Before disabling workspace soft delete on an Azure subscription, purge or recover soft-deleted workspaces. After you disable soft delete on a subscription, workspaces that remain in soft deleted state are automatically purged when the retention period elapses.
 
 ## Billing implications
 
 In general, when a workspace is in soft-deleted state, there are only two operations possible: 'permanently delete' and 'recover'. All other operations will fail. Therefore, even though the workspace exists, no compute operations can be performed and hence no usage will occur. When a workspace is soft-deleted, any cost-incurring resources including compute clusters are hard deleted.
+
+> [!IMPORTANT]    
+> Workspaces that use [customer-managed keys for encryption](concept-data-encryption.md) store additional service data in your subscription in a managed resource group. When a workspace is soft-deleted, the managed resource group and resources in it will not be deleted and will incur cost until the workspace is hard-deleted.
 
 ## General Data Protection Regulation (GDPR) implications
 

@@ -69,6 +69,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-docs-code-javascript",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-javascript",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -375,6 +381,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-docs-code-dotnet",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -399,6 +411,18 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-vj",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "vijetajo-patch-2",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-batch-pup",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "santiagxf/batch-pup",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
@@ -420,6 +444,12 @@
       "path_to_root": "azureml-examples-online-endpoint-vnet",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-featurestore",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "featurestore/pup",
       "branch_mapping": {}
     },
     {
@@ -699,6 +729,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-javascript-react-docs",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-react-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-quickstart-code",
       "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master",
@@ -879,9 +915,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "ms-identity-python-webapp",
+      "path_to_root": "ms-identity-python-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "main",
+      "branch": "0.7.0",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-python-webapp-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
+      "branch": "0.6.0",
       "branch_mapping": {}
     },
     {
@@ -945,6 +987,12 @@
       "branch_mapping": {}
     },
     {
+		"path_to_root": "azure-load-testing-samples",
+		"url": "https://github.com/Azure-Samples/azure-load-testing-samples",
+		"branch": "main",
+		"branch_mapping": {}
+	  },
+	  {
       "path_to_root": "microsoft-graph",
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
@@ -970,6 +1018,7 @@
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.azure-arc-data.json",
   ".openpublishing.redirection.azure-attestation.json",
+  ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",

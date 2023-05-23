@@ -19,7 +19,7 @@ For IT, business continuity plans are largely driven by two metrics:
 - Recovery Time Objective (RTO) – the time duration in which your application must come back online after an outage. 
 - Recovery Point Objective (RPO) – the acceptable amount of data loss in a disaster, expressed as a unit of time (for example, 1 minute of transactional database records). 
 
-Normally, maintaining an SLA around RTO is impractical for regional disasters, and you would typically design your disaster recovery strategy around RPO alone (i.e. focus on recovering data and not on minimizing interruption). With Azure, however, it's not only practical but could even be straightforward to deploy App Service for automatic geo-failovers. This lets you disaster-proof your applications further by take care of both RTO and RPO.
+Normally, maintaining an SLA around RTO is impractical for regional disasters, and you would typically design your disaster recovery strategy around RPO alone (i.e. focus on recovering data and not on minimizing interruption). With Azure, however, it's not only practical but could even be straightforward to deploy App Service for automatic geo-failovers. This lets you disaster-proof your applications further by taking care of both RTO and RPO.
 
 Depending on your desired RTO and RPO metrics, three disaster recovery architectures are commonly used, as shown in the following table:
  
@@ -109,7 +109,7 @@ In this disaster recovery approach, you create regular backups of your web app t
 
 With this example architecture:
 
-- A single web app is deployed to a singled region.
+- A single web app is deployed to a single region.
 - The web app is regularly backed up to an Azure Storage account in the same region.
 - The cross-region replication of your backups depends on the data redundancy configuration in the Azure storage account. You should set your Azure Storage account as [GZRS](../storage/common/storage-redundancy.md#geo-zone-redundant-storage) if possible. GZRS offers both synchronous zone redundancy within a region and asynchronous in a secondary region. If GZRS isn't available, configure the account as [GRS](../storage/common/storage-redundancy.md#geo-redundant-storage). Both GZRS and GRS have an [RPO of about 15 minutes](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 - To ensure that you can retrieve backups when the storage account's primary region becomes unavailable, [**enable read only access to secondary region**](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) (making the storage account **RA-GZRS** or **RA-GRS**, respectively). For more information on designing your applications to take advantage of geo-redundancy, see [Use geo-redundancy to design highly available applications](../storage/common/geo-redundant-design.md).
@@ -148,10 +148,12 @@ Steps to create a passive-cold region without GRS and GZRS are summarized as fol
 - These disaster recovery strategies are applicable to both App Service multitenant and App Service Environments.
 - Within the same region, an App Service app can be deployed into [availability zones (AZ)](../reliability/availability-zones-overview.md) to help you achieve high availability for your mission-critical workloads. For more information, see [Migrate App Service to availability zone support](../reliability/migrate-app-service.md).
 - There are multiple ways to replicate your web apps content and configurations across Azure regions in an active-active or active-passive architecture, such as using [App service backup and restore](manage-backup.md). However, these options are point-in-time snapshots and eventually lead to web app versioning challenges across regions. To avoid these limitations, configure your CI/CD pipelines to deploy code to both the Azure regions. Consider using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
-- Use an infrastructure-as-code (IoC) mechanism to manage your application resources in Azure. In a complex deployment across multiple regions, to manage the regions independently and to keep the configuration synchronized across regions in a reliable manner requires a predictable, testable, and repeatable process. Consider an IoC tool such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview).
+- Use an infrastructure-as-Code (IaC) mechanism to manage your application resources in Azure. In a complex deployment across multiple regions, to manage the regions independently and to keep the configuration synchronized across regions in a reliable manner requires a predictable, testable, and repeatable process. Consider an IaC tool such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview).
 - Your application most likely depends on other data services in Azure, such as Azure SQL Database and Azure Storage accounts. You should develop disaster recovery strategies for each of these dependent Azure Services as well. For SQL Database, see [Active geo-replication for Azure SQL Database](/azure/azure-sql/database/active-geo-replication-overview). For Azure Storage, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). 
 - Aside from Azure Front Door, which is proposed in this article, Azure provides other load balancing options, such as Azure Traffic Manager. For a comparison of the various options, see [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview).
 - It's also recommended to set up monitoring and alerts for your web apps to for timely notifications during a disaster. For more information, see [Application Insights availability tests](../azure-monitor/app/availability-overview.md).
+
+[!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
 
 ## Next steps
 

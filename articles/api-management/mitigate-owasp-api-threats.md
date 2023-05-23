@@ -4,7 +4,7 @@ description: Learn how to protect against common API-based vulnerabilities, as i
 author: mikebudzynski
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 04/13/2023
 ms.author: mibudz
 ---
 
@@ -13,6 +13,9 @@ ms.author: mibudz
 The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Foundation works to improve software security through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
 
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we'll discuss recommendations to use Azure API Management to mitigate the top 10 API threats identified by OWASP.
+
+> [!NOTE]
+> In addition to following the recommendations in this article, you can enable [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) (preview), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
 
 ## Broken object level authorization 
 
@@ -308,7 +311,10 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 ## Next steps
 
+Learn more about:
+
 * [Authentication and authorization in API Management](authentication-authorization-overview.md)
 * [Security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
 * [Security controls by Azure policy](security-controls-policy.md)
 * [Landing zone accelerator for API Management](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
+* [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)

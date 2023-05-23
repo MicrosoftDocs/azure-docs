@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Deploy a Dapr application with GitHub Actions for Azure Container Apps
 description: Learn about multiple revision management by deploying a Dapr application with GitHub Actions and Azure Container Apps. 
-author: cebundy
-ms.author: v-bcatherine
+author: lanceleonard
+ms.author: v-laleonard
 ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 
@@ -44,7 +44,7 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 
 In the console, set the following environment variables:
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Replace \<PLACEHOLDERS\> with your values.
 
@@ -59,7 +59,7 @@ SUBSCRIPTION_ID="<YOUR_SUBSCRIPTION_ID>"
 
 Replace \<Placeholders\> with your values.
 
-```powershell
+```azurepowershell-interactive
 $ResourceGroup="my-containerapp-store"
 $Location="canadacentral"
 $GitHubUsername="<GitHubUsername>"
@@ -70,15 +70,15 @@ $SubscriptionId="<SubscriptionId>"
 
 Sign in to Azure from the CLI using the following command, and follow the prompts in your browser to complete the authentication process.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -86,15 +86,15 @@ Connect-AzAccount
 
 Ensure you're running the latest version of the CLI via the upgrade command.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az upgrade
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Install-Module -Name Az.App
 ```
 
@@ -108,7 +108,7 @@ Now that you've validated your Azure CLI setup, bring the application code to yo
 
 1. Use the following [git](https://git-scm.com/downloads) command with your GitHub username to clone **your fork** of the repo to your development environment:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
     ```git
     git clone https://github.com/$GITHUB_USERNAME/container-apps-store-api-microservice.git
@@ -124,7 +124,7 @@ Now that you've validated your Azure CLI setup, bring the application code to yo
 
 1. Navigate into the cloned directory.
 
-    ```console
+    ```bash
     cd container-apps-store-api-microservice
     ```
 
@@ -158,9 +158,9 @@ The following resources are deployed via the bicep template in the `/deploy` pat
 
 The workflow requires a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) to authenticate to Azure. In the console, run the following command and replace `<SERVICE_PRINCIPAL_NAME>` with your own unique value.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac \
   --name <SERVICE_PRINCIPAL_NAME> \
   --role "contributor" \
@@ -170,7 +170,7 @@ az ad sp create-for-rbac \
 
 # [PowerShell](#tab/powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $CmdArgs = @{
    DisplayName = '<SERVICE_PRINCIPAL_NAME>'
    Role = 'contributor'
@@ -280,9 +280,9 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Return to the console, and navigate into the *node-service/views* directory in the forked repository.
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azure-cli)
 
-    ```azurecli
+    ```bash
    cd node-service/views
     ```
 
@@ -295,9 +295,9 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Open the *index.jade* file in your editor of choice.
 
-   # [Bash](#tab/bash)
+   # [Azure CLI](#tab/azure-cli)
 
-    ```azurecli
+    ```bash
    code index.jade .
     ```
 
@@ -325,7 +325,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Stage the changes and push to the `main` branch of your fork using git. 
 
-   # [Bash](#tab/bash)
+   # [Azure CLI](#tab/azure-cli)
    
    ```git
    git add .
@@ -374,16 +374,16 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 Once you've finished the tutorial, run the following command to delete your resource group, along with all the resources you created in this tutorial.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az group delete \
   --resource-group $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

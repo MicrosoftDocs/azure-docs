@@ -11,6 +11,7 @@ author: balapv
 ms.reviewer: sgilley
 ms.date: 10/21/2021
 ms.custom: UpdateFrequency5, seoapril2019, seodec18, ignite-2022
+monikerRange: 'azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 

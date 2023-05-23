@@ -27,6 +27,7 @@ Azure offers a variety of RHEL pay-as-you-go images. These images come properly 
 * RHEL
 * RHEL for SAP
 * RHEL for SAP with High Availability (HA) and Update Services
+* RHEL with High Availability (HA) and Update Services
 
 You might want to use the pay-as-you-go images if you don't want to worry about paying separately for the appropriate number of subscriptions.
 

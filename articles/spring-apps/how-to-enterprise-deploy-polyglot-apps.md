@@ -1,6 +1,6 @@
 ---
-title: How to deploy polyglot apps in Azure Spring Apps Enterprise tier
-description: Shows you how to deploy polyglot apps in Azure Spring Apps Enterprise tier.
+title: How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
+description: Shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -9,23 +9,23 @@ ms.date: 01/13/2023
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# How to deploy polyglot apps in Azure Spring Apps Enterprise tier
+# How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to deploy polyglot apps in Azure Spring Apps Enterprise tier, and how these polyglot apps can use the build service features provided by buildpacks.
+This article shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan, and how these polyglot apps can use the build service features provided by buildpacks.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.43.0 or higher.
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 
 ## Deploy a polyglot application
 
-When you create an Enterprise tier instance of Azure Spring Apps, you'll be provided with a `default` builder with one of the following supported [language family buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html):
+When you create an Enterprise plan instance of Azure Spring Apps, you'll be provided with a `default` builder with one of the following supported [language family buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html):
 
 - [tanzu-buildpacks/java-azure](https://network.tanzu.vmware.com/products/tanzu-java-azure-buildpack)
 - [tanzu-buildpacks/dotnet-core](https://network.tanzu.vmware.com/products/tanzu-dotnet-core-buildpack)

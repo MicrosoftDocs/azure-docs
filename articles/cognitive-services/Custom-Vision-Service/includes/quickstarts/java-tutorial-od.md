@@ -4,6 +4,7 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
+ms.topic: include
 ---
 
 Get started using the Custom Vision client library for Java to build an object detection model. Follow these steps to install the package and try out the example code for basic tasks. Use this example as a template for building your own image recognition app.

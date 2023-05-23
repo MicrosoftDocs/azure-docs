@@ -4,7 +4,7 @@ description: Tutorial - Learn how to extract data from a raw CSV dataset. Transf
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
-ms.date: 08/28/2022
+ms.date: 04/26/2023
 #Customer intent: As a data analyst, I need to load some data using Interactive Query, transform, and then export it to an Azure SQL database
 ---
 
@@ -31,7 +31,7 @@ This tutorial covers the following tasks:
 
 ## Download the flight data
 
-1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
+1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/Homepage.asp).
 
 2. On the page, clear all fields, and then select the following values:
 

@@ -104,6 +104,9 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 
 The following table lists the columns available in the Defender for IoT device inventory on the Azure portal. Starred items **(*)** are also available from the OT sensor.
 
+> [!NOTE]
+> Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 |Name  |Description
 |---------|---------|
 |**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value may need to change as the device security changes.  |
@@ -124,6 +127,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **MAC Address** * | The device's MAC address.  |
 |**Model**  *| Editable The device's hardware model. |
 |**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |
+|**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |
 |**OS architecture** | Editable. The device's operating system architecture.  |
 |**OS distribution** | Editable. The device's operating system distribution, such as Android, Linux, and Haiku.   |
 |**OS platform** * | Editable. The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |

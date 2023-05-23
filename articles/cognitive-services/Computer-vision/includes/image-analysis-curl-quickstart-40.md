@@ -52,7 +52,7 @@ To analyze an image for various visual features, do the following steps:
 
 ### Examine the response
 
-A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
+A successful response is returned in JSON, similar to the following example:
 
 
 ```json

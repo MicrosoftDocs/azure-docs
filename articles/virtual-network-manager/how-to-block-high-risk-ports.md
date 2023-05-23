@@ -23,7 +23,7 @@ While this article focuses on a single port, SSH, you can protect any high-risk 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
-* You understand how to an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
+* You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A group of virtual networks that can be split into network groups for applying granular security admin rules.

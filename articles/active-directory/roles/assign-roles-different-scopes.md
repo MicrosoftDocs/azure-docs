@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure AD roles at different scopes
 
-In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also call the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
+In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also called the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ This section describes how to assign roles at the tenant scope.
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
 
 1. Select a role to see its assignments. To help you find the role you need, use **Add filters** to filter the roles.
 

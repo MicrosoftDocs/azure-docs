@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/17/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
@@ -27,24 +27,38 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Prerequisites
 
-- A dev center. If you don't have one available, follow the steps in [Create a dev center](./quickstart-configure-dev-box-service.md#create-a-dev-center).
-- A compute gallery. For you to use a gallery to configure dev box definitions, it must have at least [one image definition and one image version](../virtual-machines/image-version.md):
-  - The image version must meet the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements):
-    - Generation 2.
-    - Hyper-V v2.
-    - Windows OS.
-    - Generalized image.
-    - Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
-    - No recovery partition.
-    - Default 64-GB OS disk size. The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+- A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#1-create-a-dev-center).
+- A compute gallery. Images stored in a compute gallery can be used in a dev box definition, provided they meet the requirements listed in the [Compute gallery image requirements](#compute-gallery-image-requirements) section.
+ 
+> [!NOTE]
+> Microsoft Dev Box Preview doesn't support community galleries.
 
-  - The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
+## Compute gallery image requirements 
+
+A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
+
+The image version must meet the following requirements:
+- Generation 2.
+- Hyper-V v2.
+- Windows OS.
+    - Windows 10 Enterprise version 20H2 or later.
+    - Windows 11 Enterprise 21H2 or later.
+- Generalized VM image.
+    - You must create the image using the following sysprep options: `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`. </br>
+      For more information, see: [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
+    - To speed up the Dev Box creation time, you can disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. </br>
+      For more information, see: [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
+- Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
+- No recovery partition.
+    - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
+- Default 64-GB OS disk size. The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+- The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
 
     :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
 > [!NOTE]
-> - If you have existing images that don't meet the Windows 365 image requirements, those images won't be listed for image creation.
-> - Microsoft Dev Box Preview doesn't support community galleries.
+> - Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
+> - Images that do not meet Windows 365 requirements will not be listed for creation.
 
 ## Provide permissions for services to access a gallery
 
@@ -106,7 +120,7 @@ Use the following steps to manually assign each role.
    | **Assign access to** | Select **Managed Identity**. |
    | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-the-dev-center). |
 
-You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added will have the necessary permissions to the images in the gallery that you've added the Owner role assignment to.
+You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added has the necessary permissions to the images in the gallery that you've added the Owner role assignment to.
 
 ## Attach a gallery to a dev center
 

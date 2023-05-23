@@ -88,7 +88,7 @@ If your application's database already exists, has users in it, and you want to 
 
 When Azure AD has established a link between a user in Azure AD and a record in the database, either for a user already in the database or a new user, then Azure AD can provision attribute changes from the Azure AD user into the database. In addition to the unique identifiers, inspect your database to identify if there are any other required properties.  If there are, then ensure that the users who will be provisioned into the database have attributes that can be mapped onto the required properties.
 
-You can also configure [deprovisioning](../articles/active-directory/app-provisioning/how-provisioning-works.md#de-provisioning) behavior.  If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the database.  You may also wish to have Azure AD update the database when a user goes out of scope of being able to use the application.  If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, then you can configure Azure AD to send an attribute change.  If you're provisioning into an existing database table, then you'll want to have a column of that table to map to **isSoftDeleted**.  When the user goes out of scope, Azure AD will set the value for that user to **True**.
+You can also configure [deprovisioning](../articles/active-directory/app-provisioning/how-provisioning-works.md#deprovisioning) behavior.  If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the database.  You may also wish to have Azure AD update the database when a user goes out of scope of being able to use the application.  If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, then you can configure Azure AD to send an attribute change.  If you're provisioning into an existing database table, then you'll want to have a column of that table to map to **isSoftDeleted**.  When the user goes out of scope, Azure AD will set the value for that user to **True**.
 
 ## 1. Install the ODBC driver
 
@@ -148,7 +148,14 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
- 1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the Windows Server that has connectivity to your SQL server.
+  1.  In the Azure portal, select **Azure Active Directory**.
+  2.  On the left, select **Azure AD Connect**.
+  3.  On the left, select **Cloud sync**.
+ 
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+
+ 4. On the left, select **Agent**.
+ 5. Select **Download on-premises agent**, and select **Accept terms & download**.
 
      >[!NOTE]
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 

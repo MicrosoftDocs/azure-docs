@@ -30,7 +30,7 @@ Install the npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
+npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
 
 ```
 
@@ -107,22 +107,22 @@ It measures time from the `ComponentDidMount` event through the `ComponentWillUn
 
 To see this metric in the Azure portal, go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation (for example, sum or avg) of your metric and split by `Component Name`.
 
-![Screenshot that shows a chart that displays the custom metric "React Component Engaged Time (seconds)" split by "Component Name"](./media/javascript-react-plugin/chart.png)
+:::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
 You can also run custom queries to divide Application Insights data to generate reports and visualizations as per your requirements. In the Azure portal, go to the Application Insights resource, select **Analytics** from the **Overview** tab, and run your query.
 
-![Screenshot that shows custom metric query results.](./media/javascript-react-plugin/query.png)
+:::image type="content" source="./media/javascript-react-plugin/query.png" lightbox="./media/javascript-react-plugin/query.png" alt-text="Screenshot that shows custom metric query results.":::
 
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
 ### Use React Hooks
 
-[React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
+[React Hooks](https://react.dev/reference/react) are an approach to state and lifecycle management in a React application without relying on class-based React components. The Application Insights React plug-in provides several Hooks integrations that operate in a similar way to the higher-order component approach.
 
 #### Use React Context
 
-The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
+The React Hooks for Application Insights are designed to use [React Context](https://react.dev/learn/passing-data-deeply-with-context) as a containing aspect for it. To use Context, initialize Application Insights, and then import the Context object:
 
 ```javascript
 import React from "react";
@@ -229,7 +229,7 @@ When the Hook is used, a data payload can be provided to it to add more data to 
 
 ### React error boundaries
 
-[Error boundaries](https://reactjs.org/docs/error-boundaries.html) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
+[Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
 ```javascript
 import React from "react";

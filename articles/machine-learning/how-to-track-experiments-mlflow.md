@@ -32,9 +32,13 @@ See [Support matrix for querying runs and experiments in Azure Machine Learning]
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
+## Query experiments
+
+Use MLflow to search for experiments inside of your workspace.
+
 ## Getting all the experiments
 
-You can get all the active experiments in the workspace using MLFlow:
+You can get all the active experiments in the workspace using MLflow:
 
 ```python
 experiments = mlflow.search_experiments()
@@ -43,9 +47,9 @@ for exp in experiments:
 ```
 
 > [!NOTE]
-> __MLflow 2.0 advisory:__ In legacy versions of MLflow (<2.0) use method `list_experiments` instead.
+> In legacy versions of MLflow (<2.0) use method `mlflow.list_experiments()` instead.
 
-If you want to retrieve archived experiments too, then include the option `ViewType.ALL` in the `view_type` argument. The following sample shows how:
+If you want to retrieve archived experiments too, then include the parameter `view_type=ViewType.ALL`. The following sample shows how:
 
 ```python
 from mlflow.entities import ViewType
@@ -55,7 +59,16 @@ for exp in experiments:
     print(exp.name)
 ```
 
-## Search experiments
+### Getting a specific experiment
+
+Details about a specific experiment can be retrieved using the `get_experiment_by_name` method:
+
+```python
+exp = mlflow.get_experiment_by_name(experiment_name)
+print(exp)
+```
+
+### Searching experiments
 
 The `search_experiments()` method available since Mlflow 2.0 allows searching experiment matching a criteria using `filter_string`. The following query retrieves three experiments with different IDs.
 
@@ -65,16 +78,7 @@ mlflow.search_experiments(filter_string="experiment_id IN (
 )
 ```
 
-## Getting a specific experiment
-
-Details about a specific experiment can be retrieved using the `get_experiment_by_name` method:
-
-```python
-exp = mlflow.get_experiment_by_name(experiment_name)
-print(exp)
-```
-
-## Query runs inside an experiment
+## Query and search runs inside an experiment
 
 MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. By default, MLflow returns the data in Pandas `Dataframe` format, which makes it handy when doing further processing our analysis of the runs. Returned data includes columns with:
 
@@ -131,13 +135,13 @@ You can also look for a run with a specific combination in the hyperparameters u
 ```python
 mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
                    filter_string="params.num_boost_round='100'")
-```
+``` 
 
-Specific run field can also be indicated. Fields do not need a qualifier like `params`, `metrics` or `attributes`. The following search query for runs with specific IDs. 
+You can also use the qualifier `attributes` to query for specific attributes of the run like `creation_time` or `run_id`. The following example conditions the query to return only specific runs:
 
 ```python
 mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
-                   filter_string="run_id IN ('CDEFG-1234-5678-90AB', '1234-5678-90AB-CDEFG', '5678-1234-90AB-CDEFG')")
+                   filter_string="attributes.run_id IN ('1234-5678-90AB-CDEFG', '5678-1234-90AB-CDEFG')")
 ```
 
 ### Filter runs by status
@@ -163,6 +167,16 @@ The following example shows all the completed runs:
 runs = mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
 runs[runs.status == "FINISHED"]
 ```
+
+### Searching runs across experiments
+
+The method `search_runs` require you to indicate the experiment name or ID you want to search runs in. However, if you want to query runs across multiple experiments, you can indicate the argument `search_all_experiments=True` to expand the search.
+
+```python
+mlflow.search_runs(filter_string="params.num_boost_round='100'", search_all_experiments=True)
+``` 
+
+Notice that if `search_all_experiments` is not indicated and no experiment ID or name is indicated, the search is performed in the current active experiment (the one indicated in `mlflow.set_experiment()` method).
   
 ## Getting metrics, parameters, artifacts and models
 
@@ -222,7 +236,7 @@ file_path = mlflow.artifacts.download_artifacts(
 ```
 
 > [!NOTE]
-> __MLflow 2.0 advisory:__ In legacy versions of MLflow (<2.0), use the method `MlflowClient.download_artifacts()` instead.
+> In legacy versions of MLflow (<2.0), use the method `MlflowClient.download_artifacts()` instead.
 
 ### Getting models from a run
 
@@ -302,7 +316,7 @@ The MLflow SDK exposes several methods to retrieve runs, including options to co
 | Renaming experiments | **&check;** |  |
 
 > [!NOTE]
-> - <sup>1</sup> Check the section [Query runs inside an experiment](#query-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure Machine Learning.
+> - <sup>1</sup> Check the section [Query and search runs inside an experiment](#query-and-search-runs-inside-an-experiment) for instructions and examples on how to achieve the same functionality in Azure Machine Learning.
 > - <sup>2</sup> `!=` for tags not supported.
 
 ## Next steps

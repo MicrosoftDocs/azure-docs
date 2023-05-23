@@ -27,7 +27,7 @@ In the parse transformation configuration panel, you'll first pick the type of d
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you'll either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
+Similar to derived columns and aggregates, this is where you'll either modify an existing column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
 
 ### Expression
 

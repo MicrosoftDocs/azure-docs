@@ -1,6 +1,16 @@
 {
   "redirections": [     
     {
+      "source_path": "diagnostic-logs.md",
+      "redirect_url": "/azure/event-grid/monitor-push-reference",
+      "redirect_document_id": false
+    },          
+    {
+      "source_path": "compare-messaging-services.md",
+      "redirect_url": "/azure/service-bus-messaging/compare-messaging-services",
+      "redirect_document_id": false
+    },          
+    {
       "source_path": "edge/advanced-filtering.md",
       "redirect_url": "/azure/event-grid/transition",
       "redirect_document_id": false

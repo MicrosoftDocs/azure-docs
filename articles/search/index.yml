@@ -6,12 +6,12 @@ metadata:
   title: Azure Cognitive Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
-  ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: service
+  ms.topic: landing-page
   ms.collection: collection
-  author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
-  ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/02/2021 #Required; mm/dd/yyyy format.
+  author: HeidiSteen
+  ms.author: heidist
+  ms.date: 03/02/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

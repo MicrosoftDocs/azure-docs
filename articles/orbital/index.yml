@@ -47,8 +47,6 @@ landingContent:
         links:
           - text: Prepare network to receive and send data
             url: prepare-network.md
-          - text: License your spacecraft
-            url: license-spacecraft.md
           - text: Integrate partner network ground stations
             url: partner-network-integration.md
           - text: Receive real-time telemetry
@@ -63,10 +61,12 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Schedule a contact with NASA's AQUA public satellite
+          - text: Downlink data from NASA's Aqua public satellite
             url: downlink-aqua.md
-          - text: Collect and process AQUA satellite payload
-            url: satellite-imagery-with-orbital-ground-station.md 
+          - text: Process Aqua satellite data using NASA-provided tools
+            url: satellite-imagery-with-orbital-ground-station.md
+          - text: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+            url: virtual-rf-tutorial.md
       - linkListType: architecture
         links:
           - text: Geospatial reference architecture

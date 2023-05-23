@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 08/17/2022
 ms.author: jgao
-ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart
+ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
 ---
 

@@ -45,7 +45,7 @@ When you deploy an Azure storage mover resource, you also need to choose a regio
 
 :::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow represents data traveling to a storage account from the source and agent, and a second arrow represents the management and control info to the storage mover resource and service." lightbox="media/across-articles/data-vs-management-path-large.png":::
 
-In most cases, deploying only a single storage mover resource is the best option, even when you need to migrate files located in other countries. One or more migration agents are registered to a storage mover resource. An agent can only be used by the storage mover to which it's registered. The agents themselves should be located close to the source storage, even if that means registering  agents deployed in other countries to a storage mover resource located across the globe.
+In most cases, deploying only a single storage mover resource is the best option, even when you need to migrate files located in other countries/regions. One or more migration agents are registered to a storage mover resource. An agent can only be used by the storage mover to which it's registered. The agents themselves should be located close to the source storage, even if that means registering  agents deployed in other countries/regions to a storage mover resource located across the globe.
 
 Only deploy multiple storage mover resources if you have distinct sets of migration agents. Having separate storage mover resources and agents allows you to keep permissions separate for the admins managing their part of the source or target storage.
 

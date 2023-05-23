@@ -53,8 +53,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Gopinath Durairaj - Sr. Director, Product Management** 
 
-[Learn more](https://www.citrix.com/blogs/2021/11/02/citrix-adc-integration-with-azure-gw-load-balancer/)
-
 ### cPacket Networks
 
 :::image type="content" source="./media/gateway-partners/cpacket.png" alt-text="Screenshot of cPacket Networks logo.":::

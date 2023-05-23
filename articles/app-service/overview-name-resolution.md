@@ -3,7 +3,7 @@ title: Name resolution in App Service
 description: Overview of how name resolution (DNS) works for your app in Azure App Service.
 author: madsd
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 04/03/2023
 ms.author: madsd
 ---
 
@@ -35,15 +35,15 @@ Using the app setting `WEBSITE_DNS_ALT_SERVER`, you append a DNS server to end o
 
 If you require fine-grained control over name resolution, App Service allows you to modify the default behavior. You can modify retry attempts, retry timeout and cache timeout. Changing behavior like disabling or lowering cache duration may influence performance.
 
-|Property name|Default value|Allowed values|Description|
-|-|-|-|
-|dnsRetryAttemptCount|1|1-5|Defines the number of attempts to resolve where one means no retries|
-|dnsMaxCacheTimeout|30|0-60|Cache timeout defined in seconds. Setting cache to zero means you've disabled caching|
-|dnsRetryAttemptTimeout|3|1-30|Timeout before retrying or failing. Timeout also defines the time to wait for secondary server results if the primary doesn't respond|
+|Property name|Windows default value|Linux default value|Allowed values|Description|
+|-|-|-|-|
+|dnsRetryAttemptCount|1|5|1-5|Defines the number of attempts to resolve where one means no retries.|
+|dnsMaxCacheTimeout|30|0|0-60|Cache timeout defined in seconds. Setting cache to zero means you've disabled caching.|
+|dnsRetryAttemptTimeout|3|1|1-30|Timeout before retrying or failing. Timeout also defines the time to wait for secondary server results if the primary doesn't respond.|
 
 >[!NOTE]
-> * Changing name resolution behavior is not supported on Windows Container apps
-> * To enable DNS caching on Web App for Containers and Linux-based apps you must add the app setting `WEBSITE_ENABLE_DNS_CACHE`
+> * Changing name resolution behavior is not supported on Windows Container apps.
+> * To enable DNS caching on Web App for Containers and Linux-based apps, you must add the app setting `WEBSITE_ENABLE_DNS_CACHE`. This setting defaults to 30 seconds.
 
 Configure the name resolution behavior by using these CLI commands:
 

@@ -10,12 +10,12 @@ author: fkriti
 ms.reviewer: larryfr
 ms.date: 03/21/2023
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, sdkv2
+ms.custom: devx-track-python, devx-track-azurecli, sdkv2, build-2023
 ---
 
 # Share data across workspaces with registries (preview)
 
-Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, environments and data. In this article, you learn how to:
+Azure Machine Learning registry enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, environments and data. Sharing data with registries is currently a preview feature. In this article, you learn how to:
 
 * Create a data asset in the registry.
 * Share an existing data asset from workspace to registry
@@ -67,7 +67,7 @@ Before following the steps in this article, make sure you have the following pre
 
 - Familiarity with [Azure Machine Learning registries](concept-machine-learning-registries-mlops.md) and [Data concepts in Azure Machine Learning](concept-data.md).
 
-- An Azure Machine Learning registry (preview) to share data. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
+- An Azure Machine Learning registry to share data. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
 
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
@@ -102,7 +102,7 @@ Before following the steps in this article, make sure you have the following pre
     To install the Python SDK v2, use the following command:
 
     ```bash
-    pip install --pre azure-ai-ml
+    pip install --pre --upgrade azure-ai-ml azure-identity
     ```
 
     ---

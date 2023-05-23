@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 03/07/2023
+ms.date: 04/25/2023
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
@@ -24,9 +24,31 @@ Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Re
 
 ## Bloom Filter based classifications
 
-### City, Country, and Place
+### World Cities, Country
 
-The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
+The City and Country classifier identifies the data based on their full names as well as short codes.
+
+#### Keywords
+
+##### Keywords for City
+- burg
+- city
+- cities
+- city names
+- cosmopolis
+- metropolis
+- municipality
+- place
+- town
+
+##### Keywords for Country
+- country
+- countries
+- country names
+- nation
+- nationality
+
+-------------------------------------
 
 ## Machine Learning based classifications
 
@@ -35,10 +57,9 @@ The City, Country, and Place filters have been prepared using best datasets avai
 
 ### Person's Name
 
-Person Name machine learning model has been trained using global datasets of names in English language.
+Person Name machine learning model has been trained using global datasets of names in English language. Microsoft Purview classifies full names stored in the same column as well as first and last names in separate columns.
 
-> [!NOTE]
-> Microsoft Purview classifies full names stored in the same column as well as first/last names in separate columns.
+-------------------------------------
 
 ### Person's Address
 Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
@@ -52,14 +73,25 @@ Currently the address model supports the following formats in the same column:
 - street, city, pincode or zipcode
 - landmark, city
 
+-------------------------------------
+
 ### Person's Gender
-Person's Gender machine learning model has been trained using US Census data and other public data sources in English language.
+Person's Gender machine learning model has been trained using US Census data and other public data sources in English language. It supports classifying 50+ genders out of the box.
+
+#### Keywords
+- sex
+- gender
+- sexual
+- orientation
+
+-------------------------------------
 
 ### Person's Age
 Person's Age machine learning model detects age of an individual specified in various different formats. The qualifiers for days, months, and years must be in English language.
 
 #### Keywords
-- Age
+- age
+- ages
 
 #### Supported formats
 - {%y} y, {%m} m
@@ -103,6 +135,8 @@ Person's Age machine learning model detects age of an individual specified in va
 - {%y}y {%w}w
 - {%y}.{%m}
 - {%y}.{%yd}
+
+-------------------------------------
 
 ## RegEx Classifications
 
@@ -6219,6 +6253,17 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
 #### Pattern
 
+- 000.00.000.00
+- 000.000.00.00
+- 00.000.000.00
+- 000.000.000.00
+- 000.000.000.000
+- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
+- 0000:0000:0000::00:00:000:0
+- 0a0a:a000:00a::
+- 0000:0000:0000:00::0
+- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
+
 #### Checksum
 
 No
@@ -6236,14 +6281,15 @@ No
 
 -------------------------------------
 
-### IP Address v4
+### Personal IP Address
 
 #### Format
 
-Complex pattern that accounts for formatted (periods) and unformatted (no periods) versions of the IPv4 addresses
+Complex pattern that accounts for formatted (periods) versions of the IPv4 addresses
 
 #### Pattern
 
+000.000.000.000
 
 #### Checksum
 
@@ -6262,31 +6308,6 @@ No
 
 -------------------------------------
 
-### IP Address v6
-
-#### Format
-
-Complex pattern that accounts for formatted IPv6 numbers (which include colons)
-
-#### Pattern
-
-
-#### Checksum
-
-No
-
-#### Keywords
-
-##### Keyword_ipaddress
-
-- IP (case sensitive)
-- ip address
-- ip addresses
-- internet protocol
-- IP-כתובת ה
-
-
--------------------------------------
 
 ### Ireland driver's license number
 

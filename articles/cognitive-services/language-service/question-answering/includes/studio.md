@@ -16,8 +16,7 @@ You can create a question answering project from your own content, such as FAQs 
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, language resource name you selected when you created the resource.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Create your first question answering project
 
@@ -58,8 +57,7 @@ You can create a question answering project from your own content, such as FAQs 
 
     After successfully adding the source, you can then edit the source contents to add more custom question answer sets.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Create-your-first-question-answering-project" target="_target">I ran into an issue</a>
+
 
 ## Test your project
 
@@ -79,8 +77,7 @@ You can create a question answering project from your own content, such as FAQs 
 
     From the **Inspect** interface, you can see the level of confidence that this response will answer the question and directly edit a given question and answer response pair.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Test-your-project" target="_target">I ran into an issue</a>
+
 
 ## Deploy your project
 
@@ -98,5 +95,3 @@ You can create a question answering project from your own content, such as FAQs 
 
     Your project is now successfully deployed. You can use the endpoint to answer questions in your own custom application to answer or in a bot.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Deploy-your-proect" target="_target">I ran into an issue</a>

@@ -98,7 +98,9 @@ For example, if you merge two devices, each with an IP address, both IP addresse
 
 **To merge devices from the device inventory:**
 
-In the device inventory grid, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
+1. In the **Device inventory** page, select the devices you want to merge, and then select **Merge** in the toolbar at the top of the page.
+
+1. At the prompt, select **Confirm** to confirm that you want to merge the devices.
 
 The devices are merged, and a confirmation message appears at the top right.
 
@@ -131,9 +133,9 @@ You can delete a device when it's been inactive for more than 10 minutes.
 
 1. In the **Device inventory** page, select the device or devices you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-1. At the prompt, select **Confirm** to confirm that you want to delete the device from Defender for IoT.
+1. At the prompt, select **Confirm** to confirm that you want to delete the device or devices from Defender for IoT.
 
-A confirmation message appears at the top right.
+The device or devices are deleted, and a confirmation message appears at the top right.
 
 **To delete all inactive devices**:
 
@@ -150,6 +152,7 @@ All devices detected within the range of the filter will be deleted. If you dele
 
 For more information, see:
 
+- [Defender for IoT device inventory](device-inventory.md)
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [Device data retention periods](references-data-retention.md#device-data-retention-periods)

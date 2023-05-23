@@ -263,6 +263,9 @@ For more information, see:
 
 You can configure a standalone sensor and a management console, with the sensors related to it, to connect to NTP.
 
+> [!TIP]
+> When you're ready to start managing your OT sensor settings at scale, define NTP settings from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
+
 To connect a standalone sensor to NTP:
 
 - [See the CLI documentation](./references-work-with-defender-for-iot-cli-commands.md).
@@ -276,7 +279,7 @@ To connect a sensor controlled by the management console to NTP:
 Sometimes ICS devices are configured with external IP addresses. These ICS devices aren't shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Define ICS or IoT and segregated subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets).
+1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Define OT and IoT subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 

@@ -2,7 +2,7 @@
 title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
 ms.topic: reference
-ms.date: 02/27/2023
+ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,6 +11,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Azure Queue storage trigger for Azure Functions
 
 The queue storage trigger runs a function as messages are added to Azure Queue storage.
+
+Azure Queue storage scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ::: zone pivot="programming-language-python"  
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.

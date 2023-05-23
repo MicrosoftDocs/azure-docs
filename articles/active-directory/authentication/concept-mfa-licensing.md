@@ -37,7 +37,7 @@ The following table details the different ways to get Azure AD Multi-Factor Auth
 
 ## Feature comparison based on licenses
 
-The following table provides a list of the features that are available in the various versions of Azure AD Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
+The following table provides a list of the features that are available in the various versions of Azure AD for Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
 
 | Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 | Azure AD Premium P2 | 
 | --- |:---:|:---:|:---:|:---:|:---:|
@@ -55,11 +55,6 @@ The following table provides a list of the features that are available in the va
 | MFA for on-premises applications | | | | ● | ● |
 | Conditional access | | | | ● | ● |
 | Risk-based conditional access | | | | | ● |
-| Identity Protection (Risky sign-ins, risky users) | | | | | ● |
-| Access Reviews | | | | | ● |
-| Entitlements Management | | | | | ● |
-| Privileged Identity Management (PIM), just-in-time access | | | | | ● |
-| Lifecycle Workflows (preview) | | | | | ● |
 
 ## Compare multi-factor authentication policies
 
@@ -98,7 +93,7 @@ After you have purchased the required Azure AD tier, [plan and deploy Azure AD M
 
 ### Azure AD Free tier
 
-All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app is the only method that can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
+All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app and SMS methods can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
 
 * [Learn more about Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Enable security defaults for users in Azure AD Free](../fundamentals/concept-fundamentals-security-defaults.md#enabling-security-defaults)

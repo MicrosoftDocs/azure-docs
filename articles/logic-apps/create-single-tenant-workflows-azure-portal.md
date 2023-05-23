@@ -1,11 +1,11 @@
 ---
-title: Create example Standard logic app workflow in the Azure portal
+title: Create example Standard logic app workflow in Azure portal
 description: Create your first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 05/23/2023
 ms.custom: ignite-fall-2021
 
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide shows how to create an example automated workflow that waits for an inbound web request and then sends a message to an email account. More specifically, you'll create a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), which can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run in single-tenant Azure Logic Apps. 
+This how-to guide shows how to create an example automated workflow that waits for an inbound web request and then sends a message to an email account. More specifically, you'll create a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), which can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run in single-tenant Azure Logic Apps. 
 
 > [!NOTE]
 >
@@ -73,7 +73,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
 1. In the Azure portal search box, enter **logic apps**, and select **Logic apps**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic apps" search term and the "Logic apps" group selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
+   ![Screenshot showing Azure portal search box with logic apps entered and logic apps group selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
 1. On the **Logic apps** page, select **Add**.
 
@@ -85,17 +85,19 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Fabrikam-Workflows-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app's name automatically gets the suffix, **.azurewebsites.net**, because the Standard logic app resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app named **Fabrikam-Workflows**. |
 
-1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Standard** so that you view only the settings that apply to the Standard plan-based logic app type. The **Plan type** property specifies the hosting plan and billing model to use for your logic app. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md).
+1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Standard** so that you view only the settings that apply to the Standard plan-based logic app type.
+
+   The **Plan type** property specifies the hosting plan and billing model to use for your logic app. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md).
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection. Workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type and workflow runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <br><br>This example uses the name **Fabrikam-Service-Plan**. <br><br>**Note**: Only the Windows-based App Service plan is supported. Don't use a Linux-based App Service plan. |
-   | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app and workflows. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <br><br>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <br><br>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
+   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <br><br>This example uses the name **My-App-Service-Plan**. <br><br>**Note**: Only the Windows-based App Service plan is supported. Don't use a Linux-based App Service plan. |
+   | **Pricing plan** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app and workflows. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <br><br>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
 
 1. Now continue making the following selections:
 
@@ -112,20 +114,20 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
    > so you can ignore this section for this example. For more information, see 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
-   When you're done, your settings look similar to this version:
+   When you're done, your settings look similar to the following example:
 
-   ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
+   ![Screenshot showing Azure portal and page named Create Logic App.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 
 1. On the **Hosting** tab, provide the following information about the storage solution and hosting plan to use for your logic app.
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
-   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **fabrikamstorageacct**. |
+   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
 
 1. On the **Networking** tab, you can leave the default options for this example.
 
-   For your specific, real-world scenarios, make sure to review and select the appropriate options. You can also change this configuration after you deploy your logic app. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+   For your specific, real-world scenarios, make sure to review and select the appropriate options. You can also change this configuration after you deploy your logic app resource. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
    | Enable public access | Behavior |
    |----------------------|----------|
@@ -147,21 +149,19 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
 1. After Azure validates your logic app's settings, on the **Review + create** tab, select **Create**, for example:
 
-   ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
+   ![Screenshot showing Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
    > [!NOTE]
-   >
-   > The read-only **Runtime stack** property is automatically set at creation.
    >
    > If you get a validation error during this step, open and review the error details. 
    > For example, if your selected region reaches a quota for resources that you're 
    > trying to create, you might have to try a different region.
 
-   After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
+   After Azure finishes deployment, your logic app resource is automatically live but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
 
 1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow.
 
-   ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png)
+   ![Screenshot showing Azure portal and finished deployment.](./media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png)
 
 <a name="add-workflow"></a>
 
@@ -169,84 +169,59 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
 After you create your empty logic app resource, you have to add your first workflow.
 
-1. After Azure opens the resource, on your logic app's menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
+1. After Azure opens the resource, on your logic app resource menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
 
-   ![Screenshot that shows the logic app resource menu with "Workflows" selected, and then hen on the toolbar, "Add" is selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png)
+   ![Screenshot showing logic app resource menu with Workflows selected, and on the toolbar, Add is selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png)
 
-1. After the **New workflow** pane opens, provide a name for your workflow, and choose the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you're done, select **Create**.
+1. After the **New workflow** pane opens, provide a name for your workflow, and select the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you're done, select **Create**.
 
-   This example adds a blank stateful workflow named **Fabrikam-Stateful-Workflow**. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
+   This example adds a blank stateful workflow named **Stateful-Workflow**. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
 
-   ![Screenshot that shows the newly added blank stateful workflow "Fabrikam-Stateful-Workflow".](./media/create-single-tenant-workflows-azure-portal/logic-app-blank-workflow-created.png)
+   ![Screenshot showing new blank stateful workflow named Stateful-Workflow.](./media/create-single-tenant-workflows-azure-portal/logic-app-blank-workflow-created.png)
 
-1. Next, open the blank workflow in the designer so that you can add a trigger and an action.
+1. From the workflow list, select the blank stateful workflow.
 
-   1. From the workflow list, select the blank workflow.
+1. On the workflow menu, under **Developer**, select **Designer**.
 
-   1. On the workflow menu, under **Developer**, select **Designer**.
+   The designer surface shows a prompt to select a trigger operation. By default, the prompt is already selected so that a pane with available triggers already appears open.
 
-      On the designer surface, the **Choose an operation** prompt already appears and is selected by default so that the **Add a trigger** pane also appears open.
-
-      ![Screenshot that shows the opened workflow designer with "Choose an operation" selected on the designer surface.](./media/create-single-tenant-workflows-azure-portal/opened-logic-app-designer-blank-workflow.png)
+So now you'll add a trigger that starts your workflow.
 
 <a name="add-trigger-actions"></a>
 
-## Add a trigger and an action
+## Add a trigger
 
-This example builds a workflow that has these steps:
+This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
-* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When an HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-* The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
-
-### Add the Request trigger
-
-Before you can add a trigger to a blank workflow, make sure that the workflow designer is open and that the **Choose an operation** prompt is selected on the designer surface.
-
-1. Next to the designer surface, in the **Add a trigger** pane, under the **Choose an operation** search box, check that the **Built-in** tab is selected. This tab shows triggers that run natively in Azure Logic Apps.
-
-1. In the **Choose an operation** search box, enter **when a http request**, and select the built-in Request trigger that's named **When an HTTP request is received**.
-
-   ![Screenshot that shows the designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
+1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the designer with the "When an HTTP request is received" trigger selected and trigger information pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
+   ![Screenshot showing the workflow designer and trigger information pane.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
-   > [!TIP]
-   > If the information pane doesn't appear, makes sure that the trigger is selected on the designer.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
-1. If you need to delete an item from the designer, [follow these steps for deleting items from the designer](#delete-from-designer).
+---
 
-1. To save your work, on the designer toolbar, select **Save**.
+When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+## Add an action
 
-### Add the Office 365 Outlook action
+This example workflow continues with the [Office 365 Outlook managed connector action](../connectors/connectors-create-api-office365-outlook.md) named **Send an email**. Managed connector operations run in Azure versus natively and directly on the Azure Logic Apps runtime.
 
 1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
-   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
+   The **Browse operations** pane opens so that you can select the next action.
 
-   > [!NOTE]
-   >
-   > If the **Add an action** pane shows the error message, **"Cannot read property 'filter' of undefined"**, 
-   > save your workflow, reload the page, reopen your workflow, and try again.
+1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
-1. In the **Add an action** pane, under the **Choose an operation** search box, select **Azure**. This tab shows the managed connectors that are available and hosted in Azure.
-
-   > [!NOTE]
-   > If the **Add an action** pane shows the error message, 
-   > **"The access token expiry UTC time {*token-expiration-date-time*} is earlier than current UTC time {*current-date-time*}"**, 
-   > save your workflow, reload the page, reopen your workflow, and try adding the action again.
-
-   This example uses the Office 365 Outlook action that's named **Send an email (V2)**.
-
-   ![Screenshot showing the designer, the pane named Add an action, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
+   ![Screenshot showing the designer, the picker pane, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
 1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
+   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
 
 1. When you're prompted for access to your email account, sign in with your account credentials.
 
@@ -280,6 +255,8 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified domain names, review [Find domain names for firewall access](#firewall-setup).
 
    Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
+
+---
 
 <a name="firewall-setup"></a>
 

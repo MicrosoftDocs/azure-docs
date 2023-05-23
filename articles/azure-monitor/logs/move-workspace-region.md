@@ -2,6 +2,7 @@
 title: Move a Log Analytics workspace to another Azure region by using the Azure portal
 description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 08/17/2021
 ms.reviewer: yossiy
 ---

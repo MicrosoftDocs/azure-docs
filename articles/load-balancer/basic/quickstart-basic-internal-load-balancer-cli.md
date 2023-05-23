@@ -5,9 +5,9 @@ description: This quickstart shows how to create an internal basic load balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/24/2022
+ms.date: 04/10/2023
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: devx-track-js, devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 # Quickstart: Create an internal basic load balancer to load balance VMs by using the Azure CLI

@@ -3,7 +3,7 @@ title: 'Send Blob storage events to web endpoint - template'
 description: Use Azure Event Grid and an Azure Resource Manager template to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
 ms.date: 09/28/2021
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Route Blob storage events to web endpoint by using an ARM template

@@ -22,7 +22,7 @@ The example job reads streaming data from an IoT Hub device. The input data is g
 
 * If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
 
-* This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+* This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 * Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](/cli/azure/install-azure-cli) and use `az extension add --name azure-iot` to install the IoT extension.
 
@@ -142,32 +142,18 @@ The following Azure PowerShell code block uses commands to create blob storage t
 
 ## Create a Stream Analytics job
 
-Create a Stream Analytics job with [New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, and job definition as parameters. The job name can be any friendly name that identifies your job. It can have alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. The job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
+Create a Stream Analytics job with [New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, location, and sku name as parameters. The job name can be any friendly name that identifies your job. It can have alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long.
 
-```json
-{
-  "location":"WestUS2",
-  "properties":{
-    "sku":{
-      "name":"standard"
-    },
-    "eventsOutOfOrderPolicy":"adjust",
-    "eventsOutOfOrderMaxDelayInSeconds":10,
-    "compatibilityLevel": 1.1
-  }
-}
-```
-
-Next, run the `New-AzStreamAnalyticsJob` cmdlet. Replace the value of `jobDefinitionFile` variable with the path where you've stored the job definition JSON file.
+Run the `New-AzStreamAnalyticsJob` cmdlet.
 
 ```powershell
 $jobName = "MyStreamingJob"
-$jobDefinitionFile = "C:\JobDefinition.json"
+$resourceGroup = "MyResourceGroup"
 New-AzStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
-  -File $jobDefinitionFile `
   -Name $jobName `
-  -Force
+  -Location centralus `
+  -SkuName Standard
 ```
 
 ## Configure input to the job

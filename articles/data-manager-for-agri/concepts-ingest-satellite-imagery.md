@@ -1,34 +1,42 @@
 ---
 title: Ingesting satellite data in Azure Data Manager for Agriculture
 description: Provides step by step guidance to ingest Satellite data
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Using satellite imagery in Azure Data Manager for Agriculture 
-Our data manager  supports geospatial and temporal data. Remote sensing satellite imagery (which is geospatial and temporal) has huge applications in the field of agriculture. Farmers, agronomists and data scientists use of satellite imagery extensively to generate insights. Using satellite data in Data Manager for agriculture involves following steps.
+Satellite imagery makes up a foundational pillar of agriculture data. To support scalable ingestion of geometry-clipped imagery, we've partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience. This BYOL experience allows you to manage your own costs while keeping the convenience of storing your field-clipped historical and up to date imagery in the linked context of the relevant fields.
+
+## Prerequisites
+*	To search and ingest imagery, you need a user account that has suitable subscription entitlement with Sentinel Hub: https://www.sentinel-hub.com/pricing/
+*	Read the Sinergise Sentinel Hub terms of service and privacy policy: https://www.sentinel-hub.com/tos/
+*	Have your providerClientId and providerClientSecret ready
+
+## Ingesting boundary-clipped imagery
+Using satellite data in Data Manager for Agriculture involves following steps: 
+
+:::image type="content" source="./media/satellite-flow.png" alt-text="Diagram showing satellite data ingestion flow.":::
 
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
->:::image type="content" source="./media/satellite-flow.png" alt-text="Diagram showing satellite data ingestion flow..":::
-
 ## Satellite sources supported by Azure Data Manager for Agriculture
 In our public preview, we support ingesting data from Sentinel-2 constellation.
 
-## Sentinel-2
-[Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation launched by 'European Space Agency' (ESA) under the Copernicus mission. This constellation has a pair of satellites and carries a Multi-Spectral Instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60 m spatial resolution.  
+### Sentinel-2
+[Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation launched by 'European Space Agency' (ESA) under the Copernicus mission. This constellation has a pair of satellites and carries a Multi-Spectral Instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60-m spatial resolution.  
 
 > [!Tip]
-> Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Level 1 and Level 2 data from Sentinel 2.
+> Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Sentinel_2_L2A and Sentinel_2_L1C data from Sentinel 2.
 
-## Image names and resolutions
-The image names and resolutions that are supported by APIs used to ingest and read satellite data (for Sentinel-2) in our service:
+### Image names and resolutions
+The image names and resolutions supported by APIs used to ingest and read satellite data (for Sentinel-2) in our service:
 
 | Category | Image Name |	Description |	Native resolution |
 |:-----:|:----:|:----:|:----:|
@@ -63,7 +71,7 @@ The image names and resolutions that are supported by APIs used to ingest and re
     * A maximum of five satellite jobs can be run concurrently, per tenant.
     * A satellite job can ingest data for a maximum of one year in a single API call.
     * Only TIFs are supported.
-    * Only 10 m, 20 m and 60 m images are supported.
+    * Only 10 m, 20 m and 60-m images are supported.
 
 ## Next steps
 
