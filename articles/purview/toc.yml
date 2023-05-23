@@ -158,6 +158,8 @@ items:
       href: register-scan-azure-sql-managed-instance.md
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
+    - name: Azure Machine Learning
+      href: register-scan-azureml.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
     - name: Db2
