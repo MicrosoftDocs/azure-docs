@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/25/2022
+ms.date: 05/25/2023
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -405,17 +405,14 @@ At this time, only specific triggers and bindings are supported by the Python v2
 
 | Type | Trigger | Input binding | Output binding |
 | --- | :---: | :---: | :---: |
-| [HTTP](functions-bindings-triggers-python.md#http-trigger) | x |   |   |
-| [Timer](functions-bindings-triggers-python.md#timer-trigger) | x |   |   |
-| [Azure Queue Storage](functions-bindings-triggers-python.md#azure-queue-storage-trigger) | x |   | x |
-| [Azure Service Bus topic](functions-bindings-triggers-python.md#azure-service-bus-topic-trigger) | x |   | x |
-| [Azure Service Bus queue](functions-bindings-triggers-python.md#azure-service-bus-queue-trigger) | x |   | x |
-| [Azure Cosmos DB](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x | x | x |
-| [Azure Blob Storage](functions-bindings-triggers-python.md#azure-blob-storage-trigger) | x | x | x |
-| [Azure Hub](functions-bindings-triggers-python.md#azure-eventhub-trigger) | x |   | x |
-
-For more examples, see [Python V2 model Azure Functions triggers and bindings (preview)](functions-bindings-triggers-python.md).
-
+| [HTTP](functions-bindings-http-webhook.md?pivots=programming-language-python) | x |   |   |
+| [Timer](functions-bindings-timer.md?pivots=programming-language-python) | x |   |   |
+| [Azure Queue Storage](functions-bindings-storage-queue.md?pivots=programming-language-python) | x |   | x |
+| [Azure Service Bus topic](functions-bindings-service-bus.md?pivots=programming-language-python) | x |   | x |
+| [Azure Service Bus queue](functions-bindings-service-bus.md?pivots=programming-language-python) | x |   | x |
+| [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md?pivots=programming-language-python) | x | x | x |
+| [Azure Blob Storage](functions-bindings-storage-blob.md?pivots=programming-language-python) | x | x | x |
+| [Azure Event Hubs](functions-bindings-event-hubs.md?pivots=programming-language-python) | x |   | x |
 ::: zone-end
 
 ## Outputs

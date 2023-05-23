@@ -13,10 +13,13 @@
 ZRS disks are currently available in the following regions:
 - Southeast Asia
 - Australia East
+- Brazil South
 - West Europe
 - North Europe
 - France Central
 - Qatar Central
 - UK South
+- East US
 - East US 2
+- South Central US
 - West US 2
