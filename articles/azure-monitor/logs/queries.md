@@ -9,8 +9,14 @@ ms.reviewer: roygal
 ms.date: 06/22/2022
 ---
 
-# Use queries in Azure Monitor Log Analytics
+# Use queries in Azure Monitor Logs
 When you open Log Analytics, you have access to existing log queries. You can either run these queries without modification or use them as a starting point for your own queries. The available queries include examples provided by Azure Monitor and queries saved by your organization. This article describes the queries that are available and how you can discover and use them.
+
+## Permissions required
+
+### Require workspace permissions
+
+### Use resource or workspace permissions
 
 ## Queries interface
 Select queries from the query interface, which is available from two different locations in Log Analytics.
@@ -56,13 +62,15 @@ The filter and group by functionalities are designed to work in tandem. They pro
 ## Query properties
 Each query has multiple properties that help you group and find them. These properties are available for sorting and filtering. You can define several of them when you [save your own query](save-query.md). The types of properties are:
 
-- **Resource type**: A resource as defined in Azure, such as a virtual machine. For a full mapping of Azure Monitor Logs and Log Analytics tables to resource type, see the [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-- **Category**: A type of information, such as **Security** or **Audit**. Categories are identical to the categories defined in the **Tables** side pane. For a full list of categories, see the [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-category).
-- **Solution**: An Azure Monitor solution associated with the queries.
-- **Topic**: The topic of the example query, such as **Activity logs** or **App logs**. The topic property is unique to example queries and might differ according to the specific resource type.
-- **Query type**: Defines the type of the query. Query type might be **Example queries**, **Query pack queries**, or **Legacy queries**.
-- **Labels**: Custom labels that you can define and assign when you [save your own query](save-query.md).
-- **Tags**: Custom properties that you can define when you [create a query pack](query-packs.md). You can use tags to create your own taxonomies for organizing queries.
+| Property | Description |
+| :--- | :--- |
+| Resource type | A resource as defined in Azure, such as a virtual machine. For a full mapping of Azure Monitor Logs and Log Analytics tables to resource type, see the [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-resourcetype). |
+| Category | A type of information, such as Security or Audit. Categories are identical to the categories defined in the Tables side pane. For a full list of categories, see the [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-category). |
+| Solution | An Azure Monitor solution associated with the queries. |
+| Topic | The topic of the example query, such as Activity logs or App logs. The topic property is unique to example queries and might differ according to the specific resource type. |
+| Query type | Defines the type of the query. Query type might be Example queries, Query pack queries, or Legacy queries. |
+| Labels | Custom labels that you can define and assign when you [save your own query](save-query.md). |
+| Tags | Custom properties that you can define when you [create a query pack](query-packs.md). You can use tags to create your own taxonomies for organizing queries. |
 
 ## Favorites
 You can identify frequently used queries as favorites to give you quicker access. Select the star next to the query to add it to **Favorites**. View your favorite queries from the **Favorites** option in the query interface.
