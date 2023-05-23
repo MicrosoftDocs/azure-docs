@@ -2,15 +2,15 @@
 title: 'Routing MQTT Messages in Azure Event Grid'
 description: 'An overview of Routing MQTT Messages and how to configure it.'
 ms.topic: conceptual
-ms.custom: build-2023
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
 # Routing MQTT Messages in Azure Event Grid
 
-
 Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by leveraging your IoT data for data analysis, storage, and visualizations, among other use cases. 
+
+:::image type="content" source="media/mqtt-overview/routing-highres.png" alt-text="MQTT message routing" border="false":::
 
 ## How can I use the routing feature?
 
