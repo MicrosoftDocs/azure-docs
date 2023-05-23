@@ -207,7 +207,7 @@ You can make an outbound call by providing a user ID in the text field and click
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the UWP quickstart app":::
 
-## [WinUI 3] (#tab/WinUI)
+## [WinUI3] (#tab/WinUI3)
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
 

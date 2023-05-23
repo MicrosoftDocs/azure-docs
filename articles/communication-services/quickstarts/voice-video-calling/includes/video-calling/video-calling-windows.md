@@ -388,7 +388,7 @@ Note: Calling `8:echo123` stops the video stream because echo bot doesn't suppor
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
 
-## [WinUI 3] (#tab/WinUI)
+## [WinUI3] (#tab/WinUI3)
 
 ### Prerequisites
 
