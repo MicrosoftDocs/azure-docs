@@ -3,7 +3,7 @@ title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 2/16/2023
+ms.date: 5/6/2023
 ms.custom: engagement-fy23
 ---
 
@@ -76,7 +76,7 @@ For full interconnectivity to your private cloud, you need to enable ExpressRout
 |Customer owned public-IP CIDR block or its subnets.||
 
 > [!NOTE]
-> The customer-advertised default route to Azure VMware Solution can't be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter, NSX-T Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
+> The customer-advertised default route to Azure VMware Solution can't be used to route back the traffic when the customer accesses Azure VMware Solution management appliances (vCenter Server, NSX-T Manager, HCX Manager). The customer needs to advertise a more specific route to Azure VMware Solution for that traffic to be routed back.
 
 
 ## Limitations

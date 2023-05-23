@@ -104,6 +104,8 @@
         href: akashi-tutorial.md
       - name: AlacrityLaw
         href: alacritylaw-tutorial.md
+      - name: Alchemer
+        href: alchemer-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -248,6 +250,8 @@
         href: autotaskworkplace-tutorial.md
       - name: Aventri
         href: etouches-tutorial.md
+      - name: Avionte Bold SAML Federated SSO
+        href: avionte-bold-saml-federated-sso-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
       - name: AwareGo
@@ -396,6 +400,8 @@
         href: capriza-tutorial.md
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
+      - name: CAREERSHIP
+        href: careership-tutorial.md
       - name: CWT
         href: cwt-tutorial.md
       - name: Catchpoint
@@ -466,6 +472,8 @@
         href: cisco-intersight-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
+      - name: Cisco Unity Connection
+        href: cisco-unity-connection-tutorial.md
       - name: Cisco Umbrella
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Unified Communications Manager
@@ -524,6 +532,8 @@
         href: cloudsign-tutorial.md
       - name: Kion
         href: cloudtamer-io-tutorial.md
+      - name: CMD+CTRL Base Camp
+        href: cmd-ctrl-base-camp-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -702,6 +712,8 @@
         href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
+      - name: Document360
+        href: document360-tutorial.md
       - name: Documo
         href: documo-tutorial.md
       - name: DocuSign
@@ -1179,6 +1191,8 @@
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
+      - name: IBM TRIRIGA on Cloud
+        href: ibm-tririga-on-cloud-tutorial.md
       - name: ice Contact Center
         href: ice-contact-center-tutorial.md
       - name: ICIMS
@@ -2327,6 +2341,8 @@
         href: snackmagic-tutorial.md  
       - name: Snowflake
         href: snowflake-tutorial.md
+      - name: SOC SST
+        href: soc-sst-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
       - name: Software AG Cloud
@@ -2633,6 +2649,8 @@
         href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
         href: vecos-releezme-locker-management-system-tutorial.md  
+      - name: VEDA Cloud
+        href: veda-cloud-tutorial.md
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Venafi Control Plane - Datacenter

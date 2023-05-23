@@ -54,7 +54,7 @@ The following table shows the tracked item limits per machine for change trackin
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
+Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 

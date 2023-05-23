@@ -11,6 +11,7 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot SAML-based single sign-on

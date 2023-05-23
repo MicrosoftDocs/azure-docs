@@ -13,6 +13,7 @@ ms.author: jawoods
 ms.reviewer: phsignor
 zone_pivot_groups: enterprise-apps-all
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
 

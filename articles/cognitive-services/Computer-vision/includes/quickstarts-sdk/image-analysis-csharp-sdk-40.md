@@ -25,9 +25,10 @@ Use the Image Analysis client library for C# to analyze an image to read text an
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled, or [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK (or above) installed.
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled. Or if you don't plan on using Visual Studio IDE, you need [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or above installed.
+* [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1) installed.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
+    * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!div class="nextstepaction"]
@@ -91,7 +92,7 @@ From the project directory, open the *Program.cs* file that was created previous
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet_single)]
 
 
-Then, build and run the application. You should see output similar to the one below.
+Then, build and run the application. You should see output similar to the one shown here.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 
@@ -198,4 +199,4 @@ In this quickstart, you learned how to install the Image Analysis client library
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/csharp/image-analysis/dotnetcore).
+* Sample source code can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).

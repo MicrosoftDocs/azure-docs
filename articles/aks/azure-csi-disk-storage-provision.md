@@ -9,10 +9,10 @@ ms.date: 04/11/2023
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure Disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure Disks in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
-> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to one pod in AKS. If you need to share a persistent volume across multiple pods, use [Azure Files][azure-files-pvc].
+> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to one node in AKS. This access mode still allows multiple pods to access the volume when the pods run on the same node. For more information, see [Kubernetes PersistentVolume access modes][access-modes].
 
 This article shows you how to:
 
@@ -27,7 +27,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 * Make sure you have Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * The Azure Disk CSI driver has a per-node volume limit. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
 
-    ```console
+    ```bash
     kubectl get CSINode <nodename> -o yaml
     ```
 
@@ -80,7 +80,7 @@ kubectl get sc
 
 The output of the command resembles the following example:
 
-```console
+```output
 NAME                PROVISIONER                AGE
 default (default)   disk.csi.azure.com         1h
 managed-csi         disk.csi.azure.com         1h
@@ -120,7 +120,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
       The output of the command resembles the following example:
 
-      ```console
+      ```output
       persistentvolumeclaim/azure-managed-disk created
       ```
 
@@ -157,13 +157,13 @@ Once the persistent volume claim has been created and the disk successfully prov
 
 2. Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
 
-      ```console
+      ```bash
        kubectl apply -f azure-pvc-disk.yaml
       ```
 
       The output of the command resembles the following example:
 
-      ```console
+      ```output
       pod/mypod created
       ```
 
@@ -175,7 +175,7 @@ Once the persistent volume claim has been created and the disk successfully prov
 
       The output of the command resembles the following example:
 
-      ```console
+      ```output
       [...]
       Volumes:
         volume:
@@ -244,7 +244,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
     The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next section.
 
-    ```console
+    ```output
     /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
     ```
 
@@ -307,7 +307,7 @@ following command:
 
     The output of the command resembles the following example:
 
-    ```console
+    ```output
     NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```

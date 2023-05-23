@@ -45,7 +45,10 @@ The section "SAP to stage", which is periodically updated while the extraction f
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-monitor-data-flow.png" alt-text="Screenshot of the data flow monitor.":::
 
+When a data flow run has finished successfully, the data flow monitor shows detailed information about the extraction process from SAP.
+Besides runtime information like start time and duration, you also find the number of rows copied from SAP in the line **Rows copied** and the number of rows passed on from the source to the next transformation (in this case the sink transformation) in the line **Rows calculated**. Note that **Rows calculated** can be smaller than **Rows copied**: after extracting the changed data records from the SAP system, the data flow performs a deduplication of the changed rows based on the key definition. Only the most recent record is passed further down the data flow.
 
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-monitor-data-flow-success.png" alt-text="Screenshot of a successful data flow run in data flow monitor.":::
 
 ## Monitor data extractions on SAP systems
 
@@ -90,13 +93,6 @@ In the subscription, a list of requests corresponds to mapping data flow runs in
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-odqmon-troubleshoot-requests.png" alt-text="Screenshot of the SAP ODQMON tool with delta queue requests shown.":::
 
 Based on the timestamp in the first row, find the line that corresponds to the mapping data flow run you want to analyze. If the number of rows shown equals the number of rows read by the mapping data flow, you've verified that Data Factory has read and transferred the data as provided by the SAP system. In this scenario, we recommend that you consult with the team that's responsible for your SAP system.
-
-## Current limitations
-
-Here are current limitations of the SAP CDC connector in Data Factory:
-
-- You can't reset or delete ODQ subscriptions in Data Factory (use ODQMON for this).
-- You can't use SAP hierarchies with the solution.
 
 ## Next steps
 

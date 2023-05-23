@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 05/11/2023
 ---
 
 # What can I accomplish with Microsoft Purview DevOps policies?
@@ -95,9 +95,9 @@ SQL dynamic metadata includes a list of more than 700 DMVs/DMFs. We list here as
 |||[sys.dm_audit_class_type_map](/sql/relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql) |
 ||||
 
-For more on these DMVs/DMFs you can check these docs
-- [Monitoring Microsoft Azure SQL Database performance using dynamic management views](/azure/azure-sql/database/monitoring-with-dmvs)
-- [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
+Check these documents for more on what you IT support personnel can do when granted access via these Purview roles:
+- SQL Performance Monitor: [Use Microsoft Purview to provide at-scale access to performance data in Azure SQL and SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-blog/use-microsoft-purview-to-provide-at-scale-access-to-performance/ba-p/3812839)
+- SQL Security Auditor: [Security-Related Dynamic Management Views and Functions](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)
 
 ## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.

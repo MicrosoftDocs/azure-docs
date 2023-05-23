@@ -1,6 +1,6 @@
 ---
-title: Migrate Okta sync provisioning to Azure AD Connect
-description: Learn to migrate user provisioning from Okta to Azure AD. See how to use Azure AD Connect server or Azure AD cloud provisioning.
+title: Tutorial to migrate Okta sync provisioning to Azure AD Connect-based synchronization
+description: Migrate user provisioning from Okta to Azure Active Directory (Azure AD). See how to use Azure AD Connect server or Azure AD cloud provisioning.
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, not-enterprise-apps
 ---
 
 # Tutorial: Migrate Okta sync provisioning to Azure AD Connect synchronization
@@ -42,11 +42,12 @@ When you synchronize users, use an Azure AD Connect server if your organization 
 
 The ImmutableID attribute ties synchronized objects to their on-premises counterparts. Okta takes the Active Directory objectGUID of an on-premises object and converts it to a Base64-encoded string. By default, it then stamps that string to the ImmutableID field in Azure AD.
 
-You can connect to Azure AD PowerShell and examine the current ImmutableID value. Before you run the following commands, run `Install-Module AzureAD` in an administrative PowerShell session:
+You can connect to Microsoft Graph PowerShell and examine the current ImmutableID value. If you've never used the Microsoft Graph PowerShell module, run
+`Install-Module AzureAD` in an administrative session before you run the following commands:
 
 ```Powershell
 Import-module AzureAD
-Connect-AzureAD
+Connect-MgGraph
 ```
 
 If you have the module, a warning might appear to update to the latest version.
@@ -54,17 +55,18 @@ If you have the module, a warning might appear to update to the latest version.
 1. Import the module after it's installed.
 2. In the authentication window, enter Global Administrator credentials.
 
-   ![Screenshot of the Azure AD PowerShell window. Note the install-module, import-module, and connect commands appear with output.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/import-module.png)
+   ![Screenshot of the Microsoft Graph PowerShell window. The install-module, import-module, and connect commands are visible with their output.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/import-module.png)
 
 3. Connect to the tenant.
 4. Verify ImmutableID value settings. The following example is the default of converting the objectGUID into the ImmutableID.
 
-   ![Screenshot of the Azure AD PowerShell window. The Get-AzureADUser command appears. Its output includes the UserPrincipalName and the ImmutableId.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/okta-default-objectid.png)
+   ![Screenshot of the Microsoft Graph PowerShell window. The Get-AzureADUser command is visible. Its output includes the UserPrincipalName and the ImmutableId.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/okta-default-objectid.png)
+
 
 5. Manually confirm the conversion from objectGUID to Base64 on-premises. To test an individual value, use these commands:
 
    ```PowerShell
-   Get-ADUser onpremupn | fl objectguid
+   Get-MgUser onpremupn | fl objectguid
    $objectguid = 'your-guid-here-1010'
    [system.convert]::ToBase64String(([GUID]$objectGUID).ToByteArray())
    ```
@@ -73,14 +75,15 @@ If you have the module, a warning might appear to update to the latest version.
 
 ## ObjectGUID mass-validation methods
 
-Before you move to Azure AD Connect, validate the ImmutableID values in Azure AD match on-premises values.
+Before you move to Azure AD Connect, it's critical to validate that the ImmutableID values in Azure AD match their on-premises values.
 
-Use the following command to get on-premises Azure AD users. Export a list to a CSV file of calculated objectGUID and ImmutableID values.
+The following command gets on-premises Azure AD users and exports a list of their objectGUID values and ImmutableID values already calculated to a CSV file.
 
-1. On an on-premises domain controller, run the following command in PowerShell.
+1. Run this command in Microsoft Graph PowerShell on an on-premises domain controller:
+
 
    ```PowerShell
-   Get-ADUser -Filter * -Properties objectGUID | Select-Object
+   Get-MgUser -Filter * -Properties objectGUID | Select-Object
    UserPrincipalName, Name, objectGUID, @{Name = 'ImmutableID';
    Expression = {
    [system.convert]::ToBase64String((GUID).tobytearray())
@@ -89,10 +92,11 @@ Use the following command to get on-premises Azure AD users. Export a list to a 
 
    ![Screenshot of a .csv file with sample output data. Columns include UserPrincipalName, Name, objectGUID, and ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/domain-controller.png)
 
-2. To list the synchronized values, run the following command in an Azure AD PowerShell session.
+1. Run this command in an Microsoft Graph PowerShell session to list the synchronized values:
+
 
    ```powershell
-   Get-AzureADUser -all $true | Where-Object {$_.dirsyncenabled -like
+   Get-MgUser -all $true | Where-Object {$_.dirsyncenabled -like
    "true"} | Select-Object UserPrincipalName, @{Name = 'objectGUID';
    Expression = {
    [GUID][System.Convert]::FromBase64String($_.ImmutableID) } },

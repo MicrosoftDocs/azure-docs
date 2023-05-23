@@ -237,6 +237,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
     deployToSlotOrASE: true
     resourceGroupName: '<name of resource group>'
     slotName: staging
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
 
 - task: AzureAppServiceManage@0
   inputs:
@@ -253,7 +254,8 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * **appName**: the name of your existing app service.
 * **deployToSlotOrASE**: Boolean. Deploy to an existing deployment slot or Azure App Service Environment.
 * **resourceGroupName**: Name of the resource group. Required if `deployToSlotOrASE` is true. 
-* **slotName**: Name of the slot, defaults to `production`. Required if `deployToSlotOrASE` is true. 
+* **slotName**: Name of the slot, defaults to `production`. Required if `deployToSlotOrASE` is true.
+* **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
 * **SourceSlot**: Slot sent to production when `SwapWithProduction` is true. 
 * **SwapWithProduction**: Boolean. Swap the traffic of source slot with production. 
 

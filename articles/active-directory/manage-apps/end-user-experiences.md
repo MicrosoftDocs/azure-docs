@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: jomondi
 ms.reviewer: lenalepa
+ms.custom: enterprise-apps
 ---
 
 # End-user experiences for applications

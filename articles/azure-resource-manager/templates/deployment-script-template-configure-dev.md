@@ -1,12 +1,8 @@
 ---
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
 description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
-services: azure-resource-manager
-author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.author: jgao 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -68,7 +64,7 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     "containerImage": {
       "type": "string",
-      "defaultValue": "mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2",
+      "defaultValue": "mcr.microsoft.com/azuredeploymentscripts-powershell:az9.7",
       "metadata": {
         "description": "Specify the container image."
       }
@@ -170,7 +166,7 @@ The following Azure Resource Manager template (ARM template) creates a container
 
 The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az9.7**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
 
 The template suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminated state and the session ends.
 

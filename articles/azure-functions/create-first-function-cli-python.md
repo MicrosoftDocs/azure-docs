@@ -38,7 +38,7 @@ Before you begin, you must have the following requirements in place:
 
   + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-  + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+  + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
 ::: zone pivot="python-mode-decorators"  

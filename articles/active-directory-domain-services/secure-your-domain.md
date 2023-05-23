@@ -71,7 +71,7 @@ While disabling NTLM password synchronization will improve security, many applic
 
 ## Use PowerShell to harden your domain
 
-If needed, [install and configure Azure PowerShell](/powershell/azure/install-az-ps). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
+If needed, [install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
 
 Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 

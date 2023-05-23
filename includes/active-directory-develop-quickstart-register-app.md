@@ -72,7 +72,7 @@ Your application's code, or more typically an authentication library used in you
 
 A _redirect URI_ is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
-In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response` or `http://localhost/auth-response`. Be sure that any unecessary development environments/redirect URIs are not exposed in the production app. This can be done by having separate app registrations for development and production.
+In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response` or `http://localhost/auth-response`. Be sure that any unnecessary development environments/redirect URIs are not exposed in the production app. This can be done by having separate app registrations for development and production.
 
 You add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
 

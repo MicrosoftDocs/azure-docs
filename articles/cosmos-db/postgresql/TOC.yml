@@ -204,9 +204,17 @@
         - name: Customer managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
-        - name: Configure SSL
+        - name: Configure TLS/SSL
           href: howto-ssl-connection-security.md
           displayName: ssl, tls
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: howto-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: howto-optimize-performance-pgvector.md
+          displayName: pgvector
     - name: Troubleshoot
       items:
         - name: Troubleshoot connection errors

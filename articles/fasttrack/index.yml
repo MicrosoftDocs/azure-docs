@@ -19,12 +19,12 @@ productDirectory:
     # Card
     - title: Learn Live on Teams
       imageSrc: ./media/migrate.png
-      summary: Join upcoming interactive live sessions and get your questions answered real time by Azure engineers
+      summary: Register on Reactor to join upcoming interactive live sessions and get your questions answered real time by Azure engineers
       url: https://developer.microsoft.com/reactor/?search=fasttrack
     # Card
     - title: Learn Live on YouTube
       imageSrc: ./media/azure-cloud.png
-      summary: Watch upcoming live webcasts with Azure engineers on technical topics
+      summary: Register on Reactor to join for our upcoming live webcasts with Azure engineers on technical topics
       url: https://developer.microsoft.com/reactor/?search=learn+live+%23fasttrack-azure
     # Card
     - title: Watch on-demand recordings

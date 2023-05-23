@@ -49,13 +49,13 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
   1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) from the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+  :::image type="content" source="media/how-to-submit-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 ---
 
 > [!NOTE]
-> To learn more about resource access while using Azure Machine Learning Managed (Automatic) Spark compute, and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
+> To learn more about resource access while using Azure Machine Learning serverless Spark compute (preview), and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
 
 ### Attach user assigned managed identity using CLI v2
 
@@ -164,7 +164,7 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
       - `spark.executor.instances` - the number of Spark executor instances.
 - `environment` - an [Azure Machine Learning environment](./reference-yaml-environment.md) to run the job.
 - `args` - the command line arguments that should be passed to the job entry point Python script or class. See the YAML specification file provided here for an example.
-- `resources` - this property defines the resources to be used by an Azure Machine Learning Managed (Automatic) Spark compute. It uses the following properties:
+- `resources` - this property defines the resources to be used by an Azure Machine Learning serverless Spark compute. It uses the following properties:
   - `instance_type` - the compute instance type to be used for Spark pool. The following instance types are currently supported:
     - `standard_e4s_v3`
     - `standard_e8s_v3`
@@ -225,7 +225,7 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
 
 ### Standalone Spark job
 
-This example YAML specification shows a standalone Spark job. It uses an Azure Machine Learning Managed (Automatic) Spark compute:
+This example YAML specification shows a standalone Spark job. It uses an Azure Machine Learning serverless Spark compute:
 
 ```yaml
 $schema: http://azureml/sdk-2-0/SparkJob.json
@@ -307,8 +307,8 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
     - `environment` - the Azure Machine Learning environment that runs the job. This parameter should pass:
       - an object of `azure.ai.ml.entities.Environment`, or an Azure Machine Learning environment name (string).
 - `args` - the command line arguments that should be passed to the job entry point Python script or class. See the sample code provided here for an example.
-- `resources` - the resources to be used by an Azure Machine Learning Managed (Automatic) Spark compute. This parameter should pass a dictionary with:
-  - `instance_type` - a key that defines the compute instance type to be used for the Managed (Automatic) Spark compute. The following instance types are currently supported:
+- `resources` - the resources to be used by an Azure Machine Learning serverless Spark compute. This parameter should pass a dictionary with:
+  - `instance_type` - a key that defines the compute instance type to be used for the serverless Spark compute. The following instance types are currently supported:
     - `Standard_E4S_V3`
     - `Standard_E8S_V3`
     - `Standard_E16S_V3`
@@ -346,7 +346,7 @@ You can submit a standalone Spark job from:
 - [Visual Studio Code connected to an Azure Machine Learning compute instance](./how-to-set-up-vs-code-remote.md?tabs=studio).
 - your local computer that has [the Azure Machine Learning SDK for Python](/python/api/overview/azure/ai-ml-readme) installed.
 
-This Python code snippet shows the creation of a standalone Spark job, with an Azure Machine Learning Managed (Automatic) Spark compute, using user identity.
+This Python code snippet shows the creation of a standalone Spark job, with an Azure Machine Learning serverless Spark compute, using user identity.
 
 ```python
 from azure.ai.ml import MLClient, spark, Input, Output
@@ -406,15 +406,15 @@ ml_client.jobs.stream(returned_spark_job.name)
 
 To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
-:::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
+:::image type="content" source="media/how-to-submit-spark-jobs/create-standalone-spark-job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
 
 - In the left pane, select **+ New**.
 - Select **Spark job (preview)**.
 - On the **Compute** screen:
  
-:::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job_compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
+:::image type="content" source="media/how-to-submit-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
 
-1. Under **Select compute type**, select **Spark automatic compute (Preview)** for Managed (Automatic) Spark compute, or **Attached compute** for an attached Synapse Spark pool.
+1. Under **Select compute type**, select **Spark automatic compute (Preview)** for serverless Spark compute, or **Attached compute** for an attached Synapse Spark pool.
 1. If you selected **Spark automatic compute (Preview)**:
     1. Select **Virtual machine size**.
     1. Select **Spark runtime version**.
@@ -563,7 +563,7 @@ conf:
   spark.dynamicAllocation.maxExecutors: 4
 ```
 
-The Spark component defined in the above YAML specification file can be used in an Azure Machine Learning pipeline job. See [pipeline job YAML schema](./reference-yaml-job-pipeline.md) to learn more about the YAML syntax that defines a pipeline job. This example shows a YAML specification file for a pipeline job, with a Spark component, and an Azure Machine Learning Managed (Automatic) Spark compute:
+The Spark component defined in the above YAML specification file can be used in an Azure Machine Learning pipeline job. See [pipeline job YAML schema](./reference-yaml-job-pipeline.md) to learn more about the YAML syntax that defines a pipeline job. This example shows a YAML specification file for a pipeline job, with a Spark component, and an Azure Machine Learning serverless Spark compute:
 
 ```yaml
 $schema: http://azureml/sdk-2-0/PipelineJob.json
