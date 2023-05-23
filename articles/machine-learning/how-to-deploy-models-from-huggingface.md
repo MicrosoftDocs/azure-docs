@@ -111,7 +111,7 @@ print(json.dumps(response_json, indent=2))
 
 ### Find the model to deploy
 
-Browse the model catalog in Azure Machine Learning studio and find the model you want to deploy. Copy the model name you want to deploy. The models shown in the catalog are listed from the `HuggingFaceHub` registry. You deploy the `bert_base_uncased` model with the latest version in this example. 
+Browse the model catalog in Azure Machine Learning studio and find the model you want to deploy. Copy the model name you want to deploy. The models shown in the catalog are listed from the `HuggingFace` registry. You deploy the `bert_base_uncased` model with the latest version in this example. 
 
 ### Deploy the model
 
