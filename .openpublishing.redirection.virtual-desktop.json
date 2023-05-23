@@ -184,6 +184,11 @@
             "source_path_from_root": "/articles/virtual-desktop/app-attach-msixmgr.md",
             "redirect_url": "/azure/virtual-desktop/msix-app-attach-create-msix-image",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/fslogix-office-app-rule-editor.md",
+            "redirect_url": "/azure/virtual-desktop/install-office-on-wvd-master-image",
+            "redirect_document_id": false
         }
     ]
 }

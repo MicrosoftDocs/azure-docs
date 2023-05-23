@@ -1253,6 +1253,8 @@
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/iot/**/*.md": "Azure IoT",
         "articles/iot/**/*yml": "Azure IoT",
+        "articles/iot-central/**/*.md": "Azure IoT Central",
+        "articles/iot-central/**/*yml": "Azure IoT Central",
         "articles/jenkins/**/*.yml": "Jenkins",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
