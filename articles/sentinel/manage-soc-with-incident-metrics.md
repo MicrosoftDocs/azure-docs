@@ -85,7 +85,7 @@ You can use the template to create your own custom workbooks tailored to your sp
 
 ## SecurityIncidents schema
 
-[!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
+[!INCLUDE [SecurityIncidents schema](includes/sentinel-schema-security-incident.md)]
 
 ## Next steps
 
