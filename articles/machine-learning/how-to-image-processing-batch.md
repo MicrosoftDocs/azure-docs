@@ -66,7 +66,7 @@ __endpoint.yml__
 
 Run the following code to create the endpoint.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_endpoint" :::
 
 # [Python](#tab/python)
 
@@ -193,7 +193,7 @@ One the scoring script is created, it's time to create a batch deployment for it
   
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_deployment" :::
    
    # [Python](#tab/python)
    
@@ -342,7 +342,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    To download the predictions, use the following command:
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_scores" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_outputs" :::
 
    # [Python](#tab/python)
 
@@ -398,7 +398,7 @@ On those cases, we may want to perform inference on the entire batch of data. Th
   
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_deployment_ht" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_deployment_ht" :::
    
    # [Python](#tab/python)
    
