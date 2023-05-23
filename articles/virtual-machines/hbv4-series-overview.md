@@ -56,6 +56,7 @@ Standard_HB120r-16s_v4            | 4            | 6                      | Dual
 The virtual NUMA mapping of each HBv4 VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology. 
 
 The exact topology for the various [HBv4 VM size](hbv4-series.md) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
+
 ```bash
 lstopo-no-graphics --no-io --no-legend --of txt
 ```
@@ -91,7 +92,7 @@ lstopo-no-graphics --no-io --no-legend --of txt
 </details>
 
 ## InfiniBand networking
-HBv4 VMs also feature Nvidia Mellanox NDR InfiniBand network adapters (ConnectX-7) operating at up to 400 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv4 VMs as they would a bare metal environment..
+HBv4 VMs also feature NVIDIA Mellanox NDR InfiniBand network adapters (ConnectX-7) operating at up to 400 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv4 VMs as they would a bare metal environment..
 
 HBv4 VMs support Adaptive Routing, Dynamic Connected Transport (DCT, in additional to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-7 adapter. These features enhance application performance, scalability, and consistency, and usage of them is strongly recommended.
 
@@ -127,12 +128,12 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> These VMs support Generation 2 ONLY
-> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6
+> These VMs support only Generation 2.
+> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is AlmaLinux 8.6.
 > Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> 
+> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest), for scaling tests please use the URN recommended almalinux:almalinux-hpc:8_6-hpc-gen2:latest and the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16)
 
 ## Next steps
 
