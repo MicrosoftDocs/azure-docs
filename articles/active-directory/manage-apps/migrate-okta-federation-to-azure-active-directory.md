@@ -13,7 +13,7 @@ ms.subservice: app-mgmt
 ms.custom: kr2b-contr-experiment, not-enterprise-apps
 ---
 
-# Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication 
+# Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication
 
 In this tutorial, learn to federate Office 365 tenants with Okta for single sign-on (SSO).
 
