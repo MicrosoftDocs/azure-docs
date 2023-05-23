@@ -14,18 +14,16 @@ Use the `workspace` expression in an Azure Monitor query to retrieve data from a
 
 ## Permissions required
 
-The permissions required to use the `workspace` expression depend on which access control mode is enabled.
+To use the `workspace` expression, you must have read access to the workspace. The permissions required depend on which access control mode is enabled on the workspace.
 
 ### Require workspace permissions
 
-If this access control mode is enabled, you must be granted the `Microsoft.OperationalInsights/workspaces/query/*/read` permission to the workspace.
+If this access control mode is enabled on the workspace, you must be granted the `Microsoft.OperationalInsights/workspaces/query/*/read` permission to the workspace.
 
 ### Use resource or workspace permissions
 
-If this access control mode is enabled, you must be assigned to one of the following roles, which provides read access to the workspace:
+If this access control mode is enabled on the workspace, you must be assigned to one of the following roles:
 
-- [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor)
-- [Monitoring Reader built-in role](../../role-based-access-control/built-in-roles.md#monitoring-reader)
 - [Log Analytics Contributor built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 - [Log Analytics Reader built-in role](../../role-based-access-control/built-in-roles.md#log-analytics-reader)
 - Any other [built-in role](../../role-based-access-control/built-in-roles.md) with the `Microsoft.OperationalInsights/workspaces/query/*/read` or `*/read` action
@@ -36,6 +34,8 @@ If this access control mode is enabled, you must be assigned to one of the follo
 `workspace(`*Identifier*`)`
 
 ### Arguments
+
+The `workspace` expression takes the following arguments.
 
 #### Identifier 
 
