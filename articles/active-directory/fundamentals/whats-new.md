@@ -118,7 +118,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Other                               
 **Product capability:** Permissions Management                 
 
-The Azure Active Directory Insights tab in Microsoft Entra Permissions Management provides a view of all permanent role assignments assigned to Global Administrators, and a curated list of highly privileged roles. Administrators can then use the report to take further action within the Azure Active Directory console. For more information, see [Discovery and Insights (preview) for Azure AD roles (formerly Security Wizard)](../privileged-identity-management/pim-security-wizard.md).
+The Azure Active Directory Insights tab in Microsoft Entra Permissions Management provides a view of all permanent role assignments assigned to Global Administrators, and a curated list of highly privileged roles. Administrators can then use the report to take further action within the Azure Active Directory console. For more information, see [View privileged role assignments in your organization (Preview)](../cloud-infrastructure-entitlement-management/product-privileged-role-insights.md).
 
 ---
 
