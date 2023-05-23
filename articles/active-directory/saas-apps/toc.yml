@@ -250,6 +250,8 @@
         href: autotaskworkplace-tutorial.md
       - name: Aventri
         href: etouches-tutorial.md
+      - name: Avionte Bold SAML Federated SSO
+        href: avionte-bold-saml-federated-sso-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
       - name: AwareGo
@@ -398,6 +400,8 @@
         href: capriza-tutorial.md
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
+      - name: CAREERSHIP
+        href: careership-tutorial.md
       - name: CWT
         href: cwt-tutorial.md
       - name: Catchpoint
@@ -1187,6 +1191,8 @@
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
+      - name: IBM TRIRIGA on Cloud
+        href: ibm-tririga-on-cloud-tutorial.md
       - name: ice Contact Center
         href: ice-contact-center-tutorial.md
       - name: ICIMS

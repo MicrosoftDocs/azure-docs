@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 05/15/2023
+ms.date: 05/16/2023
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -64,10 +64,20 @@ ms.topic: conceptual
     
 * <a id="afs-resource-move"></a>
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
-   Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see **Ensure Azure File Sync has access to the storage account** under [Common troubleshooting steps](../file-sync/file-sync-troubleshoot-sync-errors.md#common-troubleshooting-steps)).
+   Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account. Follow these steps:
+   
+   1. Sign in to the Azure portal and select **Access control (IAM)** from the left-hand navigation.
+   1. Select the **Role assignments** tab to list the users and applications (*service principals*) that have access to your storage account.
+   1. Verify **Microsoft.StorageSync** or **Hybrid File Sync Service** (old application name) appears in the list with the **Reader and Data Access** role.
 
-    > [!Note]  
-    > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
+      If **Microsoft.StorageSync** or **Hybrid File Sync Service** doesn't appear in the list, perform the following steps:
+      
+      - Select **Add**.
+      - In the **Role** field, select **Reader and Data Access**.
+      - In the **Select** field, type **Microsoft.StorageSync**, select the role and then select **Save**.
+    
+      > [!Note]  
+      > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
     
 * <a id="afs-ntfs-acls"></a>
   **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**

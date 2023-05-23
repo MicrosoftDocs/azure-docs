@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark in Azure Machine Learning (preview)"
+title: "Apache Spark in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: This article explains the options for accessing Apache Spark in Azure Machine Learning.
 services: machine-learning
@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.author: franksolomon
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 03/06/2023
-ms.custom: cliv2, sdkv2
+ms.date: 05/11/2023
+ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
 ---
 
@@ -56,7 +56,7 @@ Disadvantages:
 
 ### Network configuration
 
-As of January 2023, creation of a serverless Spark compute, inside a virtual network, and creation of a private endpoint to Azure Synapse, aren't supported.
+To use network isolation with Azure Machine Learning and serverless Spark compute, use a [managed virtual network](how-to-managed-network.md).
 
 ### Inactivity periods and tear-down mechanism
 

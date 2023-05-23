@@ -1141,6 +1141,23 @@ A layout is a file that defines the visual structure and appearance of a user in
 
    ```
 
+1. In **app** > **src** > **main**> **res** > **menu** > **activity_main_drawer.xml**. If you don't have **activity_main_drawer.xml** in your folder, create and add the following code snippet:
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <menu xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:tools="http://schemas.android.com/tools"
+       tools:showIn="navigation_view">
+       <group android:checkableBehavior="single">
+           <item
+               android:id="@+id/nav_single_account"
+               android:icon="@drawable/ic_single_account_24dp"
+               android:title="Single Account Mode" />
+
+       </group>
+   </menu>
+   ```
+
 1. In **app** > **src** > **main**> **res** > **values** > **dimens.xml**. Replace the content of **dimens.xml** with the following code snippet:
 
    ```xml
@@ -1168,6 +1185,28 @@ A layout is a file that defines the visual structure and appearance of a user in
        <color name="colorPrimary">#008577</color>
        <color name="colorPrimaryDark">#00574B</color>
        <color name="colorAccent">#D81B60</color>
+   </resources>
+   ```
+
+1. In **app** > **src** > **main**> **res** > **values** > **strings.xml**. Replace the content of **strings.xml** with the following code snippet:
+
+   ```xml
+   <resources>
+       <string name="app_name">MSALAndroidapp</string>
+       <string name="action_settings">Settings</string>
+       <!-- Strings used for fragments for navigation -->
+       <string name="first_fragment_label">First Fragment</string>
+       <string name="second_fragment_label">Second Fragment</string>
+       <string name="nav_header_desc">Navigation header</string>
+       <string name="navigation_drawer_open">Open navigation drawer</string>
+       <string name="navigation_drawer_close">Close navigation drawer</string>
+       <string name="next">Next</string>
+       <string name="previous">Previous</string>
+
+       <string name="hello_first_fragment">Hello first fragment</string>
+       <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+       <!-- TODO: Remove or change this placeholder text -->
+       <string name="hello_blank_fragment">Hello blank fragment</string>
    </resources>
    ```
 
