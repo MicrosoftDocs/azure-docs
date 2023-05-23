@@ -18,7 +18,7 @@ You can use triggers in Azure Image Builder (AIB) to set up automatic image buil
 > Azure Image Builder triggers is currently in Preview.
 
 > [!NOTE]
-> Currently, we only support setting a trigger for a new source image, but we do expect to support different kinds of triggers in the future. To give feedback on the kind of triggers you would like to see, please send an email to aibrpdevs@microsoft.com.
+> Currently, we only support setting a trigger for a new source image, but we do expect to support different kinds of triggers in the future.
 
 ## Prerequisites
 Before setting up your first trigger, ensure you're using Azure Image Builder API version **2022-07-01.** Also, we'll need to register the AFEC for your subscription, so please send your subscription ID(s) with the name of your team/service to the following email: aibrpdevsupport@microsoft.com with the subject "Triggers AFEC registration."
