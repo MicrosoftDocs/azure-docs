@@ -134,7 +134,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
     | `*.<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
-    | `*.<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.service.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
@@ -244,7 +244,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
     | `*.<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
-    | `*.<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.service.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
