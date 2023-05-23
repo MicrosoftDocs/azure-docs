@@ -29,7 +29,7 @@ The Azure Monitor metrics agent's architecture utilizes a ReplicaSet and a Daemo
   - Microsoft.AlertsManagement
 
 > [!NOTE]
-> `Contributor` permission is enough for enabling the addon to send data to Azure Monitor Metrics. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana as the user executing the onboarding step needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace so that it is able to query for the metrics. 
+> `Contributor` permission is enough for enabling the addon to send data to Azure Monitor Metrics. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. 
 
 ## Enable Prometheus metric collection
 Use any of the following methods to install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
