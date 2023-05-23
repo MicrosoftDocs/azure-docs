@@ -112,9 +112,72 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 1. Double-click the row that has Event ID 1007. The **Event Properties** dialog box for this event appears.
 1. In the **General** tab's description box, copy the error code. The error code is a 10-character string that begins with `0x`, followed by an 8-digit hexadecimal number.
 
-### Step 3: 
+### Step 3: Get troubleshooting instructions for certain error codes
+
+<details>
+<summary>STATUS_LOGON_FAILURE (-1073741715 / 0xc000006d)<br/>
+STATUS_WRONG_PASSWORD (-1073741718 / 0xc000006a)</summary>
+</details>
+
+<details>
+<summary>STATUS_REQUEST_NOT_ACCEPTED (-1073741616 / 0xc00000d0)</summary>
+</details>
+
+<details>
+<summary>STATUS_NETWORK_UNREACHABLE (-1073741252 / 0xc000023c)<br/>
+STATUS_BAD_NETWORK_PATH (-1073741634 / 0xc00000be)<br/>
+STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628 / 0xc00000c4)</summary>
+</details>
+
+<details>
+<summary>STATUS_NO_SUCH_LOGON_SESSION (-1073741729 / 0xc000005f)</summary>
+</details>
+
+#### Common CloudAP plug-in error codes
+
+<details>
+<summary>AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED (-1073445812 / 0xc004844c)</summary>
+</details>
+
+<details>
+<summary>AAD_CLOUDAP_E_OAUTH_USER_SID_IS_EMPTY (-1073445822 / 0xc0048442)</summary>
+</details>
+
+<details>
+<summary>AAD_CLOUDAP_E_WSTRUST_SAML_TOKENS_ARE_EMPTY (-1073445695 / 0xc00484c1 / 0x800484c1)</summary>
+</details>
+
+<details>
+<summary>AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY (-1073445749 / 0xc004848b)</summary>
+</details>
+
+<details>
+<summary>WC_E_DTDPROHIBITED (-1072894385 / 0xc00cee4f)</summary>
+</details>
+
+#### Common server error codes
+
+<details>
+<summary>AADSTS50155: Device authentication failed</summary>
+</details>
+
+<details>
+<summary>AADSTS50034: The user account &lt;Account&gt; does not exist in the &lt;tenant id&gt; directory</summary>
+</details>
+
+<details>
+<summary>AADSTS50126: Error validating credentials due to invalid username or password</summary>
+</details>
 
 
+#### Common network error codes
+
+<details>
+<summary>ERROR_WINHTTP_TIMEOUT (12002)<br/>
+ERROR_WINHTTP_NAME_NOT_RESOLVED (12007)<br/>
+ERROR_WINHTTP_CANNOT_CONNECT (12029)<br/>
+ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
+</details>
 
 ### Step 4: Collect the logs
 
@@ -137,6 +200,6 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
    .\stop-auth.ps1
    ```
 
-   Wait for all tracing to stop completely.
+1. Wait for all tracing to stop completely.
 
 #### TimeTravel Traces (TTT)
