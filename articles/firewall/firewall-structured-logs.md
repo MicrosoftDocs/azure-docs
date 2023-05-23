@@ -63,11 +63,11 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 > [!NOTE]
-> It can take several minutes for this to take effect. Run the following Azure PowerShell command to see the `ResistratonState`:
+> It can take several minutes for this to take effect. Run the following Azure PowerShell command to see the `RegistrationState`:
 >
 > `Get-AzProviderFeature -FeatureName "AFWEnableStructuredLogs" -ProviderNamespace "Microsoft.Network"`
 >
->When the `ResistratonState` is *Registered*, consider performing an update on Azure Firewall for the change to take effect immediately.
+>When the `RegistrationState` is *Registered*, consider performing an update on Azure Firewall for the change to take effect immediately.
 
 
 Run the following Azure PowerShell command to turn this feature off:

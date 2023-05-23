@@ -1,23 +1,23 @@
 ---
-title: Migrate Okta federation to Azure Active Directory
-description: Learn how to migrate your Okta-federated applications to managed authentication under Azure AD. See how to migrate federation in a staged manner.
+title: Migrate Okta federation to Azure Active Directory-managed authentication
+description: Migrate Okta-federated applications to managed authentication under Azure AD. See how to migrate federation in a staged manner.
 services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 05/23/2023
 ms.author: gasinh
 ms.subservice: app-mgmt
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, not-enterprise-apps
 ---
 
 # Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication
 
-In this tutorial, you'll learn how to federate your existing Office 365 tenants with Okta for single sign-on (SSO) capabilities.
+In this tutorial, learn to federate Office 365 tenants with Okta for single sign-on (SSO).
 
-You can migrate federation to Azure Active Directory (Azure AD) in a staged manner to ensure a good authentication experience for users. In a staged migration, you can also test reverse federation access back to any remaining Okta SSO applications.
+You can migrate federation to Azure Active Directory (Azure AD) in a staged manner to ensure a good authentication experience for users. In a staged migration, you can test reverse federation access to remaining Okta SSO applications.
 
 ## Prerequisites
 
@@ -244,18 +244,18 @@ After you configure the Okta reverse-federation app, have your users conduct ful
 
 ## Defederate Office 365 domains
 
-When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to MSOnline PowerShell. If you don't already have the MSOnline PowerShell module, download it by entering `install-module MSOnline`.
+When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to Mirosoft Graph PowerShell. If you don't have the Microsoft Graph PowerShell module, download it by entering `install-module MSOnline`.
 
 ```PowerShell
 
 import-module MSOnline
-Connect-Msolservice
-Set-msoldomainauthentication 
+Connect-MgGraph
+New-MgDomainFederationConfiguration 
 -domainname yourdomain.com -authentication managed
 
 ```
 
-After you set the domain to managed authentication, you've successfully defederated your Office 365 tenant from Okta while maintaining user access to the Okta home page.
+After you set the domain to managed authentication, you've defederated your Office 365 tenant from Okta while maintaining user access to the Okta home page.
 
 ## Next steps
 

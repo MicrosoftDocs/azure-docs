@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-api, event-tier1-build-202
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌️ Enterprise
 
 Azure Spring Apps enables Spring Boot applications on Azure.
 
@@ -59,7 +59,7 @@ Sign in to the Azure CLI and choose your active subscription.
 ```azurecli
 az login
 az account list -o table
-az account set --subscription
+az account set --subscription <subscription-id>
 ```
 
 Create a resource group to contain your service in Azure Spring Apps. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
@@ -80,7 +80,7 @@ Set your default resource group name and Azure Spring Apps instance name using t
 
 ```azurecli
 az config set defaults.group=<service-group-name>
-az config set defaults.spring-cloud=<service-instance-name>
+az config set defaults.spring=<service-instance-name>
 ```
 
 ## Create the application in Azure Spring Apps
@@ -102,7 +102,7 @@ To deploy from a JAR built on your local machine, ensure that your build produce
 To deploy the fat-JAR to an active deployment
 
 ```azurecli
-az spring app deploy --name <app-name> --jar-path <path-to-fat-JAR>
+az spring app deploy --name <app-name> --artifact-path <path-to-fat-JAR>
 ```
 
 To deploy the fat-JAR to a specific deployment
@@ -110,7 +110,7 @@ To deploy the fat-JAR to a specific deployment
 ```azurecli
 az spring app deployment create --app <app-name> \
     --name <deployment-name> \
-    --jar-path <path-to-fat-JAR>
+    --artifact-path <path-to-fat-JAR>
 ```
 
 ### Deploy from source code
@@ -124,14 +124,14 @@ For single module Maven / Gradle projects:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring app deploy --name <app-name>
+az spring app deploy --name <app-name> --source-path
 ```
 
 For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring app deploy --name <app-name> \
+az spring app deploy --name <app-name> --source-path \
     --target-module <relative-path-to-module>
 ```
 

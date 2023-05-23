@@ -151,7 +151,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning allows you to implement [online endpoints](concept-endpoints.md#what-are-online-endpoints) for real-time inferencing on client data, and [batch endpoints](concept-endpoints.md#what-are-batch-endpoints) for inferencing on large volumes of data over a period of time. 
+Azure Machine Learning allows you to implement [online endpoints](concept-endpoints-online.md) for real-time inferencing on client data, and [batch endpoints](concept-endpoints-batch.md) for inferencing on large volumes of data over a period of time. 
 
 In this tutorial, we'll walk you through the steps of implementing a _managed online endpoint_. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure.
 
@@ -484,7 +484,7 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 ## Next Steps
 
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
-- [Test the deployment with mirrored traffic (preview)](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)
+- [Test the deployment with mirrored traffic](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic)
 - [Monitor online endpoints](how-to-monitor-online-endpoints.md)
 - [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
 - [Customize MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments)

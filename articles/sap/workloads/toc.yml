@@ -13,11 +13,11 @@ items:
         href: planning-supported-configurations.md
       - name: Supported SAP software for Azure deployments
         href: supported-product-on-azure.md
-      - name: Checklist for deploying SAP workloads on Azure
+      - name: Checklist to deploy an SAP workload on Azure
         href: deployment-checklist.md
-      - name: Plan and implement SAP NetWeaver on Azure
+      - name: Plan and implement an SAP deployment on Azure
         href: planning-guide.md
-      - name: Deploy SAP NetWeaver applications
+      - name: Deploy an SAP workload on Azure
         href: deployment-guide.md
       - name: SAP Business One on Azure VMs
         href: business-one-azure.md
@@ -141,8 +141,6 @@ items:
             href: sap-hana-scale-out-standby-netapp-files-suse.md
           - name: Scale-out  with HSR and Pacemaker
             href: sap-hana-high-availability-scale-out-hsr-suse.md
-          - name: Troubleshoot scale-out with HSR and Pacemaker
-            href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
       - name: IBM Db2
         items:
         - name: RHEL - IBM Db2 HA

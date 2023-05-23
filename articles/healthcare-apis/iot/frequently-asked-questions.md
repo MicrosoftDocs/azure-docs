@@ -1,12 +1,11 @@
 ---
 title: Frequently asked questions about the MedTech service - Azure Health Data Services
-description: This article provides answers to the frequently asked questions about the MedTech service.
+description: Learn about the MedTech service frequently asked questions.
 services: healthcare-apis
 author: msjasteppe
-ms.custom: references_regions
 ms.service: healthcare-apis
-ms.topic: reference
-ms.date: 04/14/2023
+ms.topic: faq
+ms.date: 05/15/2023
 ms.author: jasteppe
 ---
 
@@ -25,7 +24,7 @@ The MedTech service is available in these Azure regions: [Products available by 
 
 No. The MedTech service currently only supports the Azure Health Data Services FHIR service for the persistence of transformed device data. The open-source version of the MedTech service supports the use of different FHIR services. 
 
-To learn more about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
+To learn about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
 ### What versions of FHIR does the MedTech service support?
 
@@ -33,7 +32,7 @@ The MedTech service supports the [HL7 FHIR&#174; R4](https://www.hl7.org/impleme
 
 ### Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
-The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md). 
+The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device data. To learn how the MedTech service transforms device data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md). 
 
 ### Is JsonPathContent still supported by the MedTech service device mapping?
 
@@ -60,11 +59,11 @@ The MedTech service buffers [FHIR Observations](https://www.hl7.org/fhir/observa
 |A Patient resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Patient resource](https://www.hl7.org/fhir/patient.html) in the FHIR service.|
 |The Device.patient reference isn't set, or the reference is invalid (**Resolution type**: **Lookup** only)*.|Make sure the Device resource contains a valid [reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient resource.| 
 
-\* Reference [Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (**Create** or **Lookup**).
+\* Reference [Deploy the MedTech service using the Azure portal](deploy-manual-portal.md#configure-the-destination-tab) for a functional description of the MedTech service resolution types (**Create** or **Lookup**).
 
 ### Does the MedTech service perform backups of device messages?
 
-No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days. Event hubs can be deployed in [three different service tiers](../../event-hubs/event-hubs-quotas.md?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier-dependent: Basic one day, Standard 1-7 days, Premium 90 days. If the MedTech service successfully processes the device message data, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
+No. The MedTech service doesn't back up the device messages that is sent to the event hub. The event hub owner controls the device message retention period within their event hub, which can be from one to 90 days. Event hubs can be deployed in [three different service tiers](../../event-hubs/event-hubs-quotas.md?source=recommendations#basic-vs-standard-vs-premium-vs-dedicated-tiers). Message retention limits are tier-dependent: Basic one day, Standard 1-7 days, Premium 90 days. If the MedTech service successfully processes the device data, it's persisted in the FHIR service, and the FHIR service backup policy applies. 
 
 To learn more about event hub message retention, see [What is the maximum retention period for events?](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) 
 
@@ -80,11 +79,11 @@ To learn more about event hub message retention, see [What is the maximum retent
 
 Yes. The MedTech service supports device messages from all these vendors through the open-source version of the MedTech service. 
 
-To learn more about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
+To learn about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
 ## Next steps
 
-In this article, you learned about the MedTech service frequently asked questions (FAQs)
+In this article, you learned about the MedTech service frequently asked questions (FAQs).
 
 For an overview of the MedTech service, see
 

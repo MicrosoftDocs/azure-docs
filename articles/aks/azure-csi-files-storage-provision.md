@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2023
+ms.date: 05/17/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -33,7 +33,7 @@ This section provides guidance for cluster administrators who want to provision 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
 |skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
-|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`| Yes | `ext4` for Linux|
+|protocol | Specify file share protocol. | `smb`, `nfs` | No | `smb` |
 |location | Specify Azure region where Azure storage account will be created. | For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
 |resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
 |shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
@@ -144,7 +144,7 @@ kubectl get pvc my-azurefile
 
 The output of the command resembles the following example:
 
-```console
+```output
 NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
 my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   10Gi       RWX            my-azurefile      5m
 ```
@@ -265,13 +265,13 @@ Before you can use an Azure Files file share as a Kubernetes volume, you must cr
 
 1. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
     The output of the command resembles the following example:
 
-    ```azurecli
+    ```azurecli-interactive
     MC_myResourceGroup_myAKSCluster_eastus
     ```
 
@@ -281,32 +281,31 @@ Before you can use an Azure Files file share as a Kubernetes volume, you must cr
    * `nodeResourceGroupName` with the name of the resource group that the AKS cluster nodes are hosted in
    * `location` with the name of the region to create the resource in. It should be the same region as the AKS cluster nodes. 
 
-    ```azurecli
+    ```azurecli-interactive
     az storage account create -n myAKSStorageAccount -g nodeResourceGroupName -l location --sku Standard_LRS
     ```
 
 3. Run the following command to export the connection string as an environment variable. This is used when creating the Azure file share in a later step.
 
-    ```azurecli
+    ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n storageAccountName -g resourceGroupName -o tsv)
     ```
 
 4. Create the file share using the [Az storage share create][az-storage-share-create] command. Replace the placeholder `shareName` with a name you want to use for the share.
 
-    ```azurecli
+    ```azurecli-interactive
     az storage share create -n shareName --connection-string $AZURE_STORAGE_CONNECTION_STRING
     ```
 
 5. Run the following command to export the storage account key as an environment variable. 
 
-    ```azurecli
-    STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
+    ```azurecli-interactive
+    STORAGE_KEY=$(az storage account keys list --resource-group nodeResourceGroupName --account-name myAKSStorageAccount --query "[0].value" -o tsv)
     ```
 
 6. Run the following commands to echo the storage account name and key. Copy this information as these values are needed when you create the Kubernetes volume later in this article. 
 
-    ```azurecli
-    echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
+    ```azurecli-interactive
     echo Storage account key: $STORAGE_KEY
     ```
 
@@ -317,7 +316,7 @@ Kubernetes needs credentials to access the file share created in the previous st
 Use the `kubectl create secret` command to create the secret. The following example creates a secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountkey* from the previous step. To use an existing Azure storage account, provide the account name and key.
 
 ```bash
-kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=myAKSStorageAccount --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
 ### Mount file share as an inline volume

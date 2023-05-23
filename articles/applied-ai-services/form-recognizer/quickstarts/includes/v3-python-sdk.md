@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/18/2022
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD025 -->
 

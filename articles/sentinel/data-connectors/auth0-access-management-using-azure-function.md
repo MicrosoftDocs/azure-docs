@@ -56,7 +56,7 @@ To integrate with Auth0 Access Management (using Azure Function) make sure you h
  Follow the instructions to obtain the credentials.
 
 1. In Auth0 Dashboard, go to **Applications > Applications**.
-2. Select your Application.
+2. Select your Application. This should be a "Machine-to-Machine" Application configured with at least **read:logs** and **read:logs_users** permissions.
 3. Copy **Domain, ClientID, Client Secret**
 
 
