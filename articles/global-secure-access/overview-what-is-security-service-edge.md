@@ -5,54 +5,60 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 04/04/2023
+ms.date: 05/23/2023
 ms.service: network-access
 ms.custom: 
 ---
 
 # What is Security Service Edge (SSE)?
 
-The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. This new paradigm in modern work has taken on various names. Gartner originally came up with the term Secure Access Service Edge (SASE). Forrester then came up with a similar term called Security Service Edge (SSE). You will also hear people refer to Network as a Service (NaaS) and Zero Trust Network Access (ZTNA). 
+The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. The network perimeter for the modern workforce has created a need for a new category of networking that provides control and visibility to users and devices both inside and outside of a traditional office. This new category of networking is called Security Service Edge (SSE). Microsoft's SSE solution is called Global Secure Access and it includes two services: Microsoft Entra Private Access and Microsoft Entra Internet Access.
 
-## Understand SASE, SSE, and modern networking
+Administrators need a way to apply consistent access controls, secure resources, and gain visibility into network traffic. Users need to be more efficient while securely accessing the resources they need to do their jobs. Many organizations have stitched together several solutions to solve these challenges, but this approach can be complex and expensive to manage.
 
-A new category of computing has emerged as the modern workforce has moved to working both inside and outside of traditional offices. Gartner calls this new category Secure Access Service Edge (SASE) and Forrester divides the concept further with a term called Security Service Edge (SSE). Another term to describe this concept is a Network as a Service (NaaS). Microsoft calls this new area Global Secure Access.
-
-Whatever you call it, think of the new category of networking as a solution that extends a traditional corporate network down to individual users and devices regardless of their physical location in the world. In other words, the network your organization controls and monitors is extended down to individual devices and users regardless of whether they are working in a traditional office or a coffee shop on the other side of the world. The diagrams show the traditional line of control and the modern line of control for network traffic.
+Deploying a Security Service Edge solution can help organizations simplify their network and security architecture, reduce costs, and improve the user experience. Admins can manage access to apps and resources with confidence. Users don't have to rely on the complexities of a traditional VPN. With the services included in Global Secure Access, the traditional corporate network is extended down to individual users and devices regardless of their physical location in the world.
 
 :::image type="content" source="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg" alt-text="Diagram showing the traditional line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg":::
 
 :::image type="content" source="./media/overview-what-is-global-secure-access/modern_network_traffic.svg" alt-text="Diagram showing the modern line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/modern_network_traffic.svg":::
 
-## Understand Secure Access Service Edge (SASE)
-Secure access service edge, often abbreviated (SASE), is a security framework that converges software-defined wide area networking (SD-WAN) and Zero Trust security solutions into a converged cloud-delivered platform that securely connects users, systems, endpoints, and remote networks to apps and resources.
+## Zero trust principles
 
-SASE has four main traits:
+Global Secure Access is built upon the core principles Zero Trust to use least privilege, verify explicitly, and assume breach. Zero Trust Network Access (ZTNA) is the result of applying Zero Trust principles to networking technologies and concepts. ZTNA operates on a framework in which trust is never implicit and access is granted on a need-to-know, least-privileged bases across all users, devices, and applications. Users are authenticated, authorized, and continuously validated before being granted access to company private applications and data.
 
-**Identity-driven:** Access is granted based on the identity of users and devices.
+## Key components of Global Secure Access
 
-**Cloud-native:** Both infrastructure and security solutions are cloud-delivered.
+Microsoft Entra Private Access and Internet Access - the two services that make up Global Secure Access - include several key concepts traditionally found in a Security Service Edge solution. Each of these components is incorporated into the following traits:
 
-**Supports all edges:** Every physical, digital, and logical edge is protected.
+- **Identity-driven:** Access is granted based on the identity of users and devices.
+- **Cloud-native:** Both infrastructure and security solutions are cloud-delivered.
+- **Globally distributed:** Users are secured no matter where they work.
 
-**Globally distributed:** Users are secured no matter where they work.
+### Secure web gateway
 
-The main goal of SASE architecture is to provide a seamless user experience, optimized connectivity, and comprehensive security in a way that supports the dynamic secure access needs of digital enterprises. Instead of "backhauling" traffic to traditional data centers or private networks for security inspections, SASE enables devices and remote systems to seamlessly access apps and resources wherever they are—and at any time.
+A secure web gateway (SWG) is a web security service that filters unauthorized traffic from accessing a specific network. The goal of an SWG is to zero in on threats before they penetrate a virtual perimeter. An SWG combines technologies like malicious code detection, malware elimination, and URL filtering to prevent unauthorized traffic from accessing your network.
 
-## Key components of SASE
-SASE can be broken down into six essential elements.
+Microsoft Entra Private Access and Internet Access include traffic profiles that you can enable to specify what incoming traffic can access your network. 
 
-**Software-defined wide area network (SD-WAN)** - A software-defined wide area network is an overlay architecture that uses routing or switching software to create virtual connections between endpoints—both physical and logical. SD-WANs provide near-unlimited paths for user traffic, which optimizes the user experience, and allows for powerful flexibility in encryption and policy management.
+### Cloud access security broker
 
-**Secure web gateway (SWG)** - A secure web gateway is a web security service that filters unauthorized traffic from accessing a particular network. The goal of an SWG is to zero in on threats before they penetrate a virtual perimeter. An SWG accomplishes this by combining technologies like malicious code detection, malware elimination, and URL filtering.
+A cloud access security broker (CASB) is a SaaS application that acts as a security checkpoint between on-premises networks and cloud-based applications to enforce data security policies. A CASB protects corporate data through a combination of prevention, monitoring, and mitigation techniques. It can also identify malicious behavior and warn administrators about compliance violations.
 
-**Cloud access security broker (CASB)** - A cloud access security broker is a SaaS application that acts as a security checkpoint between on-premises networks and cloud-based applications and enforces data security policies. A CASB protects corporate data through a combination of prevention, monitoring, and mitigation techniques. It can also identify malicious behavior and warn administrators about compliance violations.
+The CASB security checkpoint for Microsoft Entra Private Access and Internet Access comes from establishing an Azure Active Directory Application Proxy connector group, which further manages the traffic that can access your apps.
 
-**Firewall as a service (FWaaS)** - Firewall as a service moves firewall protection to the cloud instead of the traditional network perimeter. This enables organizations to securely connect a remote, mobile workforce to the corporate network, while still enforcing consistent security policies that reach beyond the organization’s geographic footprint.
+### Firewall as a service
 
-**Zero Trust Network Access (ZTNA)** - Zero Trust Network Access is a set of consolidated, cloud-based technologies that operates on a framework in which trust is never implicit and access is granted on a need-to-know, least-privileged basis across all users, devices, and applications. In this model, all users must be authenticated, authorized, and continuously validated before being granted access to company private applications and data. ZTNA eliminates the poor user experience, operational complexities, costs, and risk of a traditional VPN.
+Firewall as a service (FWaaS) moves firewall protection to the cloud instead of the traditional network perimeter. This shift enables organizations to securely connect a remote, mobile workforce to the corporate network, while still enforcing consistent security policies that reach beyond the organization’s geographic footprint.
 
-**Centralized and unified management** - A modern SASE platform allows IT administrators to manage SD-WAN, SWG, CASB, FWaaS, and ZTNA through centralized and unified management across networking and security. This frees IT team members to focus their energy in other more pressing areas and boosts the user experience for the organization’s hybrid workforce.
+Microsoft Entra Private Access and Internet Access....
+
+### Centralized and unified management
+
+A modern SSE platform allows IT administrators to these key components through centralized and unified management across networking and security. This frees IT team members to focus their energy in other more pressing areas and boosts the user experience for the organization’s hybrid workforce.
+
+The features of Global Secure Access are all accessed from the Microsoft Entra admin center. With this centralized experience you can set up your branch and client connectivity, manage your traffic profiles, and view your logs and reports.
+
+
 
 ## Benefits of SASE
 SASE platforms offer significant advantages over traditional on-premises network options. Here are some of the primary reasons organizations may want to switch to a SASE framework:
