@@ -70,10 +70,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
 1. When you're done with all other fields, select **Register**.
 
-<!--
-    1. In the **Sensor version** field, verify that **22.X and above** is selected.<!--removing this. do we no longer have a sensor version field?-->
-<!-->
-       If you're working with legacy OT sensor software, we recommend that you update your version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).-->
+<!--1. In the **Sensor version** field, verify that **22.X and above** is selected.<!--removing this. do we no longer have a sensor version field? If you're working with legacy OT sensor software, we recommend that you update your version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).-->
 
 A success message appears and your activation file is automatically downloaded. Your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
 
