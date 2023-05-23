@@ -118,6 +118,7 @@ Image definition:
 - Recommended memory
 - Description
 - End of life date
+- ReleaseNotes
 
 Image version:
 - Regional replica count
