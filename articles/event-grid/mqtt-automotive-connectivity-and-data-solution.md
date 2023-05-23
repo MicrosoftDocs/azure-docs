@@ -13,7 +13,7 @@ This reference architecture is designed to support automotive OEMs and Mobility 
 
 ## Architecture
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png" alt-text="Diagram of the high-level architecture." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png" alt-text="Diagram of the high-level architecture." border="false" lightbox="media/article-folder-name/image-file-expanded.png":::
 
 The high level architecture diagram shows the main logical blocks and services of an automotive messaging, data & analytics solution. Further details can be found in the following sections.
 
@@ -38,7 +38,7 @@ The architecture uses the [publisher/subscriber](/azure/architecture/patterns/pu
 
 The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action).
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/messaging-dataflow.png" alt-text="Diagram of the messaging dataflow." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/messaging-dataflow.png" alt-text="Diagram of the messaging dataflow." border="false" lightbox="media/article-folder-name/image-file-expanded.png":::
 
 1. The *vehicle* is configured for a customer based on the selected options using the **Management APIs**. The configuration contains:
     1. **Provisioning** information for vehicles and devices.
@@ -68,7 +68,7 @@ Depending on the vehicle capabilities and type of action, there are multiple pos
 
 The following dataflow users commands issued from a companion app digital services as an example.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/command-and-control-dataflow.png" alt-text="Diagram of the command and control dataflow." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/command-and-control-dataflow.png" alt-text="Diagram of the command and control dataflow." border="false" lightbox="media/article-folder-name/image-file-expanded.png":::
 
 Direct messages are executed with the minimum amount of hops for the best possible performance **(A)**:
 
@@ -95,7 +95,7 @@ In the case of vehicle state-dependent commands that require user consent **(B)*
 
 This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Diagram of the provisioning dataflow." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="media/article-folder-name/image-file-expanded.png":::
 
 1. The **Factory System** commissions the vehicle device to the desired construction state. This may include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
@@ -113,7 +113,7 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 This dataflow covers analytics for vehicle data. You can use other data sources such as factory or workshop operators to enrich and provide context to vehicle data.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png" alt-text="Diagram of the data analytics." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png" alt-text="Diagram of the data analytics." border="false"lightbox="media/article-folder-name/image-file-expanded.png":::
 
 1. The *vehicle messaging services* layer provides telemetry, events, commands and configuration messages from the bidirectional communication to the vehicle.
 1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud services.
@@ -130,7 +130,7 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 
 A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It's recommended to use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/scalability.png" alt-text="Diagram of the scalability concept." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/scalability.png" alt-text="Diagram of the scalability concept." border="false"lightbox="media/article-folder-name/image-file-expanded.png":::
 
 Each *vehicle messaging scale unit* supports a defined vehicle population (for example, vehicles in a specific geographical region, partitioned by model year). The *applications scale unit* is used to scale the services that require sending or receiving messages to the vehicles. The *common service* is accessible from any scale unit and provides device management and subscription services for applications and devices.
 
@@ -183,11 +183,11 @@ Examples:
 * **Azure Batch** for High-Performance Computing tasks such as decoding large CAN Trace / Video Files
 * **Azure Kubernetes Service** for managed, full fledge orchestration of complex logic such as command & control workflow management.
 
-As an alternative to event-based data sharing, it's also possible to use Azure Data Share if the objective is to perform batch synchronization at the data lake level.
+As an alternative to event-based data sharing, it's also possible to use (Azure Data Share)[/azure/data-share/] if the objective is to perform batch synchronization at the data lake level.
 
 ## Scenario details
 
-:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-view.png" alt-text="Diagram of the high level view." border="false":::
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-view.png" alt-text="Diagram of the high level view." border="false"lightbox="media/article-folder-name/image-file-expanded.png":::
 
 Automotive OEMs are undergoing a significant transformation as they shift from producing fixed products to offering connected, software-defined vehicles. Vehicles offer a range of features, such as over-the-air updates, remote diagnostics, and personalized user experiences. This transition enables OEMs to continuously improve their products based on real-time data and insights while also expanding their business models to include new services and revenue streams.
 
