@@ -107,7 +107,7 @@ Azure Front Door private link is available in the following regions:
 Origin support for direct private endpoint connectivity is currently limited to:
 * Storage (Azure Blobs)
 * App Services 
-* Internal load balancers.
+* Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 
@@ -116,3 +116,5 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 * Learn how to [connect Azure Front Door Premium to a App Service origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md).
 * Learn how to [connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md).
 * Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
+
+
