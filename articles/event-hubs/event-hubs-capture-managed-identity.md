@@ -1,12 +1,12 @@
 ---
-title: Managed Identities for Capture - Azure Event Hubs | Microsoft Docs
-description: This article provides an overview of the Capture feature. 
+title: Use managed Identities to capture Azure Event Hubs events
+description: This article explains how to use managed identities to capture events to a destination such as Azure Blob Storage and Azure Data Lake Storage. 
 ms.topic: article
-ms.date: 05/31/2022
+ms.date: 05/23/2023
 ---
 
 
-# Authenticate modes for Capture destination 
+# Authenticate modes for capturing events to destinations in Azure Event Hubs
 Azure Event Hubs allows you to select different authentication modes when capturing events to a destination such as [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice. The authentication mode determines how the capture agent running in Event Hubs authenticate with the capture destination. 
 
 ## SAS based authentication 
@@ -23,7 +23,7 @@ With [managed identity](../active-directory/managed-identities-azure-resources/o
 
 You can use system-assigned or user-assigned managed identities with Event Hubs Capture destinations.
 
-### System-assigned managed identity with Capture 
+### Use a system-assigned managed identity to capture events
 System-assigned Managed Identity is automatically created and associated with an Azure resource, which is an Event Hubs namespace in this case. 
 
 To use system assigned identity, the capture destination must have the required role assignment enabled for the corresponding system assigned identity. 
@@ -34,7 +34,7 @@ Then you can select `System Assigned` managed identity option when enabling the 
  Then capture agent would use the identity of the namespace for authentication and authorization with the capture destination. 
 
 
-### User-assigned managed identity with Capture 
+### Use a user-assigned managed identity to capture events
 You can create a user-assigned managed identity and use it for authenticate and authorize with the capture destination of Event hubs. Once the managed identity is created, you can assign it to the Event Hubs namespace and make sure that the capture destination has the required role assignment enabled for the corresponding user assigned identity. 
 
 Then you can select `User Assigned` managed identity option when enabling the capture feature in an event hub and assign the required user assigned identity when enabling the capture feature. 
@@ -45,9 +45,10 @@ Then you can select `User Assigned` managed identity option when enabling the ca
 
 
 ### Capturing events to a capture destination in a different subscription 
-Event Hubs Capture feature also support capturing data to a capture destination in a different subscription with the use of managed identity. 
+The Event Hubs Capture feature also support capturing data to a capture destination in a different subscription with the use of managed identity. 
+
 > [!IMPORTANT]
-> - Selecting a capture destination from a different subscription is not  supported by the Azure Portal. You need to use ARM templates for that purpose. 
+> Selecting a capture destination from a different subscription is not  supported by the Azure Portal. You need to use ARM templates for that purpose. 
 
 For that you can use the same ARM templates given in [enabling capture with ARM template guide](./event-hubs-resource-manager-namespace-event-hub-enable-capture.md) with corresponding managed identity. 
 
