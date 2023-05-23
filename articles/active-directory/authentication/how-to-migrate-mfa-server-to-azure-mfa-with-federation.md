@@ -11,7 +11,7 @@ manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
-# Migrate to Azure AD MFA with federation 
+# Migrate to Azure AD MFA with federation
 
 Moving your multi-factor-authentication (MFA) solution to Azure Active Directory (Azure AD) is a great first step in your journey to the cloud. Consider also moving to Azure AD for user authentication in the future. For more information, see the process for migrating to Azure AD MFA with cloud authentication.
 
