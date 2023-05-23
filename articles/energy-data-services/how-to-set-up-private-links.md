@@ -30,7 +30,7 @@ This article describes how to set up a private endpoint for Azure Data Manager f
 
 ## Create a private endpoint during instance provisioning by using the Azure portal 
 
-Use the following steps to create a private endpoint while provisioning a new Azure Data Manager for Energy instance by using the Azure portal:
+Use the following steps to create a private endpoint while provisioning Azure Data Manager for Energy resource:
 
 1. During the creation of Azure Data Manager for Energy instance, select the **Networking** tab.
 

@@ -29,7 +29,7 @@ This page will be updated with the details about the upcoming release approximat
 
 ### Support for Private Links during instance provisioning
 
-Azure Private link enables access to Azure Data Manager for Energy instance over a private endpoint in customer’s virtual network, which ensures restricted access to the service. With the support for Private Links during instance provisioning, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. 
+Azure Private link enables access to Azure Data Manager for Energy instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
 
 ### Enabled Monitoring of OSDU Service Logs
 
