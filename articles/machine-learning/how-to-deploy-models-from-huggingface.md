@@ -40,7 +40,7 @@ Choose the real-time deployment option to open the quick deploy dialog. Specify 
 * Optionally specify an endpoint and deployment name.
 * Select deploy. You're then navigated to the endpoint page which, might take a few seconds. The deployment takes several minutes to complete based on the model size and instance type. 
 
-:::image type="content" source="media/how-to-deploy-models-from-huggingface/deploy-models-from-huggingface.gif" lightbox="media/how-to-deploy-models-from-huggingface/deploy-models-from-huggingface.gif" alt-text="Gif showing the location of the model catalog within the Azure Machine learning studio":::
+:::image type="content" source="media/how-to-deploy-models-from-huggingface/deploy-models-from-huggingface.gif" lightbox="media/how-to-deploy-models-from-huggingface/deploy-models-from-huggingface.gif" alt-text="Animation showing the location of the model catalog within the Azure Machine learning studio":::
 
 Note: If you want to deploy to en existing endpoint, select `More options` from the quick deploy dialog and use the full deployment wizard.
 
