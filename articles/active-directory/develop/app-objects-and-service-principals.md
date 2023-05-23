@@ -82,7 +82,7 @@ You can find the service principals associated with an application object.
 
 In the [Azure portal](https://portal.azure.com), navigate to the application registration overview.  Select **Managed application in local directory**.
 
-:::image type="content" alt-text="Screen shot that shows" source="./media/app-objects-and-service-principals/FindServicePrincipal.png" border="false":::
+:::image type="content" alt-text="Screen shot that shows the Managed application in local directory option in the overview." source="./media/app-objects-and-service-principals/find-service-principal.png" border="false":::
 
 # [PowerShell](#tab/azure-powershell)
 
