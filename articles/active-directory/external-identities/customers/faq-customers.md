@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: reference
-ms.date: 05/22/2023
+ms.date: 05/23/2023
 ms.author: mimart
 ms.custom: it-pro
 ---
@@ -64,7 +64,7 @@ Learn more at the Microsoft Entra External ID for customers [Developer Center](h
 
 - **Microsoft Entra External ID (preview)**:
 
-  - You’re starting fresh building identities into apps and/or in the early stages of product discovery.
+  - You’re starting fresh building identities into apps or you're in the early stages of product discovery.
   - The benefits of rapid innovation, new features and capabilities are a priority.
 
 ## Next steps
