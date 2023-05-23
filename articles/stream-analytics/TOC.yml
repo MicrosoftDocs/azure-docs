@@ -83,6 +83,8 @@
       href: stream-analytics-job-metrics.md
     - name: Stream Analytics metrics dimensions
       href: stream-analytics-job-metrics-dimensions.md
+  - name: Integrate with Schema Registry
+    href: stream-analytics-schema-registry-integration.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -320,6 +322,14 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
+  - name: Optimize jobs
+    items:
+    - name: Job simulation
+      href: optimize-query-using-job-diagram-simulator.md
+    - name: Physical job diagram
+      href: stream-analytics-job-physical-diagram-with-metrics.md
+    - name: Logical job diagram
+      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Automate
     items:
     - name: Using PowerShell for auto-pausing
@@ -338,6 +348,8 @@
       href: cicd-tools.md
     - name: Set up a pipeline with Azure DevOps
       href: set-up-cicd-pipeline.md
+    - name: Set up a pipeline using GitHub Actions
+      href: cicd-github-actions.md
     - name: Configure autoscale settings
       href: cicd-autoscale.md
   - name: Visual Studio
@@ -422,14 +434,6 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug and optimize using job diagram
-    items:
-    - name: Optimize query using job diagram simulator
-      href: optimize-query-using-job-diagram-simulator.md
-    - name: Physical job diagram
-      href: stream-analytics-job-physical-diagram-with-metrics.md
-    - name: Logical job diagram
-      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
   - name: Run job in your virtual network
