@@ -1,8 +1,14 @@
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+---
+author: micahvivion
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 03/10/2021
+ms.author: micahvivion
+---
 
 In this quickstart, you learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
-## UWP sample code
+## [UWP](#tab/uwp)
 
 ### Prerequisites
 
@@ -382,7 +388,7 @@ Note: Calling `8:echo123` stops the video stream because echo bot doesn't suppor
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
 
-## WinUI 3 sample code
+## [WinUI 3] (#tab/WinUI)
 
 ### Prerequisites
 
@@ -743,10 +749,10 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. For solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`.
 
-You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
+You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button.
 
-Note: Calling `8:echo123` stops the video stream because echo bot doesn't support video streaming. 
+Note: Calling `8:echo123` stops the video stream because echo bot doesn't support video streaming.
 
-For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
+For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide.
