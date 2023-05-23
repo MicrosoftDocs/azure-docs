@@ -9,13 +9,13 @@ ms.date: 05/22/2023
 ms.custom: template-reference
 ---
 
-# Near Edge Compute
+# Near-edge Compute
 
 Azure Operator Nexus offers a group of on-premises cloud solutions. One of the on-premises offering allows Telco operators to run the Network functions in a Near-edge environment. In near-edge environment (also known as 'instance'), the compute servers, also referred to as bare metal machines (BMMs), represents the physical machines in the rack, runs the CBL-Mariner operating system, and provides support for running high-performance workloads.
 
 ## SKUs available
 
-The Nexus offering is today built with the following compute nodes for Near-edge instances (the nodes that run the actual customer workloads).
+The Nexus offering is today built with the following compute nodes for near-edge instances (the nodes that run the actual customer workloads).
 
 | SKU                     | Description                            |
 | ----------------------- | -------------------------------------- |
@@ -23,7 +23,7 @@ The Nexus offering is today built with the following compute nodes for Near-edge
 
 ## Compute connectivity
 
-This diagram shows the connectivity model followed by computes in the Near Edge model:
+This diagram shows the connectivity model followed by computes in the near-edge instances:
 
 :::image type="content" source="media/near-edge-compute.png" alt-text="Screenshot of Operator Nexus Compute Connectivity.":::
 

@@ -8,6 +8,8 @@
   items:
   - name: Resource Types
     href: concepts-resource-types.md
+  - name: Compute overview
+    href: concepts-compute.md
   - name: Observability
     href: concepts-observability.md
 - name: Quickstarts
@@ -64,4 +66,6 @@
     href: reference-customer-edge-provider-edge-connectivity.md
   - name: List of metrics collected
     href: List-of-metrics-collected.md
+  - name: Near-edge Compute
+    href: reference-near-edge-compute.md
   

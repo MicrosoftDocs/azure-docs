@@ -9,9 +9,7 @@ ms.date: 05/22/2023
 ms.custom: template-concept
 ---
 
-# Azure Operator Nexus Compute
-
-## Overview
+# Azure Operator Nexus compute
 
 Azure Operator Nexus is built on some basic constructs like compute servers, storage appliance, and network fabric devices. These compute servers, also referred to as BareMetal Machines (BMMs), represent the physical machines in the rack. They run the CBL-Mariner operating system and provide closed integration support for high-performance workloads.
 
@@ -19,7 +17,7 @@ These BareMetal Machine gets deployed as part of the Azure Operator Nexus automa
 
 Each BareMetal Machine within an Azure Operator Nexus instance is represented as an Azure resource and Operators (end users) get access to perform various operations to manage its lifecycle like any other Azure resource.
 
-## Key capabilities offered in Azure Operator Nexus Compute
+## Key capabilities offered in Azure Operator Nexus compute
 
 - **NUMA Alignment** Nonuniform memory access (NUMA) alignment is a technique to optimize performance and resource utilization in multi-socket servers. It involves aligning memory and compute resources to reduce latency and improve data access within a server system. The strategic placement of software components and workloads in a NUMA-aware manner, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their Telco cloud environments. By default, all the workloads deployed in an Azure Operator Nexus instance are NUMA-aligned.
 - **CPU Pinning** CPU pinning is a technique to allocate specific CPU cores to dedicated tasks or workloads, ensuring consistent performance and resource isolation. Pinning critical network functions or real-time applications to specific CPU cores allows Operators to minimize latency and improve predictability in their infrastructure. This approach is useful in scenarios where strict quality-of-service requirements exist, ensuring that these tasks receive dedicated processing power for optimal performance. All of the virtual machines created for Virtual Network Function (VNF) or Containerized Network Function (CNF) workloads on Nexus compute are pinned to specific virtual cores. This pinning provides better performance and avoids CPU stealing.
