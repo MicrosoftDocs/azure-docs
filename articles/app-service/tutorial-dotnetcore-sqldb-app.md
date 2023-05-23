@@ -76,7 +76,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **App Service** &rarr; Represents your app and runs in the App Service plan.
         - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
         - **Private endpoints** &rarr; Access endpoints for the database server and the Redis cache in the virtual network.
-        - **Network interfaces** &rarr; Represents a private IP addresses for the respective private endpoints.
+        - **Network interfaces** &rarr; Represents private IP addresses, one for each of the private endpoints.
         - **Azure SQL Database server** &rarr; Accessible only from behind its private endpoint.
         - **Azure SQL Database** &rarr; A database and a user are created for you on the server.
         - **Azure Cache for Redis** &rarr; Accessible only from behind its private endpoint.
