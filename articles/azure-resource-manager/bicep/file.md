@@ -19,7 +19,7 @@ Bicep is a declarative language, which means the elements can appear in any orde
 A Bicep file has the following elements.
 
 ```bicep
-metadata <metadata-name> = {}
+metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
 
@@ -45,7 +45,7 @@ output <output-name> <output-data-type> = <output-value>
 The following example shows an implementation of these elements.
 
 ```bicep
-metadata bicepDescription = {
+metadata description = {
   description: 'Creates a storage account and a web app'
 }
 
@@ -82,7 +82,7 @@ module webModule './webApp.bicep' = {
 
 ## Metadata
 
-Metadata in Bicep is an untyped object that can be included in Bicep files. It allows you to provide supplementary information about your Bicep files, including details like its name, description, author, creation date, and more.
+Metadata in Bicep is an untyped value that can be included in Bicep files. It allows you to provide supplementary information about your Bicep files, including details like its name, description, author, creation date, and more.
 
 When assigning identifiers for metadata, [`param`](#parameters), [`var`](#variables), [`resource`](#resources), [`module`](#modules), and [`output`](#outputs), it's important to note that they share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Therefore, using the same identifier for metadata and a decorator (or a Bicep function) can cause confusion. It's advisable to choose a unique identifier that doesn't conflict with a decorator or a function. For instance, instead of using **description** as the metadata identifier, you could use **bicepDescription** to differentiate it from the **@description** decorator in the preceding example.
 
@@ -121,7 +121,7 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available. 
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available.
 
 ```bicep
 @allowed([
