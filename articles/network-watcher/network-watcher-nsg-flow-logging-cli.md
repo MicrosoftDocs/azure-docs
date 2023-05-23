@@ -143,7 +143,7 @@ For information about the structure of a flow log, see [NSG flow logs](network-w
 
 ## Disable a flow log
 
-To temporarily disable a flow log without deleting it, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command. This allows you to re-enable the flow log at a later time.
+To temporarily disable a flow log without deleting it, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command. You can re-enable the flow log at a later time.
 
 > [!NOTE]
 > If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log.
