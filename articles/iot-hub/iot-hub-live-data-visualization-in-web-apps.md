@@ -1,6 +1,7 @@
 ---
-title: Real-time data visualization of your IoT hub data in a web app
-description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
+title: Tutorial - Visualize IoT data in a web app
+titleSuffix: Azure IoT Hub
+description: This tutorial uses a web application to visualize temperature and humidity data that is collected from a sensor and sent to your IoT hub.
 author: kgremban
 
 ms.author: kgremban
@@ -10,38 +11,36 @@ ms.date: 11/18/2021
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 ---
 
-# Visualize real-time sensor data from your Azure IoT hub in a web application
+# Tutorial: Visualize real-time sensor data from your Azure IoT hub in a web application
 
 ![End-to-end diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
-
-In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a Node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web app in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a Node.js web app running on your local computer. After running the web app locally, you can host the web app in Azure App Service.
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+This tutorial assumes that you already have an IoT hub instance in your Azure subscription and a registered IoT device sending temperature data.
+
+The web application sample for this tutorial is written in Node.js. The steps in this article assume a Windows development machine; however, you can also perform these steps on a Linux system in your preferred shell.
+
+* Use the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or complete one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstarts to get a device sending temperature data to IoT Hub. These articles cover the following requirements:
 
   * An active Azure subscription
-  * An Iot hub under your subscription
-  * A client application that sends messages to your Iot hub
+  * An IoT hub under your subscription
+  * A registered device running a client application that sends messages to your IoT hub
 
-* [Node.js](https://nodejs.org) version 10.6 or later. To check your node version run `node --version`.
-
-* [Download Git](https://www.git-scm.com/downloads)
-
-* The steps in this article assume a Windows development machine; however, you can easily perform these steps on a Linux system in your preferred shell.
+* [Node.js](https://nodejs.org) version 14 or later. To check your node version run `node --version`.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Add a consumer group to your IoT hub
 
-[Consumer groups](../event-hubs/event-hubs-features.md#event-consumers) provide independent views into the event stream that enable apps and Azure services to independently consume data from the same Event Hub endpoint. In this section, you add a consumer group to your IoT hub's built-in endpoint that the web app will use to read data from.
+[Consumer groups](../event-hubs/event-hubs-features.md#event-consumers) provide independent views into the event stream that enable apps and Azure services to independently consume data from the same Event Hub endpoint. In this section, you add a consumer group to your IoT hub's built-in endpoint that the web app will use to read data.
 
 Run the following command to add a consumer group to the built-in endpoint of your IoT hub:
 
 ```azurecli-interactive
-az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGroupName
+az iot hub consumer-group create --hub-name YOUR_IOT_HUB_NAME --name YOUR_CONSUMER_GROUP_NAME
 ```
 
 Note down the name you choose, you'll need it later in this tutorial.
@@ -51,56 +50,48 @@ Note down the name you choose, you'll need it later in this tutorial.
 IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get a connection string for your IoT hub that adheres to the service policy:
 
 ```azurecli-interactive
-az iot hub connection-string show --hub-name YourIotHub --policy-name service
+az iot hub connection-string show --hub-name YOUR_IOT_HUB_NAME --policy-name service
 ```
 
 The connection string should look similar to the following:
 
 ```javascript
-"HostName={YourIotHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"
+"HostName=YOUR_IOT_HUB_NAME.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=YOUR_SHARED_ACCESS_KEY"
 ```
 
 Note down the service connection string, you'll need it later in this tutorial.
 
 ## Download the web app from GitHub
 
-Open a command window, and enter the following commands to download the sample from GitHub and change to the sample directory:
-
-```cmd
-git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
-cd web-apps-node-iot-hub-data-visualization
-```
+Download or clone the web app sample from GitHub: [web-apps-node-iot-hub-data-visualization](https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git).
 
 ## Examine the web app code
 
-From the web-apps-node-iot-hub-data-visualization directory, open the web app in your favorite editor. The following shows the file structure viewed in VS Code:
+On your development machine, navigate to the **web-apps-node-iot-hub-data-visualization** directory, then open the web app in your favorite editor. The following shows the file structure viewed in Visual Studio Code:
 
-![Web app file structure](./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png)
+![Screenshot that shows the web app file structure.](./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png)
 
 Take a moment to examine the following files:
 
-* **Server.js** is a service-side script that initializes the web socket and the Event Hub wrapper class. It provides a callback to the Event Hub wrapper class that the class uses to broadcast incoming messages to the web socket.
+* **server.js** is a service-side script that initializes the web socket and the Event Hub wrapper class. It provides a callback to the Event Hub wrapper class that the class uses to broadcast incoming messages to the web socket.
 
-* **Event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group. It extracts the DeviceId and EnqueuedTimeUtc from metadata on incoming messages and then relays the message using the callback method registered by server.js.
+* **scripts/event-hub-reader.js** is a service-side script that connects to the IoT hub's built-in endpoint using the specified connection string and consumer group. It extracts the DeviceId and EnqueuedTimeUtc from metadata on incoming messages and then relays the message using the callback method registered by server.js.
 
-* **Chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId, and stores the last 50 points of incoming data for each device. It then binds the selected device data to the chart object.
+* **public/js/chart-device-data.js** is a client-side script that listens on the web socket, keeps track of each DeviceId, and stores the last 50 points of incoming data for each device. It then binds the selected device data to the chart object.
 
-* **Index.html** handles the UI layout for the web page and references the necessary scripts for client-side logic.
+* **public/index.html** handles the UI layout for the web page and references the necessary scripts for client-side logic.
 
 ## Configure environment variables for the web app
 
 To read data from your IoT hub, the web app needs your IoT hub's connection string and the name of the consumer group that it should read through. It gets these strings from the process environment in the following lines in server.js:
 
-```javascript
-const iotHubConnectionString = process.env.IotHubConnectionString;
-const eventHubConsumerGroup = process.env.EventHubConsumerGroup;
-```
+:::code language="javascript" source="~/web-apps-node-iot-hub-data-visualization/server.js" range="7-20" highlight="1,8":::
 
 Set the environment variables in your command window with the following commands. Replace the placeholder values with the service connection string for your IoT hub and the name of the consumer group you created previously. Don't quote the strings.
 
 ```cmd
-set IotHubConnectionString=YourIoTHubConnectionString
-set EventHubConsumerGroup=YourConsumerGroupName
+set IotHubConnectionString=YOUR_IOT_HUB_CONNECTION_STRING
+set EventHubConsumerGroup=YOUR_CONSUMER_GROUP_NAME
 ```
 
 ## Run the web app
@@ -116,7 +107,8 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 3. You should see output in the console that indicates that the web app has successfully connected to your IoT hub and is listening on port 3000:
 
-   ![Web app started on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png" alt-text="Screenshot showing the web app sample successfully running in the console.":::
+
 
 ## Open a web page to see data from your IoT hub
 
@@ -124,11 +116,11 @@ Open a browser to `http://localhost:3000`.
 
 In the **Select a device** list, select your device to see a running plot of the last 50 temperature and humidity data points sent by the device to your IoT hub.
 
-![Web app page showing real-time temperature and humidity](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png" alt-text="Screenshot of the web app running on localhost, showing real-time temperature and humidity.":::
 
 You should also see output in the console that shows the messages that your web app is broadcasting to the browser client:  
 
-![Web app broadcast output on console](./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-broadcast.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-broadcast.png" alt-text="Screenshot of the web app output on console.":::
 
 ## Host the web app in App Service
 

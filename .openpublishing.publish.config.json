@@ -735,6 +735,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "web-apps-node-iot-hub-data-visualization",
+      "url": "https://github.com/azure-samples/web-apps-node-iot-hub-data-visualization",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ImmersiveReaderSdk",
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
