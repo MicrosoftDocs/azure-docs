@@ -2,7 +2,7 @@
 title: Usage scenarios for Azure Deployment Environments
 description: Learn how Azure Deployment Environments can be integrated into CI/CD pipelines, create sandboxes, and hackathon environments.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM

@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: article
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, build-2023
 ms.date: 05/24/2023
 ---
 
@@ -138,4 +138,3 @@ Learn more about networking in AKS in the following articles:
 
 <!-- LINKS - Internal -->
 [aks-ingress-basic]: ingress-basic.md
-

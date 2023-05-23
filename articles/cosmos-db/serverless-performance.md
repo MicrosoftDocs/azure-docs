@@ -4,6 +4,7 @@ description: Learn more about Azure Cosmos DB Serverless performance.
 author: richagaur
 ms.author: richagaur
 ms.service: cosmos-db
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 12/01/2022
 ms.reviewer: dech

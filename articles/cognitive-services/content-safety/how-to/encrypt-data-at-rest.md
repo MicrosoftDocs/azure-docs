@@ -5,6 +5,7 @@ titleSuffix: Azure Cognitive Services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/10/2023
 ms.author: pafarley
@@ -144,4 +145,3 @@ When you previously enabled customer managed keys this also enabled a system ass
 
 ## Next steps
 * [Content Safety overview](../overview.md)
-

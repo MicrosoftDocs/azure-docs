@@ -3,7 +3,7 @@ title: Product updates for Azure Cosmos DB for PostgreSQL
 description: Release notes, new features and features in preview
 ms.author: jonels
 author: jonels-msft
-ms.custom: mvc
+ms.custom: mvc, build-2023
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual

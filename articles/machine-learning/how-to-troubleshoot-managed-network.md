@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.topic: troubleshooting
 ms.date: 05/23/2023
-ms.custom: 
+ms.custom: build-2023
 ---
 
 # Troubleshoot Azure Machine Learning managed virtual network

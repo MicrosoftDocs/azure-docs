@@ -4,6 +4,7 @@ description: Learn to configure custom domain names and managed certificates in 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 04/02/2023
 ms.author: cshoe

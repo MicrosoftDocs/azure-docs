@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/11/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q1, event-tier1-build-2022
+ms.custom: contperf-fy21q1, event-tier1-build-2022, build-2023
 ---
 # Manage compute resources for model training and deployment in studio
 

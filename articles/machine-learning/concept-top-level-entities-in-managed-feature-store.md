@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mldata 
 ms.topic: conceptual
 ms.date: 05/23/2023 
-ms.custom: template-concept 
+ms.custom: template-concept, build-2023
 ---
 
 # Understanding top-level entities in managed feature store

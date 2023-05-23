@@ -5,6 +5,7 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: jucocchi
 ms.service: cosmos-db
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/09/2023
 ---

@@ -3,7 +3,7 @@ title: Add and configure a catalog
 titleSuffix: Azure Deployment Environments
 description: Learn how to add a catalog in your dev center to provide environment templates for your developers. Catalogs are repositories stored in GitHub or Azure DevOps.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023

@@ -3,6 +3,7 @@ title: Azure SQL trigger for Functions
 description: Learn to use the Azure SQL trigger in Azure Functions.
 author: dzsquared
 ms.topic: reference
+ms.custom: build-2023
 ms.date: 4/14/2023
 ms.author: drskwier
 ms.reviewer: glenga
@@ -637,5 +638,3 @@ If the function execution fails five times in a row for a given row then that ro
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
-
-
