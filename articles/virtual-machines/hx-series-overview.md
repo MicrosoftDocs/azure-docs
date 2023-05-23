@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
-ms.date: 04/24/2023
+ms.date: 05/23/2023
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas
@@ -17,7 +17,7 @@ author: padmalathas
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-An [HX-series](hx-series.md) server features 2 * 96-core EPYC 9V33X CPUs for a total of 192 physical "Zen4" cores with AMD 3D-V Cache. Simultaneous Multithreading (SMT) is disabled on HX. These 192 cores are divided into 24 sections (12 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HX servers also run the following AMD BIOS settings: 
+An [HX-series](hx-series.md) server features 2 * 96-core EPYC 9004-series CPUs for a total of 192 physical "Zen4" cores with AMD 3D-V Cache. Simultaneous Multithreading (SMT) is disabled on HX. These 192 cores are divided into 24 sections (12 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HX servers also run the following AMD BIOS settings: 
 
 ```bash
 Nodes per Socket (NPS) = 2
@@ -40,7 +40,7 @@ The CCD boundary is not equivalent to a NUMA boundary. On HX, a group of six (6)
 
 ![Topology of the HX-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
-Each HX VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 7003-series, as follows:
+Each HX VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 9004-series, as follows:
 
 | HX-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
@@ -61,37 +61,37 @@ lstopo-no-graphics --no-io --no-legend --of txt
 ```
 <br>
 <details>
-<summary>Click to view lstopo output for Standard_HB176rs_v4</summary>
+<summary>Click to view lstopo output for Standard_HX176rs</summary>
 
-![lstopo output for HX-176 VM](./media/hpc/architecture/hx/hbv4-176rs-lstopo.png)
+![lstopo output for HX-176 VM](./media/hpc/architecture/hx/hx-176-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
+<summary>Click to view lstopo output for Standard_HX176-144rs</summary>
 
-![lstopo output for HX-144 VM](./media/hpc/architecture/hx/hbv4-144rs-lstopo.png)
+![lstopo output for HX-144 VM](./media/hpc/architecture/hx/hx-144-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
+<summary>Click to view lstopo output for Standard_HX176-96rs</summary>
 
-![lstopo output for HX-64 VM](./media/hpc/architecture/hx/hbv4-96rs-lstopo.png)
+![lstopo output for HX-64 VM](./media/hpc/architecture/hx/hx-96-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
+<summary>Click to view lstopo output for Standard_HX176-48rs</summary>
 
-![lstopo output for HX-32 VM](./media/hpc/architecture/hx/hbv4-48rs-lstopo.png)
+![lstopo output for HX-32 VM](./media/hpc/architecture/hx/hx-48-lstopo.png)
 </details>
 
 <details>
-<summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
+<summary>Click to view lstopo output for Standard_HX176-24rs</summary>
 
-![lstopo output for HX-16 VM](./media/hpc/architecture/hx/hbv4-24rs-lstopo.png)
+![lstopo output for HX-16 VM](./media/hpc/architecture/hx/hx-24-lstopo.png)
 </details>
 
 ## InfiniBand networking
-HX VMs also feature Nvidia Mellanox NDR InfiniBand network adapters (ConnectX-7) operating at up to 400 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HX VMs as they would a bare metal environment..
+HX VMs also feature NVIDIA Mellanox NDR InfiniBand network adapters (ConnectX-7) operating at up to 400 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HX VMs as they would a bare metal environment..
 
 HX VMs support Adaptive Routing, Dynamic Connected Transport (DCT, in additional to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-7 adapter. These features enhance application performance, scalability, and consistency, and usage of them is strongly recommended.
 
@@ -107,7 +107,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Hardware specifications          | HX-series VMs              |
 |----------------------------------|----------------------------------|
 | Cores                            | 176, 144, 96, 48, or 24 (SMT disabled)           | 
-| CPU                              | AMD EPYC 9V33X                   | 
+| CPU                              | AMD EPYC 9004-series                   | 
 | CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
 | Memory                           | 1.4 TB (RAM per core depends on VM size)         | 
 | Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
@@ -127,12 +127,12 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> These VMs support Generation 2 ONLY
-> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6
+> These VMs support only Generation 2.
+> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6.
 > Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> 
+> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN and the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16) 
 
 ## Next steps
 
