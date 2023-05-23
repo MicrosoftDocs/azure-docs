@@ -2,6 +2,7 @@
 title: Azure Event Grid concepts (pull delivery)
 description: Describes Azure Event Grid and its concepts in the pull delivery model. Defines several key components of Event Grid.
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 04/27/2023
 ---
 

@@ -3,7 +3,7 @@ title: Create your first containerized Azure Functions on Azure Arc
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
 ms.date: 05/07/2023
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, build-2023
 ms.devlang: azurecli
 zone_pivot_groups: programming-languages-set-functions
 ---

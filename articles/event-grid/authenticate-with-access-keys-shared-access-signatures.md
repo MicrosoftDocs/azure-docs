@@ -2,6 +2,7 @@
 title: Authenticate Azure Event Grid publishing clients using access keys or shared access signatures
 description: This article describes how to authenticate Azure Event Grid publishing clients using access keys and shared access signatures. 
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 08/10/2021
 ---
 

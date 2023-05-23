@@ -6,6 +6,7 @@ ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 01/27/2023
 ---

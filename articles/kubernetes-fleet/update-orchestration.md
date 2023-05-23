@@ -6,6 +6,7 @@ ms.date: 05/10/2023
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom: build-2023
 ---
 
 # Orchestrate updates across multiple clusters using Azure Kubernetes Fleet Manager (Preview)

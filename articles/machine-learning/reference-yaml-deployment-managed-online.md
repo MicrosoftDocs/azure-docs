@@ -6,12 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2, event-tier1-build-2022, build-2023
 author: dem108
 ms.author: sehan
 ms.date: 01/24/2023
 ms.reviewer: mopeakande
-
 ---
 
 # CLI (v2) managed online deployment YAML schema

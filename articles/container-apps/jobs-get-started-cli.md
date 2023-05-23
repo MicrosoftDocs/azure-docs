@@ -4,6 +4,7 @@ description: Learn to create an on-demand or scheduled job in Azure Container Ap
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 05/08/2023
 ms.author: cshoe

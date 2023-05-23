@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 10/12/2022
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ---
 
 # Azure Cosmos DB for MongoDB (4.2 server version): supported features and syntax

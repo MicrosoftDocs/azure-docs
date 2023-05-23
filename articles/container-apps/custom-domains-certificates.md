@@ -4,6 +4,7 @@ description: Learn to manage custom domain names and certificates in Azure Conta
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: cshoe

@@ -2,6 +2,7 @@
 title: Azure Event Grid - Monitor data reference (MQTT)
 description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's MQTT  of events. 
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 05/23/2023
 ---
 

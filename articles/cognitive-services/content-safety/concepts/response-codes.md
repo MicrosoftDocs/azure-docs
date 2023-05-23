@@ -7,6 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-safety
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/09/2023
 ms.author: pafarley
@@ -24,4 +25,3 @@ The content APIs may return the following error codes:
 | InternalError       | Some unexpected situations on the server side have been triggered. | 1. You may want to retry a few times after a small period and see it the issue happens again.  <br/>             2. Contact Azure Support if this issue persists. |
 | ServerBusy          | The server side cannot process the request temporarily.      | 1. You may want to retry a few times after a small period and see it the issue happens again.  <br/>2.Contact Azure Support if this issue persists. |
 | TooManyRequests     | The current RPS has exceeded the quota for your current SKU. | 1. Check the pricing table to understand the RPS quota.   <br/>2.Contact Azure Support if you need more QPS. |
-

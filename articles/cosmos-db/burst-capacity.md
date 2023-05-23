@@ -5,7 +5,7 @@ description: Use your database or container's idle throughput capacity to handle
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
 ms.reviewer: dech
 ms.date: 05/23/2023

@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/10/2023
-ms.custom: cosmos-db-video
+ms.custom: cosmos-db-video, build-2023
 ---
 # Change feed design patterns in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

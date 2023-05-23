@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/10/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, build-2023
 ---
 
 # Change feed pull model in Azure Cosmos DB

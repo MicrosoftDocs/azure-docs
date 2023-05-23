@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 05/23/2023
 ms.topic: how-to
-ms.custom: 
+ms.custom: build-2023
 ---
 
 # Workspace managed network isolation (preview)

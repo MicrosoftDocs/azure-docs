@@ -7,6 +7,7 @@ ms.author: sidandrews
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 04/11/2023
 ---

@@ -2,6 +2,7 @@
 title: Azure Event Grid namespace MQTT functionality - Troubleshooting guide
 description: This article provides guidance on how to troubleshoot MQTT functionality related issues. 
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 05/23/2023
 author: veyaddan
 ms.author: veyaddan

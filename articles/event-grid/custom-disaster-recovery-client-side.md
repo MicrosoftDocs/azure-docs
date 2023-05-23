@@ -4,7 +4,7 @@ description: This article describes how to build your own client-side failover i
 ms.topic: tutorial
 ms.date: 05/02/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, build-2023
 ---
 
 # Client-side failover implementation in Azure Event Grid

@@ -10,7 +10,7 @@ ms.author: franksolomon
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 05/11/2023
-ms.custom: cliv2, sdkv2
+ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
 ---
 

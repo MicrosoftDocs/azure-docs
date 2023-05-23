@@ -3,7 +3,7 @@ title: Online backup and on-demand data restore in Azure Cosmos DB.
 description: This article describes how automatic backup, on-demand data restore works. It also explains the difference between continuous and periodic backup modes. 
 author: kanshiG
 ms.service: cosmos-db
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: govindk
@@ -58,5 +58,3 @@ Next you can learn about how to configure and manage periodic and continuous bac
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
-
-

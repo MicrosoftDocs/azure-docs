@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 04/14/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 

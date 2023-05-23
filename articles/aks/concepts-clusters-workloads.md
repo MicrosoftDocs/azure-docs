@@ -2,8 +2,8 @@
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 10/31/2022
-
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)

@@ -5,6 +5,7 @@ description: Dive in to the process of training a model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023
 ms.topic: tutorial
 ms.reviewer: ssalgado
 author: ssalgadodev

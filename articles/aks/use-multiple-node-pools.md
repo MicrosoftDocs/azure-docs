@@ -2,7 +2,7 @@
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
 ms.date: 03/11/2023
 ---
 
