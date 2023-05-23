@@ -287,7 +287,7 @@ You can export an image label as:
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
 * An [Azure MLTable data asset](./how-to-mltable.md).
 
-When you export a CSV or COCO file, a notifications appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+When you export a CSV or COCO file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
 
 :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
 

@@ -273,7 +273,7 @@ For **Text Named Entity Recognition** projects, you can export label data as:
 * An [Azure MLTable data asset](./how-to-mltable.md).
 * A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
 
-When you export a CSV or CoNLL file, a notifications appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+When you export a CSV or CoNLL file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
 
 :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
 
