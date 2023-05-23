@@ -18,7 +18,7 @@ A **[topic space](mqtt-topic-spaces.md)** represents multiple topics through a s
 
 A **permission binding** grants access to a specific client group to publish or subscribe on the topics represented by a specific topic space. The permission binding represents the role in the RBAC model.
 
-:::image type="content" source="media/mqtt-overview/access-control-highres.png" alt-text="Access control model." border="false":::
+:::image type="content" source="media/mqtt-overview/access-control-high-res.png" alt-text="Access control model." border="false":::
 
 ## Examples:
 

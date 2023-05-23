@@ -75,7 +75,7 @@ Access control is critical for IoT scenarios considering the enormous scale of I
 
 Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. After creating client groups and topic spaces, you’re able to configure a permission binding to grant access to a client group to either publish or subscribe to a topic space.
 
-:::image type="content" source="media/mqtt-overview/access-control-highres.png" alt-text="Access control model." border="false":::
+:::image type="content" source="media/mqtt-overview/access-control-high-res.png" alt-text="Access control model." border="false":::
 
 Topic spaces also provide granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. This granular access control is achieved by using variables in topic templates. [Learn more about access control.](mqtt-access-control.md) 
 
@@ -83,7 +83,7 @@ Topic spaces also provide granular access control by allowing you to control the
 
 Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid custom topic](custom-topics.md), and configuring [Event Grid event subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more about routing.](mqtt-routing.md)
 
-:::image type="content" source="media/mqtt-overview/routing-highres.png" alt-text="MQTT message routing" border="false":::
+:::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="MQTT message routing" border="false":::
 
 ## Next steps
 

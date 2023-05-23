@@ -37,15 +37,13 @@ Multi-session support enables your application MQTT clients to have more scalabl
 
 
 #### Namespace configuration 
-Before using this feature, you need to configure the namespace to allow multiple sessions per client
-##### Azure Portal Configuration
-Use the following steps to configure multiple sessions per client in the Azure portal.
+Before using this feature, you need to configure the namespace to allow multiple sessions per client. Use the following steps to configure multiple sessions per client in the Azure portal:
 - Go to your namespace in the Azure portal.
 - Under **Configuration**, change the value for the **Maximum client sessions per authetication name** to the desired number of sessions per client.
 - Select **Apply**.
 
 >[!NOTE] 
->For the Azure CLI configuration, update the MaxClientSessionsPerAuthenticationName property in the namespace with the desired value.
+>For the Azure CLI configuration, update the **MaxClientSessionsPerAuthenticationName** property in the namespace payload with the desired value.
 
 #### Connection flow:
 The CONNECT packets for each session should include the following properties:
@@ -64,7 +62,7 @@ For example, the following combinations of Username and ClientIds in the CONNECT
   - Username: Mgmt-application
   - ClientId: Mgmt-Session3
 
-:::image type="content" source="media/mqtt-support/mqtt-multi-session-highres.png" alt-text="Multi-session example." border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-multi-session-high-res.png" alt-text="Multi-session example." border="false":::
 
 For more information, see [How to establish multiple sessions for a single client](mqtt-establishing-multiple-sessions-per-client.md) 
 
@@ -87,7 +85,7 @@ Event Grid supports user properties on MQTT v5 PUBLISH packets that allow you to
 ### Request-response pattern
 MQTTv5 introduced fields in the MQTT PUBLISH packet header that provide context for the response message in the request-response pattern. These fields include a response topic and a correlation ID that the responder can use in the response without prior configuration. The response information enables more efficient communication for the standard request-response pattern that is used in command-and-control scenarios.
 
-:::image type="content" source="media/mqtt-support/mqtt-request-response-highres.png" alt-text="Request-response pattern example." border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-request-response-high-res.png" alt-text="Request-response pattern example." border="false":::
 
 ### Message expiry interval:
 In MQTT v5, message expiry interval allows messages to have a configurable lifespan. The message expiry interval is defined as the time interval between the time a message is published to Event Grid and the time when the Event Grid needs to discard the message if it hasn't been delivered. This feature is useful in scenarios where messages are only valid for a certain amount of time, such as time-sensitive commands, real-time data streaming, or security alerts. By setting a message expiry interval, Event Grid can automatically remove outdated messages, ensuring that only relevant information is available to subscribers. If a message's expiry interval is set to zero, it means the message should never expire.
