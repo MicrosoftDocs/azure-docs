@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure identity access controls to meet FedRAMP High Impact level
+# Configure identity access controls to meet FedRAMP High Impact level 
 
 Access control is a major part of achieving a [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) High Impact level to operate.
 
