@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor all Azure Lighthouse delegation activity to your managing tenant. 
-ms.date: 06/22/2022
+ms.date: 05/23/2023
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -11,7 +11,7 @@ ms.devlang: azurecli
 
 As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure Lighthouse](../overview.md), or when previously delegated resources are removed.
 
-In the managing tenant, the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from customer tenants.
+In the managing tenant, the [Azure activity log](../../azure-monitor/essentials/activity-log.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from customer tenants.
 
 This topic explains the permissions needed to monitor delegation activity to your tenant across all of your customers. It also includes a sample script that shows one method for querying and reporting on this data.
 
@@ -90,7 +90,7 @@ When using a service principal account to query the activity log, we recommend t
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant.
 
-[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) can be used to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
+[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) can be used to query the past day of activity and report any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
 
 - **DelegatedResourceId**: The ID of the delegated subscription or resource group
 - **CustomerTenantId**: The customer tenant ID
@@ -103,7 +103,7 @@ When querying this data, keep in mind:
 - If multiple resource groups are delegated in a single deployment, separate entries will be returned for each resource group.
 - Changes made to a previous delegation (such as updating the permission structure) will be logged as an added delegation.
 - As noted above, an account must have the Monitoring Reader Azure built-in role at root scope (/) in order to access this tenant-level data.
-- You can use this data in your own workflows and reporting. For example, you can use the [HTTP Data Collector API (public preview)](../../azure-monitor/logs/data-collector-api.md) to log data to Azure Monitor from a REST API client, then use [action groups](../../azure-monitor/alerts/action-groups.md) to create notifications or alerts.
+- You can use this data in your own workflows and reporting. For example, you can use the [HTTP Data Collector API (preview)](../../azure-monitor/logs/data-collector-api.md) to log data to Azure Monitor from a REST API client, then use [action groups](../../azure-monitor/alerts/action-groups.md) to create notifications or alerts.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
