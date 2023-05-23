@@ -2,8 +2,8 @@
 title: Azure Advisor for MariaDB
 description: Learn about Azure Advisor recommendations for MariaDB.
 ms.service: mariadb
-ms.author: maghan
-author: maghan
+author: savjani
+ms.author: pariks
 ms.topic: conceptual
 ms.date: 06/24/2022
 ---
@@ -30,8 +30,8 @@ Azure Database for MariaDB prioritizes the following types of recommendations:
 
 ## Understanding your recommendations
 
-* **Daily schedule**: For Azure MariaDB databases, we check server telemetry and issue recommendations on a daily schedule. If you make a change to your server configuration, recommendations remain visible until we re-examine telemetry on the following day. 
-* **Performance history**: Some of our recommendations are based on performance history. These recommendations will only appear after a server has been operating with the same configuration for seven days. We can detect patterns of heavy usage (for example, high CPU activity or high connection volume) over a sustained time period. If you provision a new server or change to a new vCore configuration, these recommendations pause temporarily. This strategy prevents legacy telemetry from triggering recommendations on a newly reconfigured server. However, performance history-based recommendations may not be identified immediately.
+* **Daily schedule**: For Azure MariaDB databases, we check server telemetry and issue recommendations on a daily schedule. If you make a change to your server configuration, existing recommendations will remain visible until we re-examine telemetry on the following day. 
+* **Performance history**: Some of our recommendations are based on performance history. These recommendations will only appear after a server has been operating with the same configuration for seven days. This allows us to detect patterns of heavy usage (for example, high CPU activity or high connection volume) over a sustained time period. If you provision a new server or change to a new vCore configuration, these recommendations will be paused temporarily. This prevents legacy telemetry from triggering recommendations on a newly reconfigured server. However, this also means that performance history-based recommendations may not be identified immediately.
 
 ## Next steps
 
