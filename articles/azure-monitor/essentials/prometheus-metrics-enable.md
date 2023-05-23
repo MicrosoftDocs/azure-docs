@@ -500,10 +500,9 @@ The following table lists the firewall configuration required for Azure monitor 
 ## Uninstall the metrics add-on
 Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection dule (DCR), DCRA and recording rules groups created as part of onboarding. . This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
-    ```
-    azurecli
-    az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
-    ```
+```azurecli
+az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+```
 
 ## Supported regions
 
