@@ -340,7 +340,7 @@ The following example creates a resource group, and deploys a storage account to
         }
       },
       "dependsOn": [
-        "rg"
+        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
       ]
     }
   ]
