@@ -113,7 +113,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- Ensure the Defender profile\extension is installed 
+- Ensure the Defender profile\extension is installed. 
 
 **To simulate a a Kubernetes workload security alert**:
  
