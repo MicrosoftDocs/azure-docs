@@ -116,6 +116,7 @@ Available to organizations with a business presence in China. See more informati
 - **Regions:**
   - China East 2
   - China North 2
+  - China North 3
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://www.azure.cn/pricing/details/cognitive-services/index.html)
 - **Supported features:**
