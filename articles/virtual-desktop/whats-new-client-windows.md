@@ -34,6 +34,9 @@ In this release, we've made the following changes:
 - Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
 - Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
 
+>[!IMPORTANT]
+>This version of the Remote Desktop client no longer supports Windows 8 and 8.1. If you try to use the 1.2.4330 or later version of the Remote Desktop client with Windows 8 or 8.1, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](prerequisites.md).
+
 ## Updates for version 1.2.4240 
 
 *Date published: May 16, 2023* 
