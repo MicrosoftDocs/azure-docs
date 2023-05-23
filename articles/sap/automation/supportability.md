@@ -4,7 +4,7 @@ description: Supported platforms, topologies, and capabilities for the SAP on Az
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 1/6/2023
+ms.date: 5/23/2025
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -18,7 +18,7 @@ The [SAP on Azure Deployment Automation Framework](deployment-framework.md) supp
 
 ### Control plane
 
-The deployer virtual machine of the control plane must be deployed on Linux as the Ansible controller only works on Linux.
+The deployer virtual machine of the control plane must be deployed on Linux as the Ansible controllers only work on Linux.
 
 ### SAP Infrastructure
 
@@ -39,12 +39,25 @@ The following distributions have been tested with the framework:
 - SUSE 12 SP5
 - SUSE 15 SP2
 - SUSE 15 SP3
+- SUSE 15 SP4
 - Oracle Linux 8.2
 - Oracle Linux 8.4
 - Oracle Linux 8.6
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server 2022
+
+## Supported database backends
+
+The following database backends are supported by the framework:
+
+- SAP HANA
+- DB2
+- Oracle
+- Sybase
+- Microsoft SQL Server
+
+
 ## Supported topologies
 
 By default, the automation framework deploys with database and application tiers. The application tier is split into three more tiers: application, central services, and web dispatchers. 
@@ -107,7 +120,7 @@ The automation framework uses or can use the following Azure services, features,
 
 At this time the automation framework **doesn't support** the following Azure services, features, or capabilities:
 
-## Unsupported SAP architectures
+## Supported SAP architectures
 
 The automation framework can be used to deploy the following SAP architectures: 
 
