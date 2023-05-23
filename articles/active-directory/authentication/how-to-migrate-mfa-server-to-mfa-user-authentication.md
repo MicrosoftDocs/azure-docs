@@ -12,7 +12,7 @@ manager: martinco
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
-# Migrate to Azure AD MFA and Azure AD user authentication 
+# Migrate to Azure AD MFA and Azure AD user authentication
 
 Multi-factor authentication (MFA) helps secure your infrastructure and assets from bad actors. Microsoft Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. Customers who are using MFA Server should move to Azure AD Multi-Factor Authentication (Azure AD MFA). 
 
