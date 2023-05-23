@@ -126,7 +126,7 @@ sections:
       - question: |
           Can I ping my load balancer?
         answer: |
-          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [Testing reachability of Azure Load Balancer frontend IPv4 address with ping.](load-balancer-test-frontend-reachability.md)  
+          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md)  
 
 additionalContent: |
 
