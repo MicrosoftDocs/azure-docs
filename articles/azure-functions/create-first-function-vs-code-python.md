@@ -15,7 +15,7 @@ In this article, you use Visual Studio Code to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->To use the Python v2 programming model for Functions as generally available, ensure you are using Host versions 4.21.x and above. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+>The v2 programming model provides a decorator based approach to create functions. To learn more about the v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
