@@ -201,7 +201,9 @@ sections:
       - question: |
           What types of resources can send Prometheus metrics to managed service for Prometheus?
         answer: |
-          Our agent can be used on Azure Kubernetes Service clusters. It's installed as a managed add-on and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.  
+          Our agent can be used on Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. It's installed as a managed add-on for AKS clusters and an extension for Azure Arc-enabled Kubernetes clusters and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.
+
+          If you use the Azure portal to enable Prometheus metrics collection and install the AKS add-on or Azure Arc-enabled Kubernetes extension from the Insights page of your cluster, it enables logs collection into Log Analytics and Prometheus metrics collection into managed service for Prometheus.
       - question: |
           Does enabling managed service for Prometheus on my Azure Kubernetes Service cluster also enable Container insights?
         answer: |
