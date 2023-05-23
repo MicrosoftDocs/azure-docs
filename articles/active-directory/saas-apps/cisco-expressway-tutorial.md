@@ -65,7 +65,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![Screenshot shows to choose and browse metadata file.](common/browse-upload-metadata.png "Folder")
+	![Screenshot shows how to choose and browse metadata file.](common/browse-upload-metadata.png "Folder")
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
