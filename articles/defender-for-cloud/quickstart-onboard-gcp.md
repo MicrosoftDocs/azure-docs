@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 01/25/2023
+ms.date: 04/23/2023
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -126,7 +126,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
 - Other extensions should be enabled on the Arc-connected machines.
     - Microsoft Defender for Endpoint
-    - VA solution (TVM/ Qualys)
+    - VA solution (Microsoft Defender Vulnerability Management/ Qualys)
     - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA). Ensure the selected workspace has security solution installed.
     
         The LA agent and AMA are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings regarding the LA agent and AMA.

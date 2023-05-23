@@ -25,21 +25,17 @@ This article shows you how to create a static public IP address and assign it to
 
 ## Create a static IP address
 
-1. Use the `az aks show`[az-aks-show] command to get the node resource group name of your AKS cluster, which follows this format: `MC_<resource group name>_<AKS cluster name>_<region>`.
+1. Create a resource group for your IP address
 
     ```azurecli-interactive
-    az aks show \
-        --resource-group myResourceGroup \
-        --name myAKSCluster
-        --query nodeResourceGroup
-        --output tsv
+    az group create --name myNetworkResourceGroup
     ```
 
-2. Use the [`az network public ip create`][az-network-public-ip-create] command to create a static public IP address. The following example creates a static IP resource named *myAKSPublicIP* in the *MC_myResourceGroup_myAKSCluster_eastus* node resource group.
+2. Use the [`az network public ip create`][az-network-public-ip-create] command to create a static public IP address. The following example creates a static IP resource named *myAKSPublicIP* in the *myNetworkResourceGroup* resource group.
 
     ```azurecli-interactive
     az network public-ip create \
-        --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+        --resource-group myNetworkResourceGroup \
         --name myAKSPublicIP \
         --sku Standard \
         --allocation-method static
@@ -51,7 +47,7 @@ This article shows you how to create a static public IP address and assign it to
 3. After you create the static public IP address, use the [`az network public-ip list`][az-network-public-ip-list] command to get the IP address. Specify the name of the node resource group and public IP address you created, and query for the *ipAddress*.
 
     ```azurecli-interactive
-    az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+    az network public-ip show --resource-group myNetworkResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
     ```
 
 ## Create a service using the static IP address
@@ -59,10 +55,12 @@ This article shows you how to create a static public IP address and assign it to
 1. Before creating a service, use the [`az role assignment create`][az-role-assignment-create] command to ensure the cluster identity used by the AKS cluster has delegated permissions to the node resource group.
 
     ```azurecli-interactive
+    CLIENT_ID=$(az aks show --name <cluster name> --resource-group <cluster resource group> --query identity.principalId -o tsv)
+    RG_SCOPE=$(az group show --name myNetworkResourceGroup --query id -o tsv)
     az role assignment create \
-        --assignee <Client ID> \
+        --assignee ${CLIENT_ID} \
         --role "Network Contributor" \
-        --scope /subscriptions/<subscription id>/resourceGroups/<MC_myResourceGroup_myAKSCluster_eastus>
+        --scope ${RG_SCOPE}
     ```
 
     > [!IMPORTANT]
@@ -75,13 +73,13 @@ This article shows you how to create a static public IP address and assign it to
     kind: Service
     metadata:
       annotations:
-        service.beta.kubernetes.io/azure-load-balancer-resource-group: MC_myResourceGroup_myAKSCluster_eastus
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: myNetworkResourceGroup
       name: azure-load-balancer
     spec:
       loadBalancerIP: 40.121.183.52
       type: LoadBalancer
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: azure-load-balancer
     ```

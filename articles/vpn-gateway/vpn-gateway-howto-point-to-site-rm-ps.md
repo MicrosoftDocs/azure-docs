@@ -5,16 +5,16 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 04/10/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Configure server settings for P2S VPN Gateway connections - certificate authentication - Azure PowerShell
 
-This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. Point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
+This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. Point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
-:::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Connect from a computer to an Azure VNet - point-to-site connection diagram":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of a point-to-site connection.":::
 
 For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md). To create this configuration using the Azure portal, see [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
@@ -38,7 +38,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 ## <a name="declare"></a>Declare variables
 
-We use variables for this article so that you can easily change the values to apply to your own environment without having to change the examples themselves. Declare the variables that you want to use. You can use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to re-declare the variables.
+We use variables for this article so that you can easily change the values to apply to your own environment without having to change the examples themselves. Declare the variables that you want to use. You can use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to redeclare the variables.
 
 ```azurepowershell-interactive
 $VNetName  = "VNet1"
@@ -73,7 +73,7 @@ $DNS = "10.2.1.4"
 
 1. Create the virtual network.
 
-   In this example, the -DnsServer server parameter is optional. Specifying a value does not create a new DNS server. The DNS server IP address that you specify should be a DNS server that can resolve the names for the resources you are connecting to from your VNet. This example uses a private IP address, but it is likely that this is not the IP address of your DNS server. Be sure to use your own values. The value you specify is used by the resources that you deploy to the VNet, not by the P2S connection or the VPN client.
+   In this example, the -DnsServer server parameter is optional. Specifying a value doesn't create a new DNS server. The DNS server IP address that you specify should be a DNS server that can resolve the names for the resources you're connecting to from your VNet. This example uses a private IP address, but it's likely that this isn't the IP address of your DNS server. Be sure to use your own values. The value you specify is used by the resources that you deploy to the VNet, not by the P2S connection or the VPN client.
 
    ```azurepowershell-interactive
        New-AzVirtualNetwork `
@@ -92,7 +92,7 @@ $DNS = "10.2.1.4"
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
    ```
 
-1. A VPN gateway must have a Public IP address. You first request the IP address resource, and then refer to it when creating your virtual network gateway. The IP address is dynamically assigned to the resource when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, it doesn't mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+1. A VPN gateway must have a Public IP address. You first request the IP address resource, and then refer to it when creating your virtual network gateway. The IP address is dynamically assigned to the resource when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. You can't request a Static Public IP address assignment. However, it doesn't mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
    Request a dynamically assigned public IP address.
 
@@ -106,8 +106,8 @@ $DNS = "10.2.1.4"
 In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type) in the Azure portal version of this article.
 
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
-* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP cannot be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
-* The virtual network gateway 'Basic' SKU does not support IKEv2, OpenVPN, or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
+* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP can't be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
+* The virtual network gateway 'Basic' SKU doesn't support IKEv2, OpenVPN, or RADIUS authentication. If you're planning on having Mac clients connect to your virtual network, don't use the Basic SKU.
 * A VPN gateway can take 45 minutes or more to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. 
 
 1. Configure and create the virtual network gateway for your VNet. It takes approximately 45 minutes for the gateway to create.
@@ -126,7 +126,7 @@ In this step, you configure and create the virtual network gateway for your VNet
 
 ## <a name="addresspool"></a>Add the VPN client address pool
 
-After the VPN gateway finishes creating, you can add the VPN client address pool. The VPN client address pool is the range from which the VPN clients receive an IP address when connecting. Use a private IP address range that does not overlap with the on-premises location that you connect from, or with the VNet that you want to connect to.
+After the VPN gateway finishes creating, you can add the VPN client address pool. The VPN client address pool is the range from which the VPN clients receive an IP address when connecting. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or with the VNet that you want to connect to.
 
 In this example, the VPN client address pool is declared as a [variable](#declare) in an earlier step.
 
@@ -143,7 +143,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 Certificates are used by Azure to authenticate VPN clients for point-to-site VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered 'trusted'. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User/Personal certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet.
 
-If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell and Windows 10 or later](vpn-gateway-certificates-point-to-site.md), or, if you don't have Windows 10 or later, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important that you follow the steps in the instructions when generating self-signed root certificates and client certificates. Otherwise, the certificates you generate will not be compatible with P2S connections and you receive a connection error.
+If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell and Windows 10 or later](vpn-gateway-certificates-point-to-site.md), or, if you don't have Windows 10 or later, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important that you follow the steps in the instructions when generating self-signed root certificates and client certificates. Otherwise, the certificates you generate won't be compatible with P2S connections and you receive a connection error.
 
 ### <a name="cer"></a>Root certificate
 
@@ -155,7 +155,7 @@ If you use self-signed certificates, they must be created using specific paramet
 
 1. [!INCLUDE [Generate a client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-1. After you create client certificate, [export](vpn-gateway-certificates-point-to-site.md#clientexport) it. The client certificate will be distributed to the client computers that will connect.
+1. After you create client certificate, [export](vpn-gateway-certificates-point-to-site.md#clientexport) it. You'll distribute the client certificate to the client computers that will connect.
 
 ## <a name="upload"></a>Upload root certificate public key information
 
@@ -179,7 +179,7 @@ Verify that your VPN gateway has finished creating. Once it has completed, you c
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    ```
 
-1. Upload the public key information to Azure. Once the certificate information is uploaded, Azure considers it to be a trusted root certificate. When uploading, make sure you are running PowerShell locally on your computer, or instead, you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). You can't upload using Azure Cloud Shell.
+1. Upload the public key information to Azure. Once the certificate information is uploaded, Azure considers it to be a trusted root certificate. When uploading, make sure you're running PowerShell locally on your computer, or instead, you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). You can't upload using Azure Cloud Shell.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
@@ -231,7 +231,7 @@ These instructions apply to Windows clients.
 
 * Verify that the VPN client configuration package was generated after the DNS server IP addresses were specified for the VNet. If you updated the DNS server IP addresses, generate and install a new VPN client configuration package.
 
-* Use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network.
+* Use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you're connecting. If the IP address is within the address range of the VNet that you're connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network.
 
 ## <a name="addremovecert"></a>To add or remove a root certificate
 
@@ -296,7 +296,7 @@ The common practice is to use the root certificate to manage access at team or o
 
 1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 
-1. Copy the information to a text editor and remove all spaces so that it is a continuous string. This string is declared as a variable in the next step.
+1. Copy the information to a text editor and remove all spaces so that it's a continuous string. This string is declared as a variable in the next step.
 
 1. Declare the variables. Make sure to declare the thumbprint you retrieved in the previous step.
 

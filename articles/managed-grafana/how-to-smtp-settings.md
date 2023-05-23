@@ -2,8 +2,8 @@
 title: 'How to configure SMTP settings (preview) within Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
 description: Learn how to configure SMTP settings (preview) to generate email notifications for Azure Managed Grafana
-author: maud-lv 
-ms.author: malev 
+author: mcleanbyron 
+ms.author: mcleans 
 ms.service: managed-grafana 
 ms.topic: how-to
 ms.date: 02/01/2023

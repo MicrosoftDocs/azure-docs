@@ -154,8 +154,8 @@ You can assign a user to an access package in PowerShell with the `New-MgEntitle
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 Select-MgProfile -Name "beta"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
-$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "AssignmentPolicies"
+$policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetId "a43ee6df-3cc5-491a-ad9d-ea964ef8e464"
 ```
 
@@ -170,8 +170,8 @@ For example, if you want to ensure all the users who are currently members of a 
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
 Select-MgProfile -Name "beta"
 $members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
-$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "AssignmentPolicies"
+$policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
 ```
 
@@ -183,8 +183,8 @@ If you wish to add an assignment for a user who is not yet in your directory, yo
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 Select-MgProfile -Name "beta"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
-$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "AssignmentPolicies"
+$policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
 

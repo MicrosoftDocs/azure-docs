@@ -22,8 +22,10 @@ Linux AMA buffers events to `/var/opt/microsoft/azuremonitoragent/events` prior 
 ### Confirming the issue of Full Disk
 The `df` command shows almost no space available on `/dev/sda1`, as shown below:
 
+```bash
+   df -h
 ```
-$ df -h
+```output
 Filesystem Size  Used Avail Use% Mounted on
 udev        63G     0   63G   0% /dev
 tmpfs       13G  720K   13G   1% /run
@@ -38,16 +40,22 @@ tmpfs       13G     0   13G   0% /run/user/1000
 
 The `du` command can be used to inspect the disk to determine which files are causing the disk to be full. For example:
 
+```bash
+   cd /var/log
+   du -h syslog*
 ```
-/var/log$ du -h syslog*
+```output
 6.7G    syslog
 18G     syslog.1
 ```
 
 In some cases, `du` may not report any significantly large files/directories. It may be possible that a [file marked as (deleted) is taking up the space](https://unix.stackexchange.com/questions/182077/best-way-to-free-disk-space-from-deleted-files-that-are-held-open). This issue can happen when some other process has attempted to delete a file, but there remains a process with the file still open. The `lsof` command can be used to check for such files. In the example below, we see that `/var/log/syslog` is marked as deleted, but is taking up 3.6 GB of disk space. It hasn't been deleted because a process with PID 1484 still has the file open.
 
-```
-$ sudo lsof +L1
+```bash
+   sudo lsof +L1
+```   
+
+```output
 COMMAND   PID   USER   FD   TYPE DEVICE   SIZE/OFF NLINK  NODE NAME
 none      849   root  txt    REG    0,1       8632     0 16764 / (deleted)
 rsyslogd 1484 syslog   14w   REG    8,1 3601566564     0 35280 /var/log/syslog (deleted)
@@ -62,13 +70,13 @@ AMA doesn't rely on syslog events being logged to `/var/log/syslog`. Instead, it
 If you're sending a high log volume through rsyslog, consider modifying the default rsyslog config to avoid logging these events to this location `/var/log/syslog`. The events for this facility would still be forwarded to AMA because of the config in `/etc/rsyslog.d/10-azuremonitoragent.conf`.
 
 1. For example, to remove local4 events from being logged at `/var/log/syslog`, change this line in `/etc/rsyslog.d/50-default.conf` from this:
-	```
+	```config
 	*.*;auth,authpriv.none          -/var/log/syslog
 	```
 
 	To this (add local4.none;):
 
-	```
+	```config
 	*.*;local4.none;auth,authpriv.none          -/var/log/syslog
 	```
 2. `sudo systemctl restart rsyslog`

@@ -3,7 +3,7 @@ title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 02/15/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -39,7 +39,7 @@ To install the module, use:
 Install-Module -Name Az -Force
 ```
 
-For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Install Azure CLI module
 

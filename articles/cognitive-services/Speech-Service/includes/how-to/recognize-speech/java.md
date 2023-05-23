@@ -209,11 +209,11 @@ A common task for speech recognition is specifying the input (or source) languag
 config.setSpeechRecognitionLanguage("fr-FR");
 ```
 
-[`setSpeechRecognitionLanguage`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt).
+[`setSpeechRecognitionLanguage`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-java#speech-to-text).
 
@@ -226,3 +226,10 @@ SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey",
 speechConfig.setEndpointId("YourEndpointId");
 SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

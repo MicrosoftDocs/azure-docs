@@ -54,7 +54,7 @@ To resolve this issue, delete the container instance and retry your deployment. 
 
 If the image can't be pulled, events like the following are shown in the output of [az container show][az-container-show]:
 
-```bash
+```json
 "events": [
   {
     "count": 3,
@@ -176,8 +176,10 @@ If your container takes a long time to start, but eventually succeeds, start by 
 
 You can view the size of your container image by using the `docker images` command in the Docker CLI:
 
-```console
-$ docker images
+```bash
+docker images
+```
+```output
 REPOSITORY                                    TAG       IMAGE ID        CREATED          SIZE
 mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 months ago    67.6MB
 ```
@@ -210,7 +212,7 @@ Azure Container Instances doesn't yet support port mapping like with regular doc
 If you want to confirm that Azure Container Instances can listen on the port you configured in your container image, test a deployment of the `aci-helloworld` image that exposes the port. Also run the `aci-helloworld` app so that it listens on the port. `aci-helloworld` accepts an optional environment variable `PORT` to override the default port 80 it listens on. For example, to test port 9000, set the [environment variable](container-instances-environment-variables.md) when you create the container group:
 
 1. Set up the container group to expose port 9000, and pass the port number as the value of the environment variable. The example is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment accordingly.
-    ```azurecli
+    ```azurecli-interactive
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --ip-address Public --ports 9000 \
@@ -222,7 +224,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
     You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
 1. When you're done with the container, remove it using the `az container delete` command:
 
-    ```azurecli
+    ```azurecli-interactive
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
 
@@ -240,4 +242,4 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az_container_show
-[list-cached-images]: /rest/api/container-instances/location/listcachedimages
+[list-cached-images]: /rest/api/container-instances/2022-09-01/location/list-cached-images

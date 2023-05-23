@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 04/18/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -54,7 +54,7 @@ Azure AD Kerberos authentication only supports using AES-256 encryption.
 
 ## Regional availability
 
-Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except China and Government clouds.
+Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Enable Azure AD Kerberos authentication for hybrid user accounts
 
@@ -144,7 +144,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
-6. Select **Grant admin consent**.
+6. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
 7. Select **Yes** to confirm.
 
   > [!IMPORTANT]

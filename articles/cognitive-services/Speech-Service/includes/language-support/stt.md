@@ -75,7 +75,7 @@ ms.author: eur
 | `es-PR` | Spanish (Puerto Rico) | Plain text<br/><br/>Pronunciation |
 | `es-PY` | Spanish (Paraguay) | Plain text<br/><br/>Pronunciation |
 | `es-SV` | Spanish (El Salvador) | Plain text<br/><br/>Pronunciation |
-| `es-US` | Spanish (United States) | Plain text<br/><br/>Pronunciation |
+| `es-US` | Spanish (United States) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-UY` | Spanish (Uruguay) | Plain text<br/><br/>Pronunciation |
 | `es-VE` | Spanish (Venezuela) | Plain text<br/><br/>Pronunciation |
 | `et-EE` | Estonian (Estonia) | Plain text<br/><br/>Pronunciation |
@@ -115,7 +115,7 @@ ms.author: eur
 | `mr-IN` | Marathi (India) | Plain text |
 | `ms-MY` | Malay (Malaysia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `mt-MT` | Maltese (Malta) | Plain text |
-| `my-MM` | Burmese (Myanmar) | Plain text |
+| `my-MM` | Burmese (Myanmar) | Not supported |
 | `nb-NO` | Norwegian Bokmål (Norway) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ne-NP` | Nepali (Nepal) | Plain text |
 | `nl-BE` | Dutch (Belgium) | Plain text |
@@ -138,14 +138,15 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Plain text |
 | `te-IN` | Telugu (India) | Plain text |
 | `th-TH` | Thai (Thailand) | Audio + human-labeled transcript<br/><br/>Plain text |
-| `tr-TR` | Turkish (Türkiye) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
+| `tr-TR` | Turkish (Turkey) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
 | `uk-UA` | Ukrainian (Ukraine) | Plain text |
 | `uz-UZ` | Uzbek (Latin, Uzbekistan) | Plain text |
 | `vi-VN` | Vietnamese (Vietnam) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `wuu-CN` | Chinese (Wu, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `yue-CN` | Chinese (Cantonese, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-CN` | Chinese (Mandarin, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Phrase list |
-| `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | Plain text |
+| `zh-CN-shandong` | Chinese (Jilu Mandarin, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
+| `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zu-ZA` | Zulu (South Africa) | Plain text |

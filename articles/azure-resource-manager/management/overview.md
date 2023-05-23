@@ -3,7 +3,7 @@ title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
 ms.date: 02/28/2023
-ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.custom: contperf-fy21q1, contperf-fy21q3-portal, devx-track-arm-template
 ---
 # What is Azure Resource Manager?
 

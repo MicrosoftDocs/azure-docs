@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/29/2022
+ms.date: 3/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,11 +17,11 @@ ms.service: digital-twins
 
 # Extending ontologies 
 
-This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component, or Command). 
+This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component). 
 
-An industry-standard [ontology](concepts-ontologies.md), such as the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology, is a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. 
+Microsoft's [industry-standard ontologies](concepts-ontologies-adopt.md), such as the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology, are a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services like Azure Digital Twins. 
 
-However, it's possible that your solution may have specific needs that aren't covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, you can extend one of these ontologies to add your own capabilities while keeping all the benefits of the original ontology.
+However, it's possible that your solution may have specific needs that aren't covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, you can extend one of these ontologies to add your own capabilities while keeping all the [benefits of the original ontology](concepts-ontologies.md).
 
 ## RealEstateCore space hierarchy 
 
@@ -40,11 +40,11 @@ Sometimes your solution has specific needs that aren't covered by the industry o
 In this article, we discuss two different cases where extending the ontology's hierarchy is useful: 
 
 * Adding new interfaces for concepts not in the industry ontology. 
-* Adding extra properties (or relationships, components, telemetry, or commands) to existing interfaces.
+* Adding extra Properties (or Relationships, Components, and Telemetry) to existing interfaces.
 
 ### Add new interfaces for new concepts 
 
-In this case, you want to add interfaces for concepts needed for your solution but that aren't present in the industry ontology. For example, if your solution has other types of rooms that aren't represented in the DTDL-based RealEstateCore ontology, then you can add them by extending directly from the RealEstateCore interfaces. 
+In this case, you want to add interfaces for concepts needed for your solution that aren't present in the industry ontology. For example, if your solution has other types of rooms that aren't represented in the DTDL-based RealEstateCore ontology, then you can add them by extending directly from the RealEstateCore interfaces. 
 
 The example below presents a solution that needs to represent "focus rooms," which aren't present in the RealEstateCore ontology. A focus room is a small space designed for people to focus on a task for a couple hours at a time. 
 
@@ -56,7 +56,7 @@ After adding the focus room interface, the extended hierarchy shows the new room
 
 ### Add extra capabilities to existing interfaces 
 
-In this case, you want to add more properties (or relationships, components, telemetry, or commands) to interfaces that are in the industry ontology.
+In this case, you want to add more Properties (or Relationships, Components, and Telemetry) to interfaces that are in the industry ontology.
 
 In this section, you'll see two examples: 
 * If you're building a solution that displays 3D drawings of spaces that you already have in an existing system, you might want to associate each digital twin to its 3D drawing (by ID) so that when the solution displays information about the space, it can also retrieve the 3D drawing from the existing system. 
@@ -175,4 +175,4 @@ The DTDL for the extended interfaces, limited to the portion discussed above, wo
 
 ## Next steps
 
-Continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Continue on the path for developing models based on ontologies: [Full model development path](concepts-ontologies.md#full-model-development-path).

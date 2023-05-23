@@ -1,8 +1,8 @@
 ---
 title: Create a data source for Android maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Android SDK uses: GeoJSON sources and vector tiles."
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -303,7 +303,7 @@ map.sources.add(source)
 
 ::: zone-end
 
-The `importDataFromUrl` method provides an easy way to load a GeoJSON feed into a data source but provides limited control on how the data is loaded and what happens after it's been loaded. The following code is a reusable class for importing data from the web or assets folder and returning it to the UI thread via a callback function. Next, add additional post load logic in the callback to process the data, add it to the map, calculate its bounding box, and update the maps camera.
+The `importDataFromUrl` method provides an easy way to load a GeoJSON feed into a data source but provides limited control on how the data is loaded and what happens after it's been loaded. The following code is a reusable class for importing data from the web or assets folder and returning it to the UI thread via a callback function. Next, add more post load logic in the callback to process the data, add it to the map, calculate its bounding box, and update the maps camera.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -767,12 +767,12 @@ A vector tile source describes how to access a vector tile layer. Use the `Vecto
 - Changing the style of the data in the vector maps doesn't require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
 - Since the data is delivered in vector form, there's less server-side processing required to prepare the data. As a result, the newer data can be made available faster.
 
-Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), an open standard. Azure Maps provides the following vector tiles services as part of the platform:
+Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. Azure Maps provides the following vector tiles services as part of the platform:
 
-- Road tiles [documentation](/rest/api/maps/render-v2/get-map-tile)
-- Traffic incidents [documentation](/rest/api/maps/traffic/gettrafficincidenttile)
-- Traffic flow [documentation](/rest/api/maps/traffic/gettrafficflowtile)
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile)
+- [Road tiles]
+- [Traffic incidents]
+- [Traffic flow]
+- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `azmapsdomain.invalid`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
@@ -871,13 +871,13 @@ map.layers.add(layer, "labels")
 
 ## Connecting a data source to a layer
 
-Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source:
+Data is rendered on the map using rendering layers. One or more rendering layers can reference a single data source. The following rendering layers require a data source:
 
-- [Bubble layer](map-add-bubble-layer-android.md) - renders point data as scaled circles on the map.
-- [Symbol layer](how-to-add-symbol-to-android-map.md) - renders point data as icons or text.
-- [Heat map layer](map-add-heat-map-layer-android.md) - renders point data as a density heat map.
-- [Line layer](android-map-add-line-layer.md) - render a line and or render the outline of polygons.
-- [Polygon layer](how-to-add-shapes-to-android-map.md) - fills the area of a polygon with a solid color or image pattern.
+- [Bubble layer] - renders point data as scaled circles on the map.
+- [Symbol layer]- renders point data as icons or text.
+- [Heat map layer] - renders point data as a density heat map.
+- [Line layer] - render a line and or render the outline of polygons.
+- [Polygon layer] - fills the area of a polygon with a solid color or image pattern.
 
 The following code shows how to create a data source, add it to the map, and connect it to a bubble layer. And then, import GeoJSON point data from a remote location into the data source.
 
@@ -917,7 +917,7 @@ map.sources.add(source)
 
 There are more rendering layers that don't connect to these data sources, but they directly load the data for rendering.
 
-- [Tile layer](how-to-add-tile-layer-android-map.md) - superimposes a raster tile layer on top of the map.
+- [Tile layer] - superimposes a raster tile layer on top of the map.
 
 ## One data source with multiple layers
 
@@ -1035,3 +1035,18 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Web SDK Code samples](/samples/browse/?products=azure-maps)
+
+<!---------   learn.microsoft.com links     --------------->
+[Bubble layer]: map-add-bubble-layer-android.md
+[Symbol layer]: how-to-add-symbol-to-android-map.md
+[Heat map layer]: map-add-heat-map-layer-android.md
+[Line layer]: android-map-add-line-layer.md
+[Polygon layer]: how-to-add-shapes-to-android-map.md
+[Tile layer]: how-to-add-tile-layer-android-map.md
+<!---------   REST API Links     --------------->
+[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
+[Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
+[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+<!---------   External Links     --------------->
+[Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

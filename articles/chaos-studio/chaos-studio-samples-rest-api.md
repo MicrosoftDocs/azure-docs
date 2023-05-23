@@ -15,21 +15,27 @@ ms.custom: ignite-fall-2021
 > [!WARNING]
 > Injecting faults can impact your application or service. Be careful not to disrupt customers.  
 
-The Chaos Studio API provides support for starting experiments programmatically. You can also use the armclient and the Azure CLI to execute these commands from the console. Examples below are for the Azure CLI.
+The Chaos Studio API provides support for starting experiments programmatically. You can also use the ARM client and the Azure CLI to execute these commands from the console. These examples are for the Azure CLI.
 
 > [!Warning]
 > These APIs are still under development and subject to change.
 
 ## REST APIs
 
-The Squall REST APIs can be used to start and stop experiments, query target status, query experiment status, and query and delete subscription configurations. The `AZ CLI` utility can be used to perform these actions from the command line.
+The Chaos Studio REST APIs can be used to:
+* Start, stop, and manage experiments
+* View and manage targets
+* Query experiment status
+* Query and delete subscription configurations
+
+The `AZ CLI` utility can be used to perform these actions from the command line.
 
 > [!TIP]
-> To get more verbose output with the AZ CLI, append **--verbose** to the end of each command. This will return more metadata when commands execute, including **x-ms-correlation-request-id** which aids in debugging.
+> To get more verbose output with the AZ CLI, append `--verbose` to the end of each command. This will return more metadata when commands execute, including `x-ms-correlation-request-id` which aids in debugging.
 
 ### Chaos Provider Commands
 
-#### Enumerate details about the Microsoft.Chaos Resource Provider
+#### List details about the `Microsoft.Chaos` Resource Provider
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos?api-version={apiVersion}" --resource "https://management.azure.com"
@@ -41,13 +47,13 @@ az rest --method get --url "https://management.azure.com/subscriptions/{subscrip
 az rest --method get --url "https://management.azure.com/providers/Microsoft.Chaos/operations?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
-#### List Chaos Provider Configurations
+#### List Chaos provider configurations
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/microsoft.chaos/chaosProviderConfigurations/?api-version={apiVersion}" --resource "https://management.azure.com" --verbose 
 ```
 
-#### Create Chaos Provider Configuration
+#### Create Chaos provider configuration
 
 ```azurecli
 az rest --method put --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/microsoft.chaos/chaosProviderConfigurations/{chaosProviderType}?api-version={apiVersion}" --body @{providerSettings.json} --resource "https://management.azure.com"
@@ -55,7 +61,7 @@ az rest --method put --url "https://management.azure.com/subscriptions/{subscrip
 
 ### Chaos Target and Agent Commands
 
-#### List All the Targets or Agents Under a Subscription
+#### List all the Targets or Agents under a subscription
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos/chaosTargets/?api-version={apiVersion}" --url-parameter "chaosProviderType={chaosProviderType}" --resource "https://management.azure.com"
@@ -69,7 +75,7 @@ az rest --method get --url "https://management.azure.com/subscriptions/{subscrip
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/chaosExperiments?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
-#### Get an experiment configuration details by name
+#### Get an experiment's configuration details by name
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --resource "https://management.azure.com"
@@ -93,7 +99,7 @@ az rest --method delete --url "https://management.azure.com/{experimentId}?api-v
 az rest --method post --url "https://management.azure.com/{experimentId}/start?api-version={apiVersion}"
 ```
 
-#### Get statuses (History) of an experiment
+#### Get past statuses of an experiment
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/statuses?api-version={apiVersion}" --resource "https://management.azure.com"
@@ -105,7 +111,7 @@ az rest --method get --url "https://management.azure.com/{experimentId}/statuses
 az rest --method get --url "https://management.azure.com/{experimentId}/status?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
-#### Cancel (Stop) an experiment
+#### Cancel (stop) an experiment
 
 ```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/cancel?api-version={apiVersion}" --resource "https://management.azure.com"
@@ -128,9 +134,9 @@ az rest --method get --url "https://management.azure.com/{experimentId}/executio
 | Parameter Name | Definition | Lookup |
 | --- | --- | --- |
 | {apiVersion} | Version of the API to be used when executing the command provided | Can be found in the [API documentation](/rest/api/chaosstudio/) |
-| {experimentId} | Azure Resource Id for the experiment | Can be found in the [Chaos Studio Experiment Portal Blade](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments) |
+| {experimentId} | Azure Resource ID for the experiment | Can be found in the [Chaos Studio Experiment Page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments) |
 | {chaosProviderType} | Type or Name of Chaos Studio Provider | Available providers can be found in the [List of current Provider Config Types](chaos-studio-fault-providers.md) |
 | {experimentName.json} | JSON containing the configuration of the chaos experiment | Generated by the user |
-| {subscriptionId} | Subscription Id where the target resource is located | Can be found in the [Subscriptions Portal Blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) |
-| {resourceGroupName} | Name of the resource group where the target resource is located | Can be fond in the [Resource Groups Portal Blade](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) |
-| {executionDetailsId} | Execution Id of an experiment execution | Can be found in the [Chaos Studio Experiment Portal Blade](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments) |
+| {subscriptionId} | Subscription ID where the target resource is located | Can be found in the [Subscriptions Page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) |
+| {resourceGroupName} | Name of the resource group where the target resource is located | Can be fond in the [Resource Groups Page](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) |
+| {executionDetailsId} | Execution ID of an experiment execution | Can be found in the [Chaos Studio Experiment Page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.chaos%2Fchaosexperiments) |

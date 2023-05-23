@@ -7,7 +7,6 @@ ms.service: container-apps
 ms.topic:  how-to
 ms.date: 03/31/2023
 ms.author: wviriya
-zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Protect Azure Container Apps with Web Application Firewall on Application Gateway
@@ -27,7 +26,7 @@ Reverse proxies allow you to place services in front of your apps that supports 
 
 This article demonstrates how to protect your container apps using a [Web Application Firewall (WAF) on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) with an internal Container Apps environment.
 
-For more information on networking concepts in Container Apps, see [Networking Architecture in Azure Container Apps](./networking.md).
+For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
 
 ## Prerequisites
 
@@ -277,7 +276,7 @@ This step is required for internal only container app environments as it allows 
 
     | Setting | Action |
     |---|---|
-    | Name | Enter **my-agw-private-link. |
+    | Name | Enter **my-agw-private-link**. |
     | Private link subnet | Select the subnet you wish to create the private link with. |
     | Frontend IP Configuration | Select the frontend IP for your Application Gateway. |
 

@@ -1,0 +1,22 @@
+items: 
+- name: Project Health Insights documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: About Project Health Insights
+      href: overview.md
+    - name: Onco Phenotype
+      href: ./oncophenotype/index.yml
+    - name: Trial Matcher 
+      href: ./trial-matcher/index.yml     
+- name: Quickstarts
+  expanded: true
+  items:
+     - name: Deploy Project Health Insights using the portal
+       href: deploy-portal.md
+- name: Responsible use of AI
+  expanded: true
+  items:
+    - name: Data, privacy, and security
+      href: responsible-ai/data-privacy-security.md

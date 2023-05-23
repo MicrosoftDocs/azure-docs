@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ---
 
 # Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)
-The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor. The sample application collects entries from a text file and 
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor. The sample application collects entries from a text file and either converts the plain log to JSON format generating a resulting .json file, or sends the content to the data collection endpoint.
 
 > [!NOTE]
 > This tutorial uses the Azure portal to configure the components to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a similar tutorial that uses Azure Resource Manager templates to configure these components and that has sample code for client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
@@ -80,6 +80,9 @@ A [data collection endpoint](../essentials/data-collection-endpoint-overview.md)
 ## Create new table in Log Analytics workspace
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
+> [!NOTE]
+> The table creation for a log ingestion API custom log below can't be used to create a [agent custom log table](../agents/data-collection-text-log.md). You must use the CLI or custom template process to create the table. If you do not have sufficent rights to run CLI or custom tempate you must ask your adminitrator to add the table for you.
+
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-custom-log.png" lightbox="media/tutorial-logs-ingestion-portal/new-custom-log.png" alt-text="Screenshot that shows the new DCR-based custom log.":::
@@ -95,7 +98,9 @@ Before you can send data to the workspace, you need to create the custom table w
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot that shows the custom log table name.":::
 
 ## Parse and filter sample data
-Instead of directly configuring the schema of the table, you can upload a file with a sample JSON array of data through the portal, and Azure Monitor will set the schema automatically. The sample JSON file must contain one or more log records structured as an array, in the same way they data is sent in the body of an HTTP request of the logs ingestion API call.
+Instead of directly configuring the schema of the table, you can upload a file with a sample JSON array of data through the portal, and Azure Monitor will set the schema automatically. The sample JSON file must contain one or more log records structured as an array, in the same way the data is sent in the body of an HTTP request of the logs ingestion API call.
+
+1. Follow the instructions in [generate sample data](#generate-sample-data) to create the *data_sample.json* file.
 
 1. Select **Browse for files** and locate the *data_sample.json* file that you previously created.
 
@@ -128,10 +133,10 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ' ' *
     ' ' *
     ' [' * '] "' RequestType:string
-    " " Resource:string
-    " " *
+    ' ' Resource:string
+    ' ' *
     '" ' ResponseCode:int
-    " " *
+    ' ' *
     ```
 
 1. Select **Run** to view the results. This action extracts the contents of `RawData` into the separate columns `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`.
@@ -143,16 +148,17 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse kind = regex RawData with *
-    ':"'
+    | parse RawData with 
     ClientIP:string
-    " - -" * '"'
-    RequestType:string
-    ' '
-    Resource:string
-    " " *
+    ' ' *
+    ' ' *
+    ' [' * '] "' RequestType:string
+    ' ' Resource:string
+    ' ' *
     '" ' ResponseCode:int
-    " " *
+    ' ' *
+    | project-away Time, RawData
+    | where ResponseCode != 200
     ```
 
 1. Select **Run** to view the results.
@@ -255,7 +261,7 @@ The following PowerShell script generates sample data to configure the custom ta
             $payload += $log_entry
         }
         # Write resulting payload to file
-        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json) -Force
+        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json -AsArray) -Force
 
     } else {
         ############
@@ -836,6 +842,6 @@ You can use the following sample data for the tutorial. Alternatively, you can u
 
 ## Next steps
 
-- [Complete a similar tutorial by using the Azure portal](tutorial-logs-ingestion-api.md)
+- [Complete a similar tutorial by using ARM templates](tutorial-logs-ingestion-api.md)
 - [Read more about custom logs](logs-ingestion-api-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)

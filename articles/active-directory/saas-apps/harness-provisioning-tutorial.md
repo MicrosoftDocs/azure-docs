@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
@@ -45,7 +45,7 @@ Before you configure and enable automatic user provisioning, decide which users 
 
 ## Set up Harness for provisioning
 
-1. Sign in to your [Harness Admin Console](https://app.harness.io/#/login), and then go to **Continuous Security** > **Access Management**.
+1. Sign in to your [Harness Admin Console](https://app.harness.io/auth/#/signin), and then go to **Continuous Security** > **Access Management**.
 
 	![Harness Admin Console](media/harness-provisioning-tutorial/admin.png)
 

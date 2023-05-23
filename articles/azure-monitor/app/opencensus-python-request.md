@@ -121,63 +121,31 @@ You can find a Flask sample application that tracks requests in the [Azure Monit
 
 ## Track FastAPI applications
 
-OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI middleware:
-
 1. The following dependencies are required:
     - [fastapi](https://pypi.org/project/fastapi/)
     - [uvicorn](https://pypi.org/project/uvicorn/)
 
       In a production setting, we recommend that you deploy [uvicorn with gunicorn](https://www.uvicorn.org/deployment/#gunicorn).
 
-1. Add [FastAPI middleware](https://fastapi.tiangolo.com/tutorial/middleware/). Make sure that you set the span kind server: `span.span_kind = SpanKind.SERVER`.
+2. Download and install `opencensus-ext-fastapi` from [PyPI](https://pypi.org/project/opencensus-ext-fastapi/). 
 
-1. Run your application. Calls made to your FastAPI application should be automatically tracked. Telemetry should be logged directly to Azure Monitor.
+    `pip install opencensus-ext-fastapi`
 
-    ```python 
-    # Opencensus imports
-    from opencensus.ext.azure.trace_exporter import AzureExporter
-    from opencensus.trace.samplers import ProbabilitySampler
-    from opencensus.trace.tracer import Tracer
-    from opencensus.trace.span import SpanKind
-    from opencensus.trace.attributes_helper import COMMON_ATTRIBUTES
-    # FastAPI imports
-    from fastapi import FastAPI, Request
-    # uvicorn
-    import uvicorn
+3. Instrument your application with the `fastapi` middleware.
 
-    app = FastAPI()
+    ```python
+    from fastapi import FastAPI
+    from opencensus.ext.fastapi.fastapi_middleware import FastAPIMiddleware
 
-    HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
-    HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
-    
-    exporter=AzureExporter(connection_string='<your-appinsights-connection-string-here>')
-    sampler=ProbabilitySampler(1.0)
+    app = FastAPI(__name__)
+    app.add_middleware(FastAPIMiddleware)
 
-    # fastapi middleware for opencensus
-    @app.middleware("http")
-    async def middlewareOpencensus(request: Request, call_next):  
-        tracer = Tracer(exporter=exporter, sampler=sampler)       
-        with tracer.span("main") as span:
-            span.span_kind = SpanKind.SERVER
-
-            response = await call_next(request)
-
-            tracer.add_attribute_to_current_span(
-                attribute_key=HTTP_STATUS_CODE,
-                attribute_value=response.status_code)
-            tracer.add_attribute_to_current_span(
-                attribute_key=HTTP_URL,
-                attribute_value=str(request.url))
-
-        return response
-
-    @app.get("/")
-    async def root():
-        return "Hello World!"
-
-    if __name__ == '__main__':
-        uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
+    @app.get('/')
+    def hello():
+        return 'Hello World!'
     ```
+
+4. Run your application. Calls made to your FastAPI application should be automatically tracked. Telemetry should be logged directly to Azure Monitor.
 
 ## Next steps
 

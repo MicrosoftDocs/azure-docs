@@ -3,7 +3,7 @@ title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/07/2023
+ms.date: 04/25/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -63,7 +63,8 @@ Select an activity on the canvas to configure its properties and parameters in t
 
 A parameter set defines the mandatory and optional parameters that accept values for a particular cmdlet. All cmdlets have at least one parameter set, and some have several sets. If a cmdlet has multiple parameter sets, you must select the one to use before you can configure parameters. You can change the parameter set used by an activity by selecting **Parameter Set** and choosing another set. In this case, any parameter values that you have already configured are lost.
 
-In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet has three parameter sets. The example uses one set called **ListLocationVirtualMachinesParamSet**, with a single optional parameter, to return the location for the virtual machines to be listed. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+
 
 ![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 

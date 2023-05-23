@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/10/2023
 
 ms.author: justinha
 author: justinha
@@ -32,7 +32,7 @@ Most methods also have configuration parameters to more precisely control how th
  
 Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like showing the user sign-in location or the name of the app being signed into. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
 
-To manage the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
+To manage the Authentication methods policy in the Azure AD portal, click **Security** > **Authentication methods** > **Policies**.
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
@@ -105,6 +105,7 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 
 ## Known issues and limitations
 - In recent updates we removed the ability to target individual users. Previously targeted users will remain in the policy but we recommend moving them to a targeted group.
+- Registration of FIDO2 security keys may fail for some users if the FIDO2 Authentication method policy is targeted for a group and the overall Authentication methods policy has more than 20 groups configured. We're working on increasing the policy size limit and in the mean time recommend limiting the number of group targets to no more than 20.
 
 ## Next steps
 
