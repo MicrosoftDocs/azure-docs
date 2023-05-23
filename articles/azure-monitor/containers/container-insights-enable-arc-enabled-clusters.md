@@ -112,7 +112,7 @@ This option uses the following defaults:
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
-To use [managed identity authentication (preview)](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
+To use [managed identity authentication](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
@@ -171,7 +171,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. You can now choose the [Log Analytics workspace](../logs/quick-create-workspace.md) to send your metrics and logs data to.
 
-5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+5. To use managed identity authentication, select the *Use managed identity* checkbox.
 
 6. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
 
@@ -185,7 +185,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 4. Choose the Log Analytics workspace. 
 
-5. To use managed identity authentication, select the *Use managed identity (preview)* checkbox.
+5. To use managed identity authentication, select the *Use managed identity* checkbox.
 
 6. Select the 'Configure' button to continue.
 
@@ -225,8 +225,8 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-nam
 
 ---
 
-## Migrate to managed identity authentication (preview)
-Use the flowing guidance to migrate an existing extension instance to managed identity authentication (preview).
+## Migrate to managed identity authentication
+Use the flowing guidance to migrate an existing extension instance to managed identity authentication.
 
 ## [CLI](#tab/migrate-cli)
 First retrieve the Log Analytics workspace configured for Container insights extension.
