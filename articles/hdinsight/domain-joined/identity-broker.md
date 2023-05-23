@@ -3,7 +3,7 @@ title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 05/23/2023
 ---
 
 # Azure HDInsight ID Broker (HIB)
@@ -145,9 +145,6 @@ The sequence to automate the consent is:
 * Register consent for the app
 
 When the cluster is deleted, HDInsight delete the app and there is no need to cleanup any consent.
-
- 
-
 
 ## Next steps
 
