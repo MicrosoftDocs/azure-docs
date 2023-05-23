@@ -81,19 +81,19 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
    The following example shows a basically configured SAP managed trigger in a Consumption workflow:
 
-   ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-managed-consumption.png)
+   ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-managed-consumption.png)
 
    The following example shows an SAP managed trigger where you can filter messages by selecting SAP actions:
 
-   ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-select-action-managed-consumption.png)
+   ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-select-action-managed-consumption.png)
 
    Or, by manually specifying an action:
 
-   ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-manual-enter-action-managed-consumption.png)
+   ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-manual-enter-action-managed-consumption.png)
 
    The following example shows how the action appears when you set up the trigger to receive more than one message:
 
-   ![Screenshot shows example trigger that receives multiple messages in a Consumption workflow.](./media/logic-apps-using-sap-connector/trigger-sap-multiple-message-managed-consumption.png)
+   ![Screenshot shows example trigger that receives multiple messages in a Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-multiple-message-managed-consumption.png)
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
@@ -139,7 +139,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
    The following example shows a basically configured SAP built-in trigger in a Standard workflow:
 
-   ![Screenshot shows basically configured SAP built-in connector trigger in Standard workflow.](./media/logic-apps-using-sap-connector/trigger-sap-built-in-standard.png)
+   ![Screenshot shows basically configured SAP built-in connector trigger in Standard workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-built-in-standard.png)
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
@@ -183,15 +183,15 @@ The following example workflow shows how to extract individual IDocs from a pack
 
       **Consumption workflow**
 
-      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Consumption workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-consumption.png)
+      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Consumption workflow.](./media/sap-create-example-scenario-workflows/get-namespace-expression-consumption.png)
 
       **Standard workflow**
 
-      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Standard workflow.](./media/logic-apps-using-sap-connector/get-namespace-expression-standard.png)
+      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Standard workflow.](./media/sap-create-example-scenario-workflows/get-namespace-expression-standard.png)
 
       When you're done, the expression resolves and now appears as the following format:
 
-      ![Screenshot shows the resolved expression that gets the root node namespace from received IDoc.](./media/logic-apps-using-sap-connector/get-namespace-expression-resolved.png)
+      ![Screenshot shows the resolved expression that gets the root node namespace from received IDoc.](./media/sap-create-example-scenario-workflows/get-namespace-expression-resolved.png)
 
 1. To extract an individual IDoc by storing the IDoc collection in a local array variable, follow these steps:
 
@@ -211,26 +211,26 @@ The following example workflow shows how to extract individual IDocs from a pack
 
       **Consumption workflow**
 
-      ![Screenshot shows the expression to get an array of IDocs for a Consumption workflow.](./media/logic-apps-using-sap-connector/get-array-idoc-expression-resolved-consumption.png)
+      ![Screenshot shows the expression to get an array of IDocs for a Consumption workflow.](./media/sap-create-example-scenario-workflows/get-array-idoc-expression-resolved-consumption.png)
 
       In this example, the following workflow transfers each IDoc to an SFTP server by using a **Control** action named **For each** and the SFTP-SSH action named **Create file**. Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
 
-      ![Screenshot shows sending an IDoc to an SFTP server from a Consumption workflow.](./media/logic-apps-using-sap-connector/get-idoc-loop-batch-consumption.png)
+      ![Screenshot shows sending an IDoc to an SFTP server from a Consumption workflow.](./media/sap-create-example-scenario-workflows/get-idoc-loop-batch-consumption.png)
 
       > [!NOTE]
       > For Consumption workflows, this pattern is available as a quickstart template, which you can select 
       > from the template gallery when you create a Consumption logic app resource and blank workflow. Or, 
       > when the workflow designer is open, on designer toolbar, select **Templates**.
       >
-      > ![Screenshot that shows selecting the template for getting an IDoc batch.](./media/logic-apps-using-sap-connector/get-idoc-batch-sap-template-consumption.png)
+      > ![Screenshot that shows selecting the template for getting an IDoc batch.](./media/sap-create-example-scenario-workflows/get-idoc-batch-sap-template-consumption.png)
 
       **Standard workflow**
 
-      ![Screenshot shows the expression to get an array of IDocs for a Standard workflow.](./media/logic-apps-using-sap-connector/get-array-idoc-expression-resolved-standard.png)
+      ![Screenshot shows the expression to get an array of IDocs for a Standard workflow.](./media/sap-create-example-scenario-workflows/get-array-idoc-expression-resolved-standard.png)
 
       In this example, the following workflow transfers each IDoc to an SFTP server by using a **Control** action named **For each** and the SFTP-SSH action named **Create file**. Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
 
-      ![Screenshot shows sending an IDoc to an SFTP server from a Standard workflow.](./media/logic-apps-using-sap-connector/get-idoc-loop-batch-standard.png)
+      ![Screenshot shows sending an IDoc to an SFTP server from a Standard workflow.](./media/sap-create-example-scenario-workflows/get-idoc-loop-batch-standard.png)
 
 ---
 
@@ -354,13 +354,13 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   ![Screenshot shows the Request trigger for a Consumption workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-consumption.png)
+   ![Screenshot shows the Request trigger for a Consumption workflow.](./media/sap-create-example-scenario-workflows/add-request-trigger-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
    This step generates an endpoint URL where your trigger can receive requests from your SAP server, for example:
 
-   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Consumption workflow.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url-consumption.png)
+   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Consumption workflow.](./media/sap-create-example-scenario-workflows/generate-http-endpoint-url-consumption.png)
 
 ### [Standard](#tab/standard)
 
@@ -368,13 +368,13 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   ![Screenshot shows the Request trigger for a Standard workflow.](./media/logic-apps-using-sap-connector/add-request-trigger-standard.png)
+   ![Screenshot shows the Request trigger for a Standard workflow.](./media/sap-create-example-scenario-workflows/add-request-trigger-standard.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
    This step generates an endpoint URL where your trigger can receive requests from your SAP server, for example:
 
-   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Standard workflow.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url-standard.png)
+   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Standard workflow.](./media/sap-create-example-scenario-workflows/generate-http-endpoint-url-standard.png)
 
 ---
 
@@ -408,7 +408,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
+   ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/sap-create-example-scenario-workflows/sap-send-message-consumption.png)
 
 1. In the **Send message to SAP** action, find and select an available SAP action on your SAP server to send the IDoc.
 
@@ -420,17 +420,17 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
       >
       > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
 
-      ![Screenshot shows selecting IDOC for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-idoc-type-consumption.png)
+      ![Screenshot shows selecting IDOC for a Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-select-idoc-type-consumption.png)
 
    1. Browse the SAP action types folders using the arrows to find and select the SAP action that you want to use.
 
       This example selects **ORDERS** > **ORDERS05** > **720** > **Send**.
 
-      ![Screenshot shows finding an Orders action for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-find-orders-action-consumption.png)
+      ![Screenshot shows finding an Orders action for a Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-find-orders-action-consumption.png)
 
       If you can't find the action you want, you can manually enter a path, for example:
 
-      ![Screenshot shows manually entering a path to an Orders action type for a Consumption workflow.](./media/logic-apps-using-sap-connector/sap-manually-enter-action-consumption.png)
+      ![Screenshot shows manually entering a path to an Orders action type for a Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-manually-enter-action-consumption.png)
 
       > [!TIP]
       >
@@ -448,11 +448,11 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
          > [!NOTE]
          > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot shows selecting the Request trigger's output named Body for Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-select-body-consumption.png)
+      ![Screenshot shows selecting the Request trigger's output named Body for Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-select-body-consumption.png)
 
       The **Send message to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
-      ![Screenshot shows completed SAP action for Consumption workflow.](./media/logic-apps-using-sap-connector/sap-send-message-complete-consumption.png)
+      ![Screenshot shows completed SAP action for Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-complete-consumption.png)
 
 1. Save your workflow.
 
@@ -478,7 +478,7 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-standard.png)
+   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-standard.png)
 
 1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
 
@@ -491,11 +491,11 @@ Next, create an action to send your IDoc to SAP when the workflow's Request trig
          > [!NOTE]
          > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-select-body-standard.png)
+      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/sap-create-example-scenario-workflows/sap-send-idoc-select-body-standard.png)
 
       The **[IDoc] Send document to SAP** action now includes the body content from the Request trigger and sends that output to your SAP server, for example:
 
-      ![Screenshot shows completed SAP action for Standard workflow.](./media/logic-apps-using-sap-connector/sap-send-idoc-complete-standard.png)
+      ![Screenshot shows completed SAP action for Standard workflow.](./media/sap-create-example-scenario-workflows/sap-send-idoc-complete-standard.png)
 
 1. Save your workflow.
 
@@ -650,7 +650,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. From the dynamic content list, under **Send message to SAP**, select **Body**. The **Body** field contains the body output from the SAP action.
 
-   ![Screenshot shows selecting SAP action output named Body for Consumption workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-consumption.png)
+   ![Screenshot shows selecting SAP action output named Body for Consumption workflow.](./media/sap-create-example-scenario-workflows/response-action-select-sap-body-consumption.png)
 
 1. Save your workflow.
 
@@ -664,7 +664,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 1. From the dynamic content list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
 
-   ![Screenshot showing selecting the SAP action output named Body for Standard workflow.](./media/logic-apps-using-sap-connector/response-action-select-sap-body-standard.png)
+   ![Screenshot showing selecting the SAP action output named Body for Standard workflow.](./media/sap-create-example-scenario-workflows/response-action-select-sap-body-standard.png)
 
 1. Save your workflow.
 
@@ -853,11 +853,11 @@ The following example workflow shows this pattern:
 
    **Consumption workflow**
 
-   ![Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-id-consumption.png)
+   ![Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-consumption.png)
 
    **Standard workflow**
 
-   ![Screenshot shows Standard workflow with the action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-id-standard.png)
+   ![Screenshot shows Standard workflow with the action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-standard.png)
 
 1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
 
@@ -871,11 +871,11 @@ The following example workflow shows this pattern:
 
       **Consumption workflow**
 
-      ![Screenshot shows Consumption workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/logic-apps-using-sap-connector/sap-confirm-id-consumption.png)
+      ![Screenshot shows Consumption workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/sap-create-example-scenario-workflows/sap-confirm-id-consumption.png)
 
       **Standard workflow**
 
-      ![Screenshot shows Standard workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/logic-apps-using-sap-connector/sap-confirm-id-standard.png)
+      ![Screenshot shows Standard workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/sap-create-example-scenario-workflows/sap-confirm-id-standard.png)
 
    After this step runs, the current transaction is marked complete at both ends, on the SAP connector side and on SAP system side.
 
@@ -899,11 +899,11 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
    **Consumption workflow**
 
-   ![Screenshot shows Consumption workflow with the action named Create transaction ID.](./media/logic-apps-using-sap-connector/idoc-create-transaction-id-consumption.png)
+   ![Screenshot shows Consumption workflow with the action named Create transaction ID.](./media/sap-create-example-scenario-workflows/idoc-create-transaction-id-consumption.png)
 
    **Standard workflow**
 
-   ![Screenshot shows Standard workflow with the action named Create transaction ID.](./media/logic-apps-using-sap-connector/idoc-create-transaction-id-standard.png)
+   ![Screenshot shows Standard workflow with the action named Create transaction ID.](./media/sap-create-example-scenario-workflows/idoc-create-transaction-id-standard.png)
 
    > [!NOTE]
    >
@@ -920,11 +920,11 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
    **Consumption workflow**
 
-   ![Screenshot shows Consumption workflow with action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-var-consumption.png)
+   ![Screenshot shows Consumption workflow with action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-var-consumption.png)
 
    **Standard workflow**
 
-   ![Screenshot shows Standard workflow with action named IDOC Send document to SAP.](./media/logic-apps-using-sap-connector/sap-send-idoc-with-var-standard.png)
+   ![Screenshot shows Standard workflow with action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-var-standard.png)
 
 1. For the SAP managed action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
 
@@ -942,11 +942,11 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
       **Consumption workflow**
 
-      ![Screenshot shows Consumption workflow with action named Confirm transaction ID using a variable.](./media/logic-apps-using-sap-connector/sap-confirm-with-var-consumption.png)
+      ![Screenshot shows Consumption workflow with action named Confirm transaction ID using a variable.](./media/sap-create-example-scenario-workflows/sap-confirm-with-var-consumption.png)
 
       **Standard workflow**
 
-      ![Screenshot shows Standard workflow with action named Confirm transaction ID using a variable.](./media/logic-apps-using-sap-connector/sap-confirm-with-var-standard.png)
+      ![Screenshot shows Standard workflow with action named Confirm transaction ID using a variable.](./media/sap-create-example-scenario-workflows/sap-confirm-with-var-standard.png)
 
 1. Optionally, validate the deduplication in your test environment.
 
