@@ -18,9 +18,9 @@ First, you will learn how to replicate the existing experience in Microsoft Team
 
 ## Prerequisites
 The reader of this article is expected to be familiar with: 
--	Microsoft Teams Virtual appointments product and provided user experiences 
--	Using Microsoft Graph Booking API to manage Microsoft Booking via Microsoft Graph API
--	Microsoft Graph Online meeting API to manage Microsoft Teams meetings via Microsoft Graph API
+-	[Microsoft Teams Virtual appointments](https://www.microsoft.com/microsoft-teams/premium/virtual-appointments) product and provided [user experience](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1) 
+-	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-overview?view=graph-rest-1.0) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
+-	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
 
 ## Microsoft 365 scheduling system
 Microsoft Teams Virtual appointments uses Microsoft Booking APIs to manage them. In the Teams application, you will see the Booking appointments for Booking staff members, and it provides the Booking page for customers to allow them to select appropriate times for consultation. 
