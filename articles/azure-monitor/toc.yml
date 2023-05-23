@@ -426,7 +426,7 @@ items:
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md 
         - name: Private link for Prometheus data ingestion
-          href: azure-monitor/essentials/private-link-data-ingestion.md
+          href: essentials/private-link-data-ingestion.md
       - name: Managed agent
         items:
         - name: Enable on AKS cluster
