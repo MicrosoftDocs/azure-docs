@@ -398,6 +398,8 @@
         href: capriza-tutorial.md
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
+      - name: CAREERSHIP
+        href: careership-tutorial.md
       - name: CWT
         href: cwt-tutorial.md
       - name: Catchpoint
