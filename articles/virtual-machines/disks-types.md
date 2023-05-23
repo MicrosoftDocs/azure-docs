@@ -37,7 +37,7 @@ The following table provides a comparison of the five disk types to help you dec
 
 \* Only applies to disks with performance plus (preview) enabled.
 
-This decision tree should help most users decide which disk type suits their needs.
+For more help deciding which disk type suits your needs, this decision tree should help with typical scenarios:
 
 :::image type="content" source="media/disks-types/managed-disk-decision-tree.png" alt-text="Example text" lightbox="media/disks-types/managed-disk-decision-tree.png":::
 
