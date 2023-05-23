@@ -7,10 +7,12 @@ description: "Learn about the latest releases of Arc-enabled Kubernetes."
 
 # What's new with Azure Arc-enabled Kubernetes
 
-Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases of the Azure CLI `connectedk8s` extension, the [Arc-enabled Kubernetes agents](conceptual-agent-overview.md), and other changes.
+Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases of the Azure CLI `connectedk8s` extension, the [Azure Arc-enabled Kubernetes agents](conceptual-agent-overview.md), and other changes.
 
 > [!NOTE]
-> When any of the Azure Arc agents are updated, all of the agents in the `azure-arc` namespace are incremented with a new version number, so that the version numbers are consistent across agents. If you have enabled automatic updates, all of the agents will be upgraded together to the newest version (whether or not there are functionality changes in a given agent).
+> When any of the Arc-enabled Kubernetes agents are updated, all of the agents in the `azure-arc` namespace are incremented with a new version number, so that the version numbers are consistent across agents. If you have enabled automatic updates, all of the agents will be upgraded together to the newest version (whether or not there are functionality changes in a given agent).
+>
+> We generally recommend using the most recent versions of the agents. The [version support policy](agent-upgrade.md#version-support-policy) covers the most recent version and the two previous versions (N-2).
 
 ## May 2023
 
