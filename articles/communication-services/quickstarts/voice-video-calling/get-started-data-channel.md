@@ -16,7 +16,7 @@ ms.custom: mode-other
 # QuickStart: Add messaging to your calling app using DataChannel feature API
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Data Channel feature with JavaScript](./includes/datachannel/data-channel-javascript.md)]
+[!INCLUDE [Data Channel feature with JavaScript](./includes/data-channel/data-channel-javascript.md)]
 ::: zone-end
 
 ## Next steps
