@@ -294,7 +294,7 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with soruce code
+    name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
@@ -304,7 +304,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: deploy to production step with soruce code
+      - name: deploy to production step with source code
         uses: azure/spring-cloud-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
@@ -315,7 +315,7 @@ jobs:
           package: ${{ env.ASC_PACKAGE_PATH }}
 ```
 
-The following example deploys to the default production deployment in Azure Spring Apps using source code in Enterprise tier. You can specify which builder to use for deploy actions using the `builder` option.
+The following example deploys to the default production deployment in Azure Spring Apps using source code in the Enterprise plan. You can specify which builder to use for deploy actions using the `builder` option.
 
 ```yml
 name: AzureSpringApps
@@ -327,7 +327,7 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with soruce code
+    name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
@@ -337,7 +337,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: deploy to production step with soruce code in Enterprise tier
+      - name: deploy to production step with source code in the Enterprise plan
         uses: azure/spring-cloud-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
@@ -361,7 +361,7 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with soruce code
+    name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
