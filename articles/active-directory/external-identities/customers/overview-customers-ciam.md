@@ -15,9 +15,9 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to learn about identity solutions for customer-facing apps
 ---
 
-# What is Azure Active Directory for customers?
+# What is Microsoft Entra External ID for customers?
 
-Azure Active Directory (Azure AD) for customers is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Azure AD makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Azure AD, you also benefit from platform features like enhanced security, compliance, and scalability.
+Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers, is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Azure AD makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Azure AD, you also benefit from platform features like enhanced security, compliance, and scalability.
 
 :::image type="content" source="media/overview-customers-ciam/overview-ciam.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 
