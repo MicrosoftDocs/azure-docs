@@ -4,30 +4,38 @@ description: Learn how you can use Azure Functions to build robust serverless ap
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 05/22/2023
-ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
+ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022, build-2023
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Functions overview
 
-Azure Functions is a managed, event-based, serverless compute experience that provides scalable compute resources for your cloud-based solutions. You can use Functions to perform key tasks, such as process file uploads, respond in near real time to streams, perform machine learning model inference, run code as a schedule task, and build serverless workflows. 
+Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 
-[![Diagram that represents a set of seven scenarios supported by Azure Functions.](media/functions-overview/functions-scenarios-overview.png)](./functions-scenarios.md)
+You focus on the code that matters most to you, in the most productive language for you, and Azure Functions handles the rest.
 
-For more information, see [Azure Functions Scenarios](functions-scenarios.md).
+For the best experience with the Functions documentation, choose your preferred development language from the list of native Functions languages at the top of the article.
 
-## Run your code in the cloud
+## Scenarios
 
-Functions allows you to implement your system's logic as readily available units of work to perform specific tasks. These units are called _functions_. Functions can perform any number of tasks required by your cloud-based solutions, and you can reuse the tasks in various scenarios. Functions provides a comprehensive set of [triggers and bindings](functions-triggers-bindings.md), which help your functions connect to other services without having to write extra code. 
+Functions provides a comprehensive set of event-driven [triggers and bindings](functions-triggers-bindings.md) that connect your functions to other services without having to write extra code. 
 
-:::image type="content" source="media/functions-overview/integrated-programming-model.png" alt-text="Diagram of an integrated programming model with Azure Functions triggers, input bindings, and output bindings." :::
+The following are a common, _but by no means exhaustive_, set of integrated scenarios that feature Functions.
 
-The open source [Functions runtime](https://github.com/Azure/azure-functions-host) is the underlying host that provides the compute resources for running your code in the Azure cloud. 
+| If you want to... | then...|
+| --- | --- |
+| [Process file uploads](./functions-scenarios.md#process-file-uploads) | Run code when a file is uploaded or changed in blob storage. |
+| [Process stream and event data in real time](./functions-scenarios.md#real-time-stream-and-event-processing)| Capture and transform data from event and IoT sources on the way to the final storage location.   |
+| [Infer on data models](./functions-scenarios.md)| Pull text from a queue and present it to various AI services for analysis and classification. |
+| [Run scheduled task](./functions-scenarios.md)| Execute data clean-up code on pre-defined timed intervals. |
+| [Build a scalable web API](./functions-scenarios.md)| Implement a set of REST endpoints for your web applications using HTTP triggers. |
+| [Build a serverless workflow](./functions-scenarios.md)| Create an event-driven workflow from a series of functions using Durable Functions. |
+| [Respond to database changes](./functions-scenarios.md)| Run custom logic when a document is created or updated in Azure Cosmos DB. |
+| [Create reliable message systems](./functions-scenarios.md)| Process message queues using Queue Storage, Service Bus, or Event Hubs. |
 
-## Event-driven execution
+These scenarios allow you to build event-driven systems using modern architectural patterns. For more information, see [Azure Functions Scenarios](functions-scenarios.md).
 
-Functions uses triggers to receive events from other services, including event and message-based services like Azure Event Hubs, Azure Event Grid, Azure IoT Hub, and Azure Service Bus. Your function code can easily consume events and related data from these and other Azure and select partner services. 
-
-## Familiar development options
+## Development lifecycle
 
 With Functions, you write your function code in your preferred language using your favorite development tools and then deploy your code to the Azure cloud. Functions provides native support for developing in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), plus the ability to use [more languages](./functions-custom-handlers.md), such as Rust and Go. 
 
@@ -35,7 +43,7 @@ Functions integrates directly with Visual Studio, Visual Studio Code, Maven, and
 
 Functions also integrates with Azure Monitor and Azure Application Insights to provide comprehensive runtime telemetry and analysis of your [functions in the cloud](functions-monitoring.md).
 
-## Flexible hosting options
+## Hosting options
 
 Functions provides a variety [hosting options](functions-scale.md#overview-of-plans) for your business needs and application workload. [Event-driven scaling hosting options](./event-driven-scaling.md) range from fully serverless, where you only pay for execution time (Consumption plan), to always warm instances kept ready for fastest response times (Premium plan). 
 
