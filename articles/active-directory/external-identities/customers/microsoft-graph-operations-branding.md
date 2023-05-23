@@ -15,9 +15,9 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn how to use the Microsoft Graph to manage operations in my Azure AD customer tenant.
 ---
 
-# Manage Azure Active Directory Active Directory for customers branding resources with the Microsoft Graph API
+# Manage Azure Active Directory for customers company branding with the Microsoft Graph API
 
-Using the Microsoft Graph API allows you to manage resources in your Azure AD for customers directory. The following Microsoft Graph API operations are supported for the management of resources related to branding. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation.
+Using the Microsoft Graph API allows you to manage resources in your Azure Active Directory (AD) for customers directory. The following Microsoft Graph API operations are supported for the management of resources related to branding. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation.
 
 > [!NOTE]
 > You can also programmatically create an Azure AD for customers directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [Directory Tenants - Create Or Update](/rest/api/azurestack/directory-tenants/create-or-update).
