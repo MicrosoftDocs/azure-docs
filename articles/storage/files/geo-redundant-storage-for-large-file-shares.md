@@ -94,7 +94,7 @@ To get started, register for the preview using the Azure portal or PowerShell.
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
 1. Search for and select **Preview features**.
-1. Search for **Azure Files geo-redundancy (GRS & GZRS) for large file shares preview**.
+1. Search for **Azure Files geo-redundancy for large file shares preview**.
 1. Select the feature, and select **Register**.
 
 # [Azure PowerShell](#tab/powershell)
@@ -123,7 +123,7 @@ Perform the following steps to configure geo-redundancy and large file shares fo
 
 ### Existing storage accounts and file shares  
 
-The steps to enable geo-redundancy for large files shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
+The steps to enable geo-redundancy for large file shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
