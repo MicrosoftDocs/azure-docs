@@ -97,6 +97,9 @@ To download and install the extension:
 
 An icon is added to the right of the address bar, which enables sign in and customization of the extension.
 
+> [!NOTE]
+> Sign-in into the extension is currently not supported for Guest B2B Microsoft Accounts (MSA).
+
 ### Permissions
 
 Permissions that have been granted to an application can be reviewed by looking at the permissions tab for it. To access the permissions tab, select the upper right corner of the tile that represents the application and then select **Manage your application**.

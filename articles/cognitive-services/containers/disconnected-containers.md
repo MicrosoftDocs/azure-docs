@@ -15,9 +15,9 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
-* [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
-* [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Speech to text](../speech-service/speech-container-howto.md?tabs=stt)
+* [Custom Speech to text](../speech-service/speech-container-howto.md?tabs=cstt)
+* [Neural Text to speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
 * Azure Cognitive Service for Language
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
@@ -72,9 +72,9 @@ Access is limited to customers that meet the following requirements:
 
     **Speech service**
 
-    * [Speech-to-Text](../speech-service/speech-container-stt.md?tabs=disconnected#run-the-container-with-docker-run)
-    * [Custom Speech-to-Text](../speech-service/speech-container-cstt.md?tabs=disconnected#run-the-container-with-docker-run)
-    * [Neural Text-to-Speech](../speech-service/speech-container-ntts.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Speech to text](../speech-service/speech-container-stt.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Custom Speech to text](../speech-service/speech-container-cstt.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Neural Text to speech](../speech-service/speech-container-ntts.md?tabs=disconnected#run-the-container-with-docker-run)
 
     **Language service**
 

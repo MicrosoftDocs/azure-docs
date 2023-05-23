@@ -17,11 +17,6 @@ ms.subservice: calling
 
 # Use the End of Call Survey to collect user feedback
 
-
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
-
-
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
@@ -36,12 +31,13 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	To conduct a survey with custom questions using free form text, you will need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 
 
 <!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
 
 > [!IMPORTANT]
-> End of Call Survey is available starting on the version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Make sure to use that version or later when trying the instructions.
+> End of Call Survey is available starting on the version [1.13.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
 
 ## Sample of API usage
 
@@ -164,6 +160,53 @@ Screenshare. However, each API value can be customized from a minimum of
 
    > [!NOTE]
    > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+
+## Custom questions
+In addition to using the End of Call Survey API you can create your own survey questions and incorporate them with the End of Call Survey results. Below you'll find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
+-  [Create App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
+-  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../azure-monitor/app/javascript-sdk-advanced.md).
+-  Build an UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
+
+-  Submit survey results to ACS and send user response using App Insights:
+	``` javascript
+	currentCall.feature(SDK.Features.CallSurvey).submitSurvey(survey).then(res => {
+	// `improvementSuggesstion` contains custom, user response
+        if (improvementSuggestion !== '') {
+        	appInsights.trackEvent({
+                    name: "CallSurvey", properties: {
+                        // Survey ID to correlate the survey
+                        id: res.id,
+                        // Other custom properties as key value pair
+                        improvementSuggestion: improvementSuggestion
+                    }
+                });
+         }
+	});
+	appInsights.flush();
+	```
+User responses that were sent using AppInsights will be available under your App Insights workspace. You can use [Workbooks](../../update-center/workbooks.md) to query between multiple resources, correlate call ratings and custom survey data. Steps to correlate the call ratings and custom survey data:
+-  Create new [Workbooks](../../update-center/workbooks.md) (Your ACS Resource -> Monitoring -> Workbooks -> New) and query Call Survey data from your ACS resource.
+-  Add new query (+Add -> Add query)
+-  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
+-  You can rename the query (Advanced Settings -> Step name [example: call-survey])
+-  Please be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
+   ```KQL
+   ACSCallSurvey
+   | where TimeGenerated > now(-24h)
+   ```
+-  Add another query to get data from App Insights (+Add -> Add query)
+-  Make sure `Data source` is `Logs` and `Resource type` is `Application Insights`
+-  Query the custom events-
+   ```KQL
+   customEvents
+   | where timestamp > now(-24h)
+   | where name == 'CallSurvey'
+   | extend d=parse_json(customDimensions)
+   | project SurveyId = d.id, ImprovementSuggestion = d.improvementSuggestion
+   ```
+-  You can rename the query (Advanced Settings -> Step name [example: custom-call-survey])
+-  Finally merge these two queries by surveyId. Create new query (+Add -> Add query).
+-  Make suer the `Data source` is Merge and select `Merge type` as needed
 
 <!-- 
 ## Collect survey data

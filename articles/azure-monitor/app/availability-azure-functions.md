@@ -13,7 +13,12 @@ This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.
 
 > [!div class="checklist"]
 > - [Workspace-based Application Insights resource](create-workspace-resource.md)
-> - Custom [Azure Functions app](../../azure-functions/functions-overview.md) running [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) with your own business logic
+> - Access to the source code of a [function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions.
+> - Developer expertise capable of authoring custom code for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
+
+> [!NOTE]
+> - TrackAvailability() requires that you have made a developer investment in custom code.
+> - [Standard tests](availability-standard-tests.md) should always be used if possible as they require little investment and have few prerequisites.
 
 ## Check availability
 

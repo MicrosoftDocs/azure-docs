@@ -19,7 +19,7 @@ ms.custom: references_regions
 >
 > | Version | Features available | Recommendation&nbsp;|
 > |:----------|--------------|-------------------------|
-> | version&nbsp;4.0 | Read text, Captions, Tags, Object detection, Custom image classification / object detection, People, Smart crop | Better models; use version 4.0 if it supports your use case. |
+> | version&nbsp;4.0 | Read text, Captions, Dense captions, Tags, Object detection, Custom image classification / object detection, People, Smart crop | Better models; use version 4.0 if it supports your use case. |
 > | version&nbsp;3.2 | Tags, Objects, Descriptions, Brands, Faces, Image type, Color scheme, Landmarks, Celebrities, Adult content, Smart crop | Wider range of features; use version 3.2 if your use case is not yet supported in version 4.0 |
 > 
 > We recommend you use the Image Analysis 4.0 API if it supports your use case. Use version 3.2 if your use case is not yet supported by 4.0.

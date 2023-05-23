@@ -55,7 +55,7 @@ The preceding query returns 10 results from the `SecurityEvent` table, in no spe
 * The pipe (|) character separates commands, so the output of the first command is the input of the next. You can add any number of piped elements.
 * Following the pipe is the `take` command, which returns a specific number of arbitrary records from the table.
 
-We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 10,000 results.
+We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 30,000 results.
 
 ### Search queries
 
@@ -79,7 +79,7 @@ SecurityEvent
 | sort by TimeGenerated desc
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 10,000 records. This approach isn't optimal.
+The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal.
 
 The best way to get only the latest 10 records is to use `top`, which sorts the entire table on the server side and then returns the top records:
 

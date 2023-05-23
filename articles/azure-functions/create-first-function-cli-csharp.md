@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 
     + [Azure CLI](/cli/azure/install-azure-cli) [version 2.4](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
 You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

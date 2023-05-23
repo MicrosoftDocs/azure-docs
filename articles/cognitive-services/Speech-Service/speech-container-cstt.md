@@ -1,7 +1,7 @@
 ---
-title: Custom speech-to-text containers - Speech service
+title: Custom speech to text containers - Speech service
 titleSuffix: Azure Cognitive Services
-description: Install and run custom speech-to-text containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
+description: Install and run custom speech to text containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,9 +14,9 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
 ---
 
-# Custom speech-to-text containers with Docker
+# Custom speech to text containers with Docker
 
-The Custom speech-to-text container transcribes real-time speech or batch audio recordings with intermediate results. You can use a custom model that you created in the [Custom Speech portal](https://speech.microsoft.com/customspeech). In this article, you'll learn how to download, install, and run a Custom speech-to-text container.
+The Custom speech to text container transcribes real-time speech or batch audio recordings with intermediate results. You can use a custom model that you created in the [Custom Speech portal](https://speech.microsoft.com/customspeech). In this article, you'll learn how to download, install, and run a Custom speech to text container.
 
 > [!NOTE]
 > You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
@@ -25,7 +25,7 @@ For more information about prerequisites, validating that a container is running
 
 ## Container images
 
-The Custom speech-to-text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. 
+The Custom speech to text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. 
 
 :::image type="content" source="./media/containers/mcr-tags-custom-speech-to-text.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/containers/mcr-tags-custom-speech-to-text.png":::
 
@@ -43,7 +43,7 @@ All tags, except for `latest`, are in the following format and are case sensitiv
 ```
 
 > [!NOTE]
-> The `locale` and `voice` for custom speech-to-text containers is determined by the custom model ingested by the container.
+> The `locale` and `voice` for custom speech to text containers is determined by the custom model ingested by the container.
 
 The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list) for your convenience. The body includes the container path and list of tags. The tags aren't sorted by version, but `"latest"` is always included at the end of the list as shown in this snippet:
 
@@ -132,7 +132,7 @@ Checking available base model for en-us
 
 ## Display model download
 
-Before you [run](#run-the-container-with-docker-run) the container, you can optionally get the available display models information and choose to download those models into your speech-to-text container to get highly improved final display output. Display model download is available with custom-speech-to-text container version 3.1.0 and later.
+Before you [run](#run-the-container-with-docker-run) the container, you can optionally get the available display models information and choose to download those models into your speech to text container to get highly improved final display output. Display model download is available with custom-speech-to-text container version 3.1.0 and later.
 
 > [!NOTE]
 > Although you use the `docker run` command, the container isn't started for service.
@@ -191,7 +191,7 @@ To run disconnected containers (not connected to the internet), you must submit 
 
 If you have been approved to run the container disconnected from the internet, the following example shows the formatting of the `docker run` command to use, with placeholder values. Replace these placeholder values with your own values.
 
-In order to prepare and configure a disconnected custom speech-to-text container you will need two separate speech resources:
+In order to prepare and configure a disconnected custom speech to text container you will need two separate speech resources:
 
 - A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This is used to train, download, and configure your custom speech models for use in your container.
 - An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
@@ -211,12 +211,13 @@ For this step, use a regular Azure Speech Service resource which is either confi
 
 Next, you download your disconnected license file. The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. 
 
-You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a `speech-to-text` container with a `neural-text-to-speech` container.
+You can only use a license file with the appropriate container and model that you've been approved for. For example, you can't use a license file for a `speech-to-text` container with a `neural-text-to-speech` container.
 
 | Placeholder | Description | 
 |-------------|-------|
 | `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/custom-speech-to-text:latest` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
@@ -226,6 +227,7 @@ For this step, use an Azure Speech Service resource which is configured to use t
 ```bash
 docker run --rm -it -p 5000:5000 \ 
 -v {LICENSE_MOUNT} \
+-v {MODEL_PATH} \
 {IMAGE} \
 eula=accept \
 billing={ENDPOINT_URI} \
@@ -246,12 +248,12 @@ Wherever the container is run, the license file must be mounted to the container
 | `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container.<br/><br/>For example: `4g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container.<br/><br/>For example: `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
+| `{OUTPUT_PATH}` | The output path for logging.<br/><br/>For example: `/host/output:/path/to/output/directory`<br/><br/>For more information, see [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation. |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.<br/><br/>For example: `/path/to/output/directory` |
-| `{OUTPUT_PATH}` | The output path for logging.<br/><br/>For example: `/host/output:/path/to/output/directory`<br/><br/>For more information, see [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation. |
-| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
 
 For this step, use an Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan.
 
@@ -266,7 +268,7 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
-The Custom Speech-to-Text container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+The Custom Speech to text container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
@@ -283,7 +285,7 @@ sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PA
 
 [!INCLUDE [Speech container authentication](includes/containers-speech-config-ws.md)]
 
-[Try the speech-to-text quickstart](get-started-speech-to-text.md) using host authentication instead of key and region.
+[Try the speech to text quickstart](get-started-speech-to-text.md) using host authentication instead of key and region.
 
 ## Next steps
 

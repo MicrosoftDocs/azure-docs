@@ -62,7 +62,7 @@ If your subscription includes several web apps, run the following script to enab
 
 ### Pre-requisites
 
-PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
 ### Run the following script:
 
