@@ -178,7 +178,7 @@ sections:
           If the TOTP authenticator app codes aren't working with your Android or iPhone mobile phone or device, your device's clock time might be incorrect. In your device's settings, select the option to use the network-provided time or to set the time automatically.
           
       - question: |
-          How do I know that the Go-Local add-on available in my country/region? 
+          How do I know that the Go-Local add-on is available in my country/region? 
         answer: |
           While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country, you're asked to enable it if you need it. 
       
