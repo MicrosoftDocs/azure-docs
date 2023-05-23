@@ -7,13 +7,14 @@ ms.topic: conceptual
 ms.date: 05/24/2023
 ms.author: kendownie
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Azure Files geo-redundancy for large file shares preview
 
 Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares and is supported in production environments.
 
-Azure Files has supported large file shares for several years which not only provides file share capacity up to 100 TiB but improved IOPS and throughput. Large file shares are widely adopted by customers using locally redundant storage (LRS) and zone-redundant storage (ZRS) but has not been available for geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) until now. 
+Azure Files has supported large file shares for several years, which not only provides file share capacity up to 100 TiB but improved IOPS and throughput. Large file shares are widely adopted by customers using locally redundant storage (LRS) and zone-redundant storage (ZRS) but has not been available for geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) until now. 
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -150,7 +151,7 @@ It's important to understand the following about the Last Sync Time property:
 
 ## Failover considerations
 
-This section lists considerations that might impact your ability to failover to the secondary region.
+This section lists considerations that might impact your ability to fail over to the secondary region.
 
 - Storage account failover will be blocked if a system snapshot doesn't exist in the secondary region.
 
