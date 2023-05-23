@@ -122,6 +122,23 @@ The following operations are available on Network Traversal API request metrics:
 
 :::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
 
+### Rooms API requests
+
+The following operations are available on Rooms API request metrics:
+
+| Operation / Route             | Description                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateRooms                   | Creates a room. |
+| DeleteRoom                    | Deletes a room. |
+| GetRoom                       | Gets a room by room id. |
+| PatchRoom                     | Updates a room by room id. |
+| AddParticipants               | Adds participants to a room.|
+| RemoveParticipants            | Removes participants from a room. |
+| GetParticipants               | Gets list of participants for a room. |
+| UpdateParticipants            | Updates list of participants for a room. |
+
+:::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Rooms Request Metric.":::
+
 ## Next steps
 
 - Learn more about [Data Platform Metrics](../../azure-monitor/essentials/data-platform-metrics.md)
