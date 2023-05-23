@@ -3176,6 +3176,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/howto-get-list-of-all-active-directory-auth-library-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-get-list-of-all-auth-library-apps",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devquickstarts-angular.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-angularjs-spa",
       "redirect_document_id": true
@@ -3199,7 +3204,7 @@
       "source_path_from_root": "/articles/active-directory/develop/active-directory-integrating-applications.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
       "redirect_document_id": false
-    },
+    }, 
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-devquickstarts-ios.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v1-ios",
@@ -12450,6 +12455,31 @@
       "source_path_from_root": "/articles/active-directory/hybrid/whatis-phs.md",
       "redirect_url": "/azure/active-directory/hybrid/connect/whatis-phs",
       "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-approval-workflow",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-perform-roles-and-resource-roles-review",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
+        "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-roles-and-resource-roles-review",
+        "redirect_document_id": false
       }
+
   ]
 }

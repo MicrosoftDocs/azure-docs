@@ -104,7 +104,7 @@ spx help csr dataset
 
 [!INCLUDE [Map CLI and API kind to Speech Studio options](includes/how-to/custom-speech/cli-api-kind.md)]
 
-To create a dataset and connect it to an existing project, use the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a dataset and connect it to an existing project, use the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.

@@ -63,7 +63,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell).
 
 - An existing Azure Arc-enabled Kubernetes connected cluster.
   - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).

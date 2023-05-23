@@ -2,8 +2,8 @@
 title: Enable and configure Microsoft Defender for Storage (classic) - Microsoft Defender for Cloud
 description: Learn about how to enable and configure Microsoft Defender for Storage (classic).
 ms.date: 03/16/2023
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ---
 
@@ -112,7 +112,7 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using PowerShell:
 
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 1. Use the `Connect-AzAccount` cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Use these commands to register your subscription to the Microsoft Defender for Cloud Resource Provider:
 
@@ -208,7 +208,7 @@ If you want to disable Defender for Storage on the account:
 
 To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using PowerShell:
 
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 1. Use the Connect-AzAccount cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Enable Microsoft Defender for Storage for the desired storage account with the [`Enable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) cmdlet:
 
@@ -280,7 +280,7 @@ To exclude an Azure Storage account from Microsoft Defender for Storage (classic
 
 #### Use PowerShell to exclude an Azure Storage account
 
-1. If you don't have the Azure Az PowerShell module installed, install it using [the instructions from the Azure PowerShell documentation](/powershell/azure/install-az-ps).
+1. If you don't have the Azure Az PowerShell module installed, install it using [the instructions from the Azure PowerShell documentation](/powershell/azure/install-azure-powershell).
 
 1. Using an authenticated account, connect to Azure with the ``Connect-AzAccount`` cmdlet, as explained in [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 

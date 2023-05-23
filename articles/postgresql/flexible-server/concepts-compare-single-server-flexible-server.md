@@ -28,7 +28,7 @@ The following table provides a list of high-level features and capabilities comp
 | **General**  | | |
 | General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
-| Supported versions | 10, 11 | 11, 12, 13, 14 |
+| Supported versions | 10, 11 | 11, 12, 13, 14 , 15(preview) |
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|

@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 10/03/2022
 ---
 
-# Generate a REST API client library for the Speech-to-text REST API
+# Generate a REST API client library for the Speech to text REST API
 
 Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the [Custom Speech area of the Speech Studio](https://aka.ms/speechstudio/customspeech) can be completed programmatically using these APIs.
 
 > [!NOTE]
-> Speech service has several REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md).  
+> Speech service has several REST APIs for [Speech to text](rest-speech-to-text.md) and [Text to speech](rest-text-to-speech.md).  
 >
-> However only [Speech-to-text REST API](rest-speech-to-text.md) is documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
+> However only [Speech to text REST API](rest-speech-to-text.md) is documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
 
 ## Generating code from the Swagger specification
 
@@ -44,4 +44,4 @@ You can use the Python library that you generated with the [Speech service sampl
 ## Next steps
 
 * [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
-* [Speech-to-text REST API](rest-speech-to-text.md)
+* [Speech to text REST API](rest-speech-to-text.md)

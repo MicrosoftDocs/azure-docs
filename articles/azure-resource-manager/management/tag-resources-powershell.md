@@ -11,7 +11,7 @@ This article describes how to use Azure PowerShell to tag resources, resource gr
 
 ## Apply tags
 
-Azure PowerShell offers two commands to apply tags: [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You need to have the `Az.Resources` module 1.12.0 version or later. You can check your version with `Get-InstalledModule -Name Az.Resources`. You can install that module or [install Azure PowerShell](/powershell/azure/install-az-ps) version 3.6.1 or later.
+Azure PowerShell offers two commands to apply tags: [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You need to have the `Az.Resources` module 1.12.0 version or later. You can check your version with `Get-InstalledModule -Name Az.Resources`. You can install that module or [install Azure PowerShell](/powershell/azure/install-azure-powershell) version 3.6.1 or later.
 
 The `New-AzTag` replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
 

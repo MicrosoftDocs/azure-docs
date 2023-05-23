@@ -1,7 +1,7 @@
 ---
 title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
-author: bwren 
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 11/01/2022
 ---
@@ -226,7 +226,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230323.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |

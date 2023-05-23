@@ -25,7 +25,7 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account with [az login](/cli/azure/reference-index).
 
 # [PowerShell](#tab/azure-powershell)
-Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account in with `Connect-AzAccount`.
+Install the latest [Azure PowerShell version](/powershell/azure/install-azure-powershell), and sign in to an Azure account in with `Connect-AzAccount`.
 
 ---
 

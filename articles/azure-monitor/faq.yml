@@ -201,7 +201,9 @@ sections:
       - question: |
           What types of resources can send Prometheus metrics to managed service for Prometheus?
         answer: |
-          Our agent can be used on Azure Kubernetes Service clusters. It's installed as a managed add-on and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.  
+          Our agent can be used on Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. It's installed as a managed add-on for AKS clusters and an extension for Azure Arc-enabled Kubernetes clusters and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.
+
+          If you use the Azure portal to enable Prometheus metrics collection and install the AKS add-on or Azure Arc-enabled Kubernetes extension from the Insights page of your cluster, it enables logs collection into Log Analytics and Prometheus metrics collection into managed service for Prometheus.
       - question: |
           Does enabling managed service for Prometheus on my Azure Kubernetes Service cluster also enable Container insights?
         answer: |
@@ -376,10 +378,9 @@ sections:
       - question: |
           How can I collect Windows security events by using the new Azure Monitor Agent?
         answer: |
-          There are two ways you can collect security events by using the new agent when it sends to a Log Analytics workspace:
-          - You can use Azure Monitor Agent to natively collect security events, the same as other Windows events. These events flow to the [`Event`](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
+          There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
+          - You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. If you want Security Events to flow into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead, you can [create the required DCR with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
           - If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
-          
           
       - question: |
           Can Azure Monitor Agent and the Log Analytics agent coexist side by side?
