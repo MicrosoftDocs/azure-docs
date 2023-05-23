@@ -92,7 +92,7 @@ The following command gets on-premises Azure AD users and exports a list of thei
 
    ![Screenshot of a .csv file with sample output data. Columns include UserPrincipalName, Name, objectGUID, and ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/domain-controller.png)
 
-1. Run this command in an Microsoft Graph PowerShell session to list the synchronized values:
+1. Run this command in a Microsoft Graph PowerShell session to list the synchronized values:
 
 
    ```powershell
@@ -103,7 +103,7 @@ The following command gets on-premises Azure AD users and exports a list of thei
    ImmutableID | export-csv C:\\temp\\AzureADSyncedIDS.csv
    ```
 
-   ![Screenshot of a .csv file withs sample output data. Columns include UserPrincipalName, objectGUID, and ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-powershell.png)
+   ![Screenshot of a .csv file with sample output data. Columns include UserPrincipalName, objectGUID, and ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-powershell.png)
 
 3. After both exports, confirm user ImmutableID values match.
 
@@ -196,7 +196,7 @@ After you verify the Azure AD Connect installation, disable Okta provisioning to
 
 1. Go to the Okta portal
 2. Select **Applications**.
-3. Select the Okta app that provisiosns users to Azure AD. 
+3. Select the Okta app that provisions users to Azure AD. 
 4. Select the **Provisioning** tab.
 5. Select the **Integration** section.
 
