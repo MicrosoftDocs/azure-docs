@@ -208,7 +208,7 @@
                   href: how-to-configure-local-metrics-logs.md
                 - name: Enable Dapr support on self-hosted gateway
                   href: self-hosted-gateway-enable-dapr.md  
-                - name: Enable Azure AD authentication to API Management
+                - name: Use Azure AD authentication on self-hosted gateway
                   href: self-hosted-gateway-enable-azure-ad.md
                 - name: Guidance for running on Kubernetes
                   href: how-to-self-hosted-gateway-on-kubernetes-in-production.md

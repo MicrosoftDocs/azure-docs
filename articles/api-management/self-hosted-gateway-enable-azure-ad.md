@@ -1,6 +1,6 @@
 ---
-title: Enable Azure AD authentication for self-hosted gateway | Azure API Management
-description: Learn now to enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using Azure Active Directory authentication. 
+title: Use Azure AD authentication for self-hosted gateway | Azure API Management
+description: Enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using Azure Active Directory authentication. 
 services: api-management
 author: dlepow
 
@@ -10,11 +10,23 @@ ms.date: 05/22/2023
 ms.author: danlep
 ---
 
-# Enable Azure AD authentication in the self-hosted gateway
+# Use Azure AD authentication for the self-hosted gateway
 
-The Azure API Management [self-hosted gateway](self-hosted-gateway-overview.md) by default uses an access token (authentication key) to connect with its associated cloud-based API Management instance. The access token is valid for at most 30 days, after which it must be regenerated and the gateway configuration refreshed.
+The Azure API Management [self-hosted gateway](self-hosted-gateway-overview.md) needs connectivity with its associated cloud-based API Management instance for reporting status, checking for and applying configuration updates, and sending metrics and events. 
 
-This article shows you how to enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Azure AD app](../active-directory/develop/app-objects-and-service-principals.md) instead. With Azure AD authentication, you can configure longer expiry times for secrets and use standard steps to rotate secrets in Active Directory. 
+In addition to using a gateway access token (authentication key) to connect with its cloud-based API Management instance, you can enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Azure AD app](../active-directory/develop/app-objects-and-service-principals.md). With Azure AD authentication, you can configure longer expiry times for secrets and use standard steps to manage and rotate secrets in Active Directory. 
+
+## Scenario overview
+
+The self-hosted gateway configuration API can check Azure RBAC to determine who has permissions to read the gateway configuration. After you create an Azure AD app with those permissions, the self-hosted gateway can authenticate to the API Management instance using the app. 
+
+To enable Azure AD authentication, complete the following steps:
+1. Create two custom roles to:
+    * Let the configuration API get access to customer's RBAC information
+    * Grant permissions to read self-hosted gateway configuration
+1. Grant RBAC access to the API Management instance's managed identity 
+1. Create an Azure AD app and grant it access to read the gateway configuration
+1. Deploy the gateway with new configuration options
 
 ## Prerequisites
 
@@ -28,7 +40,7 @@ Create the following two [custom roles](../role-based-access-control/custom-role
 
 When configuring the custom roles, update the [`AssignableScopes`](../role-based-access-control/role-definitions.md#assignablescopes) property with appropriate scope values for your directory, such as a subscription in which your API Management instance is deployed. 
 
-### API Management Configuration API Access Validator Service Role
+**API Management Configuration API Access Validator Service Role**
 
 ```json
 {
@@ -54,13 +66,13 @@ When configuring the custom roles, update the [`AssignableScopes`](../role-based
 }
 ```
 
-### API Management Gateway Configuration Reader Service Role
+**API Management Gateway Configuration Reader Role**
 
 ```json
 {
   "Description": "Can read self-hosted gateway configuration from Configuration API",
   "IsCustom": true,
-  "Name": "API Management Gateway Configuration Reader Service Role",
+  "Name": "API Management Gateway Configuration Reader Role",
   "Permissions": [
     {
       "Actions": [],
@@ -88,7 +100,7 @@ Assign the API Management Configuration API Access Validator Service Role to the
 * Role: API Management Configuration API Access Validator Service Role
 * Assign access to: Managed identity of API Management instance
 
-### Assign API Management Gateway Configuration Reader Service Role
+### Assign API Management Gateway Configuration Reader Role
 
 #### Step 1. Register Azure AD app 
 
@@ -102,7 +114,7 @@ Create a new Azure AD app. For steps, see [Create an Azure Active Directory appl
 [Assign](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) the API Management Gateway Configuration Reader Service Role to the app.
 
 * Scope: The API Management instance (or resource group or subscription in which it's deployed)
-* Role: API Management Gateway Configuration Reader Service Role
+* Role: API Management Gateway Configuration Reader Role
 * Assign access to: Azure AD app
 
 ## Deploy the self-hosted gateway
@@ -123,17 +135,13 @@ metadata:
   labels:
     app: mygw
 data:
-  config.service.endpoint: "danlep0510.configuration.azure-api.net"
+  config.service.endpoint: "<service-name>.configuration.azure-api.net"
   config.service.auth: azureAdApp 
   config.service.auth.azureAd.authority: "https://login.microsoftonline.com"  
   config.service.auth.azureAd.tenantId: "<Azure AD tenant ID>" 
   config.service.auth.azureAd.clientId: "<Azure AD client ID>" 
   config.service.auth.azureAd.clientSecret: "<Azure AD client secret>"
-  gateway.name: mygw
-  neighborhood.host: "mygw-instance-discovery"
-  runtime.deployment.artifact.source: "Azure Portal"
-  runtime.deployment.mechanism: "YAML"
-  runtime.deployment.orchestrator.type: "Kubernetes"
+  gateway.name: <gateway-id>
 ---
 apiVersion: apps/v1
 kind: Deployment
