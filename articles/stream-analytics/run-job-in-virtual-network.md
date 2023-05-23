@@ -28,7 +28,7 @@ Currently, this capability is only available in select regions.  If you're inter
     - Users with higher scale jobs with Premium storage are still required to provide a GPV2 storage account.   
     - If you wish to protect storage accounts from public IP based access, consider configuring it using Managed Identity and Trusted Services as well. 
     
-        For more information on storage accounts, see [Storage account overview](../storage/common/storage-account-overview.md) and [Create a storage account](../storage/common/storage-account-create?tabs=azure-portal.md).  
+        For more information on storage accounts, see [Storage account overview](../storage/common/storage-account-overview.md) and [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal.md).  
 - An existing **Azure Virtual Network** or [create one](../virtual-network/quick-create-portal.md). 
 
     > [!IMPORTANT]
@@ -95,7 +95,6 @@ You must have at least the following Role-based access control permissions on th
 
 | Action | Description |
 | ------ | ------------ | 
-
 | `Microsoft.Network/virtualNetworks/read` | Read the virtual network definition | 
 | `Microsoft.Network/virtualNetworks/subnets/read` | Read a virtual network subnet definition |
 | `Microsoft.Network/virtualNetworks/subnets/join/action` | Joins a virtual network |
@@ -111,7 +110,7 @@ If the virtual network is in a different subscription than your ASA job, you mus
 - ASA job(s) and the virtual network must be in the same region. 
 - The delegated subnet can only be used by Azure Stream Analytics. 
 - You can't delete a virtual network when it's integrated with ASA. You must disassociate or remove the last job* on the delegated subnet.  
-- We don't support DNS refreshes currently.  If DNS configurations of your VNET are changed, you must redeploy all ASA jobs in that VNET (subnets will also need to be disassociated from all jobs and reconfigured).  For more information, see [Name resolution for resources in Azure virtual networks](../azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?tabs=redhat) for more information.   
+- We don't support DNS refreshes currently.  If DNS configurations of your VNET are changed, you must redeploy all ASA jobs in that VNET (subnets will also need to be disassociated from all jobs and reconfigured).  For more information, see [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?tabs=redhat) for more information.   
 
 ## Access on-premises resources 
 No extra configuration is required for the virtual network integration feature to reach through your virtual network to on-premises resources. You simply need to connect your virtual network to on-premises resources by using ExpressRoute or a site-to-site VPN. 
@@ -122,5 +121,5 @@ Outside of basic requirements listed in this document, virtual network integrati
 ## Troubleshooting 
 The feature is easy to set up, but that doesn't mean your experience is problem free. If you encounter problems accessing your desired endpoint, contact Microsoft Support. 
 
-## Feedback 
-For direct feedback on this capability, reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com). 
+> [!NOTE]
+> For direct feedback on this capability, reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com). 
