@@ -37,7 +37,7 @@ If the primary region becomes unavailable for any reason, Microsoft will manage 
 
 ## Large file share limits
 
-Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increase your standard file share capacity and performance limits: 
+Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increases your standard file share capacity and performance limits: 
 
 | **Attribute** | **Current limit** | **New limit** |
 |---------------|-------------------|---------------|
