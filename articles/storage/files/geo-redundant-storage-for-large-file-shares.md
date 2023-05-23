@@ -39,7 +39,7 @@ If the primary region becomes unavailable for any reason, Microsoft will manage 
 
 Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increases your standard file share capacity and performance limits: 
 
-| **Attribute** | **Current limit** | **New limit** |
+| **Attribute** | **Current limit** | **Large file share limit** |
 |---------------|-------------------|---------------|
 | Capacity per share | 5 TiB | 100 TiB (20x increase) |
 | Max IOPS per share | 1,000 IOPS | 20,000 IOPS (20x increase) |
