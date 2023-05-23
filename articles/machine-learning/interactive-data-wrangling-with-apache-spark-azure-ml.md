@@ -71,7 +71,7 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 11. Select **Apply**.
 12. Select **Stop session** in the **Configure new session?** pop-up.
 
-The session configuration changes persists and becomes available to another notebook session that is started using the serverless Spark compute.
+The session configuration changes persist and become available to another notebook session that is started using the serverless Spark compute.
 
 ### Import and wrangle data from Azure Data Lake Storage (ADLS) Gen 2
 
