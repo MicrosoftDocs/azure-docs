@@ -25,6 +25,8 @@
       href: deploy-visual-studio.md
     - name: Visual Studio Code
       href: deploy-visual-studio-code.md
+  - name: Run a job
+    href: jobs-get-started-cli.md
 - name: Concepts
   items:
     - name: Plans
@@ -37,6 +39,8 @@
       href: revisions.md
     - name: Application lifecycle management
       href: application-lifecycle-management.md
+    - name: Jobs
+      href: jobs.md
     - name: Microservices
       href: microservices.md
     - name: Networking and ingress
@@ -83,6 +87,8 @@
         href: dapr-keda-scaling.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
+    - name: Connect to services
+      href: services.md
 - name: How-to guides
   items:
     - name: Deploy an app with containerapp up
@@ -123,7 +129,10 @@
         displayName: Cross origin resource sharing
     - name: Custom domains and certificates
       items:
-      - name: Set up container app custom domain
+      - name: Set up custom domain with a free certificate
+        href: custom-domains-managed-certificates.md
+        displayName: Set up custom domain with a managed certificate
+      - name: Set up custom domain with existing certificate
         href: custom-domains-certificates.md
       - name: Set up environment custom DNS suffix
         href: environment-custom-dns-suffix.md
@@ -139,6 +148,8 @@
           href: service-connector.md
         - name: Java Quarkus app with Postgres DB
           href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+    - name: Connect to Azure services via Dapr components
+      href: dapr-component-connection.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Set up continuous deployment
@@ -168,6 +179,10 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Dapr
+      items:
+        - name: Enable token authentication for Dapr requests 
+          href: dapr-authentication-token.md
     - name: Use storage mounts
       href: storage-mounts.md
     - name: Plan for disaster recovery
@@ -199,10 +214,16 @@
         href: microservices-dapr-service-invoke.md
       - name: Deploy a Dapr application using GitHub Actions
         href: dapr-github-actions.md
-    - name: Background processing
-      href: background-processing.md
+    - name: Event-driven processing
+      items:
+      - name: With an app
+        href: background-processing.md
+      - name: With a job
+        href: tutorial-event-driven-jobs.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
+    - name: Connect development and production services
+      href: connect-services.md
     - name: Azure Arc
       items:
       - name: 1 - Set up Azure Arc-enabled Kubernetes clusters

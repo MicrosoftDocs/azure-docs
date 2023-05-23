@@ -24,8 +24,7 @@ We are excited to announce that the Azure VMware Solution has gone live in Qatar
 
 With the introduction of AV36P in Qatar, customers will receive access to 36 cores, 2.6 GHz clock speed, 768GB of RAM, and 19.2TB of SSD storage.
 
-To learn more about regions, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
-
+To learn more about available regions of Azure products, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
 
 ## April 2023
 
@@ -182,6 +181,7 @@ Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://ww
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+
 
 
 

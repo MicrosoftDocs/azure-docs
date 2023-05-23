@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 05/05/2023
+ms.date: 05/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -75,13 +75,13 @@ The following table shows the parts of cross-tenant synchronization and which te
 
 [!INCLUDE [cross-tenant-synchronization-include](../includes/cross-tenant-synchronization-include.md)]
 
-To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?branch=main) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 ## Automatic redemption setting
 
 [!INCLUDE [automatic-redemption-include](../includes/automatic-redemption-include.md)]
 
-To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
+To configure this setting using Microsoft Graph, see the [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?branch=main) API. For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md).
 
 #### How do users know what tenants they belong to?
 

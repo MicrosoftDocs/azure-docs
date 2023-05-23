@@ -292,7 +292,7 @@ These logs provide detailed information about logins to applications configured 
 
 #### Application Proxy Connector monitoring
 
-The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
+The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure portal. For more information about connector maintenance see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
 
 ![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 

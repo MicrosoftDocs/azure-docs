@@ -58,7 +58,7 @@ The **AllMetrics** setting routes a resource's platform metrics to other destina
 With logs, you can select the log categories you want to route individually or choose a category group.
 
 > [!NOTE]
-> Category groups don't apply to metrics. Not all resources have category groups available.
+> Category groups don't apply to all metric resource providers. If a provider doesn't have them available in the diagnostic settings in the Azure portal, then they also won't be available via Azure Resource Manager templates. 
 
 You can use *category groups* to dynamically collect resource logs based on predefined groupings instead of selecting individual log categories. Microsoft defines the groupings to help monitor specific use cases across all Azure services.
 

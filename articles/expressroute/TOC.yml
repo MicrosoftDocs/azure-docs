@@ -103,6 +103,8 @@
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Connectivity between virtual networks
     href: virtual-network-connectivity-guidance.md
+  - name: Planned maintenance guidance
+    href: planned-maintenance.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
   - name: BGP communities
