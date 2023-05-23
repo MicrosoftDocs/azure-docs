@@ -25,6 +25,7 @@ The container has the following configuration settings:
 |Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[ApplicationInsights__InstrumentationKey ](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
+|Yes|[RAI_Terms](#rai-term)| Indicates acceptance of Responsible AI terms .|
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](use-containers.md#billing).
@@ -68,6 +69,16 @@ The `Eula` setting indicates that you've accepted the license for the container.
 |Yes| `Eula` | String | License acceptance **Example:** `Eula=accept` |
 
 Azure Health Insights containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you don't have an existing agreement governing your use of Azure, you agree that your agreement use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container, you agree to these terms.
+
+## RAI-Terms setting
+
+The `RAI_Terms` setting indicates acceptance of Responsible AI terms. You must specify a value for this configuration setting, and this value must be set to 'accept'.
+
+
+|Required| Name | Data type | Description |
+|--|------|-----------|-------------|
+|Yes| `RAI-Terms` | String | Responsbile AI terms acceptance **Example:** `RAI_Terms=accept` |
+
 
 ## Logging settings
  
