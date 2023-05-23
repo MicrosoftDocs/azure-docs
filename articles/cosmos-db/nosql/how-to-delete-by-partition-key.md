@@ -1,12 +1,12 @@
 ---
 title:  Delete items by partition key value using the Azure Cosmos DB SDK  (preview)
 description: Learn how to delete items by partition key value using the Azure Cosmos DB SDKs
-author: deborahc
-ms.author: dech
+author: deborahc, AbhinavTrips
+ms.author: dech, abtripathi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 08/19/2022
+ms.date: 05/23/2023
 ms.custom: 
 ---
 
@@ -64,6 +64,20 @@ Use [version 4.19.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos) 
 CosmosItemResponse<?> deleteResponse = container.deleteAllItemsByPartitionKey(
             new PartitionKey("Contoso"), new CosmosItemRequestOptions()).block();
 ```
+
+#### [Python](#tab/python-example)
+
+Use [beta-version ( >= 4.4.0b1)](https://pypi.org/project/azure-cosmos/4.4.0b1/) of the Azure Cosmos DB Python SDK to delete items by partition key. The delete by partition key API will be marked as beta.
+
+
+```python
+# Suppose our container is partitioned by tenantId, and we want to delete all the data for a particular tenant Contoso
+
+# Delete by logical partition key
+container.delete_all_items_by_partition_key("Contoso")
+
+```
+
 --- 
 
 ### Frequently asked questions (FAQ)
@@ -98,6 +112,7 @@ Find the latest version of the SDK that supports this feature.
 | --- | --- | --- |
 | **.NET SDK v3** | *>= 3.25.0-preview (must be preview version)* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
 | **Java SDK v4** | *>= 4.19.0 (API is marked as beta)* | <https://mvnrepository.com/artifact/com.azure/azure-cosmos> |
+| **Python SDK v4** | *>= 4..4.0b1 (must be beta version)* | <https://pypi.org/project/azure-cosmos/4.4.0b1/> |
 
 Support for other SDKs is planned for the future.
 
