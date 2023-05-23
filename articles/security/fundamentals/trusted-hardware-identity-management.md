@@ -11,29 +11,29 @@ ms.date: 10/24/2022
 
 # Trusted Hardware Identity Management
 
-The Trusted Hardware Identity Management (THIM) service handles cache management of certificates for all trusted execution environments (TEEs) that reside in Azure. It also provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
+The Trusted Hardware Identity Management service handles cache management of certificates for all trusted execution environments (TEEs) that reside in Azure. It also provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
 
-## THIM and attestation interactions
+## Trusted Hardware Identity Management and attestation interactions
 
-THIM defines the Azure security baseline for Azure confidential computing (ACC) nodes and caches collateral from TEE providers. Attestation services and ACC nodes can use the cached information to validate TEEs. The following diagram shows the interactions between an attestation service or node, THIM, and an enclave host.
+Trusted Hardware Identity Management defines the Azure security baseline for Azure confidential computing (ACC) nodes and caches collateral from TEE providers. Attestation services and ACC nodes can use the cached information to validate TEEs. The following diagram shows the interactions between an attestation service or node, Trusted Hardware Identity Management, and an enclave host.
 
-:::image type="content" source="./media/thim.png" alt-text="Diagram that illustrates interactions between an attestation service or node, THIM, and an enclave host.":::
+:::image type="content" source="./media/thim.png" alt-text="Diagram that illustrates interactions between an attestation service or node, Trusted Hardware Identity Management, and an enclave host.":::
 
 ## Frequently asked questions
 
-### How do I use THIM with Intel processors?
+### How do I use Trusted Hardware Identity Management with Intel processors?
 
-To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/validation collateral. All or parts of this collateral must be fetched from THIM. You can fetch it by using the [Intel Quote Provider Library (QPL)](#how-do-i-use-intel-qpl-with-thim) or the [Azure Data Center Attestation Primitives (DCAP) client library](#what-is-the-azure-dcap-library).
+To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/validation collateral. All or parts of this collateral must be fetched from Trusted Hardware Identity Management. You can fetch it by using the [Intel Quote Provider Library (QPL)](#how-do-i-use-intel-qpl-with-thim) or the [Azure Data Center Attestation Primitives (DCAP) client library](#what-is-the-azure-dcap-library).
 
 ### The "next update" date of the Azure-internal caching service API that Azure Attestation uses seems to be out of date. Is it still in operation and can I use it?
 
-The `tcbinfo` field contains the TCB information. The THIM service provides older `tcbinfo` information by default. Updating to the latest `tcbinfo` information from Intel would cause attestation failures for customers who haven't migrated to the latest Intel SDK, and it could result in outages.
+The `tcbinfo` field contains the TCB information. The Trusted Hardware Identity Management service provides older `tcbinfo` information by default. Updating to the latest `tcbinfo` information from Intel would cause attestation failures for customers who haven't migrated to the latest Intel SDK, and it could result in outages.
 
 The Open Enclave SDK and Azure Attestation don't look at the `nextUpdate` date, however, and will pass attestation.
 
 ### What is the Azure DCAP library?
 
-The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM service. Fetching collateral directly from the THIM service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
+The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the Trusted Hardware Identity Management service. Fetching collateral directly from the Trusted Hardware Identity Management service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
 
 ### Where can I download the latest DCAP packages?
 
@@ -43,26 +43,26 @@ Use the following links to download the packages:
 - [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
 - [Windows](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.12.0)
 
-### Why do THIM and Intel have different baselines?
+### Why do Trusted Hardware Identity Management and Intel have different baselines?
 
-THIM and Intel provide different baseline levels of the trusted computing base. When customers assume that Intel has the latest baselines, they must ensure that all the requirements are satisfied. This approach can lead to a breakage if customers haven't updated to the specified requirements.
+Trusted Hardware Identity Management and Intel provide different baseline levels of the trusted computing base. When customers assume that Intel has the latest baselines, they must ensure that all the requirements are satisfied. This approach can lead to a breakage if customers haven't updated to the specified requirements.
 
-THIM takes a slower approach to updating the TCB baseline, so customers can make the necessary changes at their own pace. Although this approach provides an older TCB baseline, customers won't experience a breakage if they haven't met the requirements of the new TCB baseline. This is why the TCB baseline from THIM is a different version from Intel's baseline. We want to empower customers to meet the requirements of the new TCB baseline at their pace, instead of forcing them to update and causing a disruption that would require reprioritization of workstreams.
+Trusted Hardware Identity Management takes a slower approach to updating the TCB baseline, so customers can make the necessary changes at their own pace. Although this approach provides an older TCB baseline, customers won't experience a breakage if they haven't met the requirements of the new TCB baseline. This is why the TCB baseline from Trusted Hardware Identity Management is a different version from Intel's baseline. We want to empower customers to meet the requirements of the new TCB baseline at their pace, instead of forcing them to update and causing a disruption that would require reprioritization of workstreams.
 
-### With Coffee Lake, I could get my certificates directly from the Intel PCK. Why, with Ice Lake, do I need to get the certificates from THIM? And how can I fetch those certificates?
+### With Coffee Lake, I could get my certificates directly from the Intel PCK. Why, with Ice Lake, do I need to get the certificates from Trusted Hardware Identity Management? And how can I fetch those certificates?
 
-The certificates are fetched and cached in the THIM service through a platform manifest and indirect registration. As a result, the key caching policy is set to never store root keys for a platform. Expect direct calls to the Intel service from inside the VM to fail.
+The certificates are fetched and cached in the Trusted Hardware Identity Management service through a platform manifest and indirect registration. As a result, the key caching policy is set to never store root keys for a platform. Expect direct calls to the Intel service from inside the VM to fail.
 
-To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) that replaces Intel QPL. This library directs the fetch requests to the THIM service running in the Azure cloud. For download links, see [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages).
+To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) that replaces Intel QPL. This library directs the fetch requests to the Trusted Hardware Identity Management service running in the Azure cloud. For download links, see [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages).
 
-### How do I use Intel QPL with THIM?
+### How do I use Intel QPL with Trusted Hardware Identity Management?
 
-Customers might want the flexibility to use Intel QPL to interact with THIM without having to download another dependency from Microsoft (that is, the Azure DCAP client library). Customers who want to use Intel QPL with the THIM service must adjust the Intel QPL configuration file, *sgx_default_qcnl.conf*.
+Customers might want the flexibility to use Intel QPL to interact with Trusted Hardware Identity Management without having to download another dependency from Microsoft (that is, the Azure DCAP client library). Customers who want to use Intel QPL with the Trusted Hardware Identity Management service must adjust the Intel QPL configuration file, *sgx_default_qcnl.conf*.
 
 The quote generation/verification collateral that's used to generate the Intel SGX or Intel TDX quotes can be split into:
 
-- The PCK certificate. To retrieve it, customers must use a THIM endpoint.
-- All other quote generation/verification collateral. To retrieve it, customers can either use a THIM endpoint or an Intel Provisioning Certification Service (PCS) endpoint.
+- The PCK certificate. To retrieve it, customers must use a Trusted Hardware Identity Management endpoint.
+- All other quote generation/verification collateral. To retrieve it, customers can either use a Trusted Hardware Identity Management endpoint or an Intel Provisioning Certification Service (PCS) endpoint.
 
 The Intel QPL configuration file (*sgx_default_qcnl.conf*) contains three keys for defining the collateral endpoints. The `pccs_url` key defines the endpoint that's used to retrieve the PCK certificates. The `collateral_service` key can define the endpoint that's used to retrieve all other quote generation/verification collateral. If the `collateral_service` key is not defined, all quote verification collateral is retrieved from the endpoint defined with the `pccs_url` key.
 
@@ -70,8 +70,8 @@ The following table shows how these keys can be set.
 
 | Name | Possible endpoints |
 |--|--|
-| `pccs_url` | THIM endpoint: `https://global.acccache.azure.net/sgx/certification/v3`. |
-| `collateral_service` | THIM endpoint (`https://global.acccache.azure.net/sgx/certification/v3`) or Intel PCS endpoint. The [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) file always lists the most up-to-date endpoint in the `collateral_service` key. |
+| `pccs_url` | Trusted Hardware Identity Management endpoint: `https://global.acccache.azure.net/sgx/certification/v3`. |
+| `collateral_service` | Trusted Hardware Identity Management endpoint (`https://global.acccache.azure.net/sgx/certification/v3`) or Intel PCS endpoint. The [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) file always lists the most up-to-date endpoint in the `collateral_service` key. |
 
 The following code snippet is from an example of an Intel QPL configuration file:
 
@@ -212,7 +212,7 @@ Follow these steps to request AMD collateral in a confidential container:
     |--|--|--|--|--| 
     | aks-nodepool1-31718369-0 | Ready | agent | 6m44s | v1.12.8 |
 
-3. Create a *curl.yaml* file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/).
+3. Create a *curl.yaml* file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the Trusted Hardware Identity Management endpoint. For more information about Kubernetes Jobs, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/).
 
     ```bash
     apiVersion: batch/v1 
