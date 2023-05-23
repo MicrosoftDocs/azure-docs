@@ -42,7 +42,7 @@ Just like a typical AKS deployment, the Azure platform is responsible for mainta
 
 Creating an AKS for Edge cluster uses an optimized architecture that is specifically tailored to meet the unique needs and requirements of edge-based applications and workloads. The control plane of the clusters is created, deployed, and configured in the closest Azure region, while the agent nodes and node pools attached to the cluster are located in an Azure Public MEC Edge Zone.
 
-The components present in an AKS for Edge cluster are identical to those in a typical cluster deployed in a Azure region, ensuring that the same level of functionality and performance is maintained. For more information on these components, see [Kubernetes core concepts for AKS][concepts-cluster-workloads].
+The components present in an AKS for Edge cluster are identical to those in a typical cluster deployed in an Azure region, ensuring that the same level of functionality and performance is maintained. For more information on these components, see [Kubernetes core concepts for AKS][concepts-cluster-workloads].
 
 ## Edge Zone and parent region locations
 
@@ -60,15 +60,15 @@ For the latest available Public MEC Edge Zones, please refer to [Azure public ME
 
 ### Prerequisites
 
-* Before you can deploy an AKS for Edge cluster, your subscription needs to have access to the targeted Edge Zone location. This access is provided through our onboarding process, done by creating a support request via the Azure portal or by filling out the [Azure public MEC sign up form][public-mec-sign-up]
+* Before you can deploy an AKS for Edge cluster, your subscription needs to have access to the targeted Edge Zone location. This access is provided through our onboarding process, done by creating a support request via the Azure portal or by filling out the [Azure public MEC sign-up form][public-mec-sign-up]
 
 * Your cluster must be running Kubernetes version 1.24 or later
 
-* The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](./concepts-identity.md)
+* The identity you're using to create your cluster must have the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](./concepts-identity.md)
 
 ### Limitations
 
-* AKS for Edge allows for autoscaling only up to 100 nodes in a nodepool
+* AKS for Edge allows for autoscaling only up to 100 nodes in a node pool
 
 ### Resource constraints
 
@@ -76,7 +76,7 @@ While AKS is fully supported in Azure public MEC Edge Zones, resource constraint
 
 * In all Edge Zones, the maximum node count is 100
 
-* In Azure public MEC Edge Zones, only selected VM SKUs are offered. See the list of available SKUs, as well as additional constriants and limitations, in [Azure public MEC key concepts][public-mec-constraints]
+* In Azure public MEC Edge Zones, only selected VM SKUs are offered. See the list of available SKUs, as well as additional constraints and limitations, in [Azure public MEC key concepts][public-mec-constraints]
 
 Deploying an AKS cluster in an Edge Zone is similar to deploying an AKS cluster in any other region. All resource providers provide a field named [`extendedLocation`](/javascript/api/@azure/arm-compute/extendedlocation), which you can use to deploy resources in an Edge Zone. This allows for precise and targeted deployment of your AKS cluster.
 
@@ -278,7 +278,7 @@ In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone
         * Select an Azure **Subscription**.
         * Select or create an Azure **Resource group**, such as *myResourceGroup*.
     - **Cluster details**:
-        * Ensure the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+        * Ensure the **Preset configuration** is *Standard ($$)*. For more information on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
 
             :::image type="content" source="./learn/media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options.":::
 
@@ -303,7 +303,7 @@ In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone
 
 7. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     By default, *Basic* networking is used, and [Container insights](../azure-monitor/containers/container-insights-overview.md) is enabled.
