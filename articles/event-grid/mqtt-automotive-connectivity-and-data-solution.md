@@ -58,13 +58,13 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 1. The **Event Grid** routes messages to different subscribers based on the topic and message attributes.
     1. Low priority messages that don't require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hubs instance for buffering.
     1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
-1. Low priority messages are stored directly in the **data lake** using [event capture](articles/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
+1. Low priority messages are stored directly in the **data lake** using [event capture](/azure/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
     2. Verifies that the user has given consent for the message topic.
     3. Decodes and enriches the payload.
     4. Adds more routing information.
-1. The Live Telemetry **Event Hub** in the *data & analytics solution* receives the decoded messages. **Azure Data Explorer** uses [streaming ingestion](azure/data-explorer/ingest-data-streaming) to process and store messages as they're received.
+1. The Live Telemetry **Event Hub** in the *data & analytics solution* receives the decoded messages. **Azure Data Explorer** uses [streaming ingestion](/azure/data-explorer/ingest-data-streaming) to process and store messages as they're received.
 1. The *digital Services* layer receives decoded messages. **Service Bus** provides notifications to applications on important changes / events on the state of the vehicle. **Azure Data Explorer** provides the last-known-state of the vehicle and the short term history.
 
 #### Cloud to vehicle messages
@@ -139,7 +139,7 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 
 ### Scalability
 
-A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It's recommended to use the [Deployment Stamps pattern](azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
+A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It's recommended to use the [Deployment Stamps pattern](/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
 :::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/scalability.png" alt-text="Scalability diagram" border="false":::
 
