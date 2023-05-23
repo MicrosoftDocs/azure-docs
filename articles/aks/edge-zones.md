@@ -38,7 +38,7 @@ Edge Zones provide a suite of Azure services for managing and deploying applicat
 
 Just like a typical AKS deployment, the Azure platform is responsible for maintaining the AKS control plane and providing the infrastructure, while your organization retains control over the worker nodes that run the applications.
 
-:::image type="content" source="./media/edge-zones/aks-for-edge-architecture-inline.png" alt-text="An architecture diagram of an AKS for edge deployment, showing that the control plane is deployed in an Azure region while agent nodes are deployed in an Azure public MEC Edge Zone" lightbox="./media/edge-zones/aks-for-edge-architecture-full.png":::
+:::image type="content" source="./media/edge-zones/aks-for-edge-architecture-inline.png" alt-text="An architecture diagram of an AKS for edge deployment, showing that the control plane is deployed in an Azure region while agent nodes are deployed in an Azure public MEC Edge Zone." lightbox="./media/edge-zones/aks-for-edge-architecture-full.png":::
 
 Creating an AKS for Edge cluster uses an optimized architecture that is specifically tailored to meet the unique needs and requirements of edge-based applications and workloads. The control plane of the clusters is created, deployed, and configured in the closest Azure region, while the agent nodes and node pools attached to the cluster are located in an Azure Public MEC Edge Zone.
 
