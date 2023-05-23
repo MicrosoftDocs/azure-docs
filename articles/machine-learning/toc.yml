@@ -688,7 +688,7 @@
               href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
-        - name: Prepare data with Apache Spark (preview)
+        - name: Prepare data with Apache Spark
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
@@ -698,6 +698,8 @@
             - name: Interactive Data Wrangling with Apache Spark
               displayName: Interactive Data Wrangling with Apache Spark
               href: interactive-data-wrangling-with-apache-spark-azure-ml.md
+            - name: Apache Spark - environment configuration
+              href: apache-spark-environment-configuration.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
