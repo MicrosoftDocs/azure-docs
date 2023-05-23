@@ -114,8 +114,6 @@ If icacls fails with an *Access is denied* error, follow these steps to configur
    
 1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
 
-1. Repeat the same steps for user in **Forest2** on storage account joined to **Forest1** from client in **Forest2**.
-
 > [!NOTE]
 > We don't recommend using File Explorer to configure ACLs in a multi-forest environment. Although users which belong to the forest that's domain-joined to the storage account can have file/directory-level permissions set via File Explorer, it won't work for users that don't belong to the same forest that's domain-joined to the storage account.
 
@@ -170,9 +168,7 @@ To use this method, complete the following steps:
 Now, from domain-joined clients, you should be able to use storage accounts joined to any forest.
 
 > [!NOTE]
-> Ensure hostname part of the FQDN matches the storage account name as described above. Otherwise you will get an access denied error: "The filename, directory name, or volume label syntax is incorrect." A network trace will show STATUS_OBJECT_NAME_INVALID (0xc0000033) message during the SMB session setup.
-
-
+> Ensure hostname part of the FQDN matches the storage account name as described above. Otherwise you'll get an access denied error: "The filename, directory name, or volume label syntax is incorrect." A network trace will show STATUS_OBJECT_NAME_INVALID (0xc0000033) message during the SMB session setup.
 
 ### Add custom name suffix and routing rule
 
@@ -250,7 +246,6 @@ Renew Time: 11/29/2022 18:46:35 (local)
 Session Key Type: AES-256-CTS-HMAC-SHA1-96
 Cache Flags: 0x200 -> DISABLE-TGT-DELEGATION
 Kdc Called: onpremad1.onpremad1.com
-
 ```
 
 If you see the above output, you're done. If you don't, follow these steps to provide alternative UPN suffixes to make multi-forest authentication work.
@@ -281,4 +276,4 @@ Next, add the suffix routing rule on **Forest 2**.
 For more information, see these resources:
 
 - [Overview of Azure Files identity-based authentication support (SMB only)](storage-files-active-directory-overview.md)
-- [FAQ](storage-files-faq.md)
+- [Azure Files FAQ](storage-files-faq.md)
