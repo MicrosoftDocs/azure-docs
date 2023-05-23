@@ -390,6 +390,9 @@
       href: defender-for-apis-prepare.md
     - name: Onboard Defender for APIs
       href: defender-for-apis-deploy.md
+    - name: Validate APIs alerts
+      displayName: validate, api, apis
+      href: defender-for-apis-validation.md
     - name: Investigate findings, recommendations, alerts
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
