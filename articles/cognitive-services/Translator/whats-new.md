@@ -35,7 +35,10 @@ Translator service supports language translation for more than 100 languages. If
 
 ### Microsoft Translator V3 Connector (preview)
 
-The Translator V3 Connector is now available in public preview. The connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+The Translator V3 Connector is now available in public preview. The connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows. To learn more, see the following documentation:
+
+* [Automate document translation](connector/document-translation-flow.md)
+* [Automate text translation](connector/text-translator-flow.md)
 
 ## February 2023
 
