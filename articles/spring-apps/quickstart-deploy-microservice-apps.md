@@ -23,12 +23,12 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 Diagram of Spring Pet Clinic apps architecture:
 - Use Azure Spring Apps to manage the Spring Boot apps.
-- Use built-in Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps, the Config Server reads Git repository configuration.
-- Expose the URL of `api-gateway` as public access to load balance requests to service apps, and expose the URL of the `admin-server` as restricted access to manage the applications.
+- Use the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps, the Config Server reads Git repository configuration.
+- Expose the URL of `api-gateway` to load balance requests to service apps, and expose the URL of the `admin-server` to manage the applications.
 - Analyze logs using the Log Analytics workspace.
 - Monitor with the Application Insights.
 
-## Prerequisites
+## 1 Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
@@ -36,7 +36,7 @@ Diagram of Spring Pet Clinic apps architecture:
 
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
 
-## Validation
+## 5 Validation
 
 According to the content echoed by the deployment, open the URL exposed by the app `api-gateway`, for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`.
 
@@ -56,7 +56,7 @@ Open the URL exposed by the app `admin-server`, you can manage the applications 
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
-## Next steps
+## 7 Next steps
 
 > [!div class="nextstepaction"]
 > [Quickstart: Using Log Analytics with Azure Spring Apps](./quickstart-setup-log-analytics.md)

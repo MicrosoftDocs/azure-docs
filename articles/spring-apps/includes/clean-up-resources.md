@@ -14,7 +14,7 @@ Use the following line at the beginning of the Next steps with blank lines befor
 
 -->
 
-## Clean up resources
+## 6 Clean up resources
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 

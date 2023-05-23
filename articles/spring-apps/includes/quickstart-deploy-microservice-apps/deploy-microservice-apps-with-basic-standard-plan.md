@@ -14,7 +14,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## Prepare Spring Project
+## 2 Prepare Spring Project
 
 Use the following steps to prepare the sample locally.
 
@@ -32,11 +32,11 @@ Use the following steps to prepare the sample locally.
 
 1. After the script is successfully executed, go to `http://localhost:8080` in your browser to access the PetClinic.
 
-## Provision
+## 3 Provision
 
 The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
 
-### Provision an instance of Azure Spring Apps
+### 3.1 Provision an instance of Azure Spring Apps
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 
@@ -82,7 +82,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 
-## Deployment
+## 4 Deployment
 
 Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
 
@@ -93,12 +93,12 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ```
 
    Command interaction description:
-   - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Press Enter to select all.
+   - **Select child modules to configure(input numbers separated by comma, eg: [1-2,4,6], ENTER to select ALL)**: Press `Enter` to select all.
    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press `Enter` directly.
+   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press `Enter` directly.
    - **Select apps to expose public access:(input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter `1,5` for `admin-server` and `api-gateway`.
-   - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration won't be saved in the POM files.
+   - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration won't be saved in the POM files.
 
 1. Use the following command to build and deploy each application:
 
