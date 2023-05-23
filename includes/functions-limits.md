@@ -32,5 +32,5 @@ ms.author: glenga
 <sup>7</sup> Guaranteed for up to 60 minutes.  
 <sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   
 <sup>9</sup> See [App Service limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) for details.  
-<sup>10</sup> Including the production slot.
-<sup>11/sup> There's currently a limit of 5000 function apps in a given subscription. 
+<sup>10</sup> Including the production slot.  
+<sup>11</sup> There's currently a limit of 5000 function apps in a given subscription. 
