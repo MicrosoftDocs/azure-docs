@@ -130,7 +130,7 @@ az ml online-endpoint create --name $endpoint_name
 # create deployment file. 
 cat <<EOF > ./deploy.yml
 name: demo
-model: azureml://registries/HuggingFaceHub/models/$model_name/labels/latest
+model: azureml://registries/HuggingFace/models/$model_name/labels/latest
 endpoint_name: $endpoint_name
 instance_type: Standard_DS3_v2
 instance_count: 1
