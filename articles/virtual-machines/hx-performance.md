@@ -27,7 +27,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 ## Stream memory test 
 
-The stream memory test can be run using the scripts in this github repository. 
+The stream memory test can be run using the scripts in this GitHub repository. 
 ```bash
 git clone https://github.com/Azure/woc-benchmarking 
 cd woc-benchmarking/apps/hpc/stream/ 
@@ -37,7 +37,7 @@ sh stream_run_script.sh $PWD “hbrs_v4”
  
 ## The HPL test 
 
-The high performance linpack(HPL) benchmark can be run using the script in this github repository. 
+The high performance linpack(HPL) benchmark can be run using the script in this GitHub repository. 
 ```bash
 git clone https://github.com/Azure/woc-benchmarking 
 cd woc-benchmarking/apps/hpc/hpl 
@@ -55,7 +55,7 @@ mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu
 ```
 
 ## MPI bandwidth
-The MPI bandwidth test from the OSU microbenchmark suite can be executed per below. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
+The MPI bandwidth test from the OSU microbenchmark suite can be executed as shown. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
 ```bash
 module load mpi/hpcx 
@@ -65,7 +65,7 @@ mpirun -np 2 --host $src,$dst --map-by node -x LD_LIBRARY_PATH $HPCX_OSU_DIR/osu
 Define source(src) and destination(dst).
 
 ## Mellanox Perftest
-The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
+The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is shown.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
