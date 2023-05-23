@@ -31,11 +31,11 @@ landingContent:
             url: use-containers.md
           - text: How to configure the containers 
             url: configures-containers.md
-  - title: Onco Phenotype
+  - title: OncoPhenotype
     linkLists:
       - linkListType: overview
         links:
-          - text: About Onco Phenotype
+          - text: About OncoPhenotype
             url: oncophenotype/overview.md
       - linkListType: concept
         links:

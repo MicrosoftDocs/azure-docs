@@ -13,7 +13,7 @@ ms.author: behoorne
 
 # Use Project Health Insights containers
 
-These services enable you to host Project Health Insights API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Project Health Insights remotely, then On-Premise Project Health Insights services might be a good solution.
+These services enable you to host Project Health Insights API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Project Health Insights remotely, then on-premises Project Health Insights services might be a good solution.
 
 ## Prerequisites
 
@@ -36,16 +36,17 @@ The host that runs the Docker container on your premises, should be an x64-based
 
 The following table describes the minimum and recommended specifications for the different Health Insights containers.
 
-|  Model | Minimum cpu | Maximum cpu | Minimum memory | Maximum memory| |
-|----------|--|--|--|--|--|
-| **Trial Matcher** | 4000m |4000m |5G | 7G |
-| **Onco Phenotype**   | 4000m |8000m |2G | 12G |
+
+| Model | Minimum cpu | Maximum cpu | Minimum memory | Maximum memory| | 
+|----------|--|--|--|--|--| 
+| Trial Matcher | 4000 m |4000m |5G | 7G | 
+| OncoPhenotype | 4000m |8000m |2G | 12G |
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container images with `docker pull`
 
-Project Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They resides within the `azure-cognitive-services/azure-health-insights/` repository and can be found by their model name.
+Project Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/azure-health-insights/` repository and can be found by their model name.
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/azure-health-insights/clinical-matching`
 - Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/azure-health-insights/cancer-profiling`
@@ -76,7 +77,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:
 
 ## Run the container with `docker run`
 
-Once the container is on the host computer, use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
+Once the container is on the host computer, use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container continues to run until you stop it.
 container-
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
@@ -89,7 +90,7 @@ There are multiple ways you can install and run Project Health Insights containe
 - Use an Azure VM with Docker to run the container. 
 - Use PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
-When you use Project Health Insights container, the data contained in your API requests and responses is not visible to Microsoft, and is **not** used for training the model applied to your data. 
+When you use Project Health Insights container, the data contained in your API requests and responses isn't visible to Microsoft, and is not used for training the model applied to your data. 
 
 ### Run the container locally 
 
@@ -125,7 +126,7 @@ This command:
 
 ### Submit a query to the container
 
-Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
+Use the example cURL request as a reference how to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/health-insights/<model>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
@@ -133,7 +134,7 @@ curl -X POST 'http://<serverURL>:5000/health-insights/<model>/' --header 'Conten
 
 #### Example docker compose file
 
-The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the health-insights containers. This is also the way to run the clinical-matching model.
+The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the health-insights containers. 
 
 ```yaml
 version: "3"
@@ -203,7 +204,7 @@ To shut down the container, in the command-line environment where the container 
 
 ## Troubleshooting
 
-If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+If you run the container with an output mount and logging enabled, the container generates log files. The log files are helpful to troubleshoot issues that happen while starting or running the container.
 
 ## Billing
 
@@ -211,7 +212,7 @@ Project Health Insights containers send billing information to Azure, using a _L
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey` parameter.
 
-Project Health Insights containers aren't licensed to run without being connected to the metering or billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Project Health Insights containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
+Project Health Insights containers aren't licensed to run without being connected to the metering or billing endpoint. You must enable the containers to communicate billing information with the billing endpoint always. Project Health Insights containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
 ### Connect to Azure
 
@@ -219,7 +220,7 @@ The container needs the billing argument values to run. These values allow the c
 
 ### Billing arguments
 
-The [docker run](https://docs.docker.com/engine/reference/commandline/run/) command will start the container when all three of the following options are provided with valid values:
+The [docker run](https://docs.docker.com/engine/reference/commandline/run/) command starts the container when all three of the following options are provided with valid values:
 
 | Option | Description |
 |--------|-------------|

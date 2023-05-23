@@ -6,7 +6,7 @@ items:
   items:
     - name: About Project Health Insights
       href: overview.md
-    - name: Onco Phenotype
+    - name: OncoPhenotype
       href: ./oncophenotype/index.yml
     - name: Trial Matcher 
       href: ./trial-matcher/index.yml     
