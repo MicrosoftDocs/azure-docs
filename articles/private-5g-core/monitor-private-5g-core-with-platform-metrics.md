@@ -1,8 +1,8 @@
 ---
 title: Monitor Azure Private 5G Core with Azure Monitor platform metrics
 description: Information on using Azure Monitor platform metrics to monitor activity and analyze statistics in your private mobile network. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 11/22/2022
@@ -51,9 +51,7 @@ You can select individual dashboard panes to open an expanded view where you can
 
 ## Export metrics using the Azure Monitor REST API
 
-In addition to the monitoring functionalities offered by the Azure portal, you can export Azure Private 5G Core metrics for analysis with other tools using the [Azure Monitor REST API](/rest/api/monitor/). Once this data is retrieved, you may want to sava it in a separate data store that allows longer data retention, or use your tools of choice to monitor and analyze your deployment.
-
-For example, you can export the platform metrics to data storage and processing services such as [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), [Azure Storage](/azure/storage/), or [Azure Event Hubs](/azure/event-hubs/). You can also leverage [Azure Managed Grafana](/azure/managed-grafana/) to create a monitoring experience in the cloud mirroring the capabilities of the local [packet core dashboards](packet-core-dashboards.md).
+In addition to the monitoring functionalities offered by the Azure portal, you can export Azure Private 5G Core metrics for analysis with other tools using the [Azure Monitor REST API](/rest/api/monitor/). Once this data is retrieved, you may want to save it in a separate data store that allows longer data retention, or use your tools of choice to monitor and analyze your deployment. For example, you can export the platform metrics to data storage and processing services such as [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), [Azure Storage](/azure/storage/), or [Azure Event Hubs](/azure/event-hubs/).
 
 > [!NOTE]
 > Exporting metrics to another application for analysis or storage may incur extra costs. Check the pricing information for the applications you want to use.

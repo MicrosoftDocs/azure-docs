@@ -69,7 +69,7 @@ The Intel QPL configuration file (*sgx_default_qcnl.conf*) contains three keys f
 The following table shows how these keys can be set.
 
 | Name | Possible endpoints |
-| -- | -- |
+|--|--|
 | `pccs_url` | THIM endpoint: `https://global.acccache.azure.net/sgx/certification/v3`. |
 | `collateral_service` | THIM endpoint (`https://global.acccache.azure.net/sgx/certification/v3`) or Intel PCS endpoint. The [sgx_default_qcnl.conf](https://github.com/intel/SGXDataCenterAttestationPrimitives/blob/master/QuoteGeneration/qcnl/linux/sgx_default_qcnl.conf#L13) file always lists the most up-to-date endpoint in the `collateral_service` key. |
 

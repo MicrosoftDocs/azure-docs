@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
 recommendations: false
 keywords:  
 ---
