@@ -7,7 +7,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 05/23/2023
 ms.author: gasinh
 ms.subservice: app-mgmt
 ms.custom: kr2b-contr-experiment
