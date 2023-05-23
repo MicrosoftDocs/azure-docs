@@ -67,7 +67,7 @@ All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the 
 
 ### Overage claims error
 
-If you have gotten overage claim please check below things in order:
+If you receive an overage claim, review the following factors in order:
 
 1. Are you using a service principal which is part of more than 200 Azure AD groups? If yes, then you'll need to create and use another service principal which is not a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
 
