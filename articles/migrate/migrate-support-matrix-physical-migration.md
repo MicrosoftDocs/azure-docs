@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 05/23/2023
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs
