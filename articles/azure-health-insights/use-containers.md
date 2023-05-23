@@ -1,7 +1,7 @@
 ---
 title: How to use Project Health Insights containers
 titleSuffix: Project Health Insights
-description: Learn how to use our Azure Health Insight models on premises using Docker containers.
+description: Learn how to use Project Health Insight models on premises using Docker containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -58,7 +58,7 @@ To use the latest version of the container, you can use the `latest` tag. You ca
 docker pull mcr.microsoft.com/azure-cognitive-services/azure-health-insights/<model-name>:<tag-name>
 ```
 
-- For Clinical Trial Matcher, Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
+- For Clinical Trial Matcher, use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download textanalytics container image from the Microsoft public container registry. You can find the featured tags on the [dockerhub](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:<tag-name>
@@ -87,7 +87,7 @@ There are multiple ways you can install and run Project Health Insights containe
 
 - Use the Azure portal to create a Project Health Insights resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. 
-- Use PowerShell and Azure CLI scripts to automate resource deployment and container conffiguration.
+- Use PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
 When you use Project Health Insights container, the data contained in your API requests and responses is not visible to Microsoft, and is **not** used for training the model applied to your data. 
 
