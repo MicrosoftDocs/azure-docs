@@ -126,7 +126,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
     > When you use a Premium-level ISE, use the ISE-native SAP connector, not the SAP managed connector, 
     > which doesn't natively run in an ISE. For more information, review the [ISE prerequisites](#ise-prerequisites).
 
-* To use the SAP managed connector trigger named **When a message is received from SAP**, complete the following tasks:
+* To use either the SAP managed connector trigger named **When a message is received from SAP** or the SAP built-in trigger named **Register SAP RFC server for trigger**, complete the following tasks:
 
   * Set up your SAP gateway security permissions or Access Control List (ACL). In the **Gateway Monitor** (T-Code SMGW) dialog box, which shows the **secinfo** and **reginfo** files, open the **Goto** menu, and select **Expert Functions** > **External Security** > **Maintenance of ACL Files**.
 
@@ -154,13 +154,14 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
   > [!NOTE]
   >
-  > In Consumption and Standard workflows, the SAP managed trigger named **When a message is received from SAP** uses 
-  > the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the 
-  > HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a 
-  > renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a 
-  > renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+  > In Consumption and Standard workflows, the SAP managed trigger named **When a message is received from SAP** 
+  > uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation 
+  > uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior 
+  > might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation 
+  > is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
   >
-  > In Standard workflows, the SAP built-in trigger uses the Azure Functions trigger instead, and shows only the actual callbacks from SAP.
+  > In Standard workflows, the SAP built-in trigger named **Register SAP RFC server for trigger** uses the Azure 
+  > Functions trigger instead, and shows only the actual callbacks from SAP.
 
 * The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](/connectors/sap/#actions) that you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](sap-create-example-scenario-workflows.md#send-flat-file-idocs).
 
