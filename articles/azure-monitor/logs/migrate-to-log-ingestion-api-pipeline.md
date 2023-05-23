@@ -40,7 +40,7 @@ The Log Ingestion API requires you to create two new types of resources, which t
 
 The Log Ingestion API expects that the destination tables to which you send data already exist. You can use the Log Ingestion API to send data to any custom tables and a few Azure tables, as described in [Supported tables](../logs/logs-ingestion-api-overview.md#supported-tables).
 
-If you have an exist custom table to which you currently send data using the Data Collector API, you have two options:
+If you have an existing custom table to which you currently send data using the Data Collector API, you have two options:
 
 - Continue ingesting data into the same table using the Log Ingestion API. 
     
@@ -52,9 +52,7 @@ If you have an exist custom table to which you currently send data using the Dat
     
     This call is idempotent, so it has no effect if the table has already been converted.    
 
-- Set up a new destination custom table to ingest data into.
-
-    This lets you maintain the existing table and data while you migrate to the new table. You can then delete the old table when you're ready.
+- Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
 
 > [!NOTE]
 > When you use the Log Ingestion API, column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
