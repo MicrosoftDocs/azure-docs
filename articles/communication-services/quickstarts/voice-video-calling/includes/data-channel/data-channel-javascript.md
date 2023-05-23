@@ -1,6 +1,6 @@
 ---
 ms.author: enricohuang
-title: QuickStart - Add messaging to your web calling app
+title: Quickstart - Add messaging to your web calling app
 titleSuffix: An Azure Communication Services document
 description: In this quickstart, you'll learn how to add messaging to your existing web calling app using Azure Communication Services.
 author: sloanster
@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-The DataChannel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate DataChannel feature, enabling the exchange of text messages among participants within a group call.
+The Data Channel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate DataChannel feature, enabling the exchange of text messages among participants within a group call.
 
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
@@ -21,12 +21,12 @@ The DataChannel feature API enables real-time messaging during audio and video c
 
 
 ## Create a DataChannelSender object
-First you need to create a DataChannelSender object to send messages. In this chat application, we suggest assigning a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 10000 for chat messages.
+First you need to create a DataChannelSender object to send messages. In this chat application, we suggest assigning a number to `channelId`, which serves to distinguish different application use cases. For instance, you can assign `channelId` 1000 for chat messages.
 
 ```js
 const dataChannel = call.feature(Features.DataChannel);
 const messageSender = dataChannel.createDataChannelSender({
-    channelId: 10000
+    channelId: 1000
 });
 ```
 
@@ -57,7 +57,7 @@ offload the work to a Web Worker to prevent blocking the message reception.
 
 ```js
 dataChannel.on('dataChannelReceiverCreated', receiver => {
-    if (receiver.channelId === 10000) {
+    if (receiver.channelId === 1000) {
         receiver.on('close', () => {
             console.log(`data channel id = ${receiver.channelId} from ${JSON.stringify(receiver.senderParticipantIdentifier)} is closed`);
         });
@@ -97,7 +97,7 @@ sender.sendMessage(data);
 Receive and decode the message
 ```js
 dataChannel.on('dataChannelReceiverCreated', receiver => {
-    if (receiver.channelId === 10000) {
+    if (receiver.channelId === 1000) {
         const textDecoder = new TextDecoder();
         receiver.on('close', () => {
             console.log(`data channel id = ${receiver.channelId} from ${JSON.stringify(receiver.senderParticipantIdentifier)} is closed`);
