@@ -466,6 +466,8 @@
         href: cisco-anyconnect.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
+      - name: Cisco Expressway
+        href: cisco-expressway-tutorial.md
       - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Intersight
