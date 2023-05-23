@@ -432,7 +432,43 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## Microsoft Sentinel limits
 
-[!INCLUDE [sentinel-service-limits](../../sentinel/sentinel-service-limits.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-analytics-rules.md)]
+
+### Incident limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-incidents.md)]
+
+### Machine learning-based limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-machine-learning.md)]
+
+### Multi workspace limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-multi-workspace.md)]
+
+### Notebook limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-notebooks.md)]
+
+### Repositories limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-repositories.md)]
+
+### Threat intelligence limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-threat-intelligence.md)]
+
+### User and Entity Behavior Analytics (UEBA) limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ueba.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-watchlists.md)]
+
+### Workbook limits
+
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-workbooks.md)]
 
 ## Service Bus limits
 
