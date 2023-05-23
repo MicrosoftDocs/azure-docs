@@ -84,7 +84,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supported | Supported | Chicago, Chicago2, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[Cox Business Cloud Port](https://www.cox.com/business/networking/cloud-connectivity.html)** | Supported | Supported | Dallas, Phoenix, Silicon Valley, Washington DC |
 | **Crown Castle** | Supported | Supported | New York, Washington DC |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
+| **[DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)** | Supported |Supported | Amsterdam2, Chennai, Chicago2, Dallas, Dubai2, Frankfurt, Frankfurt2, Kuala Lumpur, Madrid, Marseille, Mumbai, Munich, New York, Phoenix, Singapore2 |
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland, Melbourne, Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/managed-platform-services/azure-managed-services/cloudconnect-for-azure)** | Supported |Supported | Frankfurt2, Hong Kong2 |
@@ -155,7 +155,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** | Supported | Supported | Doha, Doha2, London2, Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Supported | Supported | Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Amsterdam2, Chicago, Dallas, Dubai2, Dublin2 Frankfurt, Hong Kong SAR, Johannesburg, London, London2, Mumbai2, Melbourne, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
+| **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** | Supported | Supported | Amsterdam, Chicago, Dallas, Denver, Las Vegas, London, Los Angeles2, Miami, New York, Seattle, Silicon Valley, Toronto, Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** | Supported | Supported | Chicago, Hong Kong, Hong Kong2, London, Singapore, Singapore2, Tokyo2 |
 | **PitChile** | Supported | Supported | Santiago |
