@@ -84,7 +84,7 @@ To change your plan from a trial to a monthly commitment before the end of the t
 
 ## How is the Defender for IoT pricing affected now that support for Enterprise IoT networks is in general availability?
 
-For more information, see the [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) page.
+For pricing information, see the [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) page.
 
 ## How can I resolve billing issues associated with my Defender for IoT plan?
 
