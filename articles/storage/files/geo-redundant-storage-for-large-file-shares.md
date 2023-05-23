@@ -13,6 +13,8 @@ ms.subservice: files
 
 Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares and is supported in production environments.
 
+Azure Files has supported large file shares for several years which not only provides file share capacity up to 100 TiB but improved IOPS and throughput. Large file shares are widely adopted by customers using locally redundant storage (LRS) and zone-redundant storage (ZRS) but has not been available for geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) until now. 
+
 ## Applies to
 | File share type | SMB | NFS |
 |-|:-:|:-:|
@@ -28,14 +30,14 @@ Azure maintains multiple copies of your storage account to ensure durability and
 
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
 
-If the primary region becomes unavailable for any reason, you can [initiate an account failover](../common/storage-initiate-account-failover.md) to the secondary region.  
+If the primary region becomes unavailable for any reason, Microsoft will manage the failover or you can [initiate an account failover](../common/storage-initiate-account-failover.md) to the secondary region.  
 
 > [!NOTE]  
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured as GRS or GZRS. The file shares won't be accessible in the secondary region unless a failover occurs.
 
-## New scale targets
+## Large file share limits
 
-Azure Files geo-redundancy for large file shares preview improves scale targets for capacity, IOPS, and throughput per standard SMB file share, as shown in the following table.
+Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increase your standard file share capacity and performance limits: 
 
 | **Attribute** | **Current limit** | **New limit** |
 |---------------|-------------------|---------------|
