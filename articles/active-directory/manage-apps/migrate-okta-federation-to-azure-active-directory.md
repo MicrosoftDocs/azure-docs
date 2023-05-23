@@ -13,7 +13,7 @@ ms.subservice: app-mgmt
 ms.custom: kr2b-contr-experiment
 ---
 
-# Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication
+# Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication 
 
 In this tutorial, learn to federate Office 365 tenants with Okta for single sign-on (SSO) capabilities. You can migrate federation to Azure Active Directory (Azure AD) in a staged manner to ensure a good authentication experience for users. In a staged migration, test reverse-federation access back to any remaining Okta SSO applications.
 
