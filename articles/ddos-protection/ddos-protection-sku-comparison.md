@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 05/11/2023
+ms.date: 05/23/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -59,13 +59,15 @@ DDoS Network Protection and DDoS IP Protection have the following limitations:
 - PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN aren't currently supported. 
 - Protecting a public IP resource attached to a NAT Gateway isn't supported.
 - Virtual machines in Classic/RDFE deployments aren't supported.
-- Scenarios in which a single VM is running behind a public IP is not recommended. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability)
+
 - Partially supported: the Azure DDoS Protection service can protect a public load balancer with a public IP address prefix linked to its frontend. It effectively detects and mitigates DDoS attacks. However, telemetry and logging for the protected public IP addresses within the prefix range are currently unavailable. 
 
 DDoS IP Protection is similar to Network Protection, but has the following additional limitation:
 
 - Public IP Basic SKU protection isn't supported. 
 
+>[!Note]
+>Scenarios in which a single VM is running behind a public IP is supported, but not recommended. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability).
 
 For more information, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
 
