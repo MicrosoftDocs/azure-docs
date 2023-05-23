@@ -5,8 +5,8 @@ ms.service: postgresql
 ms.subservice: single-server
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.author: alau
-author: alau-ms
+ms.author: sunila
+author: sunilagarwal
 ms.date: 06/24/2022
 ---
 
