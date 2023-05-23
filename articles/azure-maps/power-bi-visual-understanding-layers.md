@@ -27,7 +27,7 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
 
         Renders points as 3D bars on the map.
         
-        ![Bar chart layer on map](media/power-bi-visual/bar-chart-layer-thumb.png)
+        ![Bar chart layer on map](media/power-bi-visual/3d-column-layer-thumb.png)
     :::column-end:::
 :::row-end:::
 
@@ -81,7 +81,7 @@ Change how your data is displayed on the map:
 > [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+> [Add a bar chart layer](power-bi-visual-add-3d-column-layer.md)
 
 Add more context to the map:
 
