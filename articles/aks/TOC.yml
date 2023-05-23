@@ -53,7 +53,7 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
-        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+        - name: Use Draft and the DevX extension for Visual Studio Code
           href: draft-devx-extension-aks.md
     - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
