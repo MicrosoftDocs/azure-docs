@@ -37,11 +37,11 @@ Use the following header to authenticate your request.
 Once you send the request, you will get the following response. 
 ```json
 {
-  "createdDateTime": "2022-04-23T13:39:09.384Z",
-  "lastModifiedDateTime": "2022-04-23T13:39:09.384Z",
-  "lastTrainedDateTime": "2022-04-23T13:39:09.384Z",
-  "lastDeployedDateTime": "2022-04-23T13:39:09.384Z",
-  "projectKind": "customSingleLabelClassification",
+  "createdDateTime": "2023-04-23T13:39:09.384Z",
+  "lastModifiedDateTime": "2023-04-23T13:39:09.384Z",
+  "lastTrainedDateTime": "2023-04-23T13:39:09.384Z",
+  "lastDeployedDateTime": "2023-04-23T13:39:09.384Z",
+  "projectKind": "CustomTextSentiment",
   "storageInputContainerName": "{CONTAINER-NAME}",
   "projectName": "{PROJECT-NAME}",
   "multilingual": true,
@@ -53,7 +53,7 @@ Once you send the request, you will get the following response.
 
 |Value | placeholder  | Description | Example |
 |---------|---------|---------|---------|
-| `projectKind` | `customSingleLabelClassification` | Your project kind. | This value can be `customSingleLabelClassification` or `customMultiLabelClassification`. |
+| `projectKind` | `CustomTextSentiment` | Your project kind. | `CustomTextSentiment` |
 | `storageInputContainerName` | `{CONTAINER-NAME}` | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `myProject` |
 | `multilingual` | | A boolean value that enables you to have documents in multiple languages in your dataset. When your model is deployed, you can query the model in any supported language (not necessarily included in your training documents. <!--For more information on multilingual support, see [language support](../../language-support.md#multi-lingual-option).-->  | `true`|
