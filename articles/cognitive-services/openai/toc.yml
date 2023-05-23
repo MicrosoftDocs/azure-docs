@@ -25,14 +25,18 @@ items:
       displayName: ChatGPT, chatgpt
 - name: Concepts
   items:
-    - name: Intro to prompt engineering
-      href: ./concepts/prompt-engineering.md
-    - name: Prompt engineering techniques
-      href: ./concepts/advanced-prompt-engineering.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
+    - name: Red teaming large language models (LLMs)
+      href: ./concepts/red-teaming.md
+    - name: Intro to prompt engineering
+      href: ./concepts/prompt-engineering.md
+    - name: Prompt engineering techniques
+      href: ./concepts/advanced-prompt-engineering.md
+    - name: System message templates
+      href: ./concepts/system-message.md
 - name: How-to 
   items:
     - name: Resource creation & model deployment
@@ -72,6 +76,8 @@ items:
       href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
 - name: Responsible AI
   items:
+    - name: Overview
+      href: /legal/cognitive-services/openai/overview?context=/azure/cognitive-services/openai/context/context
     - name : Transparency note
       href: /legal/cognitive-services/openai/transparency-note?context=/azure/cognitive-services/openai/context/context
     - name: Limited access
