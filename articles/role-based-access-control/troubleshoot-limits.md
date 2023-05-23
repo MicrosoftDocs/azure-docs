@@ -31,6 +31,9 @@ When you try to assign a role, you get the following error message:
 
 Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. You should try to reduce the number of role assignments in the subscription.
 
+> [!NOTE]
+> The **4000** role assignments limit per subscription is fixed and cannot be increased.
+
 To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
 ```azurepowershell
@@ -55,9 +58,9 @@ To reduce the number of role assignments in the subscription, add principals (us
     AuthorizationResources
     | where type =~ "microsoft.authorization/roleassignments"
     | where id startswith "/subscriptions"
-     | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
-     | join kind = leftouter (
-     AuthorizationResources
+    | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
+    | join kind = leftouter (
+      AuthorizationResources
       | where type =~ "microsoft.authorization/roledefinitions"
       | extend RoleDefinitionName = tostring(properties.roleName)
       | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
@@ -110,7 +113,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Select the **Role assignments** tab.
 
-1. In the **Role** filter, select the role to just see the role assignments for this role.
+1. To filter the role assignments, select the **Role** filter and then select the role name.
 
 1. Find the principal-based role assignments.
 
@@ -148,20 +151,20 @@ If you still need to reduce the number of role assignments in the subscription a
     AuthorizationResources
     | where type =~ "microsoft.authorization/roleassignments"
     | where id startswith "/subscriptions"
-    | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
+    | extend RoleDefinitionId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
     | extend PrincipalId = tolower(properties.principalId)
-    | extend RoleId_PrincipalId = strcat(RoleId, "_", PrincipalId)
+    | extend RoleDefinitionId_PrincipalId = strcat(RoleDefinitionId, "_", PrincipalId)
     | join kind = leftouter (
-     AuthorizationResources
+      AuthorizationResources
       | where type =~ "microsoft.authorization/roledefinitions"
       | extend RoleDefinitionName = tostring(properties.roleName)
       | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
       | project RoleDefinitionName, rdId
-    ) on $left.RoleId == $right.rdId
-     | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleId_PrincipalId,RoleDefinitionName
-     | project RoleId = split(RoleId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleId_PrincipalId, "_", 1)[0], count_, Scopes
-     | where count_ > 1
-     | order by count_ desc
+    ) on $left.RoleDefinitionId == $right.rdId
+    | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleDefinitionId_PrincipalId,RoleDefinitionName
+    | project RoleDefinitionId = split(RoleDefinitionId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleDefinitionId_PrincipalId, "_", 1)[0], count_, Scopes
+    | where count_ > 1
+    | order by count_ desc
     ```
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same principal and same role. The count is sorted in descending order.
@@ -170,7 +173,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
     | Column | Description |
     | --- | --- |
-    | RoleId | [ID](./built-in-roles.md) of the currently assigned role. |
+    | RoleDefinitionId | [ID](./built-in-roles.md) of the currently assigned role. |
     | RoleDefinitionName | [Name](./built-in-roles.md) of the currently assigned role. |
     | PrincipalId | ID of the principal assigned the role. |
     | count_ | Number of different scopes for role assignments with the same principal and same role. |
@@ -182,7 +185,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png":::
 
-1. Use **RoleId**, **RoleDefinitionName**, and **PrincipalId** to get the role and principal ID.
+1. Use **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId** to get the role and principal ID.
 
 1. Use **Scopes** to get the list of the scopes for the same principal and role.
 
@@ -200,7 +203,9 @@ If you still need to reduce the number of role assignments in the subscription a
 
 1. Select the **Role assignments** tab.
 
-1. Find the principal and role assignment.
+1. To filter the role assignments, select the **Role** filter and then select the role name.
+
+1. Find the principal.
 
 1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
@@ -263,7 +268,7 @@ Follow these steps to find and delete unused Azure custom roles.
     | RoleDefinitionName | Name of the unused custom role. |
     | Scope | [Assignable scopes](./role-definitions.md#assignablescopes) for the unused custom role. |
 
-1. Open a management group or subscription and then open the **Access control (IAM)** page.
+1. Open the scope (typically subscription) and then open the **Access control (IAM)** page.
 
 1. Select the **Roles** tab to see a list of all the built-in and custom roles.
 
