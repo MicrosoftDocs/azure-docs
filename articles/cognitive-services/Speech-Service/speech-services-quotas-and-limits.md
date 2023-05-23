@@ -30,7 +30,7 @@ This section describes speech to text quotas and limits per Speech resource. Unl
 
 #### Real-time speech to text and speech translation
 
-You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the [speech-to-text REST API for short audio](rest-speech-to-text-short.md).
+You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the [Speech to text REST API for short audio](rest-speech-to-text-short.md).
 
 > [!IMPORTANT]
 > These limits apply to concurrent real-time speech to text requests and speech translation requests combined. For example, if you have 60 concurrent speech to text requests and 40 concurrent speech translation requests, you'll reach the limit of 100 concurrent requests.

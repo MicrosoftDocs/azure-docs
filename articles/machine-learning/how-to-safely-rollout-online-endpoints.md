@@ -21,7 +21,7 @@ ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 
 In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. You'll use a blue-green deployment strategy (also known as a safe rollout strategy) to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
-This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
+This article assumes you're using online endpoints, that is, endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and the differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
 The main example in this article uses managed online endpoints for deployment. To use Kubernetes endpoints instead, see the notes in this document that are inline with the managed online endpoint discussion.
 

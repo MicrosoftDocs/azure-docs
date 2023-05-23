@@ -86,7 +86,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 1. Select **Next**.
 1. Optionally, you can add up to 10 custom speaking styles:
     1. Select **Add a custom style** and thoughtfully enter a custom style name of your choice. This name will be used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#speaking-styles-and-roles). You can also use the custom style name as SSML via the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
-    1. Select style samples as training data. It's recommended that the style samples are all from the same voice talent profile.
+    1. Select style samples as training data. The style samples should be all from the same voice talent profile.
 1. Select **Next**.
 1. Select a speaker file with the voice talent statement that corresponds to the speaker in your training data.
 1. Select **Next**.
@@ -230,4 +230,4 @@ Navigate to the project where you copied the model to [deploy the model copy](ho
 
 - [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
-- [Text-to-Speech API reference](rest-text-to-speech.md)
+- [Text to speech API reference](rest-text-to-speech.md)

@@ -12,6 +12,9 @@ ms.date: 04/16/2020
 
 The Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Dependency Agent updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade Dependency Agent manually or through automation.
 
+>[!NOTE]
+> The Dependency Agent sends heartbeat data to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table, for which you incur data ingestion charges. This behavior is different from Azure Monitor Agent, which sends agent health data to the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which is free from data collection charges.
+
 ## Dependency Agent requirements
 
 - The Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.

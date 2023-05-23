@@ -73,7 +73,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale and `en-us-arianeural` voice. For additional locales and voices, see [text-to-speech container images](#container-images).
+> The `latest` tag pulls the `en-US` locale and `en-us-arianeural` voice. For additional locales and voices, see [text to speech container images](#container-images).
 
 ## Run the container with docker run
 
