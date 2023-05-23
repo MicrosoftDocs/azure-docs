@@ -42,7 +42,7 @@
         href: entitlement-management-onboard-external-user.md
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
-      - name: Ticketed provisioning via ServiceNow
+      - name: Automated ServiceNow Ticket Creation Integration
         href: entitlement-management-ticketed-provisioning.md  
     - name: Access Reviews
       items:

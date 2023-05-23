@@ -1,5 +1,5 @@
 ---
-title: Ticketed provisioning via ServiceNow
+title: Automated ServiceNow Ticket Creation with Azure AD Entitlement Management Integration
 description: This tutorial walks you through Ticketed provisioning via ServiceNow integration with entitlement management using custom extensions and Logic Apps.
 author: owinfreyATL
 ms.author: owinfrey
@@ -11,11 +11,11 @@ ms.date: 05/08/2023
 ms.custom: template-tutorial 
 ---
 
-# Tutorial: Ticketed provisioning via ServiceNow
+# Tutorial: Automated ServiceNow Ticket Creation with Azure AD Entitlement Management Integration
 
 
 
-Scenario: In this scenario you'll learn how to use custom extensibility, and a logic app, to automatically generate ServiceNow ticket for provisioning for manual provisioning of users who have received assignments and need access to apps.
+Scenario: In this scenario you learn how to use custom extensibility, and a logic app, to automatically generate ServiceNow ticket for provisioning for manual provisioning of users who have received assignments and need access to apps.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 - An Azure AD user account with an active Azure subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - A [ServiceNow instance](https://www.servicenow.com/) of Rome or higher
-- SSO integration with ServiceNow. If this is not already configured, see:[Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow](../saas-apps/servicenow-tutorial.md) before continuing.
+- SSO integration with ServiceNow. If this isn't already configured, see:[Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow](../saas-apps/servicenow-tutorial.md) before continuing.
 
 ## Adding Logic App Workflow to an existing Catalog for Entitlement Management
 
@@ -59,7 +59,7 @@ Provide the Azure subscription, resource group details, along with the Logic App
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png" alt-text="Screenshot of creating a custom extension for entitlement management.":::
 1. Select the **Extension Type** as “**Request workflow**” to correspond with the policy stage of the access package requested being created.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png" alt-text="Screenshot of entitlement management custom extension behavior actions tab.":::
-1. Select **Launch and wait** in the **Extension Configuration** which will pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. For further information on this process, see:  [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
+1. Select **Launch and wait** in the **Extension Configuration** which will pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. For more information on this process, see:  [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
 
 1. In the **Details** tab, choose No in the "*Create new logic app*" field as the logic app has already been created in the previous steps. However, you need to provide the Azure subscription and resource group details, along with the Logic App name.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-details.png" alt-text="Screenshot of the entitlement management  custom extension details tab.":::
