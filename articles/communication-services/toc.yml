@@ -210,13 +210,19 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Build virtual visit
-      href: tutorials/virtual-visits/sample-builder.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
     - name: Survey users
       href: tutorials/end-of-call-survey-tutorial.md
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+    - name: Virtual appointments
+      items:      
+      - name: Sample builder
+        href: tutorials/virtual-visits/sample-builder.md      
+      - name: Extend Teams
+        items:             
+          - name: Overview
+            href: tutorials/virtual-visits/extend-teams/overview.md
     - name: Call management
       items:
       - name: Manage calls

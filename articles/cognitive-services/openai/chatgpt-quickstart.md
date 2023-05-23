@@ -6,6 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: build-2023, build-2023-dataai
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
