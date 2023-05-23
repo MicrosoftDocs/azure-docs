@@ -731,7 +731,9 @@
     - name: Security policy enhancements in Defender for Cloud
       href: episode-twenty-nine.md
     - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
-      href: episode-thirty.md  
+      href: episode-thirty.md
+    - name: Understanding data aware security posture capability
+      href: episode-thirty-one.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
