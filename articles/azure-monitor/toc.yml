@@ -423,11 +423,14 @@ items:
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
-      - name: Managed agent on AKS cluster
+      - name: Managed agent
         items:
         - name: Enable on AKS cluster
           displayName: Prometheus
           href: essentials/prometheus-metrics-enable.md
+        - name: Enable on Arc-enabled Kubernetes cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
         - name: Customize collection
           items:
           - name: Default configuration
