@@ -28,7 +28,8 @@ Here is an overview of all configuration options:
 | config.service.auth.azureAd.authority | Access token (authentication key) of the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**. | No | `https://login.microsoftonline.com` | v2.3+ |
 | config.service.auth.azureAd.tenantId | ID of the Azure AD tenant. | Yes, when using Azure AD authentication | N/A | v2.3+ |
 | config.service.auth.azureAd.clientId | Client ID of the Azure AD app to authenticate with (also known as application ID). | Yes, when using Azure AD authentication | N/A | v2.3+ |
-| config.service.auth.azureAd.clientSecret | Secret of the Azure AD app to authenticate with. | Yes, when using Azure AD authentication | N/A | v2.3+ |
+| config.service.auth.azureAd.clientSecret | Secret of the Azure AD app to authenticate with. | Yes, when using Azure AD authentication (unless certificate is specified) | N/A | v2.3+ |
+| config.service.auth.azureAd.certificatePath | Path to certificate to authenticate with for the Azure AD app. | Yes, when using Azure AD authentication (unless secret is specified) | N/A | v2.3+ |
 | gateway.name | Id of the self-hosted gateway resource. | Yes, when using Azure AD authentication | N/A | v2.3+ |
 
 The self-hosted gateway provides support for a few authentication options to integrate with the Configuration API which can be defined by using `config.service.auth`.
