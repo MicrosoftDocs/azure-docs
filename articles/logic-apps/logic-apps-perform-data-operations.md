@@ -770,13 +770,9 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **filter array**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Create HTML table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Filter array**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "filter array" entered, and the "Filter array" action selected.](./media/logic-apps-perform-data-operations/select-filter-array-action-standard.png)
-
-1. In the **From** box, enter the array or expression to use as the filter.
+1. After the action information box appears, in the **From** box, enter the array or expression to use as the filter.
 
    For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
