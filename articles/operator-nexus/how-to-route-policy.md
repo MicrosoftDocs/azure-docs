@@ -192,7 +192,8 @@ IP community resource allows operators to manipulate routes based on Community v
 | resource-group | Use an appropriate resource group name specifically for your IP prefix |  ResourceGroupName |True |
 | resource-name | Resource Name of the IP-Prefix |  ipprefixv4-1204-cn1 |True |
 | location | AzON Azure Region used during NFC Creation |  eastus |True |
-| action | Action to be taken for the IP  community – Permit | Deny |  Permit |True |
+| action | Action to be taken for the IP  community – Permit | Deny or Permit |True |
+
 | wellKnownCommunities | Supported well known community list.`Internet` - Advertise routes to internet community. `LocalAS` - Advertise routes to only localAS peers. `NoAdvertise` - Don't advertise routes to any peer. `NoExport` - Don't export to next AS. `GShut` - Graceful Shutdown (GSHUT) withdraw routes before terminating BGP connection|  LocalAS |True |
 | communityMembers | List the communityMembers of the IP community. The expected formats are "AA:nn" >> example "65535:65535", \<integer32> >> example 4294967040. The possible values of "AA:nn" is 0-65535, and of \<integer32>  1-4294967040. |  65535:65535 |True |
 
