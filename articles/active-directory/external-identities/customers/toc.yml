@@ -296,3 +296,7 @@ items:
             href: /javascript/api/@azure/msal-react/
           - name: msal-node
             href: /javascript/api/@azure/msal-node/
+- name: Resources
+  items:
+    - name: Frequently asked questions (FAQ)
+      href: faq-customers.md
