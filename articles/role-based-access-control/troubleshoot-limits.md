@@ -62,6 +62,7 @@ To reduce the number of role assignments in the subscription, add principals (us
     | extend principalId = tostring(properties.principalId) 
     | extend principal_to_ra = pack(principalId, id) 
     | summarize count_ = count(), AllPrincipals = make_set(principal_to_ra) by RoleDefinitionId = tolower(properties.roleDefinitionId), Scope = tolower(properties.scope), RoleDefinitionName
+    | where count_ > 1
     | order by count_ desc
     ```
 
