@@ -252,7 +252,7 @@ For V1, verify the backend pool target's FQDN is same the Common Name (CN).
 
 * By using browser or any client:
 Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You will find it under the “Issued To” section.
-![Application Gateway backend health - Unknown](./media/application-gateway-backend-health-troubleshooting/browser-cert.png)
+:::image type="content" source="./media/application-gateway-backend-health-troubleshooting/browser-cert.png" alt-text="An image that shows certificate details in a browser.":::()
 
 * By logging into the backend server (Windows):
 1. Sign into the machine where your application is hosted.
@@ -264,30 +264,69 @@ Access the backend server directly (not through Application Gateway) and click o
 * By logging to the backend server (Linux):
 Run this OpenSSL command by specifying the right certificate filename ` openssl x509 -in certificate.crt -subject -noout`
 
+### Backend certificate has expired
 
+**Message:** Backend certificate is invalid. Current date is not within the "Valid from" and "Valid to" date range on the certificate.
 
-### Backend server certificate invalid CA
+**Cause:** An expired certificate is deemed unsafe and hence the application gateway marks the backend server with an expired certificate as unhealthy.
 
-**Message:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
+**Solution:** The solution depends on which part of the certificate chain has expired on the backend server.
 
-**Cause:** End-to-end SSL with Application Gateway v2 requires the backend server's certificate to be verified in order to deem the server Healthy. For a TLS/SSL certificate to be trusted, that certificate of the backend server must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, if a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
+For V2 SKU,
+* Expired Leaf (aka Domain or Server) certificate – Renew the server certificate with certificate provider and install the new certificate on the backend server. Ensure that you have installed the complete certificate chain comprising of `Leaf (topmost) > Intermediate(s) > Root`. Based on the type of Certificate Authority (CA), you may take the following actions on your gateway.
+  * Publicly known CA: If the certificate issuer is a well-known CA, you need not take any action on the application gateway.
+  * Private CA: If the leaf certificate is issued by a private CA, you need to check if the signing Root CA certificate has changed. In such cases, you must upload the new Root CA certificate (.CER) to the associated Backend setting of your gateway.
 
-**Solution:** Follow these steps to export and upload the trusted root certificate to Application Gateway. (These steps  are for Windows clients.)
+* Expired Intermediate or Root certificate – Typically, these certificates have relatively extended validity periods (a decade or two). When Root/Intermediate certificate expires, we recommend you check with your certificate provider for the renewed certificate files. Ensure you have installed this updated and complete certificate chain comprising Leaf (topmost)  Intermediate(s)  Root on the backend server. 
+  * If the root/intermediate certificate remains unchanged or if the issuer is a well-known CA, you need NOT take any action on the application gateway. 
+  * If the issuer is a Private CA or there is a change in the Root CA certificate, you must upload the new Root certificate to the application gateway’s backend setting.
 
-1. Sign in to the machine where your application is hosted.
-2. Select Win+R or right-click the **Start** button, and then select **Run**.
-3. Enter `certlm.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate, typically in `Certificates - Local Computer\Personal\Certificates`, and open it.
-5. Select the root certificate and then select **View Certificate**.
-6. In the Certificate properties, select the **Details** tab.
-7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
-8. Open the Application Gateway HTTP **Settings** page in the Azure portal.
-9. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you saved.
-10. Select **Save** to save the HTTP settings.
+For V1 SKU,
+* Renew the expired Leaf (aka Domain or Server) certificate with your CA and upload the same leaf certificate (.CER) to the associated Backend setting of your application gateway. 
 
-Alternatively, you can export the root certificate from a client machine by directly accessing the server (bypassing Application Gateway) through browser and exporting the root certificate from the browser.
+### The intermediate certificate was not found
+**Message:** The Intermediate certificate is missing from the certificate chain presented by the backend server. Ensure the certificate chain is complete and correctly ordered on the backend server.
 
-For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+**Cause:** The intermediate certificate(s) is not installed in the certificate chain on the backend server.
+
+**Solution:** An Intermediate certificate is used to sign the Leaf certificate and is thus needed to complete the chain. Check with your Certificate Authority (CA) for the necessary Intermediate certificate(s) and install them on your backend server. This chain must start with the Leaf Certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. For reference, look at the certificate chain example under Leaf must be topmost in chain.
+
+> [!NOTE] 
+> A self-signed certificate which is NOT a Certificate Authority will also result in the same error. This is because application gateway considers such self-signed certificate as "Leaf" certificate and looks for its signing Intermediate certificate. You can follow this article to correctly [generate a self-signed certificate](./self-signed-certificates.md).
+
+These images show the difference between the self-signed certificates.
+:::image type="content" source="./media/application-gateway-backend-health-troubleshooting/self-signed-types.png" alt-text="An image showing difference between self-signed certificates that is a CA and one that is not a CA.":::()
+
+### The leaf or server certificate was not found
+**Message:** The Leaf certificate is missing from the certificate chain presented by the backend server. Ensure the chain is complete and correctly ordered on the backend server.
+
+**Cause:** The Leaf (aka Domain or Server) certificate is missing from the certificate chain on the backend server.
+
+**Solution:** You can get the leaf certificate from your Certificate Authority (CA). Install this leaf certificate and all its signing certificates (Intermediate and Root CA certificates) on the backend server. This chain must start with the Leaf Certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. For reference, look at the certificate chain example under Leaf must be topmost in chain.
+
+### Server certificate is not issued by a publicly known CA
+
+**Message:** The backend server certificate is not signed by a well-known Certificate Authority (CA). To use unknown CA certificates, its Root certificate must be uploaded to the Backend Setting of the application gateway.
+
+**Cause:** You have chosen “well-known CA certificate” in the backend setting, but the Root certificate presented by the backend server is not publicly known. 
+
+**Solution:** When a Leaf certificate is issued by a private Certificate Authority (CA), the signing Root CA’s certificate must be uploaded to the application gateway’s associated Backend Setting. This enables your application gateway to establish a trusted connection with that backend server. To fix this, go to the associated backend setting, choose “not a well-known CA” and upload the Root CA certificate (.CER). To identify and download the root certificate, you can follow the same steps as described under Trusted root certificate mismatch.
+
+### The Intermediate certificate is NOT signed by a publicly known CA.
+**Message:** The Intermediate certificate is not signed by a well-known Certificate Authority (CA). Ensure the certificate chain is complete and correctly ordered on the backend server.
+
+**Cause:** You have chosen “well-known CA certificate” in the backend setting, but the Intermediate certificate presented by the backend server is not signed by a publicly known CA.
+
+**Solution:** When a Leaf certificate is issued by a private Certificate Authority (CA), the signing Root CA’s certificate must be uploaded to the application gateway’s associated Backend Setting. This enables your application gateway to establish a trusted connection with that backend server. To fix this, contact your private CA to get the appropriate Root CA certificate (.CER) and upload that CER file to the Backend Setting of your application gateway by selecting “not a well-known CA”. We also recommend installing the complete chain on the backend server, including the Root CA certificate, for easy verification.
+
+### Trusted root certificate mismatch (no Root certificate on the backend server)
+
+**Message:** The Intermediate certificate not signed by any Root certificates uploaded to the application gateway. Ensure the certificate chain is complete and correctly ordered on the backend server.
+
+**Cause:** None of the Root CA certificates uploaded to the associated Backend Setting have signed the Intermediate certificate installed on the backend server. The backend server has only Leaf and Intermediate certificates installed.
+
+**Solution:** A Leaf certificate is signed by an Intermediate certificate, which is signed by a Root CA certificate. When using a certificate from Private Certificate Authority (CA), you must upload the corresponding Root CA certificate to the application gateway. Contact your private CA to get the appropriate Root CA certificate (.CER) and upload that CER file to the Backend setting of your application gateway. 
+
 
 ### Trusted root certificate mismatch
 
@@ -331,22 +370,29 @@ If the output doesn't show the complete chain of the certificate being returned,
   \-----END CERTIFICATE-----
 ```
 
+### Backend server certificate invalid CA
 
+**Message:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
-### Backend certificate is invalid
+**Cause:** End-to-end SSL with Application Gateway v2 requires the backend server's certificate to be verified in order to deem the server Healthy. For a TLS/SSL certificate to be trusted, that certificate of the backend server must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, if a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
 
-**Message:** Backend certificate is invalid. Current date is not within the "Valid from" and "Valid to" date range on the certificate.
+**Solution:** Follow these steps to export and upload the trusted root certificate to Application Gateway. (These steps  are for Windows clients.)
 
-**Cause:** Every certificate comes with a validity range, and the HTTPS connection won't be secure unless the server's TLS/SSL certificate is valid. The current data must be within the **valid from** and **valid to** range. If it's not, the certificate is considered invalid, and that will create a
-security issue in which Application Gateway marks the backend server as Unhealthy.
+1. Sign in to the machine where your application is hosted.
+2. Select Win+R or right-click the **Start** button, and then select **Run**.
+3. Enter `certlm.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
+4. Locate the certificate, typically in `Certificates - Local Computer\Personal\Certificates`, and open it.
+5. Select the root certificate and then select **View Certificate**.
+6. In the Certificate properties, select the **Details** tab.
+7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
+8. Open the Application Gateway HTTP **Settings** page in the Azure portal.
+9. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you saved.
+10. Select **Save** to save the HTTP settings.
 
-**Solution:** If your TLS/SSL certificate has expired, renew the certificate
-with your vendor and update the server settings with the new
-certificate. If it's a self-signed certificate, you must generate a valid certificate and upload the root certificate to the Application Gateway HTTP settings. To do that, follow these steps:
+Alternatively, you can export the root certificate from a client machine by directly accessing the server (bypassing Application Gateway) through browser and exporting the root certificate from the browser.
 
-1. Open your Application Gateway HTTP settings in the portal.
-2. Select the setting that has the expired certificate, select **Add Certificate**, and open the new certificate file.
-3. Remove the old certificate by using the **Delete** icon next to the certificate, and then select **Save**.
+For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+
 
 ### Certificate verification failed
 
