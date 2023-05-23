@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/04/2023
+ms.date: 05/17/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -33,7 +33,7 @@ This section provides guidance for cluster administrators who want to provision 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
 |skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
-|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`| Yes | `ext4` for Linux|
+|protocol | Specify file share protocol. | `smb`, `nfs` | No | `smb` |
 |location | Specify Azure region where Azure storage account will be created. | For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
 |resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
 |shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |

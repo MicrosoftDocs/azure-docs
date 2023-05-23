@@ -9,7 +9,7 @@ author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
 ms.date: 09/22/2022
-ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai
 adobe-target: true
 ---
 

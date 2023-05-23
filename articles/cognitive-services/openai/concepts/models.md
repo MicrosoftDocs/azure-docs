@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 05/15/2023
-ms.custom: event-tier1-build-2022, references_regions
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -205,8 +205,8 @@ These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (preview)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (preview) |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1,</sup><sup>2</sup>      |  East US, France Central |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1,</sup><sup>2</sup>  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
