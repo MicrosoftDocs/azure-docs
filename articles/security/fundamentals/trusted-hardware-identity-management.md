@@ -23,7 +23,7 @@ Trusted Hardware Identity Management defines the Azure security baseline for Azu
 
 ### How do I use Trusted Hardware Identity Management with Intel processors?
 
-To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/validation collateral. All or parts of this collateral must be fetched from Trusted Hardware Identity Management. You can fetch it by using the [Intel Quote Provider Library (QPL)](#how-do-i-use-intel-qpl-with-thim) or the [Azure Data Center Attestation Primitives (DCAP) client library](#what-is-the-azure-dcap-library).
+To generate Intel SGX and Intel TDX quotes, the Intel Quote Generation Library (QGL) needs access to quote generation/validation collateral. All or parts of this collateral must be fetched from Trusted Hardware Identity Management. You can fetch it by using the [Intel Quote Provider Library (QPL)](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management) or the [Azure Data Center Attestation Primitives (DCAP) client library](#what-is-the-azure-dcap-library).
 
 ### The "next update" date of the Azure-internal caching service API that Azure Attestation uses seems to be out of date. Is it still in operation and can I use it?
 
