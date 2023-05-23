@@ -58,7 +58,7 @@ Characteristics of Azure Data Explorer include:
 
 You can significantly grow the scope of real-time analytics by using Azure Stream Analytics and Azure Data Explorer together. Here are a few scenarios:
 
-* Stream Analytics identifies anomalies in real time, and Azure Data Explorer helps determine how and why it occurred through interactive exploration.
+* Stream Analytics identifies anomalies in real time, and Azure Data Explorer helps determine how and why they occurred through interactive exploration.
 * Stream Analytics deserializes incoming data streams for use in Azure Data Explorer (for example, ingest Protobuf format by using a custom deserializer or custom binary formats).
 * Stream Analytics can aggregate, filter, enrich, and transform incoming data streams for use in Azure Data Explorer.
 

@@ -14,7 +14,7 @@ You can use [Azure Database for PostgreSQL](https://azure.microsoft.com/services
 
 For more information about Azure Database for PostgreSQL, see [What is Azure Database for PostgreSQL?](../postgresql/overview.md).
 
-To learn more about how to create an Azure Database for PostgreSQL server by using the Azure portal, see the [quickstart for creating Azure Database for PostgreSQL - Flexible Server instance](../postgresql/flexible-server/quickstart-create-server-portal.md).
+To learn more about how to create an Azure Database for PostgreSQL server by using the Azure portal, see the [quickstart for creating an Azure Database for PostgreSQL - Flexible Server instance](../postgresql/flexible-server/quickstart-create-server-portal.md).
 
 > [!NOTE]
 > The Single Server deployment mode is being deprecated.
@@ -41,7 +41,7 @@ Partitioning needs to be enabled and is based on the `PARTITION BY` clause in th
 ## Limitations
 
 * The table schema must exactly match the fields and their types in your job's output.
-* Managed identities for Azure Database for PostgreSQL output in Azure Stream Analytics is currently not supported.
+* Managed identities for Azure Database for PostgreSQL output in Azure Stream Analytics are currently not supported.
 
 ## Next steps
 
