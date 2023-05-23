@@ -178,7 +178,24 @@ Please find the list of recommended actions for this role below.
 #### Cross-tenant access partner administrator
 This role can manage everything relating to partners and read the default settings. This role should be assigned to users who need to manage organizational based settings but not be able to change default settings.
 
-:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png" alt-text="Screenshot of the partner administrator custom role for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-partner-administrator-custom-role.png":::
+Please find the list of recommended actions for this role below.
+
+| Actions |
+| ------- |
+| microsoft.directory.tenantRelationships/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/basic/update |
+| microsoft.directory/crossTenantAccessPolicy/default/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/create |
+| microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/delete |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/basic/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/create |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update |
 
 ## Protect cross-tenant access administrative actions
 Any actions that modify cross-tenant access settings are considered protected actions and can be additionally protected with Conditional Access policies. For more information and configuration steps see [protected actions](../roles/protected-actions-overview.md).
