@@ -73,11 +73,11 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 
 11. On the final page, select **Configure**.
 
-   ![Screenshot of the Ready to configure page of the Azure A D Connect app.](media/migrate-okta-federation-to-azure-active-directory/update-azure-ad-connect-server.png)
+   ![Screenshot of the Ready to configure page of the Azure AD Connect app.](media/migrate-okta-federation-to-azure-active-directory/update-azure-ad-connect-server.png)
 
 12. Ignore the warning for hybrid Azure AD join. 
 
-   ![Screenshot of the Azure AD Connect app. The hybrid Azure A D join warning appears.](media/migrate-okta-federation-to-azure-active-directory/reconfigure-device-options.png)
+   ![Screenshot of the Azure AD Connect app. The hybrid Azure AD join warning appears.](media/migrate-okta-federation-to-azure-active-directory/reconfigure-device-options.png)
 
 ## Configure staged rollout features
 
@@ -89,7 +89,7 @@ After you enable password hash sync and seamless SSO on the Azure AD Connect ser
 
 1. In the [Azure portal](https://portal.azure.com/#home), select **View** or **Manage Azure Active Directory**.
 
-   ![Screenshot od the Azure portal with welcome message.](media/migrate-okta-federation-to-azure-active-directory/azure-portal.png)
+   ![Screenshot of the Azure portal with welcome message.](media/migrate-okta-federation-to-azure-active-directory/azure-portal.png)
 
 2. On the **Azure Active Directory** menu, select **Azure AD Connect**. 
 3. Confirm **Password Hash Sync** is enabled in the tenant.
@@ -171,10 +171,10 @@ Configure the enterprise application registration for Okta.
 22. Select **Delegated permissions**.
 23. In the OpenID permissions section, add **email**, **openid**, and **profile**. 
 24. Select **Add permissions**.
-25. 25. Select **Grant admin consent for \<tenant domain name>**
+25. Select **Grant admin consent for \<tenant domain name>**.
 26. Wait for the **Granted** status to appear.
 
-    ![Screenshot of the A P I permissions page with a message for granted consent.](media/migrate-okta-federation-to-azure-active-directory/grant-consent.png)
+    ![Screenshot of the API permissions page with a message for granted consent.](media/migrate-okta-federation-to-azure-active-directory/grant-consent.png)
 
 27. On the left menu, select **Branding**. 
 28. For **Home page URL**, add your user application home page.
@@ -208,7 +208,7 @@ You created the identity provider (IDP). Send users to the correct IDP.
 
 4. Record the redirect URI to add it to the application registration.
 
-    ![Screenshot of the redirect U R I location.](media/migrate-okta-federation-to-azure-active-directory/application-registration.png)
+    ![Screenshot of the redirect URI location.](media/migrate-okta-federation-to-azure-active-directory/application-registration.png)
 
 5. On the application registration, on the left menu, select **Authentication**. 
 6. Select **Add a platform**
@@ -216,7 +216,7 @@ You created the identity provider (IDP). Send users to the correct IDP.
 8. Add the redirect URI you recorded in the IDP in Okta. 
 9. Select **Access tokens** and **ID tokens**.
 
-    ![Screenshot of the Configure Web page in the Azure portal. A redirect U R I appears. The access and I D tokens are selected.](media/migrate-okta-federation-to-azure-active-directory/access-id-tokens.png)
+    ![Screenshot of the Configure Web page in the Azure portal. A redirect URI appears. The access and I D tokens are selected.](media/migrate-okta-federation-to-azure-active-directory/access-id-tokens.png)
 
 10. In the admin console, select **Directory**.
 11. Select **People**. 
@@ -261,7 +261,7 @@ Learn more: [Configure your company branding](../fundamentals/customize-branding
 
 ## Defederate Office 365 domains
 
-When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to Mirosoft Graph PowerShell. If you don't have the Microsoft Graph PowerShell module, download it by entering `install-module MSOnline`.
+When your organization is comfortable with the managed authentication experience, you can defederate your domain from Okta. To begin, use the following commands to connect to Microsoft Graph PowerShell. If you don't have the Microsoft Graph PowerShell module, download it by entering `install-module MSOnline`.
 
 ```PowerShell
 
