@@ -60,7 +60,7 @@ Before following the steps in this article, make sure you have the following pre
     * The registered Azure Machine Learning data asset is continuously updated for model monitoring.
     * (Recommended) The model should be registered in Azure Machine Learning workspace, for lineage tracking.
 
----
+
 
 > [!IMPORTANT]
 >
@@ -462,7 +462,7 @@ created_monitor = poller.result()
 
 1. In the data drift "Edit signal" window, configure following:
     1. Change the baseline dataset to use training data.
-    1. Monitor drift for top 1-20 important features, or monitor drift for sepecific set of features.
+    1. Monitor drift for top 1-20 important features, or monitor drift for specific set of features.
     1. Select your preferred metrics and set thresholds.
 1. Select **Save** to return to the "Select monitoring signals" section. 
 
@@ -505,8 +505,8 @@ You can also set up model monitoring for models deployed to Azure Machine Learni
   |---|---|---|---|---|
   | input | data_window_start | literal, string | data window start-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
   | input | data_window_end | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
-  | input | input_data | uri_folder | The collected production inference data which is registered as AzrueML data asset. | azureml:myproduction_inference_data:1 |
-  | output | preprocessed_data | mltable | A tabular dataset which matches a subset of baseline data schema. | |
+  | input | input_data | uri_folder | The collected production inference data, which is registered as Azure Machine Learning data asset. | azureml:myproduction_inference_data:1 |
+  | output | preprocessed_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -764,13 +764,11 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-The studio currently does not support monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python tabs instead.
+The studio currently doesn't support monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python tabs instead.
 
 ---
 ## Next steps
 
-- [Explore out-of-box model monitoring example with Azure Machine Learning online endpoint](https://github.com/Azure/azureml-examples) 
-- [Explore advanced model monitoring setup with training data as comparison baseline](https://github.com/Azure/azureml-examples)
 - [Data collection from models in production (preview)](concept-data-collection.md)
 - [Collect production data from models deployed for real-time inferencing](how-to-collect-production-data.md)
 - [CLI (v2) schedule YAML schema for model monitoring (preview)](reference-yaml-monitor.md)

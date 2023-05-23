@@ -18,8 +18,8 @@ reviewer: msakande
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+The YAML syntax detailed in this document is based on the JSON schema for the latest version of the ML CLI v2 extension. This syntax is guaranteed only to work with the latest version of the ML CLI v2 extension.
+You can find the schemas for older extension versions at [https://azuremlschemasprod.azureedge.net/](https://azuremlschemasprod.azureedge.net/).
 
 ## YAML syntax
 
@@ -71,7 +71,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 |`end_time`| string |Describes the end date and time with timezone. If end_time is omitted, the schedule will continue to run until it's explicitly disabled.|
 |`timezone`| string |Specifies the time zone of the recurrence. If omitted, by default is UTC. |See [appendix for timezone values](#timezone)|
 
-### Monitor Definition
+### Monitor definition
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | -----| -----------  | -------------- | -------------|
@@ -85,9 +85,9 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 | `alert_notification` | Object | Description of alert notification recipients. |  |  |
 | `alert_notification.emails` | Object | List of email addresses to receive alert notification. | | |
 
-### Monitoring Signals
+### Monitoring signals
 
-#### Data Drift
+#### Data drift
 
 As the data used to train the model evolves in production, the distribution of the data can shift, resulting in a mismatch between the training data and the real-world data that the model is being used to predict. Data drift is a phenomenon that occurs in machine learning when the statistical properties of the input data used to train the model change over time.
 
@@ -116,7 +116,7 @@ As the data used to train the model evolves in production, the distribution of t
 | `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
 
 
-#### Prediction Drift
+#### Prediction drift
 
 Prediction drift tracks changes in the distribution of a model's prediction outputs by comparing it to validation or test labeled data or recent past production data.
 
@@ -141,7 +141,7 @@ Prediction drift tracks changes in the distribution of a model's prediction outp
 | `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
 
 
-#### Data Quality
+#### Data quality
 
 Data quality signal tracks data quality issues in production by comparing to training data or recent past production data.
 
@@ -165,7 +165,7 @@ Data quality signal tracks data quality issues in production by comparing to tra
 | `metric_thresholds.metric_name` | String | The metric name for the specified feature type. | Allowed `numerical` and `categorical` metric names are: `null_value_rate`, `data_type_error_rate`, `out_of_bound_rate` | |
 | `metric_thresholds.threshold` | Number | The threshold for the specified metric. | | |
 
-#### Feature Attribution Drift
+#### Feature attribution drift
 
 The feature attribution of a model may change over time due to changes in the distribution of data, changes in the relationships between features, or changes in the underlying problem being solved. Feature attribution drift is a phenomenon that occurs in machine learning models when the importance or contribution of features to the prediction output changes over time.
 
