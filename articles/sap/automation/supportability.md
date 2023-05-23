@@ -4,7 +4,7 @@ description: Supported platforms, topologies, and capabilities for the SAP on Az
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 5/23/2025
+ms.date: 5/23/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
