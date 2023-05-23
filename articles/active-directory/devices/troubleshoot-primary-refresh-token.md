@@ -115,44 +115,44 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 ### Step 3: Get troubleshooting instructions for certain error codes
 
 <details>
-<summary>STATUS_LOGON_FAILURE (-1073741715 / 0xc000006d)<br/>
-STATUS_WRONG_PASSWORD (-1073741718 / 0xc000006a)</summary>
+<summary>STATUS_LOGON_FAILURE (-1073741715&nbsp;/&nbsp;0xc000006d)<br/>
+STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 </details>
 
 <details>
-<summary>STATUS_REQUEST_NOT_ACCEPTED (-1073741616 / 0xc00000d0)</summary>
+<summary>STATUS_REQUEST_NOT_ACCEPTED (-1073741616&nbsp;/&nbsp;0xc00000d0)</summary>
 </details>
 
 <details>
-<summary>STATUS_NETWORK_UNREACHABLE (-1073741252 / 0xc000023c)<br/>
-STATUS_BAD_NETWORK_PATH (-1073741634 / 0xc00000be)<br/>
-STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628 / 0xc00000c4)</summary>
+<summary>STATUS_NETWORK_UNREACHABLE (-1073741252&nbsp;/&nbsp;0xc000023c)<br/>
+STATUS_BAD_NETWORK_PATH (-1073741634&nbsp;/&nbsp;0xc00000be)<br/>
+STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 </details>
 
 <details>
-<summary>STATUS_NO_SUCH_LOGON_SESSION (-1073741729 / 0xc000005f)</summary>
+<summary>STATUS_NO_SUCH_LOGON_SESSION (-1073741729&nbsp;/&nbsp;0xc000005f)</summary>
 </details>
 
 #### Common CloudAP plug-in error codes
 
 <details>
-<summary>AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED (-1073445812 / 0xc004844c)</summary>
+<summary>AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED (-1073445812&nbsp;/&nbsp;0xc004844c)</summary>
 </details>
 
 <details>
-<summary>AAD_CLOUDAP_E_OAUTH_USER_SID_IS_EMPTY (-1073445822 / 0xc0048442)</summary>
+<summary>AAD_CLOUDAP_E_OAUTH_USER_SID_IS_EMPTY (-1073445822&nbsp;/&nbsp;0xc0048442)</summary>
 </details>
 
 <details>
-<summary>AAD_CLOUDAP_E_WSTRUST_SAML_TOKENS_ARE_EMPTY (-1073445695 / 0xc00484c1 / 0x800484c1)</summary>
+<summary>AAD_CLOUDAP_E_WSTRUST_SAML_TOKENS_ARE_EMPTY (-1073445695&nbsp;/&nbsp;0xc00484c1&nbsp;/&nbsp;0x800484c1)</summary>
 </details>
 
 <details>
-<summary>AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY (-1073445749 / 0xc004848b)</summary>
+<summary>AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY (-1073445749&nbsp;/&nbsp;0xc004848b)</summary>
 </details>
 
 <details>
-<summary>WC_E_DTDPROHIBITED (-1072894385 / 0xc00cee4f)</summary>
+<summary>WC_E_DTDPROHIBITED (-1072894385&nbsp;/&nbsp;0xc00cee4f)</summary>
 </details>
 
 #### Common server error codes
