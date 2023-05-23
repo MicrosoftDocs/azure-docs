@@ -22,7 +22,7 @@ The Log Ingestion API provides the following advantages over the Data Collector 
 
 - Supports [transformations](../essentials/data-collection-transformations.md), which enable you to modify the data before it's ingested into the destination table, including filtering and data manipulation.
 - Lets you send data to multiple destinations.  
-- Enables you to manage the the destination table schema, including column names, and whether to add new columns to the destination table when the source data schema changes.
+- Enables you to manage the destination table schema, including column names, and whether to add new columns to the destination table when the source data schema changes.
 
 > [!NOTE]
 > The Data Collector API automatically adjusts the destination table schema when the source data schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create. On the other hand, you can manually adjust destination table schemas and data collection rules to align with source data schema changes. 
@@ -34,7 +34,7 @@ The Log Ingestion API provides the following advantages over the Data Collector 
 The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
 
 - [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
-- [Data collection rules](../essentials/data-collection-rule-overview.md) which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
+- [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
 
 ### Prepare destination tables
 
