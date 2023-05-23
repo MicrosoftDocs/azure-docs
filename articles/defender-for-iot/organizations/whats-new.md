@@ -33,7 +33,7 @@ For more information, see [Sensor setting reference](configure-sensor-settings-p
 |Service area  |Updates  |
 |---------|---------|
 | **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
-| **OT networks** | **Sensor version 22.3.8**: <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
 
 ### End-to-end deployment guides
 
@@ -52,6 +52,12 @@ The step-by-step instructions in each section are intended to help customers opt
 :::image type="content" source="media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Site networking setup highlighted." border="false" lightbox="media/deployment-paths/progress-network-level-deployment.png":::
 
 For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
+
+### Proxy support for client SSL/TLS certificates
+
+A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS traffic, such as when using services like Zscaler and Palo Alto Prisma. Starting in version 22.3.8, you can upload a client certificate through the OT sensor console.
+
+For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
 
 ### Download WMI script from OT sensor console
 
