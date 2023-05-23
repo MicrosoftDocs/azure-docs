@@ -64,7 +64,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
 
 1. Select **Diagnostics collection**.
 1. The AP5GC online service will generate a package at the provided storage account URL. Once the portal reports that this has succeeded, you'll be able to download the diagnostics package ready to share with Azure support.
-    1. To download the diagnostics package, see [Download a block blob](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#download-a-block-blob).
+    1. To download the diagnostics package, see [Download a block blob](../storage/blobs/storage-quickstart-blobs-portal#download-a-block-blob).
     1. To open a support request and share the diagnostics package with Azure support, see [How to open a support request for Azure Private 5G Core](open-support-request.md).
 
 ## Troubleshooting
