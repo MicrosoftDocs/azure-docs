@@ -3,6 +3,7 @@ title: Azure SQL trigger for Functions
 description: Learn to use the Azure SQL trigger in Azure Functions.
 author: dzsquared
 ms.topic: reference
+ms.custom: build-2023
 ms.date: 4/14/2023
 ms.author: drskwier
 ms.reviewer: glenga
@@ -12,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Azure SQL trigger for Functions (preview)
 
 > [!NOTE]
-> The Azure SQL trigger for Functions is currently in preview and requires that a preview extension library or extension bundle is used.
+> The Azure SQL trigger for Functions is currently in preview and requires that a preview extension library or extension bundle is used. In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
@@ -637,5 +638,3 @@ If the function execution fails five times in a row for a given row then that ro
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
-
-

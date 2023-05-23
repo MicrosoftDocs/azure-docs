@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/15/2023
-ms.custom: sdkv2, ignite-2022
+ms.custom: sdkv2, ignite-2022, build-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -18,7 +18,7 @@ ms.custom: sdkv2, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-This tutorial is an introduction to some of the most used features of the Azure Machine Learning service.  In it, you will create, register and deploy a model. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage. 
+This tutorial is an introduction to some of the most used features of the Azure Machine Learning service.  In it, you will create, register and deploy a model. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
 
 You'll learn how to run a training job on a scalable compute resource, then deploy it, and finally test the deployment.
 
@@ -217,12 +217,14 @@ You might need to select **Refresh** to see the new folder and script in your **
 
 ## Create a compute cluster, a scalable way to run a training job
 
+> [!NOTE]
+> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [configure the command](#configure-the-command).
+
 You already have a compute instance, which you're using to run the notebook.  Now you'll add a second type of compute, a **compute cluster** that you'll use to run your training job. While a compute instance is a single node machine, a compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
 You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
 For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
-
 
 ```python
 from azure.ai.ml.entities import AmlCompute
@@ -273,6 +275,8 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
 
+> [!NOTE]
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -293,7 +297,7 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-    compute="cpu-cluster",
+    compute="cpu-cluster", #delete this line to use serverless compute
     display_name="credit_default_prediction",
 )
 ```
