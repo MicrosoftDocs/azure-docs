@@ -140,7 +140,7 @@ EOF
 ```
 
 >[!NOTE]
->It is strongly advised that custom images do not run competing network inteface software (ifupdown and networkd, etc.) and do not run dhcpclient directly on multiple interfaces.
+>It is strongly advised that custom images do not run competing network interface software (such as ifupdown and networkd) and do not run dhcpclient directly on multiple interfaces.
 
 --- 
 
