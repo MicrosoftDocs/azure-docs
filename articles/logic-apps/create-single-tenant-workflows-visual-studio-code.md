@@ -1,6 +1,6 @@
 ---
-title: Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code
-description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps to automate integration tasks across apps, data, services, and systems using Visual Studio Code.
+title: Create Standard workflows with Visual Studio Code
+description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021, engagement-fy23
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
-# Create a Standard logic app workflow for single-tenant Azure Logic Apps using Visual Studio Code
+# Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
