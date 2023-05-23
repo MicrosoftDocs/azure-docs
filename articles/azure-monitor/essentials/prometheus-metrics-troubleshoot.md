@@ -137,7 +137,7 @@ Agent based scraping currently has the limitations in the following table:
 
 ## Check ingestion quota on Azure Monitor workspace
 
-If you see metrics missed ,you can first check if the ingestion limits are being exceeded for your Azure Monitor workspace. In the Azure portal, you can check the current usage for any Azure monitor Workspace. You can see current usage metrics under `Metrics` menu for the Azure Monitor workspace. Following utilization metrics are availabie as standard metrics for each Azure Monitor workspace.
+If you see metrics missed, you can first check if the ingestion limits are being exceeded for your Azure Monitor workspace. In the Azure portal, you can check the current usage for any Azure monitor Workspace. You can see current usage metrics under `Metrics` menu for the Azure Monitor workspace. Following utilization metrics are available as standard metrics for each Azure Monitor workspace.
 
 - Active Time Series - The number of unique time series recently ingested into the workspace over the previous 12 hours
 - Active Time Series Limit - The limit on the number of unique time series, that can be actively ingested into the workspace
