@@ -403,7 +403,7 @@
         - name: HX-series
           href: hx-series.md
         - name: Performance
-          href: hx-series-performance.md
+          href: hx-performance.md
       - name: HPC for HB-series and N-series VMs
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
