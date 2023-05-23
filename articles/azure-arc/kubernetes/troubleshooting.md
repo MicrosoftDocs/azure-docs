@@ -73,7 +73,7 @@ If you have gotten overage claim please check below things in order:
 
 1. Have you configured oubound proxy envrionment? If yes then, please check if this endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
 
-1. If you are using AAD user entity and #2 is also satisfied then, please file a support ticket for follow up.
+If neither of these apply, open a support request so we can look into the issue.
 
 ## Connecting Kubernetes clusters to Azure Arc
 
