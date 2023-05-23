@@ -125,7 +125,7 @@ Based on the current health probe state of your backend instances, you receive d
 | **No backend instances behind Load Balancer/No load balancing rules associated** | Unresponsive: Request timed out |
 
 ## Usage considerations
-  * ICMP pings cannot be disabled and are allowed by default on Standard Public Load Balancers. 
+  * ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers. 
 > [!NOTE]
 > ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer. 
 
