@@ -2375,7 +2375,7 @@ groups:
 # Owner: juliakm
 - id: github-actions-deployment-options
   title: GitHub Actions deployment options
-  prompt: Choose how you deploy
+  prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
     title: Manual
