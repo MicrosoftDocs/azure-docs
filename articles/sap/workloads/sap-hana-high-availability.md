@@ -354,8 +354,8 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    1. Insert the following lines in the */etc/hosts* file. Change the IP addresses and host names to match your environment.
 
       ```bash
-      <IP address 1> <HANA SID>-db-<database 1>
-      <IP address 2> <HANA SID>-db-<database 2>
+      10.0.0.5 hn1-db-0
+      10.0.0.6 hn1-db-1
       ```
 
 1. **[A]** Install the SAP HANA high availability packages:
@@ -463,8 +463,8 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    Then, copy the system public key infrastructure (PKI) files to the secondary site:
 
    ```bash
-   scp /usr/sap/<HANA SID>/SYS/global/security/rsecssfs/data/SSFS_<HANA SID>.DAT   <HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/SYS/global/security/rsecssfs/data/
-   scp /usr/sap/<HANA SID>/SYS/global/security/rsecssfs/key/SSFS_<HANA SID>.KEY  <HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/SYS/global/security/rsecssfs/key/
+   scp /usr/sap/<HANA SID>/SYS/global/security/rsecssfs/data/SSFS_<HANA SID>.DAT   hn1-db-1:/usr/sap/<HANA SID>/SYS/global/security/rsecssfs/data/
+   scp /usr/sap/<HANA SID>/SYS/global/security/rsecssfs/key/SSFS_<HANA SID>.KEY  hn1-db-1:/usr/sap/<HANA SID>/SYS/global/security/rsecssfs/key/
    ```
 
    Create the primary site:
@@ -481,7 +481,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    ```bash
    sapcontrol -nr <instance number> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> 
+   hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> 
    ```
 
 ## Configure SAP HANA 1.0 system replication
@@ -564,7 +564,7 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
 
    1. Stop HANA on both nodes.
 
-      Run the following code as \<SAP SID\>adm:  
+      Run the following code as \<sapsid\>adm:  
 
       ```bash
       sapcontrol -nr <instance number> -function StopSystem
@@ -810,7 +810,7 @@ The steps to configure HANA system replication are described in [Configure SAP H
 ```bash
 sapcontrol -nr <instance number> -function StopWait 600 10 
 
-hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> --operationMode=logreplay_readaccess 
+hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> --operationMode=logreplay_readaccess 
 ```
 
 ### Add a secondary virtual IP address resource
@@ -824,7 +824,7 @@ crm configure primitive rsc_secip_<HANA SID>_HDB<instance number> ocf:heartbeat:
  meta target-role="Started" \
  operations \$id="rsc_secip_<HANA SID>_HDB<instance number>-operations" \
  op monitor interval="10s" timeout="20s" \
- params ip="<IP address>"
+ params ip="<secondary IP address>"
 
 crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=626<instance number> \
  op monitor timeout=20s interval=10 \
@@ -866,7 +866,7 @@ The next section describes the typical set of failover tests to execute.
 
 Considerations when you test a HANA cluster that's configured with a read-enabled secondary:
 
-- When you migrate the `SAPHana_<HANA SID>_HDB<instance number>` cluster resource to the `<HANA SID>-db-<database 2>` VM, the second virtual IP moves to the `<HANA SID>-db-<database 1>` server. If you have configured `AUTOMATED_REGISTER="false"` and HANA system replication isn't registered automatically, the second virtual IP runs on `<HANA SID>-db-<database 1>` because the server is available and cluster services are online.  
+- When you migrate the `SAPHana_<HANA SID>_HDB<instance number>` cluster resource to `hn1-db-1`, the second virtual IP moves to `hn1-db-0`. If you have configured `AUTOMATED_REGISTER="false"` and HANA system replication isn't registered automatically, the second virtual IP runs on `hn1-db-0` because the server is available and cluster services are online.  
 
 - When you test a server crash, the second virtual IP resources (`rsc_secip_<HANA SID>_HDB<instance number>`) and the Azure load balancer port resource (`rsc_secnc_<HANA SID>_HDB<instance number>`) run on the primary server alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to a read-enabled HANA database connect to the primary HANA database. The behavior is expected because you don't want applications that are connected to a read-enabled HANA database to be inaccessible while the secondary server is unavailable.
   
@@ -876,7 +876,7 @@ Considerations when you test a HANA cluster that's configured with a read-enable
 
 ## Test the cluster setup
 
-This section describes how you can test your setup. Every test assumes that you're signed in as root and that the SAP HANA master is running on the `<HANA SID>-db-<database 1>` VM.
+This section describes how you can test your setup. Every test assumes that you're signed in as root and that the SAP HANA master is running on the `hn1-db-0` VM.
 
 ### Test the migration
 
@@ -899,10 +899,10 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 You can migrate the SAP HANA master node by running the following command:
 
 ```bash
-   crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2> force
+   crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1 force
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the SAP HANA master node and the group that contains the virtual IP address to `<HANA SID>-db-<database 2>`.
+If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
 
 When the migration is finished, the `crm_mon -r` output looks like this example:
 
@@ -924,14 +924,14 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 ```
 
-The SAP HANA resource on `<HANA SID>-db-<database 1>` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
+The SAP HANA resource on `hn1-db-0` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
-   su - <HANA SID>adm
+   su - <hana sid>adm
 
 # Stop the HANA instance, just in case it is running
-<HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> sapcontrol -nr <instance number> -function StopWait 600 10
-<HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr <instance number> -function StopWait 600 10
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
 ```
 
 The migration creates location constraints that need to be deleted again:
@@ -939,16 +939,16 @@ The migration creates location constraints that need to be deleted again:
 ```bash
    # Switch back to root and clean up the failed state
 exit
-<HANA SID>-db-<database 1>:~ # crm resource clear msl_SAPHana_<HANA SID>_HDB<instance number>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<HANA SID>_HDB<instance number>
 ```
 
 You also need to clean up the state of the secondary node resource:
 
 ```bash
-   <HANA SID>-db-<database 1>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 1>
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
 ```
 
-Monitor the state of the HANA resource by using `crm_mon -r`. When HANA is started on `<HANA SID>-db-<database 1>`, the output looks like this example:
+Monitor the state of the HANA resource by using `crm_mon -r`. When HANA is started on `hn1-db-0`, the output looks like this example:
 
 ```bash
    Online: [ hn1-db-0 hn1-db-1 ]
@@ -967,7 +967,7 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
 
 ### Test the Azure fencing agent
 
-You can test the setup of the Azure fencing agent (not the StreamBase Server daemon, or *SBD*) by disabling the network interface on the `<HANA SID>-db-<database 1>` node:
+You can test the setup of the Azure fencing agent (not the *SBD*) by disabling the network interface on the `hn1-db-0` node:
 
 ```bash
 sudo ifdown eth0
@@ -980,15 +980,15 @@ If you set the `stonith-action` setting to `off`, the VM is stopped and the reso
 After you start the VM again, the SAP HANA resource fails to start as secondary if you set `AUTOMATED_REGISTER="false"`. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
-su - <HANA SID>adm
+su - <hana sid>adm
 
 # Stop the HANA instance, just in case it is running
 sapcontrol -nr <instance number> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
 
 # Switch back to root and clean up the failed state
 exit
-crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 1>
+crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
 ```
 
 ### Test SBD fencing
@@ -1012,27 +1012,27 @@ The `<HANA SID>-db-<database 1>` cluster node reboots. The Pacemaker service mig
 
 ### Test a manual failover
 
-You can test a manual failover by stopping the Pacemaker service on the `<HANA SID>-db-<database 1>` node:
+You can test a manual failover by stopping the Pacemaker service on the `hn1-db-0` node:
 
 ```bash
    service pacemaker stop
 ```
 
-After the failover, you can start the service again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the `<HANA SID>-db-<database 1>` node fails to start as secondary.
+After the failover, you can start the service again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the `hn1-db-0` node fails to start as secondary.
 
 In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
    service pacemaker start
-su - <HANA SID>adm
+su - <hana sid>adm
 
 # Stop the HANA instance, just in case it is running
 sapcontrol -nr <instance number> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1> 
+hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1> 
 
 # Switch back to root and clean up the failed state
 exit
-crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 1>
+crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
 ```
 
 ### SUSE tests
@@ -1064,21 +1064,21 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
 
-   Run the following commands as \<HANA SID\>adm on the `<HANA SID>-db-<database 1>` node:
+   Run the following commands as \<hana sid\>adm on the `hn1-db-0` node:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> HDB stop
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    ```
 
-   Pacemaker detects the stopped HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `<HANA SID>-db-<database 1>` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
+   Pacemaker detects the stopped HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `hn1-db-0` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
 
-   Run the following commands to register the `<HANA SID>-db-<database 1>` node as secondary and clean up the failed resource:
+   Run the following commands to register the `hn1-db-0` node as secondary and clean up the failed resource:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
    
    # run as root
-   <HANA SID>-db-<database 1>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 1>
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
    ```
 
    The resource state after the test:
@@ -1109,21 +1109,21 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    ```
 
-   Run the following commands as \<HANA SID\>adm on the `<HANA SID>-db-<database 2>` node:
+   Run the following commands as \<hana sid\>adm on the `hn1-db-1` node:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> HDB stop
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB01> HDB stop
    ```
 
-   Pacemaker detects the stopped HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `<HANA SID>-db-<database 2>` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
+   Pacemaker detects the stopped HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `hn1-db-1` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
 
-   Run the following commands to register the `<HANA SID>-db-<database 2>` node as secondary and clean up the failed resource:
+   Run the following commands to register the `hn1-db-1` node as secondary and clean up the failed resource:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2>
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> --replicationMode=sync --name=<site 2>
    
    # run as root
-   <HANA SID>-db-<database 2>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2>
+   hn1-db-1:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1
    ```
 
    The resource state after the test:
@@ -1154,21 +1154,21 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
 
-   Run the following commands as \<HANA SID\>adm on the `<HANA SID>-db-<database 1>` node:
+   Run the following commands as \<hana sid\>adm on the `hn1-db-0` node:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> HDB kill-9
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    ```
 
-   Pacemaker detects the killed HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `<HANA SID>-db-<database 1>` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
+   Pacemaker detects the killed HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `hn1-db-0` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
 
-   Run the following commands to register the `<HANA SID>-db-<database 1>` node as secondary and clean up the failed resource:
+   Run the following commands to register the `hn1-db-0` node as secondary and clean up the failed resource:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
    
    # run as root
-   <HANA SID>-db-<database 1>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 1>
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
    ```
 
    The resource state after the test:
@@ -1199,21 +1199,21 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    ```
 
-   Run the following commands as \<HANA SID\>adm on the `<HANA SID>-db-<database 2>` node:
+   Run the following commands as \<hana sid\>adm on the `hn1-db-1` node:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> HDB kill-9
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    ```
 
-   Pacemaker detects the killed HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `<HANA SID>-db-<database 2>` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
+   Pacemaker detects the killed HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `hn1-db-1` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
 
-   Run the following commands to register the `<HANA SID>-db-<database 2>` node as secondary and clean up the failed resource.
+   Run the following commands to register the `hn1-db-1` node as secondary and clean up the failed resource.
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2>
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> --replicationMode=sync --name=<site 2>
    
    # run as root
-   <HANA SID>-db-<database 2>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2>
+   hn1-db-1:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1
    ```
 
    The resource state after the test:
@@ -1244,31 +1244,31 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
 
-   Run the following commands as root on the `<HANA SID>-db-<database 1>` node:
+   Run the following commands as root on the `hn1-db-0` node:
 
    ```bash
-   <HANA SID>-db-<database 1>:~ #  echo 'b' > /proc/sysrq-trigger
+   hn1-db-0:~ #  echo 'b' > /proc/sysrq-trigger
    ```
 
    Pacemaker detects the killed cluster node and fences the node. When the node is fenced, Pacemaker triggers a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 1>` node, register the `<HANA SID>-db-<database 1>` node as secondary, and clean up the failed resource:
+   Run the following commands to start Pacemaker, clean the SBD messages for the `hn1-db-0` node, register the `hn1-db-0` node as secondary, and clean up the failed resource:
 
    ```bash
    # run as root
    # list the SBD device(s)
-   <HANA SID>-db-<database 1>:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   hn1-db-0:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
    
-   <HANA SID>-db-<database 1>:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message <HANA SID>-db-<database 1> clear
+   hn1-db-0:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message hn1-db-0 clear
    
-   <HANA SID>-db-<database 1>:~ # systemctl start pacemaker
+   hn1-db-0:~ # systemctl start pacemaker
    
-   # run as <HANA SID>adm
-   <HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+   # run as <hana sid>adm
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
    
    # run as root
-   <HANA SID>-db-<database 1>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 1>
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
    ```
 
    The resource state after the test:
@@ -1299,31 +1299,31 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    ```
 
-   Run the following commands as root on the `<HANA SID>-db-<database 2>` node:
+   Run the following commands as root on the `hn1-db-1` node:
 
    ```bash
-   <HANA SID>-db-<database 2>:~ #  echo 'b' > /proc/sysrq-trigger
+   hn1-db-1:~ #  echo 'b' > /proc/sysrq-trigger
    ```
 
    Pacemaker detects the killed cluster node and fences the node. When the node is fenced, Pacemaker triggers a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 2>` node, register the `<HANA SID>-db-<database 2>` node as secondary, and clean up the failed resource:
+   Run the following commands to start Pacemaker, clean the SBD messages for the `hn1-db-1` node, register the `hn1-db-1` node as secondary, and clean up the failed resource:
 
    ```bash
    # run as root
    # list the SBD device(s)
-   <HANA SID>-db-<database 2>:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   hn1-db-1:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
    
-   <HANA SID>-db-<database 2>:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message <HANA SID>-db-<database 2> clear
+   hn1-db-1:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message hn1-db-1 clear
    
-   <HANA SID>-db-<database 2>:~ # systemctl start pacemaker
+   hn1-db-1:~ # systemctl start pacemaker
    
-   # run as <HANA SID>adm
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2>
+   # run as <hana sid>adm
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=<instance number> --replicationMode=sync --name=<site 2>
    
    # run as root
-   <HANA SID>-db-<database 2>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2>
+   hn1-db-1:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1
    ```
 
    The resource state after the test:
@@ -1355,19 +1355,19 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
 
-   Run the following commands as \<HANA SID\>adm on the `<HANA SID>-db-<database 2>` node:
+   Run the following commands as \<hana sid\>adm on the `hn1-db-1` node:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> HDB stop
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    ```
 
-   Pacemaker detects the stopped HANA instance and marks the resource as failed on the `<HANA SID>-db-<database 2>` node. Pacemaker automatically restarts the HANA instance.
+   Pacemaker detects the stopped HANA instance and marks the resource as failed on the `hn1-db-1` node. Pacemaker automatically restarts the HANA instance.
 
    Run the following command to clean up the failed state:
 
    ```bash
    # run as root
-   <HANA SID>-db-<database 2>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2>
+   hn1-db-1>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1
    ```
 
    The resource state after the test:
@@ -1398,17 +1398,17 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
 
-   Run the following commands as \<HANA SID\>adm on the `<HANA SID>-db-<database 2>` node:
+   Run the following commands as \<hana sid\>adm on the `hn1-db-1` node:
 
    ```bash
-   <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> HDB kill-9
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    ```
 
-   Pacemaker detects the killed HANA instance and marks the resource as failed on the `<HANA SID>-db-<database 2>` node. Run the following command to clean up the failed state. Pacemaker then automatically restarts the HANA instance.
+   Pacemaker detects the killed HANA instance and marks the resource as failed on the `hn1-db-1` node. Run the following command to clean up the failed state. Pacemaker then automatically restarts the HANA instance.
 
    ```bash
    # run as root
-   <HANA SID>-db-<database 2>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2>
+   hn1-db-1:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> HN1-db-1
    ```
 
    The resource state after the test:
@@ -1439,27 +1439,27 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
 
-   Run the following commands as root on the `<HANA SID>-db-<database 2>` node:
+   Run the following commands as root on the `hn1-db-1` node:
 
    ```bash
-   <HANA SID>-db-<database 2>:~ # echo b > /proc/sysrq-trigger
+   hn1-db-1:~ # echo b > /proc/sysrq-trigger
    ```
 
    Pacemaker detects the killed cluster node and fenced the node. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 2>` node, and clean up the failed resource:
+   Run the following commands to start Pacemaker, clean the SBD messages for the `hn1-db-1` node, and clean up the failed resource:
 
    ```bash
    # run as root
    # list the SBD device(s)
-   <HANA SID>-db-<database 2>:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   hn1-db-1:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
    
-   <HANA SID>-db-<database 2>:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message <HANA SID>-db-<database 2> clear
+   hn1-db-1:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message hn1-db-1 clear
    
-   <HANA SID>-db-<database 2>:~ # systemctl start pacemaker  
+   hn1-db-1:~ # systemctl start pacemaker  
    
-   <HANA SID>-db-<database 2>:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<database 2>
+   hn1-db-1:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1
    ```
 
    The resource state after the test:
