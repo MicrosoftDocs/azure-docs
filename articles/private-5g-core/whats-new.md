@@ -86,7 +86,7 @@ The Azure Private 5G Core online service now reports the provisioning status of 
 
 **Date available:** January 31, 2023
 
-You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared as a SAS URI to AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
+You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared with AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
 
 ### West Europe region
 
