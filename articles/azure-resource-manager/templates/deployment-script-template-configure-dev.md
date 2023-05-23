@@ -109,7 +109,7 @@ The following Azure Resource Manager template (ARM template) creates a container
       "apiVersion": "2022-09-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
-        "storageAccount"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     },
     {
@@ -296,7 +296,7 @@ The following ARM template creates a container instance and a file share, and th
       "apiVersion": "2022-09-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
-        "storageAccount"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     },
     {
