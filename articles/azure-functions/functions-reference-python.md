@@ -404,14 +404,14 @@ At this time, only specific triggers and bindings are supported by the Python v2
 
 | Type | Trigger | Input binding | Output binding |
 | --- | :---: | :---: | :---: |
-| [HTTP](aka.ms/azure-function-binding-http) | x |   |   |
-| [Timer](aka.ms/azure-function-binding-timer) | x |   |   |
-| [Azure Queue Storage](aka.ms/azure-function-binding-queue) | x |   | x |
-| [Azure Service Bus topic](aka.ms/azure-function-binding-service-bus) | x |   | x |
-| [Azure Service Bus queue](aka.ms/azure-function-binding-service-bus) | x |   | x |
-| [Azure Cosmos DB](aka.ms/azure-function-binding-cosmosdb-v2) | x | x | x |
-| [Azure Blob Storage](aka.ms/azure-function-binding-storage-blob) | x | x | x |
-| [Azure Hub](aka.ms/azure-function-binding-event-hubs) | x |   | x |
+| [HTTP](../azure-functions/functions-bindings-http-webhook) | x |   |   |
+| [Timer](../azure-functions/functions-bindings-timer.md) | x |   |   |
+| [Azure Queue Storage](../azure-functions/functions-bindings-storage-queue.md) | x |   | x |
+| [Azure Service Bus topic](../azure-functions/functions-bindings-service-bus.md) | x |   | x |
+| [Azure Service Bus queue](../azure-functions/functions-bindings-service-bus.md) | x |   | x |
+| [Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md) | x | x | x |
+| [Azure Blob Storage](../azure-functions/functions-bindings-storage-blob.md) | x | x | x |
+| [Azure Hub](../azure-functions/functions-bindings-event-hubs.md) | x |   | x |
 
 ::: zone-end
 
