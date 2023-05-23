@@ -53,7 +53,7 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
-        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+        - name: Use Draft and the DevX extension for Visual Studio Code
           href: draft-devx-extension-aks.md
     - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
@@ -279,8 +279,8 @@
               href: start-stop-nodepools.md
             - name: Resize node pools
               href: resize-node-pool.md
-        - name: Use the Mariner container host (preview)
-          href: use-mariner.md
+        - name: Use the Azure Linux container host for AKS
+          href: use-azure-linux.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -412,7 +412,7 @@
           items:
             - name: Bring your own CNI
               href: use-byo-cni.md
-            - name: Use Azure CNI Powered by Cilium (Preview)
+            - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
             - name: Use Azure CNI
               href: configure-azure-cni.md
@@ -499,8 +499,16 @@
                   href: azure-csi-files-storage-provision.md
             - name: Azure Files and Azure NetApp Files comparison
               href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-            - name: Provision Azure NetApp Files storage
-              href: azure-netapp-files.md
+            - name: Azure NetApp Files for AKS
+              items:
+              - name: Configure Azure NetApp Files for AKS
+                href: azure-netapp-files.md
+              - name: Provision Azure NetApp Files NFS volumes for AKS
+                href: azure-netapp-files-nfs.md
+              - name: Provision Azure NetApp Files SMB volumes for AKS
+                href: azure-netapp-files-smb.md
+              - name: Provision Azure NetApp Files dual-protocol volumes for AKS
+                href: azure-netapp-files-dual-protocol.md
         - name: Block storage
           items:
             - name: Azure Disks CSI driver

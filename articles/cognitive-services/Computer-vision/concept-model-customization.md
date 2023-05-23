@@ -61,7 +61,7 @@ The **Dataset** object is a data structure stored by the Image Analysis service 
 
 ### Model object
 
-The **Model** object is a data structure stored by the Image Analysis service that represents a custom model. It must be associated with a **Dataset** in order to do initial training. Once it's trained, you can query your model by entering its name in the `model-version` query parameter of the [Analyze Image API call](./how-to/call-analyze-image-40.md).
+The **Model** object is a data structure stored by the Image Analysis service that represents a custom model. It must be associated with a **Dataset** in order to do initial training. Once it's trained, you can query your model by entering its name in the `model-name` query parameter of the [Analyze Image API call](./how-to/call-analyze-image-40.md).
 
 ## Quota limits
 
