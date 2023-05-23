@@ -21,6 +21,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## May 2023 
 
+* Azure NetApp Files [customer-managed keys](configure-customer-managed-keys.md) now support source and data replication volumes with [cross-region replication](cross-region-replication-requirements-considerations.md)  or [cross-zone replication](cross-zone-replication-requirements-considerations.md) relationships. 
+
 * [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
     Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Azure Virtual Network (VNet) experience through various security and connectivity features that are available on Azure VNets to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
