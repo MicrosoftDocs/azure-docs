@@ -137,7 +137,7 @@ Here's a quick summary of the various deployment types that are available for SA
 | Compute to storage fault domain alignment | No | No | Yes |
 | Capacity Reservation | Yes (assign capacity reservation at VM level) | Yes | No |
 
-## Different deployment options for high availability SAP workload
+## High availability deployment options for SAP workload
 
 When deploying a high availability SAP workload on Azure, it's important to take into account the various deployment types available, and how they can be applied across different Azure regions (such as across zones, in a single zone, or in a region with no zones). Following table illustrates several high availability options for SAP systems in Azure regions.
 
