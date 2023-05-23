@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 This article outlines how to register Azure Machine Learning and how to authenticate and interact with Azure Machine Learning in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-This integration between Azure Machine Learning and Microsoft Purview applies an auto push model that, once the Azure Machine Learning workspace has been registered in Microsoft Purview, the metadata from workspace will be pushed to Microsoft Purview automatically on a daily basis. It isn't necessary to manually set up a scan to bring metadata from the workspace into Microsoft Purview.
+This integration between Azure Machine Learning and Microsoft Purview applies an auto push model that, once the Azure Machine Learning workspace has been registered in Microsoft Purview, the metadata from workspace is pushed to Microsoft Purview automatically on a daily basis. It isn't necessary to manually scan to bring metadata from the workspace into Microsoft Purview.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -58,7 +58,7 @@ This section describes how to register an Azure Machine Learning workspace in Mi
 
 1. On the **Register sources (Azure Machine Learning)** screen, do the following:
 
-    1. For **Name**, enter a friendly name that Microsoft Purview will list as the data source for the workspace.
+    1. For **Name**, enter a friendly name that Microsoft Purview lists as the data source for the workspace.
 
     1. For **Azure subscription** and **Workspace name**, select the subscription and workspace that you want to push from the dropdown. The Azure Machine Learning workspace URL is automatically populated.
 
