@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/22/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -568,7 +568,7 @@ The full object is in the following format:
 
 ```json
 {
-  "apiVersion":"2021-04-01",
+  "apiVersion":"2022-09-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -577,7 +577,7 @@ The full object is in the following format:
   "tags":{},
   "kind":"Storage",
   "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "creationTime":"2021-10-09T18:55:40.5863736Z",
     "primaryEndpoints": {
       "blob":"https://examplestorage.blob.core.windows.net/",
       "file":"https://examplestorage.file.core.windows.net/",
@@ -807,7 +807,6 @@ The following template creates and assigns a policy definition. It uses the `man
       }
     }
   },
-  "functions": [],
   "variables": {
     "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
     "policyDefinitionName": "LocationRestriction"
@@ -815,7 +814,7 @@ The following template creates and assigns a policy definition. It uses the `man
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2021-06-01",
       "name": "[variables('policyDefinitionName')]",
       "properties": {
         "policyType": "Custom",
@@ -834,9 +833,9 @@ The following template creates and assigns a policy definition. It uses the `man
         }
       }
     },
-    {
+    "location_lock": {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2022-06-01",
       "name": "location-lock",
       "properties": {
         "scope": "[variables('mgScope')]",
