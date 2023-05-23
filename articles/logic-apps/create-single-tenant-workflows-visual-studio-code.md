@@ -109,11 +109,11 @@ Install the following tools and versions for your specific operating system: Win
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**.
 
-    1. In the extensions search box, enter `azure logic apps standard`. From the results list, select **Azure Logic Apps (Standard)** **>** **Install**.
+    1. In the extensions search box, enter **azure logic apps standard**. From the results list, select **Azure Logic Apps (Standard)** **>** **Install**.
 
        After the installation completes, the extension appears in the **Extensions: Installed** list.
 
-       ![Screenshot showing Visual Studio Code with the Azure Logic Apps (Standard) extension installed](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
+       ![Screenshot shows Visual Studio Code with Azure Logic Apps (Standard) extension installed.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
        > [!TIP]
        > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
@@ -157,7 +157,7 @@ Install the following tools and versions for your specific operating system: Win
 
       For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
 
-      ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
+      ![Screenshot shows Visual Studio Code settings for Azure Logic Apps (Standard) extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
 
 <a name="connect-azure-account"></a>
 
@@ -165,19 +165,17 @@ Install the following tools and versions for your specific operating system: Win
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-   ![Screenshot that shows Visual Studio Code Activity Bar and selected Azure icon.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
+   ![Screenshot shows Visual Studio Code Activity Bar and selected Azure icon.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. In the Azure pane, under **Logic Apps (Standard)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
+1. In the Azure pane, under **Resources**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
-   ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
+   ![Screenshot shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps (Consumption)** section, not the **Logic Apps (Standard)** section.
-
-   If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
+   After you sign in, the Azure pane shows the Azure subscriptions associated with your Azure account. If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
    1. In the subscriptions list, move your pointer next to the first subscription until the **Select Subscriptions** button (filter icon) appears. Select the filter icon.
 
-      ![Screenshot that shows Azure pane and selected filter icon.](./media/create-single-tenant-workflows-visual-studio-code/filter-subscription-list.png)
+      ![Screenshot shows Azure pane with subscriptions and selected filter icon.](./media/create-single-tenant-workflows-visual-studio-code/filter-subscription-list.png)
 
       Or, in the Visual Studio Code status bar, select your Azure account.
 
@@ -193,41 +191,40 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In Visual Studio Code, close all open folders.
 
-1. In the Azure pane, next to **Logic Apps (Standard)**, select **Create New Project** (icon that shows a folder and lightning bolt).
+1. In the Azure pane, on the **Workspace** section toolbar, select **Create New Project** (folder icon).
 
-   ![Screenshot that shows Azure pane toolbar with "Create New Project" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
+   ![Screenshot shows Azure pane and Workspace toolbar with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
 1. If Windows Defender Firewall prompts you to grant network access for `Code.exe`, which is Visual Studio Code, and for `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
 1. Browse to the location where you created your project folder, select that folder and continue.
 
-   ![Screenshot that shows "Select Folder" dialog box with a newly created project folder and the "Select" button selected.](./media/create-single-tenant-workflows-visual-studio-code/select-project-folder.png)
+   ![Screenshot shows Select Folder box and new project folder with Select button selected.](./media/create-single-tenant-workflows-visual-studio-code/select-project-folder.png)
 
 1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. This example selects **Stateful Workflow**.
 
-   ![Screenshot that shows the workflow templates list with "Stateful Workflow" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
+   ![Screenshot shows workflow templates list with Stateful Workflow selected.](./media/create-single-tenant-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
-1. Provide a name for your workflow and press Enter. This example uses **Fabrikam-Stateful-Workflow** as the name.
+1. Provide a name for your workflow and press Enter. This example uses **Stateful-Workflow** as the name.
 
-   ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
+   ![Screenshot shows Create new Stateful Workflow (3/4) box and workflow name, Stateful-Workflow.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
 
    > [!NOTE]
    > You might get an error named **azureLogicAppsStandard.createNewProject** with the error message, 
    > **Unable to write to Workspace Settings because azureFunctions.suppressProject is not a registered configuration**. 
    > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
 
-   Visual Studio Code finishes creating your project, and opens the **workflow.json** file for your workflow in the code editor.
+1. If Visual Studio Code prompts you to open your project in the current Visual Studio Code or in a new Visual Studio Code window, select **Open in current window**. Otherwise, select **Open in new window**.
 
-   > [!NOTE]
-   > If you're prompted to select how to open your project, select **Open in current window** 
-   > if you want to open your project in the current Visual Studio Code window. To open a new 
-   > instance for Visual Studio Code, select **Open in new window**.
+   Visual Studio Code finishes creating your project.
 
-1. From the Visual Studio toolbar, open the Explorer pane, if not already open.
+, and opens the **workflow.json** file for your workflow in the code editor.
+
+1. From the Visual Studio Activity bar, open the Explorer pane, if not already open.
 
    The Explorer pane shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
 
-   ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
+   ![Screenshot shows Explorer pane with project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
    [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
@@ -244,7 +241,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
 
-   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
+   ![Screenshot shows Explorer pane with project shortcut menu opened from blank area in project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
 
 1. When the prompt appears, confirm the project conversion.
 
@@ -293,7 +290,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
    After the designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
 
-   ![Screenshot that shows the workflow designer.](./media/create-single-tenant-workflows-visual-studio-code/workflow-designer.png)
+   ![Screenshot shows the workflow designer.](./media/create-single-tenant-workflows-visual-studio-code/workflow-designer.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow.
 
