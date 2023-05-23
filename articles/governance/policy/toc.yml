@@ -63,6 +63,9 @@
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
     href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+  - name: "Tutorial: Add user assign identities to virtual machines"
+    displayName: remediate, identity, user assign, virtual machines, monitoring agent
+    href: ./tutorials/modify-virtual-machine-identity.md
 - name: Samples
   items:
   - name: Index
