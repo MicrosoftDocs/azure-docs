@@ -553,7 +553,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 1. From that list, select **Expression** to open the expression editor instead.
 
-1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want, and then select **OK**. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
    Syntax: `item()?['<array-property-name>']`
 
@@ -578,7 +578,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor.
 
-1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want, and then select **Add**. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
    Syntax: `item()?['<array-property-name>']`
 
@@ -1271,13 +1271,9 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **select**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Select**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Select**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box, and the "Select" action selected.](./media/logic-apps-perform-data-operations/select-select-action-standard.png)
-
-1. In the **From** box, enter the source array that you want to use.
+1. After the action information box appears, in the **From** box, enter the source array that you want to use.
 
    For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
@@ -1293,7 +1289,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    1. Select inside the right column, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-   1. In the expression editor, enter the function named **item()**, and then select **OK**.
+   1. In the expression editor, enter the function named **item()**, and then select **Add**.
 
    ![Screenshot showing the designer for a Standard workflow, the "Select" action, and the JSON object property and values to create the JSON object array.](./media/logic-apps-perform-data-operations/configure-select-action-2-standard.png)
 
