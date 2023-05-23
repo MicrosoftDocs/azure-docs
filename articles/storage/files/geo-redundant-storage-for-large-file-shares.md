@@ -107,13 +107,13 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 ```
 ---
 
-## Enable geo-redundancy for standard file shares
+## Enable geo-redundancy and large file shares for standard SMB file shares
 
-With Azure Files geo-redundancy for large file shares preview, you can enable geo-redundancy for new and existing standard SMB file shares.
+With Azure Files geo-redundancy for large file shares preview, you can enable geo-redundancy and large file shares for new and existing standard SMB file shares.
 
 ### Create a new storage account and file share
 
-Perform the following steps to configure geo-redundancy for a new Azure file share.
+Perform the following steps to configure geo-redundancy and large file shares for a new Azure file share.
 
 1. [Create a standard storage account](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account).
    - Select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
@@ -123,7 +123,7 @@ Perform the following steps to configure geo-redundancy for a new Azure file sha
 
 ### Existing storage accounts and file shares  
 
-The steps to enable geo-redundancy for large file shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
+The steps to enable geo-redundancy for large files shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
