@@ -76,7 +76,8 @@ An IP prefix resource allows operators to manipulate routes based on the IP pref
 The IP prefixes enable operators to drop certain prefixes from being propagated up-stream/down-stream or tag them with specific community or extended community values.
 The operator must create an ARM resource of the type IP-Prefix by providing a list of prefixes with sequence numbers and action.
 
-    The prefixes in the list are processed in ascending order and the matching process stops after the first match. If the first match condition is "deny", the route is dropped and isn't propagated further. If the first match condition is "allow", further matching is aborted and the route is handled based on the action part of the route policies.
+The prefixes in the list are processed in ascending order and the matching process stops after the first match. If the first match condition is "deny", the route is dropped and isn't propagated further. If the first match condition is "allow", further matching is aborted and the route is handled based on the action part of the route policies.
+
 
 IP prefixes specify only the match conditions of route policies. They don't specify the action part of route policies.
 
