@@ -14,11 +14,7 @@ ms.custom:
 
 When setting up the features of Global Secure Access for the first time, you can use the "Getting Started Wizard" in the Microsoft Entra admin center.
 
-Before setting up the service, familiarize yourself with the following concepts:
-- [Security service edge (SSE)](overview-what-is-security-service-edge.md)
-- [Global Secure Access](overview-what-is-global-secure-access.md)
-- [Microsoft Entra Private Access](overview-what-is-private-access.md)
-- [Microsoft Entra Internet Access](overview-what-is-internet-access.md)
+Before setting up the service, review the [What is Global Secure Access?](overview-what-is-global-secure-access.md) article.
 
 The wizard is organized into required tasks and recommended tasks. The required tasks are the minimum configuration needed to get started with Global Secure Access. The recommended tasks are optional, but are recommended to get the most out of the service.
 
