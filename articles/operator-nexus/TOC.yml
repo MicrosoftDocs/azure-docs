@@ -29,7 +29,7 @@
   - name: Network Fabric
     href: howto-configure-network-fabric.md
   - name: Network Fabric Route Policy
-    href: howto-route-policy.md
+    href: how-to-route-policy.md
   - name: Cluster
     href: howto-configure-cluster.md
   - name: BareMetal Functions
