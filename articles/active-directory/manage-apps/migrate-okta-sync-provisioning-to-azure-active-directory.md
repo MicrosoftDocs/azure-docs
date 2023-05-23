@@ -13,7 +13,7 @@ ms.subservice: app-mgmt
 ms.custom: kr2b-contr-experiment, not-enterprise-apps
 ---
 
-# Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization 
+# Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization
 
 In this tutorial, you'll learn how your organization can migrate user provisioning from Okta to Azure Active Directory (Azure AD) and migrate either User Sync or Universal Sync to Azure AD Connect. This capability enables further provisioning into Azure AD and Office 365.
 
