@@ -243,7 +243,7 @@ Make sure the following settings are configured correctly for remote access:
    ```
    
 > [!NOTE]
-> By running this command; it will enable the appropiate firewall rules automatically
+> When this command runs, it enables the appropriate firewall rules automatically.
 
 1. Enable the following firewall rules to allow the RDP traffic:
 
@@ -266,8 +266,7 @@ Make sure the following settings are configured correctly for remote access:
    ```
   
  > [!IMPORTANT]
- > 168.63.129.16 is a special public IP address that is owned by Microsoft for Azure Platform
- > ([what-is-ip-address-168-63-129-16](../../virtual-network/what-is-ip-address-168-63-129-16.md))
+ > 168.63.129.16 is a special public IP address that is owned by Microsoft for Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 1. If the VM is part of a domain, check the following Azure AD policies to make sure the previous
    settings aren't reverted.
