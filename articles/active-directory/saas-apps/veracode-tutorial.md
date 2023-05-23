@@ -149,7 +149,7 @@ Notes:
 	| ---------------| --------------- |
 	| SAML Audience URL |Identifier (Entity ID) |
 	| SAML Assertion URL |Reply URL (Assertion Consumer Service URL) |
-	| Relaystate URL |Relay State |
+	| Relay State URL |Relay State |
 
 1. Select the **JIT Provisioning** tab.
 
