@@ -109,12 +109,8 @@
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-      - name: Renesas RX65N-2 MB
-        href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
-      - name: NXP MIMXRT1050-EVKB
-        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
       - name: STMicroelectronics B-L475-IOT01A

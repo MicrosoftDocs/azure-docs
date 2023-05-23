@@ -45,7 +45,7 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 | ----------------------------------------------------------| ---------------------------------------------------------------------------------------------|
 | Azure AD B2B / External Identities                        | [Azure Active Directory External Identities](/answers/tags/231/azure-active-directory-b2c)   |
 | Azure AD B2C                                              | [Azure Active Directory External Identities](/answers/tags/231/azure-active-directory-b2c)   |
-| All other Azure Active Directory areas                    | [Azure Active Diretory](/answers/tags/49/azure-active-directory)                             |
+| All other Azure Active Directory areas                    | [Azure Active Directory](/answers/tags/49/azure-active-directory)                             |
 | Azure RBAC                                                | [Azure Role-Based access control](/answers/tags/189/azure-rbac)                              |
 | Azure Key Vault                                           | [Azure Key Vault](/answers/tags/5/azure-key-vault)                                           |
 | Microsoft Security                                        | [Microsoft Defender for Cloud](/answers/tags/392/defender-for-cloud)                         |

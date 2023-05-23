@@ -120,6 +120,13 @@ await videoEffectsFeatureApi.startEffects(backgroundBlurEffect);
 await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect);
 ```
 
+At anytime if you want to check what effects are active, you can use the `activeEffects` property.
+The `activeEffects` property returns an array with the names of the current active effects, and returns an empty array if there are no effects active.
+```js
+// Using the video effects feature api
+const currentActiveEffects = videoEffectsFeatureApi.activeEffects;
+```
+
 To stop effects:
 ```js
 await videoEffectsFeatureApi.stopEffects();

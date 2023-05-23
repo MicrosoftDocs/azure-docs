@@ -153,10 +153,19 @@ Property value details:
 - `forceUpdateTag`: Changing this value between template deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` isn't specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
-- `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+- `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
 
-  >[!IMPORTANT]
-  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
+  - **Az version greater than or equal to 9** uses Ubuntu 22.04.
+  - **Az version greater than or equal to 6 but less than 9** uses Ubuntu 20.04.
+  - **Az version less than 6** uses Ubuntu 18.04.
+
+  > [!IMPORTANT]
+  > It is advisable to upgrade to the latest version of Ubuntu, as Ubuntu 18.04 is nearing its end of life and will no longer receive security updates beyond [May 31st, 2023](https://ubuntu.com/18-04).
+
+  See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  > [!IMPORTANT]
+  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
 
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 

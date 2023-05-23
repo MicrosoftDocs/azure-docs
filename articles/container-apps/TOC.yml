@@ -168,6 +168,10 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Dapr
+      items:
+        - name: Enable token authentication for Dapr requests 
+          href: dapr-authentication-token.md
     - name: Use storage mounts
       href: storage-mounts.md
     - name: Plan for disaster recovery

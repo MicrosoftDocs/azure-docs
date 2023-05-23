@@ -53,7 +53,7 @@ Support for structured text adaptation is added for locale `de-AT`.
 
 #### Speech to text REST API
 
-The Speech to text REST API version 3.1 is generally available. Version 3.0 of the [speech-to-text REST API](../../rest-speech-to-text.md) will be retired. For more information about how to migrate, see the [guide](../../migrate-v3-0-to-v3-1.md).
+The Speech to text REST API version 3.1 is generally available. Version 3.0 of the [Speech to text REST API](../../rest-speech-to-text.md) will be retired. For more information about how to migrate, see the [guide](../../migrate-v3-0-to-v3-1.md).
 
 ### October 2022 release
 

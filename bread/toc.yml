@@ -1035,6 +1035,9 @@
       - name: Elastic SAN
         tocHref: /azure/storage/elastic-san/
         topicHref: /azure/storage/elastic-san/elastic-san-introduction
+      - name: Container Storage
+        tocHref: /azure/storage/container-storage/
+        topicHref: /azure/storage/container-storage/container-storage-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction

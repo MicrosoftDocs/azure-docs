@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 04/18/2023
+ms.date: 05/15/2023
 ms.topic: how-to
 ---
 # How to create custom machine configuration package artifacts
@@ -43,7 +43,7 @@ Before you create a configuration package, author and compile a DSC configuratio
 configurations are available for Windows and Linux.
 
 > [!IMPORTANT]
-> When compiling configurations for Windows, use **PSDesiredStateConfiguration** version 2.0.5 (the
+> When compiling configurations for Windows, use **PSDesiredStateConfiguration** version 2.0.7 (the
 > stable release). When compiling configurations for Linux install the prerelease version 3.0.0.
 
 An example is provided in the DSC [Getting started document][04] for Windows.

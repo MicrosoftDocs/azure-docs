@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [speech-to-text container images](#container-images).
+> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [speech to text container images](#container-images).
 
 ## Run the container with docker run
 

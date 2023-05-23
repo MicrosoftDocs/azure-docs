@@ -35,4 +35,4 @@ You should receive a response with a JSON body like the following one:
 }
 ```
 
-For more information, see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).
+For more information, see the [Speech to text REST API reference](../../../rest-speech-to-text.md).

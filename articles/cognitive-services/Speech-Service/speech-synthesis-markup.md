@@ -30,7 +30,7 @@ You can use SSML to:
 ## Use SSML
 
 > [!IMPORTANT]
-> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. For more information, see [text-to-speech pricing notes](text-to-speech.md#pricing-note).
+> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. For more information, see [text to speech pricing notes](text-to-speech.md#pricing-note).
 
 You can use SSML in the following ways:
 

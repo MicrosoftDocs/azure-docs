@@ -14,7 +14,7 @@ Defender for Cloud continually assesses your resources, subscriptions and organi
 
 ## Prerequisites
 
-- **Foundational CSPM capabilities** - None 
+- **Foundational CSPM** - None 
 - **Defender Cloud Security Posture Management (CSPM)** - Agentless scanning requires the **Subscription Owner** to enable the plan. Anyone with a lower level of authorization can enable the Defender CSPM plan but the agentless scanner won't be enabled by default due to lack of permissions. Attack path analysis and security explorer won't be populated with vulnerabilities because the agentless scanner is disabled. 
 
 For commercial and national cloud coverage, review [features supported in different Azure cloud environments](support-matrix-cloud-environment.md).
@@ -47,7 +47,7 @@ Learn more about [Defender CSPM pricing](https://azure.microsoft.com/pricing/det
 
 The following table summarizes each plan and their cloud availability.
 
-| Feature | Foundational CSPM capabilities | Defender CSPM | Cloud availability |
+| Feature | Foundational CSPM | Defender CSPM | Cloud availability |
 |--|--|--|--|
 | [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, on-premises |
 | [Asset inventory](asset-inventory.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |

@@ -123,8 +123,8 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 
     * **Blob**
     * **File**
-    * **Queue** - Only needed if you plan to use [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
-    * **Table** - Only needed if you plan to use [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Queue** - Only needed if you plan to use [Batch endpoints](concept-endpoints-batch.md) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
+    * **Table** - Only needed if you plan to use [Batch endpoints](concept-endpoints-batch.md) or the [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in an Azure Machine Learning pipeline.
 
     :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
 

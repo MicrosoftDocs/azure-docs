@@ -1,22 +1,22 @@
 ---
-title: Workflow connectors
-description: This article describes how to use connectors in Purview workflows
+title: Workflow connectors and actions
+description: This article describes how to use connectors and actions in Microsoft Purview workflows
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 05/15/2023
 ms.custom: template-how-to
 ---
 
-#  Workflow connectors 
+#  Workflow connectors and actions
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 You can use [workflows](concept-workflow.md) to automate some business processes through Microsoft Purview. A Connector in a workflow provides a way to connect to different systems and leverage a set of prebuilt actions and triggers.
 
-## Current workflow connectors
+## Current workflow connectors and actions
 
 Currently the following connectors are available for a workflow in Microsoft Purview:
 
@@ -31,6 +31,7 @@ Currently the following connectors are available for a workflow in Microsoft Pur
 |Grant access     |Create an access policy to grant access to the requested user.         |None         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow         |Data access request         |
 |Http     |Integrate with external applications through http or https call. <br> For more information, see [Workflows HTTP connector](how-to-use-workflow-http-connector.md)         | <br> - Host <br> - Method <br> - Path <br> - Headers <br> - Queries <br> - Body <br> - Authentication         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Settings: Secured Input and Secure outputs (Enabled by default) <br> - Multiple per workflow         |All workflows templates         |
 |Import glossary terms     |Import one or more glossary terms         |None        | <br> - Renamable: Yes <br> - Deletable: No <br> - Multiple per workflow         |Import terms         |
+|Parse JSON    |Parse an incoming JSON to extract parameters       |- Content <br> - Schema <br>        | <br> - Renamable: Yes <br> - Deletable: No <br> - Multiple per workflow         |All workflows templates         |
 |Send email notification     |Send email notification to one or more recipients         | <br> - Subject <br> - Message body <br> - Recipient         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Settings: Secured Input and Secure outputs (Enabled by default) <br> - Multiple per workflow         |All workflows templates         |
 |Start and wait for an approval     |Generates approval requests and assign the requests to individual users or Microsoft Azure Active Directory groups. Microsoft Purview workflow approval connector currently supports two types of approval types:  <br> - First to Respond – This implies that the first approver's outcome (Approve/Reject) is considered final. <br> - Everyone must approve – This implies everyone identified as an approver must approve the request for the request to be considered approved. If one approver rejects the request, regardless of other approvers, the request is rejected. <br> - Reminder settings - You can set reminders to periodically remind the approver till they approve or reject. <br> - Expiry settings - You can set an expiration or deadline for the approval activity. Also, you can set who needs to be notified (user/AAD group) after the expiry. | <br> - Approval Type <br> - Title <br> - Assigned To         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow         |All workflows templates         | 
 |Update glossary term     |Update an existing glossary term         |None         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow         |Update glossary term         |
