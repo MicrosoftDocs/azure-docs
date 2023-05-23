@@ -38,22 +38,23 @@ map.setStyle({
 });
 ```
 
-The following tool shows how the different style options change how the map is rendered. To see the 3D buildings, zoom in close to a major city.
+For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples].
 
+<!-----------------------------------------------------------------------------------------------
 <br/>
-
 <iframe height="700" scrolling="no" title="Map style options" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>Map style options</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
+----------------------------------------------------------------------------------------------->
 ## Set a base map style
 
 You can also initialize the map control with one of the [base map styles] that are available in the Web SDK. You can then use the `setStyle` function to update the base style with a different map style.
 
 ### Set a base map style on initialization
 
-Base styles of the map control can be set during initialization. In the following code, the `style` option of the map control is set to the [`grayscale_dark` base map style].  
+Base styles of the map control can be set during initialization. In the following code, the `style` option of the map control is set to the
+[grayscale_dark] base map style.  
 
 ```javascript
 var map = new atlas.Map('map', {
@@ -63,25 +64,32 @@ var map = new atlas.Map('map', {
 );
 ```
 
-<br/>
+:::image type="content" source="./media/choose-map-style/set-base-map-style-on-initialization.png" alt-text="Screenshot showing the grayscale dark style being set during the map load process.":::
 
+<!-----------------------------------------------------------------------------------------------
+<br/>
 <iframe height='500' scrolling='no' title='Setting the style on map load' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Setting the style on map load</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------------------------------------------------->
 
 ### Update the base map style
 
 The base map style can be updated by using the `setStyle` function and setting the `style` option to either change to a different base map style or add more style options.
 
+In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle] function.
+
 ```javascript
 map.setStyle({ style: 'satellite' });
 ```
 
-In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle] function.
+:::image type="content" source="./media/choose-map-style/update-base-map-style.png" alt-text="Screenshot showing the satellite style, set after the map load process.":::
 
+<!-----------------------------------------------------------------------------------------------
 <br/>
 
 <iframe height='500' scrolling='no' title='Updating the style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Updating the style</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------------------------------------------------->
 
 ## Add the style picker control
 
@@ -102,10 +110,24 @@ The following image shows the style picker control displayed in `list` layout.
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list the base styles to display in the style picker control.
 
+```javascript
+/*Add the Style Control to the map*/
+map.controls.add(new atlas.control.StyleControl({
+  mapStyles: ['road', 'grayscale_dark', 'night', 'road_shaded_relief', 'satellite', 'satellite_road_labels'],
+  layout: 'list'
+}), {
+  position: 'top-right'
+});  
+```
+
+:::image type="content" source="./media/choose-map-style/Add-style-picker-control.png" alt-text="Screenshot showing a map with the Style picker control with the layout property set to list.":::
+
+<!-----------------------------------------------------------------------------------------------
 <br/>
 
 <iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+----------------------------------------------------------------------------------------------->
 
 ## Next steps
 
@@ -136,8 +158,9 @@ See the following articles for more code samples to add to your maps:
 
 [style options]: /javascript/api/azure-maps-control/atlas.styleoptions
 [base map styles]: supported-map-styles.md
-[`grayscale_dark` base map style]: supported-map-styles.md#grayscale_dark
-[setStyle]: /javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-
+
+[grayscale_dark]: supported-map-styles.md#grayscale_dark
+[setStyle]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setstyle
 [Style Control Options]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
 [Map]: /javascript/api/azure-maps-control/atlas.map
 [StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
@@ -146,3 +169,5 @@ See the following articles for more code samples to add to your maps:
 [Add map controls]: map-add-controls.md
 [Add a symbol layer]: map-add-pin.md
 [Add a bubble layer]: map-add-bubble-layer.md
+[Map style options]: https://samples.azuremaps.com/?search=style%20option&sample=map-style-options
+[Azure Maps Samples]: https://samples.azuremaps.com

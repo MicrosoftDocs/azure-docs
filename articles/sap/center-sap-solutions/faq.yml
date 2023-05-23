@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Center for SAP solutions FAQ (preview)
+  title: Azure Center for SAP solutions FAQ
   description: "Get answers to common questions about Azure Center for SAP solutions and Virtual Instance for SAP solutions (VIS) resources."
   ms.topic: faq 
   ms.service: sap-on-azure
@@ -9,11 +9,9 @@ metadata:
   ms.author: ladolan
   author: lauradolan
 
-title: Common questions about  Azure Center for SAP solutions (preview)
+title: Common questions about  Azure Center for SAP solutions
 summary: |
   This article answers commonly asked questions about Azure Center for SAP solutions.
-  
-  [!INCLUDE [Preview content notice](./includes/preview.md)]
 
 sections: 
   - name: General 
