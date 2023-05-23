@@ -659,6 +659,8 @@
             - name: Import data (preview)
               displayName: Import data (preview)
               href: how-to-import-data-assets.md
+            - name: Manage imported data (preview)
+              href: how-to-manage-imported-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
