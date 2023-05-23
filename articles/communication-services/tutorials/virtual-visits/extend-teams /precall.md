@@ -13,7 +13,7 @@ ms.subservice: teams-interop
 ---
 
 # Extend precall activities
-A successful Virtual appointment experience requires the device to be prepared for the audio and video experience. Azure Communication Services provide a set of tools that help to validate the device pre-requisites before the Virtual appointment guided support.
+A successful Virtual appointment experience requires the device to be prepared for the audio and video experience. Azure Communication Services provide a set of tools that help to validate the device prerequisites before the Virtual appointment guided support.
 
 
 ## Prerequisites
@@ -24,7 +24,7 @@ The reader of this article is expected to have a solid understanding of the foll
 -	[Azure Communication Services](https://learn.microsoft.com/azure/communication-services/) [Chat](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts), [Calling](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) and [user interface library](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)
 
 ## Background validation
-Azure Communication Services provide pre-Call diagnostic APIs for validating device readiness, such as browser compatibility, network, and call quality. The code snippet below will run a 30-second test on the device.
+Azure Communication Services provide [pre-Call diagnostic APIs](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/pre-call-diagnostics) for validating device readiness, such as browser compatibility, network, and call quality. The code snippet below will run a 30-second test on the device.
 
 Create CallClient and get Pre-call diagnostics feature:
 ```js
@@ -32,7 +32,7 @@ const callClient = new CallClient();
 const preCallDiagnostics = callClient.feature(Features.PreCallDiagnostics);
 ```
 
-Start pre-call test with access token:
+Start precall test with an access token:
 
 ```js
 const tokenCredential = new AzureCommunicationTokenCredential("<ACCESS_TOKEN>");
@@ -49,14 +49,14 @@ const browserSupport =  await preCallDiagnosticsResult.browserSupport;
   }
 ```
 
-Additionally, you can validate MediaStatsCallFeature, DeviceCompatibility, DeviceAccess, DeviceEnumeration, InCallDiagnostics . You can also look at tutorial that implements pre-call diagnostics with user interface library.
+Additionally, you can validate [MediaStatsCallFeature](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/mediastatscallfeature?view=azure-communication-services-js), [DeviceCompatibility](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/devicecompatibility?view=azure-communication-services-js), [DeviceAccess](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/deviceaccess?view=azure-communication-services-js), [DeviceEnumeration](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/deviceenumeration?view=azure-communication-services-js), [InCallDiagnostics](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/incalldiagnostics?view=azure-communication-services-js) . You can also look at the [tutorial that implements pre-call diagnostics with a user interface library](https://learn.microsoft.com/azure/communication-services/tutorials/call-readiness/call-readiness-overview).
 
-Azure Communication Services has a ready-to-use tool called Network Diagnostics for developers to ensure that their device and network conditions are optimal for connecting to the service.
+Azure Communication Services has a ready-to-use tool called [Network Diagnostics](https://azurecommdiagnostics.net/) for developers to ensure that their device and network conditions are optimal for connecting to the service.
 
 ## Guided validation
 Azure Communication Services has a dedicated bot for validating client's audio settings. The bot plays a prerecorded message and prompts the customer to record their own message. With proper microphone and speaker settings, customers can hear both the prerecorded message and their own recorded message played back to them.
 
-Use the code snippet below to start the call to test bot
+Use the code snippet below to start the call to test the bot
 ```js
 const callClient = new CallClient(); 
 const tokenCredential = new AzureCommunicationTokenCredential("<ACCESS_TOKEN>");
