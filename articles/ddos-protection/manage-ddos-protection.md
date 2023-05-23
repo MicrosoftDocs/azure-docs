@@ -93,7 +93,7 @@ Azure Firewall Manager is a platform to manage and protect your network resource
 
 This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) will detect any virtual networks in a defined scope that don't have DDoS Network Protection enabled. This policy will then optionally create a remediation task that will create the association to protect the Virtual Network. See [Azure Policy built-in definitions for Azure DDoS Network Protection](policy-reference.md) for full list of built-in policies.
 
-### Disable for a Public IP address:
+### Disable for a virtual network:
 
 To disable DDoS protection for a virtual network proceed with the following steps.
 
