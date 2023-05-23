@@ -63,7 +63,7 @@ SecurityIncident
 
 ## Security operations efficiency workbook
 
-To complement the **SecurityIncidents** table, we’ve provided you an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
+To complement the **SecurityIncidents** table, we’ve provided you with an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
 - Incident created over time 
 - Incidents created by closing classification, severity, owner, and status 
 - Mean time to triage 
