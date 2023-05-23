@@ -499,8 +499,16 @@
                   href: azure-csi-files-storage-provision.md
             - name: Azure Files and Azure NetApp Files comparison
               href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-            - name: Provision Azure NetApp Files storage
-              href: azure-netapp-files.md
+            - name: Azure NetApp Files for AKS
+              items:
+              - name: Configure Azure NetApp Files for AKS
+                href: azure-netapp-files.md
+              - name: Provision Azure NetApp Files NFS volumes for AKS
+                href: azure-netapp-files-nfs.md
+              - name: Provision Azure NetApp Files SMB volumes for AKS
+                href: azure-netapp-files-smb.md
+              - name: Provision Azure NetApp Files dual-protocol volumes for AKS
+                href: azure-netapp-files-dual-protocol.md
         - name: Block storage
           items:
             - name: Azure Disks CSI driver
