@@ -15,37 +15,37 @@ ms.subservice: calling
 >[!IMPORTANT]
 > Please be aware that the current Data Channel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
 
-# Overview
+## Overview
 The Data Channel feature API enables real-time data messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate Data Channel feature to your call and use the Data Channel APIs to send and receive data messages through a data channel.
-## Prerequisites
+### Prerequisites
 Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pivots=platform-windows) to set up a sample app with voice calling.
-## Classes
+### Classes
 | Name | Description |
 | - | - | 
 | DataChannelCallFeature | Used to start and manage data channel feature. | 
 | DataChannelSender | Used to manage a data channel as a sender and send data. | 
 | DataChannelReceiver | Used to manage a data channel as a receiver and receive data. |
 | DataChannelSenderCreateOptions | Used for representing options to create a data channel sender. |
-## Events
+### Events
 | Name | Description |  
 | - | - |
 | DataChannelReceiverCreated | Describes the event when a receiver is created. A new receiver is created when receiving a data message from another endpoint through a new data channel for the first time. |
 | DataChannelReceiverMessageReady | Describes the event when a data message is received and ready to be fetched. |
 | DataChannelReceiverClose | Describes the event when a data channel receiver is to be closed. |
-## Enums
+### Enums
 | Name | Description |  
 | - | - | 
 | DataChannelPriority | Describes the priority options of data channel. Values: { `NORMAL`, `HIGH` }. | 
 | DataChannelReliability | Describes the reliability options of data channel. Values: { `LOSSY`, `DURABLE` }. |
-## Methods
-### Enable Data Channel feature
+### Methods
+#### Enable Data Channel feature
 
 1. Get the ongoing call object established during the prerequisite steps.
 2. Get the Data Channel Feature object.
 ```csharp
 DataChannelCallFeature dataChannelCallFeature = call.Features.DataChannel;
 ```
-### Receiving data message
+#### Receiving data message
 1. Define the DataChannelReceiverCreated event handler.
 ```csharp
 void DataChannelReceiverCreatedHandler(object sender, DataChannelReceiverCreatedEventArgs args) 
@@ -85,7 +85,7 @@ void ReceiverCloseHandler(object sender, DataChannelReceiverCloseEventArgs args)
 receiver.MessageReady += MessageReadyHandler;
 receiver.Close += ReceiverCloseHandler;
 ```
-### Sending data message
+#### Sending data message
 1. Configure the DataChannelSenderCreateOptions.
 ```csharp
 DataChannelSenderCreateOptions options = new DataChannelSenderCreateOptions();
@@ -93,9 +93,13 @@ options.ChannelId = 1000;
 options.BitrateInKbps = 32;
 options.Priority = DataChannelPriority.NORMAL;
 options.Reliability = DataChannelReliability.LOSSY;
+var participants = new List<CallIdentifier> { /* identifier1, identifier2, ... */ };
+options.Participants = participants.AsReadOnly();
 ```
 2. Define the DataChannelSender and send data message
 ```csharp
 DataChannelSender dataChannelSender = dataChannelCallFeature.CreateDataChannelSender(options);
+dataChannelSender.SetParticipants(new List<CallIdentifier>().AsReadOnly()); // change participants in the channel if needed
 dataChannelSender.SendMessageAsync(msgData); // msgData contains the byte[] data to be sent
+
 ```
