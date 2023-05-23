@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 05/16/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -22,43 +22,30 @@ Azure provides a global [role-based access control authorization system](../role
 
 Per-user access over search results (sometimes referred to as row-level security or document-level security) isn't supported. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor shouldn't have access.
 
-## Built-in roles used in Search
-
-Built-in roles include generally available and preview roles. If these roles are insufficient, [create a custom role](#create-a-custom-role) instead.
-
-| Role | Description and availability |
-| ---- | ---------------------------- |
-| [Owner](../role-based-access-control/built-in-roles.md#owner) | (Generally available) Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default.</br></br> (Preview) This role has the same access as the Search Service Contributor role on the data plane. It includes access to all data plane actions except the ability to query the search index or index documents. |
-| [Contributor](../role-based-access-control/built-in-roles.md#contributor) | (Generally available) Same level of access as Owner, minus the ability to assign roles or change authorization options. </br></br> (Preview) This role has the same access as the Search Service Contributor role on the data plane. It includes access to all data plane actions except the ability to query the search index or index documents. |
-| [Reader](../role-based-access-control/built-in-roles.md#reader) | (Generally available) Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: service name, resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>This role doesn't allow access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). </br></br> (Preview) When you enable the RBAC preview for the data plane, the Reader role has read access across the entire service. This allows you to read search metrics, content metrics (storage consumed, number of objects), and the definitions of data plane resources (indexes, indexers, etc.). The Reader role still won't have access to read API keys or read content within indexes. |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | (Generally available) This role is identical to the Contributor role and applies to control plane operations. </br></br>(Preview) When you enable the RBAC preview for the data plane, this role also provides full access to all data plane actions on indexes, synonym maps, indexers, data sources, and skillsets as defined by [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role doesn't give you access to query search indexes or index documents. This role is for search service administrators who need to manage the search service and its objects, but without the ability to view or access object data. </br></br>Like Contributor, members of this role can't make or manage role assignments or change authorization options. To use the preview capabilities of this role, your service must have the preview feature enabled, as described in this article. |
-| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | (Preview) Provides full data plane access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
-| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | (Preview) Provides read-only data plane access to search indexes on the search service. This role is for apps and users who run queries. |
-
 > [!NOTE]
 > In Cognitive Search, "control plane" refers to operations supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
 
-<a name="preview-limitations"></a>
+## Built-in roles used in Search
 
-## Preview capabilities and limitations
+The following roles are built in. If these roles are insufficient, [create a custom role](#create-a-custom-role). 
 
-+ Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+| Role | Plane | Description  |
+| ---- | ------|--------------------- |
+| [Owner](../role-based-access-control/built-in-roles.md#owner) | Control & Data | Full access to the control plane of the search resource, including the ability to assign Azure roles. Only the Owner role can enable or disable authentication options or manage roles for other users. Subscription administrators are members by default. </br></br>On the data plane, this role has the same access as the Search Service Contributor role. It includes access to all data plane actions except the ability to query or index documents.|
+| [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Control & Data |  Same level of control plane access as Owner, minus the ability to assign roles or change authentication options. </br></br>On the data plane, this role has the same access as the Search Service Contributor role. It includes access to all data plane actions except the ability to query or index documents.|
+| [Reader](../role-based-access-control/built-in-roles.md#reader) | Control & Data | Read access across the entire service, including search metrics, content metrics (storage consumed, number of objects), and the object definitions of data plane resources (indexes, indexers, and so on). However, it can't read API keys or read content within indexes. |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Control & Data | Read-write access to object definitions (indexes, synonym maps, indexers, data sources, and skillsets). See [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch) for the permissions list. This role can't access content in an index, so no querying or indexing, but it can create, delete, and list indexes, return index definitions and statistics, and test analyzers. This role is for search service administrators who need to manage the search service and its objects, but without content access. |
+| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Data | Read-write access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
+| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Data |  Read-only access to all search indexes on the search service. This role is for apps and users who run queries. |
 
-+ There are no regional, tier, or pricing restrictions for using Azure RBAC preview, but your search service must be in the Azure public cloud. The preview isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
+> [!NOTE]
+> If you disable Azure role-based access, built-in roles for the control plane (Owner, Contributor, Reader) continue to be available. Disabling Azure RBAC removes just the data-related permissions associated with those roles. In a disabled-RBAC scenario, Search Service Contributor is equivalent to control-plane Contributor.
 
-+ If you migrate your Azure subscription to a new tenant, the Azure RBAC preview will need to be re-enabled. 
+## Limitations
 
 + Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
-
-+ Role-based access control is supported in Azure portal and in the following search clients: 
-
-  + [Search REST APIs](/rest/api/searchservice/) (all supported versions)
-  + [azure.search.documents (Azure SDK for .NET) version 11.4](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md)
-  + [azure.search.documents (Azure SDK for Python) version 11.3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md)
-  + [azure-search-documents (Azure SDK for Java) beta versions of 11.5 and 11.6](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md),
-  + [@azure/search-documents (Azure SDK for JavaScript), version 11.3 (see change log)](https://www.npmjs.com/package/@azure/search-documents?activeTab=explore).
 
 ## Configure role-based access for data plane
 
@@ -76,11 +63,11 @@ In this step, configure your search service to recognize an **authorization** he
 
 1. Choose an **API access control** option. We recommend **Both** if you want flexibility or need to migrate apps. 
 
-   | Option | Status | Description |
-   |--------|--------|-------------|
-   | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
-   | Both | Preview | Requests are valid using either an API key or role-based access control. |
+   | Option | Description |
+   |--------|--------------|
+   | API Key | (default). Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
+   | Role-based access control | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
+   | Both | Requests are valid using either an API key or role-based access control. |
 
 The change is effective immediately, but wait a few seconds before testing. 
 
@@ -149,9 +136,9 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
    + Owner
    + Contributor
    + Reader
-   + Search Service Contributor (preview for data plane requests)
-   + Search Index Data Contributor (preview)
-   + Search Index Data Reader (preview)
+   + Search Service Contributor
+   + Search Index Data Contributor
+   + Search Index Data Reader
 
 1. On the **Members** tab, select the Azure AD user or group identity.
 

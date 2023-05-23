@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Configure single sign-on for applications using Azure Spring Apps Enterprise tier
-description: Describes single sign-on configuration for Azure Spring Apps Enterprise tier.
+title: Quickstart - Configure single sign-on for applications using the Azure Spring Apps Enterprise plan
+description: Describes single sign-on configuration for the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
@@ -9,24 +9,24 @@ ms.date: 05/31/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier
+# Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to configure single sign-on for applications running on Azure Spring Apps Enterprise tier.
+This quickstart shows you how to configure single sign-on for applications running on the Azure Spring Apps Enterprise plan.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [Enterprise tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- A license for the Azure Spring Apps Enterprise plan. For more information, see [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
 ## Prepare single sign-on credentials
 

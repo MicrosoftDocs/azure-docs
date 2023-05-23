@@ -31,6 +31,9 @@ ms.reviewer: mjbrown
 
 ### v2 builds
 
+### <a id="2.5.0"></a>2.5.0
+* Added new constructor for the `Microsoft.Azure.Documents.ChangeFeedProcessor.Logging.TraceLogProvider` class that takes an instance of the `System.Diagnostics.TraceSource` as an argument. This allows the `TraceLogProvider`, which is used for .net tracing, to be created programmatically from a custom `TraceSource` instance initialized in source code. Before this change it was only possible to configure .net tracing using App.config file.
+
 ### <a id="2.4.0"></a>2.4.0
 * Added support for lease collections that can be partitioned with partition key defined as /partitionKey. Prior to this change lease collection's partition key would have to be defined as /id.
 * This release allows using lease collections with API for Gremlin, as Gremlin collections cannot have partition key defined as /id.
@@ -181,6 +184,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |May 15, 2023 |--- |
 | [2.4.0](#2.4.0) |May 6, 2021 |--- |
 | [2.3.2](#2.3.2) |August 11, 2020 |--- |
 | [2.3.1](#2.3.1) |July 30, 2020 |--- |

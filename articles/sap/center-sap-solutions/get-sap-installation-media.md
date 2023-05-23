@@ -1,5 +1,5 @@
 ---
-title: Get SAP installation media (preview)
+title: Get SAP installation media 
 description: Learn how to download the necessary SAP media for installing the SAP software and upload it for use with Azure Center for SAP solutions. Please note this is an *optional* step and media and BOM can be obtained with a method preffered by customer.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -10,9 +10,9 @@ ms.author: ladolan
 #Customer intent: As a developer, I want to download the necessary SAP media for installing the SAP software and upload it for us with Azure Center for SAP solutions.
 ---
 
-# Get SAP installation media (preview)
+# Get SAP installation media
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
+
 
 After you've [created infrastructure for your new SAP system using *Azure Center for SAP solutions*](deploy-s4hana.md), you need to install the SAP software on your SAP system. However, before you can do this installation, you need to get and upload the SAP installation media for use with Azure Center for SAP solutions. 
 
