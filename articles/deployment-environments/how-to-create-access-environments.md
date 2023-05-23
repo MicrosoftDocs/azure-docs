@@ -5,17 +5,14 @@ description: Learn how to create and access an environment in an Azure Deploymen
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, build-2023
 ms.topic: quickstart
 ms.date: 04/25/2023
 ---
 
 # Create and access an environment by using the Azure CLI
 
-This article shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
 
 ## Prerequisites
 
