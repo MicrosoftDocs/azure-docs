@@ -114,7 +114,7 @@ sections:
       - question: |
           Can I configure traffic analytics using PowerShell?
         answer: |
-          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#enable-network-security-group-flow-logs-and-traffic-analytics).
+          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#create-a-flow-log-and-traffic-analytics-workspace).
                     
       - question: |
           Can I configure traffic analytics using an Azure Resource Manager template or client?
