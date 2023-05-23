@@ -18,6 +18,7 @@ ms.author: glenga
 | Max instance count (Windows/Linux) | 200/100 | 100/20 | varies by SKU<sup>9</sup> | 100<sup>9</sup> | Depends on cluster |   
 | Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
+| Function apps per subscription | 5000 | 5000 | 5000 | 5000 | n/a | 
 | [Deployment slots](../articles/azure-functions/functions-deployment-slots.md) per app<sup>10</sup> | 2 | 3 | 1-20<sup>9</sup> | 20 | n/a |
 | Storage<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/a |
 | Custom domains per app</a> |500<sup>6</sup> |500 |500 | 500 | n/a |
