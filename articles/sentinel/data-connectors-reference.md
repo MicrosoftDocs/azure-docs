@@ -118,10 +118,8 @@ Data connectors are available as part of the following offerings:
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
-- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
-- [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
 - [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
@@ -386,10 +384,8 @@ Data connectors are available as part of the following offerings:
 - [Syslog](data-connectors/syslog.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
-- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
 - [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
-- [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 
