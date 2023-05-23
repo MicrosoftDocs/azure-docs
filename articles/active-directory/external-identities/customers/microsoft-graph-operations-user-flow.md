@@ -38,7 +38,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 Get the identity providers that are defined for an external identities self-service sign-up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.
 
 - [List identity providers](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders)
-- [Add identity provider](graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-post-identityproviders)
+- [Add identity provider](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-post-identityproviders)
 - [Remove identity provider](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-delete-identityproviders)
 
 ## Attributes (Preview)
@@ -54,6 +54,7 @@ When you want to manage Microsoft Graph, you can either do it as the application
 
 > [!NOTE]
 > Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph API.
+
 ## Next steps
 
 - To learn more about the Microsoft Graph API, see [Microsoft Graph overview](/graph/overview).  

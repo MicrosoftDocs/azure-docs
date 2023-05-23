@@ -47,6 +47,7 @@ When you want to manage Microsoft Graph, you can either do it as the application
 
 > [!NOTE]
 > Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph API.
+
 ## Next steps
 
 - To learn more about the Microsoft Graph API, see [Microsoft Graph overview](/graph/overview). 
