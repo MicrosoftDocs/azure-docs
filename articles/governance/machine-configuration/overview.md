@@ -122,7 +122,7 @@ compatible. The following table shows a list of supported operating systems on A
 | --------- | -------------------------- | ---------------- |
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 14.04 - 20.x     |
+| Canonical | Ubuntu Server              | 14.04 - 22.x     |
 | Credativ  | Debian                     | 8 - 10.x         |
 | Microsoft | CBL-Mariner                | 1 - 2            |
 | Microsoft | Windows Client             | Windows 10       |
