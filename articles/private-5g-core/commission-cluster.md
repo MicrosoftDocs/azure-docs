@@ -335,7 +335,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     --resource-group "$RESOURCE_GROUP_NAME" \
     --cluster-type connectedClusters \
     --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
-    --release-train preview \
+    --release-train stable \
     --auto-upgrade true 
     ```
 

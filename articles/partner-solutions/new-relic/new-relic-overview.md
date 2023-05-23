@@ -15,7 +15,7 @@ Azure Native New Relic Service Preview in Marketplace enables you to create and 
 You can create and manage the New Relic resources by using the Azure portal through a resource provider named `NewRelic.Observability`. New Relic owns and runs the software as a service (SaaS) application, including the New Relic organizations and accounts that are created through this experience.
 
 > [!NOTE]
-> For New Relic accounts that you create by using Azure Native New Relic Service, customer data is stored and processed in the region where the service was deployed. 
+> For New Relic accounts that you create by using Azure Native New Relic Service, customer data is stored and processed in the region where the service was deployed. Currently, Azure Native New Relic Service does not support Sovereign Cloud. 
 >
 > For accounts that you create directly by using the New Relic portal and use for linking, New Relic determines where the customer data is stored and processed. Depending on the configuration at the time of setup, this might be on or outside Azure.
 

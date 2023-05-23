@@ -34,7 +34,7 @@ Before you begin this tutorial, you should:
 
 1. Complete the [Tutorial: Discover VMware VMs with Server Assessment](tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. Complete the [Tutorial: Assess VMware VMs for migration to Azure VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure.
-3. [Install the Az PowerShell module](/powershell/azure/install-az-ps)
+3. [Install the Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## 2. Install Azure Migrate PowerShell module
 

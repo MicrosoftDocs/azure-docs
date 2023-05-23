@@ -34,7 +34,7 @@ Requirements can vary widely depending how many MSIX-packaged applications are s
 
 ## Storage recommendations
 
-Azure offers multiple storage options that can be used for MISX app attach. We recommend using Azure Files or Azure NetApp Files as those options offer the best value between cost and management overhead. The article [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md) compares the different managed storage solutions Azure offers in the context of Azure Virtual Desktop.
+Azure offers multiple storage options that can be used for MSIX app attach. We recommend using Azure Files or Azure NetApp Files as those options offer the best value between cost and management overhead. The article [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md) compares the different managed storage solutions Azure offers in the context of Azure Virtual Desktop.
 
 ## Optimize MSIX app attach performance
 

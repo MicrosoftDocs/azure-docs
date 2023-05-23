@@ -16,15 +16,15 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles architecture, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. Learn more in the [networking concepts document](./networking.md#user-defined-routes-udr---preview).
+In the workload profiles environment, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. Learn more in the [networking concepts document](./networking.md#user-defined-routes-udr---preview).
 
-In the Consumption only architecture, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
+In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
 ## NSG allow rules
 
 The following tables describe how to configure a collection of NSG allow rules.
 >[!NOTE]
-> The subnet associated with a Container App Environment on the Consumption only architecture requires a CIDR prefix of `/23` or larger. On the workload profiles architecture (preview), a `/27` or larger is required.
+> The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment (preview), a `/27` or larger is required.
 
 ### Inbound
 
@@ -35,7 +35,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 ### Outbound with service tags
 
-The following service tags are required when using NSGs on the Consumption only architecture:
+The following service tags are required when using NSGs on the Consumption only environment:
 
 | Protocol | Port | ServiceTag | Description
 |--|--|--|--|
@@ -43,7 +43,7 @@ The following service tags are required when using NSGs on the Consumption only 
 | TCP | `9000` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
 
-The following service tags are required when using NSGs on the workload profiles architecture:
+The following service tags are required when using NSGs on the workload profiles environment:
 
 >[!Note]
 > If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
@@ -55,7 +55,7 @@ The following service tags are required when using NSGs on the workload profiles
 
 ### Outbound with wild card IP rules
 
-The following IP rules are required when using NSGs on both the Consumption only architecture and the workload profiles architecture:
+The following IP rules are required when using NSGs on both the Consumption only environment and the workload profiles environment:
 
 | Protocol | Port | IP | Description |
 |--|--|--|--|

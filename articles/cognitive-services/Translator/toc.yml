@@ -31,9 +31,17 @@ items:
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
     href: how-to-create-translator-resource.md
-  - name: Quickstart
-    displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,set up
-    href: quickstart-translator.md
+  - name: 🆕 SDK overview (preview)
+    displayName: get started,sdk,keys,endpoint
+    href: text-sdk-overview.md
+  - name: Quickstarts
+    items:
+    - name: 🆕 Translator Text SDK (preview)
+      displayName: get started,sdk,keys,endpoint,headers,c#,go,java,javascript,python,setup
+      href: quickstart-translator-sdk.md
+    - name:  Translator Text REST API
+      displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
+      href: quickstart-translator-rest-api.md
   - name: Samples
     items:
     - name: Code Sample page
@@ -149,7 +157,7 @@ items:
         href: document-translation/how-to-guides/create-use-managed-identities.md
       - name: Create and use glossaries
         displayName: glossary, dictionary, case-sensitive, match
-        href: document-translation/how-to-guides/create-use-glossaries.md  
+        href: document-translation/how-to-guides/create-use-glossaries.md
     - name: Reference
       items:
       - name: Document Translation REST APIs
@@ -175,9 +183,6 @@ items:
         href: document-translation/reference/cancel-translation.md
     - name: Document Translation FAQ
       href: document-translation/faq.md
-    - name: 🆕 Translate using Language Studio (Preview)
-      displayName: quickstart, how to, interface
-      href: document-translation/language-studio.md  
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
@@ -251,6 +256,21 @@ items:
       href: custom-translator/platform-upgrade.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
+- name: Translator solutions
+  items:
+  - name: Language Studio
+    items:
+    - name: 🆕 Translate using Language Studio (preview)
+      displayName: quickstart, how to, interface
+      href: document-translation/language-studio.md
+  - name: Translator V3 connector
+    items:
+    - name: "🆕 Automate document translation (preview)"
+      displayName: connect, power, automate, flow
+      href: connector/document-translation-flow.md
+    - name: 🆕 Automate text translation (preview)
+      displayName: connect, power, automate, flow
+      href: connector/text-translator-flow.md
 - name: Resources
   items:
   - name: Modifications to Translator Service

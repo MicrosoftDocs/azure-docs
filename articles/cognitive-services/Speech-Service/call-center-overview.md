@@ -37,9 +37,9 @@ Once you've transcribed your audio with the Speech service, you can use the Lang
 
 The Speech service offers the following features that can be used for call center use cases:
 
-- [Real-time speech-to-text](./how-to-recognize-speech.md): Recognize and transcribe audio in real-time from multiple inputs. For example, with virtual agents or agent-assist, you can continuously recognize audio input and control how to process results based on multiple events.
-- [Batch speech-to-text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
-- [Text-to-speech](./text-to-speech.md): Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech.
+- [Real-time speech to text](./how-to-recognize-speech.md): Recognize and transcribe audio in real-time from multiple inputs. For example, with virtual agents or agent-assist, you can continuously recognize audio input and control how to process results based on multiple events.
+- [Batch speech to text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
+- [Text to speech](./text-to-speech.md): Text to speech enables your applications, tools, or devices to convert text into humanlike synthesized speech.
 - [Speaker identification](./speaker-recognition-overview.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
 - [Language Identification](./language-identification.md): Identify languages spoken in audio and can be used in real-time and post-call analysis for insights or to control the environment (such as output language of a virtual agent).
 
@@ -47,8 +47,8 @@ The Speech service works well with prebuilt models. However, you might want to f
 
 | Speech customization | Description |
 | -------------- | ----------- |
-| [Custom Speech](./custom-speech-overview.md) | A speech-to-text feature used evaluate and improve the speech recognition accuracy of use-case specific entities (such as alpha-numeric customer, case, and contract IDs, license plates, and names). You can also train a custom model with your own product names and industry terminology. |
-| [Custom Neural Voice](./custom-neural-voice.md) | A text-to-speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
+| [Custom Speech](./custom-speech-overview.md) | A speech to text feature used evaluate and improve the speech recognition accuracy of use-case specific entities (such as alpha-numeric customer, case, and contract IDs, license plates, and names). You can also train a custom model with your own product names and industry terminology. |
+| [Custom Neural Voice](./custom-neural-voice.md) | A text to speech feature that lets you create a one-of-a-kind, customized, synthetic voice for your applications. |
 
 ### Language service
 

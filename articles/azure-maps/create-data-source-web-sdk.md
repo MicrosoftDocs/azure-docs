@@ -7,7 +7,7 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: devx-track-js
 ---
 
 # Create a data source
@@ -90,48 +90,53 @@ To display data from a vector tile source on the map, connect the source to one 
 ```javascript
 //Create a vector tile source and add it to the map.
 var source = new atlas.source.VectorTileSource(null, {
-	tiles: ['https://{azMapsDomain}/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}'],
-	maxZoom: 22
+    tiles: ['https://{azMapsDomain}/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}'],
+    maxZoom: 22
 });
 map.sources.add(source);
 
 //Create a layer for traffic flow lines.
 var flowLayer = new atlas.layer.LineLayer(source, null, {
-	//The name of the data layer within the data source to pass into this rendering layer.
-	sourceLayer: 'Traffic flow',
+    //The name of the data layer within the data source to pass into this rendering layer.
+    sourceLayer: 'Traffic flow',
 
-	//Color the roads based on the traffic_level property. 
-	strokeColor: [
-		'interpolate',
-		['linear'],
-		['get', 'traffic_level'],
-		0, 'red',
-		0.33, 'orange',
-		0.66, 'green'
-	],
+    //Color the roads based on the traffic_level property. 
+    strokeColor: [
+        'interpolate',
+        ['linear'],
+        ['get', 'traffic_level'],
+        0, 'red',
+        0.33, 'orange',
+        0.66, 'green'
+    ],
 
-	//Scale the width of roads based on the traffic_level property. 
-	strokeWidth: [
-		'interpolate',
-		['linear'],
-		['get', 'traffic_level'],
-		0, 6,
-		1, 1
-	]
+    //Scale the width of roads based on the traffic_level property. 
+        strokeWidth: [
+        'interpolate',
+        ['linear'],
+        ['get', 'traffic_level'],
+        0, 6,
+        1, 1
+    ]
 });
 
 //Add the traffic flow layer below the labels to make the map clearer.
 map.layers.add(flowLayer, 'labels');
 ```
 
+For a complete working sample of how to display data from a vector tile source on the map, see [Vector tile line layer] in the [Azure Maps Samples].
+
+:::image type="content" source="./media/create-data-source-web-sdk/vector-tile-line-layer.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+
+<!---------------------------------------------------------------------------------------
 <br/>
 
 <iframe height="500" scrolling="no" title="Vector tile line layer" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Vector tile line layer</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+--------------------------------------------------------------------------------------->
 
-<br/>
 
 ## Connecting a data source to a layer
 
@@ -178,7 +183,8 @@ var source = new atlas.source.DataSource();
 map.sources.add(source);
 
 //Create a polygon and add it to the data source.
-source.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
+source.add(new atlas.data.Feature(
+        new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
 
 //Create a polygon layer to render the filled in area of the polygon.
 var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
@@ -187,8 +193,8 @@ var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
 
 //Create a line layer for greater control of rendering the outline of the polygon.
 var lineLayer = new atlas.layer.LineLayer(source, 'myLineLayer', {
-     color: 'orange',
-     width: 2
+     strokeColor: 'orange',
+     strokeWidth: 2
 });
 
 //Create a bubble layer to render the vertices of the polygon as scaled circles.
@@ -281,3 +287,6 @@ See the following articles for more code samples to add to your maps:
 [VectorTileSourceOptions]: /javascript/api/azure-maps-control/atlas.vectortilesourceoptions
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
+
+[Vector tile line layer]: https://samples.azuremaps.com/?search=Vector%20tile&sample=vector-tile-line-layer
+[Azure Maps Samples]: https://samples.azuremaps.com
