@@ -129,7 +129,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
    > you get this result because the connector name is actually **Data Operations**, not **Compose**, 
    > which is the action name.
 
-1. In the **Inputs** box, enter the inputs to use for creating the output.
+1. After the action information box opens, in the **Inputs** box, enter the inputs to use for creating the output.
 
    For this example, select inside the **Inputs** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variables:
 
@@ -248,13 +248,9 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create csv table**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Create CSV table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Create CSV table**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "create csv table" entered, and the "Create CSV table" action selected.](./media/logic-apps-perform-data-operations/select-create-csv-table-action-standard.png)
-
-1. In the **From** box, enter the array or expression to use for creating the table.
+1. After the action information box appears, in the **From** box, enter the array or expression to use for creating the table.
 
    For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
@@ -277,6 +273,8 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 ### Customize table format
 
 By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
+
+1. If the **Columns** property doesn't appear in the action information box, from the **Add new parameters** list, select **Columns**.
 
 1. Open the **Columns** list, and select **Custom**.
 
@@ -330,7 +328,7 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
+1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want. When you're done with each expression, select **Add**.
 
    Syntax: `item()?['<array-property-name>']`
 
