@@ -188,7 +188,7 @@ Deploying these models to batch endpoints for batch inference is currently not s
 Since the model weights aren't stored in the HuggingFaceHub registry, you cannot access model weights by using these models as inputs to jobs.
 
 **How do I get support if my deployments fail or inference doesn't work as expected?**
-HuggingFaceHub is a community registry and isn't supported by Microsoft. Review the deployment logs and find out if the issue is related to Azure Machine Learning platform or specific to HuggingFace transformers. Contact Microsoft support for any platform issues. Example, not being able to create online endpoint or authentication to endpoint REST API doesn't work. For transformers specific issues, use the free [HuggingFace forum](https://discuss.huggingface.co/) or paid [HuggingFace support](https://huggingface.co/support). 
+`HuggingFace` is a community registry and that is not covered by Microsoft support. Review the deployment logs and find out if the issue is related to Azure Machine Learning platform or specific to HuggingFace transformers. Contact Microsoft support for any platform issues. Example, not being able to create online endpoint or authentication to endpoint REST API doesn't work. For transformers specific issues, use the  [HuggingFace forum](https://discuss.huggingface.co/) or [HuggingFace support](https://huggingface.co/support). 
 
 **What is a community registry?**
 Community registries are Azure Machine Learning registries created by trusted Azure Machine Learning partners and available to all Azure Machine Learning users.
