@@ -10,7 +10,7 @@ ms.date: 04/25/2022
 ms.author: aahi
 ---
 
-Submit a **PUT** request using the following URL, headers, and JSON body to submit a deployment job. Replace the placeholder values below with your own values. 
+Submit a **PUT** request using the following URL, headers, and JSON body to submit a deployment job. Replace the placeholder values with your own values. 
 
 ```rest
 {Endpoint}/language/authoring/analyze-text/projects/{projectName}/deployments/{deploymentName}?api-version={API-VERSION}
