@@ -44,7 +44,7 @@ To create sample alerts:
 
     After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Microsoft Defender for Cloud security alerts (connected SIEMs, email notifications, and so on).
 
-    :::image type="content" source="media/alert-validation/sample-alerts.png" alt-text="Screenshot showing sample alerts in the security alerts list." lightbox="media/alert-validation/sample-alerts.png" lightbox="media/alert-validation/sample-alerts.png":::
+    :::image type="content" source="media/alert-validation/sample-alerts.png" alt-text="Screenshot showing sample alerts in the security alerts list." lightbox="media/alert-validation/sample-alerts.png":::
 
     > [!TIP]
     > The alerts are for simulated resources.
@@ -167,7 +167,7 @@ You can simulate alerts for resources running on [App Service](https://learn.mic
        
           :::image type="content" source="media/alert-validation/copy-default-domain.png" alt-text="Screenshot showing where to copy the default domain." lightbox="media/alert-validation/copy-default-domain.png":::
 
-      1. Copy the website name into the URL: **https://<websitename>.azurewebsites.net/This_Will_Generate_ASC_Alert**.
+      1. Copy the website name into the URL: **https://<website name>.azurewebsites.net/This_Will_Generate_ASC_Alert**.
 1.  An alert is generated within about 1-2 hours.
 
 ## Next steps
