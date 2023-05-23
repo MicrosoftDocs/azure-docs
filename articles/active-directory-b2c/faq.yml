@@ -8,7 +8,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 03/15/2023
+  ms.date: 05/23/2023
   ms.author: godonnell
   ms.subservice: B2C
   ms.custom: "b2c-support"
@@ -17,6 +17,20 @@ summary: This page answers frequently asked questions about the Azure Active Dir
 
 
 sections:
+  - name: Microsoft Entra External ID preview
+    questions:
+      - question: |
+          What is Microsoft Entra External ID?
+        answer: |
+          We announced early preview of our next generation Microsoft Entra External ID solution. This early preview represents an evolutionary step in unifying secure and engaging experiences across all external identities including partners, customers, citizens, patients, and others within a single, integrated platform. For more information about the preview, see [What is Microsoft Entra External ID for customers?]((../active-directory/external-identities/customers/overview-customers-ciam.md). 
+      - question: |
+          How does this affect me?
+        answer: |
+          No action is required on your part at this time. The next generation platform is currently in early preview only. We remain fully committed to support of your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. As the next generation platform approaches GA, details will be made available to all our valued B2C customers on available options including migration to the new platform.
+      - question: |
+          How do I participate in the preview?
+        answer: |
+          As the next generation platform represents our future for customer identity and access management (CIAM), we welcome and encourage your participation and feedback during early preview. If you're interested in joining the early preview, please contact your sales team for details. 
   - name: General
     questions:
       - question: |
