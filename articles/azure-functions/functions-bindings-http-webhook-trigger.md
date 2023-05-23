@@ -83,6 +83,19 @@ The following example shows an HTTP trigger that returns a "hello world" respons
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
 
+The following examples shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview):
+
+```csharp
+[Function("HttpFunction")]
+public IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+{
+    return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
+}
+```
+
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+
 # [C# Script](#tab/csharp-script)
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
