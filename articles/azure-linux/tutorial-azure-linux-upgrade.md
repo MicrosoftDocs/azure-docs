@@ -59,7 +59,7 @@ For more information on upgrade channels, see [Using cluster auto-upgrade](../..
 
 Similar to setting your clusters to auto-upgrade, you can use the same set once and forget mechanism for package upgrades by enabling the node-os upgrade channel. If automatic package upgrades are enabled, the dnf-automatic systemd service runs daily and installs any updated packages that have been published.
 
-To set the node-os upgrade channel on existing cluster, update the `--node-os-upgrade-channel` parameter, similar to the following example which automatically enables package upgrades. Note, that for some settings of [Node OS Upgrade Channel](../../articles/aks/auto-upgrade-node-image), `dnf-automatic` will be disabled by default.
+To set the node-os upgrade channel on existing cluster, update the `--node-os-upgrade-channel` parameter, similar to the following example which automatically enables package upgrades. Note, that for some settings of [Node OS Upgrade Channel](../../articles/aks/auto-upgrade-node-image.md), `dnf-automatic` will be disabled by default.
 
 
 ```azurecli-interactive
