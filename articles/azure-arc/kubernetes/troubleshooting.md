@@ -69,7 +69,7 @@ All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the 
 
 If you have gotten overage claim please check below things in order:
 
-1. Are you using SPN which is part of more than 200 AAD groups? If yes, then, please create another SPN with membership in less than 200 AAD groups.
+1. Are you using a service principal which is part of more than 200 Azure AD groups? If yes, then you'll need to create and use another service principal which is not a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
 
 1. Have you configured oubound proxy envrionment? If yes then, please check if this endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
 
