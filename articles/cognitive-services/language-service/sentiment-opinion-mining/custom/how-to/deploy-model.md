@@ -35,7 +35,7 @@ After you've reviewed your model's performance and decided it can be used in you
 [!INCLUDE [Deploy a model using Language Studio](../../../includes/custom/language-studio/deploy-model.md)]
    
 # [REST APIs](#tab/rest-api)
-
+-->
 ### Submit deployment job
 
 [!INCLUDE [deploy model](../../includes/custom/rest-api/deploy-model.md)]
@@ -44,8 +44,6 @@ After you've reviewed your model's performance and decided it can be used in you
 
 [!INCLUDE [get deployment status](../../includes/custom/rest-api/get-deployment-status.md)]
 
----
--->
 ## Swap deployments
 
 After you are done testing a model assigned to one deployment and you want to assign this model to another deployment you can swap these two deployments. Swapping deployments involves taking the model assigned to the first deployment, and assigning it to the second deployment. Then taking the model assigned to second deployment, and assigning it to the first deployment. You can use this process to swap your *production* and *staging* deployments when you want to take the model assigned to *staging* and assign it to *production*. 
