@@ -23,7 +23,7 @@ The time spent on the network to send such a query from the application tier to 
 
 In many Azure regions, the number of datacenters has grown. At the same time, customers, especially for high-end SAP systems, are using more special VM families like M- or Mv2 family, or in rare cases HANA Large Instances. These Azure virtual machine types aren't always available in each of the datacenters that collect into an Azure region. These facts can create opportunities to optimize network latency between the SAP application layer and the SAP DBMS layer.
 
-Azure provides different deployment framework options for SAP workloads, enabling you to enhance network latency optimization. Detailed information about each option is thoroughly described in the following section:
+Azure provides different deployment framework options for SAP workloads, enabling you to enhance network latency. Detailed information about each option is thoroughly described in the following section:
 
 - [Proximity Placement Groups](#proximity-placement-groups)
 - [Virtual Machine Scale Set with Flexible Orchestration](#virtual-machine-scale-set-with-flexible-orchestration)
