@@ -26,7 +26,7 @@ highlightedContent:
       url: https://azure.microsoft.com/updates/?category=networking
     - title: Azure network security
       itemType: overview
-      url: ./security
+      url: ./security/index.yml
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
