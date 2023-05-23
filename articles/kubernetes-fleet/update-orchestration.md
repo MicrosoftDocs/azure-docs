@@ -44,6 +44,8 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 
 ### [Azure portal](#tab/azure-portal)
 
+1. Navigate to [Azure portal with the fleet update orchestration feature flag turned on](https://aka.ms/preview/fleetupdaterun).
+
 1. On the page for your Fleet resource, navigate to the **Multi-cluster update** menu and select **Create**.
 
 1. Select **One by one**, and choose either **Node image (latest) + Kubernetes version** or **Node image (latest)**, depending on your desired upgrade scope.

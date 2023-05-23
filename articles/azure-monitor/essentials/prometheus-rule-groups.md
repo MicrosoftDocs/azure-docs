@@ -1,5 +1,5 @@
 ---
-title: Rule groups in Azure Monitor Managed Service for Prometheus (preview)
+title: Rule groups in Azure Monitor Managed Service for Prometheus
 description: Description of rule groups in Azure Monitor managed service for Prometheus which alerting and data computation.
 author: EdB-MSFT
 ms-author: edbaynash
@@ -8,7 +8,7 @@ ms.custom: ignite-2022
 ms.date: 09/28/2022
 ---
 
-# Azure Monitor managed service for Prometheus rule groups (preview)
+# Azure Monitor managed service for Prometheus rule groups
 Rules in Prometheus act on data as it's collected. They're configured as part of a Prometheus rule group, which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they're defined in the group.
 
 
@@ -45,6 +45,10 @@ The basic steps are as follows:
 
 1. Use the templates below as a JSON file that describes how to create the rule group.
 2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
+
+> [!NOTE]
+> For your AKS or ARC Kubernetes clusters, you can use some of the recommended alerts rules. See pre-defined alert rules [here](../containers/container-insights-metric-alerts.md#enable-prometheus-alert-rules).
+
 
 ### Limiting rules to a specific cluster
 
