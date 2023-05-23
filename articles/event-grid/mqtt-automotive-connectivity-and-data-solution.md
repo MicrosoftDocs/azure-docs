@@ -1,10 +1,19 @@
+---
+title: 'Automotive Messaging, Data & Analytics Reference Architecture'
+description: 'Describes the use case of Automotive Messaging'
+ms.topic: conceptual
+ms.date: 05/23/2023
+author: msmarioo
+ms.author: marioo
+---
+
 # Automotive Messaging, Data & Analytics Reference Architecture
 
-This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide a reliable and efficient messaging, data and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner for digital engineering and data sharing with the wider mobility ecosystem.
+This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner for digital engineering and data sharing with the wider mobility ecosystem.
 
 ## Architecture
 
-![High Level View](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png" alt-text="High-level architecture." border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-architecture.png" alt-text="High-level architecture." border="false":::
 
 <!--
 *Download a [PowerPoint file](https://arch-center.azureedge.net/mqtt-automotive-connectivity-and-data-solution.ppt) of this architecture.*
@@ -21,7 +30,7 @@ The high level architecture diagram shows the main logical blocks and services o
 * Several digital services require **business integration** to backend systems such as Dealer Management (DMS), Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP) systems.
 * The **consent management** backend is part of customer management and keeps track of user authorization for data collection according to geographical region and country legislation.
 * Data collected from vehicles is an input to the **digital engineering** process, with the goal of continuous product improvements using analytics and machine learning.
-* The **smart mobility ecosystem** can subscribe and consume both live telemetry as well as aggregated insights to provide additional products and services.
+* The **smart mobility ecosystem** can subscribe and consume both live telemetry as well as aggregated insights to provide more products and services.
 
 *Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
 
@@ -31,51 +40,51 @@ The high level architecture diagram shows the main logical blocks and services o
 
 ### Dataflow
 
-The architecture uses the [publisher/subscriber](https://learn.microsoft.com/azure/architecture/patterns/publisher-subscriber) messaging pattern to decouple vehicles from services.
+The architecture uses the [publisher/subscriber](/azure/architecture/patterns/publisher-subscriber) messaging pattern to decouple vehicles from services.
 
 <!-- TODO: Add an overview on Authz/n for the services and the users -->
 
 #### Vehicle to cloud messages
 
-The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be either send periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action).
+The *vehicle to cloud* dataflow is used to process telemetry data from the vehicle. Telemetry data can be sent periodically (vehicle state, collection from vehicle sensors) or based on an event (triggers on error conditions, reaction to a user action).
 
-![Messaging Dataflow](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/messaging-dataflow.png" alt-text="Messaging dataflow." border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/messaging-dataflow.png" alt-text="Messaging dataflow." border="false":::
 
 1. The *vehicle* is configured for a customer based on the selected options using the **Management APIs**. The configuration contains:
     1. **Provisioning** information for vehicles and devices.
     1. Initial vehicle **data collection** configuration based on market and business considerations.
     1. Storage of initial **user consent** settings based on vehicle options and user acceptance.
-1. The vehicle publishes telemetry and events messages through a MQTT client with defined topics to the **Event Grid** *MQTT Broker* in the *vehicle messaging services*.
+1. The vehicle publishes telemetry and events messages through an MQTT client with defined topics to the **Event Grid** *MQTT Broker* in the *vehicle messaging services*.
 1. The **Event Grid** routes messages to different subscribers based on the topic and message attributes.
-    1. Low priority messages that do not require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hub for buffering.
-    1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hub for buffering.
-1. Low priority messages are stored directly in the **data lake** using [event capture](https://learn.microsoft.com/azure/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
+    1. Low priority messages that don't require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hubs instance for buffering.
+    1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
+1. Low priority messages are stored directly in the **data lake** using [event capture](articles/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
     2. Verifies that the user has given consent for the message topic.
     3. Decodes and enriches the payload.
-    4. Adds additional routing information.
-1. The Live Telemetry **Event Hub** in the *data & analytics solution* receives the decoded messages. **Azure Data Explorer** uses [streaming ingestion](https://learn.microsoft.com/azure/data-explorer/ingest-data-streaming) to process and store messages as they are received.
+    4. Adds more routing information.
+1. The Live Telemetry **Event Hub** in the *data & analytics solution* receives the decoded messages. **Azure Data Explorer** uses [streaming ingestion](azure/data-explorer/ingest-data-streaming) to process and store messages as they're received.
 1. The *digital Services* layer receives decoded messages. **Service Bus** provides notifications to applications on important changes / events on the state of the vehicle. **Azure Data Explorer** provides the last-known-state of the vehicle and the short term history.
 
 #### Cloud to vehicle messages
 
 The *cloud to vehicle* dataflow is often used to execute remote commands in the vehicle from a digital service. These commands include use cases such as lock/unlock door, climate control (set preferred cabin temperature) or configuration changes. The successful execution depends on vehicle state and might require some time to complete.
 
-Depending on the vehicle capabilities and type of action, there are multiple possible approaches for command execution. We will cover two variations:
+Depending on the vehicle capabilities and type of action, there are multiple possible approaches for command execution. We'll cover two variations:
 
-* Direct cloud to device messages **(A)** that do not require a user consent check and with a predictable response time. This covers messages to both individual and multiple vehicles. An example includes weather notifications.
+* Direct cloud to device messages **(A)** that don't require a user consent check and with a predictable response time. This covers messages to both individual and multiple vehicles. An example includes weather notifications.
 * Vehicle commands **(B)** that use vehicle state to determine success and require user consent. The messaging solution must have a command workflow logic that checks user consent, keeps track of the command execution state and notifies the digital service when done.
 
 The following dataflow users commands issued from a companion app digital services as an example.
 
 <!--[FP we highlight the process for live telemetry data. [should we also describe the row / curated process from VCS to D&A? we would probably need an ADF here.]-->
 
-![Command and Control Dataflow](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/command-and-control-dataflow.png" alt-text="Command and control dataflow." border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/command-and-control-dataflow.png" alt-text="Command and control dataflow." border="false":::
 
 Direct messages are executed with the minimum amount of hops for the best possible performance **(A)**:
 
-1. Companion app is an authenticated service that can publish messages to to **Event Grid**.
+1. Companion app is an authenticated service that can publish messages to **Event Grid**.
 1. **Event Grid** checks for authorization for the Companion app Service to determine if it can send messages to the provided topics.
 1. Companion app subscribes to responses from the specific vehicle / command combination.
 
@@ -83,8 +92,8 @@ In the case of vehicle state-dependent commands that require user consent **(B)*
 
 1. The vehicle owner / user provides consent for the execution of command and control functions to a **digital service** (in this example a companion app). This is normally done when the user downloads/activate the app and the OEM activates their account. This triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
 2. The **companion app** uses the command and control managed API to request execution of a remote command.
-    1. The command execution might have additional parameters to configure options such as timeout, store and forward options, etc.
-    1. The command logic decides how to process the command based on the topic and additional properties.
+    1. The command execution might have more parameters to configure options such as timeout, store and forward options, etc.
+    1. The command logic decides how to process the command based on the topic and other properties.
     1. The workflow logic creates a state to keep track of the status of the execution
 3. The command **workflow logic** checks against user consent information to determine if the message can be executed.
 4. The command workflow logic publishes a message to **Event Grid** with the command and the parameter values.
@@ -98,14 +107,14 @@ In the case of vehicle state-dependent commands that require user consent **(B)*
 
 This dataflow covers the process to register and provision vehicles and devices to the *vehicle messaging services*. The process is typically initiated as part of vehicle manufacturing.
 
-![Provisioning dataflow](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Provisioning dataflow." border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Provisioning dataflow." border="false":::
 
-1. The **Factory System** commisions the vehicle device to the desired construction state. This may includes firmware & software initial installation and configuration. As part of this process the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
+1. The **Factory System** commissions the vehicle device to the desired construction state. This may include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
 1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT Broker*.
 1. The *device registration* application creates the device identity in **Event Grid**.
 1. The factory system triggers the device to establish a connection to the **Event Grid** *MQTT Data Broker* for the first time.
-    1. The MQTT broker authenticates the device using the *CA Root Certificate* and extract the client information.
+    1. The MQTT broker authenticates the device using the *CA Root Certificate* and extracts the client information.
 1. The *MQTT broker* manages authorization for allowed topics using the **Event Grid** local registry.
 1. In case of part replacement, the OEM **Dealer System** can trigger the registration of a new device.
 
@@ -113,9 +122,9 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 ### Data Analytics
 
-This dataflow covers analytics for vehicle data. You can use additional data sources such as factory or workshop operators to enrich and provide context to vehicle data.
+This dataflow covers analytics for vehicle data. You can use other data sources such as factory or workshop operators to enrich and provide context to vehicle data.
 
-![Data Analytics](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png" alt-text="Data analytics." border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png" alt-text="Data analytics." border="false":::
 
 1. The *vehicle messaging services* layer provides telemetry, events, commands and configuration messages from the bidirectional communication to the vehicle.
 1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud services.
@@ -126,13 +135,13 @@ This dataflow covers analytics for vehicle data. You can use additional data sou
 1. Different applications consume refined and aggregated data.
     1. Visualization using Power BI.
     1. Business Integration workflows using Logic Apps with integration into the Dataverse.
-1. Generated Training Data is consumed bz tools such as ML Studio to generate ML models.
+1. Generated Training Data is consumed by tools such as ML Studio to generate ML models.
 
 ### Scalability
 
-A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It is recommended to use the [Deployment Stamps pattern](https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
+A connected vehicle and data solution can scale to millions of vehicles and thousands of services. It's recommended to use the [Deployment Stamps pattern](azure/architecture/patterns/deployment-stamp) to achieve scalability and elasticity.
 
-![Scalability](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/scalability.png" alt-text="Scalability" border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/scalability.png" alt-text="Scalability diagram" border="false":::
 
 <!-- TODO: Add some numbers and predictions for scalability and latency -->
 <!-- TODO: Add details on how routing works between messaging and application units -->
@@ -144,43 +153,43 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 1. If necessary, the vehicle is provisioned using the [Vehicle and device Provisioning](#vehicle-and-device-provisioning) workflow.
 1. The vehicle publishes a message to the **Event Grid** *MQTT broker*.
 1. **Event Grid** routes the message using the subscription information.
-    1. For messages that do not require processing and claims check, it is routed to an ingress hub on the corresponding application scale unit.
+    1. For messages that don't require processing and claims check, it's routed to an ingress hub on the corresponding application scale unit.
     1. Messages that require processing are routed to the [D2C processing logic](#vehicle-to-cloud-messages) for decoding and authorization (user consent).
-1. Applications consume events from their **app ingress** event hubs.
+1. Applications consume events from their **app ingress** event hubs instance.
 1. Applications publish messages for the vehicle.
-    1. Messages that do not require additional processing are published to the **Event Grid** *MQTT Broker*.
-    1. Messages that require additional processing, workflow control and authorization are routed to the relevant [C2D Processing Logic](#cloud-to-vehicle-messages) over an Event Hub.
+    1. Messages that don't require more processing are published to the **Event Grid** *MQTT Broker*.
+    1. Messages that require more processing, workflow control and authorization are routed to the relevant [C2D Processing Logic](#cloud-to-vehicle-messages) over an Event Hubs instance.
 
 ### Components
 
-The following Azure components are referenced by this reference architecture.
+ This reference architecture references the following Azure components.
 
 #### Connectivity
 
-* [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/) allows for device onboarding, AuthN/Z and pub-sub via MQTT v5.
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
-* [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/) is an alternative when the functionality behind the Managed APIs consist of complex workloads deployed as containerized applications.
-* [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) stores the vehicle, device and user consent settings.
-* [Azure API Management](https://learn.microsoft.com/azure/api-management/) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
-* [Azure Batch](https://learn.microsoft.com/azure/batch/) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
+* [Azure Event Grid](/azure/event-grid/) allows for device onboarding, AuthN/Z and pub-sub via MQTT v5.
+* [Azure Functions](/azure/azure-functions/) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
+* [Azure Kubernetes Service (AKS)](/azure/aks/) is an alternative when the functionality behind the Managed APIs consist of complex workloads deployed as containerized applications.
+* [Azure Cosmos DB](/azure/cosmos-db) stores the vehicle, device and user consent settings.
+* [Azure API Management](/azure/api-management/) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
+* [Azure Batch](/azure/batch/) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
 
 #### Data and Analytics
 
-* [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) enables processing and ingesting massive amounts of telemetry data.
-* [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview) provides exploration, curation and analytics of time-series based vehicle telemetry data.
-* [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs) stores large documents (such as videos and can traces) and curated vehicle data.
-* [Azure Data Bricks](https://learn.microsoft.com/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.
+* [Azure Event Hubs](/azure/event-hubs/) enables processing and ingesting massive amounts of telemetry data.
+* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) provides exploration, curation and analytics of time-series based vehicle telemetry data.
+* [Azure Blob Storage](/azure/storage/blobs) stores large documents (such as videos and can traces) and curated vehicle data.
+* [Azure Databricks](/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.
 
 #### Backend Integration
 
-* [Azure Logic Apps](https://learn.microsoft.com/azure/logic-apps/) runs automated workflows for business integration based on vehicle data.
-* [Azure App Service](https://learn.microsoft.com/azure/app-service/) provides user-facing web apps and mobile back ends, such as the companion app.
-* [Azure Cache for Redis](https://learn.microsoft.com/azure/azure-cache-for-redis/) provides in-memory caching of data often used by user-facing applications.
-* [Azure Service Bus](https://learn.microsoft.com/azure/service-bus-messaging/) provides brokering that decouples vehicle connectivity from digital services and business integration.
+* [Azure Logic Apps](/azure/logic-apps/) runs automated workflows for business integration based on vehicle data.
+* [Azure App Service](/azure/app-service/) provides user-facing web apps and mobile back ends, such as the companion app.
+* [Azure Cache for Redis](/azure/azure-cache-for-redis/) provides in-memory caching of data often used by user-facing applications.
+* [Azure Service Bus](/azure/service-bus-messaging/) provides brokering that decouples vehicle connectivity from digital services and business integration.
 
 ### Alternatives
 
-The selection of the right type of compute to implement message processing and managed APIs depends on a multitude of factors. Select the right service using the [Choose an Azure compute service](https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) guide.
+The selection of the right type of compute to implement message processing and managed APIs depends on a multitude of factors. Select the right service using the [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) guide.
 
 Examples:
 
@@ -188,11 +197,11 @@ Examples:
 * **Azure Batch** for High-Performance Computing tasks such as decoding large CAN Trace / Video Files
 * **Azure Kubernetes Service** for managed, full fledge orchestration of complex logic such as command & control workflow management.
 
-As an alternative to event-based data sharing, it is also possible to use (Azure Data Share)[] if the objective is to perform batch synchronization at the data lake level.
+As an alternative to event-based data sharing, it's also possible to use (Azure Data Share)[] if the objective is to perform batch synchronization at the data lake level.
 
 ## Scenario details
 
-![High Level View](:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-view.png" alt-text="high level view." border="false":::)
+:::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/high-level-view.png" alt-text="high level view." border="false":::
 
 Automotive OEMs are undergoing a significant transformation as they shift from producing fixed products to offering connected, software-defined vehicles. Vehicles offer a range of features, such as over-the-air updates, remote diagnostics, and personalized user experiences. This transition enables OEMs to continuously improve their products based on real-time data and insights while also expanding their business models to include new services and revenue streams.
 
@@ -223,11 +232,11 @@ This reference architecture allows automotive manufacturers and mobility provide
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 * Consider horizontal scaling to add reliability.
 * Use scale units to isolate geographical regions with different regulations.
@@ -240,16 +249,16 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Securing vehicle connection: See the section on [certificate management](https://learn.microsoft.com/azure/event-grid/) to understand how to use X.509 certificates to establish secure vehicle communications.
+* Securing vehicle connection: See the section on [certificate management](/azure/event-grid/) to understand how to use X.509 certificates to establish secure vehicle communications.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-* Cost-per vehicle considerations: the communication costs should dependent on the amount of digital services offered. Calculate the RoI of the digital services against the operation costs.
-* Establish practices for cost analysis based on message traffic. Connected vehicle traffic tends to increase with time as additional services are added.
+* Cost-per vehicle considerations: the communication costs should be dependent on the number of digital services offered. Calculate the RoI of the digital services against the operation costs.
+* Establish practices for cost analysis based on message traffic. Connected vehicle traffic tends to increase with time as more services are added.
 * Consider networking & mobile costs
   * Use MQTT topic alias to reduce traffic volume.
   * Use an efficient method to encode and compress payload messages.
@@ -269,7 +278,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-* Consider using the [scale concept](#scalability) for solutions that will scale above 50,000 devices, specially if multiple geographical regions are required.
+* Consider using the [scale concept](#scalability) for solutions that scale above 50,000 devices, specially if multiple geographical regions are required.
 * Carefully consider the best way to ingest data (messaging, streaming or batched).
 * Consider the best way to analyze the data based on use case.
 
@@ -300,20 +309,20 @@ Other contributors:
 
 ## Next steps
 
-* [Create an Autonomous Vehicle Operations (AVOps) solution](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/avops-architecture) for a broader look into automotive digital engineering for autonomous and assisted driving.
+* [Create an Autonomous Vehicle Operations (AVOps) solution](/azure/architecture/solution-ideas/articles/avops-architecture) for a broader look into automotive digital engineering for autonomous and assisted driving.
 <!--
-* [Connected Fleets](https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-connected-fleets) for applying the connected vehicle reference architecture for commercial operations.
+* [Connected Fleets](/azure/architecture/industries/automotive/automotive-connected-fleets) for applying the connected vehicle reference architecture for commercial operations.
 -->
 
 ## Related resources
 
 The following articles cover some of the concepts used in the architecture:
 
-* [Claim Check Pattern](https://learn.microsoft.com/azure/architecture/patterns/claim-check) is used to support processing large messages, such as file uploads.
-* [Deployment Stamps](https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp) covers the general concepts required to scale the solution to millions of vehicles.
-* [Throttling](https://learn.microsoft.com/azure/architecture/patterns/throttling) describes the concept require to handle exceptional amount of messages from vehicles.
+* [Claim Check Pattern](/azure/architecture/patterns/claim-check) is used to support processing large messages, such as file uploads.
+* [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) covers the general concepts required to scale the solution to millions of vehicles.
+* [Throttling](/azure/architecture/patterns/throttling) describes the concept require to handle exceptional number of messages from vehicles.
 
 The following articles describe interactions between components in the architecture:
 
-* [Configure streaming ingestion on your Azure Data Explorer cluster](https://learn.microsoft.com/azure/data-explorer/ingest-data-streaming)
-* [Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics](https://learn.microsoft.com/azure/stream-analytics/event-hubs-parquet-capture-tutorial)
+* [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming)
+* [Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics](/azure/stream-analytics/event-hubs-parquet-capture-tutorial)
