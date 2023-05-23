@@ -116,8 +116,10 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
 | Azure AD only | Joined to Azure AD | In Azure AD |
 
-> [!NOTE]
-> If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md). In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Azure AD, you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). This means you must create these accounts in AD DS and synchronize them to Azure AD. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+
+- [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
+- [Set up FSLogix Profile Container with Azure Files and Azure Active Directory](create-profile-container-azure-ad.md).
 
 > [!IMPORTANT]
 > The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
