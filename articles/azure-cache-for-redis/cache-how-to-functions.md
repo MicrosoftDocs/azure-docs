@@ -7,11 +7,11 @@ zone_pivot_groups: cache-redis-zone-pivot-group
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 05/22/2023
 
 ---
 
-# Serverless Event-based Architectures with Azure Cache for Redis and Azure Functions (Preview)
+# Serverless event-based architectures with Azure Cache for Redis and Azure Functions (preview)
 
 This article describes how to use Azure Cache for Redis with [Azure Functions](/azure/azure-functions/functions-overview) to create optimized serverless and event-driven architectures.
 Azure Cache for Redis can be used as a [trigger](/azure/azure-functions/functions-triggers-bindings) for Azure Functions, allowing Redis to initiate a serverless workflow.
@@ -25,7 +25,7 @@ There are three triggers supported in Azure Cache for Redis:
 
 [Keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) can also be used as triggers through `RedisPubSubTrigger`.
 
-## Scope of Availability for Functions Triggers
+## Scope of availability for functions triggers
 
 |Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |---------|:---------:|:---------:|:---------:|
@@ -392,7 +392,7 @@ public static void StreamsTrigger(
 
 :::zone-end
 
-### Return Values
+### Return values
 
 All triggers return a `RedisMessageModel` object that has two fields:
 
