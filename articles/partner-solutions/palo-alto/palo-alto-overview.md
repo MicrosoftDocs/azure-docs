@@ -22,7 +22,7 @@ Here are the key capabilities provided by the Palo Alto integration:
 
 - **Seamless onboarding** of Palo Alto software as an integrated service on Azure.
 - **Unified billing** of Palo Alto through Azure monthly billing.
-- **Single-Sign on to Palo Alto** - No separate sign-up needed from NGINX portal.
+- **Single-Sign on to Palo Alto** - No separate sign-up needed from Palo Alto portal.
 - **Manage VNET and VWAN traffic** to use existing configuration (.conf) files for Palo Alto deployment.
 
 ## Pre-requisites for Cloud NGFW by Palo Alto Networks
