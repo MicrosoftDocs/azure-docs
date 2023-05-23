@@ -309,8 +309,8 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
    Examples:
 
-   * `item()?['Product_ID']`
    * `item()?['Description']`
+   * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create CSV table" action in a Consumption workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/csv-table-expression-consumption.png)
 
@@ -334,8 +334,8 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
    Examples:
 
-   * `item()?['Product_ID']`
    * `item()?['Description']`
+   * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create CSV table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/csv-table-expression-standard.png)
 
@@ -559,8 +559,8 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
    Examples:
 
-   * `item()?['Product_ID']`
    * `item()?['Description']`
+   * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create HTML table" action in a Consumption workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-consumption.png)
 
@@ -584,8 +584,8 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
    Examples:
 
-   * `item()?['Product_ID']`
-   * `item()?['Description']`
+      * `item()?['Description']`
+      * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create HTML table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-standard.png)
 
