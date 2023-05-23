@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 05/23/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Bugsnag
@@ -116,7 +116,24 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Bugsnag SSO
 
-To configure single sign-on on **Bugsnag** side, you need to send the **App Federation Metadata Url** to [Bugsnag support team](mailto:support@bugsnag.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Sign into the Bugsnag website as an administrator.
+
+1. In BugSnag settings, select **Organization settings -> Single sign-on**.
+
+    ![Screenshot of Authentication page.](./media/bugsnag-tutorial/authentication.png)
+
+1. Perform the following steps in the **Enable single sign-on** page:
+
+    ![Screenshot of SSO settings page.](./media/bugsnag-tutorial/enable-sso.png)
+
+    a. In the **SAML/IdP Metadata** field, enter the **App Federation Metadata Url** value, which you copied from Azure portal.
+
+    b. Copy the **SAML Endpoint URL** value and paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    c. Click **ENABLE SSO**.
+
+> [!NOTE]
+> For more information on the Bugsnag SSO configuration, please follow [this](https://docs.bugsnag.com/product/single-sign-on/other/#setup-saml) guide.
 
 ### Create Bugsnag test user
 
