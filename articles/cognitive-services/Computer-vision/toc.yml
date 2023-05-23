@@ -142,17 +142,29 @@ items:
       items:
       - name: Call the Analyze API
         href: how-to/call-analyze-image-40.md
-      - name: Create a custom model
-        href: how-to/model-customization.md
-      - name: Migrate a Custom Vision project to Image Analysis
-        href: how-to/migrate-from-custom-vision.md
-      - name: Verify a custom model COCO file
-        href: how-to/coco-verification.md
+      - name: Model customization
+        items:
+        - name: Create a custom model
+          href: how-to/model-customization.md
+        - name: Migrate a Custom Vision project to Image Analysis
+          href: how-to/migrate-from-custom-vision.md
+        - name: Verify a custom model COCO file
+          href: how-to/coco-verification.md
+      - name: Product Recognition
+        items:
+        - name: Prepare images for Product Recognition
+          href: how-to/shelf-modify-images.md
+        - name: Product Recognition with prebuilt model
+          href: how-to/shelf-analyze.md
+        - name: Product Recognition with custom model
+          href: how-to/shelf-model-customization.md
+        - name: Check planogram compliance
+          href: how-to/shelf-planogram.md
       - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
-      - name: Configure storage account
+      - name: Configure a storage account
         href: how-to/blob-storage-search.md
     - name: Version 3.2
       items:
@@ -180,6 +192,8 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
+      - name: Product Recognition
+        href: concept-shelf-analysis.md
       - name: Image retrieval
         href: concept-image-retrieval.md
       - name: Background removal
