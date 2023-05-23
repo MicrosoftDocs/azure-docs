@@ -62,7 +62,7 @@ The decoupling of sender and receiver objects simplifies message handling in gro
 ### Channel
 Every Data Channel message is associated with a specific channel identified by `channelId`.
 It's important to clarify that this channelId is not related to the id property in the WebRTC Data Channel.
-This channelId can be utilized to differentiate various application uses, such as using 10000 for chat messages and 10001 for image transfers.
+This channelId can be utilized to differentiate various application uses, such as using 100 for chat messages and 101 for image transfers.
 
 The channelId is assigned during the creation of a DataChannelSender object,
 and can be either user-specified or determined by the SDK if left unspecified.
