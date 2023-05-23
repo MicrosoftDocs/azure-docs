@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure UE to UE internal forwarding
+title: Configure UE to UE internal forwarding - Azure portal
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide you'll learn how to enable or disable UE to UE internal forwarding using policy control configuration in the Azure portal.
 author: robswain
@@ -163,7 +163,7 @@ In this step, we'll assign the new service (`service_allow_internal_forwarding` 
     :::image type="content" source="media/sim-policies-modify-button.png" alt-text="Screenshot of the Azure portal showing the modify SIM policies option.":::    
 
 1. Select **Modify Network Scope** for the existing slice and data network configured for your UEs.
-1. Under **Service configuration**, add the new service. 
+1. Under **Service configuration**, add the new service.
 1. Select **Modify**.
 1. Select **Assign to SIMs**.
 1. Select **Review + modify**.
