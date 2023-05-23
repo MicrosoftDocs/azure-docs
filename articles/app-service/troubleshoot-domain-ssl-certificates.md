@@ -98,6 +98,62 @@ This problem can happen for any of the following reasons:
 
   1. Select **Certificate Configuration** > **Step 2: Verify** > **Domain Verification**. This step sends an email notice to the Azure certificate provider to resolve the problem.
 
+### An App Service certificate was renewed, but the app shows the old certificate 
+
+#### Symptom 
+
+The App Service certificate was renewed, but the app that uses the App Service certificate is still using the old certificate. Also, you may receive a warning that the HTTPS protocol is required.
+
+#### Cause 1: Missing access policy permissions on the key vault
+
+The Key Vault used to store the App Service Certificate is missing access policy permissions on the key vault for Microsoft.Azure.Websites and Microsoft.Azure.CertificateRegistation. The service principals and their required permissions for Key Vault access are:
+</br></br>
+
+  |Service Principal|Secret Permissions|Certificate Permissions|
+  |------|------|-----|
+  |Microsoft Azure App Service|Get|Get|
+  |Microsoft Azure CertificateRegistration|Get, List, Delete|Get, List|
+ 
+#### Solution 1: Modify the access policies for the key vault
+
+To modify the access polices for the key vault, follow these steps:
+
+  <ol>
+  <li>Sign in to the Azure portal. Select the Key Vault used by your App Service Certificate. Navigate to Access policies.</li>
+  <li>If you do not see the two Service Principals listed you will need to add them. If they are available, verify the permissions include the recommended secret and certificate permissions.</li>
+  <li>Add a Service Principal by selecting "Create". Then select the needed permissions for Secret and Certificate permissions.</li>   
+  <li>For the Principal, enter the value(s) given above in the search box. Then select the principal.</li>
+  </ol>
+
+#### Cause 2: The app service has not yet synced with the new certificate
+
+The App Service automatically syncs your certificate within 48 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. To resolve this problem, sync the certificate manually, which automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+
+#### Solution 2: Force a sync for the certificate
+
+To force a sync for the certificate, follow these steps:
+
+  <ol>
+  <li>Sign in to the [Azure portal](https://portal.azure.com). Select **App Service Certificates**, and then select the certificate.</li>
+  <li>Select **Rekey and Sync**, and then select **Sync**. The sync takes some time to finish.</li>
+  <li>When the sync completes, the following notification appears: "Successfully updated all the resources with the latest certificate."</li>
+  </ol>
+ 
+### An App Service is showing the wrong certificate 
+
+#### Symptom 
+
+When browsing the App Service, it is presenting the wrong certificate
+
+#### Cause
+
+This problem can manifest when both IP SSL and SNI based bindings have been configured for the App Service. When non SNI clients hit the IP SSL endpoint, the IP SSL certificate gets cached. Now even if the SNI enabled clients hit the site, they will be presented with the IP SSL certificate causing an invalid cert to be presented.
+
+#### Solution
+
+Please ensure not to use SNI bindings along with IP SSL bindings and always browse to the website over custom domain URL if you have non SNI clients. In case you need to use SNI bindings, you need to ensure that the certificate that is bound to the IP SSL binding is issued to protect all configured URLs for the site (including the SNI bindings) and configure the same certificate against all other bindings. This behavior is by design.
+
+
 ## Custom domain problems
 
 ### A custom domain returns a 404 error 
@@ -194,26 +250,6 @@ Delete that certificate, and then buy a new certificate.
 
 If the current certificate that uses the wrong domain is in the "Issued" state, you'll also be billed for that certificate. App Service certificates aren't refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for other possible options.
 
-### An App Service certificate was renewed, but the app shows the old certificate 
-
-#### Symptom
-
-The App Service certificate was renewed, but the app that uses the App Service certificate is still using the old certificate. Also, you received a warning that the HTTPS protocol is required.
-
-#### Cause
-
-App Service automatically syncs your certificate within 24 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. To resolve this problem, sync the certificate, which automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
-
-#### Solution
-
-You can force a sync for the certificate.
-
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **App Service Certificates**, and then select the certificate.
-
-1. Select **Rekey and Sync**, and then select **Sync**. The sync takes some time to finish. 
-
-1. When the sync completes, the following notification appears: "Successfully updated all the resources with the latest certificate."
-
 ### Domain verification is not working 
 
 #### Symptom 
@@ -257,13 +293,17 @@ This problem happens for one of the following reasons:
 
   **Solution**: Add a valid credit card to your subscription.
 
-- You're not the subscription owner, so you don't have permission to purchase a domain.
-
-  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
-
 - Your Azure subscription type does not support the purchase of an App Service domain.
 
   **Solution**: Upgrade your Azure subscription to another subscription type, such as a Pay-As-You-Go subscription.
+  
+- Depending on the subscription type, a sufficient payment history may be required prior to purchasing an App Service domain.
+
+  **Solution**: Either purchase with a different subscription that has a payment history or wait until you have a payment history with current subscription.
+  
+- You're not the subscription owner, so you don't have permission to purchase a domain.
+
+  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
 
 ### You can't add a host name to an app 
 
@@ -344,3 +384,15 @@ You can manage your domain even if you don't have an App Service web app. You ca
 Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Some limitations apply when you move a web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 After you move a web app, the host name bindings of the domains within the custom domains setting should stay the same. No extra steps are required to configure the host name bindings.
+
+**What file formats are returned when I download my App Service Certificate from its Key Vault?**
+
+When you select "Download as a certificate" for the App Service Certificate under its Key Vault/Secrets, the certificate file format will be .pfx. No password will be applied to the file. 
+
+**What file format can I use to upload a certificate to my App Service?**
+
+The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the certificate requirements mentioned [here](../app-service/configure-ssl-certificate.md#private-certificate-requirements).  If you have obtained your certificate from a 3rd party CA and the file format is a .PEM/.KEY format, you can use a tool like openSSL to convert the file(s) to a .pfx file format. The private key must be included during the conversion as it is required in the .pfx file format. Also, if your certificate authority gives you multiple certificates in the certificate chain, you have to merge the certificates following the same order. For more information, please see [here](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates). 
+
+**How do I generate a certificate signing request (CSR) for an App Service Certificate?**
+
+For an App Service Certificate, you would purchase through the Azure portal or using a Powershell/CLI command. A CSR is not needed. However, Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [here](../key-vault/certificates/create-certificate-signing-request.md).
