@@ -20,7 +20,7 @@ This document contains information about new features and other changes to the A
 
 - make sure parsed geojson features (from KML) are always assigned with valid IDs
 
-- unescape XML &amp; that otherwise break valid urls
+- unescape XML &amp; that otherwise breaks valid urls
 
 - handles empty `<Icon><\Icon>` inside KMLReader
 
