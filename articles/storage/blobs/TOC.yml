@@ -253,8 +253,6 @@ items:
         href: storage-manage-find-blobs.md
       - name: Full text search
         href: ../../search/search-blob-storage-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Azure Cognitive Search
-        href: ../../search/search-blob-ai-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Data migration
       items:
       - name: Storage migration overview

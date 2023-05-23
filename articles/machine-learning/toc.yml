@@ -1144,6 +1144,8 @@
       items:
         - name: How to use Foundation Models
           href: how-to-use-foundation-models.md
+        - name: Hugging Face Hub community partner models
+          href: how-to-deploy-models-from-huggingface.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Set up MLOps with Azure DevOps
