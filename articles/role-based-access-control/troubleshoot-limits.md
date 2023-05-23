@@ -43,7 +43,7 @@ $ras.Count
 
 To reduce the number of role assignments in the subscription, add principals (users, service principals, and managed identities) to groups and assign roles to the groups instead. Follow these steps to identify where multiple role assignments for principals can be replaced with a single role assignment for a group.
 
-1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
@@ -69,7 +69,9 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png":::
 
-1. For a row, select **See details** to open the **Details** pane.
+1. Identify a row where you want to replace the multiple role assignments with a single role assignment for a group.
+
+1. In the row, select **See details** to open the **Details** pane.
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png":::
 
@@ -80,28 +82,38 @@ To reduce the number of role assignments in the subscription, add principals (us
     | RoleDefinitionName | [Name](./built-in-roles.md) of the currently assigned role. |
     | count_ | Number of principals assigned the same role and at the same scope. |
     | AllPrincipals | List of principal IDs assigned the same role and at the same scope. |
-    
-1. Under **AllPrincipals**, get the list of the principal IDs.
 
-1. If necessary, get the principal name from the principal ID.
+1. In **RoleDefinitionId**, **RoleDefinitionName**, and **Scope**, get the role and scope.
 
-    # [Portal](#tab/portal)
-    
-    See [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md)
-    
-    # [PowerShell](#tab/powershell)
-    
-    See [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main)
-    
-    # [Azure CLI](#tab/cli)
-    
-    See [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show)
+1. In **AllPrincipals**, get the list of the principal IDs with the same role assignment.
 
-    ---
+1. Create an Azure AD group. For more information, see [Manage Azure Active Directory groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
 
-1. Create an Azure AD group and add the principals to the group.
+1. Add the principals from **AllPrincipals** to the group.
 
-1. Replace the principal role assignments with a single role assignment for the group.
+1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+
+    Now you can find and remove the principal-based role assignments.
+
+1. Get the principal names from the principal IDs.
+  
+    - To use Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
+    - To use PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
+    - To use Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
+
+1. Open the **Access control (IAM)** page at the same scope as the role assignments.
+
+1. Select the **Role assignments** tab.
+
+1. In the **Role** filter, select the role to just see the role assignments for this role.
+
+1. Find the principal-based role assignment.
+
+    You should also see your group-based role assignment.
+
+    :::image type="content" source="media/troubleshoot-resource-graph/role-assignments-filter-remove.png" alt-text="Screenshot of Access control (IAM) page that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/role-assignments-filter-remove.png":::
+
+1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 #### Solution 2 - Combine multiple built-in roles with a custom role
 
@@ -119,9 +131,7 @@ Add an additional subscription.
 
 If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since role assignments at a higher scope already grant access.
 
-You should follow [best practices of least privilege](best-practices.md#only-grant-the-access-users-need) when determining which role assignment can be removed. The role assignment at the higher scope might be granting more access to the principal than what is needed. In that case, you should remove the role assignment with the higher scope. For example, a user might not need a Virtual Machine Contributor role assignment at subscription scope when a Virtual Machine Contributor role assignment at a lower resource group scope grants the required access.
-
-1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
 1. Run the following query to get the role assignments with the same principal and same role, but at different scopes.
 
@@ -157,19 +167,33 @@ You should follow [best practices of least privilege](best-practices.md#only-gra
     | count_ | Number of different scopes for role assignments with the same principal and same role. |
     | Scopes | Scopes for role assignments with the same principal and same role. |
 
-1. For a row, select **See details** to open the **Details** pane.
+1. Identify a row where you want to remove redundant role assignments.
+
+1. In a row, select **See details** to open the **Details** pane.
 
     :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png":::
 
-1. Under **Scopes**, get the list of the scopes for the same principal and role.
+1. In **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId**, get the role and principal ID.
 
-1. If necessary, get the principal name from the principal ID.
+1. In **Scopes**, get the list of the scopes for the same principal and role.
+
+1. Determine which scope is required. The other role assignments can be removed.
+
+    You should follow [best practices of least privilege](best-practices.md#only-grant-the-access-users-need) when determining which role assignments can be removed. The role assignment at the higher scope might be granting more access to the principal than what is needed. In that case, you should remove the role assignment with the higher scope. For example, a user might not need a Virtual Machine Contributor role assignment at subscription scope when a Virtual Machine Contributor role assignment at a lower resource group scope grants the required access.
+
+1. Get the principal name from the principal ID.
   
-    - For Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
-    - For PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
-    - For Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
+    - To use Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
+    - To use PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
+    - To use Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
-1. Replace the multiple role assignments with a single role assignment at the highest scope.
+1. Open the **Access control (IAM)** page at the scope for a role assignment you want to remove.
+
+1. Select the **Role assignments** tab.
+
+1. Find the principal and role assignment.
+
+1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 ## Symptom - No more role assignments can be created at management group scope
 
@@ -200,7 +224,7 @@ Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vi
 
 Follow these steps to find and delete unused Azure custom roles.
 
-1. Sign in to the Azure portal and open the Azure Resource Graph Explorer.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
 1. Run the following query to get all custom roles that don't have any role assignments:
 
@@ -230,7 +254,13 @@ Follow these steps to find and delete unused Azure custom roles.
     | RoleDefinitionName | Name of the unused custom role. |
     | Scope | [Assignable scopes](./role-definitions.md#assignablescopes) for the unused custom role. |
 
-1. Open your list of custom roles and delete the custom roles you no longer need.
+1. Open a management group or subscription and then open the **Access control (IAM)** page.
+
+1. Select the **Roles** tab to see a list of all the built-in and custom roles.
+
+1. In the **Type** filter, select **CustomRole** to just see your custom roles.
+
+1. Select  the ellipsis (**...**) for the custom role you want to delete and then select **Delete**.
 
     :::image type="content" source="media/shared/custom-roles-delete-menu.png" alt-text="Screenshot of a list of custom roles that can be selected for deletion." lightbox="media/shared/custom-roles-delete-menu.png":::
 
