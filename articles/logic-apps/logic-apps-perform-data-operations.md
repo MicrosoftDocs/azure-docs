@@ -770,7 +770,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Create HTML table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Filter array**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
 1. After the action information box appears, in the **From** box, enter the array or expression to use as the filter.
 
@@ -898,13 +898,9 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **join**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Join**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Join**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "join" entered, and the "Join" action selected.](./media/logic-apps-perform-data-operations/select-join-action-standard.png)
-
-1. In the **From** box, enter the array that has the items you want to join as a string.
+1. After the action information box appears, in the **From** box, enter the array that has the items you want to join as a string.
 
    For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
@@ -1085,13 +1081,9 @@ For more information about this action in your underlying workflow definition, s
    
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Parse JSON**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box, and the "Parse JSON" action selected.](./media/logic-apps-perform-data-operations/select-parse-json-action-standard.png)
-
-1. In the **Content** box, enter the JSON object that you want to parse.
+1. After the action information box appears, in the **Content** box, enter the JSON object that you want to parse.
 
    For this example, select inside the **Content** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
