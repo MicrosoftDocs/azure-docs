@@ -110,7 +110,7 @@ public static class ClaimsPrincipalParser
          *  other .NET code.
          */
 
-        var identity = new ClaimsIdentity(principal.IdentityProvider);
+        var identity = new ClaimsIdentity(principal.IdentityProvider, principal.NameClaimType, principal.RoleClaimType);
         identity.AddClaims(principal.Claims.Select(c => new Claim(c.Type, c.Value)));
         
         return new ClaimsPrincipal(identity);
