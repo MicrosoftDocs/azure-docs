@@ -66,7 +66,7 @@ You can restrict default permissions for member users in the following ways:
 The **Restrict non-admin users from creating tenants** option is shown [below](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/UserSettings)
 
 
-:::image type="content" source="media/user-default-permissions/tenant-creation-restriction.png" alt-text="Screenshot showing the option to **Restrict non-admins from creating tenants**":::
+:::image type="content" source="media/user-default-permissions/tenant-creation-restriction.png" alt-text="Screenshot showing the option to Restrict non-admins from creating tenants." lightbox="media/user-default-permissions/tenant-creation-restriction.png":::
 
 ## Restrict guest users' default permissions
 
