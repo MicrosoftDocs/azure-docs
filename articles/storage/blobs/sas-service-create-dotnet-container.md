@@ -44,7 +44,7 @@ The following code example shows how to use the service SAS to authorize a [Blob
 
 To learn more about creating a service SAS using the Azure Blob Storage client library for .NET, see the following resources.
 
-[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+[!INCLUDE [storage-dev-guide-stored-access-policy](../../../includes/storage-dev-guides/storage-dev-guide-stored-access-policy.md)]
 
 ### See also
 

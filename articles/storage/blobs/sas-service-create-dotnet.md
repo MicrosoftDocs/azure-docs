@@ -38,7 +38,7 @@ The following code example shows how to use the service SAS to authorize a [Blob
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseServiceSASBlob":::
 
-[!INCLUDE [storage-dev-guide-stored-access-policy](../../../includes/storage-dev-guide-stored-access-policy.md)]
+[!INCLUDE [storage-dev-guide-stored-access-policy](../../../includes/storage-dev-guides/storage-dev-guide-stored-access-policy.md)]
 
 ## Resources
 
