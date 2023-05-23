@@ -58,11 +58,11 @@ This section describes how to register an Azure Machine Learning workspace in Mi
 
 1. On the **Register sources (Azure Machine Learning)** screen, do the following:
 
-   1. For **Name**, enter a friendly name that Microsoft Purview will list as the data source for the workspace.
+    1. For **Name**, enter a friendly name that Microsoft Purview will list as the data source for the workspace.
 
-   1. For **Azure subscription** and **Workspace name**, select the subscription and workspace that you want to push from the dropdown. The Azure Machine Learning workspace URL is automatically populated.
+    1. For **Azure subscription** and **Workspace name**, select the subscription and workspace that you want to push from the dropdown. The Azure Machine Learning workspace URL is automatically populated.
 
-   1. For **Select a collection**, choose a collection from the list or create a new one. This step is optional.
+    1. For **Select a collection**, choose a collection from the list or create a new one. This step is optional.
 
 1. Select **Register** to register the source.   
 
