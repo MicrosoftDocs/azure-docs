@@ -14,7 +14,7 @@ ms.date: 4/28/2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard ✔️ Enterprise
 
 This article explains how to deploy Spring Boot applications in Azure Spring Apps using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
 
@@ -24,7 +24,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring App
 * The image is pushed to an image registry. For more information, see [Azure Container Registry](../container-instances/container-instances-tutorial-prepare-acr.md).
 
 > [!NOTE]
-> The web application must listen on port `1025` for Standard tier and on port `8080` for Enterprise tier. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. You can disable the probe for applications that don't listen on any port. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md).
+> The web application must listen on port `1025` for the Standard plan and on port `8080` for the Enterprise plan. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. You can disable the probe for applications that don't listen on any port. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md).
 
 ## Deploy your application
 
@@ -109,11 +109,11 @@ The following matrix shows what features are supported in each application type.
 | Scaling - manual scaling (in/out, up/down)          | ✔️                                     | ✔️                                   |                                                                                                                             |
 | Managed Identity                                    | ✔️                                     | ✔️                                   |                                                                                                                             |
 | Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
-| API portal for VMware Tanzu®                        | ✔️                                     | ✔️                                   | Enterprise tier only.                                                                                                       |
-| Spring Cloud Gateway for VMware Tanzu®              | ✔️                                     | ✔️                                   | Enterprise tier only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise tier only.         
-| Application Live View for VMware Tanzu®             | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
-| VMware Tanzu® Service Registry                      | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
+| API portal for VMware Tanzu®                        | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
+| Spring Cloud Gateway for VMware Tanzu®              | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
+| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise plan only.         
+| Application Live View for VMware Tanzu®             | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
+| VMware Tanzu® Service Registry                      | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
 | VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
 | Outgoing IP Address                                 | ✔️                                     | ✔️                                   |                                                                                                                             |
 | E2E TLS                                             | ✔️                                     | ✔️                                   | [Trust a self-signed CA](#trust-a-certificate-authority).                                                                   |
