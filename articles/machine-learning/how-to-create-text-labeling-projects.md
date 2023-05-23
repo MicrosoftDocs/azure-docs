@@ -263,17 +263,21 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 For all project types except **Text Named Entity Recognition**, you can export label data as:
 
-* A CSV file. The Azure Machine Learning workspace creates the CSV file in a folder inside *Labeling/export/csv*.
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+* An [Azure MLTable data asset](./how-to-mltable.md). 
 
 For **Text Named Entity Recognition** projects, you can export label data as:
 
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification is shown in the Azure Machine Learning studio global controls. Select that notification to see a link to the file.
+* An [Azure MLTable data asset](./how-to-mltable.md).
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
+When you export a CSV or CoNLL file, a notifications appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 

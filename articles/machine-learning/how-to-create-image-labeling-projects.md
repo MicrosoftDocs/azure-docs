@@ -282,10 +282,16 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 You can export an image label as:
 
-* A [COCO format](http://cocodataset.org/#format-data) file. The COCO file is created in the default blob store of the Machine Learning workspace in a folder in *Labeling/export/coco*. 
+* A CSV file. The Azure Machine Learning workspace creates the CSV file in a folder inside *Labeling/export/csv*.
+* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+* An [Azure MLTable data asset](./how-to-mltable.md).
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+When you export a CSV or COCO file, a notifications appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
+
+:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Notification for file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 
