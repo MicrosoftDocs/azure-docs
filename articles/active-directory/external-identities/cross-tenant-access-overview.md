@@ -131,19 +131,49 @@ To collaborate with a partner tenant in a different Microsoft Azure cloud, both 
 ## Custom roles for managing cross-tenant access settings
 
 Cross-tenant access settings can be managed with custom roles defined by your organization. This enables you to [define your own finely-scoped roles](../roles/custom-create.md) to manage cross-tenant access settings instead of using one of the built-in roles for management.
-
+Your organization can define custom roles to manage cross-tenant access settings. This allows you to create [your own finely-scoped roles](../roles/custom-create.md) to manage cross-tenant access settings instead of using built-in roles for management.
 ### Recommended custom roles
 
 #### Cross-tenant access administrator
 
 This role can manage everything in cross-tenant access settings, including default and organizational based settings. This role should be assigned to users who need to manage all settings in cross-tenant access settings.
 
-:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png" alt-text="Screenshot of the administrator custom for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-administrator-custom-role.png":::
+Please find the list of recommended actions for this role below.
+
+| Actions |
+| ------- |
+| microsoft.directory.tenantRelationships/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update |
+| microsoft.directory/crossTenantAccessPolicy/basic/update |
+| microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update |
+| microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update |
+| microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update |
+| microsoft.directory/crossTenantAccessPolicy/default/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/create |
+| microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/delete |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/basic/update |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/create |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update |
 
 #### Cross-tenant access reader
 This role can read everything in cross-tenant access settings, including default and organizational based settings. This role should be assigned to users who only need to review settings in cross-tenant access settings, but not manage them.
 
-:::image type="content" source="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png" alt-text="Screenshot of the reader custom role for cross-tenant access settings." lightbox="media/cross-tenant-access-overview/cross-tenant-access-reader-custom-role.png":::
+Please find the list of recommended actions for this role below.
+
+| Actions |
+| ------- |
+| microsoft.directory.tenantRelationships/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/default/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/identitySynchronization/standard/read |
+| microsoft.directory/crossTenantAccessPolicy/partners/standard/read |
 
 #### Cross-tenant access partner administrator
 This role can manage everything relating to partners and read the default settings. This role should be assigned to users who need to manage organizational based settings but not be able to change default settings.
