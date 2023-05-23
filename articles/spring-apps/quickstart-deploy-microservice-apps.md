@@ -21,6 +21,13 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 ![Architecture of PetClinic on Azure Spring Apps](media/quickstart-deploy-microservice-apps/petclinic-architecture-on-asa.png)
 
+Diagram of Spring Pet Clinic apps architecture:
+- Use Azure Spring Apps to manage the Spring Boot apps.
+- Use built-in Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps, the Config Server reads Git repository configuration.
+- Expose the URL of `api-gateway` as public access to load balance requests to service apps, and expose the URL of the `admin-server` as restricted access to manage the applications.
+- Analyze logs using the Log Analytics workspace.
+- Monitor with the Application Insights.
+
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -35,11 +42,15 @@ According to the content echoed by the deployment, open the URL exposed by the a
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-screenshot.png" alt-text="Screenshot of PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-screenshot.png":::
 
-After browsing each function of the Pet Clinic, the Application Insights will monitor the application dependencies, and you can view the following application tracing map.
+After browsing each function of the Pet Clinic, the Log Analytics workspace will collect logs of each application, and you can check the logging via your custom queries on it.
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png" alt-text="Screenshot of Log query for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png":::
+
+The Application Insights will monitor the application dependencies, and you can view the following application tracing map.
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of Application Insights map for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
 
-Open the URL exposed by the app `admin-server`, you can manage the application through the Spring Boot Admin UI.
+Open the URL exposed by the app `admin-server`, you can manage the applications through the Spring Boot Admin Server.
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server-ui.png" alt-text="Screenshot of Admin Server for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/admin-server-ui.png":::
 

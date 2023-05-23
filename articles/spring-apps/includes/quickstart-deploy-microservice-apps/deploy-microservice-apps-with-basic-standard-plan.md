@@ -64,7 +64,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png":::
 
-1. Navigate to the tab **Application Insights** on the Azure Spring Apps **Create** page, select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, then select **OK** to confirm the creation.
+1. Navigate to the tab **Diagnostic settings** on the Azure Spring Apps **Create** page, select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
+
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png" alt-text="Screenshot of Azure portal showing diagnostic settings configuration" lightbox="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png":::
+
+1. Navigate to the tab **Application Insights** on the Azure Spring Apps **Create** page, select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, then select **OK** to confirm the creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of Azure portal showing application insights creation" lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
