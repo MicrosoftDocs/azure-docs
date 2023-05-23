@@ -34,11 +34,11 @@ You can't change your original configuration's default language. However, compan
 
 Resource that supports managing language-specific branding. While you can't change your original configuration's language, this resource allows you to create a new configuration for a different language.
 
-- [List localizations](graph/api/organizationalbranding-list-localizations)
-- [Create localization](graph/api/organizationalbranding-post-localizations)
-- [Get localization](graph/api/organizationalbrandinglocalization-get)
-- [Update localization](graph/api/organizationalbrandinglocalization-update)
-- [Delete localization](graph/api/organizationalbrandinglocalization-delete)
+- [List localizations](/graph/api/organizationalbranding-list-localizations)
+- [Create localization](/graph/api/organizationalbranding-post-localizations)
+- [Get localization](/graph/api/organizationalbrandinglocalization-get)
+- [Update localization](/graph/api/organizationalbrandinglocalization-update)
+- [Delete localization](/graph/api/organizationalbrandinglocalization-delete)
 
 
 ## How to programmatically manage Microsoft Graph
