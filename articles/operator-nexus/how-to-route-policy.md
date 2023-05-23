@@ -300,7 +300,8 @@ The `IPExtendedCommunity`resource allows operators to manipulate routes  based o
 | resource-group | Use an appropriate resource group name specifically for your IP prefix |  ResourceGroupName |True |
 | resource-name | Resource Name of the ipPrefix |  ipprefixv4-1204-cn1 |True |
 | location | AzON Azure Region used during NFC Creation |  eastus |True |
-| action | Action to be taken for the IP extended community – Permit | Deny |  Permit |True |
+| action | Action to be taken for the IP extended community – Permit | Deny or Permit |True |
+
 | routeTargets | Route Target List. The expected formats are "ASN(plain):nn" >> example "4294967294:50", "ASN.ASN:nn" >> example "65533.65333:40", "IP-address:nn" >> example "10.10.10.10:65535". The possible values of "nn" are within "0-65535" range, and "ASN(plain)" within "0-4294967295" range. | "1234:5678" |True |
 
 ### Create IP extended community
