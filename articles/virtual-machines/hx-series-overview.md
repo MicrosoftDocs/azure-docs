@@ -36,7 +36,7 @@ The following diagram shows the topology of the server. We reserve these 16 hype
 
 ![Topology of the HX-series server](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
-The CCD boundary is not equivalent to a NUMA boundary. On HX, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HX VM sizes expose 4 uniform NUMA domains that will appear to an OS and application as shown below, each with different number of cores depending on the specific [HX VM size](hx-series.md).
+The CCD boundary is different from a NUMA boundary. On HX, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HX VM sizes expose 4 uniform NUMA domains that will appear to an OS and application as shown below, each with different number of cores depending on the specific [HX VM size](hx-series.md).
 
 ![Topology of the HX-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
 
@@ -53,7 +53,7 @@ Standard_HX176-24rs              | 4            | 6                      | Dual-
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
 
-The virtual NUMA mapping of each HX VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology. 
+The virtual NUMA mapping of each HX VM size is mapped to the underlying physical NUMA topology. There is no potential misleading abstraction of the hardware topology. 
 
 The exact topology for the various [HX VM size](hx-series.md) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
 ```bash
@@ -91,9 +91,9 @@ lstopo-no-graphics --no-io --no-legend --of txt
 </details>
 
 ## InfiniBand networking
-HX VMs also feature NVIDIA Mellanox NDR InfiniBand network adapters (ConnectX-7) operating at up to 400 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HX VMs as they would a bare metal environment..
+HX VMs also feature NVIDIA Mellanox NDR InfiniBand network adapters (ConnectX-7) operating at up to 400 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HX VMs as they would a bare metal environment.
 
-HX VMs support Adaptive Routing, Dynamic Connected Transport (DCT, in additional to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-7 adapter. These features enhance application performance, scalability, and consistency, and usage of them is strongly recommended.
+HX VMs support Adaptive Routing, Dynamic Connected Transport (DCT, in addition to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-7 adapter. These features enhance application performance, scalability, and consistency, and usage of them is recommended.
 
 ## Temporary storage
 HX VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and it appeared within your VM as a generic "SSD" device.
@@ -129,10 +129,10 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 > [!NOTE] 
 > These VMs support only Generation 2.
 > There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6.
-> Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
+> Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN and the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16) 
+> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN and the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16). 
 
 ## Next steps
 
