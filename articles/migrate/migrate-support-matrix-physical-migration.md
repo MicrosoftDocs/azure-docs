@@ -50,6 +50,7 @@ The table summarizes support for physical servers, AWS VMs, and GCP VMs that you
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the machines won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | Machines with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Teamed NICs** | Not supported.
