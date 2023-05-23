@@ -22,15 +22,15 @@ This integration between Azure Machine Learning and Microsoft Purview applies an
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|---|
-| [Yes](#register)| Yes | Yes | No | No | No| No| [Yes](#lineage) | No |
+| [Yes](#register)| Yes | Yes | No | No | No| No| Yes | No |
 
 When scanning the Azure Machine Learning source, Microsoft Purview supports:
 
 - Extracting technical metadata from Azure Machine Learning, including:
-   - Workspace
-   - Models
-   - Datasets
-   - Jobs
+    - Workspace
+    - Models
+    - Datasets
+    - Jobs
 
 ## Prerequisites
 
