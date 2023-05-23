@@ -36,15 +36,15 @@ To create sample alerts:
 1. Select the relevant Microsoft Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
 
-    :::image type="content" source="media/alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Microsoft Defender for Cloud.":::
+    :::image type="content" source="media/alert-validation/create-sample-alerts-procedures.png" alt-text="Screenshot showing steps to create sample alerts in Microsoft Defender for Cloud." lightbox="media/alert-validation/create-sample-alerts-procedures.png":::
     
     A notification appears letting you know that the sample alerts are being created:
 
-    :::image type="content" source="media/alert-validation/notification-sample-alerts-creation.png" alt-text="Notification that the sample alerts are being generated.":::
+    :::image type="content" source="media/alert-validation/notification-sample-alerts-creation.png" alt-text="Screenshot showing notification that the sample alerts are being generated." lightbox="media/alert-validation/notification-sample-alerts-creation.png":::
 
     After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Microsoft Defender for Cloud security alerts (connected SIEMs, email notifications, and so on).
 
-    :::image type="content" source="media/alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list.":::
+    :::image type="content" source="media/alert-validation/sample-alerts.png" alt-text="Screenshot showing sample alerts in the security alerts list." lightbox="media/alert-validation/sample-alerts.png" lightbox="media/alert-validation/sample-alerts.png":::
 
     > [!TIP]
     > The alerts are for simulated resources.
@@ -162,7 +162,13 @@ You can simulate alerts for resources running on [App Service](https://learn.mic
 
 1. Create a new website and wait 24 hours for it to be registered with Defender for Cloud, or use an existing web site. 
 
-1. Once the web site is created, access it using the following URL: **https://.azurewebsites.net/This_Will_Generate_ASC_Alert/**<br> An alert is generated within about 1-2 hours.
+1. Once the web site is created, access it using the following URL:
+      1. Open the app service resource blade and copy the domain for the URL from the default domain field.
+       
+          :::image type="content" source="media/alert-validation/copy-default-domain.png" alt-text="Screenshot showing where to copy the default domain." lightbox="media/alert-validation/copy-default-domain.png":::
+
+      1. Copy the website name into the URL: **https://<websitename>.azurewebsites.net/This_Will_Generate_ASC_Alert**.
+1.  An alert is generated within about 1-2 hours.
 
 ## Next steps
 
