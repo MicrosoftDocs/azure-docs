@@ -29,7 +29,7 @@ The Azure Monitor metrics agent's architecture utilizes a ReplicaSet and a Daemo
   - Microsoft.AlertsManagement
 
 > [!NOTE]
-> `Contributor` permission is enough for enabling the addon to send data to Azure Monitor Metrics. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. 
+> `Contributor` permission is enough for enabling the addon to send data to the Azure Monitor workspace. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. 
 
 ## Enable Prometheus metric collection
 Use any of the following methods to install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
@@ -500,7 +500,8 @@ The following table lists the firewall configuration required for Azure monitor 
 ## Uninstall the metrics add-on
 Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. Use the following command to remove the agent from the cluster nodes and delete the recording rules created for that cluster. This will also delete the data collection endpoint (DCE), data collection dule (DCR), DCRA and recording rules groups created as part of onboarding. . This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
-    ```azurecli
+    ```
+    azurecli
     az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
     ```
 
