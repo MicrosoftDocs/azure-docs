@@ -34,20 +34,6 @@ The Azure Monitor metrics agent's architecture utilizes a ReplicaSet and a Daemo
 ## Enable Prometheus metric collection
 Use any of the following methods to install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
 
-## Default configuration
-
-By default the following resources are created as part of onboarding.
-
-- DCE (Data Collection Endpoint) with the format `MSProm-<azure_monitor_workspace_location>-<cluster_name>` in the clusters resource group
-- DCR (Data Collection Rule) with the format `MSProm-<azure_monitor_workspace_location>-<cluster_name>` in the clusters resource group
-- DCRA (Data Collection Rule Association) with the format `ContainerInsightsMetricsExtension` in the clusters resource group
-- Recording rule groups (required for default dashboards)
-    - `KubernetesRecordingRulesRuleGroup-<cluster_name>`
-    - `NodeRecordingRulesRuleGroup-<cluster_name>`
-    - `NodeRecordingRulesRuleGroup-Win-<cluster_name>` (disabled by default)
-    - `NodeAndKubernetesRecordingRulesRuleGroup-Win-<cluster_name>` (disabled by default)
-- Azure Monitor Workspace : If an azure monitor workspace is not specified while using the Az CLI then one will be created for you in a resource group following the format `DefaultResourceGroup-<azure_monitor_workspace_region>` with a name following the format ` "DefaultAzureMonitorWorkspace-<azure_monitor_workspace_region>`. The default Azure Monitor Workspace region will be the cluster region unless Azure Monitor Workspace creation is not supported in that region. Then one will be picked randomly from the [supported region list](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=monitor)
-
 ### [Azure portal](#tab/azure-portal)
 > [!NOTE]
 > Azure Managed Grafana is not available in the Azure US Government cloud currently.
