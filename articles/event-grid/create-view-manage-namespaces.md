@@ -31,7 +31,7 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
     :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
 
 > [!NOTE]
-> If the region supports availability zones the checkbox will be enabled or disabled. Availability zones are selected by default if the region allows, but you can also opt-out the selection in case you needed.
+> If the selected region supports availability zones the "Availability zones" checkbox can be enabled or disabled.  The checkbox is selected by default if the region supports availability zones. However, you can uncheck and disable Availability zones if needed. The selection cannot be changed once the namespace is created.
 
 5. On the **Tags** tab, add the tags in case you need them.
 
