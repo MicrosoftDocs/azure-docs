@@ -1,14 +1,14 @@
 ---
 title: What is Image Analysis?
 titleSuffix: Azure Cognitive Services
-description: The Image Analysis service uses pre-trained AI models to extract many different visual features from images. 
+description: The Image Analysis service uses pretrained AI models to extract many different visual features from images. 
 services: cognitive-services 
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
-ms.custom: ignite-2022, references_regions
+ms.custom: ignite-2022, references_regions, build-2023, build-2023-dataai
 ms.topic: overview
 ms.date: 11/06/2022
 ms.author: pafarley
@@ -64,7 +64,11 @@ You can analyze images to provide insights about their visual features and chara
 |**Moderate content in images** (v3.2 only) |You can use Computer Vision to detect adult content in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.|[Detect adult content](concept-detecting-adult-content.md)|
 
 
+## Product Recognition (v4.0 preview only)
 
+The Product Recognition APIs let you analyze photos of shelves in a retail store. You can detect the presence or absence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Product Recognition results to your store's planogram document.
+
+[Product Recognition](./concept-shelf-analysis.md)
 
 ## Image Retrieval (v4.0 preview only)
 

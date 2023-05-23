@@ -4,7 +4,7 @@ description: Learn how to configure a remote desktop gateway in Azure DevTest La
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/07/2022
+ms.date: 05/19/2023
 ---
 
 # Configure and use a remote desktop gateway in Azure DevTest Labs
@@ -117,20 +117,23 @@ Follow these steps to set up a sample remote desktop gateway farm.
 1. Download all the files from [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway). Copy all the files and *RDGatewayFedAuth.msi* to a blob container in a storage account.
 
 1. Open *azuredeploy.json* from [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway), and fill out the following parameters:
+ 
 
-   - `adminUsername` – **Required**.  Administrator user name for the gateway machines.
-   - `adminPassword` – **Required**. Password for the administrator account for the gateway machines.
-   - `instanceCount` – Number of gateway machines to create.
-   - `alwaysOn` – Whether to keep the created Azure Functions app in a warm state or not. Keeping the Azure Functions app on avoids delays when users first try to connect to their lab VMs, but has cost implications.
-   - `tokenLifetime` – The length of time in HH:MM:SS format that the created token will be valid.
-   - `sslCertificate` – **Required**. The Base64 encoding of the TLS/SSL certificate for the gateway machine.
-   - `sslCertificatePassword` – **Required**. The password of the TLS/SSL certificate for the gateway machine.
-   - `sslCertificateThumbprint` - **Required**. The certificate thumbprint for identification in the local certificate store of the TLS/SSL certificate.
-   - `signCertificate` – **Required**. The Base64 encoding for the signing certificate for the gateway machine.
-   - `signCertificatePassword` – **Required**. The password for the signing certificate for the gateway machine.
-   - `signCertificateThumbprint` - **Required**. The certificate thumbprint for identification in the local certificate store of the signing certificate.
-   - `_artifactsLocation` – **Required**. The URI location to find artifacts this template requires. This value must be a fully qualified URI, not a relative path. The artifacts include other templates, PowerShell scripts, and the Remote Desktop Gateway Pluggable Authentication module, expected to be named *RDGatewayFedAuth.msi*, that supports token authentication.
-   - `_artifactsLocationSasToken` – **Required**. The shared access signature (SAS) token to access artifacts, if the `_artifactsLocation` is an Azure storage account.
+   |Parameter  |Required  |Description  |
+   |---------|---------|---------|
+   |`adminUsername`             |**Required** |Administrator user name for the gateway machines. |
+   |`adminPassword`             |**Required** |Password for the administrator account for the gateway machines. |
+   |`instanceCount`             |             |Number of gateway machines to create. |
+   |`alwaysOn`                  |             |Whether to keep the created Azure Functions app in a warm state or not. Keeping the Azure Functions app on avoids delays when users first try to connect to their lab VMs, but has cost implications. |
+   |`tokenLifetime`             |             |The length of time in HH:MM:SS format that the created token will be valid. |
+   |`sslCertificate`            |**Required** |The Base64 encoding of the TLS/SSL certificate for the gateway machine. |
+   |`sslCertificatePassword`    |**Required** |The password of the TLS/SSL certificate for the gateway machine. |
+   |`sslCertificateThumbprint`  |**Required** |The certificate thumbprint for identification in the local certificate store of the signing certificate. |
+   |`signCertificate`           |**Required** |The Base64 encoding for the signing certificate for the gateway machine. |
+   |`signCertificatePassword`   |**Required** |The password for the signing certificate for the gateway machine. |
+   |`signCertificateThumbprint` |**Required** |The certificate thumbprint for identification in the local certificate store of the signing certificate. |
+   |`_artifactsLocation`        |**Required** |The URI location to find artifacts this template requires. This value must be a fully qualified URI, not a relative path. The artifacts include other templates, PowerShell scripts, and the Remote Desktop Gateway Pluggable Authentication module, expected to be named *RDGatewayFedAuth.msi*, that supports token authentication. |
+   |`_artifactsLocationSasToken`|**Required** |The shared access signature (SAS) token to access artifacts, if the `_artifactsLocation` is an Azure storage account. |
 
 1. Deploy *azuredeploy.json* by using the following Azure CLI command:
 
@@ -146,7 +149,7 @@ Follow these steps to set up a sample remote desktop gateway farm.
 
      - `{storage-account-name}` is the name of the storage account that holds the files you uploaded.
      - `{container-name}` is the container in the `{storage-account-name}` that holds the files you uploaded.
-     - `{utc-expiration-date}` is the date, in UTC, when the SAS token will expire and can no longer be used to access the storage account.
+     - `{utc-expiration-date}` is the date, in UTC, when the SAS token expires and can no longer be used to access the storage account.
 
 1. Record the values for `gatewayFQDN` and `gatewayIP` from the template deployment output. Also save the value of the key for the newly created function, which you can find in the function app's [Application settings tab](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings).
 
