@@ -22,7 +22,7 @@ The Key Vault VM extension supports these Linux distributions:
 
 - Ubuntu 18.04
 - SUSE   15 
-- [Azure Linux](../../azure-linux/intro-azure-linux)
+- [Azure Linux](../../azure-linux/intro-azure-linux.md)
 
 > [!NOTE]
 > To get extended security features, prepare to upgrade Ubuntu 16.04 and Debian 9 systems as these versions are reaching their end of designated support period.
