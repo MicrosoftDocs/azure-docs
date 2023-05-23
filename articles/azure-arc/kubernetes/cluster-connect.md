@@ -274,7 +274,7 @@ This is a known limitation. To get past this error:
 1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
 1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running the `az connectedk8s proxy` command.
 
-### [Agent version >= 1.11.7](#tab/agent-version)
+### [Agent version >= 1.11.7](#tab/agent-version-latest)
 When making requests to the Kubernetes cluster, if the Azure AD service principal used is a part of more than 200 groups, you may see the following error:
 
 `Overage claim (users with more than 200 group membership) for SPN is currently not supported. For troubleshooting, please refer to aka.ms/overageclaimtroubleshoot`
