@@ -1,3 +1,4 @@
+---
 title: Manage user flow resources with Microsoft Graph
 description: Learn how to manage user flow resources in an Azure AD for customers tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: active-directory
@@ -23,7 +24,7 @@ Using the Microsoft Graph API allows you to manage resources in your Azure Activ
 
 ## User flows (Preview)
 
-User flows are used to enable a self-service sign up experience for users within an Azure AD customer tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
+User flows are used to enable a self-service sign-up experience for users within an Azure AD customer tenant.  User flows define the experience the end user sees while signing up, including which identity providers they can use to authenticate, along with which attributes are collected as part of the sign-up process.  The sign-up experience for an application is defined by a user flow, and multiple applications can use the same user flow.
 
 Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 
@@ -34,7 +35,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 
 ## Identity providers (Preview)
 
-Get the identity providers that are defined for an external identities self-service sign up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.
+Get the identity providers that are defined for an external identities self-service sign-up user flow that's represented by an externalUsersSelfServiceSignupEventsFlow object type.
 
 - [List identity providers](/graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-list-identityproviders)
 - [Add identity provider](graph/api/onauthenticationmethodloadstartexternalusersselfservicesignup-post-identityproviders)

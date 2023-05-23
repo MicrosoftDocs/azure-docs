@@ -29,4 +29,4 @@ You can perform tenant management operations with your Azure Active Directory fo
 
 ## Next steps
 
-- To learn more about progammatic management, see [Microsoft Graph overview](/graph/overview). 
+- To learn more about programmatic management, see [Microsoft Graph overview](/graph/overview). 
