@@ -47,24 +47,42 @@ Azure Files geo-redundancy for large file shares preview improves scale targets 
 
 Azure Files geo-redundancy for large file shares preview is currently available in the following regions:
 
+- Australia Central
+- Australia Central 2
 - Australia East
 - Australia Southeast
 - Central US
-- East US 2
-- France Central
+- China East 2
+- China East 3
+- China North 2
+- China North 3
+- East Asia
+- East US 2 
+- France Central 
 - France South
 - Germany North
-- Germany West Central
+- Germany West Central 
 - Japan East
-- Japan West
+- Japan West 
+- Korea Central
+- Korea South
+- Norway East
+- Norway West
+- South Africa North
+- South Africa West
+- Southeast Asia
+- Sweden Central
+- Sweden South
+- UAE Central
+- UAE North
 - UK South
-- UK West
+- UK West 
 - West Central US
 - West US 2
 
 ## Pricing
 
-There's no additional cost to enable Azure Files geo-redundancy for large file shares preview. Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+There's no additional cost to enable large file shares. Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Register for the preview
 
