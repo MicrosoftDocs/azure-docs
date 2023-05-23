@@ -101,7 +101,7 @@ az network nsg create \
 
 ### Create an availability set
 
-Creating an availability set is optional, but we recommend it. For more information, see [guidelines for Azure availability sets](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
+Creating an availability set is optional, but we recommend it. For more information, see the [guidelines for Azure availability sets](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -197,6 +197,8 @@ A new tab opens with a secure connection to your virtual machine, where the Orac
 ![Screenshot of a connection via Azure Bastion in a browser.](./media/configure-oracle-dataguard/connect-bastion-browser-tab.png)
 
 ### Configure OracleVM1 (primary)
+
+Disable the firewall:
 
 ```bash
 sudo systemctl stop firewalld
@@ -296,6 +298,8 @@ export ORACLE_SID=cdb1
 ## Configure Data Guard
 
 ### Enable archive log mode on myVM1 (primary)
+
+Enable log mode:
 
 ```bash
 sqlplus / as sysdba
@@ -569,13 +573,15 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-Messages similar to the following appear when the commands are completed. Exit RMAN.
+Messages similar to the following ones appear when the commands are completed:
 
 ```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-22
 Finished Duplicate Db at 29-JUN-22
 ```
+
+Exit RMAN:
 
 ```bash
 RMAN> EXIT;
@@ -692,8 +698,7 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-You can now connect to the standby database.
-Start SQL*Plus:
+You can now connect to the standby database. Start SQL*Plus:
 
 ```bash
 $ sqlplus sys/OracleLab123@cdb1_stby
@@ -728,8 +733,7 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Once again, you should now be able to connect to the primary database.
-Start SQL*Plus:
+Once again, you should now be able to connect to the primary database. Start SQL*Plus:
 
 ```bash
 $ sqlplus sys/OracleLab123@cdb1
