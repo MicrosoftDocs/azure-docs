@@ -91,7 +91,7 @@ You can manage default network access rules for Cognitive Services resources thr
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. Display the status of the default rule for the Cognitive Services resource.
 
@@ -213,7 +213,7 @@ You can manage virtual network rules for Cognitive Services resources through th
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List virtual network rules.
 
@@ -369,7 +369,7 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List IP network rules.
 

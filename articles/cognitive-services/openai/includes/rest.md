@@ -85,7 +85,7 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
     base_url = os.getenv("AZURE_OPENAI_ENDPOINT") 
     deployment_name ="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE"
 
-    url = base_url + "/openai/deployments/" + deployment_name + "/completions?api-version=2022-12-01"
+    url = base_url + "/openai/deployments/" + deployment_name + "/completions?api-version=2023-05-15"
     prompt = "Once upon a time"
     payload = {        
         "prompt":prompt

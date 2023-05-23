@@ -11,7 +11,7 @@ ms.author: alehughes
 ms.date: 04/25/2023
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2
+ms.custom: devplatv2, build-2023
 ---
 
 # Collect production data from models deployed for real-time inferencing (preview)
@@ -57,12 +57,12 @@ Data collection with custom logging allows you to log pandas DataFrames directly
 
 ### Update your scoring script with custom logging code
 
-First, you'll need to add custom logging code to your scoring script (`score.py`). For custom logging, you'll need the `azure-ai-monitoring` package. For more information, see the comprehensive [PyPI page for the data collector SDK](https://pypi.org/project/azureml-ai-monitoring/).
+First, you'll need to add custom logging code to your scoring script (`score.py`). For custom logging, you'll need the `azureml-ai-monitoring` package. For more information, see the comprehensive [PyPI page for the data collector SDK](https://pypi.org/project/azureml-ai-monitoring/).
 
-1. Import the `azure-ai-monitoring` package by adding the following line to the top of the scoring script:
+1. Import the `azureml-ai-monitoring` package by adding the following line to the top of the scoring script:
 
     ```python
-    from azure.ai.monitoring import Collector
+    from azureml.ai.monitoring import Collector
     ```
 
 1. Declare your data collection variables (up to five of them) in your `init()` function:
@@ -145,12 +145,9 @@ channels:
   - conda-forge
 dependencies:
   - python=3.8
-  - numpy=1.23.5
-  - pandas=1.5.2
   - pip=22.3.1
   - pip:
       - azureml-defaults==1.38.0
-      - requests==2.28.1
       - azureml-ai-monitoring~=0.1.0b1
 name: model-env
 ```

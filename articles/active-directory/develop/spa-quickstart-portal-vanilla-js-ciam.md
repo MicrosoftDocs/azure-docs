@@ -24,5 +24,5 @@ ms.date: 05/05/2023
 >     ```console
 >     npm install && npm start
 >     ```
-> 1. Open your browser, visit `http://locahost:3000`, select **Sign-in**, then follow the prompts.
+> 1. Open your browser, visit `http://localhost:3000`, select **Sign-in**, then follow the prompts.
 >

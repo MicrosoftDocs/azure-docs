@@ -10,7 +10,7 @@ author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
 ms.date: 04/05/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022, build-2023
 ---
 # Git integration for Azure Machine Learning
 

@@ -1,10 +1,11 @@
 ---
-title: Machine Learning registry network isolation (preview)
+title: Machine Learning registry network isolation
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning registry with Azure Virtual Networks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
+ms.custom: build-2023
 author: fkriti
 ms.author: kritifaujdar
 ms.reviewer: larryfr
@@ -12,15 +13,13 @@ ms.date: 05/23/2023
 ms.topic: how-to
 ---
 
-# Network isolation with Azure Machine Learning registries (preview)
+# Network isolation with Azure Machine Learning registries
 
 In this article, you learn to secure Azure Machine Learning registry using [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) and [private endpoints](/azure/private-link/private-endpoint-overview). 
 
 Private endpoints on Azure provide network isolation by enabling Azure services to be accessed through a private IP address within a virtual network (VNet). The VNet secures connections between Azure resources and prevent exposure of sensitive data to the public internet. 
 
 Using network isolation with private endpoints prevents the network traffic from going over the public internet and brings Azure Machine Learning registry service to your Virtual network. All the network traffic happens over [Azure Private Link](/azure/private-link/private-link-overview) when private endpoints are used.  
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

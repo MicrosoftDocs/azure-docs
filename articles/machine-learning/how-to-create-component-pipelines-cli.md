@@ -10,7 +10,7 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 05/26/2022
 ms.topic: how-to
-ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022, build-2023
 ms.devlang: azurecli, cliv2
 ---
 

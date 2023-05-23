@@ -83,7 +83,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+- Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 - List virtual network rules.
 

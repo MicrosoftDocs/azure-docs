@@ -237,6 +237,8 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+      - name: Migration custom text log tables
+        href: agents/azure-monitor-agent-custom-text-log-migration.md
     - name: Performance
       displayName: Performance
       href: agents/azure-monitor-agent-performance.md
@@ -479,6 +481,9 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: essentials\prometheus-remote-write-azure-ad-pod-identity.md
   - name: Logs
     items:
     - name: Overview
@@ -1363,12 +1368,8 @@ items:
       items:
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Create an action group
+      - name: Action groups
         href: alerts/action-groups.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule

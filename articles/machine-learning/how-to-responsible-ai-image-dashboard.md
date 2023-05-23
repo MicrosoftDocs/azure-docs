@@ -10,7 +10,7 @@ ms.reviewer: lagayhar
 ms.author: ilmat
 author: imatiach-msft
 ms.date: 5/10/2023
-ms.custom: responsible-ml
+ms.custom: responsible-ml, build-2023
 ---
 
 # Responsible AI image dashboard in Azure Machine Learning studio (preview)

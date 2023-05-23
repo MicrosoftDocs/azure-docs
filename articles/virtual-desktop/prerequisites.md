@@ -88,14 +88,17 @@ To access virtual desktops and remote apps from your session hosts, your users n
 
 ### Session hosts
 
-You need to join session hosts that provide virtual desktops and remote apps to an AD DS domain, Azure AD DS domain, or the same Azure AD tenant as your users.
+You need to join session hosts that provide virtual desktops and remote apps to the same Azure AD tenant as your users, or an Active Directory domain (either AD DS or Azure AD DS).
 
-- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-azuread-join-plan.md).
-- If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
+To join session hosts to Azure AD or an Active Directory domain, you need the following permissions:
+
+- For Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/device-management-azure-portal.md#configure-device-settings). To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
+
+- For an Active Directory domain, you need a domain account that can join computers to your domain. For Azure AD DS, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ### Users
 
-Your users need accounts that are in Azure AD. If you're also using AD DS or Azure AD DS in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user account is synchronized. You'll need to keep the following things in mind based on which account you use:
+Your users need accounts that are in Azure AD. If you're also using AD DS or Azure AD DS in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You'll need to keep the following things in mind based on which identity provider you use:
 
 - If you're using Azure AD with AD DS, you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Azure AD.
 - If you're using Azure AD with Azure AD DS, user accounts are synchronized one way from Azure AD to Azure AD DS. This synchronization process is automatic.
@@ -131,8 +134,6 @@ You'll need to enter the following identity parameters when deploying session ho
 
 > [!IMPORTANT]
 > The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
-> 
-> When joining an Azure AD DS domain, the account you use must be part of the *AAD DC administrators* group.
 
 ## Operating systems and licenses
 
@@ -215,6 +216,10 @@ To learn more, see [Understanding Azure Virtual Desktop network connectivity](ne
 Consider the following when managing session hosts:
 
 - Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
+
+- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-azuread-join-plan.md).
+
+- If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
 
 - If you're using Azure AD-join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use hybrid Azure AD-join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
 

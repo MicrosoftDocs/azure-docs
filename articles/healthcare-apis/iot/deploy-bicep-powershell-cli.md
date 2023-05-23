@@ -32,7 +32,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 * The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-* [Azure PowerShell](/powershell/azure/install-az-ps) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
+* [Azure PowerShell](/powershell/azure/install-azure-powershell) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
   * For Azure PowerShell, install the [Bicep CLI](../../azure-resource-manager/bicep/install.md#windows) to deploy the Bicep file used in this quickstart.
 
 When you have these prerequisites, you're ready to deploy the Bicep file.

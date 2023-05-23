@@ -39,6 +39,9 @@ Dynamic routing (BGP) is supported. For more information, please see [Dynamic Ro
 | Authorization Key| An authorization key is granted by a circuit owner and is valid for only one ExpressRoute connection. | To redeem and connect an ExpressRoute circuit that isn't in your subscription, you'll need to collect the authorization key from the ExpressRoute circuit owner.|
 | Peer circuit URI| This is the Resource ID of the ExpressRoute circuit (which you can find under the **Properties** setting pane of the ExpressRoute Circuit).  | To redeem and connect an ExpressRoute circuit that isn't in your subscription, you'll need to collect the Peer Circuit URI from the ExpressRoute circuit owner. |
 
+> [!NOTE]
+> If you have configured a 0.0.0.0/0 route statically in a virtual hub route table or dynamically via a network virtual appliance for traffic inspection, that traffic will bypass inspection when destined for an Azure PaaS service (for example, storage) that supports [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and is in the same region as the ExpressRoute gateway in the virtual hub. As a workaround, you can either use [Private Link](../private-link/private-link-overview.md) to access the Azure PaaS service or put the PaaS service in a different region than the virtual hub.
+>
 
 ## Next steps
 

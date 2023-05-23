@@ -7850,6 +7850,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
@@ -17425,6 +17430,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network-manager/how-to-exclude-elements.md",
+            "redirect_url": "/azure/virtual-network-manager/how-to-define-network-group-membership-azure-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/virtual-network-test-latency.md",
             "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
             "redirect_document_id": false
@@ -22728,7 +22738,21 @@
             "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
             "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/use-mariner.md",
+            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "redirect_document_id": false
         }
-
     ]
 }

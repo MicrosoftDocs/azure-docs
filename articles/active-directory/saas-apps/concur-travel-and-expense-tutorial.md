@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you create a user called B.Simon in SAP Concur Travel and Expense. Work with Concur support team to add the users in the SAP Concur Travel and Expense platform. Users must be created and activated before you use single sign-on. 
 
 > [!NOTE]
-> B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifer is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
+> B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifier is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
 
 ## Configure Concur Mobile SSO
 To enable Concur mobile SSO, you need to give Concur support team **User access URL**. Follow steps below to get **User access URL** from Azure AD:

@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 02/16/2023
+ms.date: 05/15/2023
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -64,7 +64,7 @@ ms.topic: conceptual
     
 * <a id="afs-resource-move"></a>
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
-   Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](../file-sync/file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see **Ensure Azure File Sync has access to the storage account** under [Common troubleshooting steps](../file-sync/file-sync-troubleshoot-sync-errors.md#common-troubleshooting-steps)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.

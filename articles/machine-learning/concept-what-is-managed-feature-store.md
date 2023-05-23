@@ -7,6 +7,7 @@ ms.author: seramasu
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata 
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/23/2023
 ---
@@ -45,7 +46,7 @@ Feature store is a new type of workspace that can be used by multiple project wo
 
 :::image type="content" source="./media/concept-what-is-managed-feature-store\conceptual-arch.png" alt-text="Diagram depicting a conceptual architecture of Azure Machine Learning":::
 
-Managed features store provides the following capabilities: discovery and reuse of features, feature transformation, materialization, training/inference data generation, lineage and security.
+With managed feature store, you provide a feature set specification and let the system handle serving, securing & monitoring of your features. A feature set specification contains feature definitions and optional transformation logic. You can also declaratively provide materialization settings to materialize to an offline store (ADLS Gen2). The system generates and manages the underlying feature materialization pipelines. You can use the feature catalog to search, share, and reuse features. With the serving API, users can look up features to generate data for training and inference. The serving API can pull the data directly from the source or from an offline materialization store for training/batch inference. The system also provides capabilities for monitoring feature materialization jobs.
 
 ### Benefits of using Azure Machine Learning managed feature store
 
@@ -79,7 +80,7 @@ Feature transformation involves modifying the features in a dataset to improve m
 
 Managed feature store provides the following feature transformation capabilities:
 
-- **Support for custom transformations** - If you need to develop features with custom transformations like wind based aggregates, you can do so by writing a Spark transformer
+- **Support for custom transformations** - If you need to develop features with custom transformations like window-based aggregates, you can do so by writing a Spark transformer
 - **Support for precomputed features** - If you have precomputed features, you can bring them into feature store and serve them without writing code
 - **Local development and testing** - With a Spark environment, you can fully develop and test feature sets locally
 
