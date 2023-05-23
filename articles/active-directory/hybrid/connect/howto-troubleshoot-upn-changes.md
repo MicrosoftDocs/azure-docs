@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 05/23/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
