@@ -114,8 +114,6 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
-
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
 
@@ -400,19 +398,6 @@ When the function is invoked, the HTTP request is passed to the function as `req
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
 ::: zone pivot="python-mode-decorators" 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
-
-| Type | Trigger | Input binding | Output binding |
-| --- | :---: | :---: | :---: |
-| [HTTP](../azure-functions/functions-bindings-http-webhook) | x |   |   |
-| [Timer](../azure-functions/functions-bindings-timer.md) | x |   |   |
-| [Azure Queue Storage](../azure-functions/functions-bindings-storage-queue.md) | x |   | x |
-| [Azure Service Bus topic](../azure-functions/functions-bindings-service-bus.md) | x |   | x |
-| [Azure Service Bus queue](../azure-functions/functions-bindings-service-bus.md) | x |   | x |
-| [Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md) | x | x | x |
-| [Azure Blob Storage](../azure-functions/functions-bindings-storage-blob.md) | x | x | x |
-| [Azure Hub](../azure-functions/functions-bindings-event-hubs.md) | x |   | x |
-
 ::: zone-end
 
 ## Outputs
@@ -950,8 +935,6 @@ When you're using the new programming model, enable the following app setting in
 ```
 
 When you're deploying the function, this setting isn't created automatically. You must explicitly create this setting in your function app in Azure for it to run by using the v2 model.
-
-The multiple Python workers setting isn't supported in the v2 programming model at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
 
 ::: zone-end
 
