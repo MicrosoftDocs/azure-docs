@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-sku-comparison#limitations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/route-server/routing-preference.md",
             "redirect_url": "/azure/route-server/overview",
             "redirect_document_id": false
