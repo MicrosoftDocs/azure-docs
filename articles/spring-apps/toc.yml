@@ -227,6 +227,8 @@ items:
       href: connect-managed-identity-to-azure-sql.md
     - name: Azure Load Balance Solutions
       href: how-to-integrate-azure-load-balancers.md
+    - name: Use gRPC
+      href: how-to-use-grpc.mdv
   - name: Monitor
     items:
     - name: Alerts and action groups
