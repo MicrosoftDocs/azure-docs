@@ -1189,6 +1189,8 @@
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
+      - name: IBM TRIRIGA on Cloud
+        href: ibm-tririga-on-cloud-tutorial.md
       - name: ice Contact Center
         href: ice-contact-center-tutorial.md
       - name: ICIMS
