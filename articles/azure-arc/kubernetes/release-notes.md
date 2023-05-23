@@ -16,7 +16,7 @@ Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date 
 
 ### Arc agents - Version 1.11.7
 
-- Updates to enable service principals that belong to more than 200 groups in cluster connect scenarios
+- Updates to enable users that belong to more than 200 groups in cluster connect scenarios
 
 ### Azure CLI `connectedk8s` extension - Version 1.3.17
 
@@ -27,7 +27,7 @@ Azure Arc-enabled Kubernetes is updated on an ongoing basis. To stay up to date 
 
 ### Arc agents - Version 1.11.3
 
-- Updates to support Alpine Linux images in cluster connect scenarios
+- Updates to base image of Arc-enabled Kubernetes agents to address security CVE
 
 ### Azure CLI `connectedk8s` extension - Version 1.3.16
 
