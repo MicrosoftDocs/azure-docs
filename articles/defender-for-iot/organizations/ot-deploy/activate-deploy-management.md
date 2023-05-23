@@ -72,7 +72,7 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
     A confirmation message appears to confirm that the file's been uploaded successfully.
 
 > [!NOTE]
-> You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file, or if you've [deleted your OT plan](../how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks) from the subscription that the previous activation file was associated with.<!---->IS THIS CORRECT?
+> You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file.<!---->IS THIS CORRECT?
 >
 > For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 

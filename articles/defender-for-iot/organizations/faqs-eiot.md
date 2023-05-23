@@ -64,7 +64,6 @@ Add the total number of discovered network devices with the total number of disc
 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
-
 ## How does the integration between Microsoft Defender for Endpoint and Microsoft Defender for IoT work?
 
 Once you've [added a Defender for IoT plan with Enterprise IoT to an Azure subscription in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#onboard-a-defender-for-iot-plan), integration between the two products takes place seamlessly.
@@ -73,7 +72,7 @@ Discovered IoT devices can be viewed in both Defender for IoT and Defender for E
 
 ## Can I change the subscription I’m using for Defender for IoT?
 
-To change the subscription you're using for your Defender for IoT plan, you'll need to cancel your plan on the existing subscription, and then onboard a new plan to a new subscription. Your existing data won't be migrated to the new subscription. For more information, see [Move existing sensors to a different subscription](how-to-manage-subscriptions.md#move-existing-sensors-to-a-different-subscription).
+To change the subscription you're using for your Defender for IoT plan, you'll need to cancel your plan on the existing subscription, and then onboard a new plan to a new subscription. Your existing data won't be migrated to the new subscription. For more information, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
 
 ## How can I edit my plan in Defender for Endpoint?
 

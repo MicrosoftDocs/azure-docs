@@ -55,7 +55,7 @@ For more information, see [Device inventory column data](device-inventory.md#dev
 
 To view alerts from connected OT sensors for a specific zone, use the **Site Management** page on an on-premises management console.
 
-1. Sign into your on-premises management console and select **Site Management**. 
+1. Sign into your on-premises management console and select **Site Management**.
 
 1. Locate the site and zone you want to view, using the filtering options at the top as needed:
 

@@ -32,7 +32,6 @@ When purchasing a Defender for IoT license for an OT plan, or when onboarding or
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
-
 ## Next steps
 
 For more information, see:

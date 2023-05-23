@@ -10,7 +10,7 @@ ms.custom: enterprise-iot
 
 Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
 
-For each monthly price plan, you'll be asked to define an approximate number of [devices](billing.md#defender-for-iot-committed-devices) that you want to monitor and cover by your plan.
+For each monthly price plan, you'll be asked to define an approximate number of [devices](billing.md#defender-for-iot-devices) that you want to monitor and cover by your plan.
 
 If you're looking to manage OT plans, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
@@ -55,7 +55,7 @@ Use **1700** as the estimated number of devices in your plan
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 > [!NOTE]
-> Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of [devices](billing.md#defender-for-iot-committed-devices) monitored by Defender for IoT.
+> Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of [devices](billing.md#defender-for-iot-devices) monitored by Defender for IoT.
 
 ## Onboard an Enterprise IoT plan
 
@@ -76,7 +76,7 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
         Microsoft Defender for IoT provides a 30-day free trial for evaluation purposes, with an unlimited number of devices. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-        Monthly commitments require that you enter the number of [devices](#calculate-committed-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
+        Monthly commitments require that you enter the number of [devices](#calculate-monitored-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
 
 1. Select the **I accept the terms and conditions** option and then select **Save**.
 
@@ -127,3 +127,4 @@ For more information, see:
 - [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
 
 - [Upgrade your Azure subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md)
+- 
