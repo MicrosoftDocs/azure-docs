@@ -1,6 +1,6 @@
 ---
-title: How to deploy polyglot apps in Azure Spring Apps Enterprise tier
-description: Shows you how to deploy polyglot apps in Azure Spring Apps Enterprise tier.
+title: How to deploy polyglot apps in Azure Spring Apps Enterprise
+description: Learn how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -9,31 +9,28 @@ ms.date: 01/13/2023
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# How to deploy polyglot apps in Azure Spring Apps Enterprise tier
+# How to deploy polyglot apps in Azure Spring Apps Enterprise
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to deploy polyglot applications in Azure Spring Apps Enterprise tier, and how these polyglot apps can use Tanzu Build Service features provided by buildpacks. Polyglot applications are applications that are developed from multiple languages.
+This article shows you how to deploy polyglot applications in Azure Spring Apps Enterprise to use Tanzu Build Service features with buildpacks. Polyglot applications are applications that are developed from multiple languages.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension.
-
-  ```azurecli
-  az extension add --name spring
-  ```
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
+- An already provisioned Azure Spring Apps Enterprise instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 ## Deploy polyglot applications in a service instance
 
-This section applies to building and deploying polyglot applications when Build Service is enabled. If you disable Build Service, you can deploy applications only with a custom container image built by an Azure Spring Apps Enterprise instance or by yourself. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This section applies to building and deploying polyglot applications when Build Service is enabled. If you disable Build Service, you can deploy applications only with a custom container image. You can create your own image or use onebuilt by an Azure Spring Apps Enterprise instance. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
 
 ### Manage builders
 
-When you create a Build Service enabled Enterprise tier instance of Azure Spring Apps, you must choose a default builder from one of the following supported language family buildpacks:
+When you create an instance of Azure Spring Apps Enterprise, you must choose a default builder from one of the following supported language family buildpacks:
 
 - [Java Azure Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-java-azure-buildpack)
 - [.NET Core Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-dotnet-core-buildpack)
@@ -44,9 +41,9 @@ When you create a Build Service enabled Enterprise tier instance of Azure Spring
 
 For more information, see [Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html).
 
-These buildpacks support you building with source code or artifact for Java, .NET Core, Go, web static files, Node.js, and Python apps. You can also create a custom builder by specifying buildpacks and stack.
+These buildpacks support building with source code, Java artifacts, .NET Core, Go, web static files, Node.js, and Python apps. You can also create a custom builder by specifying buildpacks and a stack.
 
-All the builders configured in an Azure Spring Apps service instance are listed in the **Build Service** section under **VMware Tanzu components**, as shown in the following screenshot:
+All the builders configured in an Azure Spring Apps service instance are listed on the General info page when **Build Service** is selected in the navigation pane, as shown in the following screenshot:
 
 :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with list of configured builders." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
 
@@ -62,50 +59,55 @@ You can also edit a custom builder when the builder isn't used in a deployment. 
 
 The builder is a resource that continuously contributes to your deployments. It provides the latest runtime images and latest buildpacks.
 
-You can't delete a builder when existing active deployments are being built the builder. To delete such a builder, save the configuration as a new builder first. After you deploy apps with the new builder, the deployments are linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and then delete the original builder.
+You can't delete a builder when existing active deployments are being built with the builder. To delete a builder in this state, do the following steps:
 
-### Manage container registry
+1. Save the configuration as a new builder.
+1. Deploy apps with the new builder, the deployments are linked to the new builder.
+1. Migrate the deployments under the previous builder to the new builder.
+1. Delete the original builder.
+
+### Manage user container registry
 
 This section tells how to manage user container registry used by Build Service if you enable Build Service with your own container registry. If you enable Build Service with an Azure Spring Apps managed container registry, you can skip this section.
 
-After you enable a user container registry with Build Service, you can show and configure container registry. You can manage the container registry using the Azure portal or the Azure CLI.
+You can show and configure the container registry using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
 Use the following steps to show and edit the container registry:
 
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
-1. Select **Container registry**.
-1. Select **Edit** from the context menu with an existed container registry to view the configuration
+1. Select **Container registry** in the navigation pane.
+1. Select **Edit** from the context menu on a container registry to view the configuration.
 
-:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page." lightbox="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page." lightbox="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png":::
 
 1. Review values on the **Edit container registry** page.
 
-:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Edit container registry configuration." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Edit container registry configuration." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
 1. Use the following command to show the container registry:
 
-```azurecli
-az spring container-registry show \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name <your-container-registry-name> 
-```
+   ```azurecli
+   az spring container-registry show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-container-registry-name> 
+   ```
 
 1. Use the following command to update the container registry:
 
-```azurecli
-az spring container-registry update \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name <your-container-registry-name> \
-    --server <your-container-registry-login-server> \
-    --username <your-container-registry-username> \
-    --password <your-container-registry-password>
-```
+   ```azurecli
+   az spring container-registry update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name <your-container-registry-name> \
+       --server <your-container-registry-login-server> \
+       --username <your-container-registry-username> \
+       --password <your-container-registry-password>
+   ```
 
 ---
 
@@ -116,11 +118,11 @@ You can build and deploy polygot applications in two ways using the container re
 - For Build Service with Azure Spring Apps managed container registry, you can build an application to an image and then deploy it but only to current service instance.
 The build and deploy are executed together in the `az spring app deploy` command.
 
-- For Build Service with a user managed container registry, you can build an application into a container image and deploy the image to the current and other Azure Spring Apps Enterprise instances.
+- For Build Service with a user managed container registry, you can build an application into a container image and deploy the image to the current Azure Spring Apps Enterprise instance and other instances.
 
 With a user managed container registry, you can separate building from deployment, specifically `build command` and `deploy command`. You can use `build command` to create or update a build with a builder, then use `deploy command` to deploy the container image to the service. 
 
-For more information, see the [Build Service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section, of [Use Tanzu Build Service](how-to-enterprise-build-service.md):
+For more information, see the [Build Service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 The following examples show some helpful build commands to use. They assume that values for required `resource-group` and `service` parameters are in scope.
 
@@ -132,7 +134,10 @@ az spring build-service build update --name <build-name> --artifact-path <artifa
 az spring build-service build delete --name <build-name>
 ```
 
-The following Azure CLI examples show building and deploying an artifact-file for both types of container registry scenarios with Build Service enabled.
+The following Azure CLI examples show building and deploying an artifact file for two container registry scenarios:
+
+- Azure Spring Apps managed container registry.
+- User managed container registry.
 
 #### [Azure Spring Apps managed container registry](#tab/asa-managed-container-registry)
 
@@ -151,7 +156,7 @@ az spring app deploy \
 
 #### [User managed container registry](#tab/user-managed-container-registry)
 
-This example builds or updates and application and deploys it using two commands. With a user managed container registry, can deploy an application only from a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This example builds or updates and application and deploys it using two commands. With a user managed container registry, you can deploy an application only from a custom contaner image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
 
 1. Build or update an application. The following command builds an application:
 
@@ -179,9 +184,9 @@ This example builds or updates and application and deploys it using two commands
 
    ```azurecli
    az spring app deploy \
-      --resource-group <your-resource-group> \
+      --resource-group <resource-group-name> \
       --service <Azure-Spring-Apps-instance-name> \
-      --name <your-app-name> \
+      --name <app-name> \
       --container-image <your-container-image> \
       --service <your-service-name> \
       --container-registry <your-container-registry> \
@@ -201,7 +206,7 @@ The following example deploys the source code folder to an active deployment by 
 
 ```azurecli
 az spring app deploy \
-    --resource-group <your-resource-group> \
+    --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
     --name <your-app-name> \
     --name <app-name> \
@@ -215,7 +220,7 @@ az spring app deploy \
 
    ```azurecli
    az spring build-service build create \
-      --resource-group <your-resource-group> \
+      --resource-group <resource-group-name> \
       --service <Azure-Spring-Apps-instance-name> \
        --name <app-name> \
        --builder <builder-name> \
@@ -226,7 +231,7 @@ az spring app deploy \
 
    ```azurecli
    az spring build-service build update \
-       --resource-group <your-resource-group> \
+       --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name> \
        --name <app-name> \
        --builder <builder-name> \
@@ -346,6 +351,8 @@ Other build tasks are blocked for a while because of resource quota limitations.
 
 Your application must listen on port 8080. Spring Boot applications override the `SERVER_PORT` to use 8080 automatically.
 
+## Supported languages for deployments
+
 The following table indicates the features supported for each language.
 
 | Feature                                                         | Java | Python | Node | .NET Core | Go |[Static Files](how-to-enterprise-deploy-static-file.md)|
@@ -353,7 +360,7 @@ The following table indicates the features supported for each language.
 | App lifecycle management                                        | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Assign endpoint                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Azure Monitor                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Out of box APM integration                                      | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Out of box APM integration                                      | ✔️   |       |      |          |    |          |
 | Blue/green deployment                                           | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Custom domain                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Scaling - auto scaling                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
@@ -361,14 +368,14 @@ The following table indicates the features supported for each language.
 | Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Application Configuration Service for VMware Tanzu®             | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
-| VMware Tanzu® Service Registry                                  | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Application Configuration Service for VMware Tanzu®             | ✔️   |       |      |          |    |          |
+| VMware Tanzu® Service Registry                                  | ✔️   |       |      |          |    |          |
 | Virtual network                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   |       |      |          |    |          |
 | Bring your own storage                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Integrate service binding with Resource Connector               | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Integrate service binding with Resource Connector               | ✔️   |       |      |          |    |          |
 | Availability Zone                                               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | App Lifecycle events                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Reduced app size - 0.5 vCPU and 512 MB                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
@@ -391,7 +398,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                                        | Comment                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                                                                                                                                                                                                                                                                                                                |
 |--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Provides the Microsoft OpenJDK.                                                            | Configures the JVM version. The default JDK version is 11. We currently support only JDK 8, 11, and 17.                                                                                                                                                    | `BP_JVM_VERSION`                                                                                                      | `--build-env BP_JVM_VERSION=11.*`                                                                                                                                                                                                                                                                                                    |
+| Provides the Microsoft OpenJDK.                                                            | Configures the JVM version. The default JDK version is 11. Currently supported: JDK 8, 11, 17 17.                                                                                                                                                    | `BP_JVM_VERSION`                                                                                                      | `--build-env BP_JVM_VERSION=11.*`                                                                                                                                                                                                                                                                                                    |
 |                                                                                            | Runtime env. Configures whether Java Native Memory Tracking (NMT) is enabled. The default value is *true*. Not supported in JDK 8.                                                                                                                         | `BPL_JAVA_NMT_ENABLED`                                                                                                | `--env BPL_JAVA_NMT_ENABLED=true`                                                                                                                                                                                                                                                                                                    |
 |                                                                                            | Configures the level of detail for Java Native Memory Tracking (NMT) output. The default value is *summary*. Set to *detail* for detailed NMT output.                                                                                                      | `BPL_JAVA_NMT_LEVEL`                                                                                                  | `--env BPL_JAVA_NMT_ENABLED=summary`                                                                                                                                                                                                                                                                                                 |
 | Add CA certificates to the system trust store at build and runtime.                        | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                                                                                                                                                                                                                                                                                                                  |
@@ -399,8 +406,8 @@ The following table lists the features supported in Azure Spring Apps:
 | Deploy WAR package with Apache Tomcat or TomEE.                                            | Set the application server to use. Set to *tomcat* to use Tomcat and *tomee* to use TomEE. The default value is *tomcat*.                                                                                                                                  | `BP_JAVA_APP_SERVER`                                                                                                  | `--build-env BP_JAVA_APP_SERVER=tomee`                                                                                                                                                                                                                                                                                               |
 | Support Spring Boot applications.                                                          | Indicates whether to contribute Spring Cloud Bindings support for the image at build time. The default value is *false*.                                                                                                                                   | `BP_SPRING_CLOUD_BINDINGS_DISABLED`                                                                                   | `--build-env BP_SPRING_CLOUD_BINDINGS_DISABLED=false`                                                                                                                                                                                                                                                                                |
 |                                                                                            | Indicates whether to autoconfigure Spring Boot environment properties from bindings at runtime. This feature requires Spring Cloud Bindings to have been installed at build time or it does nothing. The default value is *false*.                     | `BPL_SPRING_CLOUD_BINDINGS_DISABLED`                                                                                  | `--env BPL_SPRING_CLOUD_BINDINGS_DISABLED=false`                                                                                                                                                                                                                                                                                     |
-| Support building Maven-based applications from source.                                     | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty)                                                                                                                             | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                                                                                                                                                                                                                                                                                        |
-| Support building Gradle-based applications from source.                                    | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty)                                                                                                                             | `BP_GRADLE_BUILT_MODULE`                                                                                              | `--build-env BP_GRADLE_BUILT_MODULE=./gateway`                                                                                                                                                                                                                                                                                       |
+| Support building Maven-based applications from source.                                     | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                             | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                                                                                                                                                                                                                                                                                        |
+| Support building Gradle-based applications from source.                                    | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                             | `BP_GRADLE_BUILT_MODULE`                                                                                              | `--build-env BP_GRADLE_BUILT_MODULE=./gateway`                                                                                                                                                                                                                                                                                       |
 | Enable configuration of labels on the created image.                                       | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> see more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                                                                                                                                                                                                                                                                                                 |
 | Integrate JProfiler agent.                                                                 | Indicates whether to integrate JProfiler support. The default value is *false*.                                                                                                                                                                            | `BP_JPROFILER_ENABLED`                                                                                                | build phase: <br>`--build-env BP_JPROFILER_ENABLED=true` <br> runtime phase: <br> `--env BPL_JPROFILER_ENABLED=true` <br> `BPL_JPROFILER_PORT=<port>` (optional, defaults to *8849*) <br> `BPL_JPROFILER_NOWAIT=true` (optional. Indicates whether the JVM executes before JProfiler has attached. The default value is *true*.) |
 |                                                                                            | Indicates whether to enable JProfiler support at runtime. The default value is *false*.                                                                                                                                                                    | `BPL_JPROFILER_ENABLED`                                                                                               | `--env BPL_JPROFILER_ENABLED=false`                                                                                                                                                                                                                                                                                                  |
@@ -471,4 +478,4 @@ For more information, see [Deploy web static files](how-to-enterprise-deploy-sta
 
 ## Next steps
 
-- [Azure Spring Apps](index.yml)
+- [Deploy web static files](how-to-enterprise-deploy-static-file.md)
