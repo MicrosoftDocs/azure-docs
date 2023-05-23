@@ -25,23 +25,23 @@ This guide walks you through the steps to obtain the operation correlation ID fr
 
 1. In the Azure portal, navigate to your ExpressRoute resource. Select **Activity log** from the left side menu.
 
-    :::image type="content" source="./media/get-correlation-id/circuit-overview.png" alt-text="Screenshot of the Activity log button on the left menu pane on the overview page of an ExpressRoute circuit.":::
+    :::image type="content" source="./media/get-correlation-id/circuit-overview.png" alt-text="Screenshot of the Activity log button on the left menu pane on the overview page of an ExpressRoute circuit." lightbox="./media/get-correlation-id/circuit-overview.png":::
 
 1. On the Activity log page, you can select to add filters to narrow down the results. For example, you can filter by **operation type** and **resource type** or **date/time range** to only show the activity log for a specific ExpressRoute resource. By default, Activity Log shows all activities for the selected ExpressRoute resource.
 
-    :::image type="content" source="./media/get-correlation-id/filter-log.png" alt-text="Screenshot of the activity log filters section for an ExpressRoute circuit.":::
+    :::image type="content" source="./media/get-correlation-id/filter-log.png" alt-text="Screenshot of the activity log filters section for an ExpressRoute circuit." lightbox="./media/get-correlation-id/filter-log.png":::
 
 1. Once you apply the filters, you can select an activity log entry to view the details.
 
-    :::image type="content" source="./media/get-correlation-id/select-log-entry.png" alt-text="Screenshot of log entry after filter was applied.":::
+    :::image type="content" source="./media/get-correlation-id/select-log-entry.png" alt-text="Screenshot of log entry after filter was applied." lightbox="./media/get-correlation-id/select-log-entry.png":::
 
 1. Select the **JSON** view and then locate the **Correlation ID** in the activity log entry.
 
-    :::image type="content" source="./media/get-correlation-id/entry-selected.png" alt-text="Screenshot of the summary page of a log entry after selected.":::
+    :::image type="content" source="./media/get-correlation-id/entry-selected.png" alt-text="Screenshot of the summary page of a log entry after selected." lightbox="./media/get-correlation-id/entry-selected.png":::
 
 1. To quickly search for the correlation ID, you can use the **Find** feature in your browser. Make note of this correlation ID and provide it as part of your support request submission.
 
-    :::image type="content" source="./media/get-correlation-id/correlation-id.png" alt-text="Screenshot of the correlation ID found in the JSON format of the log entry.":::
+    :::image type="content" source="./media/get-correlation-id/correlation-id.png" alt-text="Screenshot of the correlation ID found in the JSON format of the log entry." lightbox="./media/get-correlation-id/correlation-id.png":::
 
 ## Next steps
 
