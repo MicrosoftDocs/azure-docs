@@ -432,6 +432,8 @@
       href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Run job in your virtual network
+    href: run-job-in-virtual-network.md
 - name: Stream Analytics Query Language
   items:
     - name: Stream Analytics Query Language overview
