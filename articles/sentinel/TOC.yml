@@ -349,16 +349,12 @@
         href: data-connectors/cisco-application-centric-infrastructure.md
       - name: Cisco ASA
         href: data-connectors/cisco-asa.md
-      - name: Cisco ASA/FTD via AMA (Preview)
-        href: data-connectors/cisco-asa-ftd-via-ama.md
       - name: Cisco Duo Security (using Azure Function)
         href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
         href: data-connectors/cisco-firepower-estreamer.md
       - name: Cisco Identity Services Engine
         href: data-connectors/cisco-identity-services-engine.md
-      - name: Cisco Meraki
-        href: data-connectors/cisco-meraki.md
       - name: Cisco Secure Email Gateway
         href: data-connectors/cisco-secure-email-gateway.md
       - name: Cisco Secure Endpoint (AMP) (using Azure Function)
@@ -669,8 +665,6 @@
         href: data-connectors/threat-intelligence-taxii.md
       - name: Threat Intelligence Platforms
         href: data-connectors/threat-intelligence-platforms.md
-      - name: Threat Intelligence Upload Indicators API (Preview)
-        href: data-connectors/threat-intelligence-upload-indicators-api.md
       - name: Trend Micro Apex One
         href: data-connectors/trend-micro-apex-one.md
       - name: Trend Micro Deep Security
@@ -697,8 +691,6 @@
         href: data-connectors/windows-dns-events-via-ama.md
       - name: Windows Firewall
         href: data-connectors/windows-firewall.md
-      - name: Windows Firewall Events via AMA (Preview)
-        href: data-connectors/windows-firewall-events-via-ama.md
       - name: Windows Forwarded Events
         href: data-connectors/windows-forwarded-events.md
       - name: Windows Security Events via AMA
