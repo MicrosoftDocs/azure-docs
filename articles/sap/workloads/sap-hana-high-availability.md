@@ -71,8 +71,8 @@ Before you begin, read the following SAP Notes and papers:
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
 - [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]:
 
-  - Settting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
-  - Settting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1).
+  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
+  - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1).
 
 ## Plan for SAP HANA high availability
 
