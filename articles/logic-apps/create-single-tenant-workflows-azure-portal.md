@@ -193,8 +193,6 @@ So now you'll add a trigger that starts your workflow.
 
 This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
-### [Standard](#tab/standard)
-
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
 1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
@@ -212,8 +210,6 @@ When you save a workflow for the first time, and that workflow starts with a Req
 ## Add an action
 
 This example workflow continues with the [Office 365 Outlook managed connector action](../connectors/connectors-create-api-office365-outlook.md) named **Send an email**. Managed connector operations run in Azure versus natively and directly on the Azure Logic Apps runtime.
-
-### [Standard](#tab/standard)
 
 1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
