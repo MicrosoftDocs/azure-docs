@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.date: 03/31/2023
 ms.topic: how-to
 ms.reviewer: mjbrown
@@ -274,7 +274,3 @@ To learn more about continuous backup mode, see the following articles:
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
 * Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
-
-
-
-

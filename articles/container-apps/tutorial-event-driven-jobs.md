@@ -4,6 +4,7 @@ description: Learn to create a job that processes queue messages with Azure Cont
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/05/2023
 ms.author: cshoe
@@ -214,4 +215,3 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [Container Apps jobs](jobs.md)
-

@@ -5,6 +5,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

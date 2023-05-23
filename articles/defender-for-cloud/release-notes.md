@@ -2,6 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
+ms.custom: build-2023
 ms.date: 05/16/2023
 ---
 

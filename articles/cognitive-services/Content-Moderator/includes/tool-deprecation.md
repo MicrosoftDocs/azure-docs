@@ -6,6 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
+ms.custom: build-2023
 ms.topic: include
 ms.date: 06/11/2021
 ms.author: pafarley

@@ -4,6 +4,7 @@ description: Learn how to monitor requests made using the Azure Cosmos DB SDKs w
 author: jcocchi
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 05/09/2023
 ms.author: jucocchi

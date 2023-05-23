@@ -7,7 +7,7 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/12/2022
-ms.custom: seodec18, ignite-2022
+ms.custom: seodec18, ignite-2022, build-2023
 ---
 
 # Azure Stream Analytics - write to Delta Lake table 

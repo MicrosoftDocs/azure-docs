@@ -5,12 +5,13 @@ description: Details for working with Jupyter notebooks and services from a VS C
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023
 ms.topic: how-to
 ms.author: lebaro
 author: lebaro-msft
 ms.reviewer: sgilley 
 ms.date: 04/17/2023
-# As a data scientist, I want to use Jupyter notebooks and tools while working from a VS Code remote connection to my Azure Machine Learning compute instance.
+#Customer intent: As a data scientist, I want to use Jupyter notebooks and tools while working from a VS Code remote connection to my Azure Machine Learning compute instance.
 ---
 
 # Work in VS Code remotely connected to a compute instance (preview)

@@ -7,6 +7,7 @@ ms.author: abtripathi
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 05/10/2023
 ---

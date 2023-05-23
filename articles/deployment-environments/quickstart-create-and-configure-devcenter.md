@@ -6,7 +6,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.date: 04/25/2023
 ---
 

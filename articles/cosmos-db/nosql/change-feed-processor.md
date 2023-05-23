@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/09/2023
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, build-2023
 ---
 
 # Change feed processor in Azure Cosmos DB

@@ -4,6 +4,7 @@ description: Learn how computed properties simplify complex queries and how they
 author: jcocchi
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/09/2023
 ms.author: jucocchi

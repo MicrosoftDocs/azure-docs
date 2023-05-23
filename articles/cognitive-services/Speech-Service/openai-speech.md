@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 04/15/2023
 ms.author: eur

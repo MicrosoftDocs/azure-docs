@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: reference
 ms.date: 05/26/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template
+ms.custom: ignite-fall-2021, event-tier1-build-2022, devx-track-arm-template, build-2023
 ---
 
 # Container Apps ARM template API specification

@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: pafarley
-ms.custom: references_regions
+ms.custom: references_regions, build-2023, build-2023-dataai
 ---
 
 # Product Recognition (version 4.0 preview)
@@ -178,4 +178,3 @@ It returns a JSON response that accounts for each position in the planogram docu
 Get started with Product Recognition by trying out the stitching and rectification APIs. Then do basic analysis with the Product Understanding API.
 * [Prepare images for Product Recognition](./how-to/shelf-modify-images.md)
 * [Analyze a shelf image](./how-to/shelf-analyze.md)
-

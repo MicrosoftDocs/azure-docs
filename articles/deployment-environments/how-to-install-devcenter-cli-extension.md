@@ -4,6 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to install the Azure CLI and the Azure Deployment Environments CLI extension so you can create Deployment Environments resources from the command line.
 services: deployment-environments
 ms.service: deployment-environments
+ms.custom: build-2023
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM

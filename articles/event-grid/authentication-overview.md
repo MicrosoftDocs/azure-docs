@@ -2,6 +2,7 @@
 title: Authenticate clients publishing events to Event Grid custom topics, domains, and partner namespaces.
 description: This article describes different ways of authenticating clients publishing events to Event Grid custom topics, domains, and partner namespaces. 
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 01/05/2022
 ---
 
@@ -30,4 +31,3 @@ You can authenticate clients that publish events to Azure Event Grid topics, dom
 
 ## Next steps
 This article deals with authentication when **publishing** events to Event Grid (event ingress). To learn about authenticating when **delivering** events (event egress), see [Authenticate event delivery to event handlers](security-authentication.md). 
-

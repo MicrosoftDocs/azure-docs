@@ -2,6 +2,7 @@
 title: Event Grid as an Event Grid source
 description: This article provides the properties and schema for Azure Event Grid events. It lists the available event types, an example event, and event properties.  
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 12/02/2022
 ---
 

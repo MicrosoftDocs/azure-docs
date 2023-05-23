@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, build-2023
 
 author: fkriti
 ms.author: kritifaujdar

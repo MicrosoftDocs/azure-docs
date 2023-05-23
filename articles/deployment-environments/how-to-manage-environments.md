@@ -5,7 +5,7 @@ description: Learn how to manage your Azure Deployment Environments deployment e
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 04/25/2023
 ---

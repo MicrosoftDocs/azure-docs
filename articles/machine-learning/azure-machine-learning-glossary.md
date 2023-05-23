@@ -4,6 +4,7 @@ description: Glossary of terms for the Azure Machine Learning platform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023
 ms.topic: overview
 author: frogglew
 ms.author: saoh

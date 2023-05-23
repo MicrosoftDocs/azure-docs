@@ -8,8 +8,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
 ms.date: 04/25/2023
-ms.custom: devdivchpfy22, ignite-2022
-
+ms.custom: devdivchpfy22, ignite-2022, build-2023
 ---
 
 # Add and configure a catalog item in Azure Deployment Environments

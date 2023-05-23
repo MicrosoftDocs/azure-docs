@@ -11,7 +11,7 @@ ms.author: alehughes
 ms.date: 04/25/2023
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2
+ms.custom: devplatv2, build-2023
 ---
 
 # Collect production data from models deployed for real-time inferencing (preview)

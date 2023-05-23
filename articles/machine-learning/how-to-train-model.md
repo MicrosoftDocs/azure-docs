@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.date: 08/25/2022
 ms.topic: how-to
-ms.custom: sdkv2, ignite-2022
+ms.custom: sdkv2, ignite-2022, build-2023
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API

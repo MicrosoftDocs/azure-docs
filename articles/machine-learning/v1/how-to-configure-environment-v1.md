@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022, build-2023
 ---
 
 # Set up a Python development environment for Azure Machine Learning (v1)

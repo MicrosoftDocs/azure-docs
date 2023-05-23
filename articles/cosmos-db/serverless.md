@@ -5,7 +5,7 @@ description: Learn how to use Azure Cosmos DB in a consumption-based manner with
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
 ms.date: 03/16/2023
 ms.reviewer: thweiss

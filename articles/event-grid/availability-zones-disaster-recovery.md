@@ -2,6 +2,7 @@
 title: Event Grid support for availability zones and disaster recovery 
 description: Describes how Azure Event Grid supports availability zones and disaster recovery.
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 09/23/2022
 ---
 

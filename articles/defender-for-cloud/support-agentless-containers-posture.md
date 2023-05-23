@@ -2,6 +2,7 @@
 title: Support and prerequisites for agentless container posture - Microsoft Defender for Cloud
 description: Learn about the requirements for agentless container posture in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 05/09/2023
 ---

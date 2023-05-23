@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devplatv2, event-tier1-build-2022
+ms.custom: devplatv2, event-tier1-build-2022, build-2023
 ---
 
 # Set up Visual Studio Code desktop with the Azure Machine Learning extension (preview)

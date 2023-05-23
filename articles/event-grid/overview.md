@@ -5,7 +5,7 @@ ms.author: jafernan
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, build-2023, build-2023-dataai
 ---
 
 # What is Azure Event Grid?

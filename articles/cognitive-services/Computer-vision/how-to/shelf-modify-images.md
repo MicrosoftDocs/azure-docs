@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pafarley
-ms.custom: references_regions
+ms.custom: references_regions, build-2023
 ---
 
 # Prepare images for Product Recognition

@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.topic: conceptual 
 ms.date: 05/09/2023
-ms.custom: devplatv2, event-tier1-build-2023
+ms.custom: devplatv2, event-tier1-build-2023, build-2023
 ---
 
 # Data collection from models in production (preview)

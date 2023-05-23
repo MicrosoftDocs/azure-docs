@@ -3,6 +3,7 @@ title: Azure Data Explorer output bindings for Azure Functions (preview)
 description: Understand usage of Azure Data Explorer output bindings for Azure Functions (Ingest data to Azure Data Explorer)
 author: ramacg
 ms.topic: reference
+ms.custom: build-2023
 ms.date: 05/04/2023
 ms.author: shsagir
 ms.reviewer: ramacg
