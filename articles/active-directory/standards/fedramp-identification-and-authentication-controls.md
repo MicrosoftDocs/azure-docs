@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure identification and authentication controls to meet FedRAMP High Impact level with Azure Active Directory 
+# Configure identification and authentication controls to meet FedRAMP High Impact level with Azure Active Directory
 
 Identification and authentication are key to achieving a [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) High Impact level.
 
