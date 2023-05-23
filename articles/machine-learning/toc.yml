@@ -272,6 +272,8 @@
       items:
         - name: Model data collection
           href: concept-data-collection.md
+        - name: Model monitoring
+          href: concept-model-monitoring.md
     - name: MLflow
       items:
         - name: MLflow and Azure Machine Learning
@@ -688,7 +690,7 @@
               href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
-        - name: Prepare data with Apache Spark (preview)
+        - name: Prepare data with Apache Spark
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
@@ -698,6 +700,8 @@
             - name: Interactive Data Wrangling with Apache Spark
               displayName: Interactive Data Wrangling with Apache Spark
               href: interactive-data-wrangling-with-apache-spark-azure-ml.md
+            - name: Apache Spark - environment configuration
+              href: apache-spark-environment-configuration.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
@@ -999,6 +1003,22 @@
                   href: how-to-use-batch-scoring-pipeline.md
                 - name: Create batch endpoints from pipeline jobs
                   href: how-to-use-batch-pipeline-from-job.md
+            - name: Security
+              items:
+                - name: Authorization on batch endpoints
+                  href: how-to-authenticate-batch-endpoint.md
+                - name: Network isolation in batch endpoints
+                  href: how-to-secure-batch-endpoint.md
+            - name: Cost management
+              items:
+                - name: Use low priority VMs in batch deployments
+                  href: how-to-use-low-priority-batch.md
+            - name: Integrations
+              items:
+                - name: Run batch endpoints from Azure Data Factory
+                  href: how-to-use-batch-azure-data-factory.md
+                - name: Run batch endpoints from Event Grid events in storage
+                  href: how-to-use-event-grid-batch.md
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
@@ -1072,6 +1092,9 @@
         - name: Collect inferencing data from production
           displayName: model data collection, data drift, data quality, model quality
           href: how-to-collect-production-data.md
+        - name: Perform continuous monitoring
+          displayName: model monitoring, data drift, data quality, model quality
+          href: how-to-monitor-model-performance.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
@@ -1126,6 +1149,8 @@
       items:
         - name: How to use Foundation Models
           href: how-to-use-foundation-models.md
+        - name: Hugging Face Hub community partner models
+          href: how-to-deploy-models-from-huggingface.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Set up MLOps with Azure DevOps
@@ -1321,7 +1346,13 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md
+          items: 
+            - name: Job
+              href: reference-yaml-schedule.md
+            - name: Monitor
+              href: reference-yaml-monitor.md
+        - name: Pipeline component
+          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)

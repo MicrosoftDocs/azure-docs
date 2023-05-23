@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 ## FRONT MATTER START
-title: Azure Active Directory External Identities documentation # < 60 chars
+title: Microsoft Entra External ID documentation # < 60 chars
 summary: >
   With Azure AD External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
 brand: azure
@@ -42,7 +42,7 @@ highlightedContent:
 additionalContent:
   # Supports up to 4 subsections
   sections:
-    - title: Azure AD for customers (CIAM)
+    - title: Microsoft Entra External ID for customers (CIAM)
       items:
         # Card
         - title: Overview
@@ -68,7 +68,7 @@ additionalContent:
         - title: Customize the sign-in look and feel
           summary: Learn about how to personalize the end-user experience.
           url: /azure/active-directory/external-identities/customers/concept-branding-customers        
-    - title: Azure AD B2B
+    - title: Microsoft Entra External ID for partners (B2B)
       items:      
         # Card
         - title: Overview
