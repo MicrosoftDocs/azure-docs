@@ -13,8 +13,7 @@ zone_pivot_groups: python-mode-functions
 This guide is an introduction to developing Azure Functions by using Python. The article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
 
 > [!IMPORTANT]
-> This article supports both the v1 and v2 programming model for Python in Azure Functions. 
-> The Python v2 programming model is currently in preview.
+> This article supports both the v1 and v2 programming model for Python in Azure Functions.
 > The Python v1 model uses a *functions.json* file to define functions, and the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure, and it's more code-centric. Choose the **v2** selector at the top of the article to learn about this new programming model. 
 
 As a Python developer, you might also be interested in one of the following articles:
@@ -115,8 +114,6 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. For more information, see [Triggers and inputs](#triggers-and-inputs).
-
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
 ::: zone-end
 
@@ -138,7 +135,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
-During preview, the entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
+The entry point is only in the *function\_app.py* file. However, you can reference functions within the project in *function\_app.py* by using [blueprints](#blueprints) or by importing.
 ::: zone-end
 
 ## Folder structure
@@ -400,20 +397,6 @@ When the function is invoked, the HTTP request is passed to the function as `req
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
-::: zone pivot="python-mode-decorators" 
-At this time, only specific triggers and bindings are supported by the Python v2 programming model. Supported triggers and bindings are as follows:
-
-| Type | Trigger | Input binding | Output binding |
-| --- | :---: | :---: | :---: |
-| [HTTP](functions-bindings-http-webhook.md?pivots=programming-language-python) | x |   |   |
-| [Timer](functions-bindings-timer.md?pivots=programming-language-python) | x |   |   |
-| [Azure Queue Storage](functions-bindings-storage-queue.md?pivots=programming-language-python) | x |   | x |
-| [Azure Service Bus topic](functions-bindings-service-bus.md?pivots=programming-language-python) | x |   | x |
-| [Azure Service Bus queue](functions-bindings-service-bus.md?pivots=programming-language-python) | x |   | x |
-| [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md?pivots=programming-language-python) | x | x | x |
-| [Azure Blob Storage](functions-bindings-storage-blob.md?pivots=programming-language-python) | x | x | x |
-| [Azure Event Hubs](functions-bindings-event-hubs.md?pivots=programming-language-python) | x |   | x |
-::: zone-end
 
 ## Outputs
 
@@ -950,8 +933,6 @@ When you're using the new programming model, enable the following app setting in
 ```
 
 When you're deploying the function, this setting isn't created automatically. You must explicitly create this setting in your function app in Azure for it to run by using the v2 model.
-
-The multiple Python workers setting isn't supported in the v2 programming model at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
 
 ::: zone-end
 
