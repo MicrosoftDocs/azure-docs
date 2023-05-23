@@ -13,6 +13,8 @@ ms.subservice: files
 
 Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares and is supported in production environments.
 
+Azure Files has supported large file shares for several years which not only provides file share capacity up to 100 TiB but improved IOPS and throughput. Large file shares are widely adopted by customers using locally redundant storage (LRS) and zone-redundant storage (ZRS) but has not been available for geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) until now. 
+
 ## Applies to
 | File share type | SMB | NFS |
 |-|:-:|:-:|
@@ -28,16 +30,16 @@ Azure maintains multiple copies of your storage account to ensure durability and
 
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
 
-If the primary region becomes unavailable for any reason, you can [initiate an account failover](../common/storage-initiate-account-failover.md) to the secondary region.  
+If the primary region becomes unavailable for any reason, Microsoft will manage the failover or you can [initiate an account failover](../common/storage-initiate-account-failover.md) to the secondary region.  
 
 > [!NOTE]  
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured as GRS or GZRS. The file shares won't be accessible in the secondary region unless a failover occurs.
 
-## New scale targets
+## Large file share limits
 
-Azure Files geo-redundancy for large file shares preview improves scale targets for capacity, IOPS, and throughput per standard SMB file share, as shown in the following table.
+Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increases your standard file share capacity and performance limits: 
 
-| **Attribute** | **Current limit** | **New limit** |
+| **Attribute** | **Current limit** | **Large file share limit** |
 |---------------|-------------------|---------------|
 | Capacity per share | 5 TiB | 100 TiB (20x increase) |
 | Max IOPS per share | 1,000 IOPS | 20,000 IOPS (20x increase) |
@@ -47,24 +49,42 @@ Azure Files geo-redundancy for large file shares preview improves scale targets 
 
 Azure Files geo-redundancy for large file shares preview is currently available in the following regions:
 
+- Australia Central
+- Australia Central 2
 - Australia East
 - Australia Southeast
 - Central US
-- East US 2
-- France Central
+- China East 2
+- China East 3
+- China North 2
+- China North 3
+- East Asia
+- East US 2 
+- France Central 
 - France South
 - Germany North
-- Germany West Central
+- Germany West Central 
 - Japan East
-- Japan West
+- Japan West 
+- Korea Central
+- Korea South
+- Norway East
+- Norway West
+- South Africa North
+- South Africa West
+- Southeast Asia
+- Sweden Central
+- Sweden South
+- UAE Central
+- UAE North
 - UK South
-- UK West
+- UK West 
 - West Central US
 - West US 2
 
 ## Pricing
 
-There's no additional cost to enable Azure Files geo-redundancy for large file shares preview. Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+There's no additional cost to enable large file shares. Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Register for the preview
 
@@ -87,13 +107,13 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 ```
 ---
 
-## Enable geo-redundancy for standard file shares
+## Enable geo-redundancy and large file shares for standard SMB file shares
 
-With Azure Files geo-redundancy for large file shares preview, you can enable geo-redundancy for new and existing standard SMB file shares.
+With Azure Files geo-redundancy for large file shares preview, you can enable geo-redundancy and large file shares for new and existing standard SMB file shares.
 
 ### Create a new storage account and file share
 
-Perform the following steps to configure geo-redundancy for a new Azure file share.
+Perform the following steps to configure geo-redundancy and large file shares for a new Azure file share.
 
 1. [Create a standard storage account](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account).
    - Select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
@@ -103,7 +123,7 @@ Perform the following steps to configure geo-redundancy for a new Azure file sha
 
 ### Existing storage accounts and file shares  
 
-The steps to enable geo-redundancy for large file shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
+The steps to enable geo-redundancy for large files shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
