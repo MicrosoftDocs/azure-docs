@@ -31,7 +31,7 @@ Begin by initializing a new Next.js application.
 1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
-    npm init next-app@latest --typescript
+    npm init next-app@next-12-3-2 --typescript
     ```
 
 1. When prompted for an app name, enter **nextjs-app**.
