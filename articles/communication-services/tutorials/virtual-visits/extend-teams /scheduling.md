@@ -120,6 +120,6 @@ You can store the generated URL inside your scheduling system or create a dedica
 
 ## Next Steps
 -	Learn what [extensibility options](./scheduling.md) do you have for Virtual appointments.
--	Learn how to customize [before and after appointment](./scheduling.md)
--	Learn how to customize [precall experience](./scheduling.md)
--	Learn how to customize [call experience](./scheduling.md)
+-	Learn how to customize [before and after appointment](./before-and-after-appointment.md)
+-	Learn how to customize [precall experience](./precall.md)
+-	Learn how to customize [call experience](./call.md)
