@@ -28,6 +28,8 @@ landingContent:
             url: ./workloads/supported-product-on-azure.md
       - linkListType: concept
         links:
+          - text: Microsoft integration scenarios
+            url: ./workloads/integration-get-started.md
           - text: Planning guidance
             url: ./workloads/planning-guide.md
           - text: Azure storage types for SAP workloads
@@ -42,6 +44,10 @@ landingContent:
             url: ./workloads/deployment-guide.md
           - text: How to deploy DBMS on Azure VMs
             url: ./workloads/dbms-guide-general.md
+          - text: How to configure Exchange Online for SAP
+            url: ./workloads/exchange-online-integration-sap-email-outbound.md
+          - text: How to expose SAP Process Orchestration on Azure securely
+            url: ./workloads/exchange-online-integration-sap-email-outbound.md
 
   - title: Azure Center for SAP solutions
     linkLists:
