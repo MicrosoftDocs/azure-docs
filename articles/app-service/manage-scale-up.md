@@ -47,11 +47,11 @@ For information about the pricing and features of individual App Service plans, 
 
 1. In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
 
-    ![Screenshot showing how to scale up your app service plan.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+    :::image type="content" source="media/manage-scale-up/scale-up-tier-portal.png" alt-text="Screenshot showing how to scale up your app service plan.":::
 
 1. Select one of the pricing tiers and select **Select**.
 
-    :::image type="content" source="media/app-service-configure-premium-tier/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
+    :::image type="content" source="media/manage-scale-up/explore-pricing-plans.png" alt-text="Screenshot showing the Explore pricing plans page with a Premium V3 plan selected.":::
 
     When the operation is complete, you see a notification pop-up with a green success check mark.
 
@@ -69,7 +69,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up a Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up an Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>

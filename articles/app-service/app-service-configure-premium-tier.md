@@ -33,11 +33,9 @@ az appservice list-locations --sku P1V3
 
 ## Create an app in Premium V3 tier
 
-The pricing tier of an App Service app is defined in the [App Service plan](overview-hosting-plans.md) that it runs on. You can create an App Service plan by itself or or create it as part of app creation.
+The pricing tier of an App Service app is defined in the [App Service plan](overview-hosting-plans.md) that it runs on. You can create an App Service plan by itself or create it as part of app creation.
 
 When configuring the new App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing plan** and pick one of the **Premium V3** tiers.
-
-:::image type="content" source="media/app-service-configure-premium-tier/create-plan-select-tier.png" alt-text="Screenshot showing how to pick a Premium V3 pricing plan when creating an App Service plan.":::
 
 To see all the Premium V3 options, select **Explore pricing plans**, then select one of the Premium V3 plans and select **Select**.
 
