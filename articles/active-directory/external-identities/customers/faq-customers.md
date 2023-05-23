@@ -39,7 +39,7 @@ Microsoft Entra External ID (for customers) is in preview, so no pricing details
 
 ### How does Microsoft Entra External ID affect B2B collaboration?
 
-There are no changes to the existing B2B collaboration features or related pricing. Upon general availability, Microsoft Entra External ID addresses use cases across all external user identities, including partners, customers, citizens, and others.
+There are no changes to the existing B2B collaboration features or related pricing. Upon general availability, Microsoft Entra External ID will address use cases across all external user identities, including partners, customers, citizens, and others.
 
 ### How long will you support the current Azure AD B2C platform?
 
