@@ -26,7 +26,7 @@ When selecting the **Upgrade maps** button, all Map and Filled map visuals in th
 
 All settings associated with the original visuals are carried over to the new Azure Maps Visual, ensuring consistency in the migrated report.
 
-:::image type="content" source="media/power-bi-visual/the-new-azure-maps-visual.png" alt-text="Screenshot showing the Bubble chart Description automatically generated.":::
+:::image type="content" source="media/power-bi-visual/new-azure-maps-visual.gif" alt-text="Screenshot showing the Bubble chart Description automatically generated.":::
 
 > [!NOTE]
 > Due to differences in supported bubble size ranges between the two platforms, you may notice that some bubbles appear smaller on the converted Azure Maps visual compared to their original size in the Maps visual. This is because the maximum bubble size in Azure Maps is smaller than the maximum bubble size in Bing Maps. Bubble size differences can vary based on the visual dimension and the report's zoom level.
