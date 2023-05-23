@@ -45,27 +45,27 @@ There are no changes to the existing B2B collaboration features or related prici
 
 We remain fully committed to support of the current Azure AD B2C product. The SLA remains unchanged, and we’ll continue investments in the product to ensure security, availability, and reliability. For existing Azure AD B2C customers that have an interest in moving to the next generation platform, more details will be made available after general availability.
 
-### I have a lot of investments tied up in Azure AD B2C, both in code artifacts and CI/CD pipelines. How should I view Microsoft Entra External ID; do I need to plan for a migration or some other effort?
+### I have many investments tied up in Azure AD B2C, both in code artifacts and CI/CD pipelines. Do I need to plan for a migration or some other effort?
 
 We recognize the large investments in building and managing custom policies. We’ve listened to many customers who, like you, have shared that custom policies are too hard to build and manage. Our next generation platform will resolve the need for intricate custom policies. In addition to many other platform and feature improvements, you’ll have equivalent functionality in the new platform but a much easier way to build and manage it. We expect to share migration options closer to general availability of the next generation platform.  
 
-### I’ve heard I can preview the Microsoft Entra External ID platform. Where can I learn more about preview and the features you’re delivering on the new platform?
+### I’ve heard I can preview the Microsoft Entra External ID platform. Where can I learn more?
 
-Learn more at the Microsoft Entra External ID for customers [Developer Center](https://aka.ms/ciam/dev).
+You can learn more about the preview and the features we're delivering on the new platform by visiting the Microsoft Entra External ID for customers [developer center](https://aka.ms/ciam/dev).
 
-### As a new customer, how do I know which solution is a better fit, the current Azure AD B2C product or the next generation Microsoft Entra External ID platform?
+### As a new customer, which solution is a better fit, Azure AD B2C or Microsoft Entra External ID (preview)?
 
-- **Azure Active Directory B2C**:
+Opt for the current Azure AD B2C product if:
 
-   - You have an immediate need to deploy a production ready build for customer-facing apps.
+- You have an immediate need to deploy a production ready build for customer-facing apps.
   
    > [!NOTE]
    > Keep in mind that the next generation Microsoft Entra External ID platform represents the future of CIAM for Microsoft, and rapid innovation, new features and capabilities will be focused on this platform. By choosing the next generation platform from the start, you will receive the benefits of rapid innovation and a future-proof architecture.
 
-- **Microsoft Entra External ID (preview)**:
+Opt for the next generation Microsoft Entra External ID platform if:
 
-  - You’re starting fresh building identities into apps or you're in the early stages of product discovery.
-  - The benefits of rapid innovation, new features and capabilities are a priority.
+- You’re starting fresh building identities into apps or you're in the early stages of product discovery.
+- The benefits of rapid innovation, new features and capabilities are a priority.
 
 ## Next steps
 
