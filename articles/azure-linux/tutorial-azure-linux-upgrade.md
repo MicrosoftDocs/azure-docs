@@ -10,7 +10,7 @@ ms.date: 05/10/2023
 
 # Tutorial: Upgrade Azure Linux Container Host nodes
 
-The Azure Linux Container Host ships updates through two mechanisms: updated Azure Linux node images and automatic package updates.
+The Azure Linux Container Host ships updates through two mechanisms: updated Azure Linux node images and automatic package updates. 
 
 As part of the application and cluster lifecycle, we recommend keeping your clusters up to date and secured by enabling upgrades for your cluster. To automatically keep your clusters up to date and secured, you can enable automatic node-image upgrades so your cluster will use the latest Azure Linux Container Host image when it scales up. Upgrading clusters can also be done manually.
 
