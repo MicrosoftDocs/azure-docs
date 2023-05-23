@@ -1,6 +1,6 @@
 ---
 title: Manage branding resources with Microsoft Graph
-description: Learn how to manage branding resources in an Azure AD for customers tenant by calling the Microsoft Graph API and using an application identity to automate the process.
+description: Learn how to manage branding resources in an Azure AD for customers tenant by calling the Microsoft Graph API. You use an application identity to automate the process.
 services: active-directory
 author: garrodonnell
 manager: celested
