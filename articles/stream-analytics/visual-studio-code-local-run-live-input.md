@@ -2,6 +2,7 @@
 title: Test Azure Stream Analytics queries locally against live stream input by using Visual Studio Code
 description: How to test queries locally against live stream input by using Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
+ms.custom: build-2023
 author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019

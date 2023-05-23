@@ -82,7 +82,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | Yes |
-| **AzureSentinel** | Microsoft Sentinel. | Inbound | Yes | Yes |
+| **AzureSentinel** | Microsoft Sentinel. | Inbound | No | Yes |
 | **AzureSignalR** | Azure SignalR. | Outbound | No | Yes |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | Yes |
 | **AzureSphere** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 

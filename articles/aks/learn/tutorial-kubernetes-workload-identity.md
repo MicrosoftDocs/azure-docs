@@ -16,7 +16,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Configure the managed identity for token federation
 * Deploy the workload and verify authentication with the workload identity.
 
-This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article before you begin.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

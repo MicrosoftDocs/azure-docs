@@ -576,20 +576,7 @@ To address the problems introduced by sampling pre-aggregated metrics are used i
   There are two `AdaptiveSamplingTelemetryProcessor` nodes added by default, and one includes the `Event` type in sampling, while the other excludes
   the `Event` type from sampling. This configuration means that the SDK will try to limit telemetry items to five telemetry items of `Event` types, and five telemetry items of all other types combined, thereby ensuring that `Events` are sampled separately from other telemetry types. Events are typically used for business telemetry, and most likely should not be affected by diagnostic telemetry volumes.
   
-  The following shows the default `ApplicationInsights.config` file generated. In ASP.NET Core, the same default behavior is enabled in code. Use the [examples in the earlier section of this page](#configuring-adaptive-sampling-for-aspnet-core-applications) to change this default behavior.
-
-    ```xml
-    <TelemetryProcessors>
-        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-            <ExcludedTypes>Event</ExcludedTypes>
-        </Add>
-        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-            <IncludedTypes>Event</IncludedTypes>
-        </Add>
-    </TelemetryProcessors>
-    ```
+Use the [examples in the earlier section of this page](#configuring-adaptive-sampling-for-aspnet-core-applications) to change this default behavior.
 
 *Can telemetry be sampled more than once?*
 

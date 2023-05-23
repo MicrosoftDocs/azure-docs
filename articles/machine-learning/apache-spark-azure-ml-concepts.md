@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark in Azure Machine Learning (preview)"
+title: "Apache Spark in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: This article explains the options for accessing Apache Spark in Azure Machine Learning.
 services: machine-learning
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: franksolomon
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 03/06/2023
-ms.custom: cliv2, sdkv2
+ms.date: 05/11/2023
+ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
 ---
 
-# Apache Spark in Azure Machine Learning (preview)
+# Apache Spark in Azure Machine Learning
 
-Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to distributed computation resources through the Apache Spark framework. This integration offers these Apache Spark computing experiences:
+Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework. This integration offers these Apache Spark computing experiences:
 
-- Serverless Spark compute (preview)
-- Attached Synapse Spark pool (preview)
+- Serverless Spark compute
+- Attached Synapse Spark pool
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Serverless Spark compute (preview)
+## Serverless Spark compute
 
 With the Apache Spark framework, Azure Machine Learning serverless Spark compute is the easiest way to accomplish distributed computing tasks in the Azure Machine Learning environment. Azure Machine Learning offers a fully managed, serverless, on-demand Apache Spark compute cluster. Its users can avoid the need to create an Azure Synapse workspace and a Synapse Spark pool.
 
@@ -56,7 +56,7 @@ Disadvantages:
 
 ### Network configuration
 
-As of January 2023, creation of a serverless Spark compute, inside a virtual network, and creation of a private endpoint to Azure Synapse, aren't supported.
+To use network isolation with Azure Machine Learning and serverless Spark compute, use a [managed virtual network](how-to-managed-network.md).
 
 ### Inactivity periods and tear-down mechanism
 
@@ -118,8 +118,8 @@ To access data and other resources, a Spark job can use either a user identity p
 
 ## Next steps
 
-- [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
-- [Interactive data wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
-- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
+- [Attach and manage a Synapse Spark pool in Azure Machine Learning](./how-to-manage-synapse-spark-pool.md)
+- [Interactive data wrangling with Apache Spark in Azure Machine Learning](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Submit Spark jobs in Azure Machine Learning](./how-to-submit-spark-jobs.md)
 - [Code samples for Spark jobs using the Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
 - [Code samples for Spark jobs using the Azure Machine Learning Python SDK](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/spark)
