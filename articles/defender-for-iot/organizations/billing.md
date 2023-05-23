@@ -20,9 +20,6 @@ If you would like to evaluate Defender for IoT, you can use a trial license for 
 
 - **For OT networks**, use a trial to deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. An OT trial incudes a *Large* sized license, which supports 1,000 [devices](#defender-for-iot-devices). For more information, see [Start a Microsoft Defender for IoT trial](getting-started.md).
 
-
-    **<!----> TBD WHAT HAPPENS WHEN THE TRIAL IS UP?**
-
 - **For Enterprise IoT networks**, use a trial to view alerts, recommendations, and vulnerabilities in Microsoft 365. An Enterprise IoT trial is not limited to a specific number of devices. For more information, see [Enable Enterprise IoT security with Defender for Endpoint](eiot-defender-for-endpoint.md).
 
 ## Defender for IoT devices
@@ -39,6 +36,8 @@ When purchasing a Defender for IoT license for an OT plan, or when onboarding or
 ## Next steps
 
 For more information, see:
+
+- [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs)
 
 - [Manage Defender for IoT plans for OT monitoring](how-to-manage-subscriptions.md)
 - [Manage Defender for IoT plans for Enterprise IoT monitoring](manage-subscriptions-enterprise.md)
