@@ -272,6 +272,8 @@
       items:
         - name: Model data collection
           href: concept-data-collection.md
+        - name: Model monitoring
+          href: concept-model-monitoring.md
     - name: MLflow
       items:
         - name: MLflow and Azure Machine Learning
@@ -1090,6 +1092,9 @@
         - name: Collect inferencing data from production
           displayName: model data collection, data drift, data quality, model quality
           href: how-to-collect-production-data.md
+        - name: Perform continuous monitoring
+          displayName: model monitoring, data drift, data quality, model quality
+          href: how-to-monitor-model-performance.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
@@ -1341,7 +1346,13 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md
+          items: 
+            - name: Job
+              href: reference-yaml-schedule.md
+            - name: Monitor
+              href: reference-yaml-monitor.md
+        - name: Pipeline component
+          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
