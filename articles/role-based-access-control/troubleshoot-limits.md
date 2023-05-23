@@ -50,7 +50,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Select **Set authorization scope** and set the authorization scope to **At, above and below**.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-resource-graph/authorization-scope.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
@@ -75,13 +75,13 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-group.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-group.png":::
 
 1. Identify a row where you want to replace the multiple role assignments with a single role assignment for a group.
 
 1. In the row, select **See details** to open the **Details** pane.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-group-details.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-group-details.png" alt-text="Screenshot of Details pane that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-group-details.png":::
 
     | Column | Description |
     | --- | --- |
@@ -119,7 +119,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     You should also see your group-based role assignment.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/role-assignments-filter-remove.png" alt-text="Screenshot of Access control (IAM) page that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-resource-graph/role-assignments-filter-remove.png":::
+    :::image type="content" source="media/troubleshoot-limits/role-assignments-filter-remove.png" alt-text="Screenshot of Access control (IAM) page that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/role-assignments-filter-remove.png":::
 
 1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
@@ -143,7 +143,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
 1. Select **Set authorization scope** and set the authorization scope to **At, above and below**.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-resource-graph/authorization-scope.png":::
+    :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same principal and same role, but at different scopes.
 
@@ -169,7 +169,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same principal and same role. The count is sorted in descending order.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope.png":::
 
     | Column | Description |
     | --- | --- |
@@ -183,7 +183,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
 1. In a row, select **See details** to open the **Details** pane.
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-resource-graph/resource-graph-role-assignments-scope-details.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png":::
 
 1. Use **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId** to get the role and principal ID.
 
@@ -260,7 +260,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
     The following shows an example of the results:
 
-    :::image type="content" source="media/troubleshoot-resource-graph/resource-graph-custom-roles-unused.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows custom roles without role assignments." lightbox="media/troubleshoot-resource-graph/resource-graph-custom-roles-unused.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-custom-roles-unused.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows custom roles without role assignments." lightbox="media/troubleshoot-limits/resource-graph-custom-roles-unused.png":::
 
     | Column | Description |
     | --- | --- |

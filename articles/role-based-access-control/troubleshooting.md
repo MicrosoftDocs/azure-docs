@@ -17,51 +17,6 @@ ms.custom: seohack1, devx-track-azurecli
 
 This article describes some common solutions for issues related to Azure role-based access control (Azure RBAC).
 
-## Limits
-
-###  Symptom - No more role assignments can be created
-
-When you try to assign a role, you get the following error message:
-
-`No more role assignments can be created (code: RoleAssignmentLimitExceeded)`
-
-**Cause**
-
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
-
-**Solution**
-
-Try to reduce the number of role assignments in the subscription. Here are some ways that you can reduce the number of role assignments:
-
-- Add users to groups and assign roles to the groups instead. 
-- Combine multiple built-in roles with a custom role. 
-- Make common role assignments at a higher scope, such as subscription or management group.
-- If you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned. 
-- Add an additional subscription. 
-
-To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
-
-```azurepowershell
-$scope = "/subscriptions/<subscriptionId>"
-$ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
-$ras.Count
-```
-
-###  Symptom - No more role assignments can be created at management group scope
-
-You're unable to assign a role at management group scope.
-
-**Cause**
-
-Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
-
-> [!NOTE]
-> The **500** role assignments limit per management group is fixed and cannot be increased.
-
-**Solution**
-
-Try to reduce the number of role assignments in the management group.
-
 ## Azure role assignments
 
 ### Symptom - Unable to assign a role
@@ -429,20 +384,6 @@ You're trying to create a custom role with data actions and a management group a
 **Solution**
 
 Create the custom role with one or more subscriptions as the assignable scope. For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
-
-### Symptom - No more role definitions can be created
-
-When you try to create a new custom role, you get the following message:
-
-`Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)`
-
-**Cause**
-
-Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
-
-**Solution**
-
-Try to reduce the number of custom roles.
 
 ## Access denied or permission errors
 
