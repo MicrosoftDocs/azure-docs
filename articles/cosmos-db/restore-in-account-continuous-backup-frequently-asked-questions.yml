@@ -51,7 +51,7 @@ sections:
         answer: |
           You can trigger restore operations from the Azure CLI, Azure PowerShell, or the Azure Portal.
       - question: |
-          Is restore in same account supported for Azure Synapse Link enabled accounts? ? 
+          Is restore in same account supported for Azure Synapse Link enabled accounts?
         answer: |
           No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same Azure Cosmos DB account. 
       - question: |
