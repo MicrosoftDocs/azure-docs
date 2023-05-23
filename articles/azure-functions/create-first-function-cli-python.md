@@ -32,7 +32,7 @@ Before you begin, you must have the following requirements in place:
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 ::: zone-end
 ::: zone pivot="python-mode-decorators"  
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.0.4785 or later.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.2.1 or later.
 ::: zone-end  
 + One of the following tools for creating Azure resources:
 
