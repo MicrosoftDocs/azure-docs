@@ -494,6 +494,17 @@
           href: sql-azure-vulnerability-assessment-enable.md
         - name: Manage vulnerability assessments
           href: sql-azure-vulnerability-assessment-manage.md
+          items:
+          - name: PowerShell script sample - Enable vulnerability assessment on a SQL server
+            href: powershell-sample-vulnerability-assessment-enable.md
+          - name: Set up baselines for vulnerability assessments on Azure SQL databases
+            href: powershell-sample-vulnerability-assessment-baselines.md
+          - name: Example Azure express configuration powershell commands reference
+            href: express-configuration-powershell-commands.md
+          - name: Example Azure CLI express configuration commands reference
+            href: express-configuration-cli-commands.md
+          - name: Example Azure Powershell commands library
+            href: express-configuration-azure-powershell-commands.md
         - name: Find and remediate vulnerabilities
           href: sql-azure-vulnerability-assessment-find.md
         - name: Vulnerability assessment rules
