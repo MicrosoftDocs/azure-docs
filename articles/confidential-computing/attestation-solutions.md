@@ -11,7 +11,7 @@ ms.author: grbury
 ---
 
 # Attestation
-Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing trust and ensuring that computing technologies we rely on are trustworthy.
+Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing and ensuring that computing technologies we rely on are trustworthy.
 
 In this document, we are looking at what attestation is, types of attestation Microsoft offers today, and how customers can utilize these types of attestation scenarios in Microsoft solutions. 
 
@@ -20,19 +20,19 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 
 ### Passport Model
 #### Passport Model - Immigration Desk
-1. A Citizen wants a passport to travel to a Foreign Country. The Citizen submits evidence requirements to their Host Country. 
-2. Host country receives the evidence of policy compliance from the individual and verifies whether the supplied evidence proves that the individual complies with the policies for being issued a passport. 
+1. A Citizen wants a passport to travel to a Foreign Country/Region. The Citizen submits evidence requirements to their Host Country/Region. 
+2. Host country/region receives the evidence of policy compliance from the individual and verifies whether the supplied evidence proves that the individual complies with the policies for being issued a passport. 
 	- Birth certificate is valid and hasn't been altered.
 	- Issuer of the birth certificate is trusted
 	- Individual isn't part of a restricted list
-3. If the Host Country decides the evidence meets their policies, the Host Country will issue a passport for a Citizen.
-4. The Citizen travels to a foreign nation, but first must present their passport to the Foreign Country Border Patrol Agent for evaluation.
-5. The Foreign Country Border Patrol Agent checks a series of rules on the passport before trusting it  
+3. If the Host Country/Region decides the evidence meets their policies, the Host Country/Region will issue a passport for a Citizen.
+4. The Citizen travels to a foreign nation, but first must present their passport to the Foreign Country/Region Border Patrol Agent for evaluation.
+5. The Foreign Country/Region Border Patrol Agent checks a series of rules on the passport before trusting it  
 	- Passport is authentic and hasn't been altered.
-	- Passport was produced by a trusted country.
+	- Passport was produced by a trusted country/region.
 	- Passport isn't expired or revoked.
 	- Passport conforms to policy of a Visa or age requirement.
-6. The Foreign Country Border Patrol Agent approves of the Passport and the Citizen can enter the Foreign Country.
+6. The Foreign Country/Region Border Patrol Agent approves of the Passport and the Citizen can enter the Foreign Country/Region.
 
 ![Diagram of remote attestation with the passport model for an immigration desk.](media/attestation-solutions/passport-model-immigration.png)
 

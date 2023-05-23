@@ -21,6 +21,8 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 - Deprecated functionality
 - Plans for changes
 
+This page will be updated with the details about the upcoming release approximately a week before the actual deployment.
+
 <hr width = 100%>
 
 ## April 2023

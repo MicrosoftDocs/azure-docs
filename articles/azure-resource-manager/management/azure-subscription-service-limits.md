@@ -141,6 +141,10 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 [!INCLUDE [Deployment Environments limits](../../../includes/deployment-environments-limits.md)]
 
+## Azure Files and Azure File Sync
+
+To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
+
 ## Azure Functions limits
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
@@ -210,6 +214,37 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 ## Azure Spring Apps limits
 
 To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
+
+## Azure Storage limits
+
+This section lists the following limits for Azure Storage:
+
+- [Standard storage account limits](#standard-storage-account-limits)
+- [Azure Storage resource provider limits](#azure-storage-resource-provider-limits)
+- [Azure Blob Storage limits](#azure-blob-storage-limits)
+- [Azure Queue storage limits](#azure-queue-storage-limits)
+- [Azure Table storage limits](#azure-table-storage-limits)
+
+### Standard storage account limits
+
+<!--like # storage accts -->
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
+
+### Azure Storage resource provider limits
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### Azure Blob Storage limits
+
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+### Azure Queue storage limits
+
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+### Azure Table storage limits
+
+[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## Azure subscription creation limits
 
@@ -456,32 +491,6 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 ## Azure Synapse Analytics limits
 
 [!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
-
-## Azure Files and Azure File Sync
-To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
-
-## Storage limits
-
-<!--like # storage accts -->
-[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
-
-For more information on limits for standard storage accounts, see [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md).
-
-### Storage resource provider limits
-
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-### Azure Blob storage limits
-
-[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### Azure Queue storage limits
-
-[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
-
-### Azure Table storage limits
-
-[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ### Virtual machine disk limits

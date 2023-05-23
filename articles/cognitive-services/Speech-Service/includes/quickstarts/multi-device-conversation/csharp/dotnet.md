@@ -170,7 +170,7 @@ Before you get started, make sure to:
                         // You can now send an instant message to all other participants in the room
                         await conversationTranslator.SendTextMessageAsync("The instant message to send").ConfigureAwait(false);
     
-                        // If specified a speech-to-text language, you can start capturing audio
+                        // If specified a speech to text language, you can start capturing audio
                         await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
                         Console.WriteLine("Started transcribing. Press Ctrl + c to stop");
     
@@ -273,7 +273,7 @@ Before you get started, make sure to:
             // You can now send an instant message
             await conversationTranslator.SendTextMessageAsync("Message from participant").ConfigureAwait(false);
 
-            // Start capturing audio if you specified a speech-to-text language
+            // Start capturing audio if you specified a speech to text language
             await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
             Console.WriteLine("Started transcribing. Press Ctrl-C to stop");
 

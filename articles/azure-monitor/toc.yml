@@ -237,6 +237,8 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+      - name: Migration custom text log tables
+        href: agents/azure-monitor-agent-custom-text-log-migration.md
     - name: Performance
       displayName: Performance
       href: agents/azure-monitor-agent-performance.md
@@ -421,11 +423,14 @@ items:
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
-      - name: Managed agent on AKS cluster
+      - name: Managed agent
         items:
         - name: Enable on AKS cluster
           displayName: Prometheus
           href: essentials/prometheus-metrics-enable.md
+        - name: Enable on Arc-enabled Kubernetes cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
         - name: Customize collection
           items:
           - name: Default configuration
@@ -479,6 +484,12 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: Prometheus Azure Active Directory authorization proxy
+        displayName: Prometheus
+        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview
@@ -1363,12 +1374,8 @@ items:
       items:
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Create an action group
+      - name: Action groups
         href: alerts/action-groups.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
@@ -1547,6 +1554,8 @@ items:
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
+    - name: Migrate to the metrics getBatch API
+      href: essentials/migrate-to-batch-api.md
   - name: Azure alerts management SDK for Python
     href: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient
   - name: Resource Manager templates

@@ -1,5 +1,5 @@
 ---
-title: How to enable Microsoft Authenticator Lite for Outlook mobile (preview)
+title: How to enable Microsoft Authenticator Lite for Outlook mobile
 description: Learn about how to you can set up Microsoft Authenticator Lite for Outlook mobile to help users validate their identity
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to understand how default protection can improve our security posture.
 ---
-# How to enable Microsoft Authenticator Lite for Outlook mobile (preview)
+# How to enable Microsoft Authenticator Lite for Outlook mobile
 
 
 Microsoft Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
@@ -25,7 +25,7 @@ Microsoft Authenticator Lite is another surface for Azure Active Directory (Azur
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
 >[!NOTE]
->This is an important security enhancement for users authenticating via telecom transports. The 'Microsoft managed' setting for this feature will be set to enabled on May 26th, 2023. This will enable the feature for all users in tenants where the feature is set to Microsoft managed. If you wish to change the state of this feature, please do so before May 26th, 2023.
+>This is an important security enhancement for users authenticating via telecom transports. This feature is currently in the state ‘Microsoft managed’. Until June 9th, leaving the feature set to ‘Microsoft managed’ will have no impact on your users and the feature will remain turned off unless you explicitly change the state to enabled. The Microsoft managed value of this feature will be changed from ‘disabled’ to ‘enabled’ on June 9th. We have made some changes to the feature configuration, so if you made an update before GA (5/17), please validate that the feature is in the correct state for your tenant prior to June 9th. If you do not wish for this feature to be enabled on June 9th, move the state to ‘disabled’ or set users to include and exclude groups. 
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
 ## Enable Authenticator Lite
 
-By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After general availability, the Microsoft managed state default value will change to enable Authenticator Lite. 
+By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings). Until June 9th, leaving the feature set to ‘Microsoft managed’ will have no impact on your users and the feature will remain turned off unless you explicitly change the state to enabled. The Microsoft managed value of this feature will be changed from ‘disabled’ to ‘enabled’ on June 9th. We have made some changes to the feature configuration, so if you made an update before GA (5/17), please validate that the feature is in the correct state for your tenant prior to June 9th. If you do not wish for this feature to be enabled on June 9th, move the state to ‘disabled’ or set users to include and exclude groups. 
 
 ### Enablement Authenticator Lite in Azure portal UX
 
@@ -181,13 +181,13 @@ Users can only register for Authenticator Lite from mobile Outlook. Authenticato
 Users that have Microsoft Authenticator on their device can't register Authenticator Lite on that same device. If a user has an Authenticator Lite registration and then later downloads Microsoft Authenticator, they can register both. If a user has two devices, they can register Authenticator Lite on one and Microsoft Authenticator on the other.
 
 
-## Known Issues (Public preview)
+## Known Issues
 
 ### SSPR Notifications
 TOTP codes from Outlook will work for SSPR, but the push notification will not work and will return an error.
 
-### Conditional Access Registration Policies
-CA policies for registration do not currently apply in Outlook registration flows.
+### Authentication Strengths
+If you have a configured authentication strength for MFA push, Authenticator Lite will not be allowed. This is a known issue that we are working to resolve.
 
 
 ## Next steps

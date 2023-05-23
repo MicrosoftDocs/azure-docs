@@ -17,6 +17,23 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## May 2023
+
+- [Use Hunts to conduct end-to-end proactive threat hunting in Microsoft Sentinel](#use-hunts-to-conduct-end-to-end-proactive-threat-hunting)
+- [Audit and track incident task activity](#audit-and-track-incident-task-activity)
+
+### Use Hunts to conduct end-to-end proactive threat hunting
+
+Take your hunts to the next level. Stay organized and keep track of new, active and closed hunts. Don't wait to react, proactively track down detection gaps on specific MITRE ATT&CK techniques or your own hypotheses. Collect evidence, investigate entities, annotate your findings and share them with your team all in one screen. 
+
+Learn more about [Hunts (Preview)](hunts.md).
+
+### Audit and track incident task activity
+
+Thanks to newly available information in the *SecurityIncident* table, you can now inspect the history and status of open tasks in your incidents, even on incidents that have been closed. Use the information to ensure your SOC's efficient and proper functioning.
+
+Learn more about [auditing and tracking incident tasks](audit-track-tasks.md).
+
 ## April 2023
 
 - [RSA announcements](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/rsac-2023-microsoft-sentinel-empowering-the-soc-with-next-gen/ba-p/3803613)

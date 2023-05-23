@@ -35,7 +35,7 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
 > [!NOTE]
 > Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
-1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
+1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
 1. Select **Managed Prometheus** to display a list of AKS clusters.
 1. Select **Configure** next to the cluster you want to enable.
 
@@ -49,7 +49,7 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in the Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - The aks-preview extension must be installed by using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- The aks-preview version 0.5.136 or higher is required for this feature. Check the aks-preview version by using the `az version` command.
+- The aks-preview version 0.5.138 or higher is required for this feature. Check the aks-preview version by using the `az version` command.
 
 #### Install the metrics add-on
 
@@ -352,7 +352,7 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
 1. Download the [parameter file](https://aka.ms/AddonPolicyMetricsProfile.parameters). Save it as **AddonPolicyMetricsProfile.parameters.json** in the same directory as the rules template.
 1. Create the policy definition using the following command:
 
-      `az policy definition create --name "(Preview) Prometheus Metrics addon" --display-name "(Preview) Prometheus Metrics addon" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules .\AddonPolicyMetricsProfile.rules.json --params .\AddonPolicyMetricsProfile.parameters.json`
+      `az policy definition create --name "(Preview) Prometheus Metrics addon" --display-name "(Preview) Prometheus Metrics addon" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules AddonPolicyMetricsProfile.rules.json --params AddonPolicyMetricsProfile.parameters.json`
 
 1. After you create the policy definition, in the Azure portal, select **Policy** > **Definitions**. Select the policy definition you created.
 1. Select **Assign**, go to the **Parameters** tab, and fill in the details. Select **Review + Create**.
