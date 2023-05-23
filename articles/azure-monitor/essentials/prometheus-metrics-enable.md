@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Monitor managed service for Prometheus (preview)
-description: Enable Azure Monitor managed service for Prometheus (preview) and configure data collection from your Azure Kubernetes Service (AKS) cluster.
+title: Enable Azure Monitor managed service for Prometheus
+description: Enable Azure Monitor managed service for Prometheus and configure data collection from your Azure Kubernetes Service (AKS) cluster.
 author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: references_regions
@@ -9,7 +9,7 @@ ms.date: 01/24/2022
 ms.reviewer: aul
 ---
 
-# Collect Prometheus metrics from an AKS cluster (preview)
+# Collect Prometheus metrics from an AKS cluster
 This article describes how to configure your Azure Kubernetes Service (AKS) cluster to send data to Azure Monitor managed service for Prometheus. When you configure your AKS cluster to send data to Azure Monitor managed service for Prometheus, a containerized version of the [Azure Monitor agent](../agents/agents-overview.md) is installed with a metrics extension. In addition, you'll specify the Azure Monitor workspace where the data should be sent.
 
 > [!NOTE]
@@ -512,5 +512,5 @@ The list of regions Azure Monitor Metrics and Azure Monitor Workspace is support
 
 - [See the default configuration for Prometheus metrics](./prometheus-metrics-scrape-default.md)
 - [Customize Prometheus metric scraping for the cluster](./prometheus-metrics-scrape-configuration.md)
-- [Use Azure Monitor managed service for Prometheus (preview) as the data source for Grafana](./prometheus-grafana.md)
-- [Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus (preview)](./prometheus-self-managed-grafana-azure-active-directory.md)
+- [Use Azure Monitor managed service for Prometheus as the data source for Grafana](./prometheus-grafana.md)
+- [Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus](./prometheus-self-managed-grafana-azure-active-directory.md)
