@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 08/30/2022
+ms.date: 05/23/2023
 tags: active-directory
 ms.author: cmulligan
 author: csmulligan
