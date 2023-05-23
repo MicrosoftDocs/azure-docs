@@ -64,7 +64,7 @@ module.exports ={
 }
 ```
 
-## Deploy your static website
+## Deploy your Next.js app
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
