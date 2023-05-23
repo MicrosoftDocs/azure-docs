@@ -28,7 +28,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 In this release, we've made the following changes:
 
-- The Windows Desktop client installer no longer supports Windows 8 and 8.1.
 - Improved connection bar resizing so that resizing the bar to its minimum width doesn't make its buttons disappear.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
