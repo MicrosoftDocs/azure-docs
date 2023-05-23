@@ -18,7 +18,7 @@ Power Automate is a service that helps you create automated workflows between yo
 - Connect to more than 500 data sources or any publicly available API
 - Perform CRUD (create, read, update, delete) operations on data 
 
-In this quickstart shows how to create an automated workflow usingPower automate flow with [Azure database for MySQL connector(Preview)](/connectors/azuremysql/).
+In this quickstart shows how to create an automated workflow usingPower automate flow with [Azure Database for MySQL connector(Preview)](/connectors/azuremysql/).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this quickstart shows how to create an automated workflow usingPower automate
 
 ## Overview of cloud flows
 
-Create a cloud flow when you want your automation to be triggered either automatically, instantly, or via a schedule. Here are types of flows you can create and then use with Azure database for MySQL connector.
+Create a cloud flow when you want your automation to be triggered either automatically, instantly, or via a schedule. Here are types of flows you can create and then use with Azure Database for MySQL connector.
 
 | **Flow type**                                                                       | **Use case**                                                                                  | **Automation target**                                                                             |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
@@ -58,10 +58,10 @@ Follow the steps to create an instant cloud flow with a manual trigger.
 An operation is an action. Power Automate flow allows you to add one or more advanced options and multiple actions for the same trigger. For example, add an advanced option that sends an email message as high priority. In addition to sending mail when an item is added to a list created in Microsoft Lists, create a file in Dropbox that contains the same information.
 
 1. Once the flow app is created, select **Next Step** to create an operation. 
-2. In the box that shows Search connectors and actions, enter **Azure database for MySQL**.
-3. Select **Azure database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
+2. In the box that shows Search connectors and actions, enter **Azure Database for MySQL**.
+3. Select **Azure Database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
 
-   :::image type="content" source="./media/tutorial-power-automate-with-mysql/azure-mysql-connector-add-action.png" alt-text="Screenshot that shows how to view all the actions for Azure database for MySQL connector.":::
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/azure-mysql-connector-add-action.png" alt-text="Screenshot that shows how to view all the actions for Azure Database for MySQL connector.":::
 
 5. Add a new MySQL connection and enter the **authentication type**,**server name**, **database name**, **username**, **password**. Select **encrypt connection** if SSL is enabled on your MySQL server.
 
@@ -87,4 +87,4 @@ After saving the flow, we need to test it and run the flow app.
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/run-flow-to-get-rows-from-table.png" alt-text="Screenshot that shows output of the run.":::
 
 ## Next steps
-[Azure database for MySQL connector](/connectors/azuremysql/) reference 
+[Azure Database for MySQL connector](/connectors/azuremysql/) reference 

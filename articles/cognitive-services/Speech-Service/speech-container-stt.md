@@ -1,7 +1,7 @@
 ---
-title: Speech-to-text containers - Speech service
+title: Speech to text containers - Speech service
 titleSuffix: Azure Cognitive Services
-description: Install and run speech-to-text containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
+description: Install and run speech to text containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,9 +14,9 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
 ---
 
-# Speech-to-text containers with Docker
+# Speech to text containers with Docker
 
-The Speech-to-text container transcribes real-time speech or batch audio recordings with intermediate results. In this article, you'll learn how to download, install, and run a Speech-to-text container.
+The Speech to text container transcribes real-time speech or batch audio recordings with intermediate results. In this article, you'll learn how to download, install, and run a Speech to text container.
 
 > [!NOTE]
 > You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
@@ -25,7 +25,7 @@ For more information about prerequisites, validating that a container is running
 
 ## Container images
 
-The Speech-to-text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. 
+The Speech to text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. 
 
 :::image type="content" source="./media/containers/mcr-tags-speech-to-text.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/containers/mcr-tags-speech-to-text.png":::
 
@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [speech-to-text container images](#container-images).
+> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [speech to text container images](#container-images).
 
 ## Run the container with docker run
 
@@ -85,7 +85,7 @@ The following table represents the various `docker run` parameters and their cor
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
 | `{API_KEY}` | The API key is required. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
 
-When you run the speech-to-text container, configure the port, memory, and CPU according to the speech-to-text container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
+When you run the speech to text container, configure the port, memory, and CPU according to the speech to text container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
 
 Here's an example `docker run` command with placeholder values. You must specify the `ENDPOINT_URI` and `API_KEY` values:
 
@@ -173,7 +173,7 @@ For more information about `docker run` with Speech containers, see [Install and
 
 [!INCLUDE [Speech container authentication](includes/containers-speech-config-ws.md)]
 
-[Try the speech-to-text quickstart](get-started-speech-to-text.md) using host authentication instead of key and region.
+[Try the speech to text quickstart](get-started-speech-to-text.md) using host authentication instead of key and region.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: devx-track-js
 ---
 
 # Data-driven Style Expressions (Web SDK)

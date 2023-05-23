@@ -25,6 +25,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+
 ## May 2023
 
 - **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server**
@@ -34,6 +35,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Support for data-in replication using GTID**
 
   Flexible Server now also supports [Data-in Replication](concepts-data-in-replication.md) using GTID based replication. You can also use this feature to configure data-in replication for HA enabled servers as well. To learn more - see [how to configure data-in replication using GTID](how-to-data-in-replication.md)
+  
+- **Major version upgrades from 5.7 to 8.0 for Azure Database for MySQL - Flexible Server (General Availability)**
+
+  The major version upgrade feature allows you to perform in-place upgrades of existing instances of Azure Database for MySQL - Flexible Server from MySQL 5.7 to MySQL 8.0 with the select of a button, without any data movement or the need to make any application connection string changes. With the ability of upgrading your Azure Database for MySQL - Flexible Server major version from 5.7 to 8.0, you'll gain access to performance enhancements, security improvements, and new features, such as Data Dictionary, JSON enhancements, and Window functions. [Learn more](how-to-upgrade.md)
+
 
 ## April 2023
 

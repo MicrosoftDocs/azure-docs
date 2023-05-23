@@ -479,8 +479,6 @@ items:
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-    - name: Troubleshooting access policy distribution
-      href: troubleshoot-policy-distribution.md
     - name: Troubleshooting policies for SQL
       href: troubleshoot-policy-sql.md
     - name: Frequently asked questions (FAQ)

@@ -1,7 +1,7 @@
 ---
-title: Neural text-to-speech containers - Speech service
+title: Neural text to speech containers - Speech service
 titleSuffix: Azure Cognitive Services
-description: Install and run neural text-to-speech containers with Docker to perform speech synthesis and more on-premises.
+description: Install and run neural text to speech containers with Docker to perform speech synthesis and more on-premises.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,9 +14,9 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
 ---
 
-# Text-to-speech containers with Docker
+# Text to speech containers with Docker
 
-The neural text-to-speech container converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech.. In this article, you'll learn how to download, install, and run a Text-to-speech container.
+The neural text to speech container converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech.. In this article, you'll learn how to download, install, and run a Text to speech container.
 
 > [!NOTE]
 > You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
@@ -25,7 +25,7 @@ For more information about prerequisites, validating that a container is running
 
 ## Container images
 
-The neural text-to-speech container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `neural-text-to-speech`. 
+The neural text to speech container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `neural-text-to-speech`. 
 
 :::image type="content" source="./media/containers/mcr-tags-neural-text-to-speech.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/containers/mcr-tags-neural-text-to-speech.png":::
 
@@ -60,7 +60,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 ```
 
 > [!IMPORTANT]
-> We retired the standard speech synthesis voices and standard [text-to-speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/text-to-speech/tags) container on August 31, 2021. You should use neural voices with the [neural-text-to-speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) container instead. For more information on updating your application, see [Migrate from standard voice to prebuilt neural voice](./how-to-migrate-to-prebuilt-neural-voice.md).
+> We retired the standard speech synthesis voices and standard [text to speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/text-to-speech/tags) container on August 31, 2021. You should use neural voices with the [neural-text to speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) container instead. For more information on updating your application, see [Migrate from standard voice to prebuilt neural voice](./how-to-migrate-to-prebuilt-neural-voice.md).
 
 ## Get the container image with docker pull
 
@@ -73,7 +73,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale and `en-us-arianeural` voice. For additional locales and voices, see [text-to-speech container images](#container-images).
+> The `latest` tag pulls the `en-US` locale and `en-us-arianeural` voice. For additional locales and voices, see [text to speech container images](#container-images).
 
 ## Run the container with docker run
 
@@ -88,7 +88,7 @@ The following table represents the various `docker run` parameters and their cor
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
 | `{API_KEY}` | The API key is required. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
 
-When you run the text-to-speech container, configure the port, memory, and CPU according to the text-to-speech container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
+When you run the text to speech container, configure the port, memory, and CPU according to the text to speech container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
 
 Here's an example `docker run` command with placeholder values. You must specify the `ENDPOINT_URI` and `API_KEY` values:
 
@@ -102,7 +102,7 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs a neural text-to-speech container from the container image.
+* Runs a neural text to speech container from the container image.
 * Allocates 6 CPU cores and 12 GB of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
@@ -176,11 +176,11 @@ For more information about `docker run` with Speech containers, see [Install and
 
 [!INCLUDE [Speech container authentication](includes/containers-speech-config-http.md)]
 
-[Try the text-to-speech quickstart](get-started-text-to-speech.md) using host authentication instead of key and region.
+[Try the text to speech quickstart](get-started-text-to-speech.md) using host authentication instead of key and region.
 
 ### SSML voice element
 
-When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The [locale of the voice](language-support.md?tabs=tts) must correspond to the locale of the container model. 
+When you construct a neural text to speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The [locale of the voice](language-support.md?tabs=tts) must correspond to the locale of the container model. 
 
 For example, a model that was downloaded via the `latest` tag (defaults to "en-US") would have a voice name of `en-US-AriaNeural`.
 
