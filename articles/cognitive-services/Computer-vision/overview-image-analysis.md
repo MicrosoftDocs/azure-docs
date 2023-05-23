@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
-ms.custom: ignite-2022, references_regions
+ms.custom: ignite-2022, references_regions, build-2023, build-2023-dataai
 ms.topic: overview
 ms.date: 11/06/2022
 ms.author: pafarley

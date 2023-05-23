@@ -5,12 +5,13 @@ description: Connect to an Azure Machine Learning compute instance in Visual Stu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023
 ms.topic: how-to
 ms.author: lebaro
 author: lebaro-msft
 ms.reviewer: sgilley 
 ms.date: 04/10/2023
-# As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
+#Customer intent: As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 
 # Launch Visual Studio Code integrated with Azure Machine Learning (preview)

@@ -3,7 +3,7 @@ title: Azure Container Apps hosting of Azure Functions
 description: Learn about how you can use Azure Container Apps to host containerized function apps in Azure Functions.
 ms.date: 05/04/2023
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, build-2023
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers by using Azure Container Apps.
 ---
 

@@ -4,7 +4,7 @@ description: This article discusses common issues, workarounds, and diagnostic s
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.date: 04/11/2023
 ms.author: maquaran
 ms.topic: troubleshooting

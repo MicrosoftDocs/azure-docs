@@ -3,6 +3,7 @@ title: Create your first containerized Azure Functions
 description: Get started by deploying your first function app from a Linux image in a container registry to Azure Functions.
 ms.date: 05/08/2023
 ms.topic: quickstart
+ms.custom: build-2023
 zone_pivot_groups: programming-languages-set-functions
 ---
 

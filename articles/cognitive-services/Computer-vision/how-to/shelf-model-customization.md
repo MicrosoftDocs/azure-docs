@@ -7,6 +7,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: pafarley

@@ -4,7 +4,7 @@ description: Monitor dependency calls from your on-premises or Azure web applica
 ms.topic: conceptual
 ms.date: 03/22/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, build-2023
 ms.reviewer: casocha
 ---
 

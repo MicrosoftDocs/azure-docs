@@ -5,6 +5,7 @@ ms.author: jafernan
 title: Introduction to pull delivery
 description: Learn about Event Grid's http pull delivery and the resources that support them.
 ms.topic: conceptual
+ms.custom: build-2023, build-2023-dataai
 ---
 
 # Pull delivery with HTTP (Preview)

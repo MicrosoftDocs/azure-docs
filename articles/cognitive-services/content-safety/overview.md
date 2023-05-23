@@ -12,8 +12,7 @@ ms.topic: overview
 ms.date: 04/02/2023
 ms.author: pafarley
 keywords: content safety, azure content safety, online content safety, content filtering software, content moderation service, content moderation
-ms.custom: references_regions
-
+ms.custom: references_regions, build-2023, build-2023-dataai
 #Customer intent: As a developer of content management software, I want to find out whether Azure AI Content Safety is the right solution for my moderation needs.
 ---
 

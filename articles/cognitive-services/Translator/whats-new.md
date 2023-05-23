@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023
 ms.topic: overview
 ms.date: 02/28/2023
 ms.author: lajanuar

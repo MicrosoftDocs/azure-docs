@@ -5,6 +5,7 @@ services: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 05/09/2023
 ---

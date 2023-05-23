@@ -7,7 +7,7 @@ ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
 ms.date: 05/15/2023
-ms.custom: template-tutorial, service-connector
+ms.custom: template-tutorial, service-connector, build-2023
 ---
 
 # Connect to Azure services via Dapr components in the Azure portal

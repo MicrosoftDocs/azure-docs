@@ -10,7 +10,7 @@ ms.reviewer: lagayhar
 ms.author: wenxwei
 author: wenxwei
 ms.date: 5/10/2023
-ms.custom: responsible-ml
+ms.custom: responsible-ml, build-2023
 ---
 
 # Generate Responsible AI text insights with YAML and Python (preview)

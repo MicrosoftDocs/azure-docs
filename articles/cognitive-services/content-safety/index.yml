@@ -9,11 +9,11 @@ metadata:
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: content-safety
+  ms.custom: build-2023
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
   ms.date: 04/07/2023 #Required; mm/dd/yyyy format.
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 

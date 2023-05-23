@@ -2,7 +2,7 @@
 title: Azure Event Grid - Enable diagnostic logs for Event Grid resources
 description: This article provides step-by-step instructions on how to enable diagnostic logs for Event Grid resources.
 ms.topic: how-to
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, build-2023
 ms.date: 11/11/2021
 ---
 

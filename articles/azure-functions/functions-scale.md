@@ -4,9 +4,7 @@ description: Learn how to choose between Azure Functions Consumption plan and Pr
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 05/04/2023
-
-ms.custom: H1Hack27Feb2017,devdivchpfy22
-
+ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023
 ---
 # Azure Functions hosting options
 

@@ -2,6 +2,7 @@
 title: Authenticate Event Grid publishing clients using Azure Active Directory
 description: This article describes how to authenticate Azure Event Grid publishing client using Azure Active Directory.  
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 01/05/2022
 ---
 

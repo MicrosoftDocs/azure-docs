@@ -2,6 +2,7 @@
 author: richagaur
 ms.author: richagaur
 ms.service: cosmos-db
+ms.custom: build-2023
 ms.topic: include
 ms.date: 05/08/2023
 ---
