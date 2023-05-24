@@ -9,7 +9,6 @@ ms.service: active-directory
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/23/2023
-ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample React single-page app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
@@ -19,8 +18,7 @@ ms.custom: developer
 This how-to guide uses a sample React single-page application (SPA) to demonstrate how to add authentication to a SPA. This SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
-
-* Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any IDE that supports React applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 * Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
@@ -97,5 +95,5 @@ All the required code snippets have been added, so the application can now be ca
 1. Once signed in the display name is shown next to the **Sign out** button.
 
 ## Next steps
-
-Learn how to use the Microsoft Authentication Library (MSAL) for JavaScript to sign in users and acquire tokens to call Microsoft Graph.
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)

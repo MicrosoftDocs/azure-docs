@@ -13,7 +13,6 @@ ms.author: godonnell
 #Customer intent: As a dev, devops, or IT admin, I want to learn how to enable authentication in my own React single-page app
 ---
 # Prepare a React single-page app (SPA) for authentication
-
 After registration is complete, you can create a React project using an integrated development environment (IDE). This tutorial demonstrates how to create a React single-page app using npm and create files needed for authentication and authorization.
 
 In this article, you learn how to:
@@ -30,7 +29,7 @@ In this article, you learn how to:
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Create a new React project
-Use the following tabs to create a React project within the IDE.
+Use the following tabs to create a React project within Visual Studio Code.
 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.

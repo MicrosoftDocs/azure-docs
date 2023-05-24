@@ -10,7 +10,6 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: godonnell
-ms.custom: it-pro
 
 #Customer intent: As a dev I want to prepare my customer tenant for building a single-page app (SPA) with React
 ---
