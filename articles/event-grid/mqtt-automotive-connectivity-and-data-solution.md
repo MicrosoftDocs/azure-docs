@@ -1,5 +1,5 @@
 ---
-title: 'Automotive Messaging, Data & Analytics Reference Architecture'
+title: 'Automotive messaging, data & analytics reference architecture'
 description: 'Describes the use case of automotive messaging'
 ms.topic: conceptual
 ms.date: 05/23/2023
@@ -7,7 +7,7 @@ author: msmarioo
 ms.author: marioo
 ---
 
-# Automotive Messaging, Data & Analytics Reference Architecture
+# Automotive messaging, data & analytics reference architecture
 
 This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner for digital engineering and data sharing with the wider mobility ecosystem.
 
