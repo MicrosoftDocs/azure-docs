@@ -7,7 +7,7 @@ author: mcleanbyron
 ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 05/24/2023
 ---
 
 # Point-in-time key-values
