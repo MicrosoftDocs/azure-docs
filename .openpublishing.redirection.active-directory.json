@@ -12479,7 +12479,19 @@
         "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md",
         "redirect_url": "/azure/active-directory/privileged-identity-management/pim-complete-roles-and-resource-roles-review",
         "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-domain-services/concepts-migration-benefits.md",
+        "redirect_url": "/azure/active-directory-domain-services/overview",
+        "redirect_document_id": false
+      },
+
+      {
+        "source_path_from_root": "/articles/active-directory-domain-services/migrate-from-classic-vnet.md",
+        "redirect_url": "/azure/active-directory-domain-services/overview",
+        "redirect_document_id": false
       }
 
-  ]
+      ]
 }
