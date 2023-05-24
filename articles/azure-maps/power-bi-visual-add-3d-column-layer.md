@@ -1,20 +1,20 @@
 ---
-title: Add a bar chart layer to an Azure Maps Power BI visual
+title: Add a 3D column layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use the bar chart layer in an Azure Maps Power BI visual.
+description: In this article, you will learn how to use the 3D column layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
-ms.author: limingchen 
+ms.author: limingchen
 ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Add a bar chart layer
+# Add a 3D column layer
 
-The **Bar chart layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D bars or cylinders on the map. Similar to the bubble layer, the bar chart later can easily visualize two metrics at the same time using color and relative height. In order for the bars to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure is not provided, bars with no height show as flat squares or circles depending on the **Bar shape** option.
+The **3D column layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D cylinders on the map. Similar to the bubble layer, the 3D column chart can easily visualize two metrics at the same time using color and relative height. In order for the columns to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure is not provided, columns with no height show as flat squares or circles depending on the **Shape** option.
 
-:::image type="content" source="./media/power-bi-visual/bar-chart-layer-styled.png" alt-text="A map displaying point data using the bar chart layer":::
+:::image type="content" source="./media/power-bi-visual/3d-column-layer-styled.png" alt-text="A map displaying point data using the 3D column layer":::
 
 Users can tilt and rotate the map to view your data from different perspectives. The map can be tilted or pitched using one of the following methods.
 
@@ -30,23 +30,23 @@ The map can be rotated using one of the following methods.
 - Using a touch screen, touch the map with two fingers and rotate.
 - With the map focused, hold the **Shift** key, and press the **Left** or **Right arrow** keys.
 
-The following are all settings in the **Format** pane that are available in the **Bar chart layer** section.
+The following are all settings in the **Format** pane that are available in the **3D column layer** section.
 
 | Setting              | Description      |
 |----------------------|------------------|
-| Bar shape            | The shape of the 3D bar.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Box – Bars rendered as rectangular boxes.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cylinder – Bars rendered as cylinders. |
-| Height               | The height of each bar. If a field is passed into the **Size** bucket of the **Fields** pane, bars will be scaled relative to this height value. |
-| Scale height on zoom | Specifies if the height of the bars should scale relative to the zoom level. |
-| Width                | The width of each bar.  |
-| Scale width on zoom  | Specifies if the width of the bars should scale relative to the zoom level.  |
-| Fill color           | Color of each bar. This option is hidden when a field is passed into the **Legend** bucket of the **Fields** pane and a separate **Data colors** section will appear in the **Format** pane. |
-| Transparency         | Transparency of each bar. |
+| Column shape         | The shape of the 3D column.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Box – columns rendered as rectangular boxes.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cylinder – columns rendered as cylinders. |
+| Height               | The height of each column. If a field is passed into the **Size** bucket of the **Fields** pane, columns will be scaled relative to this height value. |
+| Scale height on zoom | Specifies if the height of the columns should scale relative to the zoom level. |
+| Width                | The width of each column.  |
+| Scale width on zoom  | Specifies if the width of the columns should scale relative to the zoom level.  |
+| Fill color           | Color of each column. This option is hidden when a field is passed into the **Legend** bucket of the **Fields** pane and a separate **Data colors** section will appear in the **Format** pane. |
+| Transparency         | Transparency of each column. |
 | Min zoom             | Minimum zoom level tiles are available. |
 | Max zoom             | Maximum zoom level tiles are available. |
 | Layer position       | Specifies the position of the layer relative to other map layers. |
 
 > [!NOTE]
-> If the bars have a small width value and the **Scale width on zoom** option is disabled, they may disappear when zoomed out a lot as their rendered width would be less than a pixel in size. However, when the **Scale width on zoom** option is enabled, additional calculations are performed when the zoom level changes which can impact performance of large data sets.
+> If the columns have a small width value and the **Scale width on zoom** option is disabled, they may disappear when zoomed out a lot as their rendered width would be less than a pixel in size. However, when the **Scale width on zoom** option is enabled, additional calculations are performed when the zoom level changes which can impact performance of large data sets.
 
 ## Next steps
 
