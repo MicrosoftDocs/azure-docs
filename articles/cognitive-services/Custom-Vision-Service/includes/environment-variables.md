@@ -13,10 +13,10 @@ In this example, you'll write your credentials to environment variables on the l
 
 [!INCLUDE [find key and endpoint](./find-key.md)]
 
-> [!TIP]
+> [!CAUTION]
 > Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault).
 
-To set the environment variable for your key and endpoint, open a console window and follow the instructions for your operating system and development environment. 
+To set the environment variables, open a console window and follow the instructions for your operating system and development environment. 
 
 1. To set the `VISION_TRAINING KEY` environment variable, replace `your-training-key` with one of the keys for your training resource.
 1. To set the `VISION_TRAINING_ENDPOINT` environment variable, replace `your-training-endpoint` with the endpoint for your training resource.

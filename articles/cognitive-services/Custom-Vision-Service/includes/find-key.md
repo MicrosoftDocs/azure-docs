@@ -12,7 +12,7 @@ ms.date: 05/23/2022
 ms.author: pafarley
 ---
 
-Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get the keys for both your training and prediction resources, along with the API endpoints.
+Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoints in the resources' **key and endpoint** pages, under **resource management**. You'll need to get the keys for both your training and prediction resources, along with the API endpoints.
 
 You can find the prediction resource ID on the prediction resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 
