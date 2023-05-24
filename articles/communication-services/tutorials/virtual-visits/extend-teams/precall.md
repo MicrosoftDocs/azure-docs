@@ -13,20 +13,19 @@ ms.subservice: teams-interop
 ---
 
 # Extend precall activities
-A successful Virtual appointment experience requires the device to be prepared for the audio and video experience. Azure Communication Services provide a set of tools that help to validate the device prerequisites before the Virtual appointment guided support.
-
+A successful Virtual appointment experience requires the device to be prepared for the audio and video experience. Azure Communication Services provides a set of tools that help to validate the device prerequisites before the Virtual appointment guided support.
 
 ## Prerequisites
-The reader of this article is expected to have a solid understanding of the following:
+The reader of this article is expected to have a solid understanding of the following topics:
 -	[Microsoft Teams Virtual appointments](https://www.microsoft.com/microsoft-teams/premium/virtual-appointments) product and provided [user experience](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1) 
 -	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-overview?view=graph-rest-1.0) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
 -	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
 -	[Azure Communication Services](https://learn.microsoft.com/azure/communication-services/) [Chat](https://learn.microsoft.com/azure/communication-services/concepts/chat/concepts), [Calling](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) and [user interface library](https://learn.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview)
 
 ## Background validation
-Azure Communication Services provide [pre-Call diagnostic APIs](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/pre-call-diagnostics) for validating device readiness, such as browser compatibility, network, and call quality. The code snippet below will run a 30-second test on the device.
+Azure Communication Services provides [precall diagnostic APIs](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/pre-call-diagnostics) for validating device readiness, such as browser compatibility, network, and call quality. The following code snippet runs a 30-second test on the device.
 
-Create CallClient and get Pre-call diagnostics feature:
+Create CallClient and get [PreCallDiagnostics](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/precalldiagnosticsfeature?view=azure-communication-services-js) feature:
 ```js
 const callClient = new CallClient(); 
 const preCallDiagnostics = callClient.feature(Features.PreCallDiagnostics);
@@ -39,7 +38,7 @@ const tokenCredential = new AzureCommunicationTokenCredential("<ACCESS_TOKEN>");
 const preCallDiagnosticsResult = await preCallDiagnostics.startTest(tokenCredential);
 ```
 
-Review the diagnostic results to determine if the device is ready for the Virtual appointment. Here is an example of how to validate readiness for browser and operating system support:
+Review the diagnostic results to determine if the device is ready for the Virtual appointment. Here's an example of how to validate readiness for browser and operating system support:
 
 ```js
 const browserSupport =  await preCallDiagnosticsResult.browserSupport;
@@ -56,7 +55,7 @@ Azure Communication Services has a ready-to-use tool called [Network Diagnostics
 ## Guided validation
 Azure Communication Services has a dedicated bot for validating client's audio settings. The bot plays a prerecorded message and prompts the customer to record their own message. With proper microphone and speaker settings, customers can hear both the prerecorded message and their own recorded message played back to them.
 
-Use the code snippet below to start the call to test the bot
+Use the following code snippet to start the call to test the bot
 ```js
 const callClient = new CallClient(); 
 const tokenCredential = new AzureCommunicationTokenCredential("<ACCESS_TOKEN>");
@@ -65,7 +64,7 @@ call = callAgent.startCall([{id: '8:echo123'}],{});
 ```
 
 Next actions
--	Learn what [extensibility options](./scheduling.md) do you have for Virtual appointments.
+-	Learn what [extensibility options](./overview.md) do you have for Virtual appointments.
 -	Learn how to customize [scheduling experience](./scheduling.md)
 -	Learn how to customize [before and after appointment](./before-and-after-appointment.md)
 -	Learn how to customize [call experience](./call.md)
