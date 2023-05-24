@@ -29,13 +29,14 @@ As a start, know that [Azure NetApp Files large volumes](large-volumes-requireme
 
 * A single large volume can deliver sequential throughput up to the service level limits in all but the pure sequential write scenario. For sequential writes, the synthetic tests found the upper limit to be 8500 MiB/s.
 * Using 8-KiB random workloads, 10,240 MiB/s isn't achievable. As such, more than 700,000 8-KiB operations were achieved.
-* This article intends to show the limits of throughput and I/O.  
 
-As I/O types shift toward metadata intensive operations, the scenario changes again. 
+As I/O types shift toward metadata intensive operations, the scenario changes again. Metadata workloads are particularly advantageous for Azure NetApp File large volumes. When you run workloads rich in file creation, unlink, and file renames, you will notice a significant amount of performance. Typical of such primitives are the VCS application and EDA workloads where files are created, renamed, or linked at very high rates. 
 
 ## Test methodologies and tools
 
-All scenarios documented in this article used FIO, which is a synthetic workload generator designed as a storage stress test. Fundamentally, there are two models of storage performance testing:
+All scenarios documented in this article used FIO, which is a synthetic workload generator designed as a storage stress test. For the purposes of this testing, we used storage stress tests.  
+
+Fundamentally, there are two models of storage performance testing:
 
 * **Application level**   
     For application-level testing, the efforts are to drive I/O through client buffer caches in the same way that a typical application drives I/O. In general, when testing in this manner, direct I/O isn't used.
@@ -55,6 +56,7 @@ This section describes performance thresholds of a single large volume on scale-
 | Configuration | Setting |
 |---|---|
 | Azure VM size | E32s_v5 |
+| Number of Azure VM instances  | 12 |
 | Azure VM egress bandwidth limit | 2000 MiB/s (2 GiB/s) |
 | Operating system | RHEL 8.4 |
 | Large volume size | 101 TiB Ultra (10,240 MiB/s throughput) |
@@ -66,7 +68,7 @@ The following graph represents a 256-Kibibyte (KiB) sequential workload ranging 
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-out-sequential-workloads.png" alt-text="Graph showing 256-KiB sequential workloads of 12 VMs for one large volume." lightbox="../media/azure-netapp-files/performance-large-volume-scale-out-sequential-workloads.png":::
 
-12 e32s_v5 VMs were used in testing. As the [Linux scale-up tests](#linux-scale-up-tests) section shows, using 12 VMs ensured that storage was the gating factor.
+Twelve e32s_v5 VMs were used in testing. As the [Linux scale-up tests](#linux-scale-up-tests) section shows, using twelve VMs ensured that storage bandwidth was saturated.
 
 ### 8-KiB Random Workload (IOPS)
 
@@ -78,7 +80,7 @@ The following graph describes the results of an 8-Kibibyte (KiB) random workload
 
 While scale-out tests are designed to find the limits of a single large volume, scale-up tests are designed to find the upper limits of a single instance against said large volume. That is, they find out just how far a single VM can push the volume. 
 
-Azure places network egress limits on its VMs. For network-attached storage, this setup means that the write bandwidth is capped per VM. This section demonstrates what can be done given the largest available bandwidth cap and with sufficient processors to drive said workload. 
+Azure places network [egress limits](../virtual-machines/sizes.md) on its VMs. For network-attached storage, this setup means that the write bandwidth is capped per VM. This section demonstrates what can be done given the largest available bandwidth cap and with sufficient processors to drive said workload. 
 
 The tests in this section were run with the following configuration:
 
@@ -92,11 +94,11 @@ The tests in this section were run with the following configuration:
 
 The graphs in this section show the results for the client-side mount option with NFSv3. For more information, see the `nconnect` section of [Linux mount options](performance-linux-mount-options.md#nconnect).
 
-The graphs compare the advantages of `nconnect` to a non-`connected` mounted volume. In the graphs, FIO generated the workload from a single E104id-v5 instance in the East US Azure region using a 256-KiB sequential workload. Using the 256K I/O size, which is the largest I/O size recommended by Azure NetApp Files, resulted in comparable performance numbers. For more information, see the `rsize` and `wsize` section of [Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
+The following graphs show the benefits of the `nconnect` mount option on protocol performance. With `nconnect`, a single client is able to drive substantially higher throughput and rates of I/O. In the graphs, FIO generated the workload from a single E104id-v5 instance in the East US Azure region using a 256-KiB sequential workload. 
 
 ### Linux read throughput 
 
-The following graphs show 256-KiB sequential reads of ~10,000 MiB/s reads with `nconnect`, approximately 10 times the throughput achieved without  `nconnect`. 10,000 MiB/s is bandwidth proffered by a large volume in the Ultra service level. 6,400 MiB/s is the bandwidth for a Premium large volume. 1,600 MiB/s is the bandwidth for a Standard large volume.
+The following graphs show 256-KiB sequential reads of ~10,000 MiB/s reads with `nconnect`, approximately 10 times the throughput achieved without `nconnect`. 10,240 MiB/s is the bandwidth proffered by a large volume in the Ultra service level. 6,400 MiB/s is the bandwidth for a Premium large volume. 1,600 MiB/s is the bandwidth for a Standard large volume.
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-up-linux-read-throughput.png" alt-text="Graphs comparing throughput for sequential read tests with and without `nconnect`." lightbox="../media/azure-netapp-files/performance-large-volume-scale-up-linux-read-throughput.png":::
 
