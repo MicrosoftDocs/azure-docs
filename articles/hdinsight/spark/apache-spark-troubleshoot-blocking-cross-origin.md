@@ -39,13 +39,13 @@ This error can be due to:
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Find the line that says: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` And change this to: `NotebookApp.allow_origin='\"*\"'`.
+1. Find the line that says: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` And change this values to: `NotebookApp.allow_origin='\"*\"'`.
 
 1. Restart the Jupyter service from Ambari.
 
 1. Typing `ps aux | grep jupyter` at the command prompt should show that it allows for any URL to connect to it.
 
-This method is ess secure than the setting which is already had in present. But it's assumed access to the cluster is restricted and that one from outside is allowed to connect to the cluster as we have NSG in place.
+This method is less secure than the setting, which is already present. But it's assumed access to the cluster is restricted and that one from outside is allowed to connect to the cluster as we have NSG in place.
 
 ## Next steps
 
