@@ -608,6 +608,8 @@
         href: corporateexperience-tutorial.md  
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Cosgrid Networks
+        href: cosgrid-networks-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
       - name: Count Me In - Operations Dashboard
@@ -1753,6 +1755,8 @@
         href: on24-tutorial.md
       - name: OneDesk
         href: onedesk-tutorial.md
+      - name: Oneflow
+        href: oneflow-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -2027,6 +2031,8 @@
         href: rackspacesso-tutorial.md
       - name: Radancy's Employee Referrals
         href: radancys-employee-referrals-tutorial.md
+      - name: Radiant IOT Portal
+        href: radiant-iot-portal-tutorial.md
       - name: Raketa
         href: raketa-tutorial.md
       - name: Rally Software
@@ -2235,6 +2241,8 @@
         href: servicechannel-tutorial.md
       - name: ServiceNow
         href: servicenow-tutorial.md
+      - name: ServusConnect
+        href: servusconnect-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
       - name: SevOne Network Monitoring System (NMS)
