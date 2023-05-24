@@ -128,31 +128,31 @@ If you still need to reduce the number of role assignments in the subscription a
 
     :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
 
-1. Run the following query to get the role assignments with the same principal and same role, but at different scopes.
+1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
     [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-principal](../../includes/resource-graph/samples/query/authorization-same-role-principal.md)]
 
-    The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same principal and same role. The count is sorted in descending order.
+    The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same role and same principal. The count is sorted in descending order.
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows role assignments for the same role and same principal, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope.png":::
 
     | Column | Description |
     | --- | --- |
     | RoleDefinitionId | [ID](./built-in-roles.md) of the currently assigned role. |
     | RoleDefinitionName | [Name](./built-in-roles.md) of the currently assigned role. |
     | PrincipalId | ID of the principal assigned the role. |
-    | count_ | Number of different scopes for role assignments with the same principal and same role. |
-    | Scopes | Scopes for role assignments with the same principal and same role. |
+    | count_ | Number of different scopes for role assignments with the same role and same principal. |
+    | Scopes | Scopes for role assignments with the same role and same principal. |
 
 1. Identify a row where you want to remove redundant role assignments.
 
 1. In a row, select **See details** to open the **Details** pane.
 
-    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same principal and role, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png":::
+    :::image type="content" source="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png" alt-text="Screenshot of Details pane that shows role assignments for the same role and same principal, but at different scopes." lightbox="media/troubleshoot-limits/resource-graph-role-assignments-scope-details.png":::
 
 1. Use **RoleDefinitionId**, **RoleDefinitionName**, and **PrincipalId** to get the role and principal ID.
 
-1. Use **Scopes** to get the list of the scopes for the same principal and role.
+1. Use **Scopes** to get the list of the scopes for the same role and same principal.
 
 1. Determine which scope is required for the role assignment. The other role assignments can be removed.
 
