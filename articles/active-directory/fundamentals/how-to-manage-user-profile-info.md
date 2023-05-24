@@ -78,13 +78,18 @@ In the **User settings** area of Azure AD, you can adjust several settings that 
 
 Go to **Azure AD** > **User settings**. 
 
-![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings-options.png)
+![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png)
 
 The following settings can be managed from Azure AD **User settings**.
 
-- Manage how end users launch and view their applications
 - Allow users to register their own applications
-- [Prevent non-admins from creating their own tenants](users-default-permissions.md#restrict-member-users-default-permissions)
+- Prevent non-admins from creating their own tenants
+    - For more information, see [default user permissions](users-default-permissions.md#restrict-member-users-default-permissions)
+- Allow users to create security groups
+- Guest user access restrictions
+    - Guest users have the same access as members (most inclusive)
+    - Guest users have limited access to properties and memberships of directory objects
+    - Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)
 - Restrict access to the Azure AD administration portal
 - [Allow users to connect their work or school account with LinkedIn](../enterprise-users/linkedin-user-consent.md)
 - [Enable the "Stay signed in?" prompt](how-to-manage-stay-signed-in-prompt.md)
@@ -94,6 +99,8 @@ The following settings can be managed from Azure AD **User settings**.
     - [External user leave settings](../external-identities/self-service-sign-up-user-flow.md#enable-self-service-sign-up-for-your-tenant)
     - Collaboration restrictions
 - Manage user feature settings
+    - Users can use preview features for My Apps
+    - Administrators can access My Staff
 
 ## Next steps
 
