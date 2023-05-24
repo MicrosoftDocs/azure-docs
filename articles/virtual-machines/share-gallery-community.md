@@ -43,9 +43,6 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 ## Limitations for images shared to the community
 
 There are some limitations for sharing your gallery to the community:
-- Encrypted images aren't supported.
-- TrustedLaunch and TVMSupported Image isn't supported
-- CVMSuppored image isn't supported
 - For the preview, image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
 - For the preview, you can't share [VM Applications](vm-applications.md) to the community.
 - The gallery must be created as a community gallery. For the preview, there's no way to migrate an existing private gallery to be a community gallery
