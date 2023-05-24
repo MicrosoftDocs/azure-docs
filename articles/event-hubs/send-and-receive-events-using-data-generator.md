@@ -61,7 +61,7 @@ Maximum Payload Size| 	256Kb		| 	1MB 	     | 1MB     | 1MB
 
 As soon as you click send, data generator would take care of sending the events to event hubs of your choice and new collapsible “View Events” window would load automatically. You could expand any tabular row to review the event content sent to event hubs. 
 
-![ViewEventslandingpage.](image2.png)
+:::image type="content" source="./media/send-and-receive-events-using-data-generator/view-events-window.png" alt-text="A screenshot displaying a sample image.":::
 
 ## Frequently asked questions
 
