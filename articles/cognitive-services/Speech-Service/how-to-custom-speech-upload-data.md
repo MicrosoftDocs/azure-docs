@@ -30,7 +30,7 @@ To upload your own datasets in Speech Studio, follow these steps:
 1. Select **Custom Speech** > Your project name > **Speech datasets** > **Upload data**.
 1. Select the **Training data** or **Testing data** tab.
 1. Select a dataset type, and then select **Next**.
-1. Specify the dataset location, and then select **Next**. You can choose a local file or enter a remote location such as Azure Blob URL.
+1. Specify the dataset location, and then select **Next**. You can choose a local file or enter a remote location such as Azure Blob URL. If you select remote location, it should be an URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction are not supported.
 
     > [!NOTE]
     > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). 
@@ -50,7 +50,7 @@ To create a dataset and connect it to an existing project, use the `spx csr data
 
 - Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `kind` parameter. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
-- Set the required `contentUrl` parameter. This is the location of the dataset.
+- Set the required `contentUrl` parameter. This is the location of the dataset. The `contentUrl` parameter should be an URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction are not supported.
 
     > [!NOTE]
     > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism).
@@ -108,7 +108,7 @@ To create a dataset and connect it to an existing project, use the [Datasets_Cre
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
-- Set the required `contentUrl` property. This is the location of the dataset.
+- Set the required `contentUrl` property. This is the location of the dataset. The `contentUrl` parameter should be an URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction are not supported. 
 
     > [!NOTE]
     > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). 

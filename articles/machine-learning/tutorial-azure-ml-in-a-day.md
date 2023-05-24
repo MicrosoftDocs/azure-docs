@@ -243,6 +243,8 @@ except Exception:
     print("Creating a new cpu compute target...")
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
+    # if you run into an out of quota error, change the size to a comparable VM that is available.\
+    # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
@@ -406,6 +408,9 @@ model = ml_client.models.get(name=registered_model_name, version=latest_model_ve
 
 # Expect this deployment to take approximately 6 to 8 minutes.
 # create an online deployment.
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,
