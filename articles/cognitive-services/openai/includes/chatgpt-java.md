@@ -35,7 +35,7 @@ keywords:
 mkdir "quickstart/src/main/java/com/azure/ai/openai/usage"  
 ```
 
-3. At the root of the quickstart directory create a file named `pom.xml` with the following content:
+3. At the root of the quickstart directory, create a file named `pom.xml` with the following content:
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
