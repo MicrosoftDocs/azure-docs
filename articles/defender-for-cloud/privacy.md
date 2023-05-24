@@ -103,5 +103,6 @@ As a tenant administrator, you have the ability to export customer data.
 
 [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)
 
+**To export customer data**:
 1. Acknowledge the confirmation to export the data for the requested customer.
 The exported data will be sent to the tenant administrator's email address.
