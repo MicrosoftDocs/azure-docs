@@ -11,11 +11,18 @@ ms.date: 05/23/2023
 
 # Migrate from the HTTP Data Collector API to the Log Ingestion API to send data to Azure Monitor Logs
 
-The Azure Monitor [Log Ingestion API](../logs/logs-ingestion-api-overview.md) provides more processing power and greater flexibility in ingesting logs than the legacy [HTTP Data Collector API](../logs/data-collector-api.md). This article describes the differences between the Data Collector API and the Log Ingestion API and provides guidance and best practices for migrating to the new Log Ingestion API.  
+The Azure Monitor [Log Ingestion API](../logs/logs-ingestion-api-overview.md) provides more processing power and greater flexibility in ingesting logs and [managing tables](../logs/manage-logs-tables.md) than the legacy [HTTP Data Collector API](../logs/data-collector-api.md). This article describes the differences between the Data Collector API and the Log Ingestion API and provides guidance and best practices for migrating to the new Log Ingestion API.  
 
 > [!NOTE]
 > As a Microsoft MVP, [Morten Waltorp Knudsen](https://mortenknudsen.net/) contributed to and provided material feedback for this article. For an example of how you can automate the setup and ongoing use of the Log Ingestion API, see Morten's [AzLogDcrIngestPS PowerShell module](https://github.com/KnudsenMorten/AzLogDcrIngestPS).
 
+## Prerequisites
+
+The migration procedure described in this article assumes you have:
+
+- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
+- [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
+- [An Azure AD application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
 ## Advantages of the Log Ingestion API
 
 The Log Ingestion API provides the following advantages over the Data Collector API:
@@ -25,7 +32,7 @@ The Log Ingestion API provides the following advantages over the Data Collector 
 - Enables you to manage the destination table schema, including column names, and whether to add new columns to the destination table when the source data schema changes.
 
 > [!NOTE]
-> The Data Collector API automatically adjusts the destination table schema when the source data schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create. On the other hand, you can manually adjust destination table schemas and data collection rules to align with source data schema changes. 
+> The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create. On the other hand, you can manually adjust destination table schemas and data collection rules to align with source data schema changes. 
 
 ## Before you use the Log Ingestion API
 
@@ -54,8 +61,11 @@ If you have an existing custom table to which you currently send data using the 
 
 - Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
 
-> [!NOTE]
-> When you use the Log Ingestion API, column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
-
+#### Table schema requirements
+> [!div class="checklist"]
+> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
+> - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+> - Custom columns you add to an Azure table must have the suffix `_CF`.
+> - If you update the table schema in your Log Analytics workspace, you must also update the table schema you define in the data collection rule to ingest data into new or modified columns.
     
 ## Call the Log Ingestion API
