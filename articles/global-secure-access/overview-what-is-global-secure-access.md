@@ -10,21 +10,17 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# What Global Secure Access?
+# What is Global Secure Access?
 
 The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. The network perimeter for the modern workforce has created a need for a new category of networking that provides control and visibility to users and devices both inside and outside of a traditional office. This new category of networking is called Security Service Edge (SSE). Microsoft's SSE solution is called Global Secure Access and it includes two services: Microsoft Entra Private Access and Microsoft Entra Internet Access.
 
-## Addressing the challenges of the traditional network
+## Challenges of the traditional network
 
 Administrators need a way to apply consistent access controls, secure resources, and gain visibility into network traffic. Users need to be more efficient while securely accessing the resources they need to do their jobs. Many organizations have stitched together several solutions to solve these challenges, but this approach can be complex, expensive to manage, and difficult to secure.
 
 ![Diagram of the traditional network traffic flow.](media/overview-what-is-global-secure-access/traditional-network-traffic.png)
 
 In the previous diagram remote workers use VPN to connect to the corporate network. It's common for users to bypass the controls that IT has in place, putting themselves and the organization at risk. Risky users with compromised credentials can move laterally across the corporate network, expanding the attack surface. 
-
-The next diagram illustrates how Microsoft Entra Private Access and Microsoft Entra Internet Access create a new path for employees to access corporate resources. Through Global Secure Access, employees can access resources from corporate headquarters, a branch location, or from their home office. Additional security measures can be enforced using Conditional Access policies.
-
-![Diagram of the new network traffic flow with Global Secure Access.](media/overview-what-is-global-secure-access/global-secure-access-traffic.png)
 
 Deploying a Security Service Edge solution can help organizations simplify their network and security architecture, reduce costs, and improve the user experience. Admins can manage access to apps and resources with confidence. Users don't have to rely on the complexities of a traditional VPN. With the services included in Global Secure Access, the traditional corporate network is extended down to individual users and devices regardless of their physical location.
 
@@ -60,24 +56,17 @@ Zero Trust Network Access (ZTNA) is the result of applying Zero Trust principles
 
 Microsoft Entra provides two products that encompass the Security Service Edge (SSE) solution. The first is called Microsoft Entra Private Access and the second is called Microsoft Entra Internet Access. In the Microsoft Entra admin center these products show up under the left hand navigation in an area called generally Global Secure Access. Think of Global Secure Access as the area of the Microsoft Entra portal for SSE. It provides modern network access control for users and devices.
 
+To address the challenges of the traditional network described previously, Microsoft Entra Private Access and Microsoft Entra Internet Access create a new path for employees to access corporate resources. Through Global Secure Access, employees can access resources from corporate headquarters, a branch location, or from their home office. Global Secure Access is built upon the core principles of Zero Trust to use least privilege, verify explicitly, and assume breach.
 
+The following diagram illustrates the new network traffic flow with Global Secure Access.
 
+![Diagram of the new network traffic flow with Global Secure Access.](media/overview-what-is-global-secure-access/global-secure-access-traffic.png)
 
+The features of Global Secure Access are all accessed from the Microsoft Entra admin center. With this centralized experience you can set up your branch and client connectivity, manage your traffic profiles, and view network and usage logs. Additional security measures can be enforced using Conditional Access policies.
 
+### License and role requirements
 
-
-
-
-The features of Global Secure Access are all accessed from the Microsoft Entra admin center. With this centralized experience you can set up your branch and client connectivity, manage your traffic profiles, set up Conditional Access policies, and view network and usage logs.
-
-Unified policy enforcement
-
-
-
-Global Secure Access is built upon the core principles of Zero Trust to use least privilege, verify explicitly, and assume breach.
-
-## Understanding the products in Global Secure Access
-Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature. 
+Global Secure Access includes **Microsoft Entra Private Access** and **Microsoft Entra Internet Access**. The following table outlines which product is required for each feature. 
 
 |               |Private Access - Standard|Private Access - Premium|Internet Access - Standard|Internet Access - Premium|
 |---------------|--------------------------------|-------|---------------------------------|-------|
@@ -92,7 +81,7 @@ Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra
 
 Microsoft Entra Private Access provides your users - whether in an office or working remotely - secured access to your private, corporate resources. Microsoft Entra Private Access uses a least-privilege access model instead of providing implicit trust and open access to all apps and resources.
 
-Azure Active Directory Application Proxy already provides access to private apps without needing a VPN. Microsoft Entra Private Access builds on those capabilities and extends access to any private resource, port, and protocol. The CASB security checkpoint for Microsoft Entra Private Access comes from associating an App Proxy connector group with your private apps and sites. This connection is established by [defining your Quick access configurations](how-to-define-quick-access-ranges.md).
+Azure Active Directory Application Proxy already provides access to private apps without needing a VPN. Microsoft Entra Private Access builds on those capabilities and extends access to any private resource, port, and protocol. The CASB security checkpoint for Microsoft Entra Private Access comes from associating an App Proxy connector group with your private apps and sites.
 
 With Microsoft Entra Private Access you can enable [traffic forwarding profiles](concept-traffic-forwarding.md) that acquire and route traffic according to your policies and destinations, which serve as the SWG. These profiles include the IP addresses and fully qualified domain names (FQDN) of the apps and sites you want to protect.
 
@@ -104,15 +93,6 @@ With Microsoft Entra Internet Access you can protect users whether they're acces
 
 For Microsoft 365 environments, Microsoft Entra Internet Access enables best-in-class security and visibility, along with fast and seamless access to Microsoft 365 apps. With a devoted traffic forwarding policy for Microsoft 365, your users will be more productive wherever they work.
 
-
-
-
-
-
-With Microsoft Entra Private Access and Internet Access you can enable [traffic forwarding profiles](concept-traffic-forwarding.md) that acquire and route traffic according to your policies and destinations.
-
-
-
 ## Next steps
-<!-- Add a context sentence for the following links -->
+
 - [Get started with Global Secure Access](how-to-get-started-with-global-secure-access.md)
