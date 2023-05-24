@@ -36,6 +36,8 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
+[!INCLUDE [create environment variables](../environment-variables.md)]
+
 
 ## Analyze image
 
@@ -87,19 +89,11 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
 
     Navigate to the new folder and create a file called *ImageAnalysisQuickstart.java*. 
 
-1. Find the key and endpoint.
-
-    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Open *ImageAnalysisQuickstart.java* in your preferred editor or IDE and paste in the following code.
 
    [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ImageAnalysisQuickstart-single.java?name=snippet_single)]
 
-
-1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
-
-   > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Navigate back to the project root folder, and build the app with:
 
