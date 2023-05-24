@@ -174,10 +174,10 @@ To delete a service fabric application that was deployed by using the applicatio
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzServiceFabricResource](/powershell/module/az.servicefabric/remove-azservicefabricapplication) cmdlet to delete the application resources:
+1. Use the [Remove-AzServiceFabricApplication](/powershell/module/az.servicefabric/remove-azservicefabricapplication) cmdlet to delete the application resources:
 
     ```powershell
-    Remove-AzServiceFabricResource  -ResourceId <String> [-Force]
+    Remove-AzServiceFabricApplication -ResourceId <String> [-Force]
     ```
 
 
