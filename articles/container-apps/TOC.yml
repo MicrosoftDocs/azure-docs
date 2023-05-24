@@ -6,8 +6,6 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: What's new in Dapr
-      href: dapr-whats-new.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -83,6 +81,8 @@
       href: workload-profiles-overview.md
     - name: Dapr
       items:
+      - name: What's new in Dapr
+        href: dapr-whats-new.md
       - name: Dapr integration
         href: dapr-overview.md
       - name: Scale Dapr apps with KEDA using Bicep
