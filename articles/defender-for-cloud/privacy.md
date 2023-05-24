@@ -91,7 +91,7 @@ The right of data portability allows data subjects to request a copy of thei
 ### Manage export and view requests
 You can manage requests to export customer or user data.
 
-#### Export customer data (tenant admin)
+#### Export customer data (Tenant administrator only)
 As a tenant administrator, you have the ability to export customer data.
 
 **To export customer data**:
