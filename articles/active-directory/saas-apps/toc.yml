@@ -466,6 +466,8 @@
         href: cisco-anyconnect.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
+      - name: Cisco Expressway
+        href: cisco-expressway-tutorial.md
       - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Intersight
@@ -2151,7 +2153,7 @@
         href: sapboc-tutorial.md
       - name: SAP Cloud for Customer
         href: sap-customer-cloud-tutorial.md
-      - name: SAP Cloud Platform
+      - name: SAP Business Technology Platform
         href: sap-hana-cloud-platform-tutorial.md
       - name: SAP Cloud Identity Services
         href: sap-hana-cloud-platform-identity-authentication-tutorial.md
@@ -3284,7 +3286,7 @@
         href: samanage-provisioning-tutorial.md
       - name: SAP Analytics Cloud
         href: sap-analytics-cloud-provisioning-tutorial.md
-      - name: SAP Cloud Platform Identity Authentication
+      - name: SAP Business Technology Platform Identity Authentication
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory
         href: sap-successfactors-inbound-provisioning-tutorial.md
