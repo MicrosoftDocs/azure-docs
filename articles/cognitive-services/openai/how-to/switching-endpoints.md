@@ -20,7 +20,7 @@ While OpenAI and Azure OpenAI Service rely on a [common Python client library](h
 
 ## Authentication
 
-We recommend using environment variables. If you haven't done this before our [Python quickstarts](/azure/cognitive-services/openai/quickstart?pivots=programming-language-python&tabs=command-line) walk you through this configuration.
+We recommend using environment variables. If you haven't done this before our [Python quickstarts](../quickstart.md) walk you through this configuration.
 
 ### API key
 
