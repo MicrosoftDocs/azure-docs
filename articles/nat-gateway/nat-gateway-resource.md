@@ -247,6 +247,8 @@ Design recommendations for configuring timers:
 
 - IP fragmentation isn't available for NAT gateway.
 
+- NAT gateway does not support Public IP addresses with routing configuration type "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services).
+
 ## Next steps
 
 - Review [Azure NAT Gateway](nat-overview.md).
