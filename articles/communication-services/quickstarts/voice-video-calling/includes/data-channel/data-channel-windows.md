@@ -1,8 +1,8 @@
 ---
 ms.author: chengyuanlai
-title: Quickstart - Add data channel to your Android calling app
+title: Quickstart - Add data channel to your Windows calling app
 titleSuffix: An Azure Communication Services document
-description: In this quickstart, you'll learn how to add data channel messaging to your existing Android calling app using Azure Communication Services.
+description: In this quickstart, you'll learn how to add data channel messaging to your existing Windows calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
 ms.date: 05/04/2023
@@ -35,8 +35,8 @@ Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pi
 ### Enums
 | Name | Description |  
 | - | - | 
-| DataChannelPriority | Describes the priority options of data channel. Values: { `NORMAL`, `HIGH` }. | 
-| DataChannelReliability | Describes the reliability options of data channel. Values: { `LOSSY`, `DURABLE` }. |
+| DataChannelPriority | Describes the priority options of data channel. Values: { `Normal`, `High` }. | 
+| DataChannelReliability | Describes the reliability options of data channel. Values: { `Lossy`, `Durable` }. |
 ### Methods
 #### Enable Data Channel feature
 
