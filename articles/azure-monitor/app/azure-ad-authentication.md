@@ -412,6 +412,22 @@ The following example shows the Azure Resource Manager template you can use to c
 
 ```
 
+### Token audience
+
+When developing a custom client to obtain an access token from Azure AD for the purpose of submitting telemetry to Application Insights, refer to the table provided below to determine the appropriate audience string for your particular host environment.
+
+| Azure cloud version | Token audience value |
+| --- | --- |
+| Azure public cloud | `https://monitor.azure.com` |
+| Azure China cloud | `https://monitor.azure.cn` |
+| Azure US Government cloud | `https://monitor.azure.us` |
+
+If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:
+
+_InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}_
+
+Please note that the audience parameter, AADAudience, may vary depending on your specific environment.
+
 ## Troubleshooting
 
 This section provides distinct troubleshooting scenarios and steps that you can take to resolve an issue before you raise a support ticket.

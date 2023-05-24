@@ -50,6 +50,8 @@ The following tables summarize current availability:
 | UK                 | Local          | -        | -        |
 | Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
 | Canada             | Local          | -        | -        | General Availability   | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
 |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia | Alphanumeric Sender ID\** | Public Preview       | -       | -        | -          |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
