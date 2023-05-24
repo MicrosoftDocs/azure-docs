@@ -4,13 +4,13 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 05/23/2023
+ms.date: 05/24/2023
 ms.custom: references_regions
 ---
 
 #### Region support
 - All [Microsoft Purview regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview) are supported.
-- Storage accounts in the following regions are supported without the need for additional configuration. However, newly created zone-redundant storage (ZRS) accounts are not supported.  
+- Storage accounts in the following regions are supported without the need for additional configuration. However, zone-redundant storage (ZRS) accounts are not supported.
     - East US
     - East US2
     - South Central US
@@ -22,7 +22,7 @@ ms.custom: references_regions
     - UK South
     - Southeast Asia
     - Australia East
-- Storage accounts in other regions in Public Cloud are supported after setting feature *AllowPurviewPolicyEnforcement*, as outlined in the next section.
+- Storage accounts in other regions in Public Cloud are supported after setting feature flag *AllowPurviewPolicyEnforcement*, as outlined in the next section. ZRS Storage accounts are supported via the same feature flag. 
 
 
 If needed, you can create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
