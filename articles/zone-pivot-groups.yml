@@ -1618,6 +1618,10 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: rest-api

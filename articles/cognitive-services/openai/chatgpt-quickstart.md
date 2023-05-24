@@ -10,7 +10,7 @@ ms.custom: build-2023, build-2023-dataai
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/03/2023
+ms.date: 05/23/2023
 zone_pivot_groups: openai-quickstart-new
 recommendations: false
 ---
@@ -28,6 +28,18 @@ Use this article to get started using Azure OpenAI.
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [Csharp quickstart](includes/chatgpt-dotnet.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Csharp quickstart](includes/java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [javascript quickstart](includes/javascript.md)]
 
 ::: zone-end
 
