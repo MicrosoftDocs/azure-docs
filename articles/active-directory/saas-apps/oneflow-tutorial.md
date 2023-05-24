@@ -74,7 +74,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://app.oneflow.com/login`
 
     > [!NOTE]
-    > The Reply URL is not real. Update this value with the actual Reply URL. Contact [Oneflow Client support team](mailto:support@oneflow.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The Reply URL is not real. Update this value with the actual Reply URL. Contact [Oneflow support team](mailto:support@oneflow.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Oneflow application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
