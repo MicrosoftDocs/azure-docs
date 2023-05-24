@@ -2,8 +2,8 @@
 title: Collect information for a site
 titleSuffix: Azure Private 5G Core
 description: Learn about the information you'll need to create a site in an existing private mobile network.
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 02/07/2022
@@ -22,6 +22,10 @@ You can use this information to create a site in an existing private mobile netw
 - If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
 - Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). We recommend that the mobile network site resource you create in this procedure belongs to the same resource group.
 
+## Choose a service plan
+
+Choose the service plan that will best fit your requirements and verify pricing and charges. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/).
+
 ## Collect mobile network site resource values
 
 Collect all the values in the following table for the mobile network site resource that will represent your site.
@@ -33,9 +37,9 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
    |The packet core in which to create the mobile network site resource.                         |**Instance details: Packet core name**|
-   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
+   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network.</br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
    |The mobile network resource representing the private mobile network to which you’re adding the site. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
-   |The billing plan for the site that you are creating. The available plans have the following throughput, activated SIMs and radio access network (RAN) allowances:</br></br>G0 - 100 Mbps per site, 20 activated SIMs per network and 2 RAN connections. </br> G1 - 1 Gbps per site, 100 activated SIMs per network and 5 RAN connections. </br> G2 - 2 Gbps per site, 200 activated SIMs per network and 10 RAN connections. </br> G5 - 5 Gbps per site, 500 activated SIMs per network and unlimited RAN connections. </br> G10 - 10 Gbps per site, 1000 activated SIMs per network and unlimited RAN connections.|**Instance details: Service plan**|
+   |The service plan for the site that you are creating. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |**Instance details: Service plan**|
 
 ## Collect packet core configuration values
 

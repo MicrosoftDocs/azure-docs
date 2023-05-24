@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
@@ -43,7 +43,7 @@ Application Insights can provide many observable perspectives, including:
 
 When the **Application Insights** feature is enabled, you can:
 
-* In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page shows you an overview of all running applications.
+* In the navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page shows you an overview of all running applications.
 * Select **Application Map** to see the status of calls between applications.
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-map.png" alt-text="Screenshot of Azure portal Application Insights with Application map page showing." lightbox="media/how-to-application-insights/insights-process-agent-map.png":::
@@ -51,27 +51,27 @@ When the **Application Insights** feature is enabled, you can:
 * Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
-* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
+* In the navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-performance.png" alt-text="Screenshot of Azure portal Application Insights with Performance page showing." lightbox="media/how-to-application-insights/insights-process-agent-performance.png":::
 
-* In the left navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
+* In the navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-failures.png" alt-text="Screenshot of Azure portal Application Insights with Failures page showing." lightbox="media/how-to-application-insights/insights-process-agent-failures.png":::
 
-* In the left navigation pane, select **Metrics** and select the namespace to see both Spring Boot metrics and custom metrics, if any.
+* In the navigation pane, select **Metrics** and select the namespace to see both Spring Boot metrics and custom metrics, if any.
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Metrics page showing." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
 
-* In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
+* In the navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
    :::image type="content" source="media/how-to-application-insights/petclinic-microservices-live-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Live Metrics page showing." lightbox="media/how-to-application-insights/petclinic-microservices-live-metrics.png":::
 
-* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
+* In the navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
    :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of Azure portal Application Insights with Availability page showing." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
 
-* In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
+* In the navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
    :::image type="content" source="media/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of Azure portal Application Insights with Logs page showing." lightbox="media/how-to-application-insights/application-insights-application-logs.png":::
 
@@ -91,7 +91,7 @@ Enable the Java In-Process Agent by using the following procedure.
 1. Select **Save** to save the change.
 
 > [!NOTE]
-> Don't use the same Application Insights instance in different Azure Spring Apps instances, or you'll see mixed data.
+> Don't use the same Application Insights instance in different Azure Spring Apps instances, or you're shown mixed data.
 
 ::: zone-end
 
@@ -279,9 +279,9 @@ az spring app-insights update \
 
 ### Manage Application Insights buildpack bindings
 
-This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
+This section applies to the Enterprise plan only, and provides instructions that that supplement the previous section.
 
-Azure Enterprise tier uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 
@@ -459,7 +459,7 @@ resource "azurerm_spring_cloud_service" "example" {
 
 ::: zone pivot="sc-enterprise"
 
-Automation in Enterprise tier is pending support. Documentation will be added as soon as it's available.
+Automation in the Enterprise plan is pending support. Documentation is added as soon as it's available.
 
 ::: zone-end
 
@@ -527,7 +527,7 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 
 ## Next steps
 
-* [Use distributed tracing with Azure Spring Apps](./how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../azure-monitor/app/app-map.md)

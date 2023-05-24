@@ -5,7 +5,7 @@ author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/11/2019
 ---

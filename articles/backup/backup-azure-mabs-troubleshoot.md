@@ -3,7 +3,7 @@ title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 10/21/2022
+ms.date: 04/26/2022
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -40,9 +40,9 @@ MABS is compatible with most popular antivirus software products. We recommend t
         - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
         - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
     - For the MARS agent installed on the MABS server, we recommend that you exclude the following files and locations:
-        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` as a process
-        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
-        - Scratch location (if you're not using the standard location)
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` as a process.
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent` as a folder.
+        - Scratch location (if you're not using the standard location).
 2. **Disable real-time monitoring on the protected server**: Disable the real-time monitoring of **dpmra.exe**, which is located in the folder `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, on the protected server.
 3. **Configure anti-virus software to delete the infected files on protected servers and the MABS server**: To prevent data corruption of replicas and recovery points, configure the antivirus software to delete infected files, rather than automatically cleaning or quarantining them. Automatic cleaning and quarantining might cause the antivirus software to modify files, making changes that MABS can't detect.
 

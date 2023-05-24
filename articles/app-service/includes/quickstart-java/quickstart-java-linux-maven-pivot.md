@@ -35,6 +35,32 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 [!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
 
+### Install Java 17, if desired
+
+If you intend to run the Java SE sections of this quickstart, the sample app requires Java 17. The steps in this section show you how to check if your Cloud Shell instance supports Java 17, and how to install it does not.
+
+1. In the Azure Cloud Shell, enter `java -version`. If the output includes a version 17 or later, skip the rest of the steps in this section.
+1. Enter these commands to download and extract the Microsoft build of OpenJDK.
+
+   ```azurecli-interactive
+   wget https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz
+   tar -zxf microsoft-jdk-17*.tar.gz
+   ```
+1. Enter these commands to override the built-in Open JDK installed in Azure Cloud Shell. 
+
+   > [!TIP]
+   > You must do this every time you open a new cloud shell, because the environment variables do not persist across cloud shell invocations. However, the files do persist.
+
+   ```azurecli-interactive
+   cd jdk-17*
+   export JAVA_HOME=`pwd`
+   cd ..
+   export PATH=${JAVA_HOME}/bin:$PATH
+   java -version
+   ```
+  
+You should see output stating the version of Java is 17 or greater. If not, troubleshoot and resolve the problem before continuing.
+
 ## 2 - Create a Java app
 
 # [Java SE](#tab/javase)
@@ -57,7 +83,7 @@ mvn clean install
 cd booty-duke-app-service
 ```
 
-
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
 
 # [Tomcat](#tab/tomcat)
 
@@ -93,6 +119,8 @@ cd petstore-ee7
 mvn clean install
 ```
 
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
+
 ---
 
 ## 3 - Configure the Maven plugin
@@ -105,7 +133,7 @@ The deployment process to Azure App Service uses your Azure credentials from the
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.9.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 # [Java SE](#tab/javase)

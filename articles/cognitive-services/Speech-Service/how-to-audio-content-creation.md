@@ -1,7 +1,7 @@
 ---
 title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
-description: Audio Content Creation is an online tool that allows you to run text-to-speech synthesis without writing any code.
+description: Audio Content Creation is an online tool that allows you to run Text to speech synthesis without writing any code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,13 +14,13 @@ ms.author: eur
 
 # Speech synthesis with the Audio Content Creation tool
 
-You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
+You can use the [Audio Content Creation](https://speech.microsoft.com/portal/audiocontentcreation) tool in Speech Studio for Text to speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
 
-Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune text-to-speech voices and design customized audio experiences. 
+Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune Text to speech voices and design customized audio experiences. 
 
-The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust text-to-speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
+The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust Text to speech output attributes in real-time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
-- No-code approach: You can use the Audio Content Creation tool for text-to-speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
+- No-code approach: You can use the Audio Content Creation tool for Text to speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
 - Developer-friendly: You can listen to the output audio and adjust the SSML to improve speech synthesis. Then you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-basics.md) to integrate the SSML into your applications. For example, you can use the SSML for building a chat bot.
 
 You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
@@ -66,16 +66,16 @@ It takes a few moments to deploy your new Speech resource. After the deployment 
 
 ## Use the tool
 
-The following diagram displays the process for fine-tuning the text-to-speech outputs. 
+The following diagram displays the process for fine-tuning the Text to speech outputs. 
 
-:::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Diagram of the sequence of steps for fine-tuning text-to-speech outputs.":::
+:::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Diagram of the sequence of steps for fine-tuning text to speech outputs.":::
 
 Each step in the preceding diagram is described here:
 
 1. Choose the Speech resource you want to work with.
 
 1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Enter or upload your content into Audio Content Creation.
-1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
+1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text to speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
    > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
@@ -86,7 +86,7 @@ Each step in the preceding diagram is described here:
 
    Improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). 
 
-   For more information about fine-tuning speech output, view the [How to convert Text to Speech using Microsoft Azure AI voices](https://youtu.be/ygApYuOOG6w) video.
+   For more information about fine-tuning speech output, view the [How to convert Text to speech using Microsoft Azure AI voices](https://youtu.be/ygApYuOOG6w) video.
 
 1. Save and [export your tuned audio](#export-tuned-audio). 
 
@@ -162,7 +162,13 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 1. Select the file you want to download and **Download**. 
 
    Now you're ready to use your custom tuned audio in your apps or products.
+   
+## Configure BYOS and anonymous public read access for blobs
+   
+If you lose access permission to your Bring Your Own Storage (BYOS), you won't be able to view, create, edit, or delete files. To resume your access, you need to remove the current storage and reconfigure the BYOS in the [Azure portal](https://portal.azure.com/#allservices). To learn more about how to configure BYOS, see [Mount Azure Storage as a local share in App Service](/azure/app-service/configure-connect-to-azure-storage?pivots=container-linux&tabs=portal). 
 
+After configuring the BYOS permission, you need to configure anonymous public read access for related containers and blobs. Otherwise, blob data isn't available for public access and your lexicon file in the blob will be inaccessible. By default, a container’s public access setting is disabled. To grant anonymous users read access to a container and its blobs, first set **Allow Blob public access** to **Enabled** to allow public access for the storage account, then set the container's (named **acc-public-files**) public access level (**anonymous read access for blobs only**). To learn more about how to configure anonymous public read access, see [Configure anonymous public read access for containers and blobs](/azure/storage/blobs/anonymous-read-access-configure?tabs=portal). 
+   
 ## Add or remove Audio Content Creation users
 
 If more than one user wants to use Audio Content Creation, you can grant them access to the Azure subscription and the Speech resource. If you add users to an Azure subscription, they can access all the resources under the Azure subscription. But if you add users to a Speech resource only, they'll have access only to the Speech resource and not to other resources under this Azure subscription. Users with access to the Speech resource can use the Audio Content Creation tool.

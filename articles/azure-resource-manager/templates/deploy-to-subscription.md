@@ -2,8 +2,8 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 01/19/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 05/22/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Subscription deployments with ARM templates
@@ -235,7 +235,7 @@ The following template creates an empty resource group.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2022-09-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -266,7 +266,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2022-09-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -305,35 +305,30 @@ The following example creates a resource group, and deploys a storage account to
     }
   },
   "variables": {
-    "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
+    "storageName": "[format('{0}{1}', parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
   },
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2022-09-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2022-09-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
-      ],
       "properties": {
         "mode": "Incremental",
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2022-09-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -341,13 +336,14 @@ The following example creates a resource group, and deploys a storage account to
               },
               "kind": "StorageV2"
             }
-          ],
-          "outputs": {}
+          ]
         }
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+      ]
     }
-  ],
-  "outputs": {}
+  ]
 }
 ```
 

@@ -174,7 +174,7 @@ The default lifetime of an access token is variable. When issued, the Microsoft 
 
 Tenants that don't use Conditional Access have a default access token lifetime of two hours for clients such as Microsoft Teams and Microsoft 365.
 
-Adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to reauthenticate (either silently or interactively). To override the default access token lifetime variation, use [Configurable token lifetime (CTL)](active-directory-configurable-token-lifetimes.md).
+Adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to reauthenticate (either silently or interactively). To override the default access token lifetime variation, use [Configurable token lifetime (CTL)](configurable-token-lifetimes.md).
 
 Apply default token lifetime variation to organizations that have Continuous Access Evaluation (CAE) enabled. Apply default token lifetime variation even if the organizations use CTL policies. The default token lifetime for long lived token lifetime ranges from 20 to 28 hours. When the access token expires, the client must use the refresh token to silently acquire a new refresh token and access token.
 
@@ -241,34 +241,7 @@ If the application has custom signing keys as a result of using the [claims-mapp
 
 ### Claims based authorization
 
-The business logic of an application determines how authorization should be handled. The general approach to authorization based on token claims, and which claims should be used, is described in the following sections.
-
-After a token is validated with the correct `aud` claim, the token tenant, subject, actor must be authorized.
-
-#### Tenant
-
-First, always check that the `tid` in a token matches the tenant ID used to store data with the application. When information is stored for an application in the context of a tenant, it should only be accessed again later in the same tenant. Never allow data in one tenant to be accessed from another tenant.
-
-#### Subject
-
-Next, to determine if the token subject, such as the user (or app itself for an app-only token), is authorized, either check for specific `sub` or `oid` claims, or check that the subject belongs to an appropriate role or group with the `roles`, `groups`, `wids` claims.
-
-For example, use the immutable claim values `tid` and `oid` as a combined key for application data and determining whether a user should be granted access.
-
-The `roles`, `groups` or `wids` claims can also be used to determine if the subject has authorization to perform an operation. For example, an administrator may have permission to write to an API, but not a normal user, or the user may be in a group allowed to do some action.
-
-> [!WARNING]
-> Never use `email` or `upn` claim values to store or determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
-
-#### Actor
-
-Lastly, when an app is acting for a user, this client app (the actor), must also be authorized. Use the `scp` claim (scope) to validate that the app has permission to perform an operation.
-
-The application defines the scopes and the absence of the `scp` claim means full actor permissions.
-
-> [!NOTE]
-> An application may handle app-only tokens (requests from applications without users, such as daemon apps) and want to authorize a specific application across multiple tenants, rather than individual service principal IDs. In that case, check for an app-only token using the `idtyp` optional claim and use the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens) along with `tid` to determine authorization based on tenant and application ID.
-
+For more information about validating the claims in a token to ensure security, see [Secure applications and APIs by validating claims](claims-validation.md) 
 
 ## Token revocation
 
@@ -276,7 +249,7 @@ Refresh tokens are invalidated or revoked at any time, for different reasons. Th
 
 ### Token timeouts
 
-Organizations can use [token lifetime configuration](active-directory-configurable-token-lifetimes.md) to alter the lifetime of refresh tokens Some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
+Organizations can use [token lifetime configuration](configurable-token-lifetimes.md) to alter the lifetime of refresh tokens Some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
 
 - MaxInactiveTime: Specifies the amount of time that a token can be inactive.
 - MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor is set to something other than their default (Until-revoked), the user must reauthenticate after the time set in the MaxAgeSession*. Examples:
@@ -293,8 +266,7 @@ The server possibly revokes refresh tokens due to a change in credentials, or du
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User revokes their refresh tokens by using [PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
-| Admin revokes all refresh tokens for a user by using [PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
+| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 #### Non-password-based

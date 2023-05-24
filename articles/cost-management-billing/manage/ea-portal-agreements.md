@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/18/2022
+ms.date: 04/24/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -16,7 +16,7 @@ The article describes how Azure EA agreements and amendments might affect your a
 
 ## Enrollment provisioning status
 
-The start date of a new Azure Prepayment (previously called monetary commitment) is defined by the date that the regional operations center processed it. Since Azure Prepayment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure EA portal.
+The start date of a new Azure Prepayment (previously called monetary commitment) is defined by the date that the regional operations center processed it. Since Azure Prepayment orders via the Azure portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure portal.
 
 ## Support for enterprise customers
 
@@ -26,9 +26,9 @@ The start date of a new Azure Prepayment (previously called monetary commitment)
 
 An enrollment has one of the following status values. Each value determines how you can use and access an enrollment. The enrollment status determines at which stage your enrollment is. It tells you if the enrollment needs to be activated before it can be used. Or, if the initial period has expired and you're charged for usage overage.
 
-**Pending** - The enrollment administrator needs to sign in to the Azure EA portal. After the administrator signs in, the enrollment switches to **Active** status.
+**Pending** - The enrollment administrator needs to sign in to the Azure portal. After the administrator signs in, the enrollment switches to **Active** status.
 
-**Active** - The enrollment is accessible and usable. You can create accounts and subscriptions in the Azure EA portal. Direct customers can create departments, accounts and subscriptions in the [Azure portal](https://portal.azure.com). The enrollment remains active until the enterprise agreement end date. 
+**Active** - The enrollment is accessible and usable. You can create departments, accounts, and subscriptions in the [Azure portal](https://portal.azure.com). The enrollment remains active until the enterprise agreement end date. 
 
 **Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached and is expired. When an agreement enters into an extended term, it doesn't receive discounted pricing. Instead, pricing is at retail rates. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
 
@@ -47,9 +47,9 @@ As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial cus
 
 ## Partner markup
 
-In the Azure EA portal, Partner Price Markup helps to enable better cost reporting for customers. The Azure EA portal shows usage and prices configured by partners for their customers.
+In the Azure portal, Partner Price Markup helps to enable better cost reporting for customers. The Azure portal shows usage and prices configured by partners for their customers.
 
-Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure EA portal such as: meter rates, Azure Prepayment, and orders. After the markup is published by the partner, the customer sees Azure costs in the Azure EA portal. For example, usage summary, price lists, and downloaded usage reports.
+Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure portal such as: meter rates, Azure Prepayment, and orders. After the markup is published by the partner, the customer sees Azure costs in the Azure portal. For example, usage summary, price lists, and downloaded usage reports.
 
 Starting in September 2019, partners can apply markup anytime during a term. They don't need to wait until the term next anniversary to apply markup.
 
@@ -57,7 +57,7 @@ Microsoft won't access or utilize the provided markup and associated prices for 
 
 ### How the calculation works
 
-The LSP provides a single percentage number in the EA portal.  All commercial information on the portal will be uplifted by the percentage provided by the LSP. Example:
+The LSP provides a single percentage number in the Azure portal.  All commercial information on the portal will be uplifted by the percentage provided by the LSP. Example:
 
 - Customer signs an EA with Azure Prepayment of USD 100,000.
 - The meter rate for Service A is USD 10 / Hour.
@@ -97,6 +97,23 @@ Let's look at an example. For an Azure Savings Plan commitment amount of 3.33/ho
 
 ### How to add a price markup
 
+**You can add price markup on Azure portal with the following steps:**
+ 
+**In the Azure portal,**
+
+- Sign in as a partner administrator. 
+- Search for Cost Management + Billing and select it. 
+- In the left navigation menu, select Billing scopes and then select the billing account that you want to work with. 
+- In the left navigation menu, select Billing Profile and then select the billing profile that you want to work with. 
+- In the left navigation menu, select Markup.
+- To add markup, click on “set markup”.
+- Enter the markup percentage and select Preview. 
+- Review the credit and usage charges before and after markup update. 
+- Accept the disclaimer and click on Publish to published the markup.
+- End customer should be able to view credits and charges details. 
+
+**You can add price markup on Azure Enterprise portal with the following steps:**
+
 **Step One: Add price markup**
 
 1. From the Enterprise Portal, select **Reports** on the left navigation.
@@ -123,12 +140,21 @@ Pricing with markup will be available to enterprise administrators immediately a
 
 To check if an enrollment has a markup published, select **Manage** on the left navigation, and select the **Enrollment** tab. Select the enrollment box to check, and view the markup status under _Enrollment Detail_. It will display the current status of the markup feature for that EA as Disabled, Preview, or Published.
 
+**To check markup status of an enrollment on Azure portal, follow the below steps:**
+
+- In the Azure portal, sign in as a partner administrator. 
+- Search for Cost Management + Billing and select it. 
+- Select Billing scopes and then select the billing account that you want to work with.
+- In the left navigation menu, select Billing scopes and then select the billing account that you want to work with. 
+- In the left navigation menu, select Billing Profile  
+- You can view the markup status of an enrollment  
+
 ### How can the customer download usage estimates?
 
 Once partner markup is published, the indirect customer will have access to balance and charge .csv monthly files and usage detail .csv files. The usage detail files will include resource rate and extended cost.
 
 ### How can I as partner apply markup to existing EA customer(s) that was earlier with another partner?
-Partners can use the markup feature (on Azure EA) after a Change of Channel Partner is processed; no need to wait for the next anniversary term.
+Partners can use the markup feature (on Azure EA portal or Azure portal) after a Change of Channel Partner is processed; no need to wait for the next anniversary term.
 
 
 ## Resource Prepayment and requesting quota increases
@@ -176,7 +202,7 @@ Enterprise Administrators can assign Account Owners to prepare previously purcha
 1. Select the **Download** symbol in the top-right corner of the page.
 1. Find the corresponding Plan SKU part numbers with filter on column **Included Quantity** and select values greater than 0 (zero).
 
-Direct customer can view price sheet in Azure portal. See [view price sheet in Azure portal](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+EA customer can view price sheet in Azure portal. See [view price sheet in Azure portal](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
 ### Existing/New account owners to create new subscriptions
 

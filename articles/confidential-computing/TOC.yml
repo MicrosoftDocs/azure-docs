@@ -53,6 +53,12 @@
     href: confidential-computing-solutions.md
   - name: Deploying solutions on confidential computing
     href: confidential-computing-deployment-models.md
+  - name: Attestation
+    href: attestation-solutions.md
+  - name: Data cleanroom solutions on confidential computing
+    href: multi-party-data.md
+  - name: Confidential AI solutions
+    href: confidential-ai.md
   - name: Confidential virtual machines
     items:
     - name: About confidential VMs
@@ -122,8 +128,14 @@
 - name: How To
   expanded: true
   items:
-  - name: concept
+  - name: Azure confidential VMs
     items:
+    - name: Key rotation for Azure confidential VMs
+      href: key-rotation-offline.md
+    - name: Use sample app with guest attestation
+      href: guest-attestation-example.md
+    - name: Secure Key Release (SKR) with Azure Key Vault
+      items:
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
       - name: SKR with Azure Confidential Computing Concept
@@ -142,13 +154,6 @@
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
-    - name: Azure confidential VMs
-      items:
-      - name: Key rotation for Azure confidential VMs
-        href: key-rotation-offline.md
-      - name: Use sample app with guest attestation
-        href: guest-attestation-example.md
-
 - name: Resources
   items:
   - name: Join our Tech Community

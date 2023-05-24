@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/04/2023
+ms.date: 04/10/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -31,7 +31,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## Provisioning using SCIM 2.0
 
-The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. Developers use the SCIM 2.0 user management API in Azure AD to build endpoints for their apps that integrate with the provisioning service. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and deprovisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. Developers use the SCIM 2.0 user management API in Azure AD to build endpoints for their apps that integrate with the provisioning service. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../manage-apps/v2-howto-app-gallery-listing.md).
 
@@ -43,7 +43,7 @@ Credentials are required for Azure AD to connect to the application's user manag
 
 When you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute mappings. Mappings determine the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated.
 
-There's a pre-configured set of attributes and attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
+There's a preconfigured set of attributes and attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
 
 When setting up provisioning, it's important to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. Review and configure the matching property (**Match objects using this attribute**) that is used to uniquely identify and match users/groups between the two systems.
 
@@ -56,15 +56,15 @@ When you configure provisioning to a SaaS application, one of the types of attri
 
 For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](../manage-apps/assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
-* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service provisions or de-provisions users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "True".
+* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service provisions or deprovisions users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "True".
 
 * **Dynamic groups.** The Azure AD user provisioning service can read and provision users in [dynamic groups](../enterprise-users/groups-create-rule.md). Keep these caveats and recommendations in mind:
 
   * Dynamic groups can impact the performance of end-to-end provisioning from Azure AD to SaaS applications.
 
-  * How fast a user in a dynamic group is provisioned or de-provisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../enterprise-users/groups-create-rule.md).
+  * How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information about how to check the processing status of a dynamic group, see [Check processing status for a membership rule](../enterprise-users/groups-create-rule.md).
 
-  * When a user loses membership in the dynamic group, it's considered a de-provisioning event. Consider this scenario when creating rules for dynamic groups.
+  * When a user loses membership in the dynamic group, it's considered a deprovisioning event. Consider this scenario when creating rules for dynamic groups.
 
 * **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](../enterprise-users/groups-saasapps.md)). Instead, directly assign or otherwise [scope in](define-conditional-rules-for-provisioning-user-accounts.md) the groups that contain the users who need to be provisioned.
 
@@ -88,7 +88,7 @@ originalUserPrincipalName = alias_theirdomain#EXT#@yourdomain
 
 ## Provisioning cycles: Initial and incremental
 
-When Azure AD is the source system, the provisioning service uses the [Use delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
+When Azure AD is the source system, the provisioning service uses the [delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
 
 ### Initial cycle
 
@@ -184,8 +184,8 @@ Performance depends on whether your provisioning job is running an initial provi
 
 All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](./check-status-user-account-provisioning.md).
 
-## De-provisioning
-The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when user access is removed.
+## Deprovisioning
+The Azure AD provisioning service keeps source and target systems in sync by deprovisioning accounts when user access is removed.
 
 The provisioning service supports both deleting and disabling (sometimes referred to as soft-deleting) users. The exact definition of disable and delete varies based on the target app's implementation, but generally a disable indicates that the user can't sign in. A delete indicates that the user has been removed completely from the application. For SCIM applications, a disable is a request to set the *active* property to false on a user. 
 
@@ -201,8 +201,7 @@ Confirm the mapping for *active* for your application. If you're using an applic
 **Configure your application to delete a user**
 
 The scenario triggers a disable or a delete: 
-* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
-    30 days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false). Thirty days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
 * A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).

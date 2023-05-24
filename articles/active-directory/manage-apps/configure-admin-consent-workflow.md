@@ -12,7 +12,7 @@ ms.date: 09/02/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, enterprise-apps
 #customer intent: As an admin, I want to configure the admin consent workflow.
 ---
 
@@ -53,7 +53,7 @@ To enable the admin consent workflow and choose reviewers:
 1. Select **Save**. It can take up to an hour for the workflow to become enabled.
 
 > [!NOTE]
-> You can add or remove reviewers for this workflow by modifying the **Who can review admin consent requests** list. A current limitation of this feature is that a reviewer retains the ability to review requests that were made while they were designated as a reviewer. Additionally, new reviewers will not be assigned to requests that were created before they were set as a reviewer.
+> You can add or remove reviewers for this workflow by modifying the **Who can review admin consent requests** list. A current limitation of this feature is that a reviewer retains the ability to review requests that were made while they were designated as a reviewer and will receive expiration reminder emails for those requests after they're removed from the reviewers list. Additionally, new reviewers will not be assigned to requests that were created before they were set as a reviewer.
 
 ## Configure the admin consent workflow using Microsoft Graph
 

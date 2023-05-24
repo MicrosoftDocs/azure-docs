@@ -18,11 +18,12 @@ ms.author: eur
 |English (United States)|`en-US`|  
 |French (Canada)|`fr-CA`<sup>1</sup> | 
 |French (France)|`fr-FR`|  
-|German (Germany)|`de-DE`<sup>1</sup>|
+|German (Germany)|`de-DE`|
 |Japanese (Japan)|`ja-JP`|
 |Malay (Malaysia)|`ms-MY`<sup>1</sup>|
 |Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
-|Spanish (Mexico)|`es-MX`<sup>1</sup> | 
+|Portuguese (Brazil)|`pt-BR`<sup>1</sup>|
+|Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 

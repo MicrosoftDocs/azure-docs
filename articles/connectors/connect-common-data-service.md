@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 09/07/2022
+ms.date: 04/17/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -23,9 +23,7 @@ tags: connectors
 > with the legacy Dataverse connector. However, make sure to review these workflows, and update them promptly.
 >
 > Starting October 2023, the legacy version becomes unavailable for new workflows. Existing workflows continue 
-> to work, but you *must* use the current Dataverse connector for new workflows. Starting October 31, 2023, 
-> *all* workflows must use the current Dataverse connector. Any existing workflows that still use the legacy 
-> version will stop working.
+> to work, but you *must* use the current Dataverse connector for new workflows. At that time, a timeline for the shutdown date for the legacy actions and triggers will be announced.
 >
 > Since November 2020, the Common Data Service connector was renamed Microsoft Dataverse (Legacy).
 

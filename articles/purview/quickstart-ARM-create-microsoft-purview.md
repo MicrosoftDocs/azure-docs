@@ -6,7 +6,7 @@ ms.author: whhender
 ms.date: 04/05/2022
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using an ARM template

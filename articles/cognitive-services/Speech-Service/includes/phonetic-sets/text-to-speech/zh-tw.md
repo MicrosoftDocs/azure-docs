@@ -1,6 +1,14 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 The Speech service phone set for `zh-TW` is based on the native phone <a href="https://zh.wikipedia.org/wiki/%E6%B3%A8%E9%9F%B3%E7%AC%A6%E8%99%9F" target="_blank">Bopomofo </a> set.
 
-### Bopomofo Initials
+### Bopomofo Initials for zh-TW
 
 | Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
@@ -28,7 +36,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 | ㄧ        | y      | 衣 (**ㄧ**, **y**i 1)              |
 | ㄨ        | w      | 屋 (**ㄨ**, **w**u 1)              |
 
-### Bopomofo Finals
+### Bopomofo Finals for zh-TW
 
 | Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
@@ -65,7 +73,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 | ㄨㄤ       | uang     | 廣 (ㄍ**ㄨㄤ**ˇ, g**uang** 3)        |
 | ㄨㄛ       | uo       | 多 (ㄉ**ㄨㄛ**, d**uo** 1)           |
 
-### Bopomofo Whole syllable
+### Bopomofo Whole syllable zh-TW
 
 | Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
@@ -101,7 +109,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 | ㄥ        | eng      | 鞥 (**ㄥ**, **eng** 1)             |
 | ㄝ        | ê        | ㄝ (**ㄝ**, **ê** 1)               |
 
-### Bopomofo tone
+### Bopomofo tone zh-TW
 
 | Bopomofo | Tone number | `sapi` Example <br> (Bopomofo, Pinyin)|
 |----------|-------------|--------------------------------|

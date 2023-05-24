@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 05/17/2023
 
 ms.author: justinha
 author: justinha
@@ -159,7 +159,7 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Users with spam filters should exclude this number.
 
 * *+1 (855) 330-8653*
 
@@ -366,6 +366,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 >
 > The **remember multi-factor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
+> The **remember multi-factor authentication** feature isn't compatible with the Sign-in frequency Conditional Access control. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#configuring-authentication-session-controls).
 
 #### Enable remember multi-factor authentication
 

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/27/2023
+ms.date: 4/12/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -20,7 +20,12 @@ ms.collection: M365-identity-device-management
 
 In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership or ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership or ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
+You will need group management permissions to manage settings. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not Administrative Unit level). 
+
+> [!NOTE]
+> Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM. 
+
+Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
 
 
 ## Update role settings

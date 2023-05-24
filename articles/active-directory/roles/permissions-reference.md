@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 02/21/2023
+ms.date: 04/28/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -562,6 +562,7 @@ Users in this role can enable, disable, and delete devices in Azure AD and read 
 > | microsoft.directory/devices/delete | Delete devices from Azure AD |
 > | microsoft.directory/devices/disable | Disable devices in Azure AD |
 > | microsoft.directory/devices/enable | Enable devices in Azure AD |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -724,6 +725,7 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/users/photo/read | Read photo of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
 > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/sponsors/read | Read sponsors of users |
 
 ## Directory Synchronization Accounts
 
@@ -821,6 +823,7 @@ Users in this role can read and update basic information of users, groups, and s
 > | microsoft.directory/users/basic/update | Update basic properties on users |
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/photo/update | Update photo of users |
+> | microsoft.directory/users/sponsors/update | Update sponsors of users |
 > | microsoft.directory/users/userPrincipalName/update | Update User Principal Name of users |
 
 ## Domain Name Administrator
@@ -971,6 +974,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -1135,6 +1139,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/contacts/allProperties/read | Read all properties for contacts |
 > | microsoft.directory/customAuthenticationExtensions/allProperties/read | Read custom authentication extensions |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/devices/allProperties/read | Read all properties of devices |
 > | microsoft.directory/directoryRoles/allProperties/read | Read all properties of directory roles |
 > | microsoft.directory/directoryRoleTemplates/allProperties/read | Read all properties of directory role templates |
@@ -1246,6 +1251,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 > | microsoft.directory/users/photo/read | Read photo of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
 > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/sponsors/read | Read sponsors of users |
 
 ## Helpdesk Administrator
 
@@ -1272,6 +1278,7 @@ This role was previously named Password Administrator in the [Azure portal](../.
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -1331,6 +1338,7 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/servicePrincipals/tag/update | Update the tag property for service principals |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
+> | microsoft.directory/users/authorizationInfo/update | Update the multivalued Certificate user IDs property of users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
@@ -1430,6 +1438,7 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.directory/devices/extensionAttributeSet3/update | Update the extensionAttribute11 to extensionAttribute15 properties on devices |
 > | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
@@ -1895,6 +1904,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
 > | microsoft.directory/users/restore | Restore deleted users |
 > | microsoft.directory/users/basic/update | Update basic properties on users |
+> | microsoft.directory/users/authorizationInfo/update | Update the multivalued Certificate user IDs property of users |
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.directory/users/userPrincipalName/update | Update User Principal Name of users |
@@ -1993,6 +2003,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 [Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services
 [Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
 [Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password list or on-premises password protection.
+[Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) | Configure cross-tenant access settings for users in another tenant. Security Administrators can't directly create and delete users, but can indirectly create and delete synchronized users from another tenant when both tenants are configured for cross-tenant synchronization, which is a privileged permission.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2016,6 +2027,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/domains/federation/update | Update federation property of domains |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
 > | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
@@ -2111,6 +2123,7 @@ In | Can do
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
@@ -2391,6 +2404,8 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.directory/users/photo/update | Update photo of users |
+> | microsoft.directory/users/sponsors/update | Update sponsors of users |
+> | microsoft.directory/users/usageLocation/update | Update usage location of users |
 > | microsoft.directory/users/userPrincipalName/update | Update User Principal Name of users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
@@ -2421,7 +2436,7 @@ Assign the Viva Goals Administrator role to users who need to do the following t
 - Manage and configure all aspects of the Microsoft Viva Goals application
 - Configure Microsoft Viva Goals admin settings
 - Read Azure AD tenant information
-- Monitor Microsoft 365 service health  
+- Monitor Microsoft 365 service health
 - Create and manage Microsoft 365 service requests
 
 For more information, see [Roles and permissions in Viva Goals](/viva/goals/roles-permissions-in-viva-goals) and [Introduction to Microsoft Viva Goals](/viva/goals/intro-to-ms-viva-goals).

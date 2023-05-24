@@ -22,7 +22,7 @@ Most of the Linux Operating Systems (OS) are covered by both agents. The agents 
 | Ubuntu 20.04 | ✓ | ✓ | ✓ |
 | Ubuntu 22.04 | ✓ |  |  |
 
-Defender Micro agent also supports Yocto as an open source.
+The Defender for IoT micro agent also supports Yocto as an open source.
 
 For additional information on supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>.
 

@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 03/17/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Managed identities for Form Recognizer

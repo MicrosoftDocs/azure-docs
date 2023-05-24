@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 01/10/2023
+ms.date: 04/14/2023
 ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -146,7 +146,7 @@ For more information on the `hbi_workspace` flag, see the [data encryption](conc
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
 
 * For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/network-requirements.md) needed by Azure Arc agents. 
-* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/limit-egress-traffic.md#cluster-extensions). 
+* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/outbound-rules-control-egress.md#cluster-extensions). 
 
 Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
@@ -370,8 +370,8 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute instance | `*.instances.azureml.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
 | Compute instance | `<region>.tundra.azureml.ms` | UDP | 5831 |
-| Compute instance | `*.batch.azure.com` | ANY | 443 |
-| Compute instance | `*.service.batch.com` | ANY | 443 | 
+| Compute instance | `*.<region>.batch.azure.com` | ANY | 443 |
+| Compute instance | `*.<region>.service.batch.azure.com` | ANY | 443 | 
 | Microsoft storage access | `*.blob.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.table.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.windows.net` | TCP | 443 |

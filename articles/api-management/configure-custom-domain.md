@@ -48,11 +48,12 @@ There are several API Management endpoints to which you can assign a custom doma
 | **SCM** | Default is: `<apim-service-name>.scm.azure-api.net` |
 
 ### Considerations
+
 * You can update any of the endpoints supported in your service tier. Typically, customers update **Gateway** (this URL is used to call the APIs exposed through API Management) and **Developer portal** (the developer portal URL).
 * The default **Gateway** endpoint also is available after you configure a custom Gateway domain name. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
 * Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
 * The **Premium** and **Developer** tiers support setting multiple hostnames for the **Gateway** endpoint.
-* Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier.
+* Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier. A specific subdomain certificate (for example, api.contoso.com) would take precedence over a wildcard certificate (*.contoso.com) for requests to api.contoso.com.
 
 ## Domain certificate options
 
@@ -103,13 +104,14 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
 * Can only be configured when updating an existing API Management instance, not when creating an instance
----
 
+---
 ## Set a custom domain name - portal
 
 Choose the steps according to the [domain certificate](#domain-certificate-options) you want to use.
 
 # [Custom](#tab/custom)
+
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. In the left navigation, select **Custom domains**.
 1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
@@ -155,12 +157,11 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
     :::image type="content" source="media/configure-custom-domain/gateway-domain-free-certifcate.png" alt-text="Configure gateway domain with free certificate":::
 1. Select **Add**, or select **Update** for an existing endpoint.
 1. Select **Save**.
----
-    
+
 > [!NOTE]
 > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
 
-[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+---
 
 ## DNS configuration
 
@@ -177,6 +178,9 @@ Configure a CNAME record that points from your custom domain name (for example, 
 > [!NOTE]
 > Some domain registrars only allow you to map subdomains when using a CNAME record, such as `www.contoso.com`, and not root names, such as `contoso.com`. For more information on CNAME records, see the documentation provided by your registrar or [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035).
 
+> [!CAUTION]
+> When you use the free, managed certificate and configure a CNAME record with your DNS provider, make sure that it resolves to the default API Management service hostname (`<apim-service-name>.azure-api.net`). Currently, API Management doesn't automatically renew the certificate if the CNAME record doesn't resolve to the default API Management hostname. For example, if you're using the free, managed certificate and you use Cloudflare as your DNS provider, make sure that DNS proxy isn't enabled on the CNAME record. 
+
 ### TXT record 
 
 When enabling the free, managed certificate for API Management, also configure a TXT record in your DNS zone to establish your ownership of the domain name. 
@@ -188,6 +192,9 @@ When you use the portal to configure the free, managed certificate for your cust
 
 You can also get a domain ownership identifier by calling the [Get Domain Ownership Identifier](/rest/api/apimanagement/current-ga/api-management-service/get-domain-ownership-identifier) REST API.
 
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+
 ## Next steps
 
 [Upgrade and scale your service](upgrade-and-scale.md)
+

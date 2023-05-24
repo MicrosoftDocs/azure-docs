@@ -27,6 +27,9 @@ Azure Storage is used to store cached enrichments. The storage account must be [
 
 Preview APIs or beta Azure SDKs are required for enabling cache on an indexer. The portal does not currently provide an option for caching enrichment.
 
+> [!CAUTION]
+> If you're using the [SharePoint Online indexer (Preview)](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain circumstances, the cache becomes invalid, requiring an [indexer reset and run](search-howto-run-reset-indexers.md), should you choose to reload it.
+
 ## Enable on new indexers
 
 On new indexers, add the "cache" property in the indexer definition payload when calling [Create or Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer). You can also use the previous preview API version, 2020-06-30-Preview.

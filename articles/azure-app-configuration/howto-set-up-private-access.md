@@ -1,8 +1,8 @@
 ---
 title: How to set up private access to an Azure App Configuration store
 description: How to set up private access to an Azure App Configuration store in the Azure portal and in the CLI.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: how-to 
 ms.date: 07/12/2022

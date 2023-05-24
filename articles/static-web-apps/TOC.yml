@@ -101,10 +101,18 @@
   items:
     - name: APIs
       items:
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
+        - name: Azure Functions
+          items:
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
     - name: Security
       items:
         - name: Set up a private endpoint

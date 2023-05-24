@@ -122,13 +122,13 @@ The approach you choose will be based on the number of applications you host and
 
 The performance advantage of using multiple tenants, in either the regional or funnel-based configuration, will be an improvement over using a single Azure AD B2C tenant for globally operating businesses.
 
-When using the funnel-based approach, the funnel tenant will be located in one specific region and serve users globally. Since the funnel tenants operation utilizes a global component of the Azure AD B2C service, it will maintain a consistant level of performance regardless of where users login from.
+When using the funnel-based approach, the funnel tenant will be located in one specific region and serve users globally. Since the funnel tenants operation utilizes a global component of the Azure AD B2C service, it will maintain a consistent level of performance regardless of where users login from.
 
 ![Screenshot shows the Azure AD B2C architecture.](./media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-architecture.png)
 
 As shown in the diagram above, the Azure AD B2C tenant in the funnel-based approach will only utilize the Policy Engine to perform the redirection to regional Azure AD B2C tenants. The Azure AD B2C Policy Engine component is globally distributed. Therefore, the funnel isn't constrained from a performance perspective, regardless of where the Azure AD B2C funnel tenant is provisioned. A performance loss is encountered due to the extra redirect between funnel and regional tenants in the funnel-based approach.
 
-In the regional-based approach, since each user is directed to their most local Azure AD B2C, performance is consistant for all users logging in.
+In the regional-based approach, since each user is directed to their most local Azure AD B2C, performance is consistent for all users logging in.
 
 The regional tenants will perform directory calls into the Directory Store, which is the only regionalized component in both the funnel-based and regional-based architectures.
 

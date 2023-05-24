@@ -1,11 +1,12 @@
 ---
 title: "Event-driven work using Dapr Bindings"
+titleSuffix: "Azure Container Apps"
 description: Deploy a sample Dapr Bindings application to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 04/11/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
@@ -578,4 +579,6 @@ azd down
 ## Next steps
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
+- [Scale your Dapr applications using KEDA scalers](./dapr-keda-scaling.md)

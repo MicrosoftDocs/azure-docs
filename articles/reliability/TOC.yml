@@ -12,6 +12,8 @@
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
+    - name: Azure availability zone migration baseline
+      href: availability-zones-baseline.md
     - name: Migration guides by service
       items:
       - name: Azure API Management
@@ -40,6 +42,8 @@
         href: migrate-monitor-log-analytics.md
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
+      - name: Azure Service Fabric
+        href: migrate-service-fabric.md
       - name: Azure Storage accounts
         href: migrate-storage.md
       - name: Azure Virtual Machines and virtual machine scale sets
@@ -196,7 +200,7 @@
       - name: Azure Functions 
         href: reliability-functions.md
       - name: Azure HDInsight
-        href: ../hdinsight/hdinsight-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-hdinsight.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Image Builder
@@ -214,7 +218,7 @@
       - name: Azure Network Watcher
         href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
       - name: Azure Notification Hubs
-        href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../notification-hubs/notification-hubs-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Private Link
         href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
@@ -229,6 +233,8 @@
         href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Blob Storage
         href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Storage Mover
+        href: reliability-azure-storage-mover.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
       - name: Azure SQL
         href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual WAN
@@ -272,7 +278,7 @@
         - name: Virtual WAN  
           href: /azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router
         - name: Classic Storage  
-          href: /azure/storage/common/storage-account-migrate-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Virtual Network  
           href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Application Gateway  

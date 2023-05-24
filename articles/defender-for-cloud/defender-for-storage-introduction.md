@@ -3,8 +3,8 @@ title: Microsoft Defender for Storage - the benefits and features
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 03/23/2023
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: overview
 ---
 
@@ -143,7 +143,9 @@ The Defender for Storage (classic) will still continue to be supported for three
 
 ### Can I switch back to the Defender for Storage (classic)?
 
-Yes, using the REST API, you can return to using the Defender for Storage (classic).
+Yes, you can use the REST API to return to the Defender for Storage (classic) plan.
+
+If you want to switch back to the Defender for Storage (classic) plan, you need to do two things. First, disable the new Defender for Storage plan that is enabled now. Second, check if there are any policies that can re-enable the new plan and turn them off too. **The two Azure built-in policies enabling the new plan are Configure Microsoft Defender for Storage to be enabled** and **Configure basic Microsoft Defender for Storage to be enabled (Activity Monitoring only).**
 
 ### How can I calculate the cost of each plan?
 

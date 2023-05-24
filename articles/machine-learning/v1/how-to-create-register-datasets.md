@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022, ignite-2022, devx-track-arm-template
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam

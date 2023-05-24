@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: quickstart-bicep
 ms.date: 05/11/2022
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Deploy an Azure IoT Hub and a storage account using Bicep

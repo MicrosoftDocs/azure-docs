@@ -1,14 +1,10 @@
 ---
 title: Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 description: Use Azure CLI to create and manage virtual machines that have Accelerated Networking enabled for improved network performance.
-services: virtual-network
 author: asudbring
-manager: gedegrac
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 03/20/2023
+ms.date: 04/18/2023
 ms.author: allensu
 ms.custom: fasttrack-edit, devx-track-azurecli
 ---
@@ -23,6 +19,7 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
 ## Prerequisites
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - The latest version of [Azure CLI installed](/cli/azure/install-azure-cli). Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Create a VM with Accelerated Networking
@@ -139,7 +136,7 @@ az vm create \
 
 # [Linux](#tab/linux)
 
-The following example creates a VM with the UbuntuLTS OS image and a size that supports Accelerated Networking, Standard_DS4_v2.
+The following example creates a VM with a size that supports Accelerated Networking, Standard_DS4_v2.
 
 ```azurecli
 az vm create \
@@ -206,11 +203,11 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 1. Use the following command to create an SSH session with the VM. Replace `<myPublicIp>` with the public IP address assigned to the VM you created, and replace `<myAdminUser>` with the `--admin-username` you specified when you created the VM.
 
-   ```bash
+   ```azurecli
    ssh <myAdminUser>@<myPublicIp>
    ```
 
-1. From a Bash shell on the remote VM, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
+1. From a shell on the remote VM, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
    - **Ubuntu 16.04**: 4.11.0-1013.
    - **SLES SP3**: 4.4.92-6.18.
@@ -252,13 +249,16 @@ You must run an application over the synthetic NIC to guarantee that the applica
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
 <a name="enable-accelerated-networking-on-existing-vms"></a>
+
 ## Manage Accelerated Networking on existing VMs
 
 It's possible to enable Accelerated Networking on an existing VM. The VM must meet the following requirements to support Accelerated Networking:
 
-- Be a supported size for Accelerated Networking.
-- Be a supported Azure Marketplace image and kernel version for Linux.
-- Be stopped or deallocated before you can enable Accelerated Networking on any NIC. This requirement applies to all individual VMs or VMs in an availability set or Azure Virtual Machine Scale Sets.
+- A supported size for Accelerated Networking.
+
+- A supported Azure Marketplace image and kernel version for Linux.
+
+- Stopped or deallocated before you can enable Accelerated Networking on any NIC. This requirement applies to all individual VMs or VMs in an availability set or Azure Virtual Machine Scale Sets.
 
 ### Enable Accelerated Networking on individual VMs or VMs in availability sets
 
@@ -332,7 +332,9 @@ Once you restart and the upgrades finish, the VF appears inside VMs that use a s
 You can resize VMs with Accelerated Networking enabled only to sizes that also support Accelerated Networking. You can't resize a VM with Accelerated Networking to a VM instance that doesn't support Accelerated Networking by using the resize operation. Instead, use the following process to resize these VMs:
 
 1. Stop and deallocate the VM or all the VMs in the availability set or Virtual Machine Scale Sets.
+
 1. Disable Accelerated Networking on the NIC of the VM or all the VMs in the availability set or Virtual Machine Scale Sets.
+
 1. Move the VM or VMs to a new size that doesn't support Accelerated Networking, and restart them.
 
 ## Manage Accelerated Networking through the portal
@@ -349,18 +351,25 @@ If the VM uses a [supported operating system](./accelerated-networking-overview.
 To enable or disable Accelerated Networking for an existing VM through the Azure portal:
 
 1. From the [Azure portal](https://portal.azure.com) page for the VM, select **Networking** from the left menu.
+
 1. On the **Networking** page, select the **Network Interface**.
+
 1. At the top of the NIC **Overview** page, select **Edit accelerated networking**.
+
 1. Select **Automatic**, **Enabled**, or **Disabled**, and then select **Save**.
 
 To confirm whether Accelerated Networking is enabled for an existing VM:
 
 1. From the portal page for the VM, select **Networking** from the left menu.
+
 1. On the **Networking** page, select the **Network Interface**.
+
 1. On the network interface **Overview** page, under **Essentials**, note whether **Accelerated networking** is set to **Enabled** or **Disabled**.
 
 ## Next steps
 
 - [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)
+
 - [Create a VM with Accelerated Networking by using PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
+
 - [Proximity placement groups](../virtual-machines/co-location.md)

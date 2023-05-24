@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022, build-2023
 ---
 
 # Set up a Python development environment for Azure Machine Learning (v1)
@@ -134,7 +134,7 @@ To use Visual Studio Code for development:
 Once you have the Visual Studio Code extension installed, use it to:
 
 * [Manage your Azure Machine Learning resources](../how-to-manage-resources-vscode.md)
-* [Connect to an Azure Machine Learning compute instance](../how-to-set-up-vs-code-remote.md)
+* [Launch Visual Studio Code remotely connected to a compute instance (preview)](../how-to-launch-vs-code-remote.md)
 * [Run and debug experiments](../how-to-debug-visual-studio-code.md)
 * [Deploy trained models](../tutorial-train-deploy-image-classification-model-vscode.md).
 
@@ -144,7 +144,7 @@ The Azure Machine Learning [compute instance](../concept-compute-instance.md) is
 
 There is nothing to install or configure for a compute instance.  
 
-Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](../quickstart-create-resources.md).
+Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](../quickstart-create-resources.md).
 
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
 
@@ -153,7 +153,7 @@ To learn more about compute instances, including how to install packages, see [C
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](../how-to-run-jupyter-notebooks.md).
 
-You can also use the Azure Machine Learning Visual Studio Code extension to [connect to a remote compute instance using VS Code](../how-to-set-up-vs-code-remote.md).
+You can also use the Azure Machine Learning Visual Studio Code extension to [connect to a remote compute instance using VS Code](../how-to-launch-vs-code-remote.md).
 
 ## Data Science Virtual Machine
 

@@ -233,7 +233,7 @@ Check the expiration date of your service principal credentials using the [`az a
 az ad app credential list --id <app-id> --query "[].endDateTime" -o tsv
 ```
 
-The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials](/update-credentials#reset-the-existing-service-principal-credentials) or [create a new service principal](/update-credentials#create-a-new-service-principal).
+The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials](update-credentials.md#reset-the-existing-service-principal-credentials) or [create a new service principal](update-credentials.md#create-a-new-service-principal).
 
 **General Azure CLI troubleshooting**
 
@@ -255,7 +255,7 @@ Check the expiration date of your service principal credentials using the [Get-A
 Get-AzADAppCredential -ApplicationId <ApplicationId> 
 ```
 
-The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials](/update-credentials#reset-the-existing-service-principal-credentials) or [create a new service principal](/update-credentials#create-a-new-service-principal).
+The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials](update-credentials.md#reset-the-existing-service-principal-credentials) or [create a new service principal](update-credentials.md#create-a-new-service-principal).
 
 ---
 

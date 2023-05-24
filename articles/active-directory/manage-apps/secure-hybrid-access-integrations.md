@@ -11,6 +11,8 @@ ms.workload: identity
 ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
+
 ---
 
 # Secure hybrid access with Azure Active Directory partner integrations

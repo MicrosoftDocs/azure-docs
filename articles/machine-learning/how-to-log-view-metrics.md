@@ -197,7 +197,7 @@ In general, files in MLflow are called artifacts. You can log artifacts in multi
 |Log all the artifacts in an existing folder | `mlflow.log_artifacts("path/to/folder")`| Folder structure is copied to the run, but the root folder indicated is not included. |
 
 > [!TIP]
-> When __loggiging large files__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the file is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_VALUE`.
+> When __loggiging large files__ with `log_artifact` or `log_model`, you may encounter time out errors before the upload of the file is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_TIMEOUT`. It's default value is `300` (seconds).
 
 ## Logging models
 

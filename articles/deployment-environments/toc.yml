@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is Azure Deployment Environments Preview?
+    - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
@@ -24,7 +24,7 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
-    - name: Components common to Deployment Environments & Dev Box
+    - name: Deployment Environments and Dev Box components 
       href: concept-common-components.md
 - name: How-to guides
   expanded: true
@@ -45,10 +45,19 @@ items:
       href: how-to-configure-deployment-environments-user.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
-    - name: Use Azure CLI devcenter extension
-      href: how-to-install-devcenter-cli-extension.md  
+    - name: Use Azure CLI dev center extension
+      href: how-to-install-devcenter-cli-extension.md
+    - name: Create and configure a dev center with the CLI
+      href: how-to-create-configure-dev-center.md
+    - name: Create and configure a project with the CLI
+      href: how-to-create-configure-projects.md
     - name: Create environments with the CLI
-      href: how-to-create-access-environments.md  
+      href: how-to-create-access-environments.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Deploy environments in CI/CD with GitHub
+      href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Reference
   items:
     - name: Azure CLI

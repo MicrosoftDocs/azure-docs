@@ -178,9 +178,46 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 ::: zone pivot="python-mode-decorators" 
 
-> [!NOTE]
-> Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) is not currently supported when trying out the Python V2 programming model with Durable Functions, so you will need to manage your extensions manually.
-> To do this, remove the `extensionBundle` section of your `host.json` as described [here](../functions-run-local.md#install-extensions) and run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow you to try out the new experience.
+## Requirements
+
+Version 2 of the Python programming model requires the following minimum versions:
+
+- [Azure Functions Runtime](../functions-versions.md) v4.16+
+- [Azure Functions Core Tools](../functions-run-local.md) v4.0.5095+ (if running locally)
+
+## Enable v2 programming model
+
+The following application setting is required to run the v2 programming model while it is in preview: 
+- Name: `AzureWebJobsFeatureFlags`
+- Value: `EnableWorkerIndexing`
+
+If you're running locally using [Azure Functions Core Tools](../functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
+
+# [Azure CLI](#tab/azure-cli-set-indexing-flag)
+
+Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
+
+```azurecli 
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --settings AzureWebJobsFeatureFlags=EnableWorkerIndexing
+```
+
+# [Azure PowerShell](#tab/azure-powershell-set-indexing-flag)
+
+Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
+
+```azurepowershell
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobsFeatureFlags" = "EnableWorkerIndexing"}
+```
+
+# [VS Code](#tab/vs-code-set-indexing-flag)
+
+1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed
+1. Press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+1. Choose your subscription and function app when prompted
+1. For the name, type `AzureWebJobsFeatureFlags` and press <kbd>Enter</kbd>. 
+1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
+
+---
 
 To create a basic Durable Functions app using these 3 function types, replace the contents of `function_app.py` with the following Python code.
 

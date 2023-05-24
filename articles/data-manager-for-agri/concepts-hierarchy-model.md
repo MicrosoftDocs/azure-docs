@@ -1,12 +1,12 @@
 ---
 title: Hierarchy model in Azure Data Manager for Agriculture 
 description: Provides information on the data model to organize your agriculture data. 
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Hierarchy model to organize agriculture related data

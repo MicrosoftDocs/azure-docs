@@ -33,6 +33,8 @@ landingContent:
             url: availability-zones-overview.md
           - text: Services and regions with availability zone support
             url: availability-zones-service-support.md
+          - text: Azure availability zone migration baseline
+            url: availability-zones-baseline.md
       - linkListType: how-to-guide
         links:
           - text: Migrate to availability zone support

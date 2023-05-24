@@ -13,9 +13,9 @@ ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 ---
 
-# Troubleshooting environment image builds using troubleshooting log error messages
+# Troubleshooting environment issues
 
-In this article, learn how to troubleshoot common problems you may encounter with environment image builds.
+In this article, learn how to troubleshoot common problems you may encounter with environment image builds and learn about AzureML environment vulnerabilities.
 
 We are actively seeking your feedback! If you navigated to this page via your Environment Definition or Build Failure Analysis logs, we'd like to know if the feature was helpful to you, or if you'd like to report a failure scenario that isn't yet covered by our analysis. You can also leave feedback on this documentation. Leave your thoughts [here](https://aka.ms/azureml/environment/log-analysis-feedback). 
 
@@ -54,9 +54,7 @@ Multiple environments with the same definition may result in the same cached ima
 
 Running a training script remotely requires the creation of a Docker image.
 
-### Reproducibility and vulnerabilities
-
-#### *Vulnerabilities*
+## Vulnerabilities in AzureML Environments
 
 You can address vulnerabilities by upgrading to a newer version of a dependency (base image, Python package, etc.) or by migrating to a different dependency that satisfies security
 requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
@@ -68,7 +66,13 @@ There are some ways to decrease the impact of vulnerabilities:
 - Compartmentalize your environment so you can scope and fix issues in one place.
 - Understand flagged vulnerabilities and their relevance to your scenario.
 
-#### *Vulnerabilities vs Reproducibility*
+### Scan for Vulnerabilities 
+
+You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
+
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+
+### Vulnerabilities vs Reproducibility
 
 Reproducibility is one of the foundations of software development. When you're developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
@@ -76,30 +80,68 @@ result. Mitigating vulnerabilities can disrupt reproducibility by changing depen
 Azure Machine Learning's primary focus is to guarantee reproducibility. Environments fall under three categories: curated,
 user-managed, and system-managed.
 
-**Curated environments** are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned.
+### *Curated Environments*
 
-They contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is.
-These pre-created environments also allow for faster deployment time.
+Curated environments are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned. New versions are released by Azure Machine Learning to address vulnerabilities. Whether you use the latest image may be a tradeoff between reproducibility and vulnerability management. 
 
-In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
+Curated Environments contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is. These pre-created environments also allow for faster deployment time.
+
+### *User-managed Environments*
+
+In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the
 compute target and for model deployment. These types of environments have two subtypes:
 
 - BYOC (bring your own container): the user provides a Docker image to Azure Machine Learning
 - Docker build context: Azure Machine Learning materializes the image from the user provided content
 
-Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
-management becomes your responsibility.
+Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability management becomes your responsibility.
 
-You use **system-managed environments** when you want conda to manage the Python environment for you. Azure Machine Learning creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
+### *System-managed Environments* 
+
+You use system-managed environments when you want conda to manage the Python environment for you. Azure Machine Learning creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
 latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
 for your jobs or model deployments while using system-managed environments.
 
+### Vulnerabilities: Common Issues 
+
+### *Vulnerabilities in Base Docker Images* 
+
+System vulnerabilities in an environment are usually introduced from the base image. For example, vulnerabilities marked as "Ubuntu" or "Debian" are from the system level of the environment–the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in Azure Machine Learning are:
+
+- Microsoft Artifact Registry (MAR) aka Microsoft Container Registry (mcr.microsoft.com). 
+	- Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)_
+	- Source and release notes for training base images from AzureML can be found in [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers)
+- Nvidia (nvcr.io, or [nvidia's Profile](https://hub.docker.com/u/nvidia/#!))
+
+If the latest version of your base image does not resolve your vulnerabilities, base image vulnerabilities can be addressed by installing versions recommended by a vulnerability scan:
+
+```
+apt-get install -y library_name
+```
+
+### *Vulnerabilities in Python Packages* 
+
+Vulnerabilities can also be from installed Python packages on top of the system-managed base image. These Python-related vulnerabilities should be resolved by updating your Python dependencies. Python (pip) vulnerabilities in the image usually come from user-defined dependencies.
+
+To search for known Python vulnerabilities and solutions please see [GitHub Advisory Database](https://github.com/advisories). To address Python vulnerabilities, update the package to the version that has fixes for the flagged issue:
+
+```
+pip install -u my_package=={good.version}
+```
+
+If you're using a conda environment, update the reference in the conda dependencies file.
+
+In some cases, Python packages will be automatically installed during conda's setup of your environment on top of a base Docker image. Mitigation steps for those are the same as those for user-introduced packages. Conda installs necessary dependencies for every environment it materializes. Packages like cryptography, setuptools, wheel, etc. will be automatically installed from conda's default channels. There's a known issue with the default anaconda channel missing latest package versions, so it's recommended to prioritize the community-maintained conda-forge channel. Otherwise, please explicitly specify packages and versions, even if you don't reference them in the code you plan to execute on that environment.
+
+### *Cache issues* 
+
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's a cache for container images. Any image
 materialized is pushed to the container registry and used if you trigger experimentation or deployment for the corresponding environment. Azure
-Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. You
-can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
-to help scan images for vulnerabilities. To
-automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. 
+
+## Troubleshooting environment image builds
+
+Learn how to troubleshoot issues with environment image builds and package installations.
 
 ## **Environment definition problems**
 
@@ -1351,7 +1393,7 @@ Ensure that you've spelled all listed packages correctly and that you've pinned 
 
 ### Missing command
 <!--issueDescription-->
-This issue can happen when a command isn't recognized during an image build.
+This issue can happen when a command isn't recognized during an image build or in the specified Python package requirement.
 
 **Potential causes:**
 * You didn't spell the command correctly
@@ -1738,6 +1780,65 @@ pip install --ignore-installed [package]
 
 Try creating a separate environment using conda
 
+### Invalid operator
+<!--issueDescription-->
+This issue can happen when pip fails to install a Python package due to an invalid operator found in the requirement.
+
+**Potential causes:**
+* There's an invalid operator found in the Python package requirement
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the package correctly and that the specified version exists
+* Ensure that your package version specifier is formatted correctly and that you're using valid comparison operators. See [Version specifiers](https://peps.python.org/pep-0440/#version-specifiers)
+* Replace the invalid operator with the operator recommended in the error message
+
+### No matching distribution 
+<!--issueDescription-->
+This issue can happen when there's no package found that matches the version you specified.
+
+**Potential causes:**
+* You spelled the package name incorrectly
+* The package and version can't be found on the channels or feeds that you specified
+* The version you specified doesn't exist
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the package correctly and that it exists
+* Ensure that the version you specified for the package exists
+* Run `pip install --upgrade pip` and then run the original command again
+* Ensure the pip you're using can install packages for the desired Python version. See [Should I use pip or pip3?](https://stackoverflow.com/questions/61664673/should-i-use-pip-or-pip3)
+
+**Resources**
+* [Running Pip](https://pip.pypa.io/en/stable/user_guide/#running-pip)
+* [pypi](https://aka.ms/azureml/environment/pypi)
+* [Installing Python Modules](https://docs.python.org/3/installing/index.html)
+
+### Invalid wheel filename
+<!--issueDescription-->
+This issue can happen when you've specified a wheel file incorrectly.
+
+**Potential causes:**
+* You spelled the wheel filename incorrectly or used improper formatting
+* The wheel file you specified can't be found
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the filename correctly and that it exists
+* Ensure that you're following the [format for wheel filenames](https://peps.python.org/pep-0491/#file-format)
+
 ## *Make issues*
 ### No targets specified and no makefile found
 <!--issueDescription-->
@@ -1786,6 +1887,34 @@ This issue can happen when Docker fails to find and copy a file.
 **Resources**
 * [Docker COPY](https://docs.docker.com/engine/reference/builder/#copy)
 * [Docker Build Context](https://docs.docker.com/engine/context/working-with-contexts/)
+
+## *Apt-Get Issues*
+### Failed to run apt-get command
+<!--issueDescription-->
+This issue can happen when apt-get fails to run.
+
+**Potential causes:**
+* Network connection issue, which could be temporary
+* Broken dependencies related to the package you're running apt-get on
+* You don't have the correct permissions to use the apt-get command
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Check your network connection and DNS settings
+* Run `apt-get check` to check for broken dependencies
+* Run `apt-get update` and then run your original command again
+* Run the command with the `-f` flag, which will try to resolve the issue coming from the broken dependencies
+* Run the command with `sudo` permissions, such as `sudo apt-get install <package-name>`
+
+**Resources**
+* [Package management with APT](https://help.ubuntu.com/community/AptGet/Howto)
+* [Ubuntu Apt-Get](https://manpages.ubuntu.com/manpages/xenial/man8/apt-get.8.html)
+* [What to do when apt-get fails](https://www.linux.com/news/what-do-when-apt-get-fails/#:~:text=Check%20the%20broken%20dependencies%E2%80%99%20availability.%20Run%20apt-get%20update,adding%20another%20source%2C%20then%20run%20apt-get%20install%20again)
+* [apt-get command in Linux with Examples](https://www.geeksforgeeks.org/apt-get-command-in-linux-with-examples/)
 
 ## *Docker push issues*
 ### Failed to store Docker image
@@ -1838,6 +1967,28 @@ This issue can happen when Docker doesn't recognize an instruction in the Docker
 **Resources**
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 
+## *Command Not Found*
+### Command not recognized
+<!--issueDescription-->
+This issue can happen when the command being run isn't recognized.
+
+**Potential causes:**
+* You haven't installed the command via your Dockerfile before you try to execute the command
+* You haven't included the command in your path, or you haven't added it to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+Ensure that you have an installation step for the command in your Dockerfile before trying to execute the command
+* Review this [example](https://stackoverflow.com/questions/67186341/make-install-in-dockerfile)
+
+If you've tried installing the command and are experiencing this issue, ensure that you've added the command to your path 
+* Review this [example](https://stackoverflow.com/questions/27093612/in-a-dockerfile-how-to-update-path-environment-variable)
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
+
 ## *Miscellaneous build issues*
 ### Build log unavailable
 <!--issueDescription-->
@@ -1855,3 +2006,23 @@ This issue can happen when Docker doesn't recognize an instruction in the Docker
 **Troubleshooting steps**
 
 A rebuild may fix the issue if it's transient
+
+### Image not found
+<!--issueDescription-->
+This issue can happen when the base image you specified can't be found.
+
+**Potential causes:**
+* You specified the image incorrectly
+* The image you specified doesn't exist in the registry you specified
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that the base image is spelled and formatted correctly
+* Ensure that the base image you're using exists in the registry you specified
+
+**Resources**
+* [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers)

@@ -5,6 +5,7 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: 'rotation'
+ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to

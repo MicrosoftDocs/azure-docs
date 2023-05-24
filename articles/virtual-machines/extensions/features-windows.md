@@ -307,7 +307,7 @@ The extension-handling code is responsible for the following tasks:
 - Communicate with the Azure fabric.
 - Handle the VM extension operations, such as installations, reporting status, updating the individual extensions, and removing extensions. Updates contain security fixes, bug fixes, and enhancements to the extension-handling code.
 
-To check what version you're running, see [Detect the Azure VM Agent](agent-windows.md#detect-the-vm-agent).
+To check what version you're running, see [Detect the Azure VM Agent](agent-windows.md#detect-the-azure-windows-vm-agent).
 
 #### Extension updates
 

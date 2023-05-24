@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
@@ -25,12 +25,12 @@ In this quickstart, you use the Azure CLI to provision an instance of the Azure 
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). The Azure Spring Apps service supports .NET Core 3.1 and later versions.
-- [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 
 ## Install Azure CLI extension
 
-Verify that your Azure CLI version is 2.0.67 or later:
+Verify that your Azure CLI version is 2.45.0 or later:
 
 ```azurecli
 az --version
@@ -39,7 +39,7 @@ az --version
 Install the Azure Spring Apps extension for the Azure CLI using the following command:
 
 ```azurecli
-az extension add --name spring
+az extension add --upgrade --name spring
 ```
 
 ## Sign in to Azure
@@ -83,7 +83,7 @@ az extension add --name spring
    ```
 
    ```azurecli
-   az config set defaults.spring-cloud=<service instance name>
+   az config set defaults.spring=<service instance name>
    ```
 
 ::: zone-end
@@ -164,7 +164,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Set your default resource group name and Spring Cloud service name using the following command:
 
    ```azurecli
-   az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
+   az config set defaults.group=<resource group name> defaults.spring=<service name>
    ```
 
 ---

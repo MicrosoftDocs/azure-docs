@@ -1,12 +1,12 @@
 ---
-title: What is Microsoft Azure Data Manager for Energy Preview? #Required; page title is displayed in search results. Include the brand.
-description: This article provides an overview of Azure Data Manager for Energy Preview #Required; article description that is displayed in search results. 
-author: ksharmagit #Required; your GitHub user alias, with correct capitalization.
+title: What is Microsoft Azure Data Manager for Energy Preview?
+description: This article provides an overview of Azure Data Manager for Energy Preview
+author: ksharmagit
 ms.service: energy-data-services
-ms.author: kapilsharma  #Required; microsoft alias of author; optional team alias.
-ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: 02/08/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+ms.author: kapilsharma
+ms.topic: overview
+ms.date: 02/08/2023
+ms.custom: template-overview
 ---
 # What is Azure Data Manager for Energy Preview?
 

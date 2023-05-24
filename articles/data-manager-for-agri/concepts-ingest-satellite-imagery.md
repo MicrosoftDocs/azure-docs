@@ -1,12 +1,12 @@
 ---
 title: Ingesting satellite data in Azure Data Manager for Agriculture
 description: Provides step by step guidance to ingest Satellite data
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Using satellite imagery in Azure Data Manager for Agriculture 

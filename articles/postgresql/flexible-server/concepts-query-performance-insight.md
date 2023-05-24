@@ -9,16 +9,19 @@ ms.author: varundhawan
 ms.date: 4/1/2023
 ---
 
-# Query Performance Insight (Preview)
+# Query Performance Insight Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+> [!NOTE]
+> Query Performance Insight for PostgreSQL Flexible Server is currently in preview.
 
 Query Performance Insight provides intelligent query analysis for Azure Postgres Flexible server databases. It helps identify the top resource consuming and long-running queries in your workload. This helps you find the queries to optimize to improve overall workload performance and efficiently use the resource that you are paying for. Query Performance Insight helps you spend less time troubleshooting database performance by providing:
 
 >[!div class="checklist"]
 > * Identify what your long running queries, and how they change over time.
 > * Determine the wait types affecting those queries.
-> * Details on top database queries by Calls (execution count ), by data-usage, by IOPS and by Temporary file usage (potential tuning candidates for performance improvements).
+> * Details on top database queries by Calls (execution count), by data-usage, by IOPS and by Temporary file usage (potential tuning candidates for performance improvements).
 > * The ability to drill down into details of a query, to view the Query ID and history of resource utilization.
 > * Deeper insight into overall databases resource consumption.
 
@@ -37,7 +40,7 @@ Query Performance Insight provides intelligent query analysis for Azure Postgres
 3. **[Log analytics workspace](howto-configure-and-access-logs.md)** is configured for storing 3 log categories including - PostgreSQL Sessions logs, PostgreSQL Query Store and Runtime and PostgreSQL Query Store Wait Statistics. To configure log analytics, refer [Log analytics workspace](howto-configure-and-access-logs.md#configure-diagnostic-settings).
 
 > [!NOTE]
-> The **Query Store data is not being transmitted to the log analytics workspace**. The PostgreSQL logs (Sessions data / Query Store Runtime / Query Store Wait Statistics) is not being sent to the log analytics workspace, which is necessary to use Query Performance Insight . To configure the logging settings for category PostgreSQL sessions and send the data to a log analytics workspace.
+> The **Query Store data is not being transmitted to the log analytics workspace**. The PostgreSQL logs (Sessions data / Query Store Runtime / Query Store Wait Statistics) is not being sent to the log analytics workspace, which is necessary to use Query Performance Insight. To configure the logging settings for category PostgreSQL sessions and send the data to a log analytics workspace.
 
 ## Using Query Performance Insight
 

@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Database for PostgreSQL with Service Connector
 description: Integrate Azure Database for PostgreSQL into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 11/29/2022

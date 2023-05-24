@@ -10,12 +10,14 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace
+# Tutorial: How to create a secure workspace
 
-In this article, learn how to create and connect to a secure Azure Machine Learning workspace. A secure workspace uses Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+In this article, learn how to create and connect to a secure Azure Machine Learning workspace. The steps in this article use an Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
+
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 In this tutorial, you accomplish the following tasks:
 
@@ -265,9 +267,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-machine-learning-workspace.png" alt-text="Basic workspace configuration":::
 
-1. From the __Networking__ tab, select __Private endpoint__ and then select __+ add__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-networking.png" alt-text="Workspace networking":::
+1. From the __Networking__ tab, select __Private with Internet Outbound__. In the __Workspace inbound access__ section, select __+ add__.
 
 1. On the __Create private endpoint__ form, use the following values: 
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -284,6 +284,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-workspace-private-endpoint.png" alt-text="Screenshot of workspace private network config":::
 
+1. From the __Networking__ tab, in the __Workspace outbound access__ section, select __Use my own virtual network__.
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. Once the workspace has been created, select __Go to resource__.
 1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:

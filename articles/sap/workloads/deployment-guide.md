@@ -76,7 +76,7 @@ ms.author: sedusch
 [dbms-guide-2.1]:dbms-guide-general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
 [dbms-guide-2.2]:dbms-guide-general.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
 [dbms-guide-2.3]:dbms-guide-general.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
-[dbms-guide-2]:dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure of a RDBMS deployment)
+[dbms-guide-2]:dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure of an RDBMS deployment)
 [dbms-guide-3]:dbms-guide-general.md#871dfc27-e509-4222-9370-ab1de77021c3 (High availability and disaster recovery with Azure VMs)
 [dbms-guide-5.5.1]:dbms-guide-general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 and later)
 [dbms-guide-5.5.2]:dbms-guide-general.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 and earlier releases)
@@ -84,7 +84,6 @@ ms.author: sedusch
 [dbms-guide-5.8]:dbms-guide-general.md#9053f720-6f3b-4483-904d-15dc54141e30 (General SQL Server for SAP on Azure summary)
 [dbms-guide-5]:dbms-guide-general.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics to SQL Server RDBMS)
 [dbms-guide-8.4.1]:dbms-guide-general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Storage configuration)
-[dbms-guide-8.4.2]:dbms-guide-general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Backup and restore)
 [dbms-guide-8.4.3]:dbms-guide-general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Performance considerations for backup and restore)
 [dbms-guide-8.4.4]:dbms-guide-general.md#f77c1436-9ad8-44fb-a331-8671342de818 (Other)
 [dbms-guide-900-sap-cache-server-on-premises]:dbms-guide-general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
@@ -151,9 +150,9 @@ ms.author: sedusch
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting)
 
-[deploy-template-cli]:../../../resource-group-template-deploy-cli.md
-[deploy-template-portal]:../../../resource-group-template-deploy-portal.md
-[deploy-template-powershell]:../../../resource-group-template-deploy.md
+[deploy-template-cli]:../../resource-group-template-deploy-cli.md
+[deploy-template-portal]:../../resource-group-template-deploy-portal.md
+[deploy-template-powershell]:../../resource-group-template-deploy.md
 
 [dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -178,56 +177,9 @@ ms.author: sedusch
 
 [msdn-set-Azvmaemextension]:/powershell/module/az.compute/set-azvmaemextension
 
-[planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP)
-[planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
-[planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High availability and disaster recovery for SAP NetWeaver running on Azure Virtual Machines)
-[planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High availability for SAP Application Servers)
-[planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Using Autostart for SAP instances)
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-only - Virtual Machine deployments in Azure without dependencies on the on-premises customer network)
-[planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-premises - Deployment of single or multiple SAP VMs in Azure fully integrated with the on-premises network)
-[planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure regions)
-[planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Fault domains)
-[planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Upgrade domains)
-[planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure availability sets)
-[planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Microsoft Azure virtual machines concept)
-[planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Moving a VM from on-premises to Azure with a non-generalized disk)
-[planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Deploying a VM with a customer specific image)
-[planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparation for moving a VM from on-premises to Azure with a non-generalized disk)
-[planning-guide-5.2.2]:planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Preparation for deploying a VM with a customer specific image for SAP)
-[planning-guide-5.2]:planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Preparing VMs with SAP for Azure)
-[planning-guide-5.3.1]:planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Difference between an Azure disk and an Azure image)
-[planning-guide-5.3.2]:planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Uploading a VHD from on-premises to Azure)
-[planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copying disks between Azure Storage accounts)
-[planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (VM/VHD structure for SAP deployments)
-[planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Setting automount for attached disks)
-[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Monitoring Solution for SAP)
-[planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
-[planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
-[planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
-[planning-guide-figure-1600]:media/virtual-machines-shared-sap-planning-guide/1600-firewall-port-rule.png
-[planning-guide-figure-1700]:media/virtual-machines-shared-sap-planning-guide/1700-single-vm-demo.png
-[planning-guide-figure-1900]:media/virtual-machines-shared-sap-planning-guide/1900-vm-set-vnet.png
-[planning-guide-figure-200]:media/virtual-machines-shared-sap-planning-guide/200-multiple-vms-in-azure.png
-[planning-guide-figure-2100]:media/virtual-machines-shared-sap-planning-guide/2100-s2s.png
-[planning-guide-figure-2200]:media/virtual-machines-shared-sap-planning-guide/2200-network-printing.png
-[planning-guide-figure-2300]:media/virtual-machines-shared-sap-planning-guide/2300-sapgui-stms.png
-[planning-guide-figure-2400]:media/virtual-machines-shared-sap-planning-guide/2400-vm-extension-overview.png
-[planning-guide-figure-2500]:media/virtual-machines-shared-sap-planning-guide/2500-vm-extension-details.png
-[planning-guide-figure-2600]:media/virtual-machines-shared-sap-planning-guide/2600-sap-router-connection.png
-[planning-guide-figure-2700]:media/virtual-machines-shared-sap-planning-guide/2700-exposed-sap-portal.png
-[planning-guide-figure-2800]:media/virtual-machines-shared-sap-planning-guide/2800-endpoint-config.png
-[planning-guide-figure-2900]:media/virtual-machines-shared-sap-planning-guide/2900-azure-ha-sap-ha.png
-[planning-guide-figure-300]:media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png
-[planning-guide-figure-3000]:media/virtual-machines-shared-sap-planning-guide/3000-sap-ha-on-azure.png
-[planning-guide-figure-3200]:media/virtual-machines-shared-sap-planning-guide/3200-sap-ha-with-sql.png
-[planning-guide-figure-400]:media/virtual-machines-shared-sap-planning-guide/400-vm-services.png
-[planning-guide-figure-600]:media/virtual-machines-shared-sap-planning-guide/600-s2s-details.png
-[planning-guide-figure-700]:media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
-[planning-guide-figure-800]:media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
-[planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure networking)
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and data disks)
+[planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP NetWeaver)
 
-[resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
+[resource-group-authoring-templates]:../../resource-group-authoring-templates.md
 [resource-group-overview]:../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../networking/network-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
@@ -307,15 +259,11 @@ ms.author: sedusch
 [howto-assign-access-powershell]:../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md
 [howto-assign-access-cli]:../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
 Azure Virtual Machines is the solution for organizations that need compute and storage resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classical applications, like SAP NetWeaver-based applications, in Azure. Extend an application's reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
 
-In this article, we cover the steps to deploy SAP applications on virtual machines (VMs) in Azure, including alternate deployment options and troubleshooting. This article builds on the information in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]. It also complements SAP installation documentation and SAP Notes, which are the primary resources for installing and deploying SAP software.
+In this article, we cover the steps to deploy SAP applications on virtual machines (VMs) in Azure, including alternate deployment options and troubleshooting. This article builds on the information in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md). It also complements SAP installation documentation and SAP Notes, which are the primary resources for installing and deploying SAP software.
 
 ## Prerequisites
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Setting up an Azure virtual machine for SAP software deployment involves multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on virtual machines in Azure.
 
@@ -424,10 +372,10 @@ The wizard guides you through setting the required parameters to create the virt
    * **Username and password** or **SSH public key**: Enter the username and password of the user that is created during the provisioning. For a Linux virtual machine, you can enter the public Secure Shell (SSH) key that you use to sign in to the machine.
    * **Subscription**: Select the subscription that you want to use to provision the new virtual machine.
    * **Resource group**: The name of the resource group for the VM. You can enter either the name of a new resource group or the name of a resource group that already exists.
-   * **Location**: Where to deploy the new virtual machine. If you want to connect the virtual machine to your on-premises network, make sure you select the location of the virtual network that connects Azure to your on-premises network. For more information, see [Microsoft Azure networking][planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+   * **Location**: Where to deploy the new virtual machine. If you want to connect the virtual machine to your on-premises network, make sure you select the location of the virtual network that connects Azure to your on-premises network. For more information, see [Microsoft Azure networking](planning-guide.md#azure-networking).
 1. **Size**:
 
-   For a list of supported VM types, see SAP Note [1928533]. Be sure you select the correct VM type if you want to use Azure Premium Storage. Not all VM types support Premium Storage. For more information, see [Storage: Microsoft Azure Storage and data disks][planning-guide-storage-microsoft-azure-storage-and-data-disks] and [Azure storage for SAP workloads](./planning-guide-storage.md) in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+   For a list of supported VM types, see SAP Note [1928533]. Be sure you select the correct VM type if you want to use Azure Premium Storage. Not all VM types support Premium Storage. For more information, see [Azure storage for SAP workloads](./planning-guide-storage.md).
 
 1. **Settings**:
    * **Storage**
@@ -439,7 +387,7 @@ The wizard guides you through setting the required parameters to create the virt
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
      * **Network security group**: For more information, see [Control network traffic flow with network security groups][virtual-networks-nsg].
    * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extensions in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Extension for SAP][deployment-guide-4.5] in this guide.
-   * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets][planning-guide-3.2.3].
+   * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets](planning-guide.md#availability-sets).
    * **Monitoring**
      * **Boot diagnostics**: You can select **Disable** for boot diagnostics.
      * **Guest OS diagnostics**: You can select **Disable** for monitoring diagnostics.
@@ -561,10 +509,10 @@ The wizard guides you through setting the required parameters to create the virt
    * **Username and password** or **SSH public key**: Enter the username and password of the user that is created during the provisioning. For a Linux virtual machine, you can enter the public Secure Shell (SSH) key that you use to sign in to the machine.
    * **Subscription**: Select the subscription that you want to use to provision the new virtual machine.
    * **Resource group**: The name of the resource group for the VM. You can enter either the name of a new resource group or the name of a resource group that already exists.
-   * **Location**: Where to deploy the new virtual machine. If you want to connect the virtual machine to your on-premises network, make sure you select the location of the virtual network that connects Azure to your on-premises network. For more information, see [Microsoft Azure networking][planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+   * **Location**: Where to deploy the new virtual machine. If you want to connect the virtual machine to your on-premises network, make sure you select the location of the virtual network that connects Azure to your on-premises network. For more information, see [Microsoft Azure networking](./planning-guide.md#azure-networking) in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
 1. **Size**:
 
-   For a list of supported VM types, see SAP Note [1928533]. Be sure you select the correct VM type if you want to use Azure Premium Storage. Not all VM types support Premium Storage. For more information, see [Storage: Microsoft Azure Storage and data disks][planning-guide-storage-microsoft-azure-storage-and-data-disks] and [Azure storage for SAP workloads](./planning-guide-storage.md) in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+   For a list of supported VM types, see SAP Note [1928533]. Be sure you select the correct VM type if you want to use Azure Premium Storage. Not all VM types support Premium Storage. For more information, see [Azure storage for SAP workloads](./planning-guide-storage.md).
 
 1. **Settings**:
    * **Storage**
@@ -575,7 +523,7 @@ The wizard guides you through setting the required parameters to create the virt
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
      * **Network security group**: For more information, see [Control network traffic flow with network security groups][virtual-networks-nsg].
    * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extension in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Extension for SAP][deployment-guide-4.5] in this guide.
-   * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets][planning-guide-3.2.3].
+   * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets](./planning-guide.md#availability-sets).
    * **Monitoring**
      * **Boot diagnostics**: You can select **Disable** for boot diagnostics.
      * **Guest OS diagnostics**: You can select **Disable** for monitoring diagnostics.

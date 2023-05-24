@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the internet from the back-end subnet isn't permitted. After running the script, you have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-InstalledModule -Name Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-InstalledModule -Name Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

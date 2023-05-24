@@ -83,6 +83,13 @@
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
   - name: End to End Demo
     href: https://woodgroveemployee.azurewebsites.net/
+- name: Architecture and Deployment
+  expanded: true
+  items:
+  - name: Remote onboarding
+    href: remote-onboarding-new-employees-id-verification.md
+  - name: LinkedIn employment verification
+    href: linkedin-employment-verification.md
 - name: Reference
   expanded: true
   items:

@@ -6,7 +6,7 @@ ms.author: mijacobs
 ms.date: 06/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create and deploy Azure Functions resources using Bicep

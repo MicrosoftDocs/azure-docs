@@ -68,7 +68,7 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 All metrics that you send by using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. Although the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../usage-estimated-costs.md#usage-and-estimated-costs) tab by selecting the **Enable alerting on custom metric dimensions** checkbox.
 
-![Screenshot that shows usage and estimated costs.](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
+:::image type="content" source="./media/pre-aggregated-metrics-log-metrics/001-cost.png" lightbox="./media/pre-aggregated-metrics-log-metrics/001-cost.png" alt-text="Screenshot that shows usage and estimated costs.":::
 
 ## Quotas
 
@@ -85,7 +85,7 @@ The collection of custom metrics dimensions is turned off by default because in 
 
 Use [Azure Monitor metrics explorer](../essentials/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics and to author dashboards with charts. After you select the Application Insights resource you want, use the namespace picker to switch between standard (preview) and log-based metrics. You can also select a custom metric namespace.
 
-![Screenshot that shows Metric namespace.](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
+:::image type="content" source="./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png" lightbox="./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png" alt-text="Screenshot that shows Metric namespace.":::
 
 ## Pricing models for Application Insights metrics
 

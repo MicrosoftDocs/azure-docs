@@ -8,7 +8,7 @@ metadata:
   description: Learn how to use u to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
   ms.service: key-vault
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin

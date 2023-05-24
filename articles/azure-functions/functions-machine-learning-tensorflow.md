@@ -59,13 +59,7 @@ Navigate to the *start* folder and run the following commands to create and acti
 
 ```bash
 cd start
-```
-
-```bash
 python -m venv .venv
-```
-
-```bash
 source .venv/bin/activate
 ```
 
@@ -79,13 +73,7 @@ sudo apt-get install python3-venv
 
 ```powershell
 cd start
-```
-
-```powershell
 py -3.7 -m venv .venv
-```
-
-```powershell
 .venv\scripts\activate
 ```
 
@@ -93,13 +81,7 @@ py -3.7 -m venv .venv
 
 ```cmd
 cd start
-```
-
-```cmd
 py -3.7 -m venv .venv
-```
-
-```cmd
 .venv\scripts\activate
 ```
 

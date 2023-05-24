@@ -3,8 +3,8 @@ title: Find error codes
 description: Describes how to find error codes to troubleshoot Azure resources deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.date: 04/05/2023
-ms.custom: devx-track-azurepowershell
 ---
 
 # Find error codes

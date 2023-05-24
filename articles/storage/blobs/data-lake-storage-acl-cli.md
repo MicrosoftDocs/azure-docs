@@ -3,13 +3,13 @@ title: Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
 description: Use the Azure CLI to manage access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
-author: jimmart-dev
+author: normesta
 
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.author: jammart
+ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli

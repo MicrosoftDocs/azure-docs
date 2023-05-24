@@ -1,24 +1,30 @@
 ---
-title: Hot, cool, and archive access tiers for blob data
+title: Access tiers for blob data
 titleSuffix: Azure Storage
-description: Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Learn about the hot, cool, and archive access tiers for Blob Storage.
+description: Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Learn about the hot, cool, cold, and archive access tiers for Blob Storage.
 author: normesta
 
 ms.author: normesta
-ms.date: 09/23/2022
+ms.date: 05/02/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
 
-# Hot, cool, and archive access tiers for blob data
+# Access tiers for blob data
 
 Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it can be helpful to organize your data based on how frequently it will be accessed and how long it will be retained. Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. Azure Storage access tiers include:
 
 - **Hot tier** - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs, but the lowest access costs.
-- **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
+- **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of **30** days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
+- **Cold tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
+
+> [!IMPORTANT]
+> The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To enroll, see [Cold tier (preview)](#cold-tier-preview).
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
@@ -27,30 +33,30 @@ Azure storage capacity limits are set at the account level, rather than accordin
 
 ## Online access tiers
 
-When your data is stored in an online access tier (either hot or cool), users can access it immediately. The hot tier is the best choice for data that is in active use. The cool tier is ideal for data that is accessed less frequently, but that still must be available for reading and writing.
+When your data is stored in an online access tier (either hot, cool or cold), users can access it immediately. The hot tier is the best choice for data that is in active use. The cool or cold tier is ideal for data that is accessed less frequently, but that still must be available for reading and writing.
 
 Example usage scenarios for the hot tier include:
 
 - Data that's in active use or data that you expect will require frequent reads and writes.
 - Data that's staged for processing and eventual migration to the cool access tier.
 
-Usage scenarios for the cool access tier include:
+Usage scenarios for the cool and cold access tiers include:
 
 - Short-term data backup and disaster recovery.
 - Older data sets that aren't used frequently, but are expected to be available for immediate access.
 - Large data sets that need to be stored in a cost-effective way while other data is being gathered for processing.
 
-To learn how to move a blob to the hot or cool tier, see [Set a blob's access tier](access-tiers-online-manage.md).
+To learn how to move a blob to the hot, cool, or cold tier, see [Set a blob's access tier](access-tiers-online-manage.md).
 
-Data in the cool tier has slightly lower availability, but offers the same high durability, retrieval latency, and throughput characteristics as the hot tier. For data in the cool tier, slightly lower availability and higher access costs may be acceptable trade-offs for lower overall storage costs, as compared to the hot tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
+Data in the cool and cold tiers have slightly lower availability, but offer the same high durability, retrieval latency, and throughput characteristics as the hot tier. For data in the cool or cold tiers, slightly lower availability and higher access costs may be acceptable trade-offs for lower overall storage costs, as compared to the hot tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-A blob in the cool tier in a general-purpose v2 account is subject to an early deletion penalty if it's deleted or moved to a different tier before 30 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
+A blob in the cool tier in a general-purpose v2 account is subject to an early deletion penalty if it's deleted or moved to a different tier before 30 days has elapsed. For a blob in the cold tier, the deletion penalty applies if it's deleted or moved to a different tier before 90 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
 
-The hot and cool tiers support all redundancy configurations. For more information about data redundancy options in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
+The hot, cool, and cold tiers support all redundancy configurations. For more information about data redundancy options in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 ## Archive access tier
 
-The archive tier is an offline tier for storing data that is rarely accessed. The archive access tier has the lowest storage cost. However, this tier has higher data retrieval costs with a higher latency as compared to the hot and cool tiers. Example usage scenarios for the archive access tier include:
+The archive tier is an offline tier for storing data that is rarely accessed. The archive access tier has the lowest storage cost. However, this tier has higher data retrieval costs with a higher latency as compared to the hot, cool, and cold tiers. Example usage scenarios for the archive access tier include:
 
 - Long-term backup, secondary backup, and archival datasets
 - Original (raw) data that must be preserved, even after it has been processed into final usable form
@@ -60,7 +66,7 @@ To learn how to move a blob to the archive tier, see [Archive a blob](archive-bl
 
 Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. For example, if a blob is moved to the archive tier and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in the archive tier.
 
-While a blob is in the archive tier, it can't be read or modified. To read or download a blob in the archive tier, you must first rehydrate it to an online tier, either hot or cool. Data in the archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
+While a blob is in the archive tier, it can't be read or modified. To read or download a blob in the archive tier, you must first rehydrate it to an online tier, either hot, cool, or cold. Data in the archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 An archived blob's metadata remains available for read access, so that you can list the blob and its properties, metadata, and index tags. Metadata for a blob in the archive tier is read-only, while blob index tags can be read or written. Storage costs for metadata of archived blobs will be charged on Cool tier rates.
 Snapshots aren't supported for archived blobs.
@@ -80,7 +86,7 @@ The following operations are supported for blobs in the archive tier:
 
 Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving blobs to the archive tier. The archive tier isn't supported for ZRS, GZRS, or RA-GZRS accounts. For more information about redundancy configurations for Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
-To change the redundancy configuration for a storage account that contains blobs in the archive tier, you must first rehydrate all archived blobs to the hot or cool tier. Because rehydration operations can be costly and time-consuming, Microsoft recommends that you avoid changing the redundancy configuration of a storage account that contains archived blobs.
+To change the redundancy configuration for a storage account that contains blobs in the archive tier, you must first rehydrate all archived blobs to the hot, cool, or cold tier. Because rehydration operations can be costly and time-consuming, Microsoft recommends that you avoid changing the redundancy configuration of a storage account that contains archived blobs.
 
 Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
 
@@ -92,12 +98,12 @@ The default access tier for a new general-purpose v2 storage account is set to t
 
 A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
 
-Changing the default access tier setting for a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. If you toggle the default access tier setting from hot to cool in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account.
+Changing the default access tier setting for a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. If you toggle the default access tier setting to a cooler tier in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a general-purpose v2 account.
 
-When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. There's no charge for changing the default account access tier setting from hot to cool in a legacy Blob Storage account. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
+When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. There's no charge for changing the default account access tier setting to a cooler tier in a legacy Blob Storage account. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
 
 > [!NOTE]
-> The archive tier is not supported as the default access tier for a storage account.
+> The cold tier and the archive tier are not supported as the default access tier for a storage account.
 
 ## Setting or changing a blob's tier
 
@@ -105,46 +111,42 @@ To explicitly set a blob's tier when you create it, specify the tier when you up
 
 After a blob is created, you can change its tier in either of the following ways:
 
-- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you're changing a blob's tier from a hotter tier to a cooler one. 
-- By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you're rehydrating a blob from the archive tier to an online tier, or moving a blob from cool to hot. By copying a blob, you can avoid the early deletion penalty, if the required storage interval for the source blob hasn't yet elapsed. However, copying a blob results in capacity charges for two blobs, the source blob and the destination blob.
+- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you're changing a blob's tier from a warmer tier to a cooler one.
 
-Changing a blob's tier from hot to cool or archive is instantaneous, as is changing from cool to hot. Rehydrating a blob from the archive tier to either the hot or cool tier can take up to 15 hours.
+  > [!NOTE]
+  > You can't rehydrate an archived blob to an online tier by using lifecycle management policies.
+ 
+- By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you're rehydrating a blob from the archive tier to an online tier, or moving a blob from cool or cold to hot. By copying a blob, you can avoid the early deletion penalty, if the required storage interval for the source blob hasn't yet elapsed. However, copying a blob results in capacity charges for two blobs, the source blob and the destination blob.
+
+Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as is changing from cold or cool to hot. Rehydrating a blob from the archive tier to an online tier such as the hot, cool, or cold tier can take up to 15 hours.
 
 Keep in mind the following points when changing a blob's tier:
 
 - You can't call **Set Blob Tier** on a blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
 - If a blob's tier is inferred as cool based on the storage account's default access tier and the blob is moved to the archive tier, there's no early deletion charge.
-- If a blob is explicitly moved to the cool tier and then moved to the archive tier, the early deletion charge applies.
-
-The following table summarizes the approaches you can take to move blobs between various tiers.
-
-| Origin/Destination | Hot tier | Cool tier | Archive tier |
-|--|--|--|--|
-| **Hot tier** | N/A | Change a blob's tier from hot to cool with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md)<br /><br />Move blobs to the cool tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | Change a blob's tier from hot to archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
-| **Cool tier** | Change a blob's tier from cool to hot with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md) <br /><br />Move blobs to the hot tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | N/A | Change a blob's tier from cool to archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
-| **Archive tier** | Rehydrate to the hot tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | Rehydrate to cool tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | N/A |
+- If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
 ## Blob lifecycle management
 
 Blob storage lifecycle management offers a rule-based policy that you can use to transition your data to the desired access tier when your specified conditions are met. You can also use lifecycle management to expire data at the end of its life. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.
 
 > [!NOTE]
-> Data stored in a premium block blob storage account cannot be tiered to hot, cool, or archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from the block blob storage account to the hot tier in a different account using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The **Put Block From URL** API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+> Data stored in a premium block blob storage account cannot be tiered to hot, cool, cold or archive by using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from the block blob storage account to the hot tier in a different account using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The **Put Block From URL** API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
 
 ## Summary of access tier options
 
-The following table summarizes the features of the hot, cool, and archive access tiers.
+The following table summarizes the features of the hot, cool, cold, and archive access tiers.
 
-|  | **Hot tier** | **Cool tier** | **Archive tier** |
-|--|--|--|--|
-| **Availability** | 99.9% | 99% | Offline |
-| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.9% | Offline |
-| **Usage charges** | Higher storage costs, but lower access and transaction costs | Lower storage costs, but higher access and transaction costs | Lowest storage costs, but highest access, and transaction costs |
-| **Minimum recommended data retention period** | N/A | 30 days<sup>1</sup> | 180 days |
-| **Latency** <br> **(Time to first byte)** | Milliseconds | Milliseconds | Hours<sup>2</sup> |
-| **Supported redundancy configurations** | All | All | LRS, GRS, and RA-GRS<sup>3</sup> only |
+|  | **Hot tier** | **Cool tier** | **Cold tier (preview)** |**Archive tier** |
+|--|--|--|--|--|
+| **Availability** | 99.9% | 99% | 99% | Offline |
+| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.99% | 99.9% | Offline |
+| **Usage charges** | Higher storage costs, but lower access and transaction costs | Lower storage costs, but higher access and transaction costs | Lower storage costs, but higher access and transaction costs | Lowest storage costs, but highest access, and transaction costs |
+| **Minimum recommended data retention period** | N/A | 30 days<sup>1</sup> | 90 days<sup>1</sup> | 180 days |
+| **Latency** <br> **(Time to first byte)** | Milliseconds | Milliseconds | Milliseconds | Hours<sup>2</sup> |
+| **Supported redundancy configurations** | All | All | All |LRS, GRS, and RA-GRS<sup>3</sup> only |
 
-<sup>1</sup> Objects in the cool tier on general-purpose v2 accounts have a minimum retention duration of 30 days. For Blob Storage accounts, there's no minimum retention duration for the cool tier.
+<sup>1</sup> Objects in the cool tier on general-purpose v2 accounts have a minimum retention duration of 30 days. Objects in the cold tier on general-purpose v2 accounts have a minimum retention duration of 90 days. For Blob Storage accounts, there's no minimum retention duration for the cool or cold tier.
 
 <sup>2</sup> When rehydrating a blob from the archive tier, you can choose either a standard or high rehydration priority option. Each offers different retrieval latencies and costs. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
@@ -162,7 +164,7 @@ In addition to the amount of data stored, the cost of storing data varies depend
 
 ### Data access costs
 
-Data access charges increase as the tier gets cooler. For data in the cool and archive access tier, you're charged a per-gigabyte data access charge for reads.
+Data access charges increase as the tier gets cooler. For data in the cool, cold and archive access tier, you're charged a per-gigabyte data access charge for reads.
 
 ### Transaction costs
 
@@ -186,16 +188,77 @@ Keep in mind the following billing impacts when changing a blob's tier:
 
 - When a blob is uploaded or moved between tiers, it's charged at the corresponding rate immediately upon upload or tier change.
 - When a blob is moved to a cooler tier, the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply.
-- When a blob is moved to a warmer tier, the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
-- While a blob is being rehydrated from the archive tier, that blob's data is billed as archived data until the data is restored and the blob's tier changes to hot or cool.
+- When a blob is moved to a warmer tier, the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool, cold or archive tier may apply as well.
+- While a blob is being rehydrated from the archive tier, that blob's data is billed as archived data until the data is restored and the blob's tier changes to hot, cool, or cold.
 
 The following table summarizes how tier changes are billed.
 
-| | **Write charges (operation + access)** | **Read charges (operation + access)** |
-| ---- | ----- | ----- |
-| **Set Blob Tier** operation | Hot to cool<br> Hot to archive<br> Cool to archive | Archive to cool<br> Archive to hot<br> cool to hot
+| Write charges (operation + access) | Read charges (operation + access) |
+| ----- | ----- |
+| Hot to cool<br>Hot to cold<br>Hot to archive<br>Cool to cold<br>Cool to archive<br>Cold to archive | Archive to cold<br>Archive to cool<br>Archive to hot<br>Cold to cool<br>Cold to hot<br>Cool to hot|
 
-Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
+Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, might result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
+
+## Cold tier (preview)
+
+The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+
+### Enrolling in the preview 
+
+To get started, enroll in the preview by using this [form](https://forms.office.com/r/788B1gr3Nq).
+
+You'll receive an email notification when your application is approved and the `ColdTier` feature flag will be registered on your subscription.
+
+### Verifying that you enrolled in the preview
+
+If the `ColdTier` feature flag is registered on your subscription, then you are enrolled in the preview, and you can begin using the cold tier. Use the following steps to ensure that the feature is registered.
+
+#### [Portal](#tab/azure-portal)
+
+In the **Preview features** page of your subscription, locate the **ColdTier** feature, and then make sure that **Registered** appears in the **State** column.
+
+> [!div class="mx-imgBorder"]
+> ![Verify that the feature is registered in Azure portal](./media/access-tiers-overview/cold-tier-feature-registration.png)
+
+#### [PowerShell](#tab/powershell)
+
+To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName ColdTier
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage --name ColdTier
+```
+
+---
+
+### Limitations and known issues
+
+- The [change feed](storage-blob-change-feed.md)is not yet compatible with the cold tier.
+- [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
+- [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
+- The default access tier setting of the account can't be set to cold tier.
+
+### Required REST and SDK versions
+
+If you plan to refer to the cold tier by using code in a custom application, you must use a version of the REST API or SDK that supports the cold tier. If your application uses the [REST API](/rest/api/storageservices/blob-service-rest-api), it must use version 2021-21-02 or later. If your application uses an Azure SDK, please the following versions or later. 
+
+| SDK | Minimum version |
+|---|---|
+| [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
+| [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
+| [Python](/python/api/azure-storage-blob/) | 12.15.0 |
+| [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
+
+> [!NOTE]
+> If you plan to refer to the cold tier when using the AzCopy tool, make sure to install AzCopy version 10.18.1 or later.
+
 
 ## Feature support
 

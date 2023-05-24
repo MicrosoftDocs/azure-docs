@@ -2,7 +2,7 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 04/11/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -48,6 +48,8 @@ To initiate a restore through the Backup center, follow these steps:
 
    - For vaulted backup, choose a recovery point from which you want to perform the restore.
  
+   :::image type="content" source="./media/blob-restore/select-backup-type-for-restore-inline.png" alt-text="Screenshot shows the restore options for blob backup." lightbox="./media/blob-restore/select-backup-type-for-restore-expanded.png":::
+
    >[!NOTE]
    > The time mentioned here is your local time.
 
@@ -75,6 +77,8 @@ To initiate a restore through the Backup center, follow these steps:
 
      >[!Note]
      >The vault must have the *Storage account backup contributor* role assigned on the target storage account. Select **Validate** to ensure that the required permissions to perform the restore are assigned. Once done, proceed to the next tab.
+
+   :::image type="content" source="./media/blob-restore/choose-options-for-vaulted-backup.png" alt-text="Screenshot shows the option to choose for vaulted backup." lightbox="./media/blob-restore/choose-options-for-vaulted-backup.png":::
 
 1. Once you finish specifying what blobs to restore, continue to the **Review + restore** tab, and select **Restore** to initiate the restore.
 

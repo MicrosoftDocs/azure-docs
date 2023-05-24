@@ -4,6 +4,7 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
+ms.custom: devx-track-azurecli
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
@@ -267,4 +268,3 @@ az sql mi-arc delete --name contososqlmi  --resource-group arc-rg
 ## Next steps
 * [Deploy Arc-enabled SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
 * [Connect to Active Directory integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
-
