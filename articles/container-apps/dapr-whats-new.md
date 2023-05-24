@@ -1,6 +1,6 @@
 ---
 title: Whats new with Dapr in Azure Container Apps
-description: Learn more about using Dapr on your Azure Container App service to develop applications.
+description: Learn more about what's new with Dapr in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
