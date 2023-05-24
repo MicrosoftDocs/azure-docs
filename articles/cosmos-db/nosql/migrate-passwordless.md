@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Migrate an application to use passwordless connections with Azure Cosmos DB NoSql
+# Migrate an application to use passwordless connections with Azure Cosmos DB NoSQL
 
 Application requests to Azure Cosmos DB must be authenticated. Although there are multiple options for authenticating to Azure Cosmos DB, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use connection strings with passwords or secret keys create security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
 
