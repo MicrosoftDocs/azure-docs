@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Manage NSG flow logs using Azure PowerShell
-
+ 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
