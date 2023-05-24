@@ -26,11 +26,11 @@ Follow these steps in order to gather the data needed to diagnose Isolation Doma
 
      [How-to-install-ManagedNetworkFabric-CLI-extension](./howto-install-cli-extensions.md#install-managednetworkfabric-cli-extension)
 
- [How to Sign-in to your Azure account](./howto-configure-isolation-domain.md#sign-in-to-your-azure-account)
+ [How to Sign-in to your Azure account](./howto-configure-isolation-domain.md#prerequisites)
 
- [How to register providers for Managed Network Fabric](./howto-configure-isolation-domain.md#register-providers-for-managed-network-fabric)
+ [How to register providers for Managed Network Fabric](./howto-configure-isolation-domain.md#prerequisites)
 
- [Parameters-for-Isolation-Domain-management](./howto-configure-isolation-domain.md#parameters-for-isolation-domain-management)
+ [Parameters-for-Isolation-Domain-management](./howto-configure-isolation-domain.md#configure-l2-isolation-domains)
 
 ## Isolation Domain
 
@@ -48,13 +48,13 @@ Contact the network administrators within the organization for more details.
 
 Fabric ASN value is no longer a mandatory value, which is defined based on SKU used in the payload. Peer ASN value can be set anywhere from 0 - 65535.
 
-For further instructions, refer [enable/disable L3 Isolation-Domain](./howto-configure-isolation-domain.md#enabledisable-l3-isolation-domains)
+For further instructions, refer [enable/disable L3 Isolation-Domain](./howto-configure-isolation-domain.md#change-the-administrative-state-of-an-l3-isolation-domain)
 
 ### Vlan ID can't be used from a reserved range ['0', '500'] '-OptionA' peering
 
 When creating an Isolation Domain, it's important to note that VLAN IDs below 500 are reserved for infrastructure purposes and shouldn't be used. Instead, an external network with a vlan ID higher than 500 should be established on the partner end (PE) side to enable customer end(CE)-partner end (PE) peering (option a peering).
 
-For further instructions, refer [External network creation](./howto-configure-isolation-domain.md#external-network-creation)
+For further instructions, refer [External network creation](./howto-configure-isolation-domain.md#create-an-external-network-by-using-option-a)
 
 ### Isolation Domain seems to be stuck in disabled state when we try to create external network (option-a)
 
