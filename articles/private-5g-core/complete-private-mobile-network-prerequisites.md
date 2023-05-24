@@ -210,7 +210,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 Review and apply the firewall recommendations for the following services:
 
 - [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules)
-- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli%2cazure-cloud)
+- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
 - [Azure Network Function Manager](../network-function-manager/requirements.md)
 
 The following table contains the URL patterns for Azure Private 5G Core's outbound traffic.

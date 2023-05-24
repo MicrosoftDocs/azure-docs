@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 02/06/2022
 
 ---
 # Monitor Azure Cache for Redis
@@ -76,7 +76,7 @@ Configure a storage account to use with to store your metrics. The storage accou
 
 1. Name the settings.
 
-1. Check **Archive to a storage account**. You're charged normal data rates for storage and transactions when you send diagnostics to a storage account.
+1. Check **Archive to a storage account**. You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.
 
 1. Select **Configure** to choose the storage account in which to store the cache metrics.
 
@@ -125,12 +125,16 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 > Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. The activity is normal in the operation of cache.
 >
 
-For nonclustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric `Server Load`.
+For non-clustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric `Server Load`.
 
 In contrast, for clustered caches, we recommend using the metrics with the suffix `Instance Based`. Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric "Server Load (Instance Based)", then apply filter `ShardId = 1`.
 
 ## List of metrics
 
+- 99th Percentile Latency (preview)
+  - Depicts the worst-case (99th percentile) latency of server-side commands. Measured by issuing `PING` commands from the load balancer to the Redis server and tracking the time to respond. 
+  - Useful for tracking the health of your Redis instance. Latency will increase if the cache is under heavy load or if there are long running commands that delay the execution of the `PING` command.
+  - This metric is only available in Standard and Premium tier caches
 - Cache Latency (preview)
   - The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.
 - Cache Misses
@@ -141,8 +145,6 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
 - Cache Write
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
-- ConnectedClientsUsingAADToken (preview)
-  - The number of clients connected to the cache using Azure AD token-based access during the specified reporting interval. Once the connection limit is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there can be a few instances of connected clients because of internal processes and connections.
 - Connected Clients
   - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there may still be a few instances of connected clients because of internal processes and connections.
 - Connections Created Per Second
@@ -153,8 +155,6 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. Note: This metric can be noisy due to low priority background security processes running on the node, so we recommend monitoring Server Load metric to track load on a Redis server.
 - Errors
   - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows:
-    - **AADAuthFailures (preview)** – when there’s an authentication failure with respect to an Azure AD Access Token
-    - **AADTokenExpired (preview)** - when there’s an auth token expiry event with respect to existing Azure AD token-based connection
     - **Failover** – when a cache fails over (subordinate promotes to primary)
     - **Dataloss** – when there's data loss on the cache
     - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes
@@ -186,9 +186,9 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
 - Geo Replication Full Sync Event Finished
   - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
-  - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-  - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
-  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+   - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
+   - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
+   - This metric is only available in the Premium tier for caches with geo-replication enabled.
 
 - Geo Replication Full Sync Event Started
   - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
@@ -201,9 +201,9 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
     - 0 disconnected/unhealthy
     - 1 – healthy
   - The metric is available in the Enterprise, Enterprise Flash tiers, and Premium tier caches with geo-replication enabled.
-  - In caches on the Premium tier, this metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
+  - In caches on the Premium tier, this metric is only emitted *from the geo-secondary* cache instance. On the geo-primary instance, this metric has no value.
   - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
-  - A value of 0 doesn't mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy.
+  - A value of 0 doesn't mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
   - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - Gets
@@ -221,7 +221,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 - Total Keys  
   - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
 - Total Operations
-  - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there are no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there are `Total Operations` metrics that reflect the cache usage for pub/sub operations.
+  - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations.
 - Used Memory
   - The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation.
 - Used Memory Percentage
@@ -251,12 +251,11 @@ Once you've defined a metric, you can send it to a workbook. Workbooks provide a
 
 For information on creating a metric, see [Create your own metrics](#create-your-own-metrics).
 
-The two workbooks provided are:
-
+The two workbooks provided are: 
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
 
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary. 
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ## Next steps

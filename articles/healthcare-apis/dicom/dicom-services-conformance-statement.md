@@ -219,7 +219,9 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 | GET    | ../studies/{study}/series/{series}/metadata  | Retrieves the metadata for all instances within a series. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance} | Retrieves a single instance. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata | Retrieves the metadata for a single instance. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, use a comma to separate each frame to return. For example, /studies/1/series/2/instance/3/frames/4,5,6 |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/rendered | Retrieves an instance rendered into an image format |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, use a comma to separate each frame to return. For example, `/studies/1/series/2/instance/3/frames/4,5,6`. |
+| GET | ../studies/{study}/series/{series}/instances/{instance}/frames/{frame}/rendered | Retrieves a single frame rendered into an image format. |
 
 #### Retrieve instances within study or series
 
@@ -287,12 +289,26 @@ Retrieving metadata doesn't return attributes with the following value represent
 | OW      | Other Word             |
 | UN      | Unknown                |
 
-### Retrieve metadata cache validation for (study, series, or instance)
+### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
 * Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response is sent with no response body.
 * Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is also returned as part of the body.
+
+### Retrieve rendered image (for instance or frame)
+The following `Accept` header(s) are supported for retrieving a rendered image an instance or a frame:
+
+- `image/jpeg`
+- `image/png`
+
+In the case that no `Accept` header is specified the service renders an `image/jpeg` by default.
+
+The service only supports rendering of a single frame. If rendering is requested for an instance with multiple frames, then only the first frame is rendered as an image by default.
+
+When specifying a particular frame to return, frame indexing starts at 1.
+
+The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) may be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
 ### Retrieve response status codes
 
@@ -303,8 +319,8 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | `400 (Bad Request)` | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
-| `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance did not contain pixel data. |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported, or for rendered and transcode requests the file requested was too large. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 ### Search (QIDO-RS)

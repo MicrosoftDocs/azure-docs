@@ -1,3 +1,4 @@
+---
 - name: Azure Operator Nexus documentation
   href: index.yml
 - name: Overview
@@ -6,10 +7,12 @@
       href: overview.md
 - name: Concepts
   items:
-    - name: Resource Types
-      href: concepts-resource-types.md
-    - name: Observability
-      href: concepts-observability.md
+  - name: Resource Types
+    href: concepts-resource-types.md
+  - name: Compute overview
+    href: concepts-compute.md
+  - name: Observability
+    href: concepts-observability.md
 - name: Quickstarts
   items:
     - name: Deploy Nexus Kubernetes cluster
@@ -57,20 +60,25 @@
       href: howto-monitor-virtualized-network-functions-virtual-machines.md
     - name: Cluster metrics configuration management
       href: howto-cluster-metrics-configuration-management.md
-    - name: Pre-certification 
+    - name: Pre-certification
       href: howto-precertification.md
     - name: Tracking asynchronous operations
       href: howto-track-async-operations-cli.md
+- name: Troubleshooting
+  items:
+    - name: Troubleshoot AKS-Hybrid
+      href: troubleshoot-aks-hybrid-cluster.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment
       href: template-virtualized-network-function-deployment.md
     - name: CNF Deployment
-      href: template-cloud-native-network-function-deployment.md 
+      href: template-cloud-native-network-function-deployment.md
 - name: Reference
   items:
-    - name: Instance to On-Premises WAN Connectivity
-      href: reference-customer-edge-provider-edge-connectivity.md
-    - name: List of metrics collected
-      href: List-of-metrics-collected.md
-  
+  - name: Instance to On-Premises WAN Connectivity
+    href: reference-customer-edge-provider-edge-connectivity.md
+  - name: List of metrics collected
+    href: List-of-metrics-collected.md
+  - name: Near-edge Compute
+    href: reference-near-edge-compute.md
