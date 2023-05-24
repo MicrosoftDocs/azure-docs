@@ -15,7 +15,7 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 #### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [clean-up-resources-portal](includes/quickstart-deploy-web-app/clean-up-resources-portal.md)]
+[!INCLUDE [clean-up-resources-portal](./clean-up-resources-portal.md)]
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
