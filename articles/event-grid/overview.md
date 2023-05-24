@@ -5,7 +5,7 @@ ms.author: jafernan
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual
-ms.custom: references_regions, build-2023, build-2023-dataai
+ms.custom: references_regions
 ---
 
 # What is Azure Event Grid?
@@ -82,27 +82,27 @@ Event Grid supports the following use cases:
 
 Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Your MQTT client can connect to Event Grid and publish/subscribe to messages, while Event Grid authenticates your clients, authorizes publish/subscribe requests, and forward messages to interested clients. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
 
-:::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png":::
+:::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
 
 Event Grid’s MQTT support enables you to accomplish the following scenarios.
 
 #### Ingest IoT telemetry
-:::image type="content" source="media/overview/ingest-telemetry.png" alt-text="High-level diagram of Event Grid that shows IoT clients using MQTT protocol to send messages to a cloud app." lightbox="media/overview/ingest-telemetry-high-res.png":::
+:::image type="content" source="media/overview/ingest-telemetry.png" alt-text="High-level diagram of Event Grid that shows IoT clients using MQTT protocol to send messages to a cloud app." border="false":::
 
 Ingest telemetry using a **many-to-one messaging** pattern. For example, use Event Grid to send telemetry from multiple IoT devices to a cloud application. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 
 #### Command and control
-:::image type="content" source="media/overview/command-control.png" alt-text="High-level diagram of Event Grid that shows a cloud application sending a command message over MQTT to a device using request and response topics." lightbox="media/overview/command-control-high-res.png" :::
+:::image type="content" source="media/overview/command-control.png" alt-text="High-level diagram of Event Grid that shows a cloud application sending a command message over MQTT to a device using request and response topics." border="false":::
 
 Control your MQTT clients using the **request-response** (one-to-one) message pattern. For example, use Event Grid to send a command from a cloud application to an IoT device. 
 
 #### Broadcast alerts
-:::image type="content" source="media/overview/broadcast-alerts.png" alt-text="High-level diagram of Event Grid that shows a cloud application sending an alert message over MQTT to several devices." lightbox="media/overview/broadcast-alerts-high-res.png" :::
+:::image type="content" source="media/overview/broadcast-alerts.png" alt-text="High-level diagram of Event Grid that shows a cloud application sending an alert message over MQTT to several devices." border="false":::
 
 Broadcast alerts to a fleet of clients using the **one-to-many** messaging pattern. For example, use Event Grid to send an alert from a cloud application to multiple IoT devices. This pattern enables the application to publish only one message that the service replicates for every interested client.
 
 #### Integrate MQTT data
-:::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data-high-res.png" :::
+:::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." border="false":::
 
 Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](push-delivery-overview.md#push-delivery-1) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
