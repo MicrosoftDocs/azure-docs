@@ -22,7 +22,7 @@ ms.custom: references_regions
     - UK South
     - Southeast Asia
     - Australia East
-- Storage accounts in other regions in Public Cloud are supported after setting feature flag *AllowPurviewPolicyEnforcement*, as outlined in the next section. ZRS Storage accounts are supported via the same feature flag. 
+- Storage accounts in other regions in Public Cloud are supported after setting feature flag *AllowPurviewPolicyEnforcement*, as outlined in the next section. Newly created ZRS Storage accounts are supported, if created after setting the feature flag *AllowPurviewPolicyEnforcement*.
 
 
 If needed, you can create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
