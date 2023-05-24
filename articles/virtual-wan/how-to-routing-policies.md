@@ -239,7 +239,7 @@ Additionally, if your ExpressRoute circuit is advertising a non-RFC1918 prefix t
 
 Routing intent and routing policies can be configured through Azure Portal using [Azure Firewall Manager](#azurefirewall) or [Virtual WAN portal](#nva). Azure Firewall Manager portal allows you to configure routing policies with next hop resource  Azure Firewall. Virtual WAN portal allows you to configure routing policies with the next hop resource  Azure Firewall, Network Virtual Appliances deployed within the Virtual hub or SaaS solutions.
 
-Customers using Azure Firewall in Virtual wAN  can either set Azure Firewall Manager's 'Enable inter-hub' setting to 'Enabled' to use routing intent or use Virtual WAN portal to directly configure Azure Firewall as the next hop resource for routing intent and policies. Configurations in either portal experience are equivalent and changes in Azure Firewall Manager are automatically reflected in Virtual WAN portal and vice versa.
+Customers using Azure Firewall in Virtual WAN secured hub can either set Azure Firewall Manager's 'Enable inter-hub' setting to 'Enabled' to use routing intent or use Virtual WAN portal to directly configure Azure Firewall as the next hop resource for routing intent and policies. Configurations in either portal experience are equivalent and changes in Azure Firewall Manager are automatically reflected in Virtual WAN portal and vice versa.
 
 ### <a name="azurefirewall"></a> Configure routing intent and policies through Azure Firewall Manager
 
