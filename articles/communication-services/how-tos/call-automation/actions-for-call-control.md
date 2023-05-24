@@ -49,7 +49,7 @@ var client = new CallAutomationClient("<resource_connection_string>");
 ## Make an outbound call
 
 You can place a 1:1 or group call to a communication user or phone number (public or Communication Services owned number). Below sample makes an outbound call from your service application to a phone number.
-callerIdentifier is used by Call Automation as your application's identity when making an outbound a call. When calling a PSTN endpoint, you also need to provide a phone number that will be used as the source caller ID and shown in the call notification to the target PSTN endpoint.
+When calling a PSTN endpoint, you also need to provide a phone number that will be used as the source caller ID and shown in the call notification to the target PSTN endpoint.
 To place a call to a Communication Services user, you'll need to provide a CommunicationUserIdentifier object instead of PhoneNumberIdentifier.  
 
 ### [csharp](#tab/csharp)
@@ -70,6 +70,21 @@ CommunicationUserIdentifier callerIdentifier = new CommunicationUserIdentifier("
 CreateCallOptions createCallOptions = new CreateCallOptions(callerIdentifier, targets, callbackUri) 
         .setSourceCallerId("+18001234567"); // This is the ACS provisioned phone number for the caller  
 Response<CreateCallResult> response = client.createCallWithResponse(createCallOptions).block(); 
+```
+
+-----
+When making a group call that includes a phone number, you must provide a phone number that will be used as a caller ID number to the PSTN endpoint.
+
+### [csharp](#tab/csharp)
+```csharp
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
+var pstnEndpoint = new PhoneNumberIdentifier("+16041234567");
+var voipEndpoint = new CommunicationUserIdentifier("<user_id_of_target>"); //user id looks like 8:a1b1c1-...
+var groupCallOptions = new CreateGroupCallOptions(new List<CommunicationIdentifier>{ pstnEndpoint, voipEndpoint }, callbackUri)
+{
+    SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the ACS provisioned phone number for the caller
+};
+CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
 ```
 
 -----
@@ -199,24 +214,6 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 
 -----
 When transferring to a phone number, it's mandatory to provide a source caller ID. This ID serves as the identity of your application(the source) for the destination endpoint.
-
-# [csharp](#tab/csharp)
-
-```csharp
-var transferDestination = new PhoneNumberIdentifier("+16041234567"); 
-var transferOption = new TransferToParticipantOptions(transferDestination); 
-transferOption.SourceCallerId = new PhoneNumberIdentifier("+16044561234"); 
-TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
-```
-
-# [Java](#tab/java)
-
-```java
-CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("+16471234567"); 
-TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination) 
-        .setSourceCallerId(new PhoneNumberIdentifier("+18001234567")); 
-Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
-```
 
 -----
 The below sequence diagram shows the expected flow when your application places an outbound 1:1 call and then transfers it to another endpoint.
