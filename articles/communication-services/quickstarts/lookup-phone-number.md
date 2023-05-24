@@ -1,0 +1,35 @@
+---
+title: Quickstart - Look up operator information for a phone number using Azure Communication Services
+description: Learn how to look up operator information for any phone number using Azure Communication Services
+services: azure-communication-services
+author: ericasp
+manager: danav
+ms.service: azure-communication-services
+ms.subservice: pstn
+ms.date: 05/30/2023
+ms.topic: quickstart
+ms.custom: mode-other
+ms.author: ericasp
+zone_pivot_groups: net
+---
+
+# Quickstart: Look up operator information for a phone number
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [CSharp](./includes/lookup-phone-number-net.md)]
+::: zone-end
+
+## Troubleshooting
+
+Common Questions and Issues:
+
+- The data returned by this endpoint is subject to various laws and regulations.  Therefore, depending on the country where the target phone number is registered and whether or not that number has been ported, the operator information may not be available or may reflect the phone number's original operator as opposed to the current operator.
+
+## Next steps
+
+In this quickstart you learned how to:
+> [!div class="checklist"]
+> * Look up operator information for a phone number
+
+[!div class="nextstepaction"]
+[Send an SMS](../sms/send.md)
