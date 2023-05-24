@@ -1,5 +1,5 @@
 ---
-title: How to between OpenAI and Azure OpenAI Service endpoints with Python.
+title: How to switch between OpenAI and Azure OpenAI Service endpoints with Python
 titleSuffix: Azure OpenAI Service
 description: Learn about the changes you need to make to your code to swap back and forth between OpenAI and Azure OpenAI endpoints.
 author: mrbullwinkle #dereklegenzoff
