@@ -85,7 +85,6 @@ A Defender for Cloud user can choose to opt out by deleting their [security cont
 ## Auditing and reporting
 Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).
 
-
 [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)
 
 ## Respond to data subject export requests for Defender for APIs
