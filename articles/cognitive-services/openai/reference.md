@@ -287,7 +287,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
 
 ```http
-GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
+GET https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version={api-version}
 ```
 
 
