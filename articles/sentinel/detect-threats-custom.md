@@ -295,7 +295,7 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - The target table (on which the rule query operated) has been deleted.
 - Microsoft Sentinel had been removed from the target workspace.
 - A function used by the rule query is no longer valid; it has been either modified or removed.
-- Permissions to one of the data sources of the rule query were changed.
+- Permissions to one of the data sources of the rule query were changed ([see example below](#permanent-failure-due-to-lost-access-across-tenants)).
 - One of the data sources of the rule query was deleted.
 
 **In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Microsoft Sentinel stops trying to execute the rule, and also takes the following steps:
@@ -318,6 +318,16 @@ To re-enable the rule, you must address the issues in the query that cause it to
 - [Optimize log queries in Azure Monitor](../azure-monitor/logs/query-optimization.md)
 
 Also see [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md) for further assistance.
+
+#### Permanent failure due to lost access across tenants
+
+One particular example of when a permanent failure could occur due to a permissions change on a data source concerns the case of an MSSP or any other scenario where analytics rules query across tenants ***(and/or subscriptions? -YL)***.
+
+When you create an analytics rule, an access permission token is applied to the rule and saved along with it. This token ensures that the rule can access the workspace that contains the data queried by the rule, and that this access will be maintained even if the rule's creator loses access to that workspace.
+
+There is one exception to this, however: when a rule is created to access workspaces in other tenants ***(and? or? and/or? subscriptions? -YL)***, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data ***(saying too much? -YL)***: for these kinds of rules, the credentials of the user that created the rule are used instead of an independent access token, so that when the user no longer has access to the other tenant, the rule will stop working ***(until xxxxx? happens? -YL)***.
+
+If you operate Microsoft Sentinel in a cross-tenant scenario, be aware that if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You will get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled](#permanent-failure---rule-auto-disabled).
 
 ## Next steps
 

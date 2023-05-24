@@ -64,7 +64,15 @@ This procedure describes how to use built-in analytics rules templates.
 > - You can also **push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)**, although doing so requires additional effort. 
 > 
 >     When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
-> 
+
+### Access permissions for analytics rules
+
+When you create an analytics rule, an access permission token is applied to the rule and saved along with it. This token ensures that the rule can access the workspace that contains the data queried by the rule, and that this access will be maintained even if the rule's creator loses access to that workspace.
+
+There is one exception to this, however: when a rule is created to access workspaces in other tenants ***(and? or? and/or? subscriptions? -YL)***, such as what happens in the case of an MSSP, Microsoft Sentinel takes extra security measures to prevent unauthorized access to customer data ***(saying too much? -YL)***: for these kinds of rules, the credentials of the user that created the rule are used instead of an independent access token, so that when the user no longer has access to the other tenant, the rule will stop working ***(until xxxxx? happens? -YL)***.
+
+If you operate Microsoft Sentinel in a cross-tenant scenario, be aware that if one of your analysts or engineers loses access to a particular workspace, any rules created by that user will stop working. You will get a health monitoring message regarding "insufficient access to resource", and the rule will be [auto-disabled](detect-threats-custom.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name).
+
 ## Export rules to an ARM template
 
 You can easily [export your rule to an Azure Resource Manager (ARM) template](import-export-analytics-rules.md) if you want to manage and deploy your rules as code. You can also import rules from template files in order to view and edit them in the user interface.
