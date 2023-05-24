@@ -270,11 +270,11 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. After the resource groups list opens, select **Create new resource group**.
 
-   ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
+   ![Screenshot shows Explorer pane with resource groups list and selected option to create new resource group.](./media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
 
 1. Provide a name for the resource group, and press Enter. This example uses **Fabrikam-Workflows-RG**.
 
-   ![Screenshot that shows Explorer pane and resource group name box.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
+   ![Screenshot shows Explorer pane and resource group name box.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
 1. From the locations list, select the Azure region to use when creating your resource group and resources. This example uses **West Central US**.
 
@@ -288,9 +288,11 @@ The authoring capability is currently available only in Visual Studio Code, but 
    >
    > If the designer won't open, review the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
 
-   After the designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
+   After the designer appears, the **Add a trigger** prompt appears on the designer.
 
-   ![Screenshot shows the workflow designer.](./media/create-single-tenant-workflows-visual-studio-code/workflow-designer.png)
+1. On the designer, select **Add a trigger**, which opens the **Add a trigger** pane and a gallery showing all the connectors that have triggers for you to select.
+
+   ![Screenshot shows workflow designer, the selected prompt named Add a trigger, and the gallery for connectors with triggers.](./media/create-single-tenant-workflows-visual-studio-code/workflow-designer-triggers-overview.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow.
 
@@ -298,13 +300,13 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 ## Add a trigger and actions
 
-After you open the designer, the **Choose an operation** prompt appears on the designer and is selected by default. You can now start creating your workflow by adding a trigger and actions.
+After you open a blank workflow in the designer, the **Add a trigger** prompt appears on the designer. You can now start creating your workflow by adding a trigger and actions.
 
-The workflow in this example uses this trigger and these actions:
+The workflow in this example uses the following trigger and actions:
 
-* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When an HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+* The [Request built-in connector trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**, which can receive inbound calls or requests and creates an endpoint that other services or logic app workflows can call.
 
-* The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
+* The [Office 365 Outlook managed connector action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
 
 * The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
 
