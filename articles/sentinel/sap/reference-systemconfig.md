@@ -4,7 +4,7 @@ description: Description of settings available in systemconfig.ini file
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.date: 24/05/2023
+ms.date: 05/24/2023
 ---
 # Systemconfig.ini file reference
 
