@@ -239,7 +239,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. On the **Actions** tab, select or create the required [action groups](./action-groups.md).
 
-1. <a name="custom-props">(Optional)</a> If you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert payload to add more information to the payload in the **Custom properties** section. Add the property **Name** and **Value** for the custom property you want included in the payload.
+1. (Optional) If you've configured action groups for this alert rule, you can add custom properties in key:value pairs to the alert payload to add more information to the payload in the <a name="custom-props">**Custom properties**</a> section. Add the property **Name** and **Value** for the custom property you want included in the payload.
 
     You can also use custom properties to extract and manipulate data from alert payloads that use the common schema. You can use those values in the action group webhook or logic app.
 
@@ -297,7 +297,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
-    1. <a name="managed-id">In the **Identity** section</a>, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
+    1. In the <a name="managed-id">**Identity**</a> section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
