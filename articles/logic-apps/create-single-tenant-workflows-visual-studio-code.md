@@ -592,7 +592,6 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
    | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <p><p>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-   |||
 
 1. To review the statuses for each step in a specific run and the step's inputs and outputs, select the ellipses (**...**) button for that run, and select **Show Run**.
 
@@ -600,7 +599,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    Visual Studio Code opens the monitoring view and shows the status for each step in the run.
 
-   ![Screenshot shows each step in the workflow run and their status.](./media/create-single-tenant-workflows-visual-studio-code/run-history-action-status.png)
+   ![Screenshot shows each step in workflow run and their status.](./media/create-single-tenant-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
    > If a run failed and a step in monitoring view shows the **400 Bad Request** error, this problem might result 
@@ -633,7 +632,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
 1. To review the inputs and outputs for each step, select the step that you want to inspect.
 
-   ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Send an email" action](./media/create-single-tenant-workflows-visual-studio-code/run-history-details.png)
+   ![Screenshot shows status for each step in workflow plus inputs and outputs in expanded action named Send an email.](./media/create-single-tenant-workflows-visual-studio-code/run-history-details.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
@@ -663,13 +662,11 @@ When you have a workflow that starts with the Request trigger, you can return a 
 
    1. In the dynamic content list, under **Send an email**, select **Body**.
 
-      ![Screenshot that shows the open dynamic content list. In the list, under the "Send an email" header, the "Body" output value is selected.](./media/create-single-tenant-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
+      ![Screenshot shows open dynamic content list where under Send an email header, the Body output value is selected.](./media/create-single-tenant-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
       When you're done, the Response action's **Body** property is now set to the **Send an email** action's **Body** output value.
 
-      ![Screenshot shows workflow designer, Response information pane, and "Body" property set to the "Send an email" action's "Body" property value.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details.png)
-
-      ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details-body-property.png)
+      ![Screenshot shows workflow designer, Response information pane, and Body parameter set to Body value for the action named Send an email.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details-body-property.png)
 
 1. On the designer, select **Save**.
 
@@ -687,7 +684,7 @@ After you make updates to your logic app, you can run another test by rerunning 
 
    For example, here's the step-by-step status for a run after the sample workflow was updated with the Response action.
 
-   ![Screenshot that shows the status for each step in the updated workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-single-tenant-workflows-visual-studio-code/run-history-details-rerun.png)
+   ![Screenshot shows status for each step in updated workflow plus inputs and outputs in expanded Response action.](./media/create-single-tenant-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
