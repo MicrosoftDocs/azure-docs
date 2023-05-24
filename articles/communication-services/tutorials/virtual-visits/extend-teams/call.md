@@ -17,9 +17,9 @@ You can use out-of-the-box Virtual appointments experience created via Microsoft
 Azure Communication Services can help developers who want to self-host the solution or customize the experience. 
 
 Azure Communication Services provides three customization options:
-1. Customize the user interface via ready-to-use user interface composites.
-2. Build your own layout using the UI Library components & composites.
-3. Build your own user interface with software development kits
+- Customize the user interface via ready-to-use user interface composites.
+- Build your own layout using the UI Library components & composites.
+- Build your own user interface with software development kits
 
 ## Prerequisites
 The reader of this article is expected to have an understanding of the following topics:
@@ -74,7 +74,7 @@ The following table details the individual components:
 
 You can also customize your chat experience. The following image highlights the individual components of chat.
  
- ![Diagram is showing layout of meeting decomposed into individual user interface chat components](./media/components-chat.png)
+ ![Diagram is showing layout of meeting decomposed into individual user interface chat components.](./media/components-chat.png)
  
 The following table provides descriptions with links to individual components
 

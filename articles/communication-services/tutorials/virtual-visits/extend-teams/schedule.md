@@ -97,7 +97,9 @@ In the response, you see a new Booking appointment was created. Virtual appointm
 ## Bring your own scheduling system
 
 If you have an existing scheduling system and would like to extend it with the Virtual appointment experience provided by Microsoft Teams, follow the steps below: 
-1.	Create an online meeting for Virtual appointment via [Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Note: This operation doesn't create a calendar event in Microsoft Booking, Outlook, or Microsoft Teams. If you would like to create calendar event, use [Microsoft Graph Calendar event API](https://learn.microsoft.com/graph/api/resources/event?view=graph-rest-1.0).
+1.	Create an online meeting for Virtual appointment via [Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). 
+   > [!NOTE]
+   > This operation doesn't create a calendar event in Microsoft Booking, Outlook, or Microsoft Teams. If you would like to create a calendar event, use [Microsoft Graph Calendar event API](https://learn.microsoft.com/graph/api/resources/event?view=graph-rest-1.0).
 ```
 POST https://graph.microsoft.com/v1.0/ me/onlineMeetings
 Body: {
