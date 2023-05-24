@@ -31,19 +31,14 @@ The Log Ingestion API provides the following advantages over the Data Collector 
 - Lets you send data to multiple destinations.  
 - Enables you to manage the destination table schema, including column names, and whether to add new columns to the destination table when the source data schema changes.
 
-> [!NOTE]
-> The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create. On the other hand, you can manually adjust destination table schemas and data collection rules to align with source data schema changes. 
-
-## Before you use the Log Ingestion API
-
-### Create required new resources
+## Create required new resources
 
 The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
 
 - [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
 - [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
 
-### Prepare destination tables
+## Prepare destination tables
 
 The Log Ingestion API expects that the destination tables to which you send data already exist. You can use the Log Ingestion API to send data to any custom tables and a few Azure tables, as described in [Supported tables](../logs/logs-ingestion-api-overview.md#supported-tables).
 
@@ -67,11 +62,15 @@ If you have an existing custom table to which you currently send data using the 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
 > - If you update the table schema in your Log Analytics workspace, you must also update the table schema you define in the data collection rule to ingest data into new or modified columns.
     
-### Call the Log Ingestion API
+## Call the Log Ingestion API
 
 The Log Ingestion API lets you send up to 1 MB of data per call. If you need to send more than 1 MB of data, you can send multiple calls in parallel. This is a change from the Data Collector API, which lets you send up to 32 MB of data per call.
 
 For information about how to call the Log Ingestion API, see [Send data to Azure Monitor Logs using the Log Ingestion API](../logs/logs-ingestion-api-overview.md#send-data-to-azure-monitor-logs-using-the-log-ingestion-api).
+
+## Modify table schemas and data collection rules based on changes to source data
+
+The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create. On the other hand, you can manually [adjust destination table schemas](../logs/create-custom-table.md) and [data collection rules](../essentials/data-collection-rule-edit.md) to align with source data schema changes. 
 
 ## Next steps
 
