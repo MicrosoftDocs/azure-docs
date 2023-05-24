@@ -16,7 +16,7 @@ Roles consist of a collection of permissions or actions that a user is allowed t
 
 ## Create the custom role
 
-Create roles using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `PasswordlessReadWrite` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
+1. Create roles using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `PasswordlessReadWrite` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
 
 ```azurecli
 az cosmosdb sql role definition create 
@@ -36,25 +36,23 @@ az cosmosdb sql role definition create
 }'
 ```
 
-When the command completes, copy the ID value from the `name` field and paste it somewhere for later use.
+1. When the command completes, copy the ID value from the `name` field and paste it somewhere for later use.
 
-Next, assign the role you created to the user account or service principal that will connect to Cosmos DB. During local development, this will generally be your own account that is logged into Visual Studio or the Azure CLI.
+1. Assign the role you created to the user account or service principal that will connect to Cosmos DB. During local development, this will generally be your own account that is logged into Visual Studio or the Azure CLI. Retrieve the details of your account using the `az ad user` command.
+    
+    ```azurecli
+    az ad user show --id "<your-email-address>"
+    ```
 
-Retrieve the details of your account using the `az ad user` command.
+1. Copy the value of the `id` property out of the results and paste it somewhere for later use.
 
-```azurecli
-az ad user show --id "<your-email-address>"
-```
-
-Copy the value of the `id` property out of the results and paste it somewhere for later use.
-
-Finally, assign the custom role you created to your user account using the `az cosmosdb sql role assignment create` command and the IDs you copied previously.
-
-```azurecli
-az cosmosdb sql role assignment create 
-    --account-name passwordlessnosql
-    --resource-group passwordlesstesting
-    --scope "/" 
-    --principal-id <your-user-id>
-    --role-definition-id <your-custom-role-id> 
-```
+1. Assign the custom role you created to your user account using the `az cosmosdb sql role assignment create` command and the IDs you copied previously.
+    
+    ```azurecli
+    az cosmosdb sql role assignment create 
+        --account-name passwordlessnosql
+        --resource-group passwordlesstesting
+        --scope "/" 
+        --principal-id <your-user-id>
+        --role-definition-id <your-custom-role-id> 
+    ```
