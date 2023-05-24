@@ -266,13 +266,13 @@ You can configure web server by using a customized server configuration file. Yo
 
 ## Buildpack bindings
 
-Deploying static files to Azure Spring Apps Enterprise tier supports the Dynatrace buildpack binding. The `htpasswd` buildpack binding isn't supported.
+Deploying static files to the Azure Spring Apps Enterprise plan supports the Dynatrace buildpack binding. The `htpasswd` buildpack binding isn't supported.
 
 For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 ## Common build and deployment errors
 
-Your deployment of static files to Azure Spring Apps Enterprise tier may generate the following common build errors:
+Your deployment of static files to the Azure Spring Apps Enterprise plan may generate the following common build errors:
 
 - `ERROR: No buildpack groups passed detection.`
 - `ERROR: Please check that you're running against the correct path.`
@@ -280,7 +280,7 @@ Your deployment of static files to Azure Spring Apps Enterprise tier may generat
 
 The root cause of these errors is that the web server type isn't specified. To resolve these errors, set the environment variable `BP_WEB_SERVER` to *nginx* or *httpd*.
 
-The following table describes common deployment errors when you deploy static files to Azure Spring Apps Enterprise tier.
+The following table describes common deployment errors when you deploy static files to the Azure Spring Apps Enterprise plan.
 
 | Error message                                                                     | Root cause                                                          | Solution                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
