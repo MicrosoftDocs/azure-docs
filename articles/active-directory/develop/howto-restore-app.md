@@ -59,7 +59,7 @@ This is because organization-specific settings are stored on a separate object, 
 2. Select **Restore app registration**.
 
 ## Permanently delete an application
-You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, or by Microsoft customer support.
+You can manually permanently delete an application from your organization. A permanently deleted application can't be restored by you, another administrator, or by Microsoft customer support. Permanently deleting an application does not permanently delete the corresponding Service Principal. Although Service Principal cannot be restored without having an active corresponding application. Such Service Principal can be manually permanently deleted. If no action is taken, the Service Principal is permanently deleted after 30 from date of soft deletion.
 
 ### To permanently delete an application
 
