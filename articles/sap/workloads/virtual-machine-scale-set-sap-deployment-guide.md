@@ -49,7 +49,7 @@ The virtual machines for each system are then manually deployed in their corresp
 
 For SBD devices, VMs are manually deployed in each availability zone within the scale set. For SAP system #3, which is a nonproduction or non-HA environment, all the components of SAP systems are deployed in a single zone.
 
-[![Zonal deployment of SAP workload on flexible scale set with FD=1](media/vmss-flex/vmss-flex-zonal-sap-deployment.png)](media/vmss-flex/vmss-flex-zonal-sap-deployment.png#lightbox)
+[![Zonal deployment of SAP workload on flexible scale set with FD=1](media/virtual-machine-scale-sets/flexible-scale-set-sap-deployment.png)](media/virtual-machine-scale-sets/flexible-scale-set-sap-deployment.png#lightbox)
 
 > [!NOTE]
 > When creating a flexible scale set for zonal deployment, it's not possible to set `platformFaultDomainCount` to a value higher than 1.

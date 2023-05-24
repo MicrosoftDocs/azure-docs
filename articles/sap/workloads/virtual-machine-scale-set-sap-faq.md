@@ -19,7 +19,7 @@ Get answers to frequently asked questions about Virtual Machine Scale Sets for S
 
 ### How to create flexible virtual machine scale set without a scaling profile from Azure portal?
 
-Currently, it's not possible to create flexible virtual machine scale set without a scaling profile through the Azure portal. However, you can use an alternative client to [create a scale set without a scaling profile](./vmss-flex-sap-deployment-guide.md#configuration-of-flexible-virtual-machine-scale-set-without-vm-profile).
+Currently, it's not possible to create flexible virtual machine scale set without a scaling profile through the Azure portal. However, you can use an alternative client to [create a scale set without a scaling profile](virtual-machine-scale-set-sap-deployment-guide.md#configuration-of-flexible-virtual-machine-scale-set-without-vm-profile).
 
 ### Can I create flexible scale set with scaling or scaling profile for SAP workload to use autoscaling feature for SAP application servers?
 
