@@ -79,7 +79,7 @@ items:
       - name: .NET
         href: /dotnet/api/overview/azure/event-grid
       - name: Java
-        href: /java/api/overview/azure/eventgrid
+        href: /java/api/overview/azure/event-grid
       - name: Python
         href: /python/api/overview/azure/event-grid
       - name: Node.js
@@ -133,7 +133,7 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/eventgrid
+        href: /dotnet/api/overview/azure/event-grid
       - name: Java
         href: /java/api/overview/azure/event-grid
       - name: Python
@@ -529,9 +529,9 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/eventgrid
+        href: /dotnet/api/overview/azure/event-grid
       - name: Java
-        href: /java/api/overview/azure/eventgrid
+        href: /java/api/overview/azure/event-grid
       - name: Python
         href: /python/api/overview/azure/event-grid
       - name: Node.js
