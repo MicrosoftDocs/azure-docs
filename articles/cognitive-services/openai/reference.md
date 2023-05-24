@@ -240,7 +240,7 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 
 ### Request a generated image
 
-Generate a batch of images from a text caption. Image generation is currently only available with `api-version=2023-04-15-preview`.
+Generate a batch of images from a text caption. Image generation is currently only available with `api-version=2023-06-01-preview`.
 
 ```http
 POST https://{your-resource-name}.openai.azure.com/openai/dalle/images/generations:process-async?api-version={api-version}
