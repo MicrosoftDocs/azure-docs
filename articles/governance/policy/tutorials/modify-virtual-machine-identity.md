@@ -6,7 +6,7 @@ ms.topic: how-to
 author: kenieva
 ms.author: kenieva
 ---
-# Adding a user assigned managed identity to existing virtual machine or virtual machine scale set resources
+# Tutorial: Adding user assigned managed identities to existing virtual machines or virtual machine scale sets 
 
 Existing virtual machines and virtual machines scale sets that need to use the [Azure Monitoring Agent](../../../azure-monitor/agents/agents-overview.md) must be updated to use a user assigned managed identity. This article shows the steps needed to assign a custom definition that adds a user assigned identity to those resources at scale via Azure Policy.
 
@@ -36,61 +36,61 @@ To remediate the existing resources, follow these steps:
 
 1. In the **Policy Rule** json block, remove the example JSON and paste the following definition that uses the `modify` effect to add the user assign identity: 
 
-```json 
-{
-  "mode": "Indexed",
-  "parameters": {
-    "userAssignedIdentities": {
-      "type": "String",
-      "metadata": {
-        "displayName": "userAssignedIdentities"
-      }
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "field": "type",
-          "in": [
-            "Microsoft.Compute/virtualMachines",
-            "Microsoft.Compute/virtualMachineScaleSets"
+    ```json 
+    {
+      "mode": "Indexed",
+      "parameters": {
+        "userAssignedIdentities": {
+          "type": "String",
+          "metadata": {
+            "displayName": "userAssignedIdentities"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "allOf": [
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.Compute/virtualMachines",
+                "Microsoft.Compute/virtualMachineScaleSets"
+              ]
+            },
+            {
+              "value": "[requestContext().apiVersion]",
+              "greaterOrEquals": "2018-10-01"
+            },
+            {
+              "field": "identity.userAssignedIdentities",
+              "notContainsKey": "[parameters('userAssignedIdentities')]"
+            }
           ]
         },
-        {
-          "value": "[requestContext().apiVersion]",
-          "greaterOrEquals": "2018-10-01"
-        },
-        {
-          "field": "identity.userAssignedIdentities",
-          "notContainsKey": "[parameters('userAssignedIdentities')]"
-        }
-      ]
-    },
-    "then": {
-      "effect": "modify",
-      "details": {
-        "roleDefinitionIds": [
-          "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-        ],
-        "operations": [
-          {
-            "operation": "AddOrReplace",
-            "field": "identity.type",
-            "value": "[if(contains(field('identity.type'), 'SystemAssigned'), 'SystemAssigned,UserAssigned', 'UserAssigned')]"
-          },
-          {
-            "operation": "addOrReplace",
-            "field": "identity.userAssignedIdentities",
-            "value": "[createObject(parameters('userAssignedIdentities'), createObject())]"
+        "then": {
+          "effect": "modify",
+          "details": {
+            "roleDefinitionIds": [
+              "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+            ],
+            "operations": [
+              {
+                "operation": "AddOrReplace",
+                "field": "identity.type",
+                "value": "[if(contains(field('identity.type'), 'SystemAssigned'), 'SystemAssigned,UserAssigned', 'UserAssigned')]"
+              },
+              {
+                "operation": "addOrReplace",
+                "field": "identity.userAssignedIdentities",
+                "value": "[createObject(parameters('userAssignedIdentities'), createObject())]"
+              }
+            ]
           }
-        ]
+        }
       }
     }
-  }
-}
 
-```
+    ```
 
 1. Select **Save**. Once the custom policy definition is created successfully, the definition view will be populated. Select the **Assign** button or navigate to the **Assignments** tab to assign the definition.
 
@@ -98,8 +98,8 @@ To remediate the existing resources, follow these steps:
 
 1. Set **Policy enforcement** to **Disabled**. EnforcementMode disables any enforcement at resource creation or update time. Learn more on [enforcement mode](../concepts/assignment-structure.md#enforcement-mode).
 
-> [!NOTE]
-> The definition template MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources.  
+    > [!NOTE]
+    > The definition template MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources.  
 
 1. Select the **Parameters** tab. The parameter `userAssignedIdentities` expects an existing user assigned identity ID with proper permissions to the virtual machine or virtual machine scale set. The ID should be inputted in the following format: `/subscriptions/subID/resourceGroups/RGName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUAMI`
 
@@ -114,61 +114,61 @@ To remediate the existing resources, follow these steps:
 
 1. Use the following JSON snippet to create a JSON file with the name ModifyVMIdentities.json.
 
- ```json 
-{
-  "mode": "Indexed",
-  "parameters": {
-    "userAssignedIdentities": {
-      "type": "String",
-      "metadata": {
-        "displayName": "userAssignedIdentities"
-      }
-    }
-  },
-  "policyRule": {
-    "if": {
-      "allOf": [
-        {
-          "field": "type",
-          "in": [
-            "Microsoft.Compute/virtualMachines",
-            "Microsoft.Compute/virtualMachineScaleSets"
+    ```json 
+    {
+      "mode": "Indexed",
+      "parameters": {
+        "userAssignedIdentities": {
+          "type": "String",
+          "metadata": {
+            "displayName": "userAssignedIdentities"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "allOf": [
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.Compute/virtualMachines",
+                "Microsoft.Compute/virtualMachineScaleSets"
+              ]
+            },
+            {
+              "value": "[requestContext().apiVersion]",
+              "greaterOrEquals": "2018-10-01"
+            },
+            {
+              "field": "identity.userAssignedIdentities",
+              "notContainsKey": "[parameters('userAssignedIdentities')]"
+            }
           ]
         },
-        {
-          "value": "[requestContext().apiVersion]",
-          "greaterOrEquals": "2018-10-01"
-        },
-        {
-          "field": "identity.userAssignedIdentities",
-          "notContainsKey": "[parameters('userAssignedIdentities')]"
-        }
-      ]
-    },
-    "then": {
-      "effect": "modify",
-      "details": {
-        "roleDefinitionIds": [
-          "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
-        ],
-        "operations": [
-          {
-            "operation": "AddOrReplace",
-            "field": "identity.type",
-            "value": "[if(contains(field('identity.type'), 'SystemAssigned'), 'SystemAssigned,UserAssigned', 'UserAssigned')]"
-          },
-          {
-            "operation": "addOrReplace",
-            "field": "identity.userAssignedIdentities",
-            "value": "[createObject(parameters('userAssignedIdentities'), createObject())]"
+        "then": {
+          "effect": "modify",
+          "details": {
+            "roleDefinitionIds": [
+              "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+            ],
+            "operations": [
+              {
+                "operation": "AddOrReplace",
+                "field": "identity.type",
+                "value": "[if(contains(field('identity.type'), 'SystemAssigned'), 'SystemAssigned,UserAssigned', 'UserAssigned')]"
+              },
+              {
+                "operation": "addOrReplace",
+                "field": "identity.userAssignedIdentities",
+                "value": "[createObject(parameters('userAssignedIdentities'), createObject())]"
+              }
+            ]
           }
-        ]
+        }
       }
     }
-  }
-}
 
-```
+  ```
 
    For more information about authoring a policy definition, see [Azure Policy Definition
    Structure](../concepts/definition-structure.md).
