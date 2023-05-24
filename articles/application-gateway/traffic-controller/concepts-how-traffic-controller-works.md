@@ -8,7 +8,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: conceptual
-ms.date: 5/1/2023
+ms.date: 6/1/2023
 ms.author: greglin
 ---
 
@@ -20,7 +20,6 @@ Traffic Controller is made up of three components:
 - Associations
 
 The following dependencies are also referenced in a Traffic Controller deployment
-- Public IP address
 - Private IP address
 - Subnet Delegation
 - User-assigned Managed Identity
@@ -36,11 +35,9 @@ The following dependencies are also referenced in a Traffic Controller deploymen
   - Child resources are exclusive to only their parent Traffic Controller and may not be referenced by additional Traffic Controllers
 
 ### Traffic Controller Frontends
-- A Traffic Controller Frontend defines the IP address that traffic should be received by a given Traffic Controller
-   - A given frontend can't be associated to multiple Traffic Controllers
-   - The frontend resource region should match the same region as the parent
-   - For Frontends mapped to public IPs, all Public IPs across all frontends in one Traffic Controller must have the same home region as the traffic controller.
-- Each frontend maps to a single public IP address
+- A Traffic Controller Frontend defines the entry point client traffic should be received by a given Traffic Controller
+   - A frontend can't be associated to multiple Traffic Controllers
+   - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record 
    - Private IP addresses are currently unsupported
 - A single Traffic Controller can support multiple Frontends
 
@@ -55,9 +52,6 @@ The following dependencies are also referenced in a Traffic Controller deploymen
    - All traffic controller association resources should match the same region as the Traffic Controller parent resource
 
 ## Azure / General concepts
-
-### Public IP address
-- An IP address that is exposed to the internet.
 
 ### Private IP address
 - A private IP address isn't explicitly defined as an Azure Resource Manager resource.  A private IP address would refer to a specific host address within a given virtual network's subnet.
@@ -84,7 +78,6 @@ When the client initiates the request, the DNS name specified is passed as a hos
 A set of rules, defined by the Traffic Controller administrator, evaluates how the request for that hostname should be initiated to a defined backend resource.
 
 ## How Traffic Controller routes a request
-
 
 ### Modifications to the request
 Traffic Controller inserts two additional headers to all requests before requests are initiated from Traffic Controller to a backend target:
