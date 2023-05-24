@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Look up operator information for a phone number using Azure Communication Services
+title: Quickstart - Look up operator information for a phone number using Azure Communication Services
 description: Learn how to look up operator information for any phone number using Azure Communication Services
 services: azure-communication-services
 author: ericasp
