@@ -304,7 +304,7 @@ items:
         href: how-to/find-similar-faces.md
       - name: Specify a face recognition model version
         href: how-to/specify-recognition-model.md
-      - name: Add faces to a group
+      - name: Add faces to a PersonGroup
         href: how-to/add-faces.md
       - name: Use the large-scale feature
         href: how-to/use-large-scale.md
@@ -314,6 +314,8 @@ items:
         href: how-to/mitigate-latency.md
       - name: Migrate face data
         href: how-to/migrate-face-data.md
+      - name: Use limited access tokens
+        href: how-to/identity-access-token.md
       - name: Use customer-managed keys
         href: identity-encrypt-data-at-rest.md
   - name: Concepts
@@ -335,7 +337,7 @@ items:
     - name: Face REST API
       href: identity-api-reference.md
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/face-readme
+      href: /dotnet/api/overview/azure/cognitiveservices/face
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js

@@ -24,7 +24,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring App
 * The image is pushed to an image registry. For more information, see [Azure Container Registry](../container-instances/container-instances-tutorial-prepare-acr.md).
 
 > [!NOTE]
-> The web application must listen on port `1025` for the Standard plan and on port `8080` for the Enterprise plan. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. You can disable the probe for applications that don't listen on any port. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md).
+> The web application must listen on port `1025` for the Standard plan and on port `8080` for the Enterprise plan. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.NET Core applications. You can disable the probe for applications that don't listen on any port. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md).
 
 ## Deploy your application
 
@@ -178,7 +178,7 @@ To trust a CA in the image, set the following variables depending on your enviro
 
 ### Avoid unexpected behavior when images change
 
-When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. 
+When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image.
 
 > [!NOTE]
 > Avoid using the `latest` tag or overwrite the image without a tag change to avoid unexpected application behavior.

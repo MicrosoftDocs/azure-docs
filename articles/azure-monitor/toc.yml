@@ -423,6 +423,10 @@ items:
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
+        - name: Private endpoints for Azure Monitor workspaces
+          href: essentials/azure-monitor-workspace-private-endpoint.md 
+        - name: Private link for Prometheus data ingestion
+          href: essentials/private-link-data-ingestion.md
       - name: Managed agent
         items:
         - name: Enable on AKS cluster
@@ -486,7 +490,10 @@ items:
           href: essentials/prometheus-remote-write-active-directory.md
         - name: Azure Active Directory pod identity
           displayName: Prometheus,remote-write
-          href: essentials\prometheus-remote-write-azure-ad-pod-identity.md
+          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: Prometheus Azure Active Directory authorization proxy
+        displayName: Prometheus
+        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview

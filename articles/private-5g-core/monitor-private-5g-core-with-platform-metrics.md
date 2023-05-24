@@ -5,7 +5,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
-ms.date: 11/22/2022
+ms.date: 05/19/2023
 ms.custom: template-concept
 ---
 
@@ -40,9 +40,14 @@ You can use the Azure portal to monitor your deployment's health and performance
 
 1. Select the **Monitoring** tab.
 
-    :::image type="content" source="media/platform-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab." lightbox="media/platform-metrics-dashboard.png":::
+    :::image type="content" source="media/packet-core-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab." lightbox="media/packet-core-metrics-dashboard.png":::
 
 You should now see the Azure Monitor dashboard displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
+
+Using the buttons just above the charts, you can edit the timespan from which the data shown in the charts is pulled from and the granularity of how that data is plotted. Timespan options range from showing the previous hour of data to the previous 7 days of data and granularity options range from plotting every minute to plotting every 12 hours.
+
+> [!NOTE]
+> Configuring large timespans with small granularities can result in too much data being requested and the charts will be left blank. For example, this will happen if a timespan of 7 days and a granularity of 1 minute is chosen.
 
 You can select individual dashboard panes to open an expanded view where you can specify details such as the graph's time range and time granularity. You can also create additional dashboards using the platform metrics available. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started).
 

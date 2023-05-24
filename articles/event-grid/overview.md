@@ -37,9 +37,9 @@ Azure Event Grid is a generally available service deployed across availability z
 
 Azure Event Grid is used at different stages of data pipelines to achieve a diverse set of integration goals. 
 
-**MQTT messaging** - ***🚩 new***. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
+**MQTT messaging**. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-**Data distribution using push and pull (***🚩 new***) delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
+**Data distribution using push and pull delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
 - Azure services
 - Your custom applications
