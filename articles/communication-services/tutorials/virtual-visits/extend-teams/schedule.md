@@ -120,7 +120,7 @@ Response: response.body.value; //"https://visit.teams.microsoft.com/webrtc-svc/.
 
 You can store the generated URL inside your scheduling system or create a dedicated key-value pair storage that would link the unique ID of the calendar event in your scheduling system with the URL to Microsoft Teams Virtual appointment experience.
 
-## Next Steps
+## Next steps
 -	Learn what [extensibility options](./overview.md) do you have for Virtual appointments.
 -	Learn how to customize [before and after appointment](./before-and-after-appointment.md)
 -	Learn how to customize [precall experience](./precall.md)
