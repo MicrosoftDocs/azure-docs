@@ -26,7 +26,7 @@ Your free trial of a customer tenant provides you with the opportunity to try ne
 During the free trial period, you'll have access to all product features with few exceptions. See the following table for comparison: 
 
 |  Features | Azure AD for customers Trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
-|----------|-----------|------------|
+|----------|:-----------:|:------------:|
 | **Self-service account experiences** (Sign-up, sign-in, and password recovery.)   | :heavy_check_mark: |  :heavy_check_mark:  | 
 | **MFA** (With email OTP.)  | :heavy_check_mark: |  :heavy_check_mark:  |  
 | **Custom token augmentation** (From external sources.) |  :heavy_check_mark: |  :heavy_check_mark:  |
