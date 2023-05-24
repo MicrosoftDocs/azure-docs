@@ -72,7 +72,7 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
 - **Scanning OS packages** - container vulnerability assessment has the ability to scan vulnerabilities in packages installed by the OS package manager in Linux. See the [full list of the supported OS and their versions](support-agentless-containers-posture.md#registries-and-images).   
 - **Language specific packages** – support for language specific packages and files, and their dependencies installed or copied without the OS package manager. See the [complete list of supported languages](support-agentless-containers-posture.md#registries-and-images).  
 - **Image scanning in Azure Private Link** - Azure container vulnerability assessment provides the ability to scan images in container registries that are accessible via Azure Private Links. This capability requires access to trusted services and authentication with the registry. Learn how to [connect privately to an Azure container registry using Azure Private Link](https://learn.microsoft.com/azure/container-registry/container-registry-private-link#set-up-private-endpoint---portal-recommended).   
-- **Exploitability information** - Each vulnerability report is search through exploitability databases to assist our customers with evaluating actual risk associated with each reported vulnerability. 
+- **Exploitability information** - Each vulnerability report is searched through exploitability databases to assist our customers with determining actual risk associated with each reported vulnerability. 
 - **Reporting** - Defender for Containers powered by Microsoft Defender Vulnerability Management (MDVM)  reports the vulnerabilities as the following recommendation: 
  
     | Recommendation | Description |
