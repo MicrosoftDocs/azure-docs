@@ -23,6 +23,7 @@ Follow these steps in order to gather the data needed to diagnose Isolation Doma
 * Network fabric controller and resource group
 * Network fabric instances and resource group
 * Setup ManagedNetworkFabric CLI extension using the WHL file
+
      [How-to-install-ManagedNetworkFabric-CLI-extension](./howto-install-cli-extensions.md#install-managednetworkfabric-cli-extension)
 
  [How to Sign-in to your Azure account](./howto-configure-isolation-domain.md#sign-in-to-your-azure-account)
