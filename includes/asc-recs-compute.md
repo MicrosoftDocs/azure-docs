@@ -1,9 +1,9 @@
 ---
-author: memildin
+author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 04/16/2023
-ms.author: memildin
+ms.author: dacurwin
 ms.custom: generated
 ---
 
