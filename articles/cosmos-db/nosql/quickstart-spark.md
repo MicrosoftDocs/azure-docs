@@ -26,11 +26,11 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Go](quickstart-go.md)
 >
 
-This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x.
+This tutorial is a quick start guide to show how to use Azure Cosmos DB Spark Connector to read from or write to Azure Cosmos DB. Azure Cosmos DB Spark Connector supports Spark 3.1.x and 3.2.x and 3.3.x.
 
-Throughout this quick tutorial, we rely on [Azure Databricks Runtime 10.4 with Spark 3.2.1](/azure/databricks/release-notes/runtime/10.4) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
+Throughout this quick tutorial, we rely on [Azure Databricks Runtime 12.2 with Spark 3.3.2](/azure/databricks/release-notes/runtime/12.2) and a Jupyter Notebook to show how to use the Azure Cosmos DB Spark Connector.
 
-You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
+You should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
 ## Prerequisites
 
@@ -38,13 +38,13 @@ You can use any other Spark (for e.g., spark 3.1.1) offering as well, also you s
 
   * No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 
-* [Azure Databricks](/azure/databricks/release-notes/runtime/10.4) runtime 10.4 with Spark 3.2.1
+* [Azure Databricks](/azure/databricks/release-notes/runtime/12.2) runtime 12.2 with Spark 3.3.2
 
 * (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 
 SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
 
-Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.2.x](https://aka.ms/azure-cosmos-spark-3-2-download).
+Install Azure Cosmos DB Spark Connector in your spark cluster [using the latest version for Spark 3.3.x](https://aka.ms/azure-cosmos-spark-3-3-download).
 
 The getting started guide is based on PySpark/Scala and you can run the following code snippet in an Azure Databricks PySpark/Scala notebook.
 
@@ -315,7 +315,195 @@ For more information related to schema inference, see the full [schema inference
 
 ## Configuration reference
 
-The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides additional and advanced settings writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
+The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides more advanced settings for writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details, see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
+
+
+## Azure Active Directory authentication
+
+1. Following the instructions on how to [register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+
+1. You should still be in Azure portal > Azure Active Directory > App Registrations. In the `Certificates & secrets` section, create a new secret. Save the value for later. 
+
+1. Click on the overview tab and find the values for `clientId` and `tenantId`, along with `clientSecret` that you created earlier, and `cosmosEndpoint`, `subscriptionId`, and `resourceGroupName`from your account. Create a notebook as below and replace the configurations with the appropriate values:
+
+
+    #### [Python](#tab/python)
+    
+    ```python
+    cosmosDatabaseName = "AADsampleDB"
+    cosmosContainerName = "sampleContainer"
+    authType = "ServicePrinciple"
+    cosmosEndpoint = "<replace with URI of your Cosmos DB account>"
+    subscriptionId = "<replace with subscriptionId>"
+    tenantId = "<replace with Directory (tenant) ID from the portal>"
+    resourceGroupName = "<replace with the resourceGroup name>"
+    clientId = "<replace with Application (client) ID from the portal>"
+    clientSecret = "<replace with application secret value you created earlier>"
+    
+    cfg = {
+        "spark.cosmos.accountEndpoint" : cosmosEndpoint,
+        "spark.cosmos.auth.type" : authType,
+        "spark.cosmos.account.subscriptionId" : subscriptionId,
+        "spark.cosmos.account.tenantId" : tenantId,
+        "spark.cosmos.account.resourceGroupName" : resourceGroupName,
+        "spark.cosmos.auth.aad.clientId" : clientId,
+        "spark.cosmos.auth.aad.clientSecret" : clientSecret,
+        "spark.cosmos.database" : cosmosDatabaseName,
+        "spark.cosmos.container" : cosmosContainerName
+    }
+
+    # Configure Catalog Api to be used
+    spark.conf.set("spark.sql.catalog.cosmosCatalog", "com.azure.cosmos.spark.CosmosCatalog")
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.accountEndpoint", cosmosEndpoint)
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.auth.type", authType)
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.account.subscriptionId", subscriptionId)
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.account.tenantId", tenantId)
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.account.resourceGroupName", resourceGroupName)
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.auth.aad.clientId", clientId)
+    spark.conf.set("spark.sql.catalog.cosmosCatalog.spark.cosmos.auth.aad.clientSecret", clientSecret)
+
+    # create an Azure Cosmos DB database using catalog api
+    spark.sql("CREATE DATABASE IF NOT EXISTS cosmosCatalog.{};".format(cosmosDatabaseName))
+    
+    # create an Azure Cosmos DB container using catalog api
+    spark.sql("CREATE TABLE IF NOT EXISTS cosmosCatalog.{}.{} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/id', manualThroughput = '1100')".format(cosmosDatabaseName, cosmosContainerName))
+    
+    spark.createDataFrame((("cat-alive", "Schrodinger cat", 2, True), ("cat-dead", "Schrodinger cat", 2, False)))\
+      .toDF("id","name","age","isAlive") \
+       .write\
+       .format("cosmos.oltp")\
+       .options(**cfg)\
+       .mode("APPEND")\
+       .save()
+    
+    ```
+    
+    #### [Scala](#tab/scala)
+    
+    ```scala
+    val cosmosDatabaseName = "AADsampleDB"
+    val cosmosContainerName = "sampleContainer"
+    val authType = "ServicePrinciple"
+    val cosmosEndpoint = "<replace with URI of your Cosmos DB account>"
+    val subscriptionId = "<replace with subscriptionId>"
+    val tenantId = "<replace with Directory (tenant) ID from the portal>"
+    val resourceGroupName = "<replace with the resourceGroup name>"
+    val clientId = "<replace with Application (client) ID from the portal>"
+    val clientSecret = "<replace with application secret value you created earlier>"
+      
+    val cfg = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
+          "spark.cosmos.auth.type" -> authType,
+          "spark.cosmos.account.subscriptionId" -> subscriptionId,
+          "spark.cosmos.account.tenantId" -> tenantId,
+          "spark.cosmos.account.resourceGroupName" -> resourceGroupName,
+          "spark.cosmos.auth.aad.clientId" -> clientId,
+          "spark.cosmos.auth.aad.clientSecret" -> clientSecret,
+          "spark.cosmos.database" -> cosmosDatabaseName,
+          "spark.cosmos.container" -> cosmosContainerName
+    )
+
+    // Configure Catalog Api to be used
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog", "com.azure.cosmos.spark.CosmosCatalog")
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.accountEndpoint", cosmosEndpoint)
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.auth.type", authType)
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.account.subscriptionId", subscriptionId)
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.account.tenantId", tenantId)
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.account.resourceGroupName", resourceGroupName)
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.auth.aad.clientId", clientId)
+    spark.conf.set(s"spark.sql.catalog.cosmosCatalog.spark.cosmos.auth.aad.clientSecret", clientSecret)
+    
+    // create an Azure Cosmos DB database using catalog api
+    spark.sql(s"CREATE DATABASE IF NOT EXISTS cosmosCatalog.${cosmosDatabaseName};")
+    
+    // create an Azure Cosmos DB container using catalog api
+    spark.sql(s"CREATE TABLE IF NOT EXISTS cosmosCatalog.${cosmosDatabaseName}.${cosmosContainerName} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/id', manualThroughput = '1100')")
+    
+    spark.createDataFrame(Seq(("cat-alive", "Schrodinger cat", 2, true), ("cat-dead", "Schrodinger cat", 2, false)))
+      .toDF("id","name","age","isAlive")
+       .write
+       .format("cosmos.oltp")
+       .options(cfg)
+       .mode("APPEND")
+       .save()
+    ```
+    --- 
+
+    > [!TIP]
+    > In this quickstart example credentials are assigned to variables in clear-text, but for security we recommend the usage of secrets. Review instructions on how to secure credentials in Azure Synapse Apache Spark with [linked services using the TokenLibrary](../../synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary.md). Or if using Databricks, review how to create an [Azure Key Vault backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope) or a [Databricks backed secret scope](/azure/databricks/security/secrets/secret-scopes#create-a-databricks-backed-secret-scope). For configuring secrets, review how to [add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
+
+1. Create a role using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `SparkConnectorAAD` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
+
+    ```azurecli-interactive
+    resourceGroupName='<myResourceGroup>'
+    accountName='<myCosmosAccount>'
+    az cosmosdb sql role definition create \
+       --account-name $accountName \
+       --resource-group $resourceGroupName \
+       --body '{
+           "RoleName": "SparkConnectorAAD",
+           "Type": "CustomRole",
+           "AssignableScopes": ["/"],
+           "Permissions": [{
+               "DataActions": [
+                   "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                   "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
+                   "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
+               ]
+           }]
+       }'
+    ```
+
+1. Now list the role definition you created to fetch its ID:
+
+    ```azurecli-interactive
+        az cosmosdb sql role definition list --account-name $accountName --resource-group $resourceGroupName 
+    ```
+
+1. This should bring back a response like the below. Record the `id` value.
+
+    ```json
+        [
+          {
+            "assignableScopes": [
+              "/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>"
+            ],
+            "id": "/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>",
+            "name": "<roleDefinitionId>",
+            "permissions": [
+              {
+                "dataActions": [
+                  "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                  "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
+                  "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
+                ],
+                "notDataActions": []
+              }
+            ],
+            "resourceGroup": "<myResourceGroup>",
+            "roleName": "MyReadWriteRole",
+            "sqlRoleDefinitionGetResultsType": "CustomRole",
+            "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions"
+          }
+        ]
+    ```
+
+1. Now go to Azure portal > Azure Active Directory > **Enterprise Applications** and search for the application you created earlier. Record the Object ID found here.
+
+    > [!NOTE]
+    > Make sure to use its Object ID as found in the **Enterprise applications** section of the Azure Active Directory portal blade (and not the App registrations section you used earlier).
+
+1. Now create a role assignment. Replace the `<aadPrincipalId>` with Object ID you recorded above (note this is NOT the same as Object ID visible from the app registrations view you saw earlier). Also replace `<myResourceGroup>` and `<myCosmosAccount>` accordingly in the below. Replace `<roleDefinitionId>` with the `id` value fetched from running the `az cosmosdb sql role definition list` command you ran above. Then run in Azure CLI:
+
+    ```azurecli-interactive
+    resourceGroupName='<myResourceGroup>'
+    accountName='<myCosmosAccount>'
+    readOnlyRoleDefinitionId='<roleDefinitionId>' # as fetched above
+    # For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
+    principalId='<aadPrincipalId>'
+    az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+    ```
+
+1. Now that you have created an Azure Active Directory application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
 
 ## Migrate to Spark 3 Connector
 
