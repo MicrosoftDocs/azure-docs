@@ -71,7 +71,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 For more information, see the following articles:
 
-- [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview)
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 - [Simple Todo Event Driven App](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 - [Spring on Azure](/azure/developer/java/spring/)

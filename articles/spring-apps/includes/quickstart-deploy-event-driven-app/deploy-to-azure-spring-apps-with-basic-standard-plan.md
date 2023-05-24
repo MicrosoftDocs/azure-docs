@@ -109,7 +109,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 1. Select **Secrets** in the left navigational menu, select **Generate/Import**.
 
-1. On the **Create a secret** page, enter *SERVICE-BUS-CONNECTION-STRING* for **Name**, paste the connection string of Service Bus for **Secret value**, then select **Create**.
+1. On the **Create a secret** page, enter `SERVICE-BUS-CONNECTION-STRING` for **Name**, paste the connection string of Service Bus for **Secret value**, then select **Create**.
 
 ### 3.3 Provision an instance of Azure Spring Apps
 
@@ -284,13 +284,13 @@ Use AZD to package the app, provision the Azure resources required by the event-
    >    - UK South
    >    - West Europe
    >    - West US
-        >
-        >    If you attempt to use the template with an unsupported region, the provision step will fail.
+   >
+   >    If you attempt to use the template with an unsupported region, the provision step will fail.
    >
    > 2. The `Basic` plan of Azure Spring Apps is used by default. If you want to use the `Standard` plan,
-        >    you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
-        >
-        >    ```text
+   >    you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
+   >
+   >    ```text
    >    sku: {
    >      name: 'S0'
    >      tier: 'Standard'

@@ -16,6 +16,21 @@ Use the following line at the beginning of the Next steps with blank lines befor
 
 ## 6 Clean up resources
 
+::: zone pivot="sc-consumption-plan,sc-enterprise"
+
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
 ### [Azure portal](#tab/Azure-portal)
 
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -42,8 +57,8 @@ Use the following line at the beginning of the Next steps with blank lines befor
 
    Command interaction description:
 
-    - **Total resources to delete: <resources-total>, are you sure you want to continue?**: Enter *y*.
-    - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter *y*. Enter *n* if you want to reuse the Key Vault.
+    - **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
+    - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter `y`. Enter `n` if you want to reuse the Key Vault.
 
    The console outputs messages similar to the following:
 
@@ -53,3 +68,4 @@ Use the following line at the beginning of the Next steps with blank lines befor
 
 ---
 
+::: zone-end
