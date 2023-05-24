@@ -69,7 +69,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
    > [!TIP]
    > Run the command `az spring connection list-support-types --output table` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
 
-1. Alternately, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
+1. Alternatively, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
 
    1. Select your Azure Spring Apps instance in the Azure portal and then select **Apps** from the navigation menu. Choose the app you want to connect and then select **Service Connector** on the navigation menu.
 
