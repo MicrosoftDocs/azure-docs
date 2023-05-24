@@ -76,7 +76,8 @@ More information about policies:
 ## GraphQL resolver policies
 - [Cosmos DB data source for resolver](cosmosdb-data-source-policy.md) - Configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema.
 - [HTTP data source for resolver](http-data-source-policy.md) - Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema.
-- [Publish event to GraphQL subscription](publish-event-policy.md) - Publishes an event to one or more subscriptions specified in a GraphQL API schema. Used in the `http-response` element of the `http-data-source` policy
+- [Publish event to GraphQL subscription](publish-event-policy.md) - Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. 
+- [SQL Azure data source for resolver](cosmosdb-data-source-policy.md) - Configures the SQL Azure request and optional response to resolve data for an object type and field in a GraphQL schema.
 
 ## Transformation policies
 -   [Convert JSON to XML](json-to-xml-policy.md) - Converts request or response body from JSON to XML.

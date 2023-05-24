@@ -464,6 +464,8 @@
               href: choose-policy.md
             - name: cors
               href: cors-policy.md
+            - name: cosmosdb-data-source
+              href: cosmosdb-data-source-policy.md
             - name: cross-domain
               href: cross-domain-policy.md
             - name: emit-metric
@@ -536,6 +538,8 @@
               href: set-status-policy.md
             - name: set-variable
               href: set-variable-policy.md
+            - name: sql-data-source
+              href: sql-data-source-policy.md
             - name: trace
               href: trace-policy.md
             - name: validate-azure-ad-token

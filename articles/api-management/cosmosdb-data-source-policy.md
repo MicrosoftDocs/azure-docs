@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 05/24/2023
 ms.author: danlep
 ---
 
 # Cosmos DB data source for a resolver
 
-The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request, read request, delete request, or write request and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -21,73 +21,68 @@ The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and 
 ```xml 
 <cosmosdb-data-source> 
     <connection-info>
-        <!-- Required --> 
-        <connection-string use-managed-identity="true | false" client-id= "value"> {{connectString}} </connection-string> 
-        <!-- Required --> 
-        <database-name>{{databaseName}}</database-name> connection 
-        <!-- Required --> 
-        <container-name>{{containerName}}</container-name     
+        <!-- Required information that specifies connection to Cosmos DB container--> 
+        <connection-string use-managed-identity="true | false" client-id= "Client ID of a user-assigned managed identity"> 
+            "Cosmos DB connection string" 
+        </connection-string> 
+        <database-name>"Cosmos DB database name"</database-name> 
+        <container-name>"Name of container in Cosmos DB database"</container-name>     
     </connection-info>
     
-    <query-request enable-low-precision-order-by="true"> 
-    <!-- Optional Element-->
+    <query-request enable-low-precision-order-by="true | false"> 
+    <!-- Settings for SQL query request -->
         <sql-statement> 
-            SELECT * FROM c where c.difficulty = @difficulty 
+            "SQL statement for query request" 
         </sql-statement> 
-        <!-- Optional Element --> 
-        <!-- name attribute required --> 
         <query-parameters> 
-            <parameter name="@difficulty" template="liquid" > {{body.arguments.difficulty}} </parameter> 
+        <!-- List of query parameters -->
+            <parameter name="Query parameter name in @ notation" template="liquid"> 
+                "Value of query parameter"
+            </parameter> 
         </query-parameters> 
-        <!-- Optional Element,if element is not provided, defaults to None --> 
-        <!-- data-type optional attribute, defaults to string, other options would be number/bool/none/null--> 
-        <partition-key data-type="string" template="liquid" > 
-            {{body.arguments.category}} 
+        <partition-key data-type="data type of partition key" template="liquid" > 
+            "Container partition key" 
         </partition-key> 
-        <!-- Optional Element --> 
         <paging> 
             <max-item-count template="liquid" > 
-                {{body.arguments.first}} 
+                "Maximum number of items returned by query"
             </max-item-count> 
             <continuation-token template="liquid"> 
-                {{body.arguments.after}} 
+                "Continuation token for paging" 
             </continuation-token> 
         </paging>
 </query-request>
 
 <read-request> 
-    <!-- Required --> 
+    <!-- Settings to read data by item ID and partition key --> 
     <id template="liquid" >
-        {{body.arguments.id}}
+        "Item ID in container"
     </id> 
-    <!-- Optional Element,if element is not provided, defaults to none -->
-    <!-- data-type optional attribute, defaults to string, other options would be number/bool/none/null--> 
-    <partition-key data-type="string" template="liquid" > 
-        {{body.arguments.category}} 
-    </partition-key> 
+    <partition-key data-type="data type of partition key" template="liquid" > 
+        "Container partition key" 
+    </partition-key>  
 </read-request> 
 
-<delete-request consistency-level="eventual" pre-trigger="myPreTrigger" post-trigger="myPostTrigger"> 
-    <etag type="match" template="liquid" > 
-        {{body.arguments.etag}} 
+<delete-request consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
+<!-- Settings to delete item by ID and partition key --> 
+    <etag type="entity tag type" template="liquid" > 
+        "System-generated entity tag" 
     </etag> 
-    <!-- Required --> 
-    <id template="liquid" >
-        {{body.arguments.id}}
+    <id template="liquid">
+        "Item ID in container"
     </id> 
-    <!-- Optional Element,if element is not provided, defaults to none --> 
-    <!-- data-type optional attribute, defaults to string, other options would be number/bool/none/null--> 
-
-    <partition-key data-type="string" template="liquid" > 
-        {{body.arguments.category}} 
+    <partition-key data-type="data type of partition key" template="liquid"> 
+        "Container partition key" 
     </partition-key> 
 </delete-request> 
+
+
 <!-- Attributes optional -->
 <!-- type attribute can be either insert, replace, upsert. Default to upsert-->
 
 <!-- consistency-level attribute is optional can be strong, session, eventual, bounded-staleness, consistent-prefix--> 
 
-<write-request type="upsert" consistency-level="eventual" enable-content-response-on-write="true" indexing-directive="default" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
+<write-request type="insert | replace | upsert" consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" enable-content-response-on-write="true | false" indexing-directive="default" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
     
     <!-- Required when type= "replace" --> 
     <id template="liquid" >{{body.arguments.id}}</id> 
@@ -125,28 +120,34 @@ The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and 
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-info](#connection-info-elements)  |  TODO    |   Yes     |
-| [query-request](#query-request-elements)    |   TODO   |  No      |
-| [read-request](#read-request-attributes)    |  TODO    |    No   |
-| [delete-request](#delete-request-attributes)    |  TODO    |   No     |
-| [write-request](#write-request-attributes) | TODO  |  No |
-| [response](#response-elements)  |  TODO  |    No |
+| [connection-info](#connection-info-elements)  |  Specifies connection to container in Cosmos DB database.    |   Yes     |
+| [query-request](#query-request-attributes)    |   Specifies settings for a [query request](..cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  No      |
+| [read-request](#read-request-attributes)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    No   |
+| [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   No     |
+| [write-request](#write-request-attributes) | Specifies ettings for write request to Cosmos DB container.  |  No |
+| [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response.  |    No |
 
 
 ### connection-info elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | TODO   | Yes    |
-| database-name | TODO | Yes  |
-| container-name | TODO | Yes  |
+| [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account.   | Yes    |
+| database-name | String. Name of Cosmos DB database. | Yes  |
+| container-name | String. Name of container in Cosmos DB database. | Yes  |
 
 
 #### connection-string attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | TODO  | No  | false   |
-| client-id | TODO | No | N/A |
+| use-managed-identity | Boolean. Specifies whether to use a managed identity assigned to the API Management instance for connection to the Cosmos DB account. TODO TO SPECIFY MORE ABOUT THE IDENTITY. | No  | `false`   |
+| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must have a TODO role assignment or equivalent permissions to perform the configured request on the Cosmos DB container.  | No | N/A |
+
+### query-request attributes
+
+| Attribute                                      | Description                                                                                 | Required                                           | Default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| enable-low-precision-order-by | Boolean. Specifies whether to enable the [EnableLowPrecisionOrderBy](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions?view=azure-dotnet) query request property in the Cosmos DB service.  | No  | N/A   |
 
 
 ### query-request elements
@@ -155,22 +156,22 @@ The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and 
 |----------|-----------------|--------------|
 |  sql-statement     |    A SQL statement for the query request.    |   No      |
 |  parameters     |   A list of query parameters, in [parameter](#parameter-attributes) subelements, for the query request.      |     No    |
-|  [partition-key](#partition-key-attributes)     |  A partition key for the query request.       |     No    |
-|  [paging](#paging-elements)     |    TODO    |      No   |
+|  [partition-key](#partition-key-attributes)     |  A Cosmos DB [partition key](../cosmos-db/resource-model.md#azure-cosmos-db-containers) to route the query to the location in the container.       |     No    |
+|  [paging](#paging-elements)     |    Specifies  settings to split query results into multiple [pages](../cosmos-db/nosql/query/pagination.md).   |      No   |
 
 #### parameter attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| name   | String or expression. Name of the parameter.    | Yes    | N/A  |
+| name   | String. Name of the parameter in @ notation.    | Yes    | N/A  |
 | template    |  Used to set the templating mode for the query parameter. Currently the only supported value is:<br /><br />- `liquid` - the parameter will use the liquid templating engine   |  No   |  N/A |
 
 #### paging elements
 
 | Name|Description|Required|
 |----------|-----------------|--------------|
-|  [max-item-count](#max-item-count-attribute)     |    TODO    |   Yes      |
-| [continuation-token](#continuation-token-attribute) | TODO  | Yes |
+|  [max-item-count](#max-item-count-attribute)     |    Specifies the [maximum number of items](../cosmos-db/nosql/query/pagination.md) returned by the query. Set to -1 if you don't want to place a limit on the number of results per query execution.   |   Yes      |
+| [continuation-token](#continuation-token-attribute) | Specifies the [continuation token](../cosmos-db/nosql/query/pagination.md#continuation-tokens) to attach to the query to get the next set of results.  | Yes |
 
 #### max-item-count attribute
 
@@ -184,34 +185,26 @@ The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and 
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token will use the liquid templating engine   |  No   |  N/A |
 
-
-### read-request attributes
-
-| Attribute                                      | Description                                                                                 | Required                                           | Default |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| enable-low-precision-order-by | TODO  | No  | N/A   |
-
-
 ### read-request elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|   id    |   TODO      |  Yes          |
-| [partition-key](#partition-key-attributes)    |  A partition key for the read request.      |      No      |    
+|   id    |   Identifier of the item to read in the container.      |  Yes          |
+| [partition-key](#partition-key-attributes)    |  A partition key for the location of the item in the container. If specified with `id`, enables a quick point read (key/value lookup) of the item in the container.      |      No      |    
 
 ### delete-request attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | consistency-level | String. Sets the CosmosDB [consistency level](../cosmos-db/consistency-levels.md) of the delete request. | No  | N/A   |
-| pre-trigger | String. Identifier of a pre-trigger function that is registered in your CosmosDB database container. | No | N/A |
-| post-trigger | String. Identifier of a post-trigger function that is registered in your CosmosDB database container. | No | N/A |
+| pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your CosmosDB container. | No | N/A |
+| post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your CosmosDB container. | No | N/A |
 
 ### delete-request elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|   id    |   TODO      |  Yes          |
-| [partition-key](#partition-key-attributes)   |  A partition key for the delete request. | No |
-| [etag](#etag-attribute) | TODO     |   No  |
+|   id    |   Identifier of the item to delete in the container.      |  Yes          |
+| [partition-key](#partition-key-attributes)    |  A partition key for the location of the item in the container.     |      No      |    
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for optimistic concurrency control. If this value differs from the current `etag` of the item in the Cosmos DB container, the delete request fails.     |   No  |
 
 #### write-request attributes
 
@@ -221,8 +214,8 @@ The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and 
 | consistency-level | String. Sets the CosmosDB [consistency level](../cosmos-db/consistency-levels.md) of the write request.  | No  | N/A   |
 | enable-content-response-on-write | String. TODO  | No  | N/A   |
 | indexing-directive | String. TODO  | No  | N/A   |
-| pre-trigger | String. Identifier of a pre-trigger function that is registered in your CosmosDB database. | No | N/A |
-| post-trigger | String. Identifier of a post-trigger function that is registered in your CosmosDB database. | No | N/A |
+| pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your CosmosDB container. | No | N/A |
+| post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your CosmosDB container. | No | N/A |
 
 ### write-request elements
 |Name|Description|Required|
@@ -243,7 +236,7 @@ The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-|  data-type  | String. TODO    | No    | N/A    |
+|  data-type  | The data type of the partition key. Valid values include including `string`, `number`, `bool`, `none`, and `null`, other options would be number/bool/none/null  | No    | `string`    |
 | template    |  Used to set the templating mode for the partition key. Currently the only supported value is:<br /><br />- `liquid` - the partition key will use the liquid templating engine   |  No   |  N/A |
 
 
