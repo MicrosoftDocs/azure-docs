@@ -73,7 +73,6 @@ Grant the `Contributor` and `User Access Administrator` roles to the user on the
 For more details, see [Permissions required for the `feature store materialization managed identity` role](how-to-setup-access-control-feature-store.md#permissions-required-for-the-feature-store-materialization-managed-identity-role). 
 
 
-
 ### Duplicated materialization identity ARM ID issue
 
 Once the feature store is updated to enable materialization for the first time, some later updates on the feature store may result in this error. 
@@ -109,6 +108,15 @@ The next time the user updates the feature store, if they use the same user-assi
 
 To fix the issue, replace string `resourcegroups` with `resourceGroups` in the user-assigned managed identity ARM ID, and run feature store update again.
 
+### Older versions of `azure-mgmt-authorization` package does not work with `AzureMLOnBehalfOfCredential`
+When you use the `setup_storage_uai` script provided in the *featurestore_sample* folder in the azureml-examples repository, the script fails  with the error message:
+
+`AttributeError: 'AzureMLOnBehalfOfCredential' object has no attribute 'signed_session'`
+
+#### Solution:
+Check the version of the `azure-mgmt-authorization` package that is installed and make sure you are using a recent version, such as 3.0.0 or later. The old version, such as 0.61.0, does not work with `AzureMLOnBehalfOfCredential`.
+
+
 ## Feature Set Spec Create Errors
 
 - [Invalid schema in feature set spec](#invalid-schema-in-feature-set-spec)
@@ -133,6 +141,7 @@ Check the schema validation failure error, and update the feature set spec defin
 - update the `source.timestamp_column.name` property to define the timestamp column name correctly.
 - update the `index_columns` property to define the index columns correctly.
 - update the `features` property to define the feature column names and types correctly. 
+- If the feature source data is of type “csv”, make sure the CSV files are generated with column headers.
 
 Then run `<feature_set_spec>.to_spark_dataframe()` again to check if the validation is passed.
 
@@ -387,6 +396,43 @@ And the output data is always in parquet format.
 
 Update the training script to read from the "data" sub folder, and read the data as parquet.
 
+### `generate_feature_retrieval_spec()` fails due to use of local feature set specification
+
+#### Symptom:
+If you run the following python code to generate a feature retrieval spec on a given list of features.
+
+```python
+featurestore.generate_feature_retrieval_spec(feature_retrieval_spec_folder, features)
+```
+You receive the error:
+
+`AttributeError: 'FeatureSetSpec' object has no attribute 'id'`
+
+#### Solution:
+
+A feature retrieval spec can only be generated using feature sets registered in Feature Store. If the features list contains features defined by a local feature set specification, the `generate_feature_retrieval_spec()` will fail with the error message above.
+
+To fix the issue:
+
+- Register the local feature set specification as feature set in the feature store
+- Get the registered the feature set
+- Create feature lists again using only features from registered feature sets
+- Generate the feature retrieval spec using the new features list
+
+
+### `get_offline_features() query` takes very long time
+
+#### Symptom:
+User runs get_offline_features to generate an training data using a few features from feature store. The query took very long time to finish.
+
+#### Solutions:
+
+Check the following configurations:
+
+- For each feature set used in the query, does it have `temporal_join_lookback` set in the feature set specification. Set its value to a smaller value.
+- If the size and timestamp window are large on the observation dataframe, configure the notebook session (or the job) to increase the size (memory and core) of driver and executor, and increase the number of executors.
+
+
 ## Feature Materialization Job Errors
 
 - [Invalid Offline Store Configuration](#invalid-offline-store-configuration)
@@ -518,3 +564,77 @@ Assign the `Storage Blob Data Contributor` role on the offline store storage to 
 `Storage Blob Data Contributor` is the minimum recommended access requirement. You can also assign roles like more privileges like `Storage Blob Data Owner`.
 
 For more information about RBAC configuration, see [Permissions required for the `feature store materialization managed identity` role](how-to-setup-access-control-feature-store.md#permissions-required-for-the-feature-store-materialization-managed-identity-role)..
+
+### Stream job results to notebook fail
+
+## Symptom:
+
+When using the feature store CRUD client to stream materialization job results to notebook using `fs_client.jobs.stream(“<job_id>”)`, the SDK call fails with an error
+```
+HttpResponseError: (UserError) A job was found, but it is not supported in this API version and cannot be accessed.
+
+Code: UserError
+
+Message: A job was found, but it is not supported in this API version and cannot be accessed.
+```
+## Solution:
+
+When the materialization job is just created (e.g. by a backfill call), it may take a few seconds for the job the be properly initialized. Run the `jobs.stream()` command again in a few seconds. The issue should be gone.
+
+### Invalid Spark configuration
+
+#### Symptom:
+
+A materialization job fails with the following error message:
+
+```
+Synapse job submission failed due to invalid spark configuration request
+
+{
+
+"Message":"[..] Either the cores or memory of the driver, executors exceeded the SparkPool Node Size.\nRequested Driver Cores:[4]\nRequested Driver Memory:[36g]\nRequested Executor Cores:[4]\nRequested Executor Memory:[36g]\nSpark Pool Node Size:[small]\nSpark Pool Node Memory:[28]\nSpark Pool Node Cores:[4]"
+
+}
+```
+
+#### Solution:
+
+Update the `materialization_settings.spark_configuration{}` of the feature set. Make sure the following parameters are using memory size and number of cores less than what is provided by the instance type (defined by `materialization_settings.resource`)
+
+`spark.driver.cores`
+`spark.driver.memory`
+`spark.executor.cores`
+`spark.executor.memory`
+
+For example, on instance type *standard_e8s_v3*, the following spark configuration one of the valid options.
+
+ 
+```python
+
+transactions_fset_config.materialization_settings = MaterializationSettings(
+
+    offline_enabled=True,
+
+    resource = MaterializationComputeResource(instance_type="standard_e8s_v3"),
+
+    spark_configuration = {
+
+        "spark.driver.cores": 4,
+
+        "spark.driver.memory": "36g",
+
+        "spark.executor.cores": 4,
+
+        "spark.executor.memory": "36g",
+
+        "spark.executor.instances": 2
+
+    },
+
+    schedule = None,
+
+)
+
+fs_poller = fs_client.feature_sets.begin_create_or_update(transactions_fset_config)
+
+```
