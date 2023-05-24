@@ -79,7 +79,7 @@ To help simplify steps to configure the identities required, the steps below def
 1. Create an AKS cluster using the [`az aks create`][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer.
 
     ```azurecli-interactive
-    az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity
+    az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
