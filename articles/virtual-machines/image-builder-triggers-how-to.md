@@ -197,9 +197,6 @@ az resource show --api-version 2022-07-01 --ids /subscriptions/$subscriptionID/r
 
 #### Deleting the trigger
 
-> [!IMPORTANT]
-> You will not be able to delete the image template without deleting the trigger first. This is temporary and will change in the future.
-
 Use the following command to delete the trigger:
 
 ```azurecli-interactive
