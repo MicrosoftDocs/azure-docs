@@ -1626,8 +1626,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-differential-privacy.md",
-        "redirect_url": "/azure/machine-learning/how-to-differential-privacy",
+        "source_path_from_root": "/articles/machine-learning/how-to-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
         "redirect_document_id": true
     },
     {
