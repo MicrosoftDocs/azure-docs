@@ -647,7 +647,7 @@ Cross-tenant synchronization allows you to set up a scalable and automated solut
 
 ---
 
-### Public Preview - Devices option Self-Help Capability for Pending Devices
+### Public Preview - Devices Self-Help Capability for Pending Devices
 
 
 
@@ -655,7 +655,20 @@ Cross-tenant synchronization allows you to set up a scalable and automated solut
 **Service category:** Device Access Management                
 **Product capability:** End User Experiences          
 
-In the **All Devices** options under the registered column, you can now select any pending devices you have, and it opens a context pane to help troubleshoot why the device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+In the **All Devices** view under the Registered column, you can now click on any pending devices you have, and it will open a context pane to help troubleshoot why a device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see: [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+
+
+---
+
+### General Availability - Admins can now restrict users from self-service accessing their BitLocker keys
+
+
+
+**Type:** New feature   
+**Service category:** Device Access Management                
+**Product capability:** User Management            
+
+Admins can now restrict their users from self-service accessing their BitLocker keys through the Devices Settings page. Turning on this capability will hide the BitLocker key(s) of all non-admin users. This helps to control BitLocker access management at the admin level. For more information, see: [Restrict member users' default permissions](users-default-permissions.md#restrict-member-users-default-permissions).
 
 
 ---
