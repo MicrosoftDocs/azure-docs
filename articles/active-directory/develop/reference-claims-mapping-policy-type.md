@@ -38,6 +38,7 @@ This section lists:
 
 > [!NOTE]
 > Any claim starting with "xms_" is restricted.
+> Any claim starting with "extn." is restricted.
 
 | Claim type (name) |
 | ----- |
@@ -51,6 +52,7 @@ This section lists:
 |acr|
 |acrs|
 |actor|
+|actortoken|
 |ageGroup|
 |aio|
 |altsecid|
@@ -62,37 +64,62 @@ This section lists:
 |appctxsender|
 |appid|
 |appidacr|
+|assertion|
 |at_hash|
+|aud|
+|auth_data|
 |auth_time|
+|authorization_code|
 |azp|
 |azpacr|
+|bk_claim|
+|bk_enclave|
+|bk_pub|
+|brk_client_id|
+|brk_redirect_uri|
 |c_hash|
 |ca_enf|
 |ca_policy_result|
 |capolids_latebind|
 |capolids|
 |cc|
+|cert_token_use|
+|child_client_id|
+|child_redirect_uri|\
+|client_id|
+|client_ip|
+|cloudassignedmdmid|
+|cloud_graph_host_name|
+|cloud_instance_host_name|
+|cloud_instance_name|
 |cnf|
 |code|
 |controls_auds|
 |controls|
 |credential_keys|
+|csr|
+|csr_type|
 |ctry|
 |deviceid|
+|dns_names|
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
 |email|
 |endpoint|
 |enfpolids|
+|exp|
 |expires_on|
 |fido_auth_data|
+|fido_ver|
 |fwd_appidacr|
 |fwd|
 |graph|
+|grant_type|
 |group_sids|
 |groups|
 |hasgroups|
+|hash_alg|
 |haswids|
 |home_oid|
 |home_puid|
@@ -162,6 +189,7 @@ This section lists:
 |unique_name|
 |upn|
 |user_setting_sync_url|
+|username|
 |uti|
 |ver|
 |verified_primary_email|
