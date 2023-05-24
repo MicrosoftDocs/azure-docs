@@ -167,7 +167,7 @@ You can simulate alerts for resources running on [App Service](https://learn.mic
        
           :::image type="content" source="media/alert-validation/copy-default-domain.png" alt-text="Screenshot showing where to copy the default domain." lightbox="media/alert-validation/copy-default-domain.png":::
 
-      1. Copy the website name into the URL: **https://<website name>.azurewebsites.net/This_Will_Generate_ASC_Alert**.
+      1. Copy the website name into the URL: `https://<website name>.azurewebsites.net/This_Will_Generate_ASC_Alert`.
 1.  An alert is generated within about 1-2 hours.
 
 ## Next steps
