@@ -73,14 +73,16 @@ For information about how to call the Log Ingestion API, see [Send data to Azure
 
 ## Modify table schemas and data collection rules based on changes to source data
 
-The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create. On the other hand, you can manually [adjust destination table schemas](../logs/create-custom-table.md) and [data collection rules](../essentials/data-collection-rule-edit.md) to align with source data schema changes. 
+The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create.  
 
 When the source data schema changes, you can:
 
-- Add new columns to the destination table and data collection rule to align with the source data object.
-- Add a transformation to the data collection rule to send the new data into existing columns in the destination table. 
+- [Adjust destination table schemas](../logs/create-custom-table.md) and [data collection rules](../essentials/data-collection-rule-edit.md) to align with source data schema changes.
+- [Define a transformation](../essentials/data-collection-transformations.md) in the data collection rule to send the new data into existing columns in the destination table. 
 - Leave the destination table and data collection rule unchanged. In this case, the new data is dropped.
 
+> [!NOTE]
+> Currently, the Log Ingestion API returns an `internal server error 500` when the data type of an existing property changes and does not match the data type expected by the data collection rule and destination table.
 ## Next steps
 
 - [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-logs-ingestion-portal.md)
