@@ -354,7 +354,7 @@
       href: cicd-autoscale.md
   - name: Visual Studio
     items:
-    - name: Migrate ASA projects to VSCode
+    - name: Migrate Stream Analytics projects to VS Code
       href: migrate-to-vscode.md
     - name: Quickstart
       href: stream-analytics-quick-create-vs.md
@@ -436,6 +436,8 @@
       href: app-insights-export-sql-stream-analytics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Run job in your virtual network
+    href: run-job-in-virtual-network.md
 - name: Stream Analytics Query Language
   items:
     - name: Stream Analytics Query Language overview

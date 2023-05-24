@@ -432,47 +432,43 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## Microsoft Sentinel limits
 
-This section lists the most common service limits you might encounter as you use Microsoft Sentinel.
-
-### Analytics rule limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-analytics-rules.md)]
 
 ### Incident limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-incidents.md)]
 
 ### Machine learning-based limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-machine-learning.md)]
 
 ### Multi workspace limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-multi-workspace.md)]
 
 ### Notebook limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-notebooks.md)]
 
 ### Repositories limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-repositories.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-repositories.md)]
 
 ### Threat intelligence limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-threat-intelligence.md)]
 
 ### User and Entity Behavior Analytics (UEBA) limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-ueba.md)]
 
 ### Watchlist limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-watchlists.md)]
 
 ### Workbook limits
 
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-workbooks.md)]
+[!INCLUDE [sentinel-service-limits](../../sentinel/includes/sentinel-limits-workbooks.md)]
 
 ## Service Bus limits
 
@@ -551,7 +547,7 @@ There are limits, per subscription, for deploying resources using Compute Galler
 
 ## See also
 
-* [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+* [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
 * [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

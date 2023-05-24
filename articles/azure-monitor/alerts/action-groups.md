@@ -41,7 +41,7 @@ Global requests from clients can be processed by action group services in any re
       | Option | Behavior |
       | ------ | -------- |
       | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS, and email actions performed as the result of [service health alerts](../../service-health/alerts-activity-log-service-notifications-portal.md) are resilient to Azure live-site incidents. |
-      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
+      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). You can select one of these regions for regional processing of action groups: <br> - South Central US <br> - North Central US<br> - Sweden Central<br> - Germany West Central<br> We're continually adding more regions for regional data processing of action groups.|
 
     The action group is saved in the subscription, region, and resource group that you select.
 
@@ -70,7 +70,7 @@ Global requests from clients can be processed by action group services in any re
 1. Configure actions. Select **Next: Actions**. or select the **Actions** tab at the top of the page.
 1. Define a list of actions to trigger when an alert is triggered. Select an action type and enter a name for each action.
 
-    |Action type     |Details  |
+    |Action type|Details  |
     |---------|---------|
     |Automation Runbook|For information about limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). |
     |Event hubs |An Event Hubs action publishes notifications to Event Hubs. For more information about Event Hubs, see [Azure Event Hubs—A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md). You can subscribe to the alert notification stream from your event receiver.         |
