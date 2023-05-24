@@ -20,7 +20,7 @@ keywords:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/) with version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) with version 8 or above.
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 <sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
