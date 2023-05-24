@@ -25,7 +25,7 @@ Get started with the Phone Numbers client library for C# to look up operator inf
 
 Common Questions and Issues:
 
-- The data returned by this endpoint is subject to various international laws and regulations.  Therefore, depending on the country where the target phone number is registered and whether or not that number has been ported, the operator information may not be available or may reflect the phone number's original operator as opposed to the current operator.
+- The data returned by this endpoint is subject to various international laws and regulations, therefore the accuracy of the results will depend on a number of factors.  These factors include the country where the target phone number is registered, whether or not the number has been ported between operators, and the approval status of the caller.  Based on these factors, operator information may not be available for some phone numbers or may reflect the original operator of the phone number as opposed to the current operator.
 
 ## Next steps
 
