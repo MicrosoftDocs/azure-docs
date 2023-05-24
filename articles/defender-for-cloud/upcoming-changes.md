@@ -3,7 +3,7 @@ title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
 ms.custom: build-2023
-ms.date: 05/11/2023
+ms.date: 05/24/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
