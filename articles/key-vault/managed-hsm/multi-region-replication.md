@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Enable multi-region replication on Azure Managed HSM
 
-Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to another Azure region (called a secondary). Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfils the request, thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
+Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to another Azure region (called a secondary). Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfills the request, thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
 ## Architecture
 
@@ -95,27 +95,27 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in the secondary region, it is recommended to create another private endpoint once the Managed HSM in the primary region is replicated to the Manged HSM in the secondary region.  This will redirect client requests to the Managed HSM closest to the client location. 
 
-Some scenarios below with examples: Managed HSM in a primary region (UK South) and another Managed HSM in a secondary region (US West Central)
+Some scenarios below with examples: Managed HSM in a primary region (UK South) and another Managed HSM in a secondary region (US West Central).
 
 - When both Managed HSMs in the primary and secondary regions are up and running with private endpoint enabled, client requests are redirected to the Managed HSM closest to client location. Client requests go to the closest region's private endpoint and then directed to the same region's Managed HSM by the traffic manager.
 
-  :::image type="content" source="../media/managed-hsm-multiregion-scenario-1.png" alt-text="Diagram illustrating the first managed HSM multi-region scenarion" lightbox="../media/managed-hsm-multiregion-scenario-1.png":::
+  :::image type="content" source="../media/managed-hsm-multiregion-scenario-1.png" alt-text="Diagram illustrating the first managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-1.png":::
 
 - When one of the Managed HSMs (UK South, as an example) in a multiregion replicated scenario is unavailable with private endpoints enabled, then client requests are redirected to available Managed HSM (US West Central). Client requests from UK south will go to UK south's private endpoint first and then directed to the US west Central Managed HSM by the traffic manager. 
 
-  :::image type="content" source="../media/managed-hsm-multiregion-scenario-2.png" alt-text="Diagram illustrating the second managed HSM multi-region scenarion" lightbox="../media/managed-hsm-multiregion-scenario-2.png":::
+  :::image type="content" source="../media/managed-hsm-multiregion-scenario-2.png" alt-text="Diagram illustrating the second managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-2.png":::
 
 - Managed HSMs in primary and secondary regions but only one private endpoint configured in either primary or secondary. For a client from a different VNET (VNET1) to connect to a Managed HSM through a private endpoint in a different VNET (VNET2), it requires VNET peering between the two VNETs. You can add VNET link for the private DNS zone which is created during the private endpoint creation.
 
-  :::image type="content" source="../media/managed-hsm-multiregion-scenario-3.png" alt-text="Diagram illustrating the third managed HSM multi-region scenarion" lightbox="../media/managed-hsm-multiregion-scenario-3.png":::
+  :::image type="content" source="../media/managed-hsm-multiregion-scenario-3.png" alt-text="Diagram illustrating the third managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-3.png":::
 
-In the diagram below, private endpoint is created only in the UK South region, while there are two Managed HSMs up and running one each in the UK South and the other in the US West Central. Requests from both the clients go to the UK South Managed HSM since requests are routed through the private endoint and the private endpoint location in this case is in the UK south.
+In the diagram below, private endpoint is created only in the UK South region, while there are two Managed HSMs up and running one each in the UK South and the other in the US West Central. Requests from both the clients go to the UK South Managed HSM since requests are routed through the private endpoint and the private endpoint location in this case is in the UK south.
 
-  :::image type="content" source="../media/managed-hsm-multiregion-scenario-4.png" alt-text="Diagram illustrating the fourth managed HSM multi-region scenarion" lightbox="../media/managed-hsm-multiregion-scenario-4.png":::
+  :::image type="content" source="../media/managed-hsm-multiregion-scenario-4.png" alt-text="Diagram illustrating the fourth managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-4.png":::
 
-In the diagram below, private endpoint is created only in the UK South region, only the Managed HSM in the US West Central is available and the Managed HSM in the UK South is unavailable. In this case, requests will be redirected to the US West Central Managed HSM through the private endpoint in the UK South because taffic manager detects that the UK South Managed HSM is unavailable.
+In the diagram below, private endpoint is created only in the UK South region, only the Managed HSM in the US West Central is available and the Managed HSM in the UK South is unavailable. In this case, requests will be redirected to the US West Central Managed HSM through the private endpoint in the UK South because traffic manager detects that the UK South Managed HSM is unavailable.
 
-  :::image type="content" source="../media/managed-hsm-multiregion-scenario-5.png" alt-text="Diagram illustrating the fifth managed HSM multi-region scenarion" lightbox="../media/managed-hsm-multiregion-scenario-5.png":::
+  :::image type="content" source="../media/managed-hsm-multiregion-scenario-5.png" alt-text="Diagram illustrating the fifth managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-5.png":::
 
 ### Azure CLI commands
 
