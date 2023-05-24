@@ -13,7 +13,7 @@ manager: nitinme
 
 # How to switch between OpenAI and Azure OpenAI endpoints with Python
 
-While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python) there are small changes you need to make to your code in order to swap back and forth between endpoints. This article will walk you through the common changes and differences you will experience when working across OpenAI and Azure OpenAI.
+While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), there are small changes you need to make to your code in order to swap back and forth between endpoints. This article walks you through the common changes and differences you'll experience when working across OpenAI and Azure OpenAI.
 
 > [!NOTE]
 > This library is maintained by OpenAI and is currently in preview. Refer to the [release history](https://github.com/openai/openai-python/releases) or the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
@@ -101,7 +101,7 @@ openai.api_version = "2023-05-15"  # subject to change
 
 OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of the `engine` interchangeably with `deployment_id`.
 
-For OpenAI `engine` will still work in most instances, but it is deprecated and `model` is preferred.
+For OpenAI `engine` still works in most instances, but it's deprecated and `model` is preferred.
 
 <table>
 <tr>
@@ -159,7 +159,7 @@ embedding = openai.Embedding.create(
 </tr>
 </table>
 
-## Azure OpenAI embeddings does not support multiple inputs
+## Azure OpenAI embeddings doesn't support multiple inputs
 
 Many examples show passing multiple inputs into the embeddings API. For Azure OpenAI, currently we must pass a single text input per call.
 
