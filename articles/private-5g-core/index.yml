@@ -144,6 +144,8 @@ landingContent:
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+          - text: Monitor AP5GC UE usage with Event Hubs
+            url: ue-usage-event-hub.md
       - linkListType: how-to-guide
         links:
           - text: Perform data plane packet capture for a packet core instance
