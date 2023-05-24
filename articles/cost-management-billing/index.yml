@@ -44,7 +44,7 @@ highlightedContent:
       url: costs/cost-mgt-best-practices.md?toc=/azure/cost-management-billing/toc.json
 
 productDirectory:
-  title: Billing + subscriptions
+  title: Billing + subscriptions + Cost Management
   items:
     - title: Manage your account
       imageSrc: ./media/billing-hub.svg
@@ -100,9 +100,9 @@ productDirectory:
           text: Usage terms explained
         - url: understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/toc.json
           text: Microsoft Customer Agreement usage terms
-        - url: understand/understand-invoice?toc=/azure/cost-management-billing/toc.json
+        - url: understand/understand-invoice.md?toc=/azure/cost-management-billing/toc.json
           text: Invoice terms explained
-        - url: understand/mca-understand-your-invoice?toc=/azure/cost-management-billing/toc.json
+        - url: understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/toc.json
           text: Microsoft Customer Agreement invoice terms
         - url: /training/paths/control-spending-manage-bills/
           text: Learn at your own pace
@@ -139,7 +139,7 @@ productDirectory:
           text: Configure anomaly alerts
         - url: costs/reservation-utilization-alerts.md?toc=/azure/cost-management-billing/toc.json
           text: Reservation utilization alerts
-        - url: costs/save-share-views#subscribe-to-scheduled-alerts.md?toc=/azure/cost-management-billing/toc.json
+        - url: costs/save-share-views.md#subscribe-to-scheduled-alerts.md?toc=/azure/cost-management-billing/toc.json
           text: Subscribe to scheduled alerts
     - title: Optimization
       imageSrc: ./media/optimization.svg

@@ -801,6 +801,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/costs/index.yml",
+            "redirect_url": "/azure/cost-management-billing",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management-billing/costs/overview-cost-mgt.md",
             "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
             "redirect_document_id": false
