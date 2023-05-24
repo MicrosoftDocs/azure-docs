@@ -72,7 +72,7 @@ az networkcloud cluster metricsconfiguration create \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-Here, <path-to-yaml-or-json-file> can be ./enabled-metrics.json or ./enabled-metrics.yaml (place the file under current working directory) before performing the action.
+Here, \<path-to-yaml-or-json-file\> can be ./enabled-metrics.json or ./enabled-metrics.yaml (place the file under current working directory) before performing the action.
 
 To see all available parameters and their description run the command:
 ```azurecli
