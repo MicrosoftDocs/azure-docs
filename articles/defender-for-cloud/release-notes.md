@@ -49,6 +49,7 @@ Updates in May include:
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
 - [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
+- [Download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview)
 
 ### Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -184,6 +185,14 @@ Microsoft Defender Vulnerability Management (MDVM) is now enabled as the default
 If a subscription has a VA solution enabled on any of its VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
 
 Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
+
+### Download a CSV report of your cloud security explorer query results (Preview)
+
+Defender for Cloud has added the ability to download a CSV report of your cloud security explorer query results.
+
+After your run a search for a query, you can select the **Download CSV report (Preview)** button from the Cloud Security Explorer page in Defender for Cloud.
+
+Learn how to [build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md)
 
 ## April 2023
 Updates in April include:
