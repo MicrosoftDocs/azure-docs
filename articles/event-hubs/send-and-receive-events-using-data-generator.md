@@ -40,7 +40,7 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
    4.  **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions.
    5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
    
-   :::image type="content" source="media/send-and-receive-events-using-data-generator/highlighted-data-generator-landing.png" alt-text="Screenshot displaying overview page for event hub namespace ":::
+   :::image type="content" source="media/send-and-receive-events-using-data-generator/highlighted-data-generator-landing.png" alt-text="Screenshot displaying landing page for data generator ":::
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
