@@ -114,63 +114,232 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 
 ### Step 3: Get troubleshooting instructions for certain error codes
 
+#### Status codes ("STATUS_" prefix, codes that begin with "0xc000") <!-- Can probably use a more descriptive name here -->
+
 <details>
 <summary>STATUS_LOGON_FAILURE (-1073741715&nbsp;/&nbsp;0xc000006d),<br/>
 STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
+
+**Causes**
+
+- The device can't connect to the Azure AD authentication service.
+- The device received a `400 Bad Request` HTTP error response from one of the following sources:
+
+  - The Azure AD authentication service
+  - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
+
+**Solutions**
+
+- If the on-premises environment requires an outbound proxy, make sure that the computer account of the device can discover and silently authenticate to the outbound proxy.
+
+- Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
+
+  In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 contains the URL that's being accessed.
+
+  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
 <summary>STATUS_REQUEST_NOT_ACCEPTED (-1073741616&nbsp;/&nbsp;0xc00000d0)</summary>
+
+**Cause**
+
+The device received a `400 Bad Request` HTTP error response from one of the following sources:
+
+- The Azure AD authentication service
+- An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
+
+**Solution**
+
+Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
+
+In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 contains the URL that's being accessed.
+
+To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
 <summary>STATUS_NETWORK_UNREACHABLE (-1073741252&nbsp;/&nbsp;0xc000023c),<br/>
 STATUS_BAD_NETWORK_PATH (-1073741634&nbsp;/&nbsp;0xc00000be),<br/>
 STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
+
+**Causes**
+
+- The device received a `400 Bad Request` HTTP error response from one of the following sources:
+
+  - The Azure AD authentication service
+  - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
+- There's a network connectivity issue to a required endpoint.
+
+**Solutions**
+
+- Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
+
+  In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088.
+
+- For a network connectivity issue, get the URL that's being accessed and the sub-error code from the network stack. Event ID 1022 in the Azure AD analytic logs contains the URL that's being accessed. Event ID 1084 in the Azure AD operational logs contains the sub-error code from the network stack.
+
+To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
 <summary>STATUS_NO_SUCH_LOGON_SESSION (-1073741729&nbsp;/&nbsp;0xc000005f)</summary>
+
+**Cause**
+
+The user realm discovery failed, because the Azure AD authentication service can't find the user's domain.
+
+**Solutions**
+
+- Add the domain of the user principal name (UPN) of the user as a custom domain in Azure AD. To find the provided UPN, look for Event ID 1144 in the Azure AD analytic logs.
+
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+
+- If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
 
-#### Common CloudAP plug-in error codes
+#### Common CloudAP plug-in error codes ("AAD_CLOUDAP_E_" prefix, codes that begin with "0xc004")
 
 <details>
 <summary>AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED (-1073445812&nbsp;/&nbsp;0xc004844c)</summary>
+
+**Cause**
+
+The UPN for the user isn't in the expected format. The UPN value varies according to the device type, as shown in the following table.
+
+| Device type             | UPN value                                                             |
+|-------------------------|-----------------------------------------------------------------------|
+| Azure AD-joined devices | The text that's entered when the user signs in                        |
+| Hybrid-joined devices   | The UPN that the domain controller returns during the sign-in process |
+
+**Solutions**
+
+- Set the UPN of the user to an internet-style sign-in name, based on internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). To find the current UPN, look for event ID 1144 in the Azure AD analytic logs.
+
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+
+- For Hybrid-joined devices, make sure that you configured the domain controller to return the UPN in the correct format. To display the configured UPN in the domain controller, run the following command:
+
+  ```cmd
+  whoami /upn
+  ```
+
+  If Active Directory is configured with the correct UPN, collect [Time Travel Traces]() for the Local Security Authority Subsystem Service (`lsass.exe`).
+
+- If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
 
 <details>
 <summary>AAD_CLOUDAP_E_OAUTH_USER_SID_IS_EMPTY (-1073445822&nbsp;/&nbsp;0xc0048442)</summary>
+
+**Cause**
+
+The user security identifier (SID) is missing in the ID token that the Azure AD authentication service returns.
+
+**Solution**
+
+Make sure that the network proxy isn't interfering with and modifying the server response.
 </details>
 
 <details>
 <summary>AAD_CLOUDAP_E_WSTRUST_SAML_TOKENS_ARE_EMPTY (-1073445695&nbsp;/&nbsp;0xc00484c1&nbsp;/&nbsp;0x800484c1)</summary>
+
+**Cause**
+
+You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is required for federated authentication).
+
+**Solutions**
+
+- Make sure that the network proxy isn't interfering with and modifying the server response.
+
+- Get the server error code and error description from Event ID 1088 in the Azure AD operational logs. Then, go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
+
+  To view Event IDs in the Azure AD operational logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
 <summary>AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY (-1073445749&nbsp;/&nbsp;0xc004848b)</summary>
+
+**Cause**
+
+The Metadata Exchange endpoint (MEX) endpoint is configured incorrectly. The MEX response doesn't contain any password URLs.
+
+**Solutions**
+
+- Make sure that the network proxy isn't interfering with and modifying the server response.
+
+- Fix the MEX configuration to return valid URLs in response.
 </details>
+
+#### Common XML error codes (codes that begin with "0xc00c")
 
 <details>
 <summary>WC_E_DTDPROHIBITED (-1072894385&nbsp;/&nbsp;0xc00cee4f)</summary>
+
+**Cause**
+
+The XML response from the [WS-Trust protocol][WS-Trust] endpoint (which is required for federated authentication) included a document type definition (DTD). The DTD isn't expected in the XML response, and response parsing fails if the DTD is included.
+
+**Solutions**
+
+- Fix the configuration in the identity provider to avoid sending the DTD in the XML response.
+
+- Get the URL that's being accessed from Event ID 1022 in the Azure AD analytic logs.
+
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
-#### Common server error codes
+#### Common server error codes ("AADSTS" prefix)
 
 <details>
 <summary>AADSTS50155: Device authentication failed</summary>
+
+**Causes**
+
+- Azure AD can't authenticate the device to issue a PRT.
+
+- The device might have been deleted or disabled in the Azure portal. (For more information, see [Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?](./faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-11-devices))
+
+**Solution**
+
+Re-register the device based on the device join type. For instructions, see [I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?](./faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do).
 </details>
 
 <details>
 <summary>AADSTS50034: The user account &lt;Account&gt; does not exist in the &lt;tenant id&gt; directory</summary>
+
+**Causes**
+
+Azure AD can't find the user account in the tenant.
+
+**Solutions**
+
+- Make sure that the user is entering the correct UPN.
+- Make sure that the on-premises user account is being synchronized to Azure AD.
+- Get the provided UPN by looking for Event ID 1144 in the Azure AD analytic logs.
+
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
 <summary>AADSTS50126: Error validating credentials due to invalid username or password</summary>
+
+**Causes**
+
+- The user entered an incorrect user name or password in the sign-in UI.
+- The password hasn't been synchronized to Azure AD because of the following scenario:
+
+  - The tenant has enabled [password hash synchronization](../hybrid/connect/whatis-phs.md).
+  - The device is Hybrid-joined.
+  - The user just changed the password.
+
+**Solution**
+
+To acquire a fresh PRT that has the new credentials, wait for the Azure AD synchronization to complete.
 </details>
 
 
-#### Common network error codes
+#### Common network error codes ("ERROR_WINHTTP_" prefix)
 
 <details>
 <summary>ERROR_WINHTTP_TIMEOUT (12002),<br/>
@@ -203,3 +372,9 @@ ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
 1. Wait for all tracing to stop completely.
 
 #### TimeTravel Traces (TTT)
+
+[WS-Trust]: http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html
+[server-errors]: #common-server-error-codes-aadsts-prefix
+[view-event-ids]: #method-2-use-the-event-viewer-to-examine-azure-ad-analytic-and-operational-logs
+[alt-login-id]: /windows-server/identity/ad-fs/operations/configuring-alternate-login-id
+[hybrid-azure-ad-join-plan]: ./hybrid-azuread-join-plan.md
