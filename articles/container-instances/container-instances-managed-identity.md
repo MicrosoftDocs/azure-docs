@@ -136,7 +136,7 @@ az container show \
 
 The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Azure Active Directory:
 
-```console
+```output
 [...]
 "identity": {
     "principalId": "null",
@@ -226,7 +226,7 @@ az container show \
 
 The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Azure Active Directory:
 
-```console
+```output
 [...]
 "identity": {
     "principalId": "xxxxxxxx-528d-7083-b74c-xxxxxxxxxxxx",
@@ -271,13 +271,13 @@ az container exec \
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
 
-```azurecli
+```azurecli-interactive
 az login --identity
 ```
 
 From the running container, retrieve the secret from the key vault:
 
-```azurecli
+```azurecli-interactive
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value

@@ -35,10 +35,14 @@ The [Azure Cosmos DB desktop data migration tool](https://github.com/azurecosmos
   - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
   - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
 - Latest version of [Azure CLI](/cli/azure/install-azure-cli).
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0) or later.
 
 ## Install the desktop data migration tool
 
 First, install the latest version of the desktop data migration tool from the GitHub repository.
+
+> [!NOTE]
+> The desktop data migration tool requires [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0) or later on your local machine.
 
 1. In your browser, navigate to the **Releases** section of the repository: [azurecosmosdb/data-migration-desktop-tool/releases](https://github.com/azurecosmosdb/data-migration-desktop-tool/releases).
 
@@ -157,7 +161,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
 
 Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoSQL container.
 
-1. Navigate to an empty directory on your local machine. Within that directory, create a new file named **migration-settings.json**.
+1. Navigate to an empty directory on your local machine. Within that directory, create a new file named **migrationsettings.json**.
 
 1. Within the JSON file, create a new empty JSON object:
 
@@ -232,9 +236,9 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     }
     ```
 
-1. **Save** the **migration-settings.json** file.
+1. **Save** the **migrationsettings.json** file.
 
-1. Open a new terminal
+1. Open a new terminal and navigate to the directory containing your **migrationsettings.json** file.
 
 1. Run the desktop data migration tool using the `dmt` command.
 
@@ -244,12 +248,6 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
 
     > [!NOTE]
     > If you did not add the installation path to your `PATH` environment variable, you may need to specify the full path to the `dmt` executable.
-
-1. The tool asks for the path to the settings file. Enter the **migration-settings.json** filename here.
-
-    ```output
-    Path to settings file? (leave empty to skip):
-    ```
 
 1. The tool now outputs the sources and sinks used by the migration.
 

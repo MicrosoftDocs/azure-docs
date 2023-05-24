@@ -1,8 +1,8 @@
 ---
 title: Enable File Integrity Monitoring (Log Analytics agent)
 description: Learn how to enable File Integrity Monitoring when you collect data with the Log Analytics agent
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/14/2022
 ---

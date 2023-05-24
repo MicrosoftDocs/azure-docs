@@ -253,8 +253,6 @@ items:
         href: storage-manage-find-blobs.md
       - name: Full text search
         href: ../../search/search-blob-storage-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Azure Cognitive Search
-        href: ../../search/search-blob-ai-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Data migration
       items:
       - name: Storage migration overview
@@ -613,6 +611,14 @@ items:
             href: storage-blob-container-lease.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a container
+              href: storage-blob-container-user-delegation-sas-create-dotnet.md
+            - name: Create a service SAS for a container
+              href: sas-service-create-dotnet-container.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -643,9 +649,9 @@ items:
             href: versions-manage-dotnet.md  
           - name: Generate a shared access signature (SAS)
             items:
-            - name: Create a user delegation SAS
+            - name: Create a user delegation SAS for a blob
               href: storage-blob-user-delegation-sas-create-dotnet.md
-            - name: Create a service SAS
+            - name: Create a service SAS for a blob
               href: sas-service-create-dotnet.md
             - name: Create an account SAS
               href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
@@ -755,26 +761,36 @@ items:
             href: storage-blob-container-delete-javascript.md
           - name: List containers
             href: storage-blob-containers-list-javascript.md
+          - name: Manage container leases
+            href: storage-blob-container-lease-javascript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-javascript.md
         - name: Blob actions
           items:
           - name: Upload blobs
             href: storage-blob-upload-javascript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-javascript.md
           - name: Download blobs
             href: storage-blob-download-javascript.md
           - name: Copy blobs
-            href: storage-blob-copy-javascript.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-javascript.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-javascript.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-javascript.md
           - name: List blobs
             href: storage-blobs-list-javascript.md
           - name: Delete and restore blobs
             href: storage-blob-delete-javascript.md
           - name: Find blobs using tags
             href: storage-blob-tags-javascript.md
+          - name: Manage blob leases
+            href: storage-blob-lease-javascript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-javascript.md
+          - name: Get blob URL
+            href: storage-blob-get-url-javascript.md
           - name: Use access tiers
             href: storage-blob-use-access-tier-javascript.md
       - name: TypeScript
@@ -813,6 +829,8 @@ items:
             href: storage-blob-container-delete-typescript.md
           - name: List containers
             href: storage-blob-containers-list-typescript.md
+          - name: Manage container leases
+            href: storage-blob-container-lease-typescript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-typescript.md
         - name: Blob actions
@@ -824,13 +842,21 @@ items:
           - name: Download blobs
             href: storage-blob-download-typescript.md
           - name: Copy blobs
-            href: storage-blob-copy-typescript.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-typescript.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-typescript.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-typescript.md
           - name: List blobs
             href: storage-blobs-list-typescript.md
           - name: Delete and restore blobs
             href: storage-blob-delete-typescript.md
           - name: Find blobs using tags
             href: storage-blob-tags-typescript.md
+          - name: Manage blob leases
+            href: storage-blob-lease-typescript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-typescript.md
           - name: Use access tiers

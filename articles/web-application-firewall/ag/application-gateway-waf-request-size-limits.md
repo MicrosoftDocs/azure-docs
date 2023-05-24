@@ -28,7 +28,7 @@ The following two size limits configurations are available:
 
 The default value for file upload limit is 100 MB.
 
-For DRS 2.1 / CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF policy for Application Gateway:
+For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF policy for Application Gateway:
    
    - 2 MB request body size limit
    - 4 GB file upload limit 

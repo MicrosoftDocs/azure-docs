@@ -23,8 +23,6 @@ Azure Communication Services emits the following chat event types:
 | Microsoft.Communication.ChatThreadCreatedWithUser           | Published when the user is added as member at the time of creation of a chat thread.           |
 | Microsoft.Communication.ChatThreadWithUserDeleted           | Published when a chat thread is deleted which the user is member of.                           |
 | Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | Published when a chat thread's properties are updated that the user is member of.              |
-| Microsoft.Communication.ChatMemberAddedToThreadWithUser     | Published when the user is added as member to a chat thread.                                   |
-| Microsoft.Communication.ChatMemberRemovedFromThreadWithUser | Published when the user is removed from a chat thread.                                         |
 | Microsoft.Communication.ChatParticipantAddedToThreadWithUser|  Published for a user when a new  participant is added to a chat thread, that the user is part of.|
 | Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser |  Published for a user when a participant is removed from a chat thread, that the user is part of. |
 | Microsoft.Communication.ChatThreadCreated  | Published when a chat thread is created  |
@@ -63,7 +61,7 @@ This section contains an example of what that data would look like for each even
           "id": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724"
         }
       },
-      "senderDisplayName": "Jhon",
+      "senderDisplayName": "Bob(Admin)",
       "composeTime": "2021-02-19T00:25:58.927Z",
       "type": "Text",
       "version": 1613694358927,
@@ -181,7 +179,7 @@ This section contains an example of what that data would look like for each even
         }
       },
       "properties": {
-        "topic": "Chat about new commuication services"
+        "topic": "Chat about new communication services"
       },
       "members": [
         {
@@ -387,60 +385,6 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-### Microsoft.Communication.ChatMemberAddedToThreadWithUser event
-
-```json
-[{
-  "id": "4abd2b49-d1a9-4fcc-9cd7-170fa5d96443",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/{thread-id}/memberAdded/{rawId}/recipient/{rawId}",
-  "data": {
-    "time": "2020-09-18T00:47:13.1867087Z",
-    "addedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
-    "memberAdded": {
-      "displayName": "John Smith",
-      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
-    },
-    "createTime": "2020-09-18T00:46:41.559Z",
-    "version": 1600390033176,
-    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
-    "transactionId": "pVIjw/pHEEKUOUJ2DAAl5A.1.1.1.1.1818361951.1.1",
-    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
-  },
-  "eventType": "Microsoft.Communication.ChatMemberAddedToThreadWithUser",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:47:13.2342692Z"
-}]
-```
-
-### Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
-
-```json
-[{
-  "id": "b3701976-1ea2-4d66-be68-4ec4fc1b4b96",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "thread/{thread-id}/memberRemoved/{rawId}/recipient/{rawId}",
-  "data": {
-    "time": "2020-09-18T00:47:51.1461742Z",
-    "removedBy": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f1",
-    "memberRemoved": {
-      "displayName": "John",
-      "memberId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003fe"
-    },
-    "createTime": "2020-09-18T00:46:41.559Z",
-    "version": 1600390071131,
-    "recipientId": "8:acs:5354158b-17b7-489c-9380-95d8821ff76b_00000005-3e5f-1bc6-f40f-343a0d0003f0",
-    "transactionId": "G9Y+UbjVmEuxAG3O4bEyvw.1.1.1.1.1819803816.1.1",
-    "threadId": "19:6d20c2f921cd402ead7d1b31b0d030cd@thread.v2"
-  },
-  "eventType": "Microsoft.Communication.ChatMemberRemovedFromThreadWithUser",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:47:51.2244511Z"
-}]
-```
-
 ### Microsoft.Communication.ChatThreadCreated event
 
 ```json
@@ -456,7 +400,7 @@ This section contains an example of what that data would look like for each even
         }
       },
       "properties": {
-        "topic": "Talk about new Thread Events in commuication services"
+        "topic": "Talk about new Thread Events in communication services"
       },
       "participants": [
         {
@@ -523,7 +467,7 @@ This section contains an example of what that data would look like for each even
       },
       "editTime": "2021-02-20T00:04:07.7152073+00:00",
       "properties": {
-        "topic": "Talk about new Thread Events in commuication services"
+        "topic": "Talk about new Thread Events in communication services"
       },
       "createTime": "2021-02-20T00:00:40.126+00:00",
       "version": 1613779447695,
@@ -647,7 +591,7 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/sender/8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cdb-4916-07fd-084822002624",
     "data": {
-      "messageBody": "Talk about new Thread Events in commuication services",
+      "messageBody": "Talk about new Thread Events in communication services",
       "messageId": "1613783230064",
       "metadata": {
         "key": "value",

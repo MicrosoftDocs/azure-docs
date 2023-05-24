@@ -5,19 +5,16 @@ description: Learn how to create a project in Azure Deployment Environments and 
 author: renato-marciano
 ms.author: remarcia
 ms.service: deployment-environments
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
 ms.date: 04/28/2023
 ---
 
 # Create and configure a project by using the Azure CLI
 
-This quickstart shows you how to create a project in Azure Deployment Environments Preview. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
+This quickstart shows you how to create a project in Azure Deployment Environments. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
 
 An enterprise development infrastructure team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -138,7 +135,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     --roles "{\"${ROID}\":{}}" \
     --deployment-target-id "/subscriptions/${SUBID}" \
     --status Enabled
-    ```azurecli
+    ```
 
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
@@ -152,7 +149,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     ```azurecli
     MYOID=$(az ad signed-in-user show --query id -o tsv)
     echo $MYOID
-    ```azurecli
+    ```
 
 1. Assign admin access:
 
@@ -160,7 +157,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     az role assignment create --assignee $MYOID \
     --role "DevCenter Project Admin" \
     --scope "/subscriptions/$SUBID"
-    ```azurecli
+    ```
 
 1. Optionally, you can assign Dev Environment User:
 
@@ -168,7 +165,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     az role assignment create --assignee $MYOID \
     --role "Deployment Environments User" \
     --scope "/subscriptions/$SUBID"
-    ```azurecli
+    ```
 
 
 > [!NOTE]

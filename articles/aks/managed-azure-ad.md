@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 04/17/2023
+ms.date: 05/10/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -24,9 +24,9 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 ## Before you begin
 
 * Make sure you have Azure CLI version 2.29.0 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`](https://github.com/Azure/kubelogin). The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. You'll experience authentication issues if you don't use the correct version.
+* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. You'll experience authentication issues if you don't use the correct version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
-* This article requires you have an Azure AD group for your cluster. This group will be registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Azure AD group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
+* This configuration requires you have an Azure AD group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Azure AD group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
 
 ## Enable AKS-managed Azure AD integration on your AKS cluster
 
@@ -61,49 +61,49 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 
 ### Use an existing cluster
 
-* Enable AKS-managed Azure AD integration on your existing Kubernetes RBAC enabled cluster using the [`az aks update`][az-aks-update] command. Make sure to set your admin group to keep access on your cluster.
+Enable AKS-managed Azure AD integration on your existing Kubernetes RBAC enabled cluster using the [`az aks update`][az-aks-update] command. Make sure to set your admin group to keep access on your cluster.
 
-    ```azurecli-interactive
-    az aks update -g MyResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
-    ```
+```azurecli-interactive
+az aks update -g MyResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id-1>,<id-2> [--aad-tenant-id <id>]
+```
 
-    A successful activation of an AKS-managed Azure AD cluster has the following section in the response body:
+A successful activation of an AKS-managed Azure AD cluster has the following section in the response body:
 
-    ```output
-    "AADProfile": {
-        "adminGroupObjectIds": [
-          "5d24****-****-****-****-****afa27aed"
-        ],
-        "clientAppId": null,
-        "managed": true,
-        "serverAppId": null,
-        "serverAppSecret": null,
-        "tenantId": "72f9****-****-****-****-****d011db47"
-      }
-    ```
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+        "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+    }
+```
 
 ### Upgrade a legacy Azure AD cluster to AKS-managed Azure AD integration
 
-* If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
 
-    ```azurecli-interactive
-    az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
-    ```
+```azurecli-interactive
+az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+```
 
-    A successful migration of an AKS-managed Azure AD cluster has the following section in the response body:
+A successful migration of an AKS-managed Azure AD cluster has the following section in the response body:
 
-    ```output
-    "AADProfile": {
-        "adminGroupObjectIds": [
-          "5d24****-****-****-****-****afa27aed"
-        ],
-        "clientAppId": null,
-        "managed": true,
-        "serverAppId": null,
-        "serverAppSecret": null,
-        "tenantId": "72f9****-****-****-****-****d011db47"
-      }
-    ```
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+        "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+    }
+```
 
 ## Access your AKS-managed Azure AD enabled cluster
 
@@ -123,15 +123,15 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 
 ## Non-interactive sign-in with kubelogin
 
-There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to connect to the cluster with a non-interactive service principal credential. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires [`kubelogin`](https://github.com/Azure/kubelogin) binary in the execution PATH.
+There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`][kubelogin] to connect to the cluster with a non-interactive service principal credential.
 
-* When getting the clusterUser credential, you can use the `format` query parameter to overwrite the default behavior change. You can set the value to `azure` to use the original kubeconfig format:
+Azure AD integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH.
+
+* When getting the clusterUser credential, you can use the `format` query parameter to overwrite the default behavior. You can set the value to `azure` to use the original kubeconfig format:
 
     ```azurecli-interactive
     az aks get-credentials --format azure
     ```
-
-* Azure AD integrated clusters using a Kubernetes version newer than 1.24 automatically use the `kubelogin` format.
 
 * If your Azure AD integrated clusters use a Kubernetes version older than 1.24, you need to convert the kubeconfig format manually.
 
@@ -139,6 +139,9 @@ There are some non-interactive scenarios, such as continuous integration pipelin
     export KUBECONFIG=/path/to/kubeconfig
     kubelogin convert-kubeconfig
     ```
+
+> [!NOTE]
+> If you receive the message **error: The Azure auth plugin has been removed.**, you need to run the command `kubelogin convert-kubeconfig` to convert the kubeconfig format manually.
 
 ## Troubleshoot access issues with AKS-managed Azure AD
 
@@ -155,6 +158,7 @@ If you're permanently blocked by not having access to a valid Azure AD group wit
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[kubelogin]: https://github.com/Azure/kubelogin
 
 <!-- LINKS - Internal -->
 [aks-concepts-identity]: concepts-identity.md

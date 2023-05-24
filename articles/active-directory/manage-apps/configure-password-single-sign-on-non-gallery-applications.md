@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 04/25/2023
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
 ---
 

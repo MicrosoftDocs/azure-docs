@@ -2,7 +2,7 @@
 title: Configure Windows Update settings in Update management center (Preview)
 description: This article tells how to configure Windows update settings to work with Update management center (Preview).
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 05/02/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -39,16 +39,20 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 
 ## Enable updates for other Microsoft products
 
-By default, the Windows Update client is configured to provide updates only for Windows. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other products, including security patches for Microsoft SQL Server and other Microsoft software. You can configure this option if you have downloaded and copied the latest [Administrative template files](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) available for Windows 2016 and later.
+By default, the Windows Update client is configured to provide updates only for Windows operating system. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
 
-If you have machines running Windows Server 2012 R2, you can't configure this setting through Group Policy. Run the following PowerShell command on these machines:
+Use one of the following options to perform the settings change at scale:
 
-```powershell
-$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
-$ServiceManager.Services
-$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
-$ServiceManager.AddService2($ServiceId,7,"")
-```
+- For Servers configured to patch on a schedule from Update management center (that has the VM PatchSettings set to AutomaticByPlatform = Azure-Orchestrated), and for all Windows Servers running on an earlier operating system than server 2016, Run the following PowerShell script on the server you want to change.
+
+    ```powershell
+    $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+    $ServiceManager.Services
+    $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+    $ServiceManager.AddService2($ServiceId,7,"")
+    ```
+
+- For servers running Server 2016 or later which are not using Update management center scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 ## Make WSUS configuration settings
 

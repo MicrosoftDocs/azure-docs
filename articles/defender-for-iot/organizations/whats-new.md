@@ -16,12 +16,24 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## May 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Sensor versions 22.3.x and higher**: <br>- [Configure Active Directory and NTP settings in the Azure portal](#configure-active-directory-and-ntp-settings-in-the-azure-portal) |
+
+### Configure Active Directory and NTP settings in the Azure portal
+
+Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
+
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference)
+
 ## April 2023
 
 |Service area  |Updates  |
 |---------|---------|
 | **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
-| **OT networks** | **Sensor version 22.3.8**: <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
 
 ### End-to-end deployment guides
 
@@ -40,6 +52,12 @@ The step-by-step instructions in each section are intended to help customers opt
 :::image type="content" source="media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Site networking setup highlighted." border="false" lightbox="media/deployment-paths/progress-network-level-deployment.png":::
 
 For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
+
+### Proxy support for client SSL/TLS certificates
+
+A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS traffic, such as when using services like Zscaler and Palo Alto Prisma. Starting in version 22.3.8, you can upload a client certificate through the OT sensor console.
+
+For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
 
 ### Download WMI script from OT sensor console
 

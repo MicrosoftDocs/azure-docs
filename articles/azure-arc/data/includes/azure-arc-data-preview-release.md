@@ -3,18 +3,18 @@ author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
 ms.topic: include
-ms.date: 04/26/2023
+ms.date: 05/02/2023
 ---
 
-<!---
 At this time, a test or preview build is not available for the next release.
--->
 
-May 2023 test release is now available.
+<!--
+
+May 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.19.0_2023-05-09`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
@@ -35,6 +35,7 @@ May 2023 test release is now available.
 |`arcdata` Azure CLI extension version|1.5.0 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.19.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 931 |
 
 ### Release notes
 
@@ -44,3 +45,4 @@ May 2023 test release is now available.
 - Arc Data Services | Upgrade to OpenSearch | GA
 - Arc Data Services | Arc Data Controller | az CLI | Improved Arc data controller upgrade reliability
 
+-->
