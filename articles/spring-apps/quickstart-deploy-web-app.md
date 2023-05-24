@@ -55,19 +55,19 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-standard"
 
-[!INCLUDE [deploy-to-azure-spring-apps-standard-plan](includes/quickstart-deploy-web-app/standard-plan.md)]
+[!INCLUDE [deploy-to-azure-spring-apps-standard-plan](includes/quickstart-deploy-web-app/deploy-standard-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
-[!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-web-app/enterprise-plan.md)]
+[!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-web-app/deploy-enterprise-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-consumption-plan"
 
-[!INCLUDE [deploy-to-azure-spring-apps-conusumption-plan](includes/quickstart-deploy-web-app/conusumption-plan.md)]
+[!INCLUDE [deploy-to-azure-spring-apps-conusumption-plan](includes/quickstart-deploy-web-app/deploy-conusumption-plan.md)]
 
 ::: zone-end
 
