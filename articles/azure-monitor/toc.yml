@@ -1107,14 +1107,14 @@ items:
     - name: Troubleshooting
       href: containers/container-insights-troubleshoot.md
 - name: Network insights
-    items:
-    - name: Overview
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-overview.md
-    - name: Topology
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-topology.md
-    - name: Troubleshooting
+  items:
+  - name: Overview
+    displayName: Network Insights, Network
+    href: ../network-watcher/network-insights-overview.md
+  - name: Topology
+    displayName: Network Insights, Network
+    href: ../network-watcher/network-insights-topology.md
+  - name: Troubleshooting
       displayName: Network Insights, Network
       href: ../network-watcher/network-insights-troubleshooting.md    
 - name: Visualize
