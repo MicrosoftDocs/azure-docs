@@ -20,7 +20,7 @@ While OpenAI and Azure OpenAI Service rely on a [common Python client library](h
 
 ## Authentication
 
-We recommend using environment variables. If you haven't done this before our [Python quickstarts](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?pivots=programming-language-python&tabs=command-line) walk you through this configuration.
+We recommend using environment variables. If you haven't done this before our [Python quickstarts](azure/cognitive-services/openai/quickstart?pivots=programming-language-python&tabs=command-line) walk you through this configuration.
 
 ### API key
 
@@ -60,7 +60,7 @@ openai.api_version = "2023-05-15"  # subject to change
 
 <table>
 <tr>
-<td> OAI </td> <td> AOAI </td>
+<td> OpenAI </td> <td> Azure OpenAI </td>
 </tr>
 <tr>
 <td>
@@ -70,6 +70,7 @@ import openai
 
 openai.api_key = "sk-..."
 openai.organization = "..."
+
 
 
 
@@ -98,7 +99,9 @@ openai.api_version = "2023-05-15"  # subject to change
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of the `engine` interchangeably with `deployment_id`. For OpenAI `engine` will still work in most instances but it is deprecated and `model` is preferred.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of the `engine` interchangeably with `deployment_id`.
+
+For OpenAI `engine` will still work in most instances, but it is deprecated and `model` is preferred.
 
 <table>
 <tr>
