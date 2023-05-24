@@ -658,7 +658,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | CdnWebApplicationFirewallPolicies | Yes | Yes |
 > | edgenodes | No | No |
 > | migrate | No | No |
-> | profiles | Yes | Yes |
+> | profiles | Yes | No |
 > | profiles / afdendpoints | Yes | Yes |
 > | profiles / afdendpoints / routes | No | No |
 > | profiles / customdomains | No | No |
