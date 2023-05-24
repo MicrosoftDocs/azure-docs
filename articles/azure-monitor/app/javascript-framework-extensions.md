@@ -30,7 +30,7 @@ Install the npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
 
 ```
 

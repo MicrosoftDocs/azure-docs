@@ -24,7 +24,7 @@ items:
       - name: Route MQTT messages to Event Hubs using portal
         href: mqtt-routing-to-event-hubs-portal.md
     - name: Samples
-      href: /samples/browse/?term=MQTT+Application
+      href: https://github.com/Azure-Samples/MqttApplicationSamples
     - name: Concepts
       items:
       - name: Terminology
@@ -48,10 +48,14 @@ items:
           href: mqtt-routing-filtering.md
         - name: Routing enrichments
           href: mqtt-routing-enrichment.md
-      - name: MQTT support
+      - name: MQTT features support
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
+      - name: Use cases
+        items:
+        - name: Automotive Messaging
+          href: mqtt-automotive-connectivity-and-data-solution.md
     - name: How-to guides
       items:
       - name: Create and manage namespaces
