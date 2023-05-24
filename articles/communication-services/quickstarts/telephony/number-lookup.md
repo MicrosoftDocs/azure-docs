@@ -127,7 +127,7 @@ dotnet run
 
 ## Troubleshooting
 
-Common Questions and Issues:
+Common questions and issues:
 
 - The data returned by this endpoint is subject to various international laws and regulations, therefore the accuracy of the results depends on several factors.  These factors include whether the number has been ported, the country code, and the approval status of the caller.  Based on these factors, operator information may not be available for some phone numbers or may reflect the original operator of the phone number, not the current operator.
 
