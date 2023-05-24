@@ -70,7 +70,7 @@ You can enable Network Watcher for a region by creating a Network Watcher instan
 > - The name of the Network Watcher instance is automatically set to **NetworkWatcher_region**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **NetworkWatcher_eastus**.
 > - The Network Watcher instance is created in a resource group named **NetworkWatcherRG**. The resource group is created if it doesn't already exist.
 
-If you wish to customize the name of a Network Watcher instance and resource group, you can use [PowerShell](#tab/powershell) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods. In each option, the resource group must exist before you create a Network Watcher in it.  
+If you wish to customize the name of a Network Watcher instance and resource group, you can use [PowerShell](?tabs=powershell#create-a-network-watcher-instance) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods. In each option, the resource group must exist before you create a Network Watcher in it.  
 
 # [**PowerShell**](#tab/powershell)
 
@@ -101,7 +101,7 @@ az network watcher configure --resource-group 'NetworkWatcherRG' --locations 'ea
 > - The name of the Network Watcher instance is automatically set to **region-watcher**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **eastus-watcher**.
 > - You can customize the name of the Network Watcher resource group. However, the resource group must exist before you create a Network Watcher instance in it.
 
-If you wish to customize the name of the Network Watcher instance, you can use [PowerShell](#tab/powershell) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods.
+If you wish to customize the name of the Network Watcher instance, you can use [PowerShell](?tabs=powershell#create-a-network-watcher-instance) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods.
 
 ---
 
@@ -146,16 +146,20 @@ az network watcher configure --locations 'eastus' --enabled 'false'
 
 ---
 
-## Opt-out of Network Watcher automatic enablement
+## Opt out of Network Watcher automatic enablement
 
-You can opt-out of Network Watcher automatic enablement using Azure PowerShell or Azure CLI.
+You can opt out of Network Watcher automatic enablement using Azure PowerShell or Azure CLI.
 
 > [!CAUTION]
-> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out, you cannot opt-in without contacting [Azure support](https://azure.microsoft.com/support/options/).
+> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt out, you cannot opt in without contacting [Azure support](https://azure.microsoft.com/support/options/).
+
+# [**Portal**](#tab/portal)
+
+Opting-out of Network Watcher automatic enablement is not available in the Azure portal. Use [PowerShell](#tab/powershell) or [Azure CLI](#tab/cli) to opt out of Network Watcher automatic enablement.
 
 # [**PowerShell**](#tab/powershell)
 
-To opt-out of Network Watcher automatic enablement, use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to register the `DisableNetworkWatcherAutocreation` feature for the `Microsoft.Network` resource provider. Then, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) cmdlet to register the `Microsoft.Network` resource provider.
+To opt out of Network Watcher automatic enablement, use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to register the `DisableNetworkWatcherAutocreation` feature for the `Microsoft.Network` resource provider. Then, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) cmdlet to register the `Microsoft.Network` resource provider.
 
 ```azurepowershell-interactive
 # Register the DisableNetworkWatcherAutocreation feature.
@@ -167,7 +171,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Network'
 
 # [**Azure CLI**](#tab/cli)
 
-To opt-out of Network Watcher automatic enablement, use [az feature register](/cli/azure/feature#az-feature-register) command to register the `DisableNetworkWatcherAutocreation` feature for the `Microsoft.Network` resource provider. Then, use [az provider register](/cli/azure/provider#az-provider-register) command to register the `Microsoft.Network` resource provider.
+To opt out of Network Watcher automatic enablement, use [az feature register](/cli/azure/feature#az-feature-register) command to register the `DisableNetworkWatcherAutocreation` feature for the `Microsoft.Network` resource provider. Then, use [az provider register](/cli/azure/provider#az-provider-register) command to register the `Microsoft.Network` resource provider.
 
 ```azurecli-interactive
 az feature register --name 'DisableNetworkWatcherAutocreation' --namespace 'Microsoft.Network'
@@ -181,5 +185,5 @@ az provider register --name 'Microsoft.Network'
 To learn more about Network Watcher features, see:
 
 - [NSG flow logs](network-watcher-nsg-flow-logging-overview.md)
-- [Connection monitor](network-watcher-connection-monitor-overview.md)
+- [Connection monitor](connection-monitor-overview.md)
 - [Connection troubleshoot](network-watcher-connectivity-overview.md)
