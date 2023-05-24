@@ -53,7 +53,7 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
-        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+        - name: Use Draft and the DevX extension for Visual Studio Code
           href: draft-devx-extension-aks.md
     - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
@@ -193,6 +193,8 @@
   items:
     - name: Cluster operations
       items:
+        - name: Deploy a cluster in an Edge Zone
+          href: edge-zones.md
         - name: Maintaining and upgrading an AKS cluster
           href: upgrade.md
         - name: Abort long running operations

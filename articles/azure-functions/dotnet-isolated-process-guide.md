@@ -262,6 +262,8 @@ This section shows how to work with the underlying HTTP request and response obj
 
 1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore) to your project.
 
+  You must also update your project to use [version 1.10.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.10.0) and [version 1.14.1 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.14.1).
+
 2. In your `Program.cs` file, update the host builder configuration to include the `UseAspNetCoreIntegration()` and `ConfigureAspNetCoreIntegration()` methods. The following example shows a minimal setup without other customizations:
 
     ```csharp
@@ -292,6 +294,8 @@ This section shows how to work with the underlying HTTP request and response obj
         return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
     }
     ```
+
+4. Enable the feature by setting `AzureWebJobsFeatureFlags` to include "EnableHttpProxying". When hosted in a function app, configure this as an application setting. When running locally, set this value in `local.settings.json`.
 
 ## Logging
 
