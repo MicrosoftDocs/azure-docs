@@ -68,4 +68,7 @@ If you have an existing custom table to which you currently send data using the 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
 > - If you update the table schema in your Log Analytics workspace, you must also update the table schema you define in the data collection rule to ingest data into new or modified columns.
     
-## Call the Log Ingestion API
+## Next steps
+
+- [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-logs-ingestion-portal.md)
+- [Walk through a tutorial sending custom logs using Resource Manager templates and REST API.](tutorial-logs-ingestion-api.md)
