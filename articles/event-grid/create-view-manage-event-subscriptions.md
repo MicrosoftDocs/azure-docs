@@ -73,7 +73,7 @@ ms.date: 05/24/2023
 
 1. To configure the filters associated to the subscription, select **Filters** option in the **Settings** section and add the names of the event types you want to filter in the subscription and add context attribute filters you want to use in the subscription, once you finish the filters configuration select **Save**.
 
-    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-settings-filters.png" alt-text="Screenshot showing Event Grid event subscription filters settings." border="false":::
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-settings-filters.png" alt-text="Screenshot showing Event Grid event subscription filters settings." border="false" lightbox="media/create-view-manage-event-subscriptions/event-subscription-settings-filters.png":::
 
 ### Simplified resource model
 
