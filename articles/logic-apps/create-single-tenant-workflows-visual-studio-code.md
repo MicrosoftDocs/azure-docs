@@ -302,94 +302,95 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 After you open a blank workflow in the designer, the **Add a trigger** prompt appears on the designer. You can now start creating your workflow by adding a trigger and actions.
 
-The workflow in this example uses the following trigger and actions:
-
-* The [Request built-in connector trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**, which can receive inbound calls or requests and creates an endpoint that other services or logic app workflows can call.
-
-* The [Office 365 Outlook managed connector action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
-
-* The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
-
-### Add the Request trigger
-
-1. Next to the designer, in the **Add a trigger** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected so that you can select a trigger that runs natively.
-
-1. In the **Choose an operation** search box, enter **when a http request**, and select the built-in Request trigger that's named **When an HTTP request is received**.
-
-   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
-
-   When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
-
-   ![Screenshot that shows the workflow designer with the "When an HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
-
-   > [!TIP]
-   > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
-
-1. If you need to delete an item from the designer, [follow these steps for deleting items from the designer](#delete-from-designer).
-
-### Add the Office 365 Outlook action
-
-1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
-
-   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
-
-1. On the **Add an action** pane, under the **Choose an operation** search box, select **Azure** so that you can select an action for a managed connector that's deployed in Azure.
-
-   This example selects and uses the Office 365 Outlook action, **Send an email (V2)**.
-
-   ![Screenshot that shows the workflow designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-single-tenant-workflows-visual-studio-code/add-send-email-action.png)
-
-1. In the action's details pane, select **Sign in** so that you can create a connection to your email account.
-
-   ![Screenshot that shows the workflow designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-single-tenant-workflows-visual-studio-code/send-email-action-sign-in.png)
-
-1. When Visual Studio Code prompts you for consent to access your email account, select **Open**.
-
-   ![Screenshot that shows the Visual Studio Code prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
-
-   > [!TIP]
-   > To prevent future prompts, select **Configure Trusted Domains** 
-   > so that you can add the authentication page as a trusted domain.
-
-1. Follow the subsequent prompts to sign in, allow access, and allow returning to Visual Studio Code.
-
-   > [!NOTE]
-   > If too much time passes before you complete the prompts, the authentication process times out and fails. 
-   > In this case, return to the designer and retry signing in to create the connection.
-
-1. When the Azure Logic Apps (Standard) extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
-
-   ![Screenshot that shows the extension prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/allow-extension-open-uri.png)
-
-   > [!TIP]
-   > To prevent future prompts, select **Don't ask again for this extension**.
-
-   After Visual Studio Code creates your connection, some connectors show the message that **The connection will be valid for {n} days only**. This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
-
-1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
-
-1. On the action's details pane, on the **Parameters** tab, provide the required information for the action, for example:
-
-   ![Screenshot that shows the workflow designer with details for Office 365 Outlook "Send an email" action.](./media/create-single-tenant-workflows-visual-studio-code/send-email-action-details.png)
-
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, **sophiaowen@fabrikam.com**. |
-   | **Subject** | Yes | **An email from your example workflow** | The email subject |
-   | **Body** | Yes | **Hello from your example workflow!** | The email body content |
-   ||||
-
-   > [!NOTE]
-   > If you want to make any changes in the details pane on the **Settings**, **Static Result**, or **Run After** tab, 
-   > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
-   > Otherwise, Visual Studio Code won't keep your changes.
-
-1. On the designer, select **Save**.
-
 > [!IMPORTANT]
 > To locally run a workflow that uses a webhook-based trigger or actions, such as the 
 > [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md), 
 > you must enable this capability by [setting up forwarding for the webhook's callback URL](#webhook-setup).
+
+The workflow in this example uses the following trigger and actions:
+
+* The [Request built-in connector trigger named **When an HTTP request is received**](../connectors/connectors-native-reqres.md), which can receive inbound calls or requests and creates an endpoint that other services or logic app workflows can call.
+
+* The [Office 365 Outlook managed connector action named **Send an email**](../connectors/connectors-create-api-office365-outlook.md). To follow this how-to guide, you need an Office 365 Outlook email account. If you have an email account that's supported by a different connector, you can use that connector, but that connector's user experience will differ from the steps in this example.
+
+* The [Request built-in connector action named **Response**](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
+
+### Add the Request trigger
+
+1. On the workflow designer, in the **Add a trigger** pane, open the **Runtime** list, and select **In-App** so that you view only the available built-in connector triggers.
+
+1. Find the Request trigger named **When an HTTP request is received** by using the search box, and add that trigger to your workflow. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+   ![Screenshot shows workflow designer, **Add a trigger** pane, and selected trigger named When an HTTP request is received.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
+
+   When the trigger appears on the designer, the trigger's information pane opens and shows the trigger's parameters, settings, and other related tasks.
+
+   ![Screenshot shows information pane for the trigger named When an HTTP request is received.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+
+   > [!TIP]
+   > If the information pane doesn't appear, makes sure that the trigger is selected on the designer.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+If you need to delete an item from the designer, [follow these steps for deleting items from the designer](#delete-from-designer).
+
+### Add the Office 365 Outlook action
+
+1. On the designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
+
+1. In the **Add an action** pane that opens, from the **Runtime** list, select **Shared** so that you view only the available managed connector actions.
+
+1. Find the Office 365 Outlook managed connector action named **Send an email (V2)** by using the search box, and add that action to your workflow. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+   ![Screenshot shows workflow designer and **Add an action** pane with selected Office 365 Outlook action named Send an email.](./media/create-single-tenant-workflows-visual-studio-code/add-send-email-action.png)
+
+1. When the action's authentication pane opens, select **Sign in** to create a connection to your email account.
+
+   ![Screenshot shows action named Send an email (V2) with selected sign in button.](./media/create-single-tenant-workflows-visual-studio-code/send-email-action-sign-in.png)
+
+1. Follow the subsequent prompts to select your account, allow access, and allow returning to Visual Studio Code.
+
+   > [!NOTE]
+   > If too much time passes before you complete the prompts, the authentication process times out 
+   > and fails. In this case, return to the designer and retry signing in to create the connection.
+
+   1. When the Microsoft prompt appears, select the user account for Office 365 Outlook, and then select **Allow access**.
+
+   1. When Azure Logic Apps prompts to open a Visual Studio Code link, select **Open**.
+
+      ![Screenshot shows prompt to open link for Visual Studio Code.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-open-link-type.png)
+
+   1. When Visual Studio Code prompts to open the Microsoft Azure Tools, select **Open**.
+
+      ![Screenshot shows prompt to open Microsoft Azure tools.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
+
+   > [!TIP]
+   > To skip such future prompts, select the following options when the associated prompts appear:
+   >
+   > - Permission to open link for Visual Studio Code: Select **Always allow logic-apis-westcentralus.consent.azure-apim.net to open links of this type in the associated app**. This domain changes based on the Azure region that you selected for your logic app resource.
+   >
+   > - Permission to open Microsoft Azure Tools: Select **Don't ask again for this extension**.
+
+   After Visual Studio Code creates your connection, some connectors show the message that **The connection will be valid for {n} days only**. This time limit applies only to the duration while you author your logic app workflow in Visual Studio Code. After deployment, this limit no longer applies because your workflow can authenticate at runtime by using its automatically enabled [system-assigned managed identity](create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
+
+1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
+
+1. On the action information pane, on the **Parameters** tab, provide the required information for the action, for example:
+
+   ![Screenshot shows information for the Office 365 Outlook action named Send an email.](./media/create-single-tenant-workflows-visual-studio-code/send-email-action-details.png)
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, **sophia.owen@fabrikam.com**. |
+   | **Subject** | Yes | **An email from your example workflow** | The email subject |
+   | **Body** | Yes | **Hello from your example workflow!** | The email body content |
+
+   > [!NOTE]
+   > If you make any changes on the **Testing** tab, make sure that you select **Save** 
+   > to commit those changes before you switch tabs or change focus to the designer. 
+   > Otherwise, Visual Studio Code won't keep your changes.
+
+1. Save your workflow. On the designer, select **Save**.
 
 <a name="webhook-setup"></a>
 
@@ -532,13 +533,13 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. From the **workflow.json** file's shortcut menu, select **Overview**.
 
-      ![Screenshot that shows the Explorer pane and shortcut window for the workflow.json file with "Overview" selected.](./media/create-single-tenant-workflows-visual-studio-code/open-workflow-overview.png)
+      ![Screenshot shows Explorer pane, workflow.json file's shortcut menu with selected option, Overview.](./media/create-single-tenant-workflows-visual-studio-code/open-workflow-overview.png)
 
    1. Find the **Callback URL** value, which looks similar to this URL for the example Request trigger:
 
       `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
-      ![Screenshot that shows your workflow's overview page with callback URL](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
+      ![Screenshot shows workflow overview page with callback URL.](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
 
 1. To test the callback URL by triggering the logic app workflow, open [Postman](https://www.postman.com/downloads/) or your preferred tool for creating and sending requests.
 
@@ -558,17 +559,17 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
       In Postman, the request pane opens so that you can send a request to the callback URL for the Request trigger.
 
-      ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
+      ![Screenshot shows Postman with the opened request pane.](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
    1. Return to Visual Studio Code. From the workflow's overview page, copy the **Callback URL** property value.
 
    1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
 
-      ![Screenshot that shows Postman and callback URL in the address box with Send button selected](./media/create-single-tenant-workflows-visual-studio-code/postman-test-call-back-url.png)
+      ![Screenshot shows Postman and callback URL in the address box with Send button selected.](./media/create-single-tenant-workflows-visual-studio-code/postman-test-call-back-url.png)
 
       The example logic app workflow sends an email that appears similar to this example:
 
-      ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-result-email.png)
+      ![Screenshot shows Outlook email as described in the example.](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-result-email.png)
 
 1. In Visual Studio Code, return to your workflow's overview page.
 
@@ -595,11 +596,11 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
 1. To review the statuses for each step in a specific run and the step's inputs and outputs, select the ellipses (**...**) button for that run, and select **Show Run**.
 
-   ![Screenshot that shows your workflow's run history row with ellipses button and "Show Run" selected](./media/create-single-tenant-workflows-visual-studio-code/show-run-history.png)
+   ![Screenshot shows workflow's run history row with selected ellipses button and Show Run.](./media/create-single-tenant-workflows-visual-studio-code/show-run-history.png)
 
    Visual Studio Code opens the monitoring view and shows the status for each step in the run.
 
-   ![Screenshot that shows each step in the workflow run and their status](./media/create-single-tenant-workflows-visual-studio-code/run-history-action-status.png)
+   ![Screenshot shows each step in the workflow run and their status.](./media/create-single-tenant-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
    > If a run failed and a step in monitoring view shows the **400 Bad Request** error, this problem might result 
@@ -619,7 +620,6 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | **Succeeded with retries** | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
-   |||
 
    [aborted-icon]: ./media/create-single-tenant-workflows-visual-studio-code/aborted.png
    [cancelled-icon]: ./media/create-single-tenant-workflows-visual-studio-code/cancelled.png
@@ -643,33 +643,31 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
 ## Return a response
 
-To return a response to the caller that sent a request to your logic app, you can use the built-in [Response action](../connectors/connectors-native-reqres.md) for a workflow that starts with the Request trigger.
+When you have a workflow that starts with the Request trigger, you can return a response to the caller that sent a request to your workflow by using the [Request built-in action named **Response**](../connectors/connectors-native-reqres.md).
 
-1. On the workflow designer, under the **Send an email** action, select the plus sign (**+**) > **Add an action**.
+1. In the workflow designer, under the **Send an email** action, select the plus sign (**+**) > **Add an action**.
 
-   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
+   The **Add an action** pane opens so that you can select the next action.
 
-1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter **response**, and select the **Response** action.
+1. In the **Add an action** pane, from the **Runtime** list, select **In-App**. Find and add the **Response** action.
 
-   ![Screenshot that shows the workflow designer with the Response action selected.](./media/create-single-tenant-workflows-visual-studio-code/add-response-action.png)
+   After the **Response** action appears on the designer, the action's details pane automatically opens.
 
-   When the **Response** action appears on the designer, the action's details pane automatically opens.
-
-   ![Screenshot that shows the workflow designer with the "Response" action's details pane open and the "Body" property set to the "Send an email" action's "Body" property value.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details.png)
+   ![Screenshot shows workflow designer and Response information pane.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details.png)
 
 1. On the **Parameters** tab, provide the required information for the function that you want to call.
 
-   This example returns the **Body** property value that's output from the **Send an email** action.
+   This example returns the **Body** parameter value, which is the output from the **Send an email** action.
 
-   1. Click inside the **Body** property box so that the dynamic content list appears and shows the available output values from the preceding trigger and actions in the workflow.
-
-      ![Screenshot that shows the "Response" action's details pane with the mouse pointer inside the "Body" property so that the dynamic content list appears.](./media/create-single-tenant-workflows-visual-studio-code/open-dynamic-content-list.png)
+   1. For the **Body** parameter, select inside the edit box, and select the lightning icon, which opens the dynamic content list. This list shows the available output values from the preceding trigger and actions in the workflow.
 
    1. In the dynamic content list, under **Send an email**, select **Body**.
 
       ![Screenshot that shows the open dynamic content list. In the list, under the "Send an email" header, the "Body" output value is selected.](./media/create-single-tenant-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
       When you're done, the Response action's **Body** property is now set to the **Send an email** action's **Body** output value.
+
+      ![Screenshot shows workflow designer, Response information pane, and "Body" property set to the "Send an email" action's "Body" property value.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details.png)
 
       ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details-body-property.png)
 
