@@ -120,7 +120,7 @@ You cannot access your survey and it will not be stored unless you have enabled 
 
 - Learn how to use the End of Call Survey, see our tutorial: [Use the End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
 
-<!-- - Learn how to store and analyze your survey results in Azure, see: NEED TO INSERT LINK HERE -->
+<!-- - Learn how to store and analyze your survey results in Azure, see:  [End of Call Survey Logs]( ) NEED TO INSERT LINK HERE -->
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md)
 
