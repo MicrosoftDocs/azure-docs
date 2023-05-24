@@ -9,7 +9,7 @@ ms.date: 04/05/2022
 ms.author: aahi
 ---
 
-Use the following **GET** request to get the status of your model's training progress. Replace the placeholder values below with your own values. 
+Use the following **GET** request to get the status of your model's training progress. Replace the placeholder values with your own values. 
 
 ### Request URL
 

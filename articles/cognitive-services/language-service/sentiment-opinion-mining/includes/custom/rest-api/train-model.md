@@ -9,7 +9,7 @@ ms.date: 06/29/2022
 ms.author: aahi
 ---
 
-Submit a **POST** request using the following URL, headers, and JSON body to submit a training job. Replace the placeholder values below with your own values. 
+Submit a **POST** request using the following URL, headers, and JSON body to submit a training job. Replace the placeholder values with your own values. 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/:train?api-version={API-VERSION}
@@ -19,7 +19,7 @@ Submit a **POST** request using the following URL, headers, and JSON body to sub
 |---------|---------|---------|
 | `{ENDPOINT}` | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
 
 #### Headers
 

@@ -75,7 +75,7 @@ Training could take sometime between 10 and 30 minutes. You can use the followin
 
 ## Deploy your model
 
-Generally after training a model you would review it's evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ### Submit deployment job
 
