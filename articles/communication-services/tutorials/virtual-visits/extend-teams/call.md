@@ -61,7 +61,7 @@ You can further [customize the user interface with your own theme for customizat
 ## Build your own layout with user interface components
 Azure Communication Services user interface library gives you access to individual components to customize its user interface, and its behavior. The following image highlights the individual components that are available to use.
 
-![Diagram is showing layout of meeting decomposed into individual user interface calling components](./components-calling.png)
+![Diagram is showing layout of meeting decomposed into individual user interface calling components.](./components-calling.png)
  
 The following table details the individual components:
 
