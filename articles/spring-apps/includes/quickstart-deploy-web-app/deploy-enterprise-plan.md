@@ -74,7 +74,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
 
-[!INCLUDE [provision-psql-flexible](includes/quickstart-deploy-web-app/provision-psql.md)]
+[!INCLUDE [provision-psql-flexible](./provision-psql.md)]
 
 ## Deploy the app to Azure Spring Apps
 
