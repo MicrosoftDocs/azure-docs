@@ -1,5 +1,5 @@
 ---
-title: Provide optional claims to Azure AD apps
+title: Provide optional claims to your app
 description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Microsoft identity platform.
 author: davidmu1
 manager: CelesteDG
@@ -60,6 +60,7 @@ The set of optional claims available by default for applications to use are list
 | `verified_primary_email`   | Sourced from the user's PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Sourced from the user's SecondaryAuthoritativeEmail   | JWT        |           |        |
 | `vnet`                     | VNET specifier information. | JWT        |           |      |
+| `xms_cc` | Client Capabilities | JWT | Azure AD | Indicates whether the client application that acquired the token is capable of handling claims challenges. Service applications (resource servers) can make use of this claim to authorize access to protected resources. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The presence of this claim in a token is controlled by the service application that issues the token. This optional claim should be configured as part of the service app's registration. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). |
 | `xms_pdl`             | Preferred data location   | JWT | | For Multi-Geo tenants, the preferred data location is the three-letter code showing the geographic region the user is in. For more info, see the [Azure AD Connect documentation about preferred data location](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>For example: `APC` for Asia Pacific. |
 | `xms_pl`                   | User preferred language  | JWT ||The user's preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC ("en-us"). |
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant's preferred language, if set. Formatted LL ("en"). |
