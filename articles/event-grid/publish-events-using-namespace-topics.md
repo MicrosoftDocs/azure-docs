@@ -4,8 +4,8 @@ description: Describes the steps to publish and consume events or messages using
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.custom: references_regions, build-2023, build-2023-dataai
-ms.date: 05/23/2023
+ms.custom: references_regions
+ms.date: 05/24/2023
 ---
 
 # Publish to namespace topics and consume events
@@ -16,15 +16,17 @@ Follow the steps in this article if you need to send application events to Event
 
 >[!Important]
 > Namespaces, namespace topics, and event subscriptions associated to namespace topics are iniatially available in the following regions:
->- US East
->- Central US 
->- US South Central
->- West US 2 
->- Asia East
+>
+>- East US
+>- Central US
+>- South Central US
+>- West US 2
+>- East Asia
 >- Southeast Asia
->- Europe North
->- Europe West
+>- North Europe
+>- West Europe
 >- UAE North
+
 
 >[!Important]
 > The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
@@ -159,7 +161,7 @@ receive_operation_uri="https://"$(az resource show --resource-group $resource_gr
 Submit a request to consume the event:
 
 ```azurecli-interactive
-curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
+curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$event" $receive_operation_uri
 ```
 ### Acknowledge an event
 

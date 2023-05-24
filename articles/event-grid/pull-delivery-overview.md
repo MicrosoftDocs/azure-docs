@@ -1,11 +1,10 @@
 ---
-ms.date: 05/23/2023
+ms.date: 05/24/2023
 author: jfggdl
 ms.author: jafernan
 title: Introduction to pull delivery
 description: Learn about Event Grid's http pull delivery and the resources that support them.
 ms.topic: conceptual
-ms.custom: build-2023, build-2023-dataai
 ---
 
 # Pull delivery with HTTP (Preview)
@@ -58,13 +57,13 @@ The user community also refers to events to those type of messages that carry a 
 
 Events published to Event Grid land on a **topic**, which is a resource that logically contains all events. An **event subscription** is a configuration resource associated with a single topic. Among other things, you use an event subscription to set event selection criteria to define the event collection available to a subscriber out of the total set of events present in a topic.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-high-res.png" :::
+:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-high-res.png" border="false":::
 
 ## Push and pull delivery
 
 Using HTTP, Event Grid supports push and pull event delivery. With **push delivery**, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With **pull delivery**, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery-high-res.png" :::
+:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery.png" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery-high-res.png" border="false":::
 
 ### When to use push delivery vs. pull delivery 
 
@@ -93,7 +92,7 @@ Pull delivery is available through [namespace topics](concepts.md#topics), which
 
 You use an event subscription to define the filtering criteria for events and in doing so, you effectively define the set of events that are available for consumption. One or more subscriber (consumer) applications connect to the same namespace endpoint specifying the topic and event subscription from which to receive events.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.png" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." lightbox="media/pull-and-push-delivery-overview/pull-delivery-high-res.png" :::
+:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.png" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." lightbox="media/pull-and-push-delivery-overview/pull-delivery-high-res.png" border="false":::
 
 One or more consumers connects to Event Grid to receive events.
 

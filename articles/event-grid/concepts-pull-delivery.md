@@ -2,13 +2,15 @@
 title: Azure Event Grid concepts (pull delivery)
 description: Describes Azure Event Grid and its concepts in the pull delivery model. Defines several key components of Event Grid.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 04/27/2023
+ms.date: 05/24/2023
 ---
 
 # Azure Event Grid's pull delivery - Concepts
 
-This article describes the main concepts in the pull delivery (HTTP) model of Azure Event Grid.
+This article describes the main concepts related to the new resource model that uses namespaces.
+
+> [!NOTE]
+> For Event Grid concepts related to push delivery exclusively used in custom, system, partner, and domain topics, see this [concepts](concepts.md) article.
 
 ## Events
 
@@ -75,6 +77,9 @@ Namespace topics support [pull delivery](pull-delivery-overview.md#pull-delivery
 ## Event subscriptions
 
 A subscription tells Event Grid which events on a namespace topic you're interested in receiving. You can filter the events consumers receive. You can filter by event type or event subject, for example. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
+
+> [!NOTE]
+> The event subscriptions under a namespace topic feature a simplified resource model when compared to that used for custom, domain, partner, and system topics. For more information, see Create, view, and managed [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
 
 For an example of creating subscriptions for namespace topics, refer to:
 

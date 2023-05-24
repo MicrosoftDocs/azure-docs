@@ -2,13 +2,12 @@
 title: CloudEvents v1.0 schema with Azure Event Grid
 description: Describes how to use the CloudEvents v1.0 schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 11/03/2022
+ms.date: 05/24/2023
 ---
 
 # CloudEvents v1.0 schema with Azure Event Grid
 
-In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
+Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
@@ -51,14 +50,14 @@ The headers values for events delivered in the CloudEvents schema and the Event 
 
 ## Event Grid for CloudEvents
 
-You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
-
+You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. In addition to supporting CloudEvents, Event Grid suppports a proprietary, non-extensible, yet fully-functional [Event Grid event format](event-schema.md). The following table describes the transformation supported when using CloudEvents and Event Grid formats as an input schema in topics and as an output schema in event subscriptions. Note that an Event Grid output schema cannot be used when using CloudEvents as an input schema because CloudEvents supports [extension attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) which are not supported by the Event Grid schema.
 
 | Input schema       | Output schema
 |--------------------|---------------------
 | CloudEvents format | CloudEvents format
 | Event Grid format  | CloudEvents format
 | Event Grid format  | Event Grid format
+
 
 For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
 
