@@ -7,6 +7,6 @@ ms.author: elkrieger
 ms.date: 05/23/2023
 ---
 
-## Express configuration Azure CLI commands reference
+# Express configuration Azure CLI commands reference
 
 ## Next steps
