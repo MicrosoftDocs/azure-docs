@@ -15,7 +15,7 @@ monikerRange: '>=form-recog-2.1.0'
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
- In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+ In this article, learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 At a high level, here's how SAS tokens work:
 
@@ -49,13 +49,13 @@ Azure Blob Storage offers three resource types:
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
 * An active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
 
 * A [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
-* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
+* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You need to create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 
   * [Create a storage account](../../storage/common/storage-account-create.md). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
   * [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
@@ -73,7 +73,7 @@ To get started, you'll need:
 
     :::image type="content" source="media/sas-tokens/container-upload-button.png" alt-text="Screenshot that shows the container Upload button in the Azure portal.":::
 
-1. The **Upload blob** window will appear. Select your files to upload.
+1. The **Upload blob** window appears. Select your files to upload.
 
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
@@ -110,10 +110,12 @@ The Azure portal is a web-based console that enables you to manage your Azure su
 1. Specify the signed key **Start** and **Expiry** times.
 
     * When you create a SAS token, the default duration is 48 hours. After 48 hours, you'll need to create a new token.
-    * Consider setting a longer duration period for the time you'll be using your storage account for Form Recognizer Service operations.
-    * The value for the expiry time is a maximum of seven days from the creation of the SAS token.
+    * Consider setting a longer duration period for the time you're using your storage account for Form Recognizer Service operations.
+    * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
+      * **Account key**: There's no imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval to minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
+      * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Azure AD credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
-1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
+1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information,*see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
 
 1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the SAS token. The default value is HTTPS.
 
@@ -131,7 +133,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 ### Get started
 
-* You'll need the [**Azure Storage Explorer**](../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
+* You need the [**Azure Storage Explorer**](../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
 * After the Azure Storage Explorer app is installed, [connect it the storage account](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Form Recognizer.
 
@@ -149,7 +151,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
     * Select **key1** or **key2**.
     * Review and select **Create**.
 
-1. A new window will appear with the **Container** name, **SAS URL**, and **Query string** for your container.
+1. A new window appears with the **Container** name, **SAS URL**, and **Query string** for your container.
 
 1. **Copy and paste the SAS URL and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
 
@@ -157,7 +159,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 ## Use your SAS URL to grant access
 
-The SAS URL includes a special set of [query parameters](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). Those parameters indicate how the resources may be accessed by the client.
+The SAS URL includes a special set of [query parameters](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). Those parameters indicate how the client accesses the resources.
 
 ### REST API
 
