@@ -69,7 +69,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://app.servusconnect.com`
 
 	> [!Note]
-	> This value is not real. Update this value with the actual Identifier. Contact [ServusConnect support team](mailto:support@servusconnect.com) to get the value. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+	> The Identifier value is not real. Update the value with the actual Identifier. Contact [ServusConnect support team](mailto:support@servusconnect.com) to get the value. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
