@@ -151,11 +151,11 @@
     - name: Configure client-side encryption
       items:
       - name: .NET
-        href: /storage/blobs/client-side-encryption.md?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
+        href: /storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
       - name: Java
-        href: /storage/blobs/client-side-encryption.md?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
+        href: /storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=java
       - name: Python
-        href: /storage/blobs/client-side-encryption.md?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
+        href: /storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
     - name: Configure network security
       items:
       - name: Configure firewalls and virtual networks
@@ -195,13 +195,13 @@
   - name: Troubleshoot
     items:
     - name: Performance
-      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance.md
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance
     - name: Availability
-      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability.md
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability
     - name: Client errors
-      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors.md
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors
     - name: Latency issues
-      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs.md
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs
 - name: Resources
   items:
   - name: Azure updates
