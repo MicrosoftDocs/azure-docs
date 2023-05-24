@@ -122,7 +122,7 @@
       - name: Logs
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=/azure/storage/queues/toc.json
+        href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting.md
 - name: How to
   items:
   - name: Create and manage storage accounts
@@ -251,13 +251,13 @@
   - name: Troubleshoot
     items:
     - name: Performance
-      href: ../common/troubleshoot-storage-performance.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance.md
     - name: Availability
-      href: ../common/troubleshoot-storage-availability.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability.md
     - name: Client errors
-      href: ../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors.md
     - name: Latency issues
-      href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs.md
 - name: Reference
   items:
   - name: APIs for data access
@@ -304,7 +304,7 @@
     - name: Storage Explorer release notes
       href: https://github.com/microsoft/AzureStorageExplorer/releases
     - name: Troubleshoot Storage Explorer
-      href: ../common/storage-explorer-troubleshooting.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting.md
     - name: Storage Explorer accessibility
       href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/queues/toc.json
   - name: Queue storage on Microsoft Q&A
