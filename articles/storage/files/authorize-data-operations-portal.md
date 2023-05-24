@@ -4,7 +4,7 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 05/23/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -27,6 +27,10 @@ To access file data from the Azure portal using your Azure AD account, both of t
 - You're assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 
 The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to file shares in the Azure portal.
+
+There are two new built-in roles that have the required permissions to access file data with OAuth:
+- [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader)
+- [Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-contributor)
 
 For information about the built-in roles that support access to file data, see [Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST Preview](authorize-oauth-rest.md).
 
@@ -63,6 +67,10 @@ You can change the authentication method for individual file shares. By default,
 ### Authenticate with your Azure AD account
 
 To switch to using your Azure AD account, select the link highlighted in the image that says **Switch to Azure AD User Account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Azure AD.
+
+Two additional RBAC permissions are required to use your Azure AD account:
+- `Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action`
+- `Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`
 
 No file shares will appear in the list if your Azure AD account lacks permissions to view them.
 

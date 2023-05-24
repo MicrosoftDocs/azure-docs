@@ -155,7 +155,7 @@ The following PowerShell script shows how to `Get` and `Set` the **Public Networ
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false -Force
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 
