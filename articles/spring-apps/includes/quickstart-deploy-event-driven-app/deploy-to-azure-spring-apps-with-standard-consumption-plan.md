@@ -41,6 +41,8 @@ Use the following steps to prepare the sample locally.
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
+### 3.1 Resource naming and command default configuration
+
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
@@ -88,7 +90,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
-### 3.1 Create a Service Bus instance
+### 3.2 Create a Service Bus instance
 
 Use the following command to create a Service Bus namespace:
 
@@ -96,7 +98,7 @@ Use the following command to create a Service Bus namespace:
 az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
 ```
 
-### 3.2 Create queues in your Service Bus instance
+### 3.3 Create queues in your Service Bus instance
 
 Use the following commands to create two queues named `lower-case` and `upper-case`:
 
@@ -109,7 +111,7 @@ az servicebus queue create \
     --name upper-case
 ```
 
-### 3.3 Create an Azure Container Apps environment
+### 3.4 Create an Azure Container Apps environment
 
 The Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
@@ -139,7 +141,7 @@ Use the following steps to create the environment:
    az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
    ```
 
-### 3.4 Create the Azure Spring Apps instance
+### 3.5 Create the Azure Spring Apps instance
 
 An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
@@ -174,14 +176,14 @@ An Azure Spring Apps service instance hosts the Spring event-driven app. Use the
        --sku standardGen2
    ```
 
-### 3.5 Create an app in your Azure Spring Apps instance
+### 3.6 Create an app in your Azure Spring Apps instance
 
 The following sections show you how to create an app in either the standard consumption or dedicated workload profiles.
 
 > [!IMPORTANT]
 > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-#### 3.5.1 Create an app with the consumption workload profile
+#### 3.6.1 Create an app with the consumption workload profile
 
 Use the following command to create an app in the Azure Spring Apps instance:
 
@@ -197,7 +199,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-#### 3.5.2 Create an app with the dedicated workload profile
+#### 3.6.2 Create an app with the dedicated workload profile
 
 Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 
@@ -227,7 +229,7 @@ az spring app create \
     --workload-profile my-wlp
 ```
 
-### 3.6 Bind the Service Bus to Azure Spring Apps and deploy the app
+### 3.7 Bind the Service Bus to Azure Spring Apps and deploy the app
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
 

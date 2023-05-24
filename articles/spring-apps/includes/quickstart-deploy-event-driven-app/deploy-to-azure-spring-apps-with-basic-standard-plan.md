@@ -211,7 +211,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Install the [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.
+Install the [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.0.
 
 ## 2 Prepare Spring Project
 
@@ -232,17 +232,17 @@ Use AZD to initialize the event-driven application from the Azure Developer CLI 
 
     ```text
     Initializing a new project (azd init)
-
+    
     (✓) Done: Initialized git repository
-    (✓) Done: Downloading template code to: D:\samples\event-driven-app
+    (✓) Done: Downloading template code to: D:\samples\event-driven-may24
     
-      Please enter a new environment name: wingtiptoy
+    ? Please enter a new environment name: [? for help] (event-driven-app) wingtiptoy
     
-      Please enter a new environment name: wingtiptoy
+    ? Please enter a new environment name: wingtiptoy
     
     SUCCESS: New project initialized!
     You can view the template code in your directory: D:\samples\event-driven-app
-    Learn more about running 3rd party code on our DevHub: https://learn.microsoft.com/azure/developer/azure-developer-cli/azd-templates#guidelines-for-using-azd-templates
+    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
     ```
 
 ## 2 Provision and Deployment
@@ -253,6 +253,12 @@ Use AZD to package the app, provision the Azure resources required by the event-
 
    ```bash
    azd auth login
+   ```
+   
+1. Run the following command to enable Azure Spring Apps feature.
+
+   ```bash
+   azd config set alpha.springapp on
    ```
 
 1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
@@ -267,42 +273,29 @@ Use AZD to package the app, provision the Azure resources required by the event-
     - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
    > [!NOTE]
-   > 1. This template may only be used with the following Azure locations:
-        >    - Australia East
-   >    - Brazil South
-   >    - Canada Central
-   >    - Central US
-   >    - East Asia
-   >    - East US
-   >    - East US 2
-   >    - Germany West Central
-   >    - Japan East
-   >    - Korea Central
-   >    - North Central US
-   >    - North Europe
-   >    - South Central US
-   >    - UK South
-   >    - West Europe
-   >    - West US
-   >
-   >    If you attempt to use the template with an unsupported region, the provision step will fail.
-   >
-   > 2. The `Basic` plan of Azure Spring Apps is used by default. If you want to use the `Standard` plan,
-   >    you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
-   >
-   >    ```text
-   >    sku: {
-   >      name: 'S0'
-   >      tier: 'Standard'
-   >    }
-   >    ```
+   > The `Basic` plan of Azure Spring Apps is used by default. If you want to use the `Standard` plan,
+   > you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
+   > 
+   > ```text
+   > sku: {
+   >   name: 'S0'
+   >   tier: 'Standard'
+   > }
+   > ```
 
    The console outputs messages similar to the following:
 
    ```text
-   SUCCESS: Your Azure app has been deployed!
-   You can view the resources created under the resource group rg-<your-environment-name>-<a-random-string> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<>your-subscription-id/resourceGroups/rg-<your-environment-name>-<a-random-string>/overview
+   Deploying services (azd deploy)
+   
+   WARNING: Feature 'springapp' is in alpha stage.
+   To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
+   
+   (✓) Done: Deploying service simple-event-driven-app
+   - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-simple-event-driven-app.azuremicroservices.io/
+   
+   
+   SUCCESS: Your application was provisioned and deployed to Azure in xx minutes xx seconds.
    ```
 
 > [!NOTE]

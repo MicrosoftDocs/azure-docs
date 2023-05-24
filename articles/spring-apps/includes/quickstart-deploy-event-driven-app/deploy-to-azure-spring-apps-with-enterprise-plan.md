@@ -43,6 +43,8 @@ Use the following steps to prepare the sample locally.
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
+### 3.1 Resource naming and command default configuration
+
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
@@ -89,7 +91,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
-### 3.1 Create a Service Bus instance
+### 3.2 Create a Service Bus instance
 
 Use the following command to create a Service Bus namespace:
 
@@ -97,7 +99,7 @@ Use the following command to create a Service Bus namespace:
 az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
 ```
 
-### 3.2 Create queues in your Service Bus instance
+### 3.3 Create queues in your Service Bus instance
 
 Use the following commands to create two queues named `lower-case` and `upper-case`:
 
@@ -110,7 +112,7 @@ az servicebus queue create \
     --name upper-case
 ```
 
-### 3.3 Create the Azure Spring Apps instance
+### 3.4 Create the Azure Spring Apps instance
 
 An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
@@ -129,7 +131,7 @@ An Azure Spring Apps service instance hosts the Spring event-driven app. Use the
        --sku Enterprise
    ```
 
-### 3.4 Create an app in your Azure Spring Apps instance
+### 3.5 Create an app in your Azure Spring Apps instance
 
 Create an app in the Azure Spring Apps instance by using the following command:
 
@@ -140,7 +142,7 @@ az spring app create \
     --assign-endpoint true
 ```
 
-### 3.5 Bind the Service Bus to Azure Spring Apps and deploy the app
+### 3.6 Bind the Service Bus to Azure Spring Apps and deploy the app
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
 
