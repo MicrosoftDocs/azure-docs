@@ -15,7 +15,7 @@ Azure Private 5G Core can be configured to integrate with Azure Event Hub, allow
 
 ## UE usage attributes
 
-When configured, AP5GC will send data usage reports per QoS flow level for all PDU sessions. The data is reported:
+When configured, AP5GC will send data usage reports per QoS flow level for all PDU sessions. The following data is reported:
 
 |Data name |Data Type |Description |
 |---|---|---|
