@@ -3,7 +3,7 @@ title: Product updates for Azure Cosmos DB for PostgreSQL
 description: Release notes, new features and features in preview
 ms.author: nlarin
 author: niklarin
-ms.custom: mvc, build-2023
+ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
@@ -50,7 +50,6 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * General availability: 4 TiB, 8 TiB, and 16 TiB storage per node is now supported for [multi-node configurations](resources-compute.md#multi-node-cluster) in addition to previously supported 0.5 TiB, 1 TiB, and 2 TiB storage sizes.
 	* See cost details for your region in 'Multi-node' section of [the Azure Cosmos DB for PostgreSQL pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.19, 12.14, 13.10, 14.7, and 15.2) are now available in all supported regions.
-
 
 ### January 2023
 
