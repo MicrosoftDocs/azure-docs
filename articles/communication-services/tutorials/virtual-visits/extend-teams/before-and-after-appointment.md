@@ -28,7 +28,7 @@ When a booking is canceled, there are three options to send confirmation of canc
 
 The first step is to select the Microsoft Booking trigger "When an appointment is Canceled" and then select the address that is used for the management of Virtual appointments. 
  
- :::image type="content" source="./flow-send-reminder-on-booking-cancelation.svg" alt-text="Example of Power Automate flow that sends an SMS, email and chat message when Microsoft Booking is canceled." lightbox="./flow-send-reminder-on-booking-cancelation.svg":::
+ :::image type="content" source="./flow-send-reminder-on-booking-cancellation.svg" alt-text="Example of Power Automate flow that sends an SMS, email and chat message when Microsoft Booking is canceled." lightbox="./flow-send-reminder-on-booking-cancellation.svg":::
 
 Second, you must configure every individual communication channel. We start with "Send SMS". After providing the connection to Azure Communication Services resource, you must select the phone number that will be used for SMS. If you don't have an acquired phone number in the resource, you must first acquire one. Then, you can use the parameter "customerPhone" to fill in the customer's phone and define the SMS message.
 
@@ -36,8 +36,8 @@ The next parallel path is to send the email. After connecting to Azure Communica
 
 The last parallel path sends a chat message to your chat solution powered by Azure Communication Services. After providing a connection to Azure Communication Services, you define the Azure Communication Services user ID that represents your organization (for example, a bot that replaces the value <APPLICATION USER ID> in the previous image). Then you select the scope "Chat" to receive an access token for this identity. Next, you create a new chat thread to send a message to this user. Lastly, you send a chat message in created chat thread about the cancellation of the Virtual appointment.
   
-## Next actions
+## Next steps
 -	Learn [what extensibility options you have for Virtual appointments](./overview.md)
--	Learn how to customize [scheduling experience](./scheduling.md)
+-	Learn how to customize [scheduling experience](./schedule.md)
 -	Learn how to customize [precall experience](./precall.md)
 -	Learn how to customize [call experience](./call.md)
