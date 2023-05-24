@@ -53,7 +53,7 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
         :::image type="content" source="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in the raw format." lightbox="./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png":::
 1. Select **Test query** to see the snapshot of test results of your query in the **Test results** tab. You can also download the results.
 
-    :::image type="content" source="./media/process-data-azure-stream-analytics/test-results.png" alt-text="Screenshot of the Input preview window in the result pane of the Process data page in the raw format." lightbox="./media/process-data-azure-stream-analytics/test-results.png":::
+    :::image type="content" source="./media/process-data-azure-stream-analytics/test-results.png" alt-text="Screenshot of the Input preview window in the result pane with test results." lightbox="./media/process-data-azure-stream-analytics/test-results.png":::
 1. Write your own query to transform the data. See [Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference).
 1. Once you've tested the query and you want to move it in to production, select **Create Stream Analytics job**. 
 
