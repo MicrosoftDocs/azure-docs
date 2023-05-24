@@ -92,12 +92,12 @@ A: Azure MySQL 5.7 Single Server does not support built in major version upgrade
 __Q: Are there any expected downtime or performance impacts during the upgrade process?__
 
 A: During the upgrade process, some downtime can be expected. The duration will depend on the database size and complexity. We recommend performing a test upgrade on a non-production environment to estimate the downtime and understand the performance impact. 
-If you don’t want your apps having a significant downtime while upgrading, you can try [perform minimal downtime major version upgrade from MySQL 5.7 to MySQL 8.0 using read replica](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/how-to-upgrade#perform-minimal-downtime-major-version-upgrade-from-mysql-57-to-mysql-80-using-read-replicas).
+If you don’t want your apps having a significant downtime while upgrading, you can try [perform minimal downtime major version upgrade from MySQL 5.7 to MySQL 8.0 using read replica](flexible-server/how-to-upgrade.md#perform-minimal-downtime-major-version-upgrade-from-mysql-57-to-mysql-80-using-read-replicas).
 
 
 __Q: Can I roll back to MySQL v5.7 after upgrading to v8.0?__
 
-A: While we do not typically recommend reverting back to MySQL v5.7 due to its approaching End of Life status, we understand that the flexibility to do so can be crucial in certain scenarios. As a best practice, and to ensure your peace of mind during the upgrade process, we strongly advocate for taking a comprehensive [on-demand backup](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/how-to-trigger-on-demand-backup) prior to initiating the upgrade to MySQL v8.0. In the event that any concerns or unexpected complications arise with MySQL v8.0, you would then be able to [restore your database](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/how-to-restore-server-portal) back to the prior version using this backup. This would allow you to revert to the state of your Azure Database for MySQL – Flexible Server as it was at the point of the backup. 
+A: While we do not typically recommend reverting back to MySQL v5.7 due to its approaching End of Life status, we understand that the flexibility to do so can be crucial in certain scenarios. As a best practice, and to ensure your peace of mind during the upgrade process, we strongly advocate for taking a comprehensive [on-demand backup](flexible-server/how-to-trigger-on-demand-backup.md) prior to initiating the upgrade to MySQL v8.0. In the event that any concerns or unexpected complications arise with MySQL v8.0, you would then be able to [restore your database](flexible-server/how-to-restore-server-portal.md) back to the prior version using this backup. This would allow you to revert to the state of your Azure Database for MySQL – Flexible Server as it was at the point of the backup. 
 
 __Q: What are the main advantages of upgrading to MySQL v8.0?__
 
