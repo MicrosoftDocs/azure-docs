@@ -10,7 +10,7 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022, build-2023
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2
@@ -216,6 +216,12 @@ For score component defined by yaml, you can use `load_component()` function to 
 ## Build your pipeline
 
 Now that you've created and loaded all components and input data to build the pipeline. You can compose them into a pipeline:
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), add `from azure.ai.ml.entities import ResourceConfiguration` to the top.
+> Then replace:
+> * `default_compute=cpu_compute_target,` with `default_compute="serverless",`
+> * `train_node.compute = gpu_compute_target` with `train_node.resources = "ResourceConfiguration(instance_type="Standard_NC6",instance_count=2)`
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
