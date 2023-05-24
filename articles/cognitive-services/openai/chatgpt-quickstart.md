@@ -33,13 +33,13 @@ Use this article to get started using Azure OpenAI.
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Csharp quickstart](includes/chatgpt-java.md)]
+[!INCLUDE [Java quickstart](includes/chatgpt-java.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [javascript quickstart](includes/chatgpt-javascript.md)]
+[!INCLUDE [JavaScript quickstart](includes/chatgpt-javascript.md)]
 
 ::: zone-end
 

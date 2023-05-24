@@ -32,19 +32,13 @@ Use this article to get started making your first calls to Azure OpenAI.
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Csharp quickstart](includes/java.md)]
+[!INCLUDE [Java quickstart](includes/java.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [javascript quickstart](includes/javascript.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [Csharp quickstart](includes/dotnet.md)]
+[!INCLUDE [JavaScript quickstart](includes/javascript.md)]
 
 ::: zone-end
 
