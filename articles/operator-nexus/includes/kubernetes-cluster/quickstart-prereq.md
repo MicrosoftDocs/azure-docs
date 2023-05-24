@@ -3,7 +3,7 @@
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * Install the latest version of the [necessary Azure CLI extensions](../../howto-install-cli-extensions.md).
-* This article requires version az CLI version 2.45.0.
+* This article requires version 2.45.0 of Azure CLI.
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`][az-account] command.
 * Create a resource group using the [`az group create`][az-group-create] command. An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
     ```azurecli-interactive
