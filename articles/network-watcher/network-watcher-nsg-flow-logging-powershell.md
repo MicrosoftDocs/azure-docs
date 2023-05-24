@@ -151,7 +151,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 For information about the structure of a flow log, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md#log-format).
 
-## Disable flow logging
+## Disable a flow log
 
 To temporarily disable a flow log without deleting it, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) with the `-Enabled $false` parameter. Disabling a flow log stops flow logging for the associated network security group. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured network security group.
 
