@@ -9,8 +9,6 @@ ms.date: 05/15/2023
 ms.author: jboback
 ---
 
-Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the prediction API.
-
 To deploy your model from within the Language Studio:
 
 1. Select Deploying a model from the left side menu.

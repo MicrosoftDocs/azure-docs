@@ -34,6 +34,6 @@ ms.author: jboback
     > Your dataset doesn't have to be entirely in the same language. You can have multiple documents, each with different supported languages. If your dataset contains documents of different languages or if you expect text from different languages during runtime, select **enable multi-lingual dataset** option when you enter the basic information for your project. This option can be enabled later from the **Project settings** page.
 
 6. Select the container where you have uploaded your dataset. 
-If you have already labeled data make sure it follows the supported format and click on **Yes, my files are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu. Click **Next**.
+If you have already labeled data make sure it follows the supported format and click on the relevant data format confirmation, then select the labels file from the drop-down menu. Click **Next**.
 
 7. Review the data you entered and select **Create Project**.
