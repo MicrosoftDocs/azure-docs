@@ -6,7 +6,7 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: What's new in Dapr integration with Azure Container Apps
+    - name: What's new in Dapr
       href: dapr-whats-new.md
 - name: Quickstarts
   expanded: true
