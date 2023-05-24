@@ -133,17 +133,15 @@ az network watcher flow-log show --name 'myFlowLog' --resource-group 'NetworkWat
 
 The storage location of a flow log is defined at creation. To access and download flow logs from your storage account, you can use Azure Storage Explorer. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-NSG flow log files saved to a storage account follow the logging path shown in the following example:
+NSG flow log files saved to a storage account follow the following logging path:
 
-```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
-```
+`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json`
 
 For information about the structure of a flow log, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md#log-format).
 
 ## Disable a flow log
 
-To temporarily disable a flow log without deleting it, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command. Disabling a flow log stops flow logging for the associated network security group. However, the flow log remains as a resource with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured network security group.
+To temporarily disable a flow log without deleting it, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command. Disabling a flow log stops flow logging for the associated network security group. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured network security group.
 
 > [!NOTE]
 > If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log.
