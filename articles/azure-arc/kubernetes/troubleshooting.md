@@ -64,6 +64,17 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
 
+
+### Overage claims error
+
+If you receive an overage claim, review the following factors in order:
+
+1. Are you using a service principal that is part of more than 200 Azure AD groups? If yes, then you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
+
+1. Have you configured outbound proxy environment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
+
+If neither of these apply, open a support request so we can look into the issue.
+
 ## Connecting Kubernetes clusters to Azure Arc
 
 Connecting clusters to Azure Arc requires access to an Azure subscription and `cluster-admin` access to a target cluster. If you can't reach the cluster, or if you have insufficient permissions, connecting the cluster to Azure Arc will fail. Make sure you've met all of the [prerequisites to connect a cluster](quickstart-connect-cluster.md#prerequisites).

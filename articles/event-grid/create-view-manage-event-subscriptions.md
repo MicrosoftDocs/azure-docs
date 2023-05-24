@@ -3,9 +3,8 @@ title: Create, view, and manage Azure Event Grid event subscriptions in namespac
 description: This article describes how to create, view and manage event subscriptions in namespace topics
 author: robece
 ms.topic: how-to
-ms.custom: build-2023
 ms.author: robece
-ms.date: 05/23/2023
+ms.date: 05/24/2023
 ---
 
 # Create, view, and manage event subscriptions in namespace topics
@@ -74,7 +73,31 @@ ms.date: 05/23/2023
 
 1. To configure the filters associated to the subscription, select **Filters** option in the **Settings** section and add the names of the event types you want to filter in the subscription and add context attribute filters you want to use in the subscription, once you finish the filters configuration select **Save**.
 
-    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-settings-filters.png" alt-text="Screenshot showing Event Grid event subscription filters settings.":::
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-settings-filters.png" alt-text="Screenshot showing Event Grid event subscription filters settings." border="false" lightbox="media/create-view-manage-event-subscriptions/event-subscription-settings-filters.png":::
+
+### Simplified resource model
+
+The event subscriptions under a [Namespace Topic](concepts-pull-delivery.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the same except for the scenarios documented in the following sections.
+
+#### Filter on event data
+
+Filtering on event `data` isn't currently supported. This capability will be available in a future release.
+
+#### Subject begins with
+
+There's no dedicated configuration properties to specify filters on `subject`. You can configure filters in the following way to filter the context attribute `subject` with a value that begins with a string.
+
+| key value  | operator   |   value |
+|-----------|:---------:|-----------|
+|  subject  |  String begins with   |  **your string**  |
+
+#### Subject ends with
+
+There's no dedicated configuration properties to specify filters on `subject`. You can configure filters in the following way to filter the context attribute `subject` with a value that ends with a string.
+
+| key value  | operator   |   value |
+|-----------|:---------:|-----------|
+|  subject  |  String ends with   |  **your string**  |
 
 ## Next steps
 

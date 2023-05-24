@@ -102,7 +102,7 @@ You must have at least the following Role-based access control permissions on th
 | `Microsoft.Network/virtualNetworks/subnets/write` | Optional.  Required if you need to perform subnet delegation |
 
 
-If the virtual network is in a different subscription than your ASA job, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider by following [this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it's automatically registered when creating the job in a subscription. 
+If the virtual network is in a different subscription than your ASA job, you must ensure that the subscription with the virtual network is registered for the `Microsoft.StreamAnalytics` resource provider. You can explicitly register the provider by following [this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it's automatically registered when creating the job in a subscription. 
 
 ## Limitations 
 
