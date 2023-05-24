@@ -18,14 +18,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Security Service Edge (SSE)?
-            url: overview-what-is-security-service-edge.md
           - text: What is Global Secure Access?
             url: overview-what-is-global-secure-access.md
-          - text: What is Microsoft Entra Private Access?
-            url: overview-what-is-private-access.md
-          - text: What is Microsoft Entra Internet Access?
-            url: overview-what-is-internet-access.md
 
   - title: Get started
     linkLists:

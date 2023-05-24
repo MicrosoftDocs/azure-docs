@@ -12,41 +12,49 @@ ms.custom:
 
 # How to use the Global Secure Access enriched Office 365 logs
 
-With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The enriched Office 365 logs provide you with the information you need to gain these insights. You can integrate the logs with a Log Analytics workspace or third-party SIEM tool for further analysis. This article describes how to use the enriched Office 365 logs to gain insights into your Microsoft 365 traffic.
+With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The *enriched Office 365 logs* provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis. This article describes how to use the *enriched Office 365 logs* to gain insights into your Microsoft 365 traffic.
 
 ## Prerequisites
-To use this feature, you need:
+To use this feature, you need the following roles, subscriptions, and resources:
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD Premium P1 or P2 tenant. 
 * **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
-* A **Log Analytics workspace** in your Azure subscription. Learn how to [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+* To integrate with SIEM tools, you need an **Azure Event Hubs namespace**
+* To archive logs, you need an **[Azure storage account](../storage/common/storage-account-create.md)** that you have `ListKeys` permissions for
 
 ## What the logs provide
 
-The enriched Office 365 logs provide information about Microsoft 365 workloads, so you can review network diagnostic data, performance data, and security events relevant to Microsoft 365 apps. For example, if access to Microsoft 365 is blocked for a user in your organization, you need visibility into how the user's device is connecting to your network.
+The *enriched Office 365 logs* provide information about Microsoft 365 workloads, so you can review network diagnostic data, performance data, and security events relevant to Microsoft 365 apps. For example, if access to Microsoft 365 is blocked for a user in your organization, you need visibility into how the user's device is connecting to your network.
 
 These logs are a subset of the logs available in the [Microsoft 365 audit log](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=0365-worldwide&preserve-view=true). The logs are enriched with additional information, such as the user's IP address, device name, and device type. The logs are also enriched with information about the Microsoft 365 app, such as the app name, app ID, and app version.
 
-## Stream logs to a Log Analytics workspace
+## How to export the logs
 
-To store logs and query the data for further analysis, you can integrate the logs with Azure Monitor logs by sending them to a Log Analytics workspace. Once you have the integration set up, you can use Log Analytics to query the logs.
+Before you can stream logs to a SIEM tool, you need to create an Azure event hub and event hub namespace. For more information, see [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a **Security Administrator** or **Global Administrator**.
+Once the event hub is created, you configure Diagnostic settings to select the logs you want to route to the event hub. The logs are then routed through the event hub to your SIEM tool of choice. Learn how to [stream your activity logs to an event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-1. Go to **Azure Active Directory** > **Diagnostic settings**. You can also select **Export Settings** from the **Audit Logs** in Global Secure Access.
+If you need long-term storage for your logs and you don't plan on querying them often, you can archive the logs to an Azure storage account. Learn how to [archive your activity logs to a storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
 
-1. Select **+ Add diagnostic setting** to create a new integration or select **Edit setting** for an existing integration.
+At this time, streaming logs directly to a Log Analytics workspace is not available. You can stream the logs to an event hub and then ingest the logs into a Log Analytics workspace using Logic Apps.
 
-1. Enter a **Diagnostic setting name**. If you're editing an existing integration, you can't change the name.
+**To stream activity logs to an event hub**:
 
-1. Select **`EnrichedOffice365AuditLogs`**.
+1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Go to **Azure AD** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
+    - [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md)
 
-1. Under **Destination Details** select the **Send to Log Analytics workspace** check box. 
+Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.
 
-1. Select the appropriate **Subscription** and **Log Analytics workspace** from the menus.
+**To archive activity logs to a storage account**:
 
-1. Select the **Save** button.
+1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Create a storage account.
+1. Go to **Azure AD** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
+    - [Review the data retention policies](../active-directory/reports-monitoring/reference-reports-data-retention.md)
 
 ## Next steps
 

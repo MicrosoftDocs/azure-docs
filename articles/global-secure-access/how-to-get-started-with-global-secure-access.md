@@ -1,49 +1,74 @@
 ---
 title: Get started with Global Secure Access
 description: Get started with Global Secure Access.
-author: kenwith
-ms.author: kenwith
+author: shlipsey3
+ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 05/23/2023
 ms.service: network-access
 ms.custom: 
 ---
 
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
-
 # Get started with Global Secure Access
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+When setting up the features of Global Secure Access for the first time, you can use the "Getting Started Wizard" in the Microsoft Entra admin center.
 
-First read about Secure Global Access, SASE, and SSE. Then read about the two products Microsoft has as a solution for this area: Microsoft Entra Private Access and Microsoft Entra Internet Access. Next read the end-to-end tutorials for each product.
+Before setting up the service, review the [What is Global Secure Access?](overview-what-is-global-secure-access.md) article.
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+The wizard is organized into required tasks and recommended tasks. The required tasks are the minimum configuration needed to get started with Global Secure Access. The recommended tasks are optional, but are recommended to get the most out of the service.
 
-## [Section 1 H2]
-<!-- add your content here -->
+## Required tasks
 
-## [Section 2 H2]
-<!-- add your content here -->
+The required tasks are broken down into two categories:
+- Determine *which* traffic is forwarded
+- Determine *how* traffic is forwarded
 
-## [Section n H2]
-<!-- add your content here -->
+### Enable traffic forwarding profiles
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+**Traffic forwarding profiles** are used to manage the network traffic that you want to route through Global Secure Access. Select the link to configure your traffic forwarding profiles. For more information, see [Global Secure Access traffic forwarding profiles](concept-traffic-forwarding.md).
+
+![Screenshot of the enable traffic forwarding profiles options.](media/how-to-get-started-with-global-secure-access/wizard-start-traffic-forwarding-profiles.png)
+
+**To enable traffic forwarding profiles**:
+
+1. Select the link to configure your traffic forwarding profiles.
+1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
+
+### Install the client or configure branch locations
+
+For network to get routed through Global Secure Access, your users must either be connected to a **branch location** that is configured to use Global Secure Access or **install the Global Secure Access client** on their Windows devices. Select the link to configure your branch locations or install the Global Secure Access client.
+
+- [How to configure branch locations](how-to-manage-branch-locations.md)
+- [Learn about branch connectivity](concept-understand-branch-connectivity.md)
+- [How to manage branch locations](how-to-manage-branch-locations.md)
+
+![Screenshot of the install client and create branch locations options.](media/how-to-get-started-with-global-secure-access/wizard-client-install-branch-locations.png)
+
+**To install the Windows client**:
+
+1. Select the link.
+1. Follow the steps in the [How to install the Windows client](how-to-install-windows-client.md) article.
+1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
+
+**To configure branch locations**:
+
+1. Select the link.
+1. Follow the steps in the [How to configure branch locations](how-to-manage-branch-locations.md) article.
+1. Either select the breadcrumb at the top of the page or close the window using the **X** in the upper-right corner.
+
+## Recommended tasks
+
+With your core settings in place, you can configure access controls and security measures. You can also set up log streaming to send logs to your SIEM or other log management solution.
+
+### Enable Conditional Access policies
+
+### Configure tenant restrictions
+
+### Log streaming
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
+
+- [Learn about branch connectivity](concept-understand-branch-connectivity.md)
+- [Define quick access ranges](how-to-define-quick-access-ranges.md)
 

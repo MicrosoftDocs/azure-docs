@@ -4,14 +4,8 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Security Service Edge?
-    href: overview-what-is-security-service-edge.md
   - name: What is Global Secure Access?
     href: overview-what-is-global-secure-access.md
-  - name: What is Microsoft Entra Private Access?
-    href: overview-what-is-private-access.md
-  - name: What is Microsoft Entra Internet Access?
-    href: overview-what-is-internet-access.md
 - name: Get started
   expanded: true
   items:

@@ -5,25 +5,27 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 05/24/2023
 ms.service: network-access
 ms.custom: 
 ---
 
-# Learn how to manage device links on branch locations for Global Secure Access
+# Manage device links on branch locations
 
 Learn how to create a device link on an office branch location for Global Secure Access.
 
 ## Prerequisites 
-- Microsoft Entra Internet Access premium license for your Microsoft Entra Identity tenant.  
-- Entra Network Access Administrator role in Microsoft Entra Identity.
-- The *Microsoft Graph* module must be installed to use PowerShell.
-- Admin consent is required when using Graph explorer for the Microsoft Graph API. 
+- **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
+- **Microsoft Entra Network Access Administrator** role in Microsoft Entra ID
+- The **Microsoft Graph** module must be installed to use PowerShell
+- Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
 
 ## Create a device link at a branch location with IKEv2 and default IPsec policy
+
 To create a device link at a branch location with IKEv2 and the default IPSec policy:
-1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
-1. In the left hand navigation, choose **Global Secure Access**. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Microsoft Entra Network Access Administrator.
+1. Go to **Global Secure Access (preview)**. 
 
 ## Delete a device link from a branch location
 

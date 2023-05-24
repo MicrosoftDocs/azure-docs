@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 05/18/2023
+ms.date: 05/24/2023
 ms.service: network-access
 ms.custom: 
 
@@ -24,6 +24,11 @@ To define Quick Access ranges, you must have:
 - Connector group
 
 ## How it works
+
+What functionality does it unlock?
+Why would I use it?
+
+## How to set it up
 
 Configuring your Quick access settings is a major component to utilizing Microsoft Entra Private Access. If you don't configure these settings, the service has no sites or apps to forward traffic to. 
 
