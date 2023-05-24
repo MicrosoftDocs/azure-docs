@@ -22,7 +22,7 @@ This integration between Azure Machine Learning and Microsoft Purview applies an
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|---|
-| [Yes](#register)| Yes | Yes | No | No | No| No| Yes | No |
+| [Yes](#register)| Yes | Yes | No | No | No| No| [Yes](#lineage) | No |
 
 When scanning the Azure Machine Learning source, Microsoft Purview supports:
 
@@ -102,9 +102,13 @@ Browse by collection allows you to explore the different collections you're a da
 
     :::image type="content" source="./media/register-scan-azure-machine-learning/asset-details.png" alt-text="Screenshot of asset details.":::
 
-1. You can also select the __Lineage__ tab to view lineage information for the asset.
+## Lineage
 
-    :::image type="content" source="./media/register-scan-azure-machine-learning/asset-lineage.png" alt-text="Screenshot of the asset lineage.":::
+When browsing, you can select the __Lineage__ tab to view lineage information for the asset.
+
+:::image type="content" source="./media/register-scan-azure-machine-learning/asset-lineage.png" alt-text="Screenshot of the asset lineage.":::
+
+For more information on lineage in general, see [data lineage](concept-data-lineage.md) and [lineage users guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 
