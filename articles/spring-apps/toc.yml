@@ -23,7 +23,7 @@ items:
   - name: Launch your first web app
     href: quickstart-deploy-web-app.md
   - name: Launch your first event-driven app
-    href: quickstart-deploy-event-driven-app-standard-consumption.md
+    href: quickstart-deploy-event-driven-app.md
   - name: Run apps on Standard consumption and dedicated plan
     expanded: true
     items:
