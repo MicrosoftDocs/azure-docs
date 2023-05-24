@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/24/2023
 ms.author: alkohli
 ---
 
@@ -27,7 +27,6 @@ Do the following steps to configure TLS 1.2 on your client.
 2. To set TLS 1.2 for the current PowerShell session, type:
   
     ```azurepowershell
-    $TLS12Protocol = [System.Net.SecurityProtocolType] 'Ssl3 , Tls12'
     [System.Net.ServicePointManager]::SecurityProtocol = $TLS12Protocol
     ```
 ## Configure TLS 1.2 on client
