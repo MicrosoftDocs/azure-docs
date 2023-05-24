@@ -124,7 +124,7 @@ If you don't already have a certificate, you can create a sample certificate usi
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-client.png" alt-text="Screenshot showing MQTTX app left rail to add new client.":::
 2. Configure client1 with  
-    - Name as clientname1 (this value can be anything)
+    - Name as client-name-1 (this value can be anything)
     - Client ID as client1-sessionID1 (Client ID in CONNECT packet is used to identify the session ID for the client connection)
     - Username as client1-authnID (Username must match the client authentication name in client metadata)
 3. Update the host name to MQTT hostname from the Overview page of the namespace.
