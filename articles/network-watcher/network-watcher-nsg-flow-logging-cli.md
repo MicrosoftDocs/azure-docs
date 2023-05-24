@@ -135,9 +135,11 @@ The storage location of a flow log is defined at creation. To access and downloa
 
 NSG flow log files saved to a storage account follow the following logging path:
 
-`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json`
+```
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NetworkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+```
 
-For information about the structure of a flow log, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md#log-format).
+For information about the structure of a flow log, see [Log format of NSG flow logs](network-watcher-nsg-flow-logging-overview.md#log-format).
 
 ## Disable a flow log
 
