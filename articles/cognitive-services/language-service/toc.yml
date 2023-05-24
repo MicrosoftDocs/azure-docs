@@ -1003,6 +1003,8 @@ items:
               href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
   - name: Custom
     items:
+      - name: Quickstart
+        href: custom/quickstart.md
       - name: How-to guides
         items:
         - name: Create projects
