@@ -2043,6 +2043,8 @@
         href: recurly-tutorial.md  
       - name: RedBrick Health
         href: ./redbrick-health-tutorial.md
+      - name: Redocly
+        href: redocly-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
