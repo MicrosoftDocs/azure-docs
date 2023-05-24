@@ -18,9 +18,6 @@ ms.subservice: calling
 # End of Call Survey overview
 
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
-
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 

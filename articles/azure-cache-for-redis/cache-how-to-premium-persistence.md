@@ -43,7 +43,8 @@ Persistence features are intended to be used to restore data to the same cache a
 - RDB/AOF persisted data files can't be imported to a new cache. Use the [Import/Export](cache-how-to-import-export-data.md) feature instead.
 - Persistence isn't supported with caches using [passive geo-replication](cache-how-to-geo-replication.md) or [active geo-replication](cache-how-to-active-geo-replication.md).
 - On the _Premium_ tier, AOF persistence isn't supported with [multiple replicas](cache-how-to-multi-replicas.md). 
-- On the _Premium_ tier, data must be persisted to a storage account in the same region as the cache instance. 
+- On the _Premium_ tier, data must be persisted to a storage account in the same region as the cache instance.
+- On the _Premium_ tier, storage accounts in different subscriptions can be used to persist data if [managed identity](cache-managed-identity.md) is used to connect to the storage account.
 
 ## Differences between persistence in the Premium and Enterprise tiers
 
@@ -90,6 +91,8 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
   
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
+   | **Authentication Method** | Drop-down and select an authentication method. Choices are **Managed Identity** or **Storage Key**| Choose your prefered authentication method. Using [managed identity](cache-managed-identity.md) allows you to use a storage account in a different subscription than the one in which your cache is located. |
+    | **Subscription** | Drop-down and select an subscription. | You can choose a storage account in a different subscription if you are using managed identity as the authentication method. |
    | **Backup Frequency** | Drop-down and select a backup interval. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
    | **Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we _strongly_ recommend that you disable the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
@@ -103,6 +106,8 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
+    | **Authentication Method** | Drop-down and select an authentication method. Choices are **Managed Identity** or **Storage Key**| Choose your prefered authentication method. Using [managed identity](cache-managed-identity.md) allows you to use a storage account in a different subscription than the one in which your cache is located. |
+    | **Subscription** | Drop-down and select an subscription. | You can choose a storage account in a different subscription if you are using managed identity as the authentication method. |
    | **First Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, we _strongly_ recommend that you disable the soft delete feature on the storage account as it leads to increased storage costs. For more information, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview). |
    | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
    | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure another storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. |
@@ -278,7 +283,7 @@ For both RDB and AOF persistence:
 
 ### Can I use the same storage account for persistence across two different caches?
 
-Yes, you can use the same storage account for persistence across two different caches.
+Yes, you can use the same storage account for persistence across two different caches. The [limitations on subscriptions and regions](#prerequisites-and-limitations) will still apply. 
 
 ### Will I be charged for the storage being used in data persistence?
 
@@ -306,7 +311,6 @@ All RDB persistence backups, except for the most recent one, are automatically d
 ### When should I use a second storage account?
 
 Use a second storage account for AOF persistence when you think you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits. This option is only available for Premium tier caches.
-
 
 
 ### How can I remove the second storage account?

@@ -34,8 +34,8 @@ Whether you choose [Direct Line Speech](direct-line-speech.md) or another soluti
 | Category | Features |
 |----------|----------|
 |[Custom keyword](./custom-keyword-basics.md) | Users can start conversations with assistants by using a custom keyword such as "Hey Contoso." An app does this with a custom keyword engine in the Speech SDK, which you can configure by going to [Get started with custom keywords](./custom-keyword-basics.md). Voice assistants can use service-side keyword verification to improve the accuracy of the keyword activation (versus using the device alone).
-|[Speech-to-text](speech-to-text.md) | Voice assistants convert real-time audio into recognized text by using [speech-to-text](speech-to-text.md) from the Speech service. This text is available, as it's transcribed, to both your assistant implementation and your client application.
-|[Text-to-speech](text-to-speech.md) | Textual responses from your assistant are synthesized through [text-to-speech](text-to-speech.md) from the Speech service. This synthesis is then made available to your client application as an audio stream. Microsoft offers the ability to build your own custom, high-quality Neural Text to Speech (Neural TTS) voice that gives a voice to your brand.
+|[Speech to text](speech-to-text.md) | Voice assistants convert real-time audio into recognized text by using [speech to text](speech-to-text.md) from the Speech service. This text is available, as it's transcribed, to both your assistant implementation and your client application.
+|[Text to speech](text-to-speech.md) | Textual responses from your assistant are synthesized through [text to speech](text-to-speech.md) from the Speech service. This synthesis is then made available to your client application as an audio stream. Microsoft offers the ability to build your own custom, high-quality Neural Text to speech (Neural TTS) voice that gives a voice to your brand.
 
 ## Get started with voice assistants
 
