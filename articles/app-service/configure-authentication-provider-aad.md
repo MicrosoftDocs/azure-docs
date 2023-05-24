@@ -85,6 +85,7 @@ To register the app, perform the following steps:
 
     ---
 
+1. On the "Overview" screen, make note of the **Tenant ID**, as well as the **Primary domain**.
 1. From the left navigation, select **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Supported account types**, select the account type that can access this application.
@@ -151,9 +152,13 @@ To register the app, perform the following steps:
     - **Pick an existing app registration in this directory**: Choose an app registration from the current tenant and automatically gather the necessary app information. The system will attempt to create a new client secret against the app registration and automatically configure your app to use it. A default issuer URL is set based on the supported account types configured in the app registration. If you intend to change this default, consult the table below.
     - **Provide the details of an existing app registration**: Specify details for an app registration from another tenant or if your account does not have permission in the current tenant to query the registrations. For this option, you must manually fill in the configuration values according to the table below.
 
+    The **authentication endpoint** for a workforce tenant should be a [value specific to the cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use "https://login.microsoftonline.com" as its authentication endpoint. Make note of the authentication endpoint value, as it is needed to construct the right **Issuer URL**.
+
     # [Customer tenant (Preview)](#tab/customer-tenant)
 
     For a customer tenant, you must manually fill in the configuration values according to the table below.
+
+    The **authentication endpoint** for a customer tenant should be `https://<tenant-subdomain>.ciamlogin.com`, replacing *\<tenant-subdomain>* with the default subdomain for the tenant. The default subdomain is part of the **primary domain** for the tenant, which should be of the form `<tenant-subdomain>.onmicrosoft.com` and was set during tenant creation. For example, if the tenant had the domain "contoso.onmicrosoft.com", the tenant subdomain would be "contoso", and the authentication endpoint would be "https://contoso.ciamlogin.com". Make note of the authentication endpoint value, as it is needed to construct the right **Issuer URL**.
 
     ---
 
@@ -163,8 +168,8 @@ To register the app, perform the following steps:
     |-|-|
     |Application (client) ID| Use the **Application (client) ID** of the app registration. |
     |Client Secret| Use the client secret you generated in the app registration. With a client secret, hybrid flow is used and the App Service will return access and refresh tokens. When the client secret is not set, implicit flow is used and only an ID token is returned. These tokens are sent by the provider and stored in the App Service authentication token store.|
-    |Issuer URL| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.<br/><br/>Any configuration other than a tenant-specific endpoint will be treated as multi-tenant. In multi-tenant configurations, no validation of the issuer or tenant ID is performed by the system, and these checks should be fully handled in [your app's authorization logic](#authorize-requests).|
-    |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If your application represents an API that will be called by other clients, you should also add the **Application ID URI** that you configured on the app registration. There is a limit of 500 characters total across the list of allowed audiences.|
+    |Issuer URL| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the **authentication endpoint** you determined in the previous step for your tenant type and cloud environment, also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. For applications that use Azure AD v1, omit `/v2.0` in the URL. <br/><br/> This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. Any configuration other than a tenant-specific endpoint will be treated as multi-tenant. In multi-tenant configurations, no validation of the issuer or tenant ID is performed by the system, and these checks should be fully handled in [your app's authorization logic](#authorize-requests).|
+    |Allowed Token Audiences| This field is optional. The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If your application represents an API that will be called by other clients, you should also add the **Application ID URI** that you configured on the app registration. There is a limit of 500 characters total across the list of allowed audiences.|
 
     The client secret will be stored as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
 
