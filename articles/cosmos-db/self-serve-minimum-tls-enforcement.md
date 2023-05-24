@@ -33,6 +33,59 @@ The **default value for new and existing accounts is `Tls`**.
 > [!IMPORTANT]
 > Staring on April 1st, 2023, the **default value for new accounts will be switched to `Tls12`**.
 
+### Set Minimal TLS Protocol in Azure Cosmos DB using the Portal 
+
+This self-serve feature is available in the Portal while creating and editing an account. Azure Cosmos DB Accounts enforce the TLS 1.2 protocol. However, Azure Cosmos DB also support the following TLS protocols depending on the API kind selected.
+
+- **MongoDB:** TLS 1.2
+
+- **Cassandra:** TLS 1.2
+
+- **Table, SQL and Graph:** TLS 1.0, TLS 1.1 and TLS 1.2
+
+  
+
+### Steps to set Minimal TLS Protocol while creating an account
+
+If you are using an API Kind that only supports TLS 1.2, you will notice in the Networking tab at the bottom the TLS protocol disabled.
+
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-create-account.png" alt-text="API Kind that only supports TLS 1.2":::
+
+
+
+If you are using an API Kind that accepts multiple TLS protocols, then you can navigate to the Networking tab and the Minimum Transport Layer Security Protocol option will be available. You can change the selected protocol by just clicking on the dropdown and selecting the desired protocol.
+
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-select-account.png" alt-text="API Kind that accepts multiple TLS protocols":::
+
+
+After setting up your account, you can review in the Review + create tab, at the bottom inside the Networking section, that the selected TLS Protocol is set as you specified.
+
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/summary.png" alt-text="selected TLS Protocol is set as you specified":::
+
+
+### Steps to set the Minimal TLS Protocol while editing an account
+
+1. Navigate to your Azure Cosmos DB account on the Azure portal.
+
+2. Select Networking from the left menu, then select the Connectivity tab.
+
+3. You'll find the Minimum Transport Layer Security Protocol option. If you are using an API Kind that only supports TLS 1.2, you will notice this option disabled. Otherwise, you'll be able to select the desired TLS Protocol by just clicking on it.
+
+
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/edit.png" alt-text="Minimum Transport Layer Security Protocol option":::
+
+ 
+4. Click Save once you changed the TLS protocol.
+
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/save.png" alt-text="Save after change":::
+
+ 
+5. Once it is saved, you'll receive a success notification. Still, this change can take up to 15 minutes to take effect after the configuration update is completed.
+
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/notification-success.png" alt-text="Success Notification":::
+
+ 
+
 ### Set via Azure CLI
 
 To set using Azure CLI, use the command below:
