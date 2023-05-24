@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 # Query Prometheus metrics using the API and PromQL
 
-Azure Monitor managed service for Prometheus (preview), collects metrics from Azure Kubernetes clusters and stores them in an Azure Monitor workspace.  PromQL (Prometheus query language), is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
+Azure Monitor managed service for Prometheus, collects metrics from Azure Kubernetes clusters and stores them in an Azure Monitor workspace.  PromQL (Prometheus query language), is a functional query language that allows you to query and aggregate time series data. Use PromQL to query and aggregate metrics stored in an Azure Monitor workspace. 
 
 This article describes how to query an Azure Monitor workspace using PromQL via the REST API.
 For more information on PromQL, see [Querying prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
@@ -18,7 +18,7 @@ For more information on PromQL, see [Querying prometheus](https://prometheus.io/
 ## Prerequisites
 To query an Azure monitor workspace using PromQL, you need the following prerequisites:
 + An Azure Kubernetes cluster or remote Kubernetes cluster.
-+ Azure Monitor managed service for Prometheus (preview) scraping metrics from a Kubernetes cluster.
++ Azure Monitor managed service for Prometheus scraping metrics from a Kubernetes cluster.
 + An Azure Monitor workspace where Prometheus metrics are being stored.
 
 ## Authentication
@@ -208,7 +208,7 @@ For more information on Prometheus metrics limits, see [Prometheus metrics](../.
 
 ## Next steps
 
-[Azure Monitor workspace overview (preview)](./azure-monitor-workspace-overview.md)  
-[Manage an Azure Monitor workspace (preview)](./azure-monitor-workspace-manage.md)  
-[Overview of Azure Monitor Managed Service for Prometheus (preview)](./prometheus-metrics-overview.md)  
-[Query Prometheus metrics using Azure workbooks (preview)](./prometheus-workbooks.md)
+[Azure Monitor workspace overview](./azure-monitor-workspace-overview.md)  
+[Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md)  
+[Overview of Azure Monitor Managed Service for Prometheus](./prometheus-metrics-overview.md)  
+[Query Prometheus metrics using Azure workbooks](./prometheus-workbooks.md)

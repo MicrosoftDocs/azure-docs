@@ -11,6 +11,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 
 ## FAQ
 
+- [Scan specific folders for secrets in ADO repos with CredScan](#scan-specific-folders-for-secrets-in-ado-repos-with-credscan)
 - [I'm getting an error while trying to connect](#im-getting-an-error-while-trying-to-connect)
 - [Why can't I find my repository](#why-cant-i-find-my-repository)
 - [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
@@ -27,6 +28,32 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [What programming languages are supported by Defender for DevOps?](#what-programming-languages-are-supported-by-defender-for-devops) 
 - [I'm getting an error that informs me that there's no CLI tool](#im-getting-an-error-that-informs-me-that-theres-no-cli-tool)
 - [Can I migrate the connector to a different region?](#can-i-migrate-the-connector-to-a-different-region)
+
+### Scan specific folders for secrets in ADO repos with CredScan
+If you want to scan specific folders in Azure DevOps repos with CredScan, you can use:
+env: 
+  credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+
+A full ADO YAML file for a pipeline that does CredScan scanning for secrets on a specific folder could look like this:
+```yml
+trigger:
+  branches:
+    include:
+      - main
+      - master
+ 
+pool:
+  vmImage: "windows-latest"
+ 
+steps:
+  - task: MicrosoftSecurityDevOps@1
+    displayName: "Microsoft Security DevOps"
+    inputs:
+      categories: 'secrets' 
+      break: false
+    env:
+      credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+```      
 
 ### I'm getting an error while trying to connect
 

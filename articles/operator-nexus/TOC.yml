@@ -1,21 +1,24 @@
+---
 - name: Azure Operator Nexus documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Operator Nexus?
-    href: overview.md
+    - name: What is Azure Operator Nexus?
+      href: overview.md
 - name: Concepts
   items:
   - name: Resource Types
     href: concepts-resource-types.md
+  - name: Compute overview
+    href: concepts-compute.md
   - name: Observability
     href: concepts-observability.md
 - name: Quickstarts
   items:
-  - name: Before you start workload deployment
-    href: quickstarts-tenant-workload-prerequisites.md
-  - name: Tenant workload deployment
-    href: quickstarts-tenant-workload-deployment.md
+    - name: Before you start workload deployment
+      href: quickstarts-tenant-workload-prerequisites.md
+    - name: Tenant workload deployment
+      href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
   - name: Before you start Operator Nexus NFC and CM deployment
@@ -54,16 +57,21 @@
     href: howto-precertification.md
   - name: Tracking asynchronous operations
     href: howto-track-async-operations-cli.md
+- name: Troubleshooting
+  items:
+    - name: Troubleshoot AKS-Hybrid
+      href: troubleshoot-aks-hybrid-cluster.md
 - name: Sample Deployment
   items:
-  - name: VNF Deployment
-    href: template-virtualized-network-function-deployment.md
-  - name: CNF Deployment
-    href: template-cloud-native-network-function-deployment.md 
+    - name: VNF Deployment
+      href: template-virtualized-network-function-deployment.md
+    - name: CNF Deployment
+      href: template-cloud-native-network-function-deployment.md
 - name: Reference
   items:
   - name: Instance to On-Premises WAN Connectivity
     href: reference-customer-edge-provider-edge-connectivity.md
   - name: List of metrics collected
     href: List-of-metrics-collected.md
-  
+  - name: Near-edge Compute
+    href: reference-near-edge-compute.md
