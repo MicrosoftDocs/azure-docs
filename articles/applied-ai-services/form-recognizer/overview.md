@@ -76,7 +76,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
-    [**Business card**](#business-card) | Extract business </br>contact information.
+    [**Business card**](#business-card) | Extract business contact information.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model-preview":::</br>
