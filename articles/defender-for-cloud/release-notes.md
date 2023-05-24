@@ -17,25 +17,6 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
-## June 2023
-
-Updates in June include:
-
-- [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)
-- [Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys)
-
-### Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM
-
-With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are retired. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](how-to-enable-agentless-containers.md) are enabled to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory.
-
-### Renaming container recommendations powered by Qualys
-
- The current container recommendation in Defender for Containers is renamed as follows:
-
-|Recommendation Current Name | Recommendation New Name | Description | Assessment Key|
-|--|--|--|--|
-| Container registry images should have vulnerability findings resolved | Container registry images should have vulnerability findings resolved (powered by Qualys) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | dbd0cb49-b563-45e7-9724-889e799fa648 |
-
 ## May 2023
 
 Updates in May include:
@@ -49,6 +30,8 @@ Updates in May include:
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard)
 - [Two Defender for DevOps recommendations now include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings)
 - [New default setting for Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution)
+- [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm)
+- [Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys)
 
 ### Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
@@ -184,6 +167,18 @@ Microsoft Defender Vulnerability Management (MDVM) is now enabled (default) as a
 If a subscription has a VA solution enabled on any of it's VMs, no changes will be made and MDVM will not be enabled by default on the remaining VMs in that subscription. You can choose to [enable a VA solution](deploy-vulnerability-assessment-defender-vulnerability-management.md) on the remaining VMs on your subscriptions.
 
 Learn how to [Find vulnerabilities and collect software inventory with agentless scanning (Preview)](enable-vulnerability-assessment-agentless.md).
+
+### Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM
+
+With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are retired. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](how-to-enable-agentless-containers.md) are enabled to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory.
+
+### Renaming container recommendations powered by Qualys
+
+ The current container recommendation in Defender for Containers is renamed as follows:
+
+|Recommendation Current Name | Recommendation New Name | Description | Assessment Key|
+|--|--|--|--|
+| Container registry images should have vulnerability findings resolved | Container registry images should have vulnerability findings resolved (powered by Qualys) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | dbd0cb49-b563-45e7-9724-889e799fa648 |
 
 ## April 2023
 Updates in April include:
