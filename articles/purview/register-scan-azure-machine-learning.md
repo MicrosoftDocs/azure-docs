@@ -99,6 +99,9 @@ Browse by collection allows you to explore the different collections you are a d
     :::image type="content" source="./media/register-scan-azure-machine-learning/child-assets.png" alt-text="Screenshot of child assets.":::
 
 1. From the list, you can select on any of the asset items to view details. For example, selecting one of the Azure Machine Learning job assets displays the details of the job.
+
+    :::image type="content" source="./media/register-scan-azure-machine-learning/asset-details.png" alt-text="Screenshot of asset details.":::
+
 1. You can also select the __Lineage__ tab to view lineage information for the asset.
 
     :::image type="content" source="./media/register-scan-azure-machine-learning/asset-lineage.png" alt-text="Screenshot of the asset lineage.":::
