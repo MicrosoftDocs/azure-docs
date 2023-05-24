@@ -70,11 +70,7 @@ The **Category labels** settings enable you to customize font setting such as fo
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD
-> [Add a bar chart layer](power-bi-visual-add-3d-column-layer.md)
-=======
 > [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
->>>>>>> 0a0c085e96e2ce4d1de734b3a8557f7775545579
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
