@@ -457,4 +457,5 @@ Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) co
 
 Move on to the Android tutorial in which you build an Android app that gets an access token from the Microsoft identity platform and uses it to call the Microsoft Graph API.
 
-> [!div class="nextstepaction"] > [Tutorial: Sign in users and call the Microsoft Graph from an Android application](../../tutorial-v2-android.md)
+> [!div class="nextstepaction"] 
+> [Tutorial: Sign in users and call the Microsoft Graph from an Android application](../../tutorial-v2-android.md)
