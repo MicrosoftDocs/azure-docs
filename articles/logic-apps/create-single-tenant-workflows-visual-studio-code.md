@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/23/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -118,7 +118,10 @@ Install the following tools and versions for your specific operating system: Win
        > [!TIP]
        > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
 
-    Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
+    Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. In Visual Studio Code, the Azure window shows all the Azure-deployed and hosted logic apps in your Azure subscription, but organizes your apps in the following ways:
+
+    * **Logic Apps (Consumption)** section: All the Consumption logic apps in your subscription
+    * **Resources** section: All the Standard logic apps in your subscription. Previously, these logic apps appeared in the **Logic Apps (Standard)** section, which has now moved into the **Resources** section.
 
 * To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/).
 
@@ -751,9 +754,9 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. In the Azure window, on the **Workspaces** toolbar, select **Deploy** > **Deploy to Logic App**.
+1. In the Azure window, on the **Workspace** toolbar, select **Deploy** > **Deploy to Logic App**.
 
-   ![Screenshot shows Azure window with Workspaces toolbar and Deploy, Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot shows Azure window with Workspace toolbar and Deploy, Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
