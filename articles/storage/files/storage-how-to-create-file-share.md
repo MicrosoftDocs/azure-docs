@@ -5,7 +5,7 @@ description: How to create and delete an SMB Azure file share by using the Azure
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 05/23/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
@@ -170,12 +170,9 @@ Before you create an Azure file share on an existing storage account, you might 
 
 # [Portal](#tab/azure-portal)
 1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account where you want to enable large file shares.
-1. Open the storage account and select **File shares**.
-1. Select **Enabled** on **Large file shares**, and then select **Save**.
-1. Select **Overview** and select **Refresh**.
-1. Select **Share capacity** then select **100 TiB** and **Save**.
-
-    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Screenshot of the storage account, file shares blade with 100 TiB shares highlighted.":::
+1. Select **Settings > Configuration**.
+1. Go to the **Large file shares** setting at the bottom of the page. If it's set to **Disabled**, change the setting to **Enabled**.
+1. Select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 To enable large file shares on your existing storage account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
