@@ -121,7 +121,7 @@ To register the app, perform the following steps:
         1. Navigate back to the tenant and select **External identities**.
         1. (Optional) Configure identity providers under **All identity providers**. See [Authentication methods and identity providers for customers](../active-directory/external-identities/customers/concept-authentication-methods-customers.md) for details on the available options.
         1. Select **User flows** > **New user flow**.
-        1. Enter a name such as "SignUpSignIn", and then select the identity providers and user attributes you wish to use in this flow. When done, click **Create*.
+        1. Enter a name such as "SignUpSignIn", and then select the identity providers and user attributes you wish to use in this flow. When done, select **Create**.
     
         These steps are also covered in [Create a sign-up and sign-in user flow].
 
