@@ -257,6 +257,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
+      - name: Get local capabilities
+        href: how-tos/calling-sdk/capabilities.md
     - name: Editing media from the client
       items:
       - name: Access raw audio and video
