@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Image Analysis client 4.0 library for .NET"
-description: In this quickstart, get started with the Image Analysis 4.0 client library for .NET.
+title: "Quickstart: Image Analysis client 4.0 SDK for .NET"
+description: In this quickstart, get started with the Image Analysis 4.0 client SDK for .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C# to analyze an image to read text and generate an image caption. This quickstart defines a method `AnalyzeAsync()`, which uses the client object to analyze a remote image and print the results to the console. 
+Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart defines a method `AnalyzeAsync()`, which uses the client object to analyze a remote image and print the results to the console. 
 
 [Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis
 ) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
@@ -42,9 +42,9 @@ Create a new C# application.
 
 Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C#/All Platforms/Console_. Select **Console App** (command-line application that can run on .NET on Windows, Linux and macOS) and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Next**. Select **.NET 6.0** or above, and choose **Create** to create the project.
 
-### Install the client library 
+### Install the client SDK 
 
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**.
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**.
 
 #### [CLI](#tab/cli)
 
@@ -70,9 +70,9 @@ Build succeeded.
 ...
 ```
 
-### Install the client library
+### Install the client SDK
 
-Within the application directory, install the Computer Vision client library for .NET with the following command:
+Within the application directory, install the Computer Vision client SDK for .NET with the following command:
 
 ```dotnet
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
@@ -192,7 +192,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
+In this quickstart, you learned how to install the Image Analysis client SDK and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
 
 
 > [!div class="nextstepaction"]
