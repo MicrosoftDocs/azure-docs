@@ -70,7 +70,7 @@ You can enable Network Watcher for a region by creating a Network Watcher instan
 > - The name of the Network Watcher instance is automatically set to **NetworkWatcher_region**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **NetworkWatcher_eastus**.
 > - The Network Watcher instance is created in a resource group named **NetworkWatcherRG**. The resource group is created if it doesn't already exist.
 
-If you wish to customize the name of a Network Watcher instance and resource group, you can use [PowerShell](?tabs=powershell#create-a-network-watcher-instance) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods. In each option, the resource group must exist before you create a Network Watcher in it.  
+If you wish to customize the name of a Network Watcher instance and resource group, you can use [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods. In each option, the resource group must exist before you create a Network Watcher in it.  
 
 # [**PowerShell**](#tab/powershell)
 
@@ -101,7 +101,7 @@ az network watcher configure --resource-group 'NetworkWatcherRG' --locations 'ea
 > - The name of the Network Watcher instance is automatically set to **region-watcher**, where *region* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named **eastus-watcher**.
 > - You can customize the name of the Network Watcher resource group. However, the resource group must exist before you create a Network Watcher instance in it.
 
-If you wish to customize the name of the Network Watcher instance, you can use [PowerShell](?tabs=powershell#create-a-network-watcher-instance) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods.
+If you wish to customize the name of the Network Watcher instance, you can use [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region) or [REST API](/rest/api/network-watcher/network-watchers/create-or-update) methods.
 
 ---
 
@@ -155,7 +155,7 @@ You can opt out of Network Watcher automatic enablement using Azure PowerShell o
 
 # [**Portal**](#tab/portal)
 
-Opting-out of Network Watcher automatic enablement is not available in the Azure portal. Use [PowerShell](#tab/powershell) or [Azure CLI](#tab/cli) to opt out of Network Watcher automatic enablement.
+Opting-out of Network Watcher automatic enablement isn't available in the Azure portal. Use [PowerShell](?tabs=powershell#opt-out-of-network-watcher-automatic-enablement) or [Azure CLI](?tabs=cli#opt-out-of-network-watcher-automatic-enablement) to opt out of Network Watcher automatic enablement.
 
 # [**PowerShell**](#tab/powershell)
 
