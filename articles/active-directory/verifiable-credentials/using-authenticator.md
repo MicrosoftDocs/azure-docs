@@ -59,7 +59,7 @@ Using the Authenticator for the first time presents a set of screens that you ha
 
 When the Microsoft Authenticator app is installed and ready, you use the public end to end demo webapp to issue your first verifiable credential onto the Authenticator.
 
-1. Open [end to end demo](http://woodgroveemployee.azurewebsites.net/) in your browser
+1. Open [end to end demo](https://woodgroveemployee.azurewebsites.net/) in your browser
     1. Enter your First Name and Last Name and press **Next**
     1. Select **Verify with True Identity**
     1. Click **Take a selfie** and **Upload government issued ID**. The demo uses simulated data and you don't need to provide a real selfie or an ID. 

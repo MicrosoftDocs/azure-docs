@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: gasinh
 ms.subservice: app-mgmt
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Migrate your applications from Okta to Azure Active Directory 
@@ -26,7 +27,7 @@ To create an application inventory:
 1. With the Postman app, from the Okta admin console, generate an API token.
 2. On the API dashboard, under **Security**, select **Tokens** > **Create Token**.
 
-    ![Screenshot of the Tokens and Create Tokens options under Sercurity.](media/migrate-applications-from-okta-to-azure-active-directory/token-creation.png)
+    ![Screenshot of the Tokens and Create Tokens options under Security.](media/migrate-applications-from-okta-to-azure-active-directory/token-creation.png)
 
 3. Enter a token name and then select **Create Token**.
 

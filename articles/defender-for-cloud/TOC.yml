@@ -95,6 +95,8 @@
     - name: Defender for Cloud support matrices
       displayName: coverage, supported platforms, cloud services, roles, permissions
       href: support-matrix-defender-for-cloud.md
+    - name: Defender for Cloud cloud support
+      href: support-matrix-cloud-environment.md
     - name: Defender for Servers support matrices
       displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
       href: support-matrix-defender-for-servers.md
@@ -160,12 +162,21 @@
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
+      - name: Agentless scanning
+        displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+        href: concept-agentless-data-collection.md
   - name: Improve your data security posture
     items:
     - name: About data-aware security posture
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
+  - name: Improve your container security posture
+    items:
+    - name: Agentless Container Posture (Preview)
+      href: concept-agentless-containers.md
+    - name: Support and prerequisites
+      href: support-agentless-containers-posture.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations
@@ -180,6 +191,14 @@
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
+  - name: Security alerts
+    items:
+    - name: About security alerts and incidents
+      displayName: security, alerts, classification, incident, threat, detection, analytics, 
+      href: alerts-overview.md
+    - name: Security alerts reference list
+      displayName: alerts, mitre
+      href: alerts-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
@@ -193,22 +212,13 @@
       href: plan-defender-for-servers-select-plan.md
     - name: Review agents and extensions
       href: plan-defender-for-servers-agents.md
+    - name: Agentless scanning
+      displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+      href: concept-agentless-data-collection.md
     - name: Scale a Defender for Servers deployment
       href: plan-defender-for-servers-scale.md
     - name: Common questions
       href: faq-defender-for-servers.yml
-  - name: Protect cloud workloads
-    items:
-    - name: Agentless scanning
-      displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
-      href: concept-agentless-data-collection.md
-    - name: Security alerts and incidents
-      displayName: security, alerts, classification, incident, threat, detection, analytics, 
-      href: alerts-overview.md
-    - name: Reference list of alerts
-      displayName: alets, mitre
-      href: alerts-reference.md
-
 - name: How-to guides
   items:
   - name: Cloud security posture
@@ -249,6 +259,12 @@
       href: data-security-review-risks.md
     - name: Customize sensitivity settings
       href: data-sensitivity-settings.md
+  - name: Container security posture
+    items:
+    - name: Onboard agentless containers for CSPM
+      href: how-to-enable-agentless-containers.md
+    - name: View and remediate vulnerability assessment findings for registry images 
+      href: view-and-remediate-vulnerability-assessment-findings.md
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
@@ -366,6 +382,21 @@
     - name: Working with the Log Analytics agent
       displayName: log analytics, agent
       href: working-with-log-analytics-agent.md
+  - name: Defender for APIs
+    items: 
+    - name: About Defender for APIs
+      href: defender-for-apis-introduction.md
+    - name: Support and prerequisites
+      href: defender-for-apis-prepare.md
+    - name: Onboard Defender for APIs
+      href: defender-for-apis-deploy.md
+    - name: Validate APIs alerts
+      displayName: validate, api, apis
+      href: defender-for-apis-validation.md
+    - name: Investigate findings, recommendations, alerts
+      href: defender-for-apis-posture.md
+    - name: Manage Defender for APIs
+      href: defender-for-apis-manage.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -695,6 +726,14 @@
       href: episode-twenty-six.md
     - name: Demystifying Defender for Servers
       href: episode-twenty-seven.md
+    - name: Zero Trust and Defender for Cloud
+      href: episode-twenty-eight.md
+    - name: Security policy enhancements in Defender for Cloud
+      href: episode-twenty-nine.md
+    - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
+      href: episode-thirty.md
+    - name: Understanding data aware security posture capability
+      href: episode-thirty-one.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

@@ -1,7 +1,7 @@
 ---
-title: Import Data (preview)
+title: Import data (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to import data from external sources on to Azure Machine Learning platform
+description: Learn how to import data from external sources to the Azure Machine Learning platform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/12/2023
+ms.date: 05/17/2023
 ms.custom: data4ml
 ---
 
@@ -43,9 +43,34 @@ To create and work with data assets, you need:
 
 * [Workspace connections created](how-to-connection.md)
 
-## Importing from external database sources / import from external sources to create a mltable data asset
+> [!NOTE]
+> For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).  
+> 
+> If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI below:
 
-> [!NOTE] 
+### Code versions
+
+# [SDK](#tab/SDK)
+
+```python
+pip uninstall azure-ai-ml
+pip install azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+```
+
+# [CLI](#tab/CLI)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml #(the version value needs to be 2.15.1 or later)
+```
+
+---
+
+## Importing from an external database source as a table data asset
+
+> [!NOTE]
 > The external databases can have Snowflake, Azure SQL, etc. formats.
 
 The following code samples can import data from external databases. The `connection` that handles the import action determines the external database data source metadata. In this sample, the code imports data from a Snowflake resource. The connection points to a Snowflake source. With a little modification, the connection can point to an Azure SQL database source and an Azure SQL database source. The imported asset `type` from an external database source is `mltable`.
@@ -87,7 +112,7 @@ from azure.ai.ml import MLClient
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 ml_client = MLClient.from_config()
 
@@ -102,7 +127,7 @@ ml_client.data.import_data(data_import=data_import)
 
 ---
 
-## Import data from external data and file system resources to create a uri_folder data asset
+## Import data from an external file system source as a folder data asset
 
 > [!NOTE]
 > An Amazon S3 data resource can serve as an external file system resource.
@@ -120,7 +145,7 @@ $schema: http://azureml/sdk-2-0/DataImport.json
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 
 type: uri_folder
@@ -148,7 +173,7 @@ from azure.ai.ml import MLClient
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 ml_client = MLClient.from_config()
 

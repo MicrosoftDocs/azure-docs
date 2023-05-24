@@ -50,7 +50,7 @@ Before installing the Azure AD modules on your computer:
 
 3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
 
-4. Deploy Azure Active Directory from [MSOnline 1.0](http://www.powershellgallery.com/packages/MSOnline/1.0).
+4. Deploy Azure Active Directory from [MSOnline 1.0](https://www.powershellgallery.com/packages/MSOnline/1.0).
 
 5. If you're prompted to install the NuGet provider, type Y and press ENTER.
 

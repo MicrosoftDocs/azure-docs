@@ -34,7 +34,6 @@
           href: howto-gpu-workloads.md
         - name: Segregate worker nodes into subnets
           href: howto-segregate-machinesets.md
-
         - name: Manually update cluster certificates
           href: howto-update-certificates.md
     - name: Networking 
@@ -45,8 +44,6 @@
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
-        - name: Configure OVN-Kubernetes network provider
-          href: howto-configure-ovn-kubernetes.md
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
@@ -112,6 +109,9 @@
       items:
       - name: Overview of egress lockdown
         href: concepts-egress-lockdown.md
+      - name: Overview of OVN-Kubernetes
+        href: concepts-ovn-kubernetes.md
+
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI

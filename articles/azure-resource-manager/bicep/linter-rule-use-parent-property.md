@@ -8,8 +8,6 @@ ms.date: 01/30/2023
 
 # Linter rule - use parent property
 
-When defined outside of the parent resource, you format name of the child resource with slashes to include the parent name. Setting the full resource name isn't the recommended approach. The syntax can be simplified by using the `parent` property. For more information, see [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
-
 When defined outside of the parent resource, you use slashes to include the parent name in the name of the child resource. Setting the full resource name with parent resource name is not recommended. The `parent` property can be used to simplify the syntax. See [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
 
 ## Linter rule code

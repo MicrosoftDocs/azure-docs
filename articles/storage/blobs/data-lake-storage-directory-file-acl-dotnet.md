@@ -47,7 +47,7 @@ using System.IO;
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account.
+To use the snippets in this article, you need to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account.
 
 ### Connect by using Azure Active Directory (Azure AD)
 
@@ -103,6 +103,22 @@ This example deletes a directory named `my-directory`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
 
+## Restore a soft-deleted directory
+
+You can use the Azure Storage client libraries to restore a soft-deleted directory. Use the following method to list deleted paths for a [DataLakeFileSystemClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient) instance:
+
+- [GetDeletedPathsAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdeletedpathsasync)
+
+Use the following method to restore a soft-deleted directory:
+
+- [UndeletePathAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.undeletepathasync)
+
+The following code example shows how to list deleted paths and restore a soft-deleted directory:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RestoreDirectory":::
+
+If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you receive an error when you attempt to restore those soft-deleted items.
+
 ## Upload a file to a directory
 
 First, create a file reference in the target directory by creating an instance of the [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) class. Upload a file by calling the [DataLakeFileClient.AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method. Make sure to complete the upload by calling the [DataLakeFileClient.FlushAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) method.
@@ -137,6 +153,34 @@ List directory contents by calling the [FileSystemClient.GetPathsAsync](/dotnet/
 This example, prints the names of each file that is located in a directory named `my-directory`.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
+
+## Create a user delegation SAS for a directory
+
+To work with the code examples in this section, add the following `using` directive:
+
+```csharp
+using Azure.Storage.Sas;
+```
+
+The following code example shows how to generate a user delegation SAS for a directory when a hierarchical namespace is enabled for the storage account:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
+
+The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to list file paths for this directory. If the SAS is invalid (for example, the SAS is expired), the Storage service returns error code 403 (Forbidden).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
+
+To learn more about creating a user delegation SAS, see [Create a user delegation SAS with .NET](storage-blob-user-delegation-sas-create-dotnet.md).
+
+## Create a service SAS for a directory
+
+In a storage account with a hierarchical namespace enabled, you can create a service SAS for a directory. To create the service SAS, make sure you have installed version 12.5.0 or later of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) package.
+
+The following example shows how to create a service SAS for a directory:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForDirectory":::
+
+To learn more about creating a service SAS, see [Create a service SAS with .NET](sas-service-create-dotnet.md).
 
 ## See also
 

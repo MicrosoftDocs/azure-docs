@@ -4,7 +4,7 @@ description: Learn how DevTest Labs makes it easy to create, manage, and monitor
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2022
+ms.date: 04/20/2023
 ---
 
 # What is Azure DevTest Labs?

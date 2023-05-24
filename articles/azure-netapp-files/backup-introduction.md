@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 05/23/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -21,7 +21,15 @@ ms.custom: references_regions
 Azure NetApp Files backup expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. For additional information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
 > [!IMPORTANT]
-> The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
+> The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. The Azure NetApp Files backup feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupPreview                                                      
+> 
+> FeatureName      ProviderName     RegistrationState   
+> -----------      ------------     -----------------   
+> ANFBackupPreview Microsoft.NetApp Registered
+> ```
 
 ## Supported regions 
 
@@ -45,6 +53,7 @@ Azure NetApp Files backup is supported for the following regions:
 * West Europe
 * West US
 * West US 2
+* West US 3
 
 ## Cost model for Azure NetApp Files backup
 

@@ -3,7 +3,7 @@ title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
 ms.date: 04/06/2023
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ai-gen-docs
 ---
 
 # Lock your resources to protect your infrastructure

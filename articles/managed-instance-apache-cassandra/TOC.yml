@@ -19,6 +19,8 @@
       href: configure-hybrid-cluster.md       
     - name: Deploy Spark Cluster with Databricks
       href: deploy-cluster-databricks.md
+    - name: Search using Lucene Index
+      href: search-lucene-index.md      
 - name: Tutorials
   items:
     - name: Migration

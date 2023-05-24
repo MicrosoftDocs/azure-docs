@@ -1,11 +1,11 @@
 ---
 title: Overview of the MedTech service FHIR destination mapping - Azure Health Data Services
-description: This article provides an overview of the MedTech service FHIR destination mapping.
+description: Learn about the MedTech service FHIR destination mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/14/2023
+ms.date: 05/09/2023
 ms.author: jasteppe
 ---
 
@@ -23,15 +23,15 @@ The MedTech service requires two types of [JSON](https://www.json.org/) mappings
 
 ## FHIR destination mapping basics
 
-The FHIR destination mapping controls how the data extracted from a device message is mapped into a FHIR observation.
+The FHIR destination mapping controls how the normalized data extracted from a device message is mapped into a FHIR Observation.
 
-- Should an observation be created for a point in time or over a period of an hour?
-- What codes should be added to the observation?
-- Should the value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)?
+* Should an observation be created for a point in time or over a period of an hour?
+* What codes should be added to the observation?
+* Should the value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)?
 
 These data types are all options the FHIR destination mapping configuration controls.
 
-Once a device message is transformed into a normalized data model, the data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [string](https://www.hl7.org/fhir/datatypes.html#string)) data is not grouped, but instead each measurement is transformed into a single Observation representing a point in time.
+Once device data is transformed into a normalized data model, the normalized data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [String](https://www.hl7.org/fhir/datatypes.html#string)) data isn't grouped, but instead each measurement is transformed into a single Observation representing a point in time.
 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence on the FHIR service, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
@@ -43,84 +43,75 @@ This diagram provides an illustration of what happens during the transformation 
 > [!NOTE]
 > The FHIR Observation in this diagram is not the complete resource. See [Example](#example) in this overview for the entire FHIR Observation.
 
-## FHIR destination mapping validations
-
-The validation process validates the FHIR destination mapping before allowing them to be saved for use. These elements are required in the FHIR destination mapping.
-
-**FHIR destination mapping**
-
-|Element|Required|
-|:------|:-------|
-|typeName|True|
-
-> [!NOTE]
-> The 'typeName' element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same 'typeName' element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same 'typeName'.
-
 ## CollectionFhir
 
 CollectionFhir is the root template type used by the MedTech service FHIR destination mapping. CollectionFhir is a list of all templates that are used during the transformation stage. You can define one or more templates within CollectionFhir, with each normalized message evaluated against all templates.
 
-### CodeValueFhir
-
-CodeValueFhir is currently the only template supported in FHIR destination mapping at this time.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [String](https://www.hl7.org/fhir/datatypes.html#primitive). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
-
-> [!NOTE]
-> 
-
-|Property|Description| 
-|:-------|-----------|
-|**typeName**| The type of measurement this template should bind to. There should be at least one Device mapping template that outputs this type.
-|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day). Note: `periodInterval` is required when the Observation type is "SampledData" and is ignored for any other Observation types.
-|**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.
-|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.
-|**codes[].code**|The code for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
-|**codes[].system**|The system for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
-|**codes[].display**|The display for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
-|**value**|The value to extract and represent in the observation. For more information, see [Value type codes](#value-type-codes).
-|**components**|*Optional:* One or more components to create on the observation.
-|**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.
-|**components[].value**|The value to extract and represent in the component. For more information, see [Value type codes](#value-type-codes).
-
 :::image type="content" source="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service FHIR destination mapping template and code architecture." lightbox="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png":::
 
-### Value type codes
+### CodeValueFhir
 
-The supported value type codes for the MedTech service FHIR destination mapping:
+CodeValueFhir is currently the only template supported in the FHIR destination mapping.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [String](https://www.hl7.org/fhir/datatypes.html#string). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
 
-### SampledData
+|Element|Description|Required| 
+|:------|:----------|:-------|
+|**typeName**| The type of measurement this template should bind to. Note: There should be at least one device mapping template that has this same `typeName`. The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that is evaluated with a FHIR destination mapping template that has the same `typeName`.|True|
+|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).|True when the Observation type is SampledData; Ignored for other Observation types.| 
+|**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.|False|
+|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|True|
+|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
+|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
+|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
+|**value**|The value to extract and represent in the observation. For more information on the elements that the `value` element contains, see [Value types](#value-types).|True when the `components` element isn't used (unless the Observation type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
+|**components**|One or more components to create on the observation.|True when the `value` element isn't used instead.|
+|**components[].codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.|False|
+|**components[].value**|The value to extract and represent in the component. For more information on the elements that the `components[].value` element contains, see [Value types](#value-types).|True when the `components` element is used (unless the Observation type is CodebleConcept, in which case this element isn't only 'not required' but also ignored).|
 
-Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR data type. Observation measurements are written to a value stream starting at a point in time and incrementing forward using the period defined. If no value is present, an `E` is written into the data stream. If the period is such that two more values occupy the same position in the data stream, the latest value is used. The same logic is applied when an observation using the SampledData is updated.
+#### Value types
 
-| Property | Description 
-| --- | ---
-|**DefaultPeriod**|The default period in milliseconds to use. 
-|**Unit**|The unit to set on the origin of the SampledData. 
+All CodeValueFhir templates' `value` element contains these elements:
 
-### Quantity
+|Element|Description|Required|
+|:------|:----------|:-------|
+|**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "String" depending on the value type.|True|
+|**valueName**|Name of the value.|True unless `valueType` is CodeableConcept.|
 
-Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data type. This type creates a single, point in time, Observation. If a new value arrives that contains the same device identifier, measurement type, and timestamp, the previous Observation is updated to the new value.
+These value types are supported in the MedTech service FHIR destination mapping:
 
-| Property | Description 
-| --- | --- 
-|**Unit**| Unit representation.
-|**Code**| Coded form of the unit.
-|**System**| System that defines the coded unit form.
+#### SampledData
 
-### CodeableConcept
+Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR data type. Observation measurements are written to a value stream starting at a point in time and incrementing forward using the period defined. If no value is present, an `E` is written into the data stream. If the period is such that two or more values occupy the same position in the data stream, the latest value is used. The same logic is applied when an observation using the SampledData is updated. For a CodeValueFhir template with the SampledData value type, the template's `value` element contains the following elements:
 
-Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR data type. The value in the normalized data model isn't used, and instead when this type of data is received, an Observation is created with a specific code representing that an observation was recorded at a specific point in time.
+|Element|Description|Required| 
+|:------|:----------|:-------|
+|**defaultPeriod**|The default period in milliseconds to use.|True|
+|**unit**|The unit to set on the origin of the SampledData.|True|
 
-| Property | Description 
-| --- | --- 
-|**Text**|Plain text representation. 
-|**Codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.
-|**Codes[].Code**|The code for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
-|**Codes[].System**|The system for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
-|**Codes[].Display**|The display for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
+#### Quantity
 
-### String
+Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data type. This type creates a single, point in time, Observation. If a new value arrives that contains the same device identifier, measurement type, and timestamp, the previous Observation is updated to the new value. For a CodeValueFhir template with the Quantity value type, the template's `value` element contains the following elements:
 
-Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type creates a single, point in time, Observation. If new value arrives that contains the same device identifier, measurement type, and timestamp, the previous Observation is updated to the new value.
+|Element|Description|Required|
+|:------|:----------|:-------| 
+|**unit**|Unit representation.|False|
+|**code**|Coded form of the unit.|False|
+|**system**|System that defines the coded unit form.|False|
+
+#### CodeableConcept
+
+Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR data type. The value in the normalized data model isn't used, and instead when this type of data is received, an Observation is created with a specific code representing that an observation was recorded at a specific point in time. For a CodeValueFhir template with the CodeableConcept value type, the template's `value` element contains the following elements:
+
+|Element|Description|Required|
+|:------|:----------|:-------|
+|**text**|Plain text representation.|False|
+|**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.|True|
+|**codes[].code**|The code for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|True|
+|**codes[].system**|The system for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
+|**codes[].display**|The display for a [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding) in the `codes` element.|False|
+
+#### String
+
+Represents the [String](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type creates a single, point in time, Observation. If a new value arrives that contains the same device identifier, measurement type, and timestamp, the previous Observation is updated to the new value. No other elements are defined.
 
 ### Example
 
@@ -176,7 +167,6 @@ We're using this FHIR destination mapping for the transformation stage:
     }
   ]
 }
-
 ```
 
 The resulting FHIR Observation will look like this after the transformation stage:
@@ -253,7 +243,7 @@ To learn how to use CalculatedContent with the MedTech service device mapping, s
 To learn how to use IotJsonPathContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md)
+> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontent-mappings.md)
 
 To learn how to use custom functions with the MedTech service device mapping, see
 

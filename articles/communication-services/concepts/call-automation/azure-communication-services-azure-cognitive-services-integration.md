@@ -42,7 +42,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 ### Add a Managed Identity to the ACS Resource 
 
-1. Navigate to your ACS Resource in the Azure portal
+1. Navigate to your ACS Resource in the Azure portal.
 2. Select the Identity tab.
 3. Enable system assigned identity.  This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
 
@@ -52,7 +52,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 1. Navigate to your Azure Cognitive Service resource.
 2. Select the "Access control (IAM)" tab.
 3. Click the "+ Add" button.
-4. Select "Add role assignments" from the menu
+4. Select "Add role assignments" from the menu.
 
 [![Add role from IAM](./media/add-role.png)](./media/add-role.png#lightbox)
 
@@ -62,7 +62,7 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 6. For the field "Assign access to" choose the "User, group or service principal".
 7. Press "+ Select members" and a side tab opens.
-8. Choose your Azure Communication Services subscription from the "Subscriptions" drop down menu and click "Select".
+8. Search for your Azure Communication Services resource name in the text box and click it when it shows up, then click "Select".
 
 [![Select ACS resource](./media/select-acs-resource.png)](./media/select-acs-resource.png#lightbox)
 
@@ -70,21 +70,21 @@ You can also configure and bind your Communication Services and Cognitive Servic
 
 ### Option 2: Add role through ACS Identity tab
 
-1. Navigate to your ACS resource in the Azure portal
-2. Select Identity tab
-3. Click on "Azure role assignments"
+1. Navigate to your ACS resource in the Azure portal.
+2. Select Identity tab.
+3. Click on "Azure role assignments".
 
 [![ACS role assignment](./media/add-role-acs.png)](./media/add-role-acs.png#lightbox)
 
-4.  Click the "Add role assignment (Preview)" button, which opens the "Add role assignment (Preview)" tab
+4.  Click the "Add role assignment (Preview)" button, which opens the "Add role assignment (Preview)" tab.
 5.  Select the "Resource group" for "Scope".
-6.  Select the "Subscription" // The CogSvcs subscription?
-7.  Select the "Resource Group" containing the Cognitive Service 
-8.  Select the "Role" "Cognitive Services User"
+6.  Select the "Subscription".
+7.  Select the "Resource Group" containing the Cognitive Service. 
+8.  Select the "Role" "Cognitive Services User".
 
 [![ACS role information](./media/acs-roles-cognitive-services.png)](./media/acs-roles-cognitive-services.png#lightbox)
 
-10.  Click Save 
+10.  Click Save.
 
 Your Communication Service has now been linked to your Azure Cognitive Service resource. 
 

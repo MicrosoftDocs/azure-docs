@@ -1,5 +1,5 @@
 ---
-title: Use connections (preview)
+title: Create connections to external data sources (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use connections to connect to External data sources for training with Azure Machine Learning.
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/11/2023
+ms.date: 04/18/2023
 ms.custom: data4ml
 
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
@@ -34,8 +34,33 @@ In this article, learn how to connect to data sources located outside of Azure, 
 
 - An Azure Machine Learning workspace.
 
-> [!NOTE]
+> [!IMPORTANT]
 > An Azure Machine Learning connection securely stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in a YAML file, because a security breach could lead to a credential leak.
+
+> [!NOTE]
+> For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).  
+> 
+> If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI below:
+
+### Code versions
+
+# [SDK](#tab/SDK)
+
+```python
+pip uninstall azure-ai-ml
+pip install azure-ai-ml
+pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+```
+
+# [CLI](#tab/CLI)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml #(the version value needs to be 2.15.1 or later)
+```
+
+---
 
 ## Create a Snowflake DB connection
 
@@ -95,8 +120,9 @@ from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 target= "jdbc:snowflake://<myaccount>.snowflakecomputing.com/?db=<mydb>&warehouse=<mywarehouse>&role=<myrole>"
 # add the Snowflake account, database, warehouse name and role name here. If no role name provided it will default to PUBLIC
-
-wps_connection = WorkspaceConnection(type="snowflake",
+name= <my_snowflake_connection> # name of the connection
+wps_connection = WorkspaceConnection(name= name,
+type="snowflake",
 target= target,
 credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 )
@@ -117,13 +143,13 @@ This YAML script creates an Azure SQL DB connection. Be sure to update the appro
 # my_sqldb_connection.yaml
 $schema: http://azureml/sdk-2-0/Connection.json
 
-type: azuresqldb
+type: azure_sql_db
 name: my_sqldb_connection
 
 target: Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30
 # add the sql servername, port addresss and database
 credentials:
-    type: sql_auth
+    type: username_password
     username: <username> # add the sql database user name here or leave this blank and type in CLI command line
     password: <password> # add the sql database password here or leave this blank and type in CLI command line
 ```
@@ -168,7 +194,9 @@ from azure.ai.ml.entities import UsernamePasswordConfiguration
 target= "Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 # add the sql servername, port addresss and database
 
-wps_connection = WorkspaceConnection(type="azure_sql_db",
+name= <my_sql_connection> # name of the connection
+wps_connection = WorkspaceConnection(name= name,
+type="azure_sql_db",
 target= target,
 credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 )
@@ -192,7 +220,7 @@ $schema: http://azureml/sdk-2-0/Connection.json
 type: s3
 name: my_s3_connection
 
-target: https://<mybucket>.amazonaws.com # add the s3 bucket details
+target: <mybucket> # add the s3 bucket details
 credentials:
     type: access_key
     access_key_id: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX # add access key id
@@ -227,8 +255,10 @@ from azure.ai.ml import MLClient
 from azure.ai.ml.entities import WorkspaceConnection
 from azure.ai.ml.entities import AccessKeyConfiguration
 
-target = "https://<mybucket>.amazonaws.com" # add the s3 bucket details
-wps_connection = WorkspaceConnection(type="s3",
+target=<mybucket> # add the s3 bucket details
+name=<my_s3_connection> # name of the connection
+wps_connection=WorkspaceConnection(name=name,
+type="s3",
 target= target,
 credentials= AccessKeyConfiguration(access_key_id="XXXXXX",acsecret_access_key="XXXXXXXX")
 )

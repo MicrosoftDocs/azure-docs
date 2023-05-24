@@ -14,12 +14,9 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C++ to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeImage`, which uses the client object to analyze a remote image and print the results. 
+Use the Image Analysis client library for C++ to analyze an image to read text and generate an image caption. This quickstart defines a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
-[Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
-
-> [!TIP]
-> You can also analyze a local image. See the [reference documentation](/cpp/cognitive-services/vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) for scenarios involving local images.
+[Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -27,9 +24,9 @@ Use the Image Analysis client library for C++ to analyze an image to read text a
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
+* For Windows development, the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **Desktop development with C++** enabled.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. 
+    * You need the key and endpoint from the resource you create to connect your application to the Computer Vision service. 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!div class="nextstepaction"]
@@ -41,9 +38,7 @@ Create a new C++ application.
 
 #### [Windows](#tab/windows)
 
-In Visual Studio, open the **File** menu and choose **New** -> **Project** to open the **Create a new Project** dialog. Create a new **C++ Console application** and then choose **Next**.
-
-In the **Configure your new project** dialog, enter _ImageAnalysisQuickstart_ in the **Project name** edit box. Choose **Create** to create the project.
+Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C++/Windows/Console_. Select **Console App** and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Create** to create the project.
 
 ### Install the client library 
 
@@ -61,10 +56,13 @@ Follow [these instructions](https://github.com/Azure-Samples/azure-ai-vision-sdk
 
 From the project directory, open the _ImageAnalysisQuickstart.cpp_ file that was created previously with [your new project](#set-up-application). Clear its contents and paste in the following code:
 
+> [!TIP]
+> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) repository for scenarios involving local images.
+
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet_single)]
 
 
-Then, run the application by clicking the **Debug** button at the top of the IDE window.
+Then, compile and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**). You should see output similar to the one shown here.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Vision&Product=Image-analysis&Page=quickstart4&Section=Analyze-image" target="_target">I ran into an issue</a>
@@ -156,4 +154,4 @@ In this quickstart, you learned how to install the Image Analysis client library
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp).
+* Sample source code can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).

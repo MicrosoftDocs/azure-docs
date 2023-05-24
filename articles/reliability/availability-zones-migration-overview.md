@@ -26,6 +26,7 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)  | 
+| [Azure Service Fabric](migrate-service-fabric.md)  | 
 | [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md) |
 | [Azure Storage: Managed Disks](migrate-vm.md)|
 | [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)|  

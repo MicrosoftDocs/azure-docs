@@ -1,10 +1,9 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (ARM templates).
-ms.date: 03/02/2021
+ms.date: 05/22/2023
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.author: jgao
 ---
 
 # Tutorial: Continuous integration of ARM templates with Azure Pipelines
@@ -66,18 +65,18 @@ This repository is referred to as a *remote repository*. Each of the developers 
     ```bash
     git clone https://github.com/[YourAccountName]/[YourGitHubRepositoryName]
     cd [YourGitHubRepositoryName]
-    mkdir CreateWebApp
-    cd CreateWebApp
+    mkdir create_web_app
+    cd create_web_app
     pwd
     ```
 
     Replace `[YourAccountName]` with your GitHub account name, and replace `[YourGitHubRepositoryName]` with your repository name you created in the previous procedure.
 
-The _CreateWebApp_ folder is the folder where the template is stored. The `pwd` command shows the folder path. The path is where you save the template to in the following procedure.
+The _create_web_app_ folder is the folder where the template is stored. The `pwd` command shows the folder path. The path is where you save the template to in the following procedure.
 
 ### Download a Quickstart template
 
-Instead of creating the templates, you can download the templates and save them to the _CreateWebApp_ folder.
+Instead of creating the templates, you can download the templates and save them to the _create_web_app_ folder.
 
 * The main template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 * The linked template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
@@ -89,7 +88,7 @@ Both the folder name and the file names are used as they are in the pipeline. If
 The _azuredeploy.json_ has been added to the local repository. Next, you upload the template to the remote repository.
 
 1. Open *Git Shell* or *Git Bash*, if it is not opened.
-1. Change directory to the _CreateWebApp_ folder in your local repository.
+1. Change directory to the _create_web_app_ folder in your local repository.
 1. Verify the _azuredeploy.json_ file is in the folder.
 1. Run the following command:
 
@@ -101,7 +100,7 @@ The _azuredeploy.json_ has been added to the local repository. Next, you upload 
 
     You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
 
-1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the two files inside the folder.
+1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _create_web_app_ folder and the two files inside the folder.
 1. Select _azuredeploy.json_ to open the template.
 1. Select the **Raw** button. The URL begins with `https://raw.githubusercontent.com`.
 1. Make a copy of the URL. You need to provide this value when you configure the pipeline later in the tutorial.
@@ -145,7 +144,7 @@ Create a service connection that is used to deploy projects to Azure.
 
 Until now, you have completed the following tasks.  If you skip the previous sections because you are familiar with GitHub and DevOps, you must complete the tasks before you continue.
 
-* Create a GitHub repository, and save the templates to the _CreateWebApp_ folder in the repository.
+* Create a GitHub repository, and save the templates to the _create_web_app_ folder in the repository.
 * Create a DevOps project, and create an Azure Resource Manager service connection.
 
 To create a pipeline with a step to deploy a template:

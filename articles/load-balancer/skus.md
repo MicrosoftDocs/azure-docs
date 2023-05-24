@@ -6,8 +6,9 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: reference
 ms.workload: infrastructure-services
-ms.date: 12/22/2021
+ms.date: 04/20/2023
 ms.author: mbender
+ms.custom: template-reference, engagement-fy23
 ---
 
 # Azure Load Balancer SKUs
@@ -28,7 +29,7 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Backend type** | IP based, NIC based | NIC based |
 | **Protocol** | TCP, UDP | TCP, UDP |
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
-| **[Health probes](./load-balancer-custom-probe-overview.md#probe-types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Health probes](./load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
 | **Availability Zones** | Zone-redundant and zonal frontends for inbound and outbound traffic | Not available |
 | **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | Not supported |
@@ -39,10 +40,10 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **[Multiple front ends](./load-balancer-multivip-overview.md)** | Inbound and [outbound](./load-balancer-outbound-connections.md) | Inbound only |
 | **Management Operations** | Most operations < 30 seconds | 60-90+ seconds typical |
 | **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Not available | 
-| **Global VNet Peering Support** | Standard ILB is supported via Global VNet Peering | Not supported | 
-| **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard ILB and Standard Public LB are supported via Nat Gateway | Not supported | 
-| **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported | 
-| **[Global tier (Preview)](./cross-region-overview.md)** | Standard LB supports the Global tier for Public LBs enabling cross-region load balancing | Not supported | 
+| **Global VNet Peering Support** | Standard Internal Load Balancer is supported via Global VNet Peering | Not supported | 
+| **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard Internal Load Balancer and Standard Public Load Balancer are supported via Nat Gateway | Not supported | 
+| **[Private Link Support](../private-link/private-link-overview.md)** | Standard Internal Load Balancer is supported via Private Link | Not supported | 
+| **[Global tier (Preview)](./cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public Load Balancers enabling cross-region load balancing | Not supported | 
 
 For more information, see [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). For Standard Load Balancer details, see [overview](./load-balancer-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs), see [Gateway Load Balancer overview](gateway-overview.md)
 

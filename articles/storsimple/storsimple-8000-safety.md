@@ -56,7 +56,7 @@ To reduce the likelihood of injury, electrical shock, or death:
 
 * When powered by multiple AC sources, disconnect all supply power for complete isolation.
 * Permanently unplug the unit before you move it or if you think it has become damaged in any way.
-* Provide a safe electrical earth connection to the power supply cords. Verify that the grounding of the enclosure meets the national and local requirements before applying power.
+* Provide a safe electrical earth connection to the power supply cords. Verify that the grounding of the enclosure meets the national/regional and local requirements before applying power.
 * Ensure that the power connection is always disconnected prior to the removal of a PCM from the enclosure.
 * Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the equipment and are easily accessible.
 

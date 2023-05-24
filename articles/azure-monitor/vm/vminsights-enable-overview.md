@@ -117,7 +117,7 @@ If you associate a data collection rule with the Map feature enabled to a machin
 
 - You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this step, ensure that the machine isn't relying on any other solutions that require the Log Analytics agent. For more information, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
-- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VM Insights solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace). It's no longer needed.
+- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VM Insights solution from the workspace](vminsights-configure-workspace.md#remove-the-vminsights-solution-from-a-workspace). It's no longer needed.
 
     > [!NOTE]
     > To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md). This query will show the last heartbeat for each computer. If a computer has both agents, it will return two records, each with a different `category`. The Azure Monitor agent will have a `category` of *Azure Monitor Agent*. The Log Analytics agent will have a `category` of *Direct Agent*.

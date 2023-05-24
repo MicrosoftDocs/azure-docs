@@ -37,7 +37,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 
 1. Use the Azure CLI `az account set` command to set a specific subscription to be the current active subscription. Then use the `az identity create` command to create a managed identity.
 
-    ```azurecli
+    ```azurecli-interactive
     export SUBSCRIPTION_ID=<subscription id>
     export RESOURCE_GROUP=<resource group name>
     export UAMI=<name for user assigned identity>
@@ -52,7 +52,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
 
 2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the `az keyvault set-policy` command shown below.
 
-    ```azurecli
+    ```azurecli-interactive
     az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $USER_ASSIGNED_CLIENT_ID
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $USER_ASSIGNED_CLIENT_ID
     az keyvault set-policy -n $KEYVAULT_NAME --certificate-permissions get --spn $USER_ASSIGNED_CLIENT_ID
@@ -137,6 +137,8 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-user-msi
+      labels:
+        azure.workload.identity/use: true
     spec:
       serviceAccountName: ${SERVICE_ACCOUNT_NAME}
       containers:

@@ -22,8 +22,8 @@ items:
 - name: Users, groups, and licenses
   expanded: false
   items:
-  - name: Create or delete a user
-    href: add-users-azure-active-directory.md
+  - name: Create or delete users (preview)
+    href: how-to-create-delete-users.md
   - name: Apply licenses to users
     href: license-users-groups.md
   - name: Manage users
@@ -136,6 +136,8 @@ items:
     items:
     - name: Add company branding (legacy)
       href: customize-branding.md
+    - name: Create or delete a user (legacy)
+      href: add-users-azure-active-directory.md
 - name: Identity architecture and deployment
   expanded: false
   items:
@@ -275,8 +277,6 @@ items:
           href: ../develop/howto-build-services-resilient-to-metadata-refresh.md?toc=/azure/active-directory/fundamentals/toc.json
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
-    - name: Certificate authorities used in Azure
-      href: certificate-authorities.md
     - name: Secure with Azure Active Directory
       items:
       - name: Introduction
@@ -357,6 +357,8 @@ items:
         href: 9-secure-access-teams-sharepoint.md
       - name: 10 Convert local guest accounts to B2B
         href: 10-secure-local-guest.md
+      - name: 11 Onboard external user
+        href: 11-onboard-external-user.md
     - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts

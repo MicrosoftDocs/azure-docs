@@ -26,6 +26,27 @@ You can use service tags to define network access controls on [network security
 | --- | -------- |:---:|:---:|:---:|
 | AzureDeviceUpdate | Device Update for IoT Hub. | Both | No | Yes |
 
+### Regional IP ranges
+Because IoT Hub IP rules do not support Service Tags, you have to use AzureDeviceUpdate Service Tag IP prefixes instead. Because this tag is currently global, we are providing the following table for convenience. Please note that location is that of Device Update resources.  
+
+| Location | IP ranges |
+| --- | --- |  
+| Australia East | 20.211.71.192/26,20.53.47.16/28,20.70.223.192/26,104.46.179.224/28,20.92.5.128/25,20.92.5.128/26 |
+| East US | 20.119.27.192/26,20.119.28.128/26,20.62.132.240/28,20.62.135.128/27,20.62.135.160/28,20.59.77.64/26,20.59.81.64/26,20.66.3.208/28 |
+| East US 2 | 20.119.155.192/26,20.62.59.16/28,20.98.195.192/26,20.40.229.32/28,20.98.148.192/26,20.98.148.64/26 |
+| East US 2 EUAP | 20.47.236.192/26,20.47.237.128/26,20.51.20.64/28,20.228.1.0/26,20.45.241.192/26,20.46.11.192/28 |
+| North Europe | 20.223.64.64/26,52.146.136.16/28,52.146.141.64/26,20.105.211.0/26,20.105.211.192/26,20.61.102.96/28,20.86.93.128/26 |
+| South Central US | 20.65.133.64/28,20.97.35.64/26,20.97.39.192/26,20.125.162.0/26,20.49.119.192/28,20.51.7.64/26 |
+| Southeast Asia | 20.195.65.112/28,20.195.87.128/26,20.212.79.64/26,20.195.72.112/28,20.205.49.128/26,20.205.67.192/26 |
+| Sweden Central | 20.91.144.0/26,51.12.46.112/28,51.12.74.192/26,20.91.11.64/26,20.91.9.192/26,51.12.198.96/28 |
+| UK South | 20.117.192.0/26,20.117.193.64/26,51.143.212.48/28,20.58.67.0/28,20.90.38.128/26,20.90.38.64/26 |
+| West Europe | 20.105.211.0/26,20.105.211.192/26,20.61.102.96/28,20.86.93.128/26,20.223.64.64/26,52.146.136.16/28,52.146.141.64/26 |
+| West US 2 | 20.125.0.128/26,20.125.4.0/25,20.51.12.64/26,20.83.222.128/26,20.69.0.112/28,20.69.4.128/26,20.69.4.64/26,20.69.8.192/26 |
+| West US 3 | 20.118.138.192/26,20.118.141.64/26,20.150.244.16/28,20.119.27.192/26,20.119.28.128/26,20.62.132.240/28,20.62.135.128/27,20.62.135.160/28 |
+
+> [!NOTE]
+> IP prefixes above are unlikely to change but you should review the list once a month.
+
 ## Private endpoints
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow traffic from your virtual network to your Device Update accounts securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your Device Update account, it provides secure connectivity between clients on your VNet and your Device Update account. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Device Update services uses a secure private link.
 

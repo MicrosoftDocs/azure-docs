@@ -65,7 +65,7 @@ The `az ml component` commands can be used for managing Azure Machine Learning c
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/lochen/pipeline-component-pup/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component).
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component).
 
 ## Next steps
 

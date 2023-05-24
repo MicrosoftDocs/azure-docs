@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -34,8 +34,10 @@ When scanning Google BigQuery source, Microsoft Purview supports:
 
 When setting up scan, you can choose to scan an entire Google BigQuery project, or scope the scan to a subset of datasets matching the given name(s) or name pattern(s).
 
->[!NOTE]
-> Currently, Microsoft Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Microsoft Purview.
+### Known limitations
+
+- Currently, Microsoft Purview only supports scanning Google BigQuery datasets in US multi-regional location. If the specified dataset is in other location e.g. us-east1 or EU, you will observe scan completes but no assets shown up in Microsoft Purview.
+- When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 

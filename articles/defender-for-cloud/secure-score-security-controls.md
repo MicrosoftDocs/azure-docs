@@ -2,7 +2,7 @@
 title: Secure score
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: conceptual
-ms.date: 03/05/2023
+ms.date: 04/20/2023
 ---
 
 # Secure score
@@ -34,12 +34,12 @@ For more information, see [How your secure score is calculated](secure-score-sec
 
 On the Security posture page, you're able to see the secure score for your entire subscription, and each environment in your subscription. By default all environments are shown.
 
-:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page.":::
+:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page." lightbox="media/secure-score-security-controls/security-posture-page.png":::
 
 | Page section | Description |
 |--|--|
 | :::image type="content" source="media/secure-score-security-controls/select-environment.png" alt-text="Screenshot showing the different environment options."::: | Select your environment to see its secure score, and details. Multiple environments can be selected at once. The page will change based on your selection here.|
-| :::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page."::: | Shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments. |
+| :::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page." lightbox="media/secure-score-security-controls/environment.png"::: | Shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments. |
 
 The bottom half of the page allows you to view and manage viewing the individual secure scores, number of unhealthy resources and even view the recommendations for all of your individual subscriptions, accounts, and projects.
 
@@ -95,8 +95,7 @@ In this example:
 
 ### Which recommendations are included in the secure score calculations?
 
-Only built-in recommendations have an impact on the secure score.
-
+Only built-in recommendations that are part of the default initiative, Azure Security Benchmark, have an impact on the secure score.
 Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 Preview recommendations are marked with: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::
@@ -148,3 +147,5 @@ For related material, see the following articles:
 - [Learn about the different elements of a recommendation](review-security-recommendations.md)
 - [Learn how to remediate recommendations](implement-security-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
+
+

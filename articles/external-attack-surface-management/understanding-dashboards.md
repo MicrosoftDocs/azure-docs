@@ -3,7 +3,7 @@ title: Understanding dashboards
 description: Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Attack Surface inventory.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: how-to
 ---

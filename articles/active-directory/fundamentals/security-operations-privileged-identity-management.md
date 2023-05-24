@@ -89,7 +89,7 @@ The following are recommended baseline settings:
 
 | What to monitor| Risk level| Recommendation| Roles| Notes |
 | - |- |- |- |- |
-| Azure AD roles assignment| High| Require justification for activation.Require approval to activate. Set two-level approver process. On activation, require Azure AD Multi-Factor Authentication (MFA). Set maximum elevation duration to 8 hrs.| Privileged Role Administration, Global Administrator| A privileged role administrator can customize PIM in their Azure AD organization, including changing the experience for users activating an eligible role assignment. |
+| Azure AD roles assignment| High| Require justification for activation. Require approval to activate. Set two-level approver process. On activation, require Azure AD Multi-Factor Authentication (MFA). Set maximum elevation duration to 8 hrs.| Privileged Role Administration, Global Administrator| A privileged role administrator can customize PIM in their Azure AD organization, including changing the experience for users activating an eligible role assignment. |
 | Azure Resource Role Configuration| High| Require justification for activation. Require approval to activate. Set two-level approver process. On activation, require Azure AD Multi-Factor Authentication. Set maximum elevation duration to 8 hrs.| Owner, Resource Administrator, User Access, Administrator, Global Administrator, Security Administrator| Investigate immediately if not a planned change. This setting might enable attacker access to Azure subscriptions in your environment. |
 
 ## Azure AD roles assignment

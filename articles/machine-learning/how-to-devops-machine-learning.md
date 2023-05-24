@@ -30,10 +30,11 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 
 ## Prerequisites
 
-Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
-* Create a workspace
-* Create a cloud-based compute instance to use for your development environment
-* Create a cloud-based compute cluster to use for training your model
+* Complete the [Create resources to get started](quickstart-create-resources.md) to:
+    * Create a workspace
+    * Create a cloud-based compute instance to use for your development environment
+
+* [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
 
 ## Step 1: Get the code
 

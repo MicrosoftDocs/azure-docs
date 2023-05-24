@@ -14,6 +14,8 @@ ms.date: 04/12/2023
 
 This tutorial helps you create and manage an Azure VPN gateway using the Azure portal. You can also create and manage a gateway using [Azure CLI](create-routebased-vpn-gateway-cli.md) or [Azure PowerShell](create-routebased-vpn-gateway-powershell.md). If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
 
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -22,10 +24,6 @@ In this tutorial, you learn how to:
 > * View the gateway public IP address
 > * Resize a VPN gateway (resize SKU)
 > * Reset a VPN gateway
-
-The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
-
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram.png":::
 
 ## Prerequisites
 
