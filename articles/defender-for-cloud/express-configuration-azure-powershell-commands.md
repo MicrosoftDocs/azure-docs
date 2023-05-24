@@ -33,11 +33,11 @@ ms.date: 05/23/2023
 - [Get list SQL vulnerability assessment scans on user database](#get-list-sql-vulnerability-assessment-scans-on-user-database)
 - [Invoke SQL vulnerability assessment scan on system database](#invoke-sql-vulnerability-assessment-scan-on-system-database)
 - [Invoke SQL vulnerability assessment scan on user database](#invoke-sql-vulnerability-assessment-scan-on-user-database)
-- 
-- 
-- 
-- 
-- 
+- [Get SQL vulnerability assessment server setting on user database](#get-sql-vulnerability-assessment-server-setting-on-user-database)
+- [Get list SQL vulnerability assessment server setting on user database](#get-list-sql-vulnerability-assessment-server-setting-on-user-database)
+- [Get SQL vulnerability assessment server setting](#get-sql-vulnerability-assessment-server-setting)
+- [Get list SQL vulnerability assessment server setting](#get-list-sql-vulnerability-assessment-server-setting)
+- [Set SQL vulnerability assessment server setting](#set-sql-vulnerability-assessment-server-setting)
 
 ## Set SQL vulnerability assessment baseline on system database
 
@@ -928,6 +928,103 @@ az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/
 }
 ```
 
-## 
+## Get SQL vulnerability assessment server setting on user database
+
+```azurepowershell
+az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
+
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default",
+  "name": "Default",
+  "properties": {
+    "state": "Enabled"
+  },
+  "type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments"
+}
+```
+
+## Get list SQL vulnerability assessment server setting on user database
+
+```azurepowershell
+az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments?api-version=2022-02-01-preview
+
+{
+  "value": [
+    {
+      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default",
+      "name": "Default",
+      "properties": {
+        "state": "Enabled"
+      },
+      "type": "Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments"
+    }
+  ]
+}
+```
+
+## Get SQL vulnerability assessment server setting
+
+```azurepowershell
+az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
+
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default",
+  "name": "Default",
+  "properties": {
+    "state": "Enabled"
+  },
+  "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
+}
+```
+
+## Get list SQL vulnerability assessment server setting
+
+```azurepowershell
+az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments?api-version=2022-02-01-preview
+
+{
+  "value": [
+    {
+      "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default",
+      "name": "Default",
+      "properties": {
+        "state": "Enabled"
+      },
+      "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
+    }
+  ]
+}
+```
+
+## Set SQL vulnerability assessment server setting
+
+**Example 1**:
+
+```azurepowershell
+az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview --body '{   \"properties\": {     \"state\": \"Enabled\" }}'
+
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default",
+  "name": "Default",
+  "properties": {
+    "state": "Enabled"
+  },
+  "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
+}
+```
+**Example 2**:
+
+```azurepowershell
+az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview --body '{   \"properties\": {     \"state\": \"Disabled\" }}'
+
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/Default",
+  "name": "Default",
+  "properties": {
+    "state": "Disabled"
+  },
+  "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
+}
+```
 
 ## Next steps
