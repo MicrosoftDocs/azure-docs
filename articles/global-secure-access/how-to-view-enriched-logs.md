@@ -51,7 +51,7 @@ Your independent security vendor should provide you with instructions on how to 
 **To archive activity logs to a storage account**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. Create an storage account.
+1. Create a storage account.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
     - [Review the data retention policies](../active-directory/reports-monitoring/reference-reports-data-retention.md)
