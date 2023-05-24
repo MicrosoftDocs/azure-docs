@@ -36,6 +36,9 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
+[!INCLUDE [create environment variables](../environment-variables.md)]
+
+
 ## Analyze image
 
 1. Create a new Node.js application
@@ -70,19 +73,10 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 
     Create a new file, *index.js*. 
 
-1. Find the key and endpoint.
-
-    [!INCLUDE [find key and endpoint](../find-key.md)]
-
 1. Open *index.js* in a text editor and paste in the following code.
 
    [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart-single.js?name=snippet_single)]
 
-
-1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
-
-   > [!IMPORTANT]
-   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Run the application with the `node` command on your quickstart file.
 

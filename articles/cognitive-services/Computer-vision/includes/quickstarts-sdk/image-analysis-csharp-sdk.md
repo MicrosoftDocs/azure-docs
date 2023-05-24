@@ -35,6 +35,8 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=Image-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
+[!INCLUDE [create environment variables](../environment-variables.md)]
+
 ## Analyze image
 
 1. Create a new C# application.
@@ -81,15 +83,10 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     ---
 
-1. Find the key and endpoint.
-
-    [!INCLUDE [find key and endpoint](../find-key.md)]
-
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Paste in the following code:
 
    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single.cs?name=snippet_single)]
 
-1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.

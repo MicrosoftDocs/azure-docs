@@ -27,6 +27,9 @@ Get started with facial recognition using the Face client library for JavaScript
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
+[!INCLUDE [create environment variables](../environment-variables.md)]
+
+
 ## Identify and verify faces
 
 1. Create a new Node.js application
@@ -57,15 +60,6 @@ Get started with facial recognition using the Face client library for JavaScript
     > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
 
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart-single.js" id="snippet_single":::
-
-
-1. Enter your key and endpoint into the corresponding fields.
-
-    > [!IMPORTANT]
-    > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 1. Run the application with the `node` command on your quickstart file.
 
