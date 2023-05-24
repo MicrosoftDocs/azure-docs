@@ -224,7 +224,7 @@ items:
           - name: Overview
             href: tutorials/virtual-visits/extend-teams/overview.md
           - name: Scheduling
-            href: tutorials/virtual-visits/extend-teams/scheduling.md
+            href: tutorials/virtual-visits/extend-teams/schedule.md
           - name: Before and after appointment
             href: tutorials/virtual-visits/extend-teams/before-and-after-appointment.md
           - name: Precall
