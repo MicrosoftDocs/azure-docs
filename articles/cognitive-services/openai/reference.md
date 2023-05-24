@@ -255,7 +255,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/dalle/images/generatio
 
 **Supported versions**
 
-- `2023-04-15-preview`
+- `2023-06-01-preview`
 
 #### Example request
 
