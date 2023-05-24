@@ -41,7 +41,7 @@ On April 28, 2026, the V1 gateways are fully retired and all active AppGateway V
 ### How do I migrate my application gateway V1 to V2 SKU?
 
 If you have an Application Gateway V1, [Migration from v1 to v2](./migrate-v1-v2.md) can be currently done in two stages:
-- Stage 1: Migrate the configuration - Detailed instruction for Migrating the configuration can be found [here](./migrate-v1-v2#configuration-migration).
+- Stage 1: Migrate the configuration - Detailed instruction for Migrating the configuration can be found [here](./migrate-v1-v2.md#configuration-migration).
 - Stage 2: Migrate the client traffic -Client traffic migration varies depending on your specific environment. High level guidelines on traffic migration are provided here.
 
 ### Can Microsoft migrate this data for me?
