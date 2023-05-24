@@ -16,7 +16,9 @@ ms.reviewer: dbakevlar
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-This article demonstrates the use of Azure Backup to take disk snapshots of the VM disks, which include the Oracle database files and the Oracle fast recovery area (FRA). Using Azure Backup you can take full disk snapshots suitable as backups, which are stored in [Recovery Services Vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  Azure Backup also provides application-consistent backups, which ensure additional fixes aren't required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.  Oracle database recovery is still necessary after restore, and this is facilitated using Oracle archived redo log files captured and stored in a separate Azure fileshare, as described below.
+This article demonstrates the use of Azure Backup to take disk snapshots of the VM disks, which include the Oracle database files and the Oracle fast recovery area (FRA). Using Azure Backup you can take full disk snapshots suitable as backups, which are stored in [Recovery Services Vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  Azure Backup also provides application-consistent backups, which ensure additional fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle ASM based databases. 
+
+Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.  Oracle database recovery is still necessary after restore, and this is facilitated using Oracle archived redo log files captured and stored in a separate Azure fileshare, as described below.
 
 > [!div class="checklist"]
 >
@@ -245,10 +247,10 @@ To use Azure Backup to back up the database, complete these steps:
    >   sudo groupadd <group name>
    >   ```
 
-1. Create a new backup user `azbackup` which belongs to the operating system group you have verified or created in the previous steps. Please substitute \<group name\> for the name of the group verified:
+1. Create a new backup user `azbackup` which belongs to the operating system group you have verified or created in the previous steps. Please substitute \<group name\> for the name of the group verified. The user is also added to the oinstall group to enable it to open ASM disks:
 
    ```bash
-   sudo useradd -g <group name> azbackup
+   sudo useradd -g <group name> -G oinstall azbackup
    ```
 
 1. Set up external authentication for the new backup user. 
