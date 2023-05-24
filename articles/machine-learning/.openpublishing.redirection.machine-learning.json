@@ -1,5 +1,10 @@
 {
     "redirections": [
+        {
+            "source_path_from_root": "/articles/machine-learning/v-fake/concept-automated-ml-v1.md",
+            "redirect_url": "/azure/machine-learning/concept-automated-ml-v1",
+            "redirect_document_id": true
+        },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-set-up-vs-code-remote.md",
         "redirect_url": "/azure/machine-learning/how-to-launch-vs-code-remote",
@@ -1791,7 +1796,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v1/how-to-use-reinforcement-learning.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-reinforcement-learning.md",
         "redirect_url": "/azure/machine-learning/",
         "redirect_document_id": false
     },
