@@ -81,6 +81,7 @@ Person's Gender machine learning model has been trained using US Census data and
 #### Keywords
 - sex
 - gender
+- sexual
 - orientation
 
 -------------------------------------
@@ -90,6 +91,7 @@ Person's Age machine learning model detects age of an individual specified in va
 
 #### Keywords
 - age
+- ages
 
 #### Supported formats
 - {%y} y, {%m} m

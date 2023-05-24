@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 05/02/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -17,6 +17,17 @@ ms.subservice: common
 Microsoft will retire classic storage accounts on August 31, 2024. To preserve the data in any classic storage accounts, you must migrate them to the Azure Resource Manager deployment model by that date. After you migrate your account, all of the benefits of the Azure Resource Manager deployment model will be available for that account. For more information about the deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 This article describes how to migrate your classic storage accounts to the Azure Resource Manager deployment model. For more information, see [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md).
+
+## Overview of the migration process
+
+Before you get started with the migration, read [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md) for an overview of the process.
+
+To migrate your classic storage accounts, you should:
+
+1. [Identify classic storage accounts in your subscription](#identify-classic-storage-accounts-in-your-subscription).
+1. [Locate and delete any disk artifacts in classic accounts](#locate-and-delete-any-disk-artifacts-in-a-classic-account).
+1. [Migrate your classic storage accounts](#migrate-a-classic-storage-account).
+1. [Update your applications to use Azure Resource Manager APIs](#update-your-applications-to-use-azure-resource-manager-apis).
 
 ## Identify classic storage accounts in your subscription
 
@@ -36,6 +47,34 @@ To list classic storage accounts in your subscription with PowerShell, run the f
 ```azurepowershell
 Get-AzResource -ResourceType Microsoft.ClassicStorage/storageAccounts
 ```
+
+---
+
+## Locate and delete any disk artifacts in a classic account
+
+Classic storage accounts may contain classic (unmanaged) disks, virtual machine images, and operating system (OS) images. To migrate the account, you will need to delete these artifacts first.
+
+> [!IMPORTANT]
+> If you do not delete classic disk artifacts first, the migration may fail.
+
+To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
+
+# [Portal](#tab/azure-portal)
+
+To delete disk artifacts from the Azure portal, follow these steps:
+
+1. Navigate to the Azure portal.
+1. In the **Search** bar at the top, search for **Disks (classic)**, **OS Images (classic)**, or **VM Images (classic)** to display classic disk artifacts.
+1. Locate the classic disk artifact to delete, and select it to view its properties.
+1. Select the **Delete** button to delete the disk artifact.
+
+    :::image type="content" source="media/classic-account-migrate/delete-disk-artifacts-portal.png" alt-text="Screenshot showing how to delete classic disk artifacts in Azure portal." lightbox="media/classic-account-migrate/delete-disk-artifacts-portal.png":::
+
+For more information about errors that may occur when deleting disk artifacts and how to address them, see [Troubleshoot errors when you delete Azure classic storage accounts, containers, or VHDs](/troubleshoot/azure/virtual-machines/storage-classic-cannot-delete-storage-account-container-vhd).
+
+# [PowerShell](#tab/azure-powershell)
+
+To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account).
 
 ---
 
@@ -69,9 +108,6 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 1. After a successful validation, select **Prepare** button to simulate the migration.
 
-  > [!IMPORTANT]
-  > There may be a delay of a few minutes after validation is complete before the Prepare button is enabled.
-
 1. If the Prepare step completes successfully, you'll see a link to the new resource group. Select that link to navigate to the new resource group. The migrated storage account appears under the **Resources** tab in the **Overview** page for the new resource group.
 
     At this point, you can compare the configuration and data in the classic storage account to the newly migrated storage account. You'll see both in the list of storage accounts in the portal. Both the classic account and the migrated account have the same name.
@@ -80,6 +116,9 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 1. If you're not satisfied with the results of the migration, select **Abort** to delete the new storage account and resource group. You can then address any problems and try again.
 1. When you're ready to commit, type **yes** to confirm, then select **Commit** to complete the migration.
+
+> [!IMPORTANT]
+> There may be a delay of a few minutes after validation is complete before the Prepare button is enabled.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -133,25 +172,24 @@ Move-AzureStorageAccount -Commit -StorageAccountName $accountName
 
 ---
 
-### Locate and delete disk artifacts in a classic account
+## Update your applications to use Azure Resource Manager APIs
 
-Classic storage accounts may contain classic (unmanaged) disks, virtual machine images, and operating system (OS) images. To migrate the account, you may need to delete these artifacts first.
+After you migrate your classic storage account to Azure Resource Manager, you must update your applications and scripts to use Azure Resource Manager APIs. The [Azure Storage resource provider](/rest/api/storagerp/) is the implementation of Azure Resource Manager for Azure Storage.
 
-To delete disk artifacts from the Azure portal, follow these steps:
+Azure Storage provides SDKs for convenience in calling the Azure Storage resource provider APIs:
 
-1. Navigate to the Azure portal.
-1. In the **Search** bar at the top, search for **Disks (classic)**, **OS Images (classic)**, or **VM Images (classic)** to display classic disk artifacts.
-1. Locate the classic disk artifact to delete, and select it to view its properties.
-1. Select the **Delete** button to delete the disk artifact.
+- [Management client library for .NET](/dotnet/api/overview/azure/resourcemanager.storage-readme)
+- [Management client library for Java](/java/api/overview/azure/resourcemanager-storage-readme)
+- [Management client library for JavaScript](/javascript/api/overview/azure/arm-storage-readme)
+- [Management client library for Python](/python/api/overview/azure/mgmt-storage-readme)
 
-    :::image type="content" source="media/classic-account-migrate/delete-disk-artifacts-portal.png" alt-text="Screenshot showing how to delete classic disk artifacts in Azure portal." lightbox="media/classic-account-migrate/delete-disk-artifacts-portal.png":::
+You can also use the latest versions of Azure PowerShell and Azure CLI to manage your migrated storage accounts:
 
-For more information about errors that may occur when deleting disk artifacts and how to address them, see [Troubleshoot errors when you delete Azure classic storage accounts, containers, or VHDs](/troubleshoot/azure/virtual-machines/storage-classic-cannot-delete-storage-account-container-vhd).
+- [Azure PowerShell](/powershell/azure/what-is-azure-powershell)
+- [Azure CLI](/cli/azure/what-is-azure-cli)
 
-For more information about how to locate and delete disk artifacts in classic storage accounts with PowerShell or Azure CLI, see one of the following articles:
+To learn more about resource providers in Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
-- [Migrate VMs to Resource Manager using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli.md#step-5-migrate-a-storage-account)
 
 ## See also
 

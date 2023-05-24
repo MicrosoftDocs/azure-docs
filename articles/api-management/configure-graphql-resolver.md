@@ -111,7 +111,7 @@ If you set a resolver for the `comments` field in the `Blog` type, you'll want t
     <http-request>
         <set-method>GET</set-method>
         <set-url>@($"https://data.contoso.com/api/blog/{context.GraphQL.Parent["id"]}")
-        }</set-url>
+        </set-url>
     </http-request>
 </http-data-source>
 ```

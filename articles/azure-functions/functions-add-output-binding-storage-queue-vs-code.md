@@ -231,7 +231,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-javascript"  
 * [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-* [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+* [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 * [Examples of complete Function projects in Java](/samples/browse/?products=azure-functions&languages=java).
@@ -241,7 +241,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-typescript"  
 * [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
-* [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+* [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 * [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).

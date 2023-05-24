@@ -17,16 +17,15 @@ metadata:
 productDirectory:
   items:
     # Card
-    - title: Learn Live on YouTube
-      # imageSrc should be square in ratio with no white space
-      imageSrc: ./media/azure-loud.png
-      summary: Watch upcoming live webcasts with Azure engineers on technical topics
-      url: https://developer.microsoft.com/reactor/?search=learn+live+%23fasttrack-azure
-    # Card
     - title: Learn Live on Teams
       imageSrc: ./media/migrate.png
-      summary: Join upcoming interactive live sessions and get your questions answered real time by Azure engineers
+      summary: Register on Reactor to join upcoming interactive live sessions and get your questions answered real time by Azure engineers
       url: https://developer.microsoft.com/reactor/?search=fasttrack
+    # Card
+    - title: Learn Live on YouTube
+      imageSrc: ./media/azure-cloud.png
+      summary: Register on Reactor to join for our upcoming live webcasts with Azure engineers on technical topics
+      url: https://developer.microsoft.com/reactor/?search=learn+live+%23fasttrack-azure
     # Card
     - title: Watch on-demand recordings
       imageSrc: ./media/productivity.png
@@ -61,7 +60,7 @@ conceptualContent:
               itemType: video
               text: How To Get Started FAST Azure Virtual Desktop for Beginners 
         # Card
-        - title: "AI/ML"
+        - title: "Data & AI"
           links:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
               itemType: video
@@ -106,6 +105,10 @@ additionalContent:
           summary: Learn how to get expert help with FastTrack for Azure to accelerate your cloud deployments and minimize risk at the same time.
           url: https://azure.microsoft.com/pricing/offers/azure-fasttrack/
         # Card
-        - title: FastTrack for Azure TechCommunity
+        - title: FastTrack for Azure Blog
+          summary: Learn how to get expert help with FastTrack for Azure to accelerate your cloud deployments and minimize risk at the same time.
+          url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/bg-p/FastTrackforAzureBlog
+        # Card
+        - title: FastTrack for Azure TechCommunity Discussion
           summary: Your community for best practices and the latest news on Microsoft FastTrack
           url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/bd-p/FastTrack-for-Azure

@@ -3,8 +3,8 @@ title: Set up service authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication between Azure Machine Learning and other Azure services.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: meyetman
+ms.author: meyetman 
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -61,6 +61,76 @@ For automated creation of role assignments on your user-assigned managed identit
 
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
+
+To create a workspace with user assigned identity, use one of the following methods:
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml workspace create -f workspace_uai.yml
+```
+
+Where the contents of *workspace_uai.yml* are as follows:
+
+```yaml
+name: <workspace name>
+location: <region name>
+resource_group: <resource group name>
+identity:
+   type: user_assigned
+   tenant_id: <tenant ID>
+   user_assigned_identities:
+    '<UAI resource ID 1>': {}
+    '<UAI resource ID 2>': {}
+storage_account: <storage acccount resource ID>
+key_vault: <key vault resource ID>
+image_build_compute: <compute(virtual machine) resource ID>
+primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
+```
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml import MLClient, load_workspace
+from azure.identity import DefaultAzureCredential
+sub_id="<subscription ID>"
+rg_name="<resource group name>"
+ws_name="<workspace name>"
+client = MLClient(DefaultAzureCredential(), sub_id, rg_name)
+wps = load_workspace("workspace_uai.yml")
+workspace = client.workspaces.begin_create(workspace=wps).result()
+# update SAI workspace to SAI&UAI workspace
+wps = load_workspace("workspace_sai_and_uai.yml")
+workspace = client.workspaces.begin_update(workspace=wps).result()
+```
+
+Where the contents of *workspace_sai_and_uai.yml* are as follows:
+
+```yaml
+name: <workspace name>
+location: <region name>
+resource_group: <resource group name>
+identity:
+   type: system_assigned, user_assigned
+   tenant_id: <tenant ID>
+   user_assigned_identities:
+    '<UAI resource ID 1>': {}
+    '<UAI resource ID 2>': {}
+storage_account: <storage acccount resource ID>
+key_vault: <key vault resource ID>
+image_build_compute: <compute(virtual machine) resource ID>
+primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
+```
+
+# [Studio](#tab/azure-studio)
+
+Not supported currently.
+
+---
 
 ### Compute cluster
 

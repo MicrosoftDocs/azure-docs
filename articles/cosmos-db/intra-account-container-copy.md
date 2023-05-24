@@ -2,18 +2,18 @@
 title: Intra-account container copy jobs
 titleSuffix: Azure Cosmos DB
 description: Copy container data between containers within an account in Azure Cosmos DB.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2022
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, ignite-2022, build-2023
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)
 
-[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
+[!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
 
@@ -28,11 +28,7 @@ You may need to copy data within your Azure Cosmos DB account if you want to ach
 
 Intra-account container copy jobs can be [created and managed using CLI commands](how-to-container-copy.md).
 
-## Get started
-
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
-
-## Overview of steps needed to do container copy
+## How to do container copy?
 
 1. Create the target Azure Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
 2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
@@ -76,9 +72,8 @@ The rate of container copy job progress is determined by these factors:
 
 Container copy jobs don't work with accounts having following capabilities enabled. You will need to disable these features before running the container copy jobs.
 
-- [Disable local auth](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-rbac#use-azure-resource-manager-templates)
-- [Private endpoint / IP Firewall enabled](https://learn.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure). You will need to provide access to connections within public Azure datacenters to run container copy jobs.
-- [Merge partition](https://learn.microsoft.com/azure/cosmos-db/merge).
+- [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
+- [Merge partition](merge.md).
 
 
 ### Account Configurations
@@ -134,21 +129,22 @@ Currently, container copy is supported in the following regions:
 * Error - Owner resource doesn't exist
 
     If the job creation fails with the error *"Owner resource doesn't exist"*, it means that the target container wasn't created or was mis-spelt.
-    Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-container-copy)
+    Make sure the target container is created before running the job as specified in the [overview section.](#how-to-do-container-copy)
 
     ```output
     "code": "404",
     "message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
     ```
 
-* Error - (Request) is blocked by your Cosmos DB account firewall settings.
+* Error - Request is unauthorized.
 
-    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell).
+    If the request fails with error Unauthorized (401), this could happen because Local Authorization is disabled, see [disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates). Container copy jobs use primary key to authenticate and if local authorization is disabled, the job creation fails. You need to enable local authorization for container copy jobs to work. 
 
     ```output
-    InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden
-    ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    "code": "401",
+    "message": " Response status code does not indicate success: Unauthorized (401); Substatus: 5202; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: Local Authorization is disabled. Use an AAD token to authorize all requests."
     ```
+
 * Error - Error while getting resources for job.
 
     This error can occur due to internal server issues. To resolve this issue, contact Microsoft support by raising a **New Support Request** from the Azure portal. Set the Problem Type as **'Data Migration'** and Problem subtype as **'Intra-account container copy'**.
@@ -158,8 +154,6 @@ Currently, container copy is supported in the following regions:
     "message": "Error while getting resources for job, StatusCode: 500, SubStatusCode: 0, OperationId:  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ``` 
 	
-
-
 
 ## Next steps
 

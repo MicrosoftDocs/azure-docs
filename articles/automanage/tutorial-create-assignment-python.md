@@ -16,7 +16,7 @@ In this tutorial, you'll create a resource group and a virtual machine. You'll t
 ## Prerequisites 
 
 - [Python](https://www.python.org/downloads/)
-- [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create resources
 

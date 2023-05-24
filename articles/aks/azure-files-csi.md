@@ -65,7 +65,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azurefile created
 pod/nginx-azurefile created
 ```
@@ -78,7 +78,7 @@ kubectl exec nginx-azurefile -- ls -l /mnt/azurefile
 
 The output of the command resembles the following example:
 
-```bash
+```output
 total 29
 -rwxrwxrwx 1 root root 29348 Aug 31 21:59 outfile
 ```
@@ -120,7 +120,7 @@ kubectl apply -f azure-file-sc.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
@@ -137,7 +137,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 ```
 
@@ -149,7 +149,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshot.snapshot.storage.k8s.io/azurefile-volume-snapshot created
 ```
 
@@ -201,7 +201,7 @@ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem                                                                                Size  Used Avail Use% Mounted on
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  100G  128K  100G   1% /mnt/azurefile
 ```
@@ -214,7 +214,7 @@ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {"r
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azurefile patched
 ```
 
@@ -266,13 +266,13 @@ mountOptions:
 
 Create the storage class by using the `kubectl apply` command:
 
-```console
+```bash
 kubectl apply -f private-azure-file-sc.yaml
 ```
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
   
@@ -294,7 +294,7 @@ spec:
   
 Create the PVC by using the [kubectl apply][kubectl-apply] command:
   
-```console
+```bash
 kubectl apply -f private-pvc.yaml
 ```
 
@@ -337,7 +337,7 @@ kubectl apply -f nfs-sc.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/azurefile-csi-nfs created
 ```
 
@@ -393,7 +393,7 @@ spec:
 
 The output of the command resembles the following example:
 
-```bash
+```output
 statefulset.apps/statefulset-azurefile created
 ```
 
@@ -405,7 +405,7 @@ kubectl exec -it statefulset-azurefile-0 -- df -h
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 ...
 /dev/sda1                                                                                 29G   11G   19G  37% /etc/hosts
@@ -428,7 +428,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 statefulset.apps/busybox-azurefile created
 ```
 
@@ -441,7 +441,7 @@ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Windo
 
 The output of the commands resembles the following example:
 
-```bash
+```output
 2020-08-27 22:11:01Z
 2020-08-27 22:11:02Z
 2020-08-27 22:11:04Z

@@ -5,7 +5,7 @@ ms.date: 02/21/2023
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
-ms.topic: reference
+ms.topic: conceptual
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in policy definitions for Azure Cognitive Services

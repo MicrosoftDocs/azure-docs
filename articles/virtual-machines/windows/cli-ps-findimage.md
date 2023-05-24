@@ -63,7 +63,7 @@ RHEL                      x64             RHEL                          RedHat  
 RHELRaw8LVMGen2           x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                  latest
 SLES                      x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                   latest
 UbuntuLTS                 x64             UbuntuServer                  Canonical               16.04-LTS                           Canonical:UbuntuServer:16.04-LTS:latest                                        latest
-Ubuntu2204                x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:UbuntuServer:22_04-lts-gen2:latest                                   latest
+Ubuntu2204                x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest                   latest
 ```
 
 The Windows image alias names and their details are:

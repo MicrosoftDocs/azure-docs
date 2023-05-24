@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview, a service that enables yo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 05/04/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
@@ -60,11 +60,7 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 ### Available virtual network regions
 
-Service endpoints for Azure Storage work between virtual networks and service instances in any region.
-
-Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
-
-When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
+Service endpoints for Azure Storage work between virtual networks and service instances in any region. They also work between virtual networks and service instances in [paired regions](../../availability-zones/cross-region-replication-azure.md) to allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
 
 #### Azure Storage cross-region service endpoints
 
@@ -87,7 +83,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
+- Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
 - List virtual network rules.
 

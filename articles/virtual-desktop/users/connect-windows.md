@@ -3,15 +3,17 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for Windo
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for Windows.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 05/16/2023
 ms.author: daknappe
 ---
 
 # Connect to Azure Virtual Desktop with the Remote Desktop client for Windows
 
-The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows.
+The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows, which will only allow you to subscribe to a feed made available to you by your organization administrators.
 
 You can find a list of all the Remote Desktop clients you can use to connect to Azure Virtual Desktop at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
+
+If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop app for Windows](/windows-server/remote/remote-desktop-services/clients/windows).
 
 ## Prerequisites
 
@@ -32,9 +34,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
    > Support for Windows 7 ended on January 10, 2023.
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
-  - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602) *(most common)*
-  - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
-  - [Windows on Arm](https://go.microsoft.com/fwlink/?linkid=2098961)
+  - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*
+  - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)
+  - [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - .NET Framework 4.6.2 or later. You may need to install this on Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 

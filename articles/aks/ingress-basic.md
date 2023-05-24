@@ -125,6 +125,7 @@ The following example creates a Kubernetes namespace for the ingress resources n
 ```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 ACR_URL=<REGISTRY_URL>
@@ -158,6 +159,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
@@ -198,6 +200,7 @@ Use the `--set controller.service.loadBalancerIP` and `--set controller.service.
 ```console
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 ACR_URL=<REGISTRY_URL>
@@ -233,6 +236,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```azurepowershell-interactive
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
 
 # Set variable for ACR location to use for pulling images
 $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer

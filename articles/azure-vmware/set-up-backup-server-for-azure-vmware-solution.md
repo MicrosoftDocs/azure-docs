@@ -3,7 +3,7 @@ title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/20/2023
+ms.date: 04/27/2023
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
@@ -33,7 +33,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 - **Folder-level auto protection:** vCenter Server lets you organize your VMs into Virtual Machine folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. During the protection of folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
 - **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for dynamic resource load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
 - **Recover necessary files faster:** Azure Backup Server can recover files or folders from a Windows VM without recovering the entire VM.
-- **Application Consistent Backups:** If the *VMware Tools* isn't installed, a crash consistent backup will be executed. When the *VMware Tools* is installed with Microsoft Windows virtual machines, all applications that support VSS freeze and thaw operations will support application consistent backups. When the *VMware Tools* is installed with Linux virtual machines, application consistent snapshots are supported by calling the pre and post scripts.
+- **Application Consistent Backups:** If the *VMware Tools* aren't installed, a crash consistent backup will be executed. When the *VMware Tools* are installed with Microsoft Windows virtual machines, all applications that support VSS freeze and thaw operations will support application consistent backups. When the *VMware Tools* are installed with Linux virtual machines, application consistent snapshots are supported by calling the pre and post scripts.
 
 ## Limitations
 
