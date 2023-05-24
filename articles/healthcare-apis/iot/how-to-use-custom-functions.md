@@ -202,7 +202,7 @@ Examples:
 string fromUnixTimestampMs(number $unixTimestampInMs)
 ```
 
-Produces an [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of milliseconds since the Epoch (January 1 1970).
+Produces an [ISO 8061](https://www.iso.org/iso-8601-date-and-time-format.html) compliant time stamp from the given Unix timestamp. The timestamp is represented as the number of milliseconds since the Epoch (January 1 1970).
 
 Examples:
 
