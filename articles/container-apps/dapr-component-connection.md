@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 05/15/2023
+ms.date: 05/24/2023
 ms.custom: template-tutorial, service-connector, build-2023
 ---
 
@@ -18,7 +18,9 @@ With this new component creation feature, you no longer need to know or remember
 
 By managing component creation for you, this feature:
 - Simplifies the process for developers 
-- Reduces the likelihood for misconfiguration 
+- Reduces the likelihood for misconfiguration
+
+This experience makes authentication easier. When using User Assigned Managed Identity, Azure Container Apps, Dapr, and Service Connector ensure the selected identification is assigned to all containers apps in scope at that point in time. 
 
 This guide demonstrates creating a Dapr component by:
 - Selecting pub/sub as component type 
