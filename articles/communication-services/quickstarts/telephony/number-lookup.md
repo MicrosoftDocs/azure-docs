@@ -19,7 +19,7 @@ Get started with the Phone Numbers client library for C# to look up operator inf
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version of [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ### Prerequisite check
 
@@ -115,7 +115,7 @@ You can now use the operator information.  For this quickstart guide, we can pri
 Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../sms/send.md).
 
 ## Run the code
 
