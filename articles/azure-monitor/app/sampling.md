@@ -26,19 +26,19 @@ When metric counts are presented in the portal, they're renormalized to take int
 
 The following table summarizes the sampling types available for each SDK and type of application:
 
-| Application Insights SDK | Adaptive sampling supported | Fixed-rate sampling supported | Ingestion sampling supported |
-|-|-|-|-|
-| ASP.NET | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-applications) | Only if no other sampling is in effect |
-| ASP.NET Core | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
-| Azure Functions | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
-| Java | No | [Yes](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
-| JavaScript | No | [Yes](#configuring-fixed-rate-sampling-for-web-pages-with-javascript) | Only if no other sampling is in effect |
-| Node.JS | No | [Yes](./nodejs.md#sampling) | Only if no other sampling is in effect
-| Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
-| All others | No | No | [Yes](#ingestion-sampling) |
+| Application Insights SDK | Adaptive sampling supported                                                        | Fixed-rate sampling supported                                                        | Ingestion sampling supported           |
+| -                        | -                                                                                  | -                                                                                    | -                                      |
+| ASP.NET                  | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-applications)      | [Yes](#configuring-fixed-rate-sampling-for-aspnet-applications)                      | Only if no other sampling is in effect |
+| ASP.NET Core             | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications)                 | Only if no other sampling is in effect |
+| Azure Functions          | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions)          | No                                                                                   | Only if no other sampling is in effect |
+| Java                     | No                                                                                 | [Yes](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
+| JavaScript               | No                                                                                 | [Yes](#configuring-fixed-rate-sampling-for-web-pages-with-javascript)                | Only if no other sampling is in effect |
+| Node.JS                  | No                                                                                 | [Yes](./nodejs.md#sampling)                                                          | Only if no other sampling is in effect |
+| Python                   | No                                                                                 | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications)           | Only if no other sampling is in effect |
+| All others               | No                                                                                 | No                                                                                   | [Yes](#ingestion-sampling)             |
 
 > [!NOTES]
-> - The Java Application Agent 3.4.0 and later uses rate-limited sampling as the default when sending telemetry to Application Insights. For more information, see [Rate-limited sampling](java-standalone-config#rate-limited-sampling).
+> - The Java Application Agent 3.4.0 and later uses rate-limited sampling as the default when sending telemetry to Application Insights. For more information, see [Rate-limited sampling](java-standalone-config.md#rate-limited-sampling).
 > - The information on most of this page applies to the current versions of the Application Insights SDKs. For information on older versions of the SDKs, [see the section below](#older-sdk-versions).
 
 ## When to use sampling
