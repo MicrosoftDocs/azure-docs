@@ -234,7 +234,7 @@ Azure Function Primary / API Key
 
 **Sample**: `https://account.azurewebsites.net/api/function?code=abcdefghijklmnopqrstuvwxyz0123456789%2F%2BABCDEF0123456789%3D%3D...` <br> `ApiEndpoint=account.azurewebsites.net/api/function;ApiKey=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==;` <br> `x-functions-key:abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==`
 
-Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](https://learn.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys)
+Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys)
 
 ### CSCAN-AZURE0121
 
@@ -242,7 +242,7 @@ Identifiable Azure Function Primary / API Key
 
 **Sample**: `https://account.azurewebsites.net/api/function?code=abcdefghijklmnopqrstuvwxyz0123456789%2F%2BABCDEF0123456789%3D%3D...` <br> `ApiEndpoint=account.azurewebsites.net/api/function;ApiKey=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==;` <br> `x-functions-key:abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEFGHIJKLMNOP==`
 
-Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](https://learn.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys).
+Learn more about [Getting your function access keys](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-your-function-access-keys) and [Function access keys](/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp#authorization-keys).
 
 ### CSCAN-AZURE0130
 
