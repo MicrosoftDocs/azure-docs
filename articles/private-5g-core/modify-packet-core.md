@@ -93,7 +93,7 @@ To modify the packet core and/or access network configuration:
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
    - If you want to configure **UE usage tracking**:
-       1. Set **UE Metric monitoring** to **Enabled**.
+       1. Set **UE usage monitoring** to **Enabled**.
        1. Use the information you collected in [Collect UE usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to configure the **Event hub connection string**.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).

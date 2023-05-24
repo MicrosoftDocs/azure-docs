@@ -183,7 +183,7 @@ Azure Private 5G Core is integrated with Azure Monitor Metrics Explorer, allowin
 
 For more information on using Azure Monitor to analyze metrics in your deployment, see [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md).
 
-Azure Private 5G Core can be configured to integrate with Azure Event Hub, allowing you to monitor UE usage.
+Azure Private 5G Core can be configured to integrate with Azure Monitor Event Hubs, allowing you to monitor UE usage.
 
 For more information on using Event Hubs to monitor UE usage in your deployment, see [Monitor AP5GC UE usage with Event Hubs](ue-usage-event-hub.md).
 
