@@ -15,24 +15,24 @@ ms.date: 05/19/2023
 
 > [!IMPORTANT] Applicable to Citus 11.3 & newer versions
 
-This article provides insights into the utilization of cluster resources by tenants, through the utilization of new `citus_stat_tenants` view. The view allows us with tracking :
+This article provides insights into the utilization of cluster resources by tenants, through the utilization of new `citus_stat_tenants` view. The view allows us with tracking:
 
 * read query count - SELECT queries.
 * total query count - SELECT, INSERT, DELETE, and UPDATE queries.
 * total CPU usage in seconds.
 
-In this article, you will learn about how could we utilize the `citus_stat_tenants` view for making informed decisions and also would learn to configure to best fit your application.
+In this article, you'll learn about how could we utilize the `citus_stat_tenants` view for making informed decisions and also would learn to configure to best fit your application.
 
 > [!Note]
 > * Privileges (`execute & select`) on view is granted to the role `pg_monitor`.
 
 ## Monitor your top tenants with citus_stat_tenants
 
-When you enable this feature, accounting is activated for SQL commands such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`. This accounting is specifically designed for a `single tenant` queries. A query qualifies to be a single tenant query, if the query planner generates a query plan restricted to a single shard or to a single tenant.
+When you enable this feature, accounting is activated for SQL commands such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`. This accounting is designed for `single tenant` queries. A query qualifies to be a single tenant query, if the query planner generates a query plan restricted to a single shard or to a single tenant.
 
 The feature provides you with better control over required tenant tracking by configuring for desired number of tenants to track, through the usage of parameter `citus.stat_tenants_limit`.
 
-Let's try to learn more by reviewing a sample multi-tenant application which helps companies run their ad-campaigns.
+Let's try to learn more by reviewing a sample multi-tenant application, which helps companies run their ad-campaigns.
 
 ```postgresql
 CREATE TABLE companies (id BIGSERIAL, name TEXT);
@@ -42,7 +42,7 @@ CREATE TABLE campaigns (id BIGSERIAL, company_id BIGINT, name TEXT);
 SELECT create_distributed_table ('campaigns', 'company_id');
 ```
 
-With above schema definition you can enroll companies as tenants, while id \ company_id acts as tenant keys. You can create some sample data by running below commands.
+With schema definition defined you can enroll companies as tenants, while id \ company_id acts as tenant keys. You can create some sample data by running below commands.
 
 ```postgresql
 INSERT INTO companies (name) VALUES ('GigaMarket');
@@ -97,7 +97,7 @@ As you observed, you now have insights into individual top tenant activities.
 >
 > * set citus.stat_tenants_track = 'all' to enable tracking
 
-The `citus_stat_tenants` view monitor tenants within time buckets, managed using `citus.stat_tenants_period`. Each time period's query and CPU statistics are meticulously counted separately. Once a period concludes, the numbers are finalized and preserved for just one additional period. This allows us with an immediate snapshot of the current period's statistics, along with the data from the previous period.
+The `citus_stat_tenants` view monitor tenants within time buckets, managed using `citus.stat_tenants_period`. Each time period's query and CPU statistics are meticulously counted separately. Once a period concludes, the numbers are finalized and preserved for just one additional period. It allows us with an immediate snapshot of the current period's statistics, along with the data from the previous period.
 
 > [!Note]
 > Default for citus.stat_tenants_period is `60 seconds`.

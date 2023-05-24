@@ -129,6 +129,14 @@
           href: concepts-monitoring.md
         - name: Performance tuning
           href: concepts-performance-tuning.md
+    - name: Multi-tenant monitoring
+      items:
+        - name: Tenant monitoring fundamentals
+          href: concepts-multi-tenant-monitoring.md
+          displayName: tenant stats monitoring
+        - name: Tenant monitoring basic usage
+          href: howto-monitor-tenant-stats.md
+          displayName: tenant stats monitoring
     - name: Columnar storage
       href: concepts-columnar.md
 - name: How-to guides
