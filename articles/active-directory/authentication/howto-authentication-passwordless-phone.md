@@ -50,9 +50,6 @@ To use passwordless phone sign-in with Microsoft Authenticator, the following pr
 - For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
   - balas@contoso.com
   - balas@wingtiptoys.com and bsandhu@wingtiptoys
-- For iOS, we recommend enabling the option in Microsoft Authenticator to allow Microsoft to gather usage data. It's not enabled by default. To enable it in Microsoft Authenticator, go to **Settings** > **Usage Data**.
-  
-  :::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/telemetry.png" alt-text="Screenshot of Usage Data in Microsoft Authenticator.":::
 
 To use passwordless authentication in Azure AD, first enable the combined registration experience, then enable users for the passwordless method.
 
