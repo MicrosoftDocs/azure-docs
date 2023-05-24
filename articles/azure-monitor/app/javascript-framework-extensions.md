@@ -57,15 +57,6 @@ var appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
-
-// To instrument various React components usage tracking, apply the `withAITracking` higher-order
-// component function.
-
-class MyComponent extends React.Component {
-    ...
-}
-
-export default withAITracking(reactPlugin, MyComponent);
 ```
 
 Wrap your component with the higher-order component function to enable Application Insights on it:
@@ -291,11 +282,11 @@ The React Native plugin for Application Insights JavaScript SDK collects device 
 
 ### Requirements
 
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App.
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
 
 ### Getting started
 
-By default, this plugin relies on the [`react-native-device-info` package](https://github.com/react-native-device-info/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
 
 Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
 
@@ -315,12 +306,12 @@ To use this plugin, you need to construct the plugin and add it as an `extension
 
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 
 var RNPlugin = new ReactNativePlugin();
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        disableDeviceCollection: true,
         extensions: [RNPlugin]
     }
 });
@@ -442,18 +433,14 @@ Set up an instance of Application Insights in the entry component in your app:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+
 ```js
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
 import { Router } from '@angular/router';
-
-//-------------------------------------------------------------------------
-// Note: If you also want to use the ErrorService, you MUST include
-// either the '@microsoft/applicationinsights-web' or include the
-// `@microsoft/applicationinsights-analytics-js' extension. If you don't,
-// then unhandled errors caught by the error service will not be sent.
-//-------------------------------------------------------------------------
 
 @Component({
   selector: 'app-root',
@@ -480,18 +467,10 @@ export class AppComponent {
 To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
 
 > [!IMPORTANT]
-> When using the ErrorService, there is an implicit dependency on the @microsoft/applicationinsights-analytics-js extension which is also include in the that your MUST include the @microsoft/applicationinsights-web Sku. For uncaught exceptions to be tracked, your project must be initialized to include the analytics package. Otherwise, unhandled errors caught by the error service will not be sent.
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
 
 ```js
 import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
-
-//-------------------------------------------------------------------------
-// Note: The Errorservice has an implicit dependency on the
-// `@microsoft/applicationinsights-analytics-js' extension, which is included
-// with the '@microsoft/applicationinsights-web' module. If the analytics 
-// extension is not included during initialization of the SDK this Error Service
-// will not be able to send any caught unhandled errors.
-//-------------------------------------------------------------------------
 
 @NgModule({
   ...
