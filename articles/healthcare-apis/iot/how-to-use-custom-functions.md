@@ -30,7 +30,7 @@ return_type function_name(type $argname)
 The signature indicates the valid types for the arguments. If an invalid type is passed in for an argument, an error occurs.
 
 > [!IMPORTANT]
-> When math-related functions are done, the end result must be able to fit within a [C# long](https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result is unable to fit within a C# long value, then a mathematical error will occur.
+> When math-related functions are done, the end result must be able to fit within a [C# long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result is unable to fit within a C# long value, then a mathematical error will occur.
 
 As stated previously, these functions may only be used when specifying **JmesPath** as the expression language. By default, the expression language is **JsonPath**. The expression language can be changed when defining the expression. 
 
@@ -193,8 +193,8 @@ Examples:
 
 | Given                 | Expression              | Result                  |
 |-----------------------|-------------------------|-------------------------|
-| {"unix":1625677200}   | fromUnixTimestamp(unix) | "2021-07-07T17:00:00+0" |
-| {"unix":0}            | fromUnixTimestamp(unix) | "1970-01-01T00:00:00+0" |
+| {"unix": 1625677200}  | fromUnixTimestamp(unix) | "2021-07-07T17:00:00+0" |
+| {"unix": 0}           | fromUnixTimestamp(unix) | "1970-01-01T00:00:00+0" |
 
 ### fromUnixTimestampMs
 
@@ -208,8 +208,8 @@ Examples:
 
 | Given                    | Expression                | Result                  |
 |--------------------------|---------------------------|-------------------------|
-| {"unix":1626799080000}   | fromUnixTimestampMs(unix) | "2021-07-20T16:38:00+0" |
-| {"unix":0}               | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
+| {"unix": 1626799080000}  | fromUnixTimestampMs(unix) | "2021-07-20T16:38:00+0" |
+| {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
 
 > [!TIP]
 > See the MedTech service article [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md) for assistance fixing errors using the MedTech service logs. 
