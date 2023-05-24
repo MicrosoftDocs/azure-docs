@@ -52,7 +52,7 @@ Device Registration is a prerequisite to cloud-based authentication. Commonly, d
 
 ## Hybrid Azure AD joined in Managed environments
 
-:::image type="content" source="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png" alt-text="Hybrid Azure AD joined device flow in a managed environement" lightbox="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png":::
+:::image type="content" source="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png" alt-text="Screenshot of hybrid Azure AD joined device flow in a managed environment." lightbox="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png":::
 
 | Phase | Description |
 | :----: | ----------- |
