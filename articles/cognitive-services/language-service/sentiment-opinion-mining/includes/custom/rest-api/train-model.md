@@ -19,7 +19,7 @@ Submit a **POST** request using the following URL, headers, and JSON body to sub
 |---------|---------|---------|
 | `{ENDPOINT}` | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
 
 #### Headers
 
@@ -51,7 +51,7 @@ Use the following JSON in your request body. The model will be given the `{MODEL
 | modelLabel | `{MODEL-NAME}` | The model name that will be assigned to your model once trained successfully.  | `myModel` |
 | trainingConfigVersion | `{CONFIG-VERSION}` | This is the [model version](../../../../concepts/model-lifecycle.md) that will be used to train the model. | `2022-05-01`| 
 | evaluationOptions |  | Option to split your data across training and testing sets. | `{}` |
-| kind | `percentage` |  Split methods. Possible values are `percentage` or `manual`. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information. |`percentage`|
+| kind | `percentage` |  Split methods. Possible values are `percentage` or `manual`. <!--See [How to train a model](../../how-to/train-model.md#data-splitting) for more information.--> |`percentage`|
 | trainingSplitPercentage | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
 | testingSplitPercentage | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 

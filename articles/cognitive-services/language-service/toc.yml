@@ -1004,7 +1004,7 @@ items:
   - name: Custom
     items:
       - name: Quickstart
-        href: custom/quickstart.md
+        href: sentiment-opinion-mining/custom/quickstart.md
       - name: How-to guides
         items:
         - name: Create projects

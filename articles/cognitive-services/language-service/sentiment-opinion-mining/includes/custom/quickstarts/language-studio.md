@@ -44,7 +44,7 @@ Once your resource and storage container are configured, create a new Custom sen
 
 ## Train your model
 
-Typically after you create a project, you go ahead and start [labeling the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample labeled dataset and initialized your project with the sample JSON labels file.
+Typically after you create a project, you start labeling the documents you have in the container connected to your project. For this quickstart, you have imported a sample labeled dataset and initialized your project with the sample JSON labels file.
 
 <!--[!INCLUDE [Train a model using Language Studio](../language-studio/train-model.md)]-->
 
@@ -52,7 +52,7 @@ Typically after you create a project, you go ahead and start [labeling the docum
 
 ## Deploy your model
 
-Generally after training a model you would review its [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/view-model-evaluation.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 <!--[!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]-->
 

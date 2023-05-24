@@ -55,7 +55,7 @@ Once your resource and storage container are configured, create a new custom tex
 
 ## Train your model
 
-Typically after you create a project, you go ahead and start [tagging the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+Typically after you create a project, you start tagging the documents you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
 
 ### Start training your model
 
