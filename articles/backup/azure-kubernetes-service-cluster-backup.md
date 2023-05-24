@@ -109,7 +109,7 @@ To configure backups for AKS cluster, follow these steps:
 
 1. Once the  backup extension is installed successfully, start configuring backups for your AKS cluster by selecting **Configure Backup**.
 
-   You can also perform this action from the **Backup centre**.
+   You can also perform this action from the **Backup center**.
 
    :::image type="content" source="./media/azure-kubernetes-cluster-backup/configure-backup.png" alt-text="Screenshot shows the selection of Configure Backup.":::
 
