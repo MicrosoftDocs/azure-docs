@@ -3,7 +3,7 @@ title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/10/2023
+ms.date: 05/24/2023
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -130,7 +130,7 @@ For a VNet, attached Azure disk, static IP address, or route table outside the d
     az role assignment create --assignee <control-plane-identity-principal-id> --role "Contributor" --scope "<custom-resource-group-resource-id>"
     ```
 
-For a user-assigned kubelet identity outside the default worker node resource group, you need to assign the `Managed Identity Operator` role on the kubelet identity for control plane identity.
+For a user-assigned kubelet identity outside the default worker node resource group, you need to assign the [Managed Identity Operator][managed-identity-operator] role on the kubelet identity for control plane identity.
 
 * Assign the `Managed Identity Operator` role on the kubelet identity using the [`az role assignment create`][az-role-assignment-create] command.
 
@@ -502,3 +502,4 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [az-version]: /cli/azure/reference-index#az_version
 [az-upgrade]: /cli/azure/reference-index#az_upgrade
+[managed-identity-operator]: ../role-based-access-control/built-in-roles#managed-identity-operator.md
