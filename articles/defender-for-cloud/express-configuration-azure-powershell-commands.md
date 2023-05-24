@@ -29,6 +29,15 @@ ms.date: 05/23/2023
 - [Get list SQL vulnerability assessment scan results on user database](#get-list-sql-vulnerability-assessment-scan-results-on-user-database)
 - [Get SQL vulnerability assessment scans on system database](#get-sql-vulnerability-assessment-scans-on-system-database)
 - [Get list SQL vulnerability assessment scans on system database](#get-list-sql-vulnerability-assessment-scans-on-system-database)
+- [Get SQL vulnerability assessment scans on user database](#get-sql-vulnerability-assessment-scans-on-user-database)
+- [Get list SQL vulnerability assessment scans on user database](#get-list-sql-vulnerability-assessment-scans-on-user-database)
+- [Invoke SQL vulnerability assessment scan on system database](#invoke-sql-vulnerability-assessment-scan-on-system-database)
+- [Invoke SQL vulnerability assessment scan on user database](#invoke-sql-vulnerability-assessment-scan-on-user-database)
+- 
+- 
+- 
+- 
+- 
 
 ## Set SQL vulnerability assessment baseline on system database
 
@@ -837,5 +846,88 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
   ]
 }
 ```
+
+
+## Get SQL vulnerability assessment scans on user database
+
+```azurepowershell
+az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans/$ScanId?api-version=2022-02-01-preview
+
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/vulnerabilityAssessments/Default/scans/f64d81a1-9d7b-4516-a623-a1bfc845ed7e",
+  "name": "f64d81a1-9d7b-4516-a623-a1bfc845ed7e",
+  "properties": {
+    "database": "db",
+    "endTime": "2023-04-17T12:52:41.5235755Z",
+    "highSeverityFailedRulesCount": 1,
+    "isBaselineApplied": true,
+    "lowSeverityFailedRulesCount": 0,
+    "mediumSeverityFailedRulesCount": 0,
+    "scanId": "f64d81a1-9d7b-4516-a623-a1bfc845ed7e",
+    "server": "vulnerabilityaseessmenttest",
+    "sqlVersion": "16.0.5100",
+    "startTime": "2023-04-17T12:52:41.4142209Z",
+    "state": "Failed",
+    "totalFailedRulesCount": 1,
+    "totalPassedRulesCount": 23,
+    "totalRulesCount": 24,
+    "triggerType": "OnDemand"
+  },
+  "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments/scans"
+}
+```
+
+## Get list SQL vulnerability assessment scans on user database
+
+```azurepowershell
+az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/scans?api-version=2022-02-01-preview
+
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/vulnerabilityAssessments/Default/scans/f64d81a1-9d7b-4516-a623-a1bfc845ed7e",
+  "name": "f64d81a1-9d7b-4516-a623-a1bfc845ed7e",
+  "properties": {
+    "database": "db",
+    "endTime": "2023-04-17T12:52:41.5235755Z",
+    "highSeverityFailedRulesCount": 1,
+    "isBaselineApplied": true,
+    "lowSeverityFailedRulesCount": 0,
+    "mediumSeverityFailedRulesCount": 0,
+    "scanId": "f64d81a1-9d7b-4516-a623-a1bfc845ed7e",
+    "server": "vulnerabilityaseessmenttest",
+    "sqlVersion": "16.0.5100",
+    "startTime": "2023-04-17T12:52:41.4142209Z",
+    "state": "Failed",
+    "totalFailedRulesCount": 1,
+    "totalPassedRulesCount": 23,
+    "totalRulesCount": 24,
+    "triggerType": "OnDemand"
+  },
+  "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments/scans"
+}
+```
+
+## Invoke SQL vulnerability assessment scan on system database
+
+```azurepowershell
+az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/initiateScan?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
+
+{
+  "operation": "ExecuteDatabaseVulnerabilityAssessmentScan",
+  "startTime": "2023-05-15T13:07:56.837Z"
+}
+```
+
+## Invoke SQL vulnerability assessment scan on user database
+
+```azurepowershell
+az rest --method Post --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/initiateScan?api-version=2022-02-01-preview
+
+{
+  "operation": "ExecuteDatabaseVulnerabilityAssessmentScan",
+  "startTime": "2023-05-15T13:07:08.277Z"
+}
+```
+
+## 
 
 ## Next steps
