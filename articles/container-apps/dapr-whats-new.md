@@ -1,5 +1,5 @@
 ---
-title: Whats new with Dapr in Azure Container Apps
+title: What's new with Dapr in Azure Container Apps
 description: Learn more about what's new with Dapr in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/24/2023
 ---
 
-# Whats new with Dapr in Azure Container Apps
+# What's new with Dapr in Azure Container Apps
 
 This article lists significant changes to Azure Container Apps documentation.
 
@@ -23,7 +23,7 @@ This article lists significant changes to Azure Container Apps documentation.
 
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
-| Easy component creation | [Connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md) | Service Connector teams up with Dapr to provide an improved component creation feature in the Azure Container Apps protal. |
+| Easy component creation | [Connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md) | Service Connector teams up with Dapr to provide an improved component creation feature in the Azure Container Apps portal. |
 
 ## Next steps
 
