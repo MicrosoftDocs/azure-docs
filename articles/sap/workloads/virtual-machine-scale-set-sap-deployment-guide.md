@@ -1,6 +1,6 @@
 ---
-title: Virtual Machine Scale Set for SAP workload
-description: Deployment framework of Virtual Machine Scale Set Flexible Orchestration for SAP Workload
+title: Virtual Machine Scale Sets for SAP workload
+description: Deployment guidelines of Virtual Machine Scale Sets with Flexible Orchestration for SAP Workload
 author: dennispadia
 manager: rdeltcheva
 ms.author: depadia
@@ -11,7 +11,7 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2023
 ---
 
-# Virtual Machine Scale Set for SAP workload
+# Virtual Machine Scale Sets for SAP workload
 
 In Azure, [Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) provide a logical grouping of platform-managed virtual machines.
 
@@ -19,7 +19,7 @@ In Azure, [Virtual machine scale sets](../../virtual-machine-scale-sets/overview
 - The flexible orchestration of virtual machine scale set provides the option to create the scale set within a region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute the virtual machines across different zones and the scale set would also [distribute VMs across different fault domains within each zone on a best effort basis](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md). **For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner.
 - There are two ways to configure flexible virtual machine scale sets: with or without a scaling profile. **However, for SAP workload, we recommend creating a flexible virtual machine scale set without a scaling profile**. It is because the autoscaling feature of scale set with a scaling profile doesn't work out of the box for SAP workload. So, currently flexible virtual machine scale set is solely used as a deployment framework for SAP.
 
-## Important consideration of Flexible Virtual Machine Scale Set for SAP workload
+## Important consideration of Flexible Virtual Machine Scale Sets for SAP workload
 
 1. Virtual Machine Scale Set with Flexible orchestration is the recommended and supported [orchestration mode](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) for SAP workloads. The Uniform orchestration mode can't be used for SAP workloads.
 2. For SAP workloads, flexible orchestration of virtual machine scale sets is supported only with FD=1. Currently regional deployment with FD>1 isn't supported for SAP workload.
@@ -31,13 +31,13 @@ In Azure, [Virtual machine scale sets](../../virtual-machine-scale-sets/overview
 8. The standard load balancer is the only supported load balancer for virtual machines deployed in flexible scale set.
 9. To configure Azure fence agent with managed-system identity (MSI) for highly available SAP environment using pacemaker cluster, you can enable system-managed identity on individual VM.
 10. Capacity reservation can be enabled at the individual VM level if you're using flexible scale set without a scaling profile to manage your SAP workload. For more information, see the [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
-11. For SAP workload, we don't recommend using a proximity placement group (PPG) in combination with a flexible scale set deployment with FD=1.
+11. For SAP workload, we don't advise using a proximity placement group (PPG) in combination with a flexible scale set deployment with FD=1.
 12. In a multi-SID SAP ASCS/ERS environment, it's recommended to deploy the first SAP system using a flexible scale set with FD=1. Additionally, it's necessary to set up a separate flexible scale set with FD=1 for the application and database tier of the second system.
 
 > [!IMPORTANT]
 > After the creation of the scale set, the orchestration mode and configuration type (with or without scaling profile) cannot be modified or updated at a later time.
 
-## Reference architecture of SAP workload deployed with Flexible Virtual Machine Scale Set
+## Reference architecture of SAP workload deployed with Flexible Virtual Machine Scale Sets
 
 When creating virtual machine scale set with flexible orchestration across availability zones, it's important to mention all the availability zones where you would be deploying your SAP system. It's worth noting that the availability zones must be specified while creating the scale set, as they can't be modified at a later stage.
 
