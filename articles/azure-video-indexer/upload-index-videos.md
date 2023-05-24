@@ -7,9 +7,11 @@ ms.date: 05/10/2023
 
 # Upload media files using the Video Indexer website
 
+You can upload media files from your file system or from a URL. You can also configure basic or advanced settings for indexing, such as privacy, streaming quality, language, presets, people and brands models, custom logos and metadata.
+
 This article shows how to upload and index media files (audio or video) using the [Azure Video Indexer website](https://aka.ms/vi-portal-link).
 
-You can upload media files from your file system or from a URL. You can also configure basic or advanced settings for indexing, such as privacy, streaming quality, language, presets, people and brands models, custom logos and metadata.
+You can also view a video that shows [how to upload and index media files](https://www.youtube.com/watch?v=H-SHX8N65vM&t=34s&ab_channel=AzureVideoIndexer).
 
 ## Prerequisites
 
