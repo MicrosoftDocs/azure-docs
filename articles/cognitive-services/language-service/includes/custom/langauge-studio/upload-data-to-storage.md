@@ -9,7 +9,7 @@ ms.date: 05/15/2023
 ms.author: jboback
 ---
 
-2. Open the .zip file, and extract the folder containing the documents. 
+2. Locate the files to upload to your storage account
 
 3. In the [Azure portal](https://portal.azure.com), navigate to the storage account you created, and select it.
 
