@@ -28,7 +28,7 @@ When a booking is canceled, there are three options to send confirmation of canc
 
 The first step is to select the Microsoft Booking trigger "When an appointment is Canceled" and then select the address that is used for the management of Virtual appointments. 
  
- :::image type="content" source="./media/flow-send-reminder-on-booking-cancellation.svg" alt-text="Example of Power Automate flow that sends an SMS, email and chat message when Microsoft Booking is canceled." lightbox="./media/flow-send-reminder-on-booking-cancellation.svg":::
+ :::image type="content" source="./media/flow-send-reminder-on-booking-cancellation.png" alt-text="Example of Power Automate flow that sends an SMS, email and chat message when Microsoft Booking is canceled." lightbox="./media/flow-send-reminder-on-booking-cancellation.png":::
 
 Second, you must configure every individual communication channel. We start with "Send SMS". After providing the connection to Azure Communication Services resource, you must select the phone number that will be used for SMS. If you don't have an acquired phone number in the resource, you must first acquire one. Then, you can use the parameter "customerPhone" to fill in the customer's phone and define the SMS message.
 
