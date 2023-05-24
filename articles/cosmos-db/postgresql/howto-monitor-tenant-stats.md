@@ -13,7 +13,8 @@ ms.date: 05/19/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-> [!IMPORTANT] Applicable to Citus 11.3 & newer versions
+> [!IMPORTANT]
+> Applicable to Citus 11.3 & newer versions
 
 This article provides insights into the utilization of cluster resources by tenants, through the utilization of new `citus_stat_tenants` view. The view allows us with tracking:
 
