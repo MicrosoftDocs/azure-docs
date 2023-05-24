@@ -157,7 +157,7 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
 1. Select **Review + assign**.
 
-Run the following command to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values
+Run the following command to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values.
 
 ```azurecli-interactive
 export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
