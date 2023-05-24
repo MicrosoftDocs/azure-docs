@@ -30,8 +30,7 @@ ms.author: danlep
     ```
 1. Go back to the Azure portal and select **Overview**.
 1. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
-    
-    ![Gateway status](./media/api-management-self-hosted-gateway-kubernetes-services/status.png)
+    :::image type="content" source="./media/api-management-self-hosted-gateway-kubernetes-services/status.png" alt-text="Screenshot showing status of self-hosted gateway in the portal.":::
 
 > [!TIP]
 > * Run the `kubectl logs deployment/<gateway-name>` command to view logs from a randomly selected pod if there's more than one.

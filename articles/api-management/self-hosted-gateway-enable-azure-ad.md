@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD authentication for self-hosted gateway | Azure API Management
+title: Azure API Management self-hosted gateway - Azure AD authentication
 description: Enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using Azure Active Directory authentication. 
 services: api-management
 author: dlepow
