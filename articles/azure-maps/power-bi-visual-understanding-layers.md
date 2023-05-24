@@ -27,7 +27,7 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
 
         Renders points as 3D bars on the map.
         
-        ![Bar chart layer on map](media/power-bi-visual/3d-column-layer-thumb.png)
+        ![Bar chart layer on map.](media/power-bi-visual/3d-column-layer-thumb.png)
     :::column-end:::
 :::row-end:::
 
