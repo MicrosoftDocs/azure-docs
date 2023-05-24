@@ -20,7 +20,7 @@ In this article, you will learn how to partition your data in Azure Cosmos DB an
 > Custom partitioning feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Azure Cosmos DB accounts should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning. Custom partitioning is currently supported for Azure Synapse Spark 2.0 only.
+> Azure Cosmos DB accounts should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning.
 
 ## How does it work?
 
