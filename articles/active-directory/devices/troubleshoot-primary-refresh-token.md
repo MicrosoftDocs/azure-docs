@@ -115,7 +115,7 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 ### Step 3: Get troubleshooting instructions for certain error codes
 
 <details>
-<summary>STATUS_LOGON_FAILURE (-1073741715&nbsp;/&nbsp;0xc000006d)<br/>
+<summary>STATUS_LOGON_FAILURE (-1073741715&nbsp;/&nbsp;0xc000006d),<br/>
 STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 </details>
 
@@ -124,8 +124,8 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 </details>
 
 <details>
-<summary>STATUS_NETWORK_UNREACHABLE (-1073741252&nbsp;/&nbsp;0xc000023c)<br/>
-STATUS_BAD_NETWORK_PATH (-1073741634&nbsp;/&nbsp;0xc00000be)<br/>
+<summary>STATUS_NETWORK_UNREACHABLE (-1073741252&nbsp;/&nbsp;0xc000023c),<br/>
+STATUS_BAD_NETWORK_PATH (-1073741634&nbsp;/&nbsp;0xc00000be),<br/>
 STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 </details>
 
@@ -173,9 +173,9 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 #### Common network error codes
 
 <details>
-<summary>ERROR_WINHTTP_TIMEOUT (12002)<br/>
-ERROR_WINHTTP_NAME_NOT_RESOLVED (12007)<br/>
-ERROR_WINHTTP_CANNOT_CONNECT (12029)<br/>
+<summary>ERROR_WINHTTP_TIMEOUT (12002),<br/>
+ERROR_WINHTTP_NAME_NOT_RESOLVED (12007),<br/>
+ERROR_WINHTTP_CANNOT_CONNECT (12029),<br/>
 ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
 </details>
 
