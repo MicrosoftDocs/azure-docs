@@ -55,15 +55,10 @@ To place a call to a Communication Services user, you'll need to provide a Commu
 ### [csharp](#tab/csharp)
 
 ```csharp
-Uri callBackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
-var callerIdentifier = new CommunicationUserIdentifier("<user_id>");  
-CallSource callSource = new CallSource(callerIdentifier); 
-callSource.CallerId = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller  
-var callThisPerson = new PhoneNumberIdentifier("+16041234567"); 
-var listOfPersonToBeCalled = new List<CommunicationIdentifier>();  
-listOfPersonToBeCalled.Add(callThisPerson); 
-var createCallOptions = new CreateCallOptions(callSource, listOfPersonToBeCalled, callBackUri); 
-CreateCallResult response = await client.CreateCallAsync(createCallOptions); 
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller  
+var callThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); // person to call
+CreateCallResult response = await client.CreateCallAsync(callThisPerson, callbackUri);
 ```
 
 ### [Java](#tab/java)
@@ -150,9 +145,8 @@ You can choose to redirect an incoming call to one or more endpoints without ans
 
 ```csharp
 string incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>"; 
-var target = new CommunicationUserIdentifier("<user_id_of_target>"); //user id looks like 8:a1b1c1-... 
-var redirectOption = new RedirectCallOptions(incomingCallContext, target); 
-_ = await client.RedirectCallAsync(redirectOption); 
+var target = new CallInvite(new CommunicationUserIdentifier("<user_id_of_target>")); //user id looks like 8:a1b1c1-... 
+_ = await client.RedirectCallAsync(incomingCallContext, target); 
 ```
 
 # [Java](#tab/java)
@@ -165,12 +159,13 @@ Response<Void> response = client.redirectCallWithResponse(redirectCallOptions).b
 ```
 
 -----
-To redirect the call to a phone number, set the target to be PhoneNumberIdentifier.
+To redirect the call to a phone number, construct the target with PhoneNumberIdentifier.
 
 # [csharp](#tab/csharp)
 
 ```csharp
-var target = new PhoneNumberIdentifier("+16041234567"); 
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+var target = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 ```
 
 # [Java](#tab/java)
@@ -230,17 +225,14 @@ The below sequence diagram shows the expected flow when your application places 
 
 ## Add a participant to a call
 
-You can add one or more participants (Communication Services users or phone numbers) to an existing call. When adding a phone number, it's mandatory to provide source caller ID. This caller ID will be shown on call notification to the participant being added.
+You can add a participant (Communication Services user or phone number) to an existing call. When adding a phone number, it's mandatory to provide source caller ID. This caller ID will be shown on call notification to the participant being added.
 
 # [csharp](#tab/csharp)
 
 ```csharp
-var addThisPerson = new PhoneNumberIdentifier("+16041234567"); 
-var listOfPersonToBeAdded = new List<CommunicationIdentifier>(); 
-listOfPersonToBeAdded.Add(addThisPerson); 
-var addParticipantsOption = new AddParticipantsOptions(listOfPersonToBeAdded); 
-addParticipantsOption.SourceCallerId = new PhoneNumberIdentifier("+16044561234");
-AddParticipantsResult result = await callConnection.AddParticipantsAsync(addParticipantsOption); 
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson); 
 ```
 
 # [Java](#tab/java)
@@ -281,7 +273,7 @@ Response<RemoveParticipantsResult> removeParticipantsResultResponse = callConnec
 ```
 
 -----
-RemoveParticipant only generates `ParticipantUpdated` event describing the latest list of participants in the call. The removed participant is excluded if remove operation was successful.  
+RemoveParticipant will publish a `RemoveParticipantSucceeded` or `RemoveParticipantFailed` event, along with a `ParticipantUpdated` providing the latest list of participants in the call. The removed participant is excluded if remove operation was successful.  
 ![Sequence diagram for removing a participant from the call.](media/remove-participant-flow.png)
 
 ## Hang up on a call
@@ -291,7 +283,7 @@ Hang Up action can be used to remove your application from the call or to termin
 # [csharp](#tab/csharp)
 
 ```csharp
-_ = await callConnection.HangUpAsync(true); 
+_ = await callConnection.HangUpAsync(forEveryone: true); 
 ```
 
 # [Java](#tab/java)
@@ -340,7 +332,7 @@ List<CallParticipant> participantsInfo = Objects.requireNonNull(callConnection.l
 # [csharp](#tab/csharp)
 
 ```csharp
-CallConnectionProperties thisCallsProperties = callConnection.GetCallConnectionProperties(); 
+CallConnectionProperties thisCallsProperties = await callConnection.GetCallConnectionPropertiesAsync(); 
 ```
 
 # [Java](#tab/java)
