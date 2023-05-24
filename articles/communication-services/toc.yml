@@ -695,6 +695,8 @@ items:
         href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Call Automation logs
         href: concepts/analytics/logs/call-automation-logs.md
+      - name: End of call survey
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Recording logs
         href: concepts/analytics/logs/recording-logs.md
       - name: Metrics overview
