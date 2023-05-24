@@ -1,107 +1,116 @@
 ---
-title: Multi-Tenant Stats Monitoring - Azure Cosmos DB for PostgreSQL
-description: See how to review tenant stats metrics for Azure Cosmos DB for PostgreSQL
+title: Monitor stats with Multi-Tenant Monitoring on Azure Cosmos DB for PostgreSQL
+description: how to monitor Multi-tenant stats on Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 05/19/2023
 ---
 
-# Multi-Tenant Stats Monitoring
+# How to monitor tenant stats using Multi-Tenant Monitoring in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 > [!IMPORTANT] Applicable to Citus 11.3 & newer versions
 
-Tenant stats monitoring is a crucial aspect of managing a multi-tenant SaaS platform. It provides insights into how tenants are using the cluster resources, such as CPU, Query volume across the nodes & tenants sharing the individual nodes. The introduction emphasizes the benefits of proactive issue identification, resource allocation optimization, and user experience improvement that can be achieved through tenant stats monitoring.
+This article provides insights into the utilization of cluster resources by tenants, through the utilization of new `citus_stat_tenants` view. The view allows us with tracking :
 
-## Conceptual model
-In this distributed multi-tenant sharded model, a distributed table schema includes a tenant key which is the primary key of table that stores tenant data. The tenant key enables each individual schema to store one or many tenants. The use of sharded database makes it easy for the application system to support a very large number of tenants. All the data for any one tenant is stored on a separate shard (which could be shared or isolated for tenant). The large number of tenants are distributed across the many sharded databases.
+* read query count - SELECT queries.
+* total query count - SELECT, INSERT, DELETE, and UPDATE queries.
+* total CPU usage in seconds.
 
-![screen](./media/saas-tenancy-schema-management/schema-management-dpt.png)
+In this article, you will learn about how could we utilize the `citus_stat_tenants` view for making informed decisions and also would learn to configure to best fit your application.
 
-## GUC 
+> [!Note]
+> * Privileges (`execute & select`) on view is granted to the role `pg_monitor`.
 
-##### citus.stat_tenants_log_level (text)
+## Monitor your top tenants with citus_stat_tenants
 
-Controls the logging insights. Valid value includes (LOG, DEBUG, ERROR, OFF) , the later the level the fewer messages are sent to the log. Default is OFF. Only Citus user can edit this setting.
+When you enable this feature, accounting is activated for SQL commands such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`. This accounting is specifically designed for a `single tenant` queries. A query qualifies to be a single tenant query, if the query planner generates a query plan restricted to a single shard or to a single tenant.
 
-##### citus.stat_tenants_limit (int)
+The feature provides you with better control over required tenant tracking by configuring for desired number of tenants to track, through the usage of parameter `citus.stat_tenants_limit`.
 
-Controls the number of tenants to be returned. Min tenants observed by default.  
+Let's try to learn more by reviewing a sample multi-tenant application which helps companies run their ad-campaigns.
 
-##### citus.stat_tenants_period (int)
+```postgresql
+CREATE TABLE companies (id BIGSERIAL, name TEXT);
+SELECT create_distributed_table ('companies', 'id');
 
-Controls the time period (in secs) during which the metrics of the tenants are closely monitored and analyzed. Default to 15 mins. 
+CREATE TABLE campaigns (id BIGSERIAL, company_id BIGINT, name TEXT);
+SELECT create_distributed_table ('campaigns', 'company_id');
+```
 
-##### citus.stat_tenants_track (boolean)
+With above schema definition you can enroll companies as tenants, while id \ company_id acts as tenant keys. You can create some sample data by running below commands.
 
-Controls the stat collection. Enables or disables the tracking of tenant stats. Default is set to None, for avoiding extra CPU cycles needed for the calculations.
+```postgresql
+INSERT INTO companies (name) VALUES ('GigaMarket');
+INSERT INTO campaigns (company_id, name) VALUES (1, 'Crazy Wednesday'), (1, 'Frozen Food Frenzy');
+INSERT INTO campaigns (company_id, name) VALUES (1, 'Spring Cleaning'), (1, 'Bread&Butter');
+INSERT INTO campaigns (company_id, name) VALUES (1, 'Personal Care Refresh'), (1, 'Lazy Lunch');
 
-## Explore the tenant stat functions & views 
+INSERT INTO companies (name) VALUES ('White Bouquet Flowers');
+INSERT INTO campaigns (company_id, name) VALUES (2, 'Bonjour Begonia'), (2, 'April Selection'), (2, 'May Selection');
 
-##### pg_catalog.citus_stat_tenants 
-The monitoring view tracks the read query & overall query volume at node, colocation & tenant grain. Privileges (execute & select) is granted to role pg_monitor.
+INSERT INTO companies (name) VALUES ('Smart Pants Co.');
+INSERT INTO campaigns (company_id, name) VALUES (3, 'Short Shorts'), (3, 'Tailors Cut');
+INSERT INTO campaigns (company_id, name) VALUES (3, 'Smarter Casual');
+```
 
-| **ColumnName**              | **Type**      | **Description**                                                                             |
-|-----------------------------|---------------|---------------------------------------------------------------------------------------------|
-| nodeid                      | INT           | Auto-generated identifier for an individual node.                                           |
-| colocation_id               | INT           | Co-location group to which this table belongs.                                              |
-| tenant_attribute            | VARCHAR(100)  | Represents the distribution\shard key.                                                      |
-| read_count_in_this_period   | INT           | Represents select queries count for ongoing time period defined with stat_tenants_period.   |
-| read_count_in_last_period   | INT           | Represents select queries count for previous time period defined with stat_tenants_period.  |
-| query_count_in_this_period  | INT           | Represents overall queries count for ongoing time period defined with stat_tenants_period.  |
-| query_count_in_last_period  | INT           | Represents overall queries count for previous time period defined with stat_tenants_period. |
-|                             |               |                                                                                             |
+You can also run a few more reads and update queries and track the changes in `citus_stat_tenants` view upon executing individual commands.
 
+```postgresql
+SELECT COUNT(*) FROM campaigns WHERE company_id = 1;
+count
+-------
+     6
+(1 row)
 
-##### pg_catalog.citus_stat_tenants_reset()
-The function discards statistics gathered so far by citus_stat_tenants
+SELECT name FROM campaigns WHERE company_id = 2 AND name LIKE '%Selection';
+      name
+-----------------
+ April Selection
+ May Selection
+(2 rows)
 
-## Simulate usage with sample
+UPDATE campaigns SET name = 'Tailor''s Cut' WHERE company_id = 3 AND name = 'Tailors Cut';
+```
 
+```postgresql
+SELECT tenant_attribute,
+       read_count_in_this_period,
+       query_count_in_this_period,
+       cpu_usage_in_this_period
+FROM citus_stat_tenants;
+tenant_attribute | read_count_in_this_period | query_count_in_this_period | cpu_usage_in_this_period
+------------------+---------------------------+----------------------------+--------------------------
+ 1                |                         1 |                          5 |                 0.000299
+ 3                |                         0 |                          4 |                 0.000314
+ 2                |                         1 |                          3 |                 0.000295
+(3 rows)
+```
+As you observed, you now have insights into individual top tenant activities.
 
+> [!Important]
+> * Tenant level statistics feature is `disabled by default`, since it adds an overhead.
+>
+> * set citus.stat_tenants_track = 'all' to enable tracking
 
-## What commands are accounted
+The `citus_stat_tenants` view monitor tenants within time buckets, managed using `citus.stat_tenants_period`. Each time period's query and CPU statistics are meticulously counted separately. Once a period concludes, the numbers are finalized and preserved for just one additional period. This allows us with an immediate snapshot of the current period's statistics, along with the data from the previous period.
 
+> [!Note]
+> Default for citus.stat_tenants_period is `60 seconds`.
 
+## Next Steps
+To learn about concepts related to multi-tenant monitoring
+> [!div class="nextstepaction"]
+> [Multi-tenant monitoring](concepts-multi-tenant-monitoring.md)
 
-|                                                Command                                               | Accounted | Remarks |
-|:----------------------------------------------------------------------------------------------------:|:---------:|:-------:|
-| INSERT INTO TABLE (column_1,column_2) VALUES('tenant_1',124);                                        | Yes       |         |
-| INSERT INTO TABLE (column_1,column_2)  VALUES  ('tenant_1',124) ,('tenant_1',234) ,('tenant_1',214); | Yes       |         |
-| INSERT INTO TABLE (column_1,column_2)  VALUES  ('tenant_1',124) ,('tenant_2',234) ,('tenant_3',214); | No        |         |
-| SELECT column_1 FROM Table;                                                                          | No        |         |
-| SELECT column_1 FROM Table WHERE tenant = 'tenant_1';                                                | Yes       |         |
-| SELECT * FROM Table WHERE tenant = 'tenant_1';                                                       | Yes       |         |
-| SELECT column_1 FROM Table WHERE tenant IN ('tenant_1';'tenant_2');                                  | No        |         |
-| SELECT * FROM Table WHERE tenant IN ('tenant_1';'tenant_2');                                         | No        |         |
-| UPDATE Table SET column_2 = 1123;                                                                    | No        |         |
-| UPDATE Table SET column_2 = 1123 WHERE tenant = 'tenant_1';                                          | Yes       |         |
-| UPDATE Table SET column_2 = 1123 WHERE tenant IN ('tenant_1','tenant_2');                            | No        |         |
-| DELETE FROM Table;                                                                                   | No        |         |
-| DELETE FROM Table WHERE tenant = 'tenant_1';                                                         | Yes       |         |
-| DELETE FROM Table WHERE tenant IN ('tenant_1','tenant_2');                                           | No        |         |
-| \copy sample FROM '/home/MyUser/data/TableName.csv' WITH (FORMAT CSV)                                | No        |         |
-|                                                                                                      |           |         |
+To learn about scaling the cluster
+> [!div class="nextstepaction"]
+> [Zero-Downtime cluster scaling](howto-scale-grow.md)
 
-
-> [!TIP] 
-CPU Monitoring - How does this work </br>
-Performance </br>
-documentation </br>
-enabling transmitted to the cluster </br>
-
-
-## Monitor the tenants (Workbook)
-
-To be added post MARLIN integration with Citus 11.3
-
-## Additional Resources
-> For more information, see additional </br>
-> To learn about distributed tables, refer @ concepts-distributed-data </br>
-> To learn about modeling multi-tenant app on Azure Cosmos DB for PostgreSQL, @quickstart-build-scalable-apps-model-multi-tenant </br>
-
-
+To learn about rebalancing
+> [!div class="nextstepaction"]
+> [Zero-Downtime rebalancing](howto-scale-rebalance.md)
