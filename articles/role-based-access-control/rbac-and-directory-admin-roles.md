@@ -92,7 +92,7 @@ Several Azure AD roles span Azure AD and Microsoft 365, such as the Global Admin
 ## Classic subscription administrator roles
 
 > [!IMPORTANT]
-> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) and will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
+> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
 
 Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators can be added. The Service Administrator and the Co-Administrators have the equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
 

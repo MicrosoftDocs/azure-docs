@@ -607,7 +607,7 @@ If you're an Azure AD Global Administrator and you don't have access to a subscr
 ## Classic subscription administrators
 
 > [!IMPORTANT]
-> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) and will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
+> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
 
 ## Next steps
 

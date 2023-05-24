@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) and will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
+> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
