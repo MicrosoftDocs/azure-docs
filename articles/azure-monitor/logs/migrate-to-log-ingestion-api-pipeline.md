@@ -82,7 +82,7 @@ When the source data schema changes, you can:
 - Leave the destination table and data collection rule unchanged. In this case, the new data is dropped.
 
 > [!NOTE]
-> Currently, the Log Ingestion API returns an `internal server error 500` when the data type of an existing property changes and does not match the data type expected by the data collection rule and destination table.
+> The Log Ingestion API returns an `internal server error 500` when the data type of an existing property changes and does not match the data type expected by the data collection rule and destination table.
 ## Next steps
 
 - [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-logs-ingestion-portal.md)
