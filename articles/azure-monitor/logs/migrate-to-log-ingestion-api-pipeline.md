@@ -66,7 +66,7 @@ If you have an existing custom table to which you currently send data using the 
 
 The Log Ingestion API lets you send up to 1 MB of data per call. If you need to send more than 1 MB of data, you can send multiple calls in parallel. This is a change from the Data Collector API, which lets you send up to 32 MB of data per call.
 
-For information about how to call the Log Ingestion API, see [Send data to Azure Monitor Logs using the Log Ingestion API](../logs/logs-ingestion-api-overview.md#rest-api-call).
+For information about how to call the Log Ingestion API, see [Log Ingestion REST API call](../logs/logs-ingestion-api-overview.md#rest-api-call).
 
 > [!NOTE]
 > When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
@@ -77,7 +77,7 @@ The Data Collector API automatically adjusts the destination table schema when t
 
 When the source data schema changes, you can:
 
-- [Adjust destination table schemas](../logs/create-custom-table.md) and [data collection rules](../essentials/data-collection-rule-edit.md) to align with source data schema changes.
+- [Modify destination table schemas](../logs/create-custom-table.md) and [data collection rules](../essentials/data-collection-rule-edit.md) to align with source data schema changes.
 - [Define a transformation](../essentials/data-collection-transformations.md) in the data collection rule to send the new data into existing columns in the destination table. 
 - Leave the destination table and data collection rule unchanged. In this case, the new data is dropped.
 
