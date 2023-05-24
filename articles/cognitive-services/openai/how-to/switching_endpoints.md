@@ -40,3 +40,159 @@ We recommend using environment variables. If you haven't done this before our [P
             openai.api_version = "2023-05-15"  # subject to change
     :::column-end:::
 :::row-end:::
+
+### API key
+
+<table>
+<tr>
+<td> OAI </td> <td> AOAI </td>
+</tr>
+<tr>
+<td>
+
+```python
+import openai
+
+openai.api_key = "sk-..."
+```
+
+</td>
+<td>
+
+```python
+import openai
+
+openai.api_type = "azure"
+openai.api_key = "..."
+openai.api_base = "https://example-endpoint.openai.azure.com"
+openai.api_version = "2023-05-15"  # subject to change
+```
+
+</td>
+</tr>
+</table>
+
+### Azure Active Directory authentication
+
+<table>
+<tr>
+<td> OAI </td> <td> AOAI </td>
+</tr>
+<tr>
+<td>
+
+```python
+import openai
+
+openai.api_key = "sk-..."
+```
+
+</td>
+<td>
+
+```python
+import openai
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+token = credential.get_token("https://cognitiveservices.azure.com/.default")
+
+openai.api_type = "azuread"
+openai.api_key = token.token
+openai.api_base = "https://example-endpoint.openai.azure.com"
+openai.api_version = "2023-05-15"  # subject to change
+```
+
+</td>
+</tr>
+</table>
+
+## Keyword argument for model
+
+OAI uses the `model` keyword argument to specify what model to use. AOAI has the concept of [deployments](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use.
+
+<table>
+<tr>
+<td> OAI </td> <td> AOAI </td>
+</tr>
+<tr>
+<td>
+
+```python
+completion = openai.Completion.create(
+    prompt="<prompt>",
+    model="text-davinci-003"
+)
+  
+chat_completion = openai.ChatCompletion.create(
+    messages="<messages>",
+    model="gpt-4"
+)
+
+embedding = openai.Embedding.create(
+  input="<input>",
+  model="text-embedding-ada-002"
+)
+```
+
+</td>
+<td>
+
+```python
+completion = openai.Completion.create(
+    prompt="<prompt>",
+    deployment_id="text-davinci-003"
+)
+  
+chat_completion = openai.ChatCompletion.create(
+    messages="<messages>",
+    deployment_id="gpt-4"
+)
+
+embedding = openai.Embedding.create(
+  input="<input>",
+  deployment_id="text-embedding-ada-002"
+)
+```
+
+</td>
+</tr>
+</table>
+
+
+## AOAI embeddings does not support multiple inputs yet
+
+Many examples show passing multiple inputs into the embeddings API. For AOAI, currently we must pass a single text input per call.
+
+<table>
+<tr>
+<td> OAI </td> <td> AOAI </td>
+</tr>
+<tr>
+<td>
+
+```python
+inputs = ["A", "B", "C"]
+
+embedding = openai.Embedding.create(
+  input=inputs,
+  model="text-embedding-ada-002"
+)
+```
+
+</td>
+<td>
+
+```python
+inputs = ["A", "B", "C"]
+
+for text in inputs:
+    embedding = openai.Embedding.create(
+        input=text,
+        deployment_id="text-embedding-ada-002"
+    )
+```
+
+</td>
+</tr>
+</table>
