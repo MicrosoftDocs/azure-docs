@@ -8,7 +8,7 @@
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET SDK is installed.
 
-## Set up the application environment
+## Setting up
 
 To set up an environment for sending lookup queries, take the steps in the following sections.
 
@@ -52,7 +52,9 @@ static async Task Main(string[] args)
 }
 ```
 
-## Authenticate the client
+## Code examples
+
+### Authenticate the client
 
 Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal][azure_portal].
 It is recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code.
@@ -74,7 +76,7 @@ TokenCredential tokenCredential = new DefaultAzureCredential();
 client = new PhoneNumbersClient(endpoint, tokenCredential);
 ```
 
-## Send a Number Lookup query
+### Look up operator information for a number
 
 To search for a phone number's operator information, call `SearchOperatorInformationAsync` from the `PhoneNumbersClient`.
 
@@ -88,7 +90,7 @@ Replace `<target-phone-number>` with the phone number you are looking up, usuall
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
-## Use
+### Use operator information
 
 You can now use the operator information.  For this quickstart guide we can simply print some of the details to the console.
 
