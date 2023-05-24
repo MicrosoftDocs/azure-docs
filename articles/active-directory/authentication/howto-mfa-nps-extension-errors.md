@@ -108,6 +108,6 @@ The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azur
 
 If you need additional help, contact a support professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, the ID of the user who saw the error, and debug logs.
 
-To collect debug logs for support diagnostics, run the [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) on the NPS server and choose option **4** to collect them logs to provide them to Microsoft support.
+To collect debug logs for support diagnostics, run the [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) on the NPS server and choose option **4** to collect the logs to provide them to Microsoft support.
 
-At the end, upload the zip output file generated on C:\NPS folder and attach it to the support case.
+At the end, upload the zip output file generated on the C:\NPS folder and attach it to the support case.
