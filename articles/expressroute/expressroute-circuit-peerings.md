@@ -50,7 +50,6 @@ Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Az
 
 #### Unsupported workflow
 
-* Downgrade from Premium to Standard SKU.
 * Changing from *UnlimitedData* to *MeteredData*.
 
 ## <a name="routingdomains"></a>ExpressRoute peering
