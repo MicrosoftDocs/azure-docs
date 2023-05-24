@@ -90,7 +90,9 @@ Response: response.body.value.id; // "AAMkADc7zF4J0AAA8v_KnAAA="
 ```
 In the response, you see a new Booking appointment was created. Virtual appointment also shows in the Microsoft Booking app and Microsoft Teams Virtual appointment application.
 
-Note: The only way to get customer information is to use GET Microsoft Graph Booking appointment API.
+> [!NOTE]
+> The only way to get customer information is to use GET Microsoft Graph Booking appointment API.
+
 
 ## Bring your own scheduling system
 
