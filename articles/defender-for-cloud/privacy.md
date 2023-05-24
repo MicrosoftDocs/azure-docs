@@ -89,7 +89,7 @@ Audit logs of security contact, just-in-time, and alert updates are maintained i
 The right of data portability allows data subjects to request a copy of their personal data in a structured, common, electronic format that can be transmitted to another data controller.
 
 ### Manage export and view requests
-Manage requests to export customer or user data.
+You can manage requests to export customer or user data.
 
 #### Export customer data (tenant admin)
 As a tenant administrator, export customer data.
