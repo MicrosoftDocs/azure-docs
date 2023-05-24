@@ -35,7 +35,7 @@ To follow the steps in this guide, you must have:
 
 ## Set up reporting
 
-To create a new report, follow the steps below.
+To create a new report, follow these steps.
 
 1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
 2. In the Grafana portal, go to **Reporting > Reports** and select **+ Create a new report**.
@@ -44,9 +44,9 @@ To create a new report, follow the steps below.
 ## Export dashboard to PDF
 
 > [!NOTE]
-> The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples below at the time of reading this document. If this is the case, refer to the [Grafana Labs documentation](https://grafana.com/docs/grafana/latest/dashboards/create-reports/#export-dashboard-as-pdf).
+> The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples at the time of reading this document. If this is the case, refer to the [Grafana Labs documentation](https://grafana.com/docs/grafana/latest/dashboards/create-reports/#export-dashboard-as-pdf).
 
-To create a new report, follow the steps below.
+To create a new report, follow these steps.
 
 1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
 2. In the Grafana portal, go to the dashboard you want to export.
@@ -56,7 +56,7 @@ To create a new report, follow the steps below.
 
 ## Use images in notifications
 
-Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your instance. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/manage-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there is a 30 second time limit for taking a screenshot. If a screenshot can't be completed in time, it won't be included with the corresponding alert.
+Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your instance. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/manage-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there's a 30-second time limit for taking a screenshot. If a screenshot can't be completed in time, it isn't included with the corresponding alert.
 
 ## Next steps
 
