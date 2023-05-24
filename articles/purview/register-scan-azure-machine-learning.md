@@ -80,7 +80,7 @@ To access the browse experience for data assets from your Azure Machine Learning
 
 ### Browse by collection
 
-Browse by collection allows you to explore the different collections you are a data reader or curator for.
+Browse by collection allows you to explore the different collections you're a data reader or curator for.
 
 :::image type="content" source="./media/register-scan-azure-machine-learning/browse-by-collection.png" alt-text="Screenshot of browsing by collection":::
 
@@ -90,7 +90,7 @@ Browse by collection allows you to explore the different collections you are a d
 
     :::image type="content" source="./media/register-scan-azure-machine-learning/browse-by-type.png" alt-text="Screenshot of the Azure Machine Learning source type.":::
 
-1. The top-level assets under your selected data type are listed. Pick one of the assets to further explore it's contents. For example, after selecting Azure Machine Learning, you'll see a list of workspaces with assets in the data catalog.
+1. The top-level assets under your selected data type are listed. Pick one of the assets to further explore its contents. For example, after selecting Azure Machine Learning, you'll see a list of workspaces with assets in the data catalog.
 
     :::image type="content" source="./media/register-scan-azure-machine-learning/top-level-assets.png" alt-text="Screenshot of the top level assets.":::
 
