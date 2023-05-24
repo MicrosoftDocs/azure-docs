@@ -6,23 +6,23 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v1/how-to-network-security-overview.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-network-security-overview.md",
         "redirect_url": "/azure/machine-learning/how-to-network-security-overview",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v1/how-to-workspace-diagnostic-api.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-workspace-diagnostic-api.md",
         "redirect_url": "/azure/machine-learning/how-to-workspace-diagnostic-api",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-configure-cross-validation-data-splits.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-configure-cross-validation-data-splits",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-cross-validation-data-splits.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-cross-validation-data-splits",
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-auto-ml.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-troubleshoot-auto-ml",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-troubleshoot-auto-ml.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-auto-ml",
         "redirect_document_id": true
     },
     {
