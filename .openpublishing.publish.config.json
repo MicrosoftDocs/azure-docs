@@ -411,6 +411,18 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-vj",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "vijetajo-patch-2",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-batch-pup",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "santiagxf/batch-pup",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
@@ -432,6 +444,12 @@
       "path_to_root": "azureml-examples-online-endpoint-vnet",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-featurestore",
+      "url": "https://github.com/Azure/azureml-examples",
+      "branch": "featurestore/pup",
       "branch_mapping": {}
     },
     {
@@ -897,15 +915,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "ms-identity-python-webapp",
+      "path_to_root": "ms-identity-python-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "main",
+      "branch": "0.7.0",
       "branch_mapping": {}
     },
     {
       "path_to_root": "ms-identity-python-webapp-tutorial",
       "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "0.5.0",
+      "branch": "0.6.0",
       "branch_mapping": {}
     },
     {
@@ -979,7 +997,13 @@
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "azure-actions-workflow-samples",
+      "url": "https://github.com/Azure/actions-workflow-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    }  
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],

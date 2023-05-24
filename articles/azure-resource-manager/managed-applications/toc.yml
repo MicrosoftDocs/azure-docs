@@ -13,10 +13,16 @@
     displayName: definition, service catalog
   - name: Publish definition with bring your own storage
     href: publish-service-catalog-bring-your-own-storage.md
-    displayName: bring your own storage, BYOS, definition
+    displayName: bring your own storage, BYOS, definition, bicep, service catalog
+  - name: Publish managed app definition - Bicep
+    href: publish-bicep-definition.md
+    displayName: service catalog, bicep
   - name: Deploy service catalog managed app
     href: deploy-service-catalog-quickstart.md
     displayName: service catalog, deploy
+  - name: Deploy service catalog managed app - Bicep
+    href: deploy-bicep-definition.md
+    displayName: service catalog, bicep
   - name: Deploy Azure Marketplace managed app
     href: deploy-marketplace-app-quickstart.md
     displayName: Marketplace, deploy
@@ -66,7 +72,7 @@
       href: publish-managed-identity.md
     - name: Create storage with customer-managed key
       href: create-storage-customer-managed-key.md
-      displayName: managed identity, cmk, cmek, encryption
+      displayName: managed identity, cmk, cmek, encryption, bicep
     - name: Deploy with notifications
       href: publish-notifications.md
   - name: Consumers

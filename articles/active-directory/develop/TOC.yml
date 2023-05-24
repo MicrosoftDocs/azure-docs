@@ -559,7 +559,7 @@
           displayName: migration
           href: msal-migration.md
         - name: List all apps using ADAL
-          href: howto-get-list-of-all-active-directory-auth-library-apps.md
+          href: howto-get-list-of-all-auth-library-apps.md
     - name: Deprecate
       items:
         - name: Remove an app registration

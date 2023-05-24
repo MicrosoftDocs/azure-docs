@@ -214,7 +214,7 @@ This article describes how to configure your container app to use managed identi
 |--------------|-------------|
 | Azure account | An Azure account with an active subscription. If you don't have one, you can  [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
-| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-az-ps) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
+| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
 
 ## Setup

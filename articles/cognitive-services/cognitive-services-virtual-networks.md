@@ -20,7 +20,7 @@ An application that accesses a Cognitive Services resource when network rules ar
 
 > [!IMPORTANT]
 > Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
-
+>
 > * The request should originate from a service operating within an Azure Virtual Network (VNet) on the allowed subnet list of the target Cognitive Services account. The endpoint in requests originated from VNet needs to be set as the [custom subdomain](cognitive-services-custom-subdomains.md) of your Cognitive Services account.
 > * Or the request should originate from an allowed list of IP addresses.
 >
@@ -91,7 +91,7 @@ You can manage default network access rules for Cognitive Services resources thr
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. Display the status of the default rule for the Cognitive Services resource.
 
@@ -213,7 +213,7 @@ You can manage virtual network rules for Cognitive Services resources through th
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List virtual network rules.
 
@@ -369,7 +369,7 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 # [PowerShell](#tab/powershell)
 
-1. Install the [Azure PowerShell](/powershell/azure/install-az-ps) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
+1. Install the [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps), or select **Try it**.
 
 1. List IP network rules.
 

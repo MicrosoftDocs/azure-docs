@@ -1,7 +1,7 @@
 ---
-title: How to work with the Chat Completion API (preview)
+title: How to work with the Chat Completion API 
 titleSuffix: Azure OpenAI
-description: Learn how to work with Chat Completion API (preview)
+description: Learn how to work with Chat Completion API 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
@@ -12,17 +12,17 @@ keywords: ChatGPT
 
 ---
 
-## Working with the ChatGPT and GPT-4 models (preview)
+## Working with the ChatGPT and GPT-4 models 
 
 The following code snippet shows the most basic way to use the ChatGPT and GPT-4 models with the Chat Completion API. If this is your first time using these models programmatically, we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
-**GPT-4 models are currently in preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+**GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 ```python
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value.
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -211,7 +211,7 @@ This means that every time a new question is asked, a running transcript of the 
 import os
 import openai
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -247,7 +247,7 @@ import tiktoken
 import openai
 import os
 openai.api_type = "azure"
-openai.api_version = "2023-03-15-preview" 
+openai.api_version = "2023-05-15" 
 openai.api_base = os.getenv("OPENAI_API_BASE")  # Your Azure OpenAI resource's endpoint value .
 openai.api_key = os.getenv("OPENAI_API_KEY")
 

@@ -22,6 +22,8 @@
             href: migrate/how-to-migrate-single-to-flexible-portal.md
           - name: Single to Flexible server migration tool - Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
+          - name: Common errors
+            href: migrate/common-errors-and-special-scenarios-fms.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -705,6 +707,14 @@
         href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: flexible-server/how-to-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: flexible-server/howto-optimize-performance-pgvector.md
+          displayName: pgvector
 - name: Hyperscale (Citus)
   items:
   - name: Where is Hyperscale (Citus)?
@@ -777,6 +787,6 @@
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
   - name: Partners
-    href: partners-migration-postgresql.md
+    href: migrate/partners-migration-postgresql.md
   - name: Database Migration Guide
     href: /data-migration/
