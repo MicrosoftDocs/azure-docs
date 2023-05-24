@@ -24,28 +24,9 @@ We recommend using environment variables. If you haven't done this before our [P
 
 ### API key
 
-:::row:::
-    :::column:::
-        **OpenAI**
-            import openai
-            openai.api_key = "sk-..."
-    :::column-end:::
-    :::column span="2":::
-        **Azure OpenAI**
-            import openai
-            
-            openai.api_type = "azure"
-            openai.api_key = "..."
-            openai.api_base = "https://example-endpoint.openai.azure.com"
-            openai.api_version = "2023-05-15"  # subject to change
-    :::column-end:::
-:::row-end:::
-
-### API key
-
 <table>
 <tr>
-<td> OAI </td> <td> AOAI </td>
+<td> OpenAI </td> <td> Azure OpenAI </td>
 </tr>
 <tr>
 <td>
@@ -54,6 +35,9 @@ We recommend using environment variables. If you haven't done this before our [P
 import openai
 
 openai.api_key = "sk-..."
+openai.organization = "..."
+
+
 ```
 
 </td>
@@ -85,6 +69,11 @@ openai.api_version = "2023-05-15"  # subject to change
 import openai
 
 openai.api_key = "sk-..."
+openai.organization = "..."
+
+
+
+
 ```
 
 </td>
@@ -109,11 +98,11 @@ openai.api_version = "2023-05-15"  # subject to change
 
 ## Keyword argument for model
 
-OAI uses the `model` keyword argument to specify what model to use. AOAI has the concept of [deployments](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of the `engine` interchangeably with `deployment_id`. For OpenAI `engine` will still work in most instances but it is deprecated and `model` is preferred.
 
 <table>
 <tr>
-<td> OAI </td> <td> AOAI </td>
+<td> OpenAI </td> <td> Azure OpenAI </td>
 </tr>
 <tr>
 <td>
@@ -133,6 +122,10 @@ embedding = openai.Embedding.create(
   input="<input>",
   model="text-embedding-ada-002"
 )
+
+
+
+
 ```
 
 </td>
@@ -142,16 +135,20 @@ embedding = openai.Embedding.create(
 completion = openai.Completion.create(
     prompt="<prompt>",
     deployment_id="text-davinci-003"
+    #engine="text-davinci-003" 
 )
   
 chat_completion = openai.ChatCompletion.create(
     messages="<messages>",
     deployment_id="gpt-4"
+    #engine="gpt-4"
+
 )
 
 embedding = openai.Embedding.create(
   input="<input>",
   deployment_id="text-embedding-ada-002"
+  #engine="text-embedding-ada-002"
 )
 ```
 
@@ -159,14 +156,13 @@ embedding = openai.Embedding.create(
 </tr>
 </table>
 
+## Azure OpenAI embeddings does not support multiple inputs
 
-## AOAI embeddings does not support multiple inputs yet
-
-Many examples show passing multiple inputs into the embeddings API. For AOAI, currently we must pass a single text input per call.
+Many examples show passing multiple inputs into the embeddings API. For Azure OpenAI, currently we must pass a single text input per call.
 
 <table>
 <tr>
-<td> OAI </td> <td> AOAI </td>
+<td> OpenAI </td> <td> Azure OpenAI </td>
 </tr>
 <tr>
 <td>
@@ -178,6 +174,8 @@ embedding = openai.Embedding.create(
   input=inputs,
   model="text-embedding-ada-002"
 )
+
+
 ```
 
 </td>
@@ -190,9 +188,15 @@ for text in inputs:
     embedding = openai.Embedding.create(
         input=text,
         deployment_id="text-embedding-ada-002"
+        #engine="text-embedding-ada-002"
     )
 ```
 
 </td>
 </tr>
 </table>
+
+## Next steps
+
+* Learn more about how to work with ChatGPT and the GPT-4 models with [our how-to guide](../how-to/chatgpt.md).
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
