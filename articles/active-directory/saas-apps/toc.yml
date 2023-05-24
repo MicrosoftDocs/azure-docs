@@ -2235,6 +2235,8 @@
         href: servicechannel-tutorial.md
       - name: ServiceNow
         href: servicenow-tutorial.md
+      - name: ServusConnect
+        href: servusconnect-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
       - name: SevOne Network Monitoring System (NMS)
