@@ -16,7 +16,7 @@ zone_pivot_groups: net
 # Quickstart: Look up operator information for a phone number
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [CSharp](./includes/lookup-phone-number-net.md)]
+[!INCLUDE [CSharp](./includes/number-lookup-net.md)]
 ::: zone-end
 
 ## Troubleshooting
