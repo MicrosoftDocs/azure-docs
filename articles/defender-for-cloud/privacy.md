@@ -96,13 +96,8 @@ As a tenant administrator, you have the ability to export customer data.
 
 **To export customer data**:
 1. Send an email to `D4APIS_DSRRequests@microsoft.com` that specifies the customer’s email address in the request. 
-
-    The Defender for APIs team respond with an email to the registered tenant's administrator email address that will ask for confirmation to export the data.
+2. The Defender for APIs team will respond with an email to the registered tenant's administrator email address that will ask for confirmation to export the data.
+3. Acknowledge the confirmation to export the data for the requested customer. The exported data will be sent to the tenant administrator's email address.
     
 ## Next steps
-
 [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)
-
-**To export customer data**:
-1. Acknowledge the confirmation to export the data for the requested customer.
-The exported data will be sent to the tenant administrator's email address.
