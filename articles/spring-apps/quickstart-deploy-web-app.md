@@ -67,7 +67,7 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-consumption-plan"
 
-[!INCLUDE [deploy-to-azure-spring-apps-conusumption-plan](includes/quickstart-deploy-web-app/deploy-conusumption-plan.md)]
+[!INCLUDE [deploy-to-azure-spring-apps-consumption-plan](includes/quickstart-deploy-web-app/deploy-consumption-plan.md)]
 
 ::: zone-end
 
