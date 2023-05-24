@@ -140,7 +140,7 @@ Remove-AzNetworkWatcher -Location 'eastus'
 Use [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) to delete an instance of Network Watcher:
 
 ```azurecli-interactive
-# Disable Network Watcher in the East US region by deleting its East US instance.
+# Disable Network Watcher in the East US region.
 az network watcher configure --locations 'eastus' --enabled 'false'
 ```
 
