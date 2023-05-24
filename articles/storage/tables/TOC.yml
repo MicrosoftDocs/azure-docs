@@ -151,11 +151,11 @@
     - name: Configure client-side encryption
       items:
       - name: .NET
-        href: /storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=dotnet
       - name: Java
-        href: /storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=java
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=java
       - name: Python
-        href: /storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
+        href: /azure/storage/blobs/client-side-encryption?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=python
     - name: Configure network security
       items:
       - name: Configure firewalls and virtual networks
