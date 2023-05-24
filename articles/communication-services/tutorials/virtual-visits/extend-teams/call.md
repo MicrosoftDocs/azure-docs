@@ -61,7 +61,7 @@ You can further [customize the user interface with your own theme for customizat
 ## Build your own layout with user interface components
 Azure Communication Services user interface library gives you access to individual components to customize its user interface, and its behavior. The following image highlights the individual components that are available to use.
 
-![Diagram is showing layout of meeting decomposed into individual user interface calling components.](./components-calling.png)
+![Diagram is showing layout of meeting decomposed into individual user interface calling components.](./media/components-calling.png)
  
 The following table details the individual components:
 
@@ -74,7 +74,7 @@ The following table details the individual components:
 
 You can also customize your chat experience. The following image highlights the individual components of chat.
  
- ![Diagram is showing layout of meeting decomposed into individual user interface chat components](./components-chat.png)
+ ![Diagram is showing layout of meeting decomposed into individual user interface chat components](./media/components-chat.png)
  
 The following table provides descriptions with links to individual components
 
@@ -185,7 +185,7 @@ let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageReques
 
 With all three phases, you have a user that can join Virtual appointments with audio, video, screen sharing and chat. This approach gives you full control over the user interface and the behavior of individual actions.
 
-## Next Steps
+## Next steps
 -	Learn what [extensibility options](./overview.md) do you have for Virtual appointments.
 -	Learn how to customize [before and after appointment](./before-and-after-appointment.md)
 -	Learn how to customize [precall experience](./precall.md)
