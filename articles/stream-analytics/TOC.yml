@@ -354,7 +354,7 @@
       href: cicd-autoscale.md
   - name: Visual Studio
     items:
-    - name: Migrate ASA projects to VSCode
+    - name: Migrate Stream Analytics projects to VS Code
       href: migrate-to-vscode.md
     - name: Quickstart
       href: stream-analytics-quick-create-vs.md
