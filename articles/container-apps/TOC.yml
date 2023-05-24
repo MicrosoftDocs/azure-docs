@@ -87,6 +87,8 @@
         href: dapr-keda-scaling.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
+    - name: Connect to services
+      href: services.md
 - name: How-to guides
   items:
     - name: Deploy an app with containerapp up
@@ -220,6 +222,8 @@
         href: tutorial-event-driven-jobs.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
+    - name: Connect development and production services
+      href: connect-services.md
     - name: Azure Arc
       items:
       - name: 1 - Set up Azure Arc-enabled Kubernetes clusters

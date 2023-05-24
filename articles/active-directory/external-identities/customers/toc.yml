@@ -258,6 +258,18 @@ items:
           href: how-to-manage-admin-accounts.md
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
+    - name: Management APIs
+      items:
+        - name: Overview
+          href: how-to-management-apis-overview.md
+        - name: User flows operations
+          href: microsoft-graph-operations-user-flow.md
+        - name: Company branding operations
+          href: microsoft-graph-operations-branding.md
+        - name: Customer extensions
+          href: microsoft-graph-operations-custom-extensions.md
+        - name: Tenant management operations
+          href: azure-rest-api-operations-tenant-management.md 
 - name: Reference
   items:
     - name: Default user permissions
@@ -284,3 +296,7 @@ items:
             href: /javascript/api/@azure/msal-react/
           - name: msal-node
             href: /javascript/api/@azure/msal-node/
+- name: Resources
+  items:
+    - name: Frequently asked questions (FAQ)
+      href: faq-customers.md

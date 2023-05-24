@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 05/17/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -25,6 +25,9 @@ Azure Active Directory (Azure AD) for customers is designed for businesses that 
 ## Compare workforce and customer tenant capabilities
 
 Although workforce tenants and customer tenants are built on the same underlying Microsoft Entra platform, there are some feature differences. The following table compares the features available in each type of tenant.
+
+> [!NOTE]
+> During preview, features or capabilities that require a premium license are unavailable in customer tenants.
 
 |Feature  |Workforce tenant  | Customer tenant |
 |---------|---------|---------|

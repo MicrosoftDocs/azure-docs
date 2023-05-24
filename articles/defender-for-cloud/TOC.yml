@@ -390,6 +390,9 @@
       href: defender-for-apis-prepare.md
     - name: Onboard Defender for APIs
       href: defender-for-apis-deploy.md
+    - name: Validate APIs alerts
+      displayName: validate, api, apis
+      href: defender-for-apis-validation.md
     - name: Investigate findings, recommendations, alerts
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
@@ -664,7 +667,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?term=defender%20for%20cloud
+    href: /training/browse/?term=defender%20for%20cloud&terms=defender%20for%20cloud&expanded=microsoft-defender&products=defender-for-cloud
   - name: Defender for Cloud glossary of terms
     href: defender-for-cloud-glossary.md
   - name: Microsoft Defender for Cloud in the field
@@ -728,7 +731,9 @@
     - name: Security policy enhancements in Defender for Cloud
       href: episode-twenty-nine.md
     - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
-      href: episode-thirty.md  
+      href: episode-thirty.md
+    - name: Understanding data aware security posture capability
+      href: episode-thirty-one.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
