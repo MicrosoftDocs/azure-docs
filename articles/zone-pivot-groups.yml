@@ -1618,6 +1618,10 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: rest-api
@@ -2425,6 +2429,19 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
+# Owner: juliakm
+- id: github-actions-deployment-options
+  title: GitHub Actions deployment options
+  prompt: Choose how to create the workflow configuration
+  pivots:
+  - id: method-manual
+    title: Manual
+  - id: method-portal
+    title: Azure portal
+  - id: method-cli
+    title: Azure CLI
+  - id: method-template
+    title: GitHub Actions template
 # Owner: sidandrews
 - id: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
   title: Azure Cosmos DB APIs
@@ -2438,3 +2455,14 @@ groups:
     title: Apache Gremlin
   - id: api-table
     title: Table
+# Owner: franlanglois
+- id: cache-redis-zone-pivot-group
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python

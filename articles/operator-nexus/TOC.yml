@@ -7,10 +7,12 @@
       href: overview.md
 - name: Concepts
   items:
-    - name: Resource Types
-      href: concepts-resource-types.md
-    - name: Observability
-      href: concepts-observability.md
+  - name: Resource Types
+    href: concepts-resource-types.md
+  - name: Compute overview
+    href: concepts-compute.md
+  - name: Observability
+    href: concepts-observability.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -57,6 +59,8 @@
   items:
     - name: Troubleshoot AKS-Hybrid
       href: troubleshoot-aks-hybrid-cluster.md
+    - name: Troubleshoot Isolation Domain
+      href: troubleshoot-isolation-domain.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment
@@ -65,7 +69,9 @@
       href: template-cloud-native-network-function-deployment.md
 - name: Reference
   items:
-    - name: Instance to On-Premises WAN Connectivity
-      href: reference-customer-edge-provider-edge-connectivity.md
-    - name: List of metrics collected
-      href: List-of-metrics-collected.md
+  - name: Instance to On-Premises WAN Connectivity
+    href: reference-customer-edge-provider-edge-connectivity.md
+  - name: List of metrics collected
+    href: List-of-metrics-collected.md
+  - name: Near-edge Compute
+    href: reference-near-edge-compute.md
