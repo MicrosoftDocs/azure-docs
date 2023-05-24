@@ -112,7 +112,7 @@ If you want to create customized navigation controls, create a class that extend
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Compass Control]
+> [CompassControl]
 
 > [!div class="nextstepaction"]
 > [PitchControl]
