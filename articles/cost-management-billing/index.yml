@@ -15,6 +15,7 @@ metadata:
   ms.reviewer: micflan
   ms.author: banders
   ms.date: 05/23/2023
+
 highlightedContent:
   items:
     - title: What is Cost Management and Billing?
@@ -44,13 +45,13 @@ highlightedContent:
     - title: Learn at your own pace
       itemType: learn
       url: /training/paths/control-spending-manage-bills/
-additionalContent:
+
+productDirectory:
   sections:
     - title: Billing + subscriptions
       items:
         - title: Manage your account
           imageSrc: ./media/billing-hub.svg
-          imageSrc: ./media/team-project.svg
           links:
             - text: Get started with Microsoft Customer Agreement
               url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
@@ -66,7 +67,6 @@ additionalContent:
             - text: Change administrator
               url: manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/toc.json
         - title: Access + permissions
-          imageSrc: ./media/download.svg
           imageSrc: ./media/team-project.svg
           links:
             - text: Assign access to cost data
