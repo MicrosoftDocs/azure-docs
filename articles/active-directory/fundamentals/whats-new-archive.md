@@ -2040,7 +2040,7 @@ Privileged Role Administrators can now create Azure AD access reviews on Azure A
  
 ---
 
-### General Availability - Azure AD single Sign-on and device-based Conditional Access support in Firefox on Windows 10/11
+### General Availability - Azure AD single sign-on and device-based Conditional Access support in Firefox on Windows 10/11
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
@@ -5003,7 +5003,7 @@ The user risk condition requires Azure AD Premium P2 because it uses Azure Ident
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-Some SAML applications require SPNameQualifier to be returned in the assertion subject when requested. Now Azure AD responds correctly when a SPNameQualifier is requested in the request NameID policy. This also works for SP initiated sign-in, and IdP initiated sign-in will follow.  To learn more about SAML protocol in Azure Active Directory, see [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md).
+Some SAML applications require SPNameQualifier to be returned in the assertion subject when requested. Now Azure AD responds correctly when a SPNameQualifier is requested in the request NameID policy. This also works for SP initiated sign-in, and IdP initiated sign-in will follow.  
 
 ---
 
@@ -5652,7 +5652,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 **Product capability:** Access Control
 
-Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods&#8212;Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider)&#8212;and to deploy related on-premises infrastructure to enable them. On-premises infrastructure includes Provisioning and PTA agents. This role grants the ability to enable Seamless Single Sign-On (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and to access health and analytics for monitoring and troubleshooting purposes. [Learn more.](../roles/permissions-reference.md#hybrid-identity-administrator)
+Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods&#8212;Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider)&#8212;and to deploy related on-premises infrastructure to enable them. On-premises infrastructure includes Provisioning and PTA agents. This role grants the ability to enable seamless single sign-on (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and to access health and analytics for monitoring and troubleshooting purposes. [Learn more.](../roles/permissions-reference.md#hybrid-identity-administrator)
 
 ---
 
@@ -6328,13 +6328,13 @@ For more information, see [Add Google as an identity provider for B2B guest user
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-Azure AD for Microsoft Edge on iOS and Android now supports Azure AD Single Sign-On and Conditional Access:
+Azure AD for Microsoft Edge on iOS and Android now supports Azure AD single sign-on and Conditional Access:
 
 - **Microsoft Edge single sign-on (SSO):** Single sign-on is now available across native clients (such as Microsoft Outlook and Microsoft Edge) for all Azure AD -connected apps.
 
 - **Microsoft Edge conditional access:** Through application-based conditional access policies, your users must use Microsoft Intune-protected browsers, such as Microsoft Edge.
 
-For more information about conditional access and SSO with Microsoft Edge, see the [Microsoft Edge Mobile Support for Conditional Access and Single Sign-on Now Generally Available](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Microsoft-Edge-Mobile-Support-for-Conditional-Access-and-Single/ba-p/988179) blog post. For more information about how to set up your client apps using [app-based conditional access](../conditional-access/app-based-conditional-access.md) or [device-based conditional access](../conditional-access/require-managed-devices.md), see [Manage web access using a Microsoft Intune policy-protected browser](/intune/apps/app-configuration-managed-browser).
+For more information about conditional access and SSO with Microsoft Edge, see the [Microsoft Edge Mobile Support for Conditional Access and single sign-on Now Generally Available](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Microsoft-Edge-Mobile-Support-for-Conditional-Access-and-Single/ba-p/988179) blog post. For more information about how to set up your client apps using [app-based conditional access](../conditional-access/app-based-conditional-access.md) or [device-based conditional access](../conditional-access/require-managed-devices.md), see [Manage web access using a Microsoft Intune policy-protected browser](/intune/apps/app-configuration-managed-browser).
 
 ---
 
@@ -6690,7 +6690,7 @@ Starting on September 24, 2019, we're going to start rolling out a new Azure Act
 
 The Global Reader role is the read-only counterpart to Global Administrator. Users in this role can read settings and administrative information across Microsoft 365 services, but can't take management actions. We've created the Global Reader role to help reduce the number of Global Administrators in your organization. Because Global Administrator accounts are powerful and vulnerable to attack, we recommend that you have fewer than five Global Administrators. We recommend using the Global Reader role for planning, audits, or investigations. We also recommend using the Global Reader role in combination with other limited administrator roles, like Exchange Administrator, to help get work done without requiring the Global Administrator role.
 
-The Global Reader role works with the new Microsoft 365 Admin Center, Exchange Admin Center, Teams Admin Center, Security Center, Compliance Center, Azure portal, and the Device Management Admin Center.
+The Global Reader role works with the new Microsoft 365 Admin Center, Exchange Admin Center, Teams Admin Center, Security Center, Microsoft Purview compliance portal, Azure portal, and the Device Management Admin Center.
 
 >[!NOTE]
 > At the start of public preview, the Global Reader role won't work with: SharePoint, Privileged Access Management, Customer Lockbox, sensitivity labels, Teams Lifecycle, Teams Reporting & Call Analytics, Teams IP Phone Device Management, and Teams App Catalog.
