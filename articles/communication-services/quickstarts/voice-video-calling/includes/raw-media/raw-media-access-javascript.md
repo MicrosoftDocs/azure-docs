@@ -222,11 +222,23 @@ You can access the raw video stream for an incoming call. You use `MediaStream` 
 ```js
 const userId = 'acs_user_id';
 const call = callAgent.startCall(userId);
-const callStateChangedHandler = () => {
+const callStateChangedHandler = async () => {
     if (call.state === "Connected") {
         const remoteVideoStream = remoteParticipants[0].videoStreams[0];
-        const mediaStream = remoteVideoStream.getMediaStream();
-	// process the incoming call's video media stream
+        const processMediaStream = async () => {
+            if (remoteVideoStream.isAvailable) {
+                // remote video stream is turned on, process the video's raw media stream.
+                const mediaStream = await remoteVideoStream.getMediaStream();
+            } else {
+                // remote video stream is turned off, handle it
+            }
+        };
+	
+        remoteVideoStream.on('isAvailableChanged', async () => {
+            await processMediaStream();
+        });
+	
+        await processMediaStream();
     }
 };
 
