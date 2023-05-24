@@ -2080,28 +2080,32 @@ Get the request trace ID and the span ID in your code:
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 #### [.NET](#tab/net)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Java](#tab/java)
 
-- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 - For a list of open issues related to Azure Monitor Java Autoinstrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
 
 ### [Node.js](#tab/nodejs)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry JavaScript community](https://github.com/open-telemetry/opentelemetry-js) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-js/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Python](#tab/python)
 
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
 - For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Python/issues/new).
 
