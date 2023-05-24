@@ -16,25 +16,25 @@ Roles consist of a collection of permissions or actions that a user is allowed t
 
 ## Create the custom role
 
-1. Create roles using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `PasswordlessReadWrite` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
+1. Create a role using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `PasswordlessReadWrite` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
 
-```azurecli
-az cosmosdb sql role definition create 
-    --account-name passwordlessnosql
-    --resource-group  passwordlesstesting 
-    --body '{
-    "RoleName": "PasswordlessReadWrite",
-    "Type": "CustomRole",
-    "AssignableScopes": ["/"],
-    "Permissions": [{
-        "DataActions": [
-            "Microsoft.DocumentDB/databaseAccounts/readMetadata",
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
-            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
-        ]
-    }]
-}'
-```
+    ```azurecli
+    az cosmosdb sql role definition create 
+        --account-name <cosmosdb-account-name>
+        --resource-group  <resource-group-name>
+        --body '{
+        "RoleName": "PasswordlessReadWrite",
+        "Type": "CustomRole",
+        "AssignableScopes": ["/"],
+        "Permissions": [{
+            "DataActions": [
+                "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
+                "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
+            ]
+        }]
+    }'
+    ```
 
 1. When the command completes, copy the ID value from the `name` field and paste it somewhere for later use.
 
@@ -50,8 +50,8 @@ az cosmosdb sql role definition create
     
     ```azurecli
     az cosmosdb sql role assignment create 
-        --account-name passwordlessnosql
-        --resource-group passwordlesstesting
+        --account-name <cosmosdb-account-name>
+        --resource-group  <resource-group-name>
         --scope "/" 
         --principal-id <your-user-id>
         --role-definition-id <your-custom-role-id> 

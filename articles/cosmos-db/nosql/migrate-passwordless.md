@@ -17,7 +17,7 @@ Application requests to Azure Cosmos DB must be authenticated. Although there ar
 
 The following tutorial explains how to migrate an existing application to connect to Azure Cosmos DB NoSql using passwordless connections instead of a key-based solution.
 
-### Configure roles and users for local development authentication
+## Configure roles and users for local development authentication
 
 [!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
 
