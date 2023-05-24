@@ -67,10 +67,10 @@ The following table details the individual components:
 
 | Component | Description |
 | --- | --- |
-| [Grid Layout](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout) | Grid component to organize Video Tiles into an NxN grid
-| [Video Tile](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)  | Component that displays video stream when available and a default static component when not
-| [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar) | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen
-| [Video Gallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videogallery--video-gallery) | Turn-key video gallery component which dynamically changes as participants are added
+| [Grid Layout](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout) | Grid component to organize Video Tiles into an NxN grid |
+| [Video Tile](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)  | Component that displays video stream when available and a default static component when not |
+| [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar) | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
+| [Video Gallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videogallery--video-gallery) | Turn-key video gallery component which dynamically changes as participants are added |
 
 You can also customize your chat experience. The following image highlights the individual components of chat.
  
@@ -78,12 +78,13 @@ You can also customize your chat experience. The following image highlights the 
  
 The following table provides descriptions with links to individual components
 
-| Component | Description|
-| --- | --- |
-| Message Thread | Container that renders chat messages, system messages, and custom messages
-| Send Box | Text input component with a discrete send button
-| Message Status Indicator | Multi-state message status indicator component to show status of sent message
-| Typing indicator | Text component to render the participants who are actively typing on a thread
+| Component | Description |
+|---|---|
+| Message Thread | Container that renders chat messages, system messages, and custom messages |
+| Send Box | Text input component with a discrete send button |
+| Message Status Indicator | Multi-state message status indicator component to show status of sent message |
+| Typing indicator | Text component to render the participants who are actively typing on a thread |
+
 
 Let’s take a look at how you can use [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar) component to show only camera and microphone buttons in this order, and control actions that are performed after selection of those buttons.
 
