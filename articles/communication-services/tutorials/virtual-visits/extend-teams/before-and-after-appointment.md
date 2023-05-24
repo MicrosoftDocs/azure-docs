@@ -15,18 +15,19 @@ ms.subservice: teams-interop
 # Extend before and after appointment activities
 
 Microsoft Power Automate and Logic Apps provide developers with no-code & low-code tools to configure the customer journey before and after the appointment via pre-existing connectors. You can use their triggers and actions to tailor your experience. 
-Microsoft 365 introduces triggers (examples of triggers are: button is selected, booking is created, booking is canceled, time recurrence, form submitted, or file upload), that allow you to automate your flows, and Azure Communication Services introduces actions to use various communication channels to communicate with your customers. Examples of actions are; send an SMS, send an email, send a chat message.
+Microsoft 365 introduces triggers (examples of triggers are: button is selected, booking is created, booking is canceled, time recurrence, form submitted, or file upload), that allows you to automate your flows, and Azure Communication Services introduces actions to use various communication channels to communicate with your customers. Examples of actions are; send an SMS, send an email, send a chat message.
 
 ## Prerequisites
 The reader of this article is expected to be familiar with: 
 -	[Microsoft Teams Virtual appointments](https://www.microsoft.com/microsoft-teams/premium/virtual-appointments) product and provided [user experience](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1) 
--	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-overview?view=graph-rest-1.0) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
--	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview?view=graph-rest-1.0)
+-	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-over
+) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
+-	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
 
 ## Send SMS, email, and chat message when booking is canceled
-When a booking is canceled, there are three options to send confirmation of cancellation: SMS, email, and/or chat message. The example below shows how to configure each of the three options in Power Automate.
+When a booking is canceled, there are three options to send confirmation of cancellation: SMS, email, and/or chat message. The following example shows how to configure each of the three options in Power Automate.
 
-The first step is to select the Microsoft Booking trigger "When an appointment is Cancelled" and then select the address that is used for the management of Virtual appointments. 
+The first step is to select the Microsoft Booking trigger "When an appointment is Canceled" and then select the address that is used for the management of Virtual appointments. 
  
  :::image type="content" source="./flow-send-reminder-on-booking-cancelation.svg" alt-text="Example of Power Automate flow that sends an SMS, email and chat message when Microsoft Booking is canceled." lightbox="./flow-send-reminder-on-booking-cancelation.svg":::
 
@@ -34,10 +35,10 @@ Second, you must configure every individual communication channel. We start with
 
 The next parallel path is to send the email. After connecting to Azure Communication Services, you need to provide the sender's email. The receiver of the email can be taken from the booking property "Customer Email". Then you can provide the email subject and rich text body.
 
-The last parallel path sends a chat message to your chat solution powered by Azure Communication Services. After providing a connection to Azure Communication Services, you define the Azure Communication Services user ID that represents your organization (for example, a bot that replaces the value <APPLICATION USER ID> in the image above). Then you select the scope "Chat" to receive an access token for this identity. Next, you create a new chat thread to send a message to this user. Lastly, you send a chat message in created chat thread about the cancellation of the Virtual appointment.
+The last parallel path sends a chat message to your chat solution powered by Azure Communication Services. After providing a connection to Azure Communication Services, you define the Azure Communication Services user ID that represents your organization (for example, a bot that replaces the value <APPLICATION USER ID> in the previous image). Then you select the scope "Chat" to receive an access token for this identity. Next, you create a new chat thread to send a message to this user. Lastly, you send a chat message in created chat thread about the cancellation of the Virtual appointment.
   
 ## Next actions
--	Learn [what extensibility options you have for Virtual appointments](./scheduling.md)
+-	Learn [what extensibility options you have for Virtual appointments](./overview.md)
 -	Learn how to customize [scheduling experience](./scheduling.md)
 -	Learn how to customize [precall experience](./precall.md)
 -	Learn how to customize [call experience](./call.md)
