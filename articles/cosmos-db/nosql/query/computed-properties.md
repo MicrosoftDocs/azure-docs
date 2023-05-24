@@ -76,7 +76,7 @@ During the preview, computed properties must be created using the .NET v3 SDK. O
 
 |**SDK** |**Supported version** |**Notes** |
 |--------|----------------------|----------|
-|.NET SDK v3 |>= 3.34.0-preview |Computed properties are currently only available in preview package versions. |
+|.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
 
 ### Create computed properties using the SDK
 
@@ -131,7 +131,7 @@ Here's an example of how to update computed properties on an existing container 
 
 ## Using computed properties in queries
 
-Computed properties can be referenced in queries the same way as persisted properties. Values for computed properties that aren't indexed are evaluated during runtime using the computed property definition. If a computed property is indexed, the index is used in the same way as it is for persisted properties, and the computed property is evaluated on an as needed basis. 
+Computed properties can be referenced in queries the same way as persisted properties. Values for computed properties that aren't indexed are evaluated during runtime using the computed property definition. If a computed property is indexed, the index is used in the same way as it is for persisted properties, and the computed property is evaluated on an as needed basis. It's recommended you [add indexes on your computed properties](#indexing-computed-properties) for the best cost and performance.
 
 These examples use the quickstart products dataset in [Data Explorer](../../data-explorer.md). Launch the quick start to get started and load the dataset in a new container.
 
@@ -303,10 +303,10 @@ Add a composite index on two properties where one is computed, `cp_myComputedPro
     "compositeIndexes": [  
         [  
             {  
-               "path":"/cp_myComputedProperty",
+               "path":"/cp_myComputedProperty"
             },
             {  
-               "path":"/path/to/myPersistedProperty",
+               "path":"/path/to/myPersistedProperty"
             }
         ]
     ]
