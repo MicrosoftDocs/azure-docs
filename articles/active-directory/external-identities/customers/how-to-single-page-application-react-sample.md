@@ -6,7 +6,6 @@ author: garrodonnell
 manager: celestedg
 ms.author: godonnell
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/23/2023

@@ -1,8 +1,8 @@
 ---
-title: Prepare your tenant to use a React single-page app (SPA) for authentication. 
+title: Prepare your customer tenant to authenticate users in a React single-page app (SPA)
 description: Learn how to configure your Azure Active Directory (AD) for customers tenant for authentication with a React single-page app (SPA).
 services: active-directory
-author: godonnell
+author: garrodonnell
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
@@ -14,7 +14,7 @@ ms.custom: it-pro
 
 #Customer intent: As a dev I want to prepare my customer tenant for building a single-page app (SPA) with React
 ---
-# Prepare your customer tenant for building a single-page app (SPA)
+# Prepare your customer tenant to authenticate users in a React single-page app (SPA)
 
 Before your applications can interact with Microsoft identity platform they must be registered in a customer tenant that you manage and must be associated with a user flow.
 

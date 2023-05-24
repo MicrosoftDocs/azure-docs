@@ -1,5 +1,5 @@
 ---
-title: Sign in users with a React single-page-application
+title: Add sign-in to a React single-page app (SPA)
 description: Learn how to configure a React single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: godonnell
@@ -15,8 +15,7 @@ ms.custom: it-pro
 #Customer intent: As a developer I want to add sign-in and sign-out functionality to my React single-page app
 ---
 
-# Create components for sign in and sign out in a React single page app
-
+# Add sign-in to a React single-page app (SPA)
 Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign in.
 
 In this tutorial:
@@ -42,8 +41,6 @@ In this tutorial:
     - *SignInButton.jsx*
     - *SignOutButton.jsx*
 
----
-
 Once complete, you should have the following folder structure.
 
 ```txt
@@ -58,7 +55,6 @@ reactspalocal/
 ```
 
 ### Adding the page layout
-
 1. Open *PageLayout.jsx* and add the following code to render the page layout. The [useIsAuthenticated](/javascript/api/@azure/msal-react) hook returns whether or not a user is currently signed-in.
 
    ```javascript
@@ -110,7 +106,6 @@ reactspalocal/
 1. Save the file.
 
 ### Adding the sign in experience
-
 1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect.
 
    ```javascript 
@@ -163,7 +158,6 @@ reactspalocal/
 1. Save the file.
 
 ### Adding the sign out experience
-
 1. Open *SignOutButton.jsx* and add the following code, which creates a button that signs out the user using either a pop-up or redirect.
 
    ```javascript 
@@ -210,7 +204,6 @@ reactspalocal/
    ```
 
 ## Change filename and add required imports
-
 By default, the application runs via a JavaScript file called *App.js*. It needs to be renamed to *App.jsx*, which is an extension that allows a developer to write HTML in React.
 
 1. Rename App.js to App.jsx.
@@ -230,7 +223,6 @@ By default, the application runs via a JavaScript file called *App.js*. It needs
    ```
 
 ### Replacing the default function to render authenticated information
-
 The following code will render based on whether the user is authenticated or not. Replace the default function `App()` to render authenticated information with the following code:
 
 ```javascript
@@ -267,7 +259,6 @@ export default function App() {
 ```
 
 ## Run your project and sign in
-
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
@@ -285,12 +276,10 @@ All the required code snippets have been added, so the application can now be ca
 1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
 
 ## Sign out of the application
-
 1. To sign out of the application, select **Sign out** in the navigation bar.
 1. A window appears asking which account to sign out of.
 1. Upon successful sign out, a final window appears advising you to close all browser windows.
 
 ## Next steps
-
 > [!div class="nextstepaction"]
 > [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
