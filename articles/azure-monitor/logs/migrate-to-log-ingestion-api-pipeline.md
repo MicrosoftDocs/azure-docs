@@ -66,7 +66,7 @@ If you have an existing custom table to which you currently send data using the 
 
 The Log Ingestion API lets you send up to 1 MB of data per call. If you need to send more than 1 MB of data, you can send multiple calls in parallel. This is a change from the Data Collector API, which lets you send up to 32 MB of data per call.
 
-For information about how to call the Log Ingestion API, see [Send data to Azure Monitor Logs using the Log Ingestion API](../logs/logs-ingestion-api-overview.md#send-data-to-azure-monitor-logs-using-the-log-ingestion-api).
+For information about how to call the Log Ingestion API, see [Send data to Azure Monitor Logs using the Log Ingestion API](../logs/logs-ingestion-api-overview.md#rest-api-call).
 
 > [!NOTE]
 > When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
