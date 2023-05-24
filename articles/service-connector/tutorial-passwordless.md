@@ -12,7 +12,7 @@ zone_pivot_group_filename: service-connector/zone-pivot-groups.json
 zone_pivot_groups: passwordless
 ---
 
-# Tutorial: Create a passwordless connection with Service Connector
+# Tutorial: Create a passwordless connection to database service with Service Connector
 
 Passwordless connection use managed identities to access Azure Service. With this approach, you don't have to manually track and manage many different secrets for managed identities because these tasks are securely handled internally by Azure. Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database service, including Azure Database for PostgreSQL, Azure Database for MySQL, Azure SQL database to accept managed identities.
 
@@ -278,7 +278,7 @@ In some cases, the permission is not required. For example, if the CLI login use
 
 ## Connect to database with Azure Active Directory authentication
 
-After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory authentication. For example, you can choose one of the following solutions to connect to the database with Azure Active Directory authentication in Java.
+After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory authentication. For example, you can use the following solutions to connect to the database with Azure Active Directory authentication in Java.
 
 :::zone pivot="postgresql"
 
@@ -482,7 +482,7 @@ For more information, see this site [Homepage for client programming to Microsof
 
 For Azure App Service, you can deploy the application code by `az webapp deploy` command, see more [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md)
 
-For Azure Spring Apps, you can deploy the application code by `az spring-cloud app deploy` command, see more [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md)
+For Azure Spring Apps, you can deploy the application code by `az spring app deploy` command, see more [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/quickstart.md)
 
 For Azure Container Apps, you can deploy the application code by `az containerapp create` command, see more [Quickstart: Deploy your first container app with containerapp up](../container-apps/get-started.md)
 
