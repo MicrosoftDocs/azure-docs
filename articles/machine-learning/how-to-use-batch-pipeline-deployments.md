@@ -47,9 +47,6 @@ You can follow along with the Python SDK version of this example by opening the 
 
 [!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
-    > [!IMPORTANT]
-    > Pipeline component deployments for Batch Endpoints were introduced in version 2.7 of the `ml` extension for Azure CLI. Use `az extension update --name ml` to get the last version of it.
-
 ## Create the pipeline component
 
 Batch endpoints can deploy either models or pipeline components. Pipeline components are reusable, and you can streamline your MLOps practice by using [shared registries](concept-machine-learning-registries-mlops.md) to move these components from one workspace to another.
