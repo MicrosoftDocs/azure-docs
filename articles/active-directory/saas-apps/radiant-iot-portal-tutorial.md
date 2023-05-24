@@ -77,7 +77,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://<SUBDOMAIN>.radiantrfid.com/VATPortal/?cn=<CustomerName>&id=<ID>`
 
 	> [!Note]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Redocly support team](mailto:support@radiantrfid.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Radiant IOT Portal support team](mailto:support@radiantrfid.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
 1. Radiant IOT Portal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
