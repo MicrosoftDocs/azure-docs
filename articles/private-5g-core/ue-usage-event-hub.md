@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 Azure Private 5G Core can be configured to integrate with Azure Event Hub, allowing you to monitor UE usage. This can be configured during site creation, see [Collect UE usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) or at a later stage by [modifying the packet core](modify-packet-core.md).
 
-## UE usage attributes
+## Reported UE usage data
 
 When configured, AP5GC will send data usage reports per QoS flow level for all PDU sessions. The following data is reported:
 
