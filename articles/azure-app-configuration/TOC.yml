@@ -295,8 +295,6 @@
       items:
         - name: Getting started with App Configuration
           href: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
-        - name: Feature management
-          href: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - name: Making centralized configuration easy
           href: /Events/dotnetConf/NET-Conf-2019/B210
         - name: Azure App Configuration on Cloud Native Show
