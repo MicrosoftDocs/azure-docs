@@ -23,7 +23,8 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
 1. Learn about some of the [key differences](#basic-sku-vs-standard-sku) between Basic SKU public IP and Standard SKU public IP. 
 1. Identify the Basic SKU public IP to upgrade.
-1. Determine if you would need [Zone Redundancy](public-ip-addresses.md#availability-zone). 
+1. Determine if you would need [Zone Redundancy]
+1. (public-ip-addresses.md#availability-zone). 
     1. If you need a zone redundant public IP address, create a new Standard SKU public IP address using [Portal](create-public-ip-portal.md), [PowerShell](create-public-ip-powershell.md), [CLI](create-public-ip-cli.md), or [ARM template](create-public-ip-template.md).
     1. If you do not need a zone redundant public IP address, use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). 
 1. Create a migration plan for planned downtime.
