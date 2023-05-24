@@ -30,7 +30,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 -	[Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
--	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs. [End of Call Survey Logs](../concepts/analytics/logs/end-of-call-survey-logs.md).
 -	To conduct a survey with custom questions using free form text, you will need an [App Insight resource](../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 
 
@@ -206,7 +206,7 @@ User responses that were sent using AppInsights will be available under your App
 -  Finally merge these two queries by surveyId. Create new query (+Add -> Add query).
 -  Make suer the `Data source` is Merge and select `Merge type` as needed
 
-<!-- 
+
 ## Collect survey data
 
 > [!IMPORTANT]
@@ -235,7 +235,7 @@ If a survey participant responded to Question 1 with a score at or below the cut
 -	Suggested prompt: “What could have been better?” 
 -	API Question Values: Audio, Video, and Screenshare 
 
-Surveying Guidelines
+### Surveying Guidelines
 -	Avoid survey burnout, don’t survey all call participants.
 -	The order of your questions matters. We recommend you randomize the sequence of optional tags in Question 2 in case respondents focus most of their feedback on the first prompt they visually see.
 -	Consider using surveys for separate Azure Communication Services Resources in controlled experiments to identify release impacts.

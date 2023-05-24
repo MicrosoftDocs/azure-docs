@@ -27,7 +27,7 @@ The End of Call Survey provides you with a tool to understand how your end users
 ## Purpose of the End of Call Survey
 It’s difficult to determine a customer’s perceived calling experience and determine how well your calling solution is performing without gathering subjective feedback from customers. You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience.
 
-After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
+After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.quality and reliability.
 
 
 ## Survey structure
@@ -90,9 +90,7 @@ you find most important. For example, you can choose to only ask
 customers about their overall call experience instead of asking them
 about their audio, video, and screen share experience. You can also
 customize input ranges to suit your needs. The default input range is 1
-to 5 for Overall Call, Audio, Video, and
-Screenshare. However, each API value can be customized from a minimum of
-0 to maximum of 100. 
+to 5 for Overall Call, Audio, Video, and Screenshare. However, each API value can be customized from a minimum of 0 to maximum of 100. 
 
 ### Customization options
 
@@ -110,9 +108,7 @@ Screenshare. However, each API value can be customized from a minimum of
 ## Store and view survey data:
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services follow our 
-
-<!-- guidance [here](../analytics/enable-logging.md) -->
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services see our guidance:  [End of Call Survey Logs](../analytics/logs/end-of-call-survey-logs.md).
 
 You cannot access your survey and it will not be stored unless you have enabled a Diagnostic Setting to capture your survey data.
 
@@ -120,7 +116,7 @@ You cannot access your survey and it will not be stored unless you have enabled 
 
 - Learn how to use the End of Call Survey, see our tutorial: [Use the End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
 
-<!-- - Learn how to store and analyze your survey results in Azure, see:  [End of Call Survey Logs]( ) NEED TO INSERT LINK HERE -->
+- Analyze your survey data, see: [End of Call Survey Logs](../analytics/logs/end-of-call-survey-logs.md)
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md)
 
