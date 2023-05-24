@@ -192,7 +192,7 @@ Use the example that corresponds to the type of target VM to which you want to c
       az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "password" --username "<Username>"
       ```
 
-1. Once you sign in to your target VM, the native client on your computer opens up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
+   1. Once you sign in to your target VM, the native client on your computer opens up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
 
 ## <a name="connect-tunnel"></a>Connect to VM - other native clients
 
