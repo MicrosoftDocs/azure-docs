@@ -47,6 +47,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   |----------------|-------|
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
+  |`<region>.obo.arc.azure.com` | 8084 |
 
   > [!NOTE]
   > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
@@ -75,7 +76,8 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   |----------------|-------|
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
-
+  |`<region>.obo.arc.azure.com` | 8084 |
+  
   > [!NOTE]
   > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
