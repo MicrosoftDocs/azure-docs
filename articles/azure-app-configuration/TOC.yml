@@ -21,29 +21,33 @@
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
-        - name: Azure Functions in .NET Core
-          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
         - name: Python
           href: quickstart-python-provider.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
-        - name: Azure Container Apps
-          href: quickstart-container-apps.md
-        - name: Azure Kubernetes Service
-          href: quickstart-azure-kubernetes-service.md
+        - name: Azure Functions
+          href: quickstart-azure-functions-csharp.md
     - name: Feature management
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET Framework
           href: quickstart-feature-flag-dotnet.md
-        - name: Azure Functions in .NET Core
-          href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
-    - name: Deployment
+        - name: Azure Functions
+          href: quickstart-feature-flag-azure-functions-csharp.md
+    - name: Service integration
+      items:
+        - name: Azure Container Apps
+          href: quickstart-container-apps.md
+        - name: App Service & Azure Functions
+          href: /azure/app-service/app-service-configuration-references
+        - name: Azure Kubernetes Service
+          href: quickstart-azure-kubernetes-service.md
+     - name: Deployment
       items:
         - name: Bicep
           href: quickstart-bicep.md
@@ -113,7 +117,7 @@
           href: howto-feature-filters-aspnet-core.md
         - name: Enable a feature for specified users/groups
           href: howto-targetingfilter-aspnet-core.md
-    - name: Enable Azure monitoring
+    - name: Enable Azure monitoring
       items:
         - name: Monitor App Configuration
           href: monitor-app-configuration.md
@@ -134,7 +138,7 @@
   items:
     - name: Keys and values
       href: concept-key-value.md
-    - name: Point-in-time snapshot
+    - name: Point-in-time key-values
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
