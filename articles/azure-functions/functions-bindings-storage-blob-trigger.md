@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 04/16/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -12,22 +12,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
-
-| Consideration | Blob Storage (standard) | Blob Storage (event-based) | Queue Storage | Event Grid | 
-| ----- | ----- | ----- | ----- | ---- |
-| Latency | High (up to 10 min) | Low | Medium  | Low | 
-| [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
-| Extension version |Any | Storage v5.x+ |Any |Any |
-| Processes existing blobs | Yes | No | No | No |
-| Filters | [Blob name pattern](#blob-name-patterns)  | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) | n/a | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) |
-| Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
-| Supports high-scale² | No | Yes | Yes | Yes |
-| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the [examples in this article](#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue Storage trigger to a Blob Storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have non-storage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
-
-<sup>1</sup> Blob Storage input and output bindings support blob-only accounts.
-
-<sup>2</sup> High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+> [!TIP] 
+> There are several ways to execute your function code based on changes to blobs in a storage container, and the Blob storage trigger might not be the best option. To learn more about alternate triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
 
