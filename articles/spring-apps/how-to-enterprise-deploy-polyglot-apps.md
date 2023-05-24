@@ -1,6 +1,6 @@
 ---
 title: How to deploy polyglot apps in Azure Spring Apps Enterprise
-description: Learn how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
+description: Learn how to deploy polyglot apps in the Azure Spring Apps Enterprise.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -208,7 +208,6 @@ The following example deploys the source code folder to an active deployment by 
 az spring app deploy \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --name <your-app-name> \
     --name <app-name> \
     --builder <builder-name> \
     --source-path <path-to-source-code>

@@ -1,6 +1,6 @@
 ---
-title: How to use Tanzu Build Service in Azure Spring Apps Enterprise plan
-description: Learn how to use Tanzu Build Service in Azure Spring Apps Enterprise plan.
+title: How to use Tanzu Build Service in Azure Spring Apps Enterprise
+description: Learn how to use Tanzu Build Service in Azure Spring Apps Enterprise
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -32,7 +32,7 @@ VMware Tanzu Build Service uses a builder, a set of buildpacks, and a stack in t
 
 ## Build agent pool
 
-Tanzu Build Service in the Enterprise plan is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
+Tanzu Build Service in Azure Spring Apps Enterprise is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps.
 
 The following table shows the sizes available for build agent pool scale sets:
 
@@ -67,7 +67,7 @@ The following image shows the resources given to the Tanzu Build Service Agent P
 
 ## Build Service on demand
 
-You can enable or disable Tanzu Build Service when you create an Azure Spring Apps instance on the Enterprise plan.
+You can enable or disable Tanzu Build Service when you create an Azure Spring Apps Enterprise instance.
 
 ### Build and deployment characteristics
 

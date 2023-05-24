@@ -1,6 +1,5 @@
 ---
-title: Deploy web static files
-titleSuffix: Azure Spring Apps Enterprise tier
+title: Deploy web static files in Azure Spring Apps Enterprise
 description: Learn how to deploy web static files in Azure Spring Apps.
 author: karlerickson
 ms.author: yili7
@@ -95,7 +94,7 @@ In this example, build and deploy are separate commands. A user managed containe
 
     ```azurecli
     az spring app deploy \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name>
        --name <app-name> \
        --container-image <your-container-image> \
@@ -219,7 +218,7 @@ In this example, build and deploy are separate commands. A user managed containe
 
 ---
 
-For more information, see the [Using a customized server configuration file](#using-a-customized-server-configuration-file) section of this article.
+For more information, see the [Use a customized server configuration file](#use-a-customized-server-configuration-file) section of this article.
 
 ## Sample code
 
@@ -284,7 +283,7 @@ The following table describes common deployment errors when you deploy static fi
 
 | Error message                                                                     | Root cause                                                          | Solution                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode` | The web server failed to start.                                     | Validate your server configuration file to see if there's a configuration error. Then, check whether your configuration file conforms to the restrictions described in the [Using a customized server configuration file](#using-a-customized-server-configuration-file) section. |
+| `112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode` | The web server failed to start.                                     | Validate your server configuration file to see if there's a configuration error. Then, check whether your configuration file conforms to the restrictions described in the [Use a customized server configuration file](#use-a-customized-server-configuration-file) section. |
 | `mkdir() "/var/client_body_temp" failed (13: Permission denied)`                  | The web server doesn't have write permission to the specified path. | Configure the path under the directory */tmp*; for example: */tmp/client_body_temp*.                                                                                                                                                                                              |
 
 ## Next steps
