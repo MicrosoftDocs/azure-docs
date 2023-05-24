@@ -52,7 +52,7 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
     | TTL unit | Keep default value. |
     | Alias | Paste in the Static Web Apps generated URL you set aside in a previous step. Make sure to remove the `https://` prefix from your URL. |
     
-Additionally, you can select **Yes** for **Alias recrod set** and select the your static web app instead of explicitly providing the URL to take advantages of Alias record sets like [prevention from dangling DNS records](/azure/dns/dns-alias#prevent-dangling-dns-records).
+    Additionally, you can select **Yes** for **Alias record set** and select the your static web app instead of explicitly providing the URL to take advantage of alias record sets like [prevention from dangling DNS records](/azure/dns/dns-alias#prevent-dangling-dns-records).
 
 4. Select **OK**.
 
