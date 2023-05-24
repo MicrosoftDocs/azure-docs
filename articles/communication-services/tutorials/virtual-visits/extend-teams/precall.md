@@ -63,7 +63,7 @@ callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'Ade
 call = callAgent.startCall([{id: '8:echo123'}],{});
 ```
 
-Next steps
+## Next steps
 -	Learn what [extensibility options](./overview.md) do you have for Virtual appointments.
 -	Learn how to customize [scheduling experience](./schedule.md)
 -	Learn how to customize [before and after appointment](./before-and-after-appointment.md)
