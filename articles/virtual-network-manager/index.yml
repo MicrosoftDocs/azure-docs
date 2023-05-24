@@ -36,7 +36,7 @@ landingContent:
       - linkListType: training
         links:
           - text: Create a hub-spoke network topology with Azure Virtual Network Manager
-            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-managerr
+            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-manager
   # Card
   - title: Get started
     linkLists:

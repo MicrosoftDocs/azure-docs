@@ -2,7 +2,7 @@
 title: User, session, and event analysis in Application Insights
 description: Demographic analysis of users of your web app.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 05/24/2023
 ms.reviewer: mmcc
 ---
 
@@ -21,13 +21,18 @@ If you don't yet see data in the **Users**, **Sessions**, or **Events** panes in
 Three of the **Usage** panes use the same tool to slice and dice telemetry from your web app from three perspectives. By filtering and splitting the data, you can uncover insights about the relative use of different pages and features.
 
 * **Users tool**: How many people used your app and its features? Users are counted by using anonymous IDs stored in browser cookies. A single person using different browsers or machines will be counted as more than one user.
-* **Sessions tool**: How many sessions of user activity have included certain pages and features of your app? A session is counted after half an hour of user inactivity, or after 24 hours of continuous use.
+* **Sessions tool**: How many sessions of user activity have included certain pages and features of your app? A session is reset after half an hour of user inactivity, or after 24 hours of continuous use.
 * **Events tool**: How often are certain pages and features of your app used? A page view is counted when a browser loads a page from your app, provided you've [instrumented it](./javascript.md).
 
-    A custom event represents one occurrence of something happening in your app. It's often a user interaction like a button selection or the completion of a task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent).
+    A custom event represents one occurrence of something happening in your app. It's often a user interaction like a button selection or the completion of a task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent) or use the [Click Analytics](javascript-feature-extensions.md#feature-extensions-for-the-application-insights-javascript-sdk-click-analytics) extension.
 
 > [!NOTE]
 > For information on an alternatives to using [anonymous IDs](./data-model-complete.md#anonymous-user-id) and ensuring an accurate count, see the documentation for [authenticated IDs](./data-model-complete.md#authenticated-user-id).
+
+Clicking **View More Insights** displays the following information:
+- Application Performance: Sessions, Events, and a Performance evaluation related to users' perception of responsiveness.
+- Properties: Charts containing up to six user properties such as browser version, country or region, and operating system.
+- Meet Your Users: View timelines of user activity.
 
 ## Query for certain users
 

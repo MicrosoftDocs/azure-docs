@@ -33,6 +33,7 @@ This capability is useful in all scenarios where you want to run a script within
 | CentOS |	7.x+,  8.x+ |	7.x+ |
 | Debian |	10+ |	11.x+ |
 | Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
+| Mariner | 2.x | 2.x |
 | openSUSE |	12.3+ |	Not Supported |
 | Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
 | Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	8.6+, 9.0+ |
@@ -107,7 +108,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
 
-Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/write` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommands/write` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 

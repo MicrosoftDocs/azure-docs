@@ -7,12 +7,12 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 04/20/2023
 ---
 
 #	Text Merge cognitive skill
 
-The **Text Merge** skill consolidates text from a collection of fields into a single field. 
+The **Text Merge** skill consolidates text from an array of strings into a single field. 
 
 > [!NOTE]
 > This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.

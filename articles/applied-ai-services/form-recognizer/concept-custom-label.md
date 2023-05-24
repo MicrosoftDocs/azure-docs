@@ -11,7 +11,6 @@ ms.date: 03/03/2023
 ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Best practices: Generating Form Recognizer labeled dataset

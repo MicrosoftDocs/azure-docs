@@ -4,11 +4,15 @@ description: The article tells what update management center (preview) in Azure 
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/23/2023
+ms.date: 05/11/2023
 ms.topic: overview
 ---
 
 # About Update management center (preview)
+
+> [!Important]
+> - [Automation Update management](../automation/update-management/overview.md) relies on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. Update management center (Preview) is the v2 version of Automation Update management and the future of Update management in Azure. UMC is a native service in Azure and does not rely on [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
+> - Guidance for migrating from Automation Update management to Update management center will be provided to customers once the latter is Generally Available. For customers using Automation Update management, we recommend continuing to use the Log Analytics agent and **NOT** migrate to Azure Monitoring agent until migration guidance is provided for Update management or else Automation Update management will not work. Also, the Log Analytics agent would not be deprecated before moving all Automation Update management customers to UMC.
 
 Update management center (preview) is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. In addition, you can use the Update management center (preview) to make real-time updates or schedule them within a defined maintenance window.
 
@@ -101,7 +105,7 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../v
 
 ### VM images
 
-Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image.
+Update management center (preview) supports a combination of Offer, Publisher and Sku of the Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image. Learn more about the [supported VM images](support-matrix.md#supported-operating-systems).
 
 ## Next steps
 

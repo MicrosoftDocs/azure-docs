@@ -1,8 +1,8 @@
 ---
 title: Enable data-aware security posture for Azure datastores - Microsoft Defender for Cloud
 description: Learn how to enable data-aware security posture in Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 04/13/2023
@@ -34,7 +34,7 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 
 ### Before you start
 
-- Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#discovering-aws-storage) for AWS discovery, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
+- Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#discovering-aws-s3-buckets) for AWS discovery, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
 - Check that there's no policy that blocks the connection to your Amazon S3 buckets.
 
 ### Enable for AWS resources

@@ -16,6 +16,11 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 
 :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-access-model.png" alt-text="Screenshot that shows the access model of SQL MI." lightbox="./media/tutorial-managed-virtual-network/sql-mi-access-model-expanded.png":::
 
+> [!NOTE]
+> When using this solution to connect to Azure SQL Database Managed Instance, **"Redirect"** connection policy is not supported, you need to switch to **"Proxy"** mode.
+
+
+
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.

@@ -16,7 +16,7 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 
 The following table lists whether the Windows Desktop client or macOS client supports specific features for Teams on Azure Virtual Desktop.
 
-|Feature|Windows Desktop client|macOS client|
+|Feature|Windows Desktop client and Azure Virtual Desktop app|macOS client|
 |---|---|---|
 |Audio/video call|Yes|Yes|
 |Screen share|Yes|Yes|
@@ -39,12 +39,13 @@ The following table lists whether the Windows Desktop client or macOS client sup
 
 The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure Virtual Desktop, we recommend using the latest supported versions of each client and the WebRTC Redirector Service, which you can find in the following list:
 
-- [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS client](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [Windows Desktop client](whats-new-client-windows.md)
+- [Azure Virtual Desktop app](whats-new-client-windows-azure-virtual-desktop-app.md)
+- [macOS client](whats-new-client-macos.md)
 - [Teams WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi)
 - [Teams desktop app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm)
 
-|Supported features|Windows Desktop client version |macOS client version|WebRTC Redirector Service version|Teams version|
+|Supported features|Windows Desktop client and Azure Virtual Desktop Store app version |macOS client version|WebRTC Redirector Service version|Teams version|
 |---|---|---|---|---|
 |Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|

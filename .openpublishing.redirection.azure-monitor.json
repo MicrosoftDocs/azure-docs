@@ -1,6 +1,11 @@
 {
     "redirections": [
-         {
+        {
+            "source_path_from_root": "/articles/azure-monitor/snapshot-debugger/snapshot-collector-release-notes.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger#release-notes-for-microsoftapplicationinsightssnapshotcollector",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/best-practices.md",
             "redirect_url": "/azure/azure-monitor/getting-started",
             "redirect_document_id": false
@@ -67,12 +72,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/correlation.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
             "redirect_document_id": false
         },
         {
@@ -444,6 +449,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
             "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-rate-limiting.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-sms-behavior.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
             "redirect_document_id": false
         },
         {
@@ -6022,11 +6037,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-api-switch.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer",
             "redirect_document_id": false
@@ -6130,7 +6140,17 @@
             "source_path_from_root": "/articles/azure-monitor/app/data-model-context.md",
             "redirect_url": "/azure/azure-monitor/app/data-model-complete",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-management-packs.md",
+            "redirect_url": "/azure/azure-monitor/azure-monitor-operations-manager#migrate-management-pack-logic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/dashboard-upgrade.md",
+            "redirect_url": "/azure/azure-monitor/visualize/tutorial-logs-dashboards",
+            "redirect_document_id": false
         }
-
+        
     ]
 }

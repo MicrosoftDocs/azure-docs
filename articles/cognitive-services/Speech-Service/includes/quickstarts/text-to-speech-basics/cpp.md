@@ -122,9 +122,6 @@ Enter some text that you want to speak >
 I'm excited to try text to speech
 ```
 
-> [!WARNING]
-> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
-
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 

@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 04/06/2023
+ms.date: 05/24/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -29,8 +29,7 @@ Archive tier supports the following workloads:
 A recovery point becomes archivable only if all the above conditions are met.
 
 >[!Note]
->- Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
->- Archive tier support for Azure Virtual Machines for the remaining regions is in limited public preview. To sign up for limited public preview, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
 
 ### Supported clients
 
@@ -80,9 +79,16 @@ When you move recovery points to archive, they're subjected to an early deletion
 
 Stop protection and delete data deletes all recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points leads to early deletion cost.
 
+## Stop protection and retain data
+
+Azure Backup now supports tiering to archive when you choose to *Stop protection and retain data*. If the backup item is associated with a long term retention policy and is moved to *Stop protection and retain data* state, you can choose to move recommended recovery points to vault-archive tier.
+
+>[!Note]
+>For Azure VM backups, moving recommended recovery points to vault-archive saves costs. For other supported workloads, you can choose to move all eligible recovery points to archive to save costs. If backup item is associated with a short term retention policy and it's moved to *Stop protection & retain data* state, you can't tier the recovery points to archive.
+
 ## Archive tier pricing
 
-You can view the Archive tier pricing from our [pricing page](azure-backup-pricing.md).
+You can view the Archive tier pricing from our [pricing page](https://azure.microsoft.com/pricing/details/backup/).
 
 ## Frequently asked questions
 
@@ -99,10 +105,6 @@ When you restore from recovery point in Archive tier in primary region, the reco
 ### I can see eligible recovery points for my Virtual Machine, but I can't seeing any recommendation. What can be the reason?
 
 The recovery points for Virtual Machines meet the eligibility criteria. So, there are archivable recovery points. However, the churn in the Virtual Machine may be low, thus there are no recommendations. In this scenario, though you can move the archivable recovery points to archive tier, but it may increase the overall backup storage costs.
-
-### I have stopped protection and retained data for my workload. Can I move the recovery points to archive tier?
-
-No. Once protection is stopped for a particular workload, the corresponding recovery points can't be moved to the archive tier. To move recovery points to archive tier, you need to resume the protection on the data source.
 
 ### How do I ensure that all recovery points are moved to Archive tier, if moved via Azure portal?
 

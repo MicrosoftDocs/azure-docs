@@ -25,7 +25,7 @@ To use Azure CLI to create a Linux or Windows VM with Accelerated Networking ena
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Azure PowerShell](/powershell/azure/install-az-ps) 1.0.0 or later installed. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) 1.0.0 or later installed. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az).
 
 - In PowerShell, sign in to your Azure account by using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 

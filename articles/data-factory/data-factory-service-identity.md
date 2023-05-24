@@ -58,7 +58,7 @@ If you find your service instance doesn't have a managed identity associated fol
 >
 >- Managed identity cannot be modified. Updating a service instance which already has a managed identity won't have any impact, and the managed identity is kept unchanged.
 >- If you update a service instance which already has a managed identity without specifying the "identity" parameter in the factory objects or without specifying "identity" section in REST request body, you will get an error.
->- When you delete a service instance, the associated managed identity will be deleted along.
+>- When you delete a service instance, the associated managed identity will also be deleted.
 
 #### Generate system-assigned managed identity using PowerShell
 

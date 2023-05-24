@@ -68,7 +68,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | Parameter name            | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | CLUSTER_NAME              | Resource Name of the Cluster                                                                                          |
-| LOCATION                  | The Azure Region where the Cluster is deployed                                                                  |
+| LOCATION                  | The Azure Region where the Cluster is deployed                                                                   |
 | CL_NAME                   | The Cluster Manager Custom Location from Azure portal                                                                 |
 | CLUSTER_RG                | The cluster resource group name                                                                                       |
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                            |
@@ -153,7 +153,69 @@ az networkcloud cluster deploy \
   --no-wait --debug 
 ```
 
-This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
+> [!TIP]
+> To check the status of the `az networkcloud cluster deploy` command, it can be executed using the `--debug` flag.
+> This will allow you to obtain the `Azure-AsyncOperation` or `Location` header used to query the `operationStatuses` resource.
+> See the section [Cluster Deploy Failed](#cluster-deploy-failed) for more detailed steps.
+> Optionally, the command can run asynchronously using the `--no-wait` flag.
+
+### Cluster Deploy with hardware validation
+
+During a Cluster deploy process, one of the steps executed is hardware validation.
+The hardware validation procedure runs various test and checks against the machines
+provided through the Cluster's rack definition. Based on the results of these checks
+and any user skipped machines, a determination is done on whether sufficient nodes
+passed and/or are available to meet the thresholds necessary for deployment to continue.
+
+#### Cluster Deploy Action with skipping specific bare-metal-machine
+
+A parameter can be passed in to the deploy command that represents the names of
+bare metal machines in the cluster that should be skipped during hardware validation.
+Nodes skipped aren't validated and aren't added to the node pool.
+Additionally, nodes skipped don't count against the total used by threshold calculations.
+
+```azurecli
+az networkcloud cluster deploy \
+  --name "$CLUSTER_NAME" \
+  --resource-group "$CLUSTER_RESOURCE_GROUP" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --skip-validations-for-machines "$COMPX_SVRY_SERVER_NAME"
+```
+
+#### Cluster Deploy failed
+
+To track the status of an asynchronous operation, run with a `--debug` flag enabled.
+When `--debug` is specified, the progress of the request can be monitored.
+The operation status URL can be found by examining the debug output looking for the
+`Azure-AsyncOperation` or `Location` header on the HTTP response to the creation request.
+The headers can provide the `OPERATION_ID` field used in the HTTP API call.
+
+```azurecli
+OPERATION_ID="12312312-1231-1231-1231-123123123123*99399E995..."
+az rest -m GET -u "https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/providers/Microsoft.NetworkCloud/locations/${LOCATION}/operationStatuses/${OPERATION_ID}?api-version=2022-12-12-preview"
+```
+
+The output is similar to the JSON struct example. When the error code is
+`HardwareValidationThresholdFailed`, then the error message contains a list of bare
+metal machine(s) that failed the hardware validation (for example, `COMP0_SVR0_SERVER_NAME`,
+`COMP1_SVR1_SERVER_NAME`). These names can be used to parse the logs for further details.
+
+```json
+{
+  "endTime": "2023-03-24T14:56:59.0510455Z",
+  "error": {
+    "code": "HardwareValidationThresholdFailed",
+    "message": "HardwareValidationThresholdFailed error hardware validation threshold for cluster layout plan is not met for cluster $CLUSTER_NAME in namespace nc-system with listed failed devices $COMP0_SVR0_SERVER_NAME, $COMP1_SVR1_SERVER_NAME"
+  },
+  "id": "/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.NetworkCloud/locations/$LOCATION/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...",
+  "name": "12312312-1231-1231-1231-123123123123*99399E995...",
+  "resourceId": "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$CLUSTER_RESOURCE_GROUP/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME",
+  "startTime": "2023-03-24T14:56:26.6442125Z",
+  "status": "Failed"
+}
+```
+
+See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
 
 ## Cluster deployment validation
 

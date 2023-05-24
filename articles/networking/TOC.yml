@@ -140,7 +140,7 @@
     href: /cli/azure/network
   - name: Azure PowerShell
     href: /powershell/module/az.network/
-  - name: .Net
+  - name: .NET
     href: /dotnet/api/microsoft.azure.management.network
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk

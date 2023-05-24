@@ -33,11 +33,11 @@ To achieve AAL1, you can use any NIST single-factor or multifactor [permitted au
 |Azure AD authentication method|NIST authenticator type |
 | - | - |
 |Password |Memorized Secret |
-|Phone (SMS): Not recommended | Out-of-band |
-|Microsoft Authenticator App for iOS (Passwordless) <br> Microsoft Authenticator App for Android (Passwordless)|Multi-factor Out-of-band |
-|Single-factor certificate | Single-factor crypto software |
+|Phone (SMS): Not recommended | Single-factor out-of-band |
+|Microsoft Authenticator App (Passwordless)|Multi-factor out-of-band |
+|Single-factor software certificate | Single-factor crypto software |
 |Multi-factor Software Certificate (PIN Protected) <br> Windows Hello for Business with software TPM <br> | Multi-factor crypto software | 
-|Windows Hello for Business with hardware TPM <br> Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key | Multi-factor crypto hardware
+|Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key <br> Windows Hello for Business with hardware TPM <br> | Multi-factor crypto hardware
 
 
 > [!TIP]

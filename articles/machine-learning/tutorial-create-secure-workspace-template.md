@@ -1,11 +1,11 @@
 ---
-title: Use a template to create a secure workspace
+title: "Use a template to create a secure workspace"
 titleSuffix: Azure Machine Learning
 description: Use a template to create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
@@ -13,7 +13,7 @@ ms.date: 12/02/2021
 ms.topic: tutorial
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace by using template
+# Tutorial: How to create a secure workspace by using template
 
 Templates provide a convenient way to create reproducible service deployments. The template defines what will be created, with some information provided by you when you use the template. For example, specifying a unique name for the Azure Machine Learning workspace.
 
@@ -30,6 +30,8 @@ In this tutorial, you learn how to use a [Microsoft Bicep](../azure-resource-man
     * Azure Bastion host
     * Azure Machine Learning Virtual Machine (Data Science Virtual Machine)
     * The __Bicep__ template also creates an Azure Kubernetes Service cluster, and a separate resource group for it.
+
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 ## Prerequisites
 

@@ -26,7 +26,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md).
+- An Azure Machine Learning workspace with a compute instance running. For more information, see [Create resources to get started](../quickstart-create-resources.md).
 
 ## Deploy to the compute instances
 

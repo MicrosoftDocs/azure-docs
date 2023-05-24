@@ -568,6 +568,11 @@
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges-postgresql.md",
             "redirect_url": "/azure/cost-management-billing/reservations/understand-reservation-charges-postgresql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/understand-reservation-charges-postgresql.md",
+            "redirect_url": "/azure/postgresql/single-server/concept-reserved-pricing",
             "redirect_document_id": true
         },
         {

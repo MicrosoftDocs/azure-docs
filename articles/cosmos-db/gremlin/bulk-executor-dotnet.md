@@ -70,8 +70,8 @@ Modify the parameters, as described in the following table:
 
 | Parameter|Description |
 |---|---|
-|`ConnectionString`| Your .NET SDK endpoint, which you'll find in the **Overview** section of your Azure Cosmos DB for Gremlin database account. It's formatted as `https://your-graph-database-account.documents.azure.com:443/`.
-`DatabaseName`, `ContainerName`|The names of the target database and container.| 
+|`ConnectionString`| Your service connection string, which you'll find in the **Keys** section of your Azure Cosmos DB for Gremlin account. It's formatted as `AccountEndpoint=https://<account-name>.documents.azure.com:443/;AccountKey=<account-key>;`. |
+|`DatabaseName`, `ContainerName`|The names of the target database and container.|
 |`DocumentsToInsert`| The number of documents to be generated (relevant only to synthetic data).|
 |`PartitionKey` | Ensures that a partition key is specified with each document during data ingestion.|
 |`NumberOfRUs` | Is relevant only if a container doesn't already exist and it needs to be created during execution.|
