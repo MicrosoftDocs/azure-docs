@@ -71,7 +71,7 @@ If you receive an overage claim, review the following factors in order:
 
 1. Are you using a service principal which is part of more than 200 Azure AD groups? If yes, then you'll need to create and use another service principal which is not a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
 
-1. Have you configured oubound proxy envrionment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
+1. Have you configured outbound proxy environment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
 
 If neither of these apply, open a support request so we can look into the issue.
 
