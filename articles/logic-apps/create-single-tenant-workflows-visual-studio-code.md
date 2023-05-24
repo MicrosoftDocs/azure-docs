@@ -218,8 +218,6 @@ Before you can create your logic app, create a local project so that you can man
 
    Visual Studio Code finishes creating your project.
 
-, and opens the **workflow.json** file for your workflow in the code editor.
-
 1. From the Visual Studio Activity bar, open the Explorer pane, if not already open.
 
    The Explorer pane shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
@@ -239,7 +237,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 > [!IMPORTANT]
 > This action is a one-way operation that you can't undo.
 
-1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
+1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to NuGet-based Logic App project**.
 
    ![Screenshot shows Explorer pane with project shortcut menu opened from blank area in project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
 
@@ -251,24 +249,26 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 ## Open the workflow definition file in the designer
 
-1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
+1. Expand your workflow's project folder, which is named **Stateful-Workflow** in this example, and open the **workflow.json** file.
 
-   ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-single-tenant-workflows-visual-studio-code/open-definition-file-in-designer.png)
+1. Open the **workflow.json** file's shortcut menu, and select **Open Designer**.
 
-1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available and deployed in Azure, not just connectors for Azure services.
+   ![Screenshot shows Explorer pane, workflow.json file shortcut menu, and Open Designer selected.](./media/create-single-tenant-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/use-connectors-from-azure.png)
+1. After the **Enable connectors in Azure** list opens, select **Use connectors from Azure**, which applies to all the managed or "shared" connectors, which are hosted and run in Azure versus the built-in, native, or "in-app" connectors, which run directly with the Azure Logic Apps runtime.
+
+   ![Screenshot shows Explorer pane, open list named Enable connectors in Azure, and selected option to Use connectors from Azure.](./media/create-single-tenant-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
-   > which are deployed in Azure, and not triggers. Although you have the option to enable connectors in Azure for your stateless workflow, 
+   > Stateless workflows currently support only *actions* from [managed connectors](../connectors/managed.md), not triggers. 
+   > Although you have the option to enable connectors in Azure for your stateless workflow, 
    > the designer doesn't show any managed connector triggers for you to select.
 
-1. From the **Select subscription** list, select the Azure subscription to use for your logic app project.
+1. After the **Select subscription** list opens, select the Azure subscription to use for your logic app project.
 
-   ![Screenshot that shows Explorer pane with the "Select subscription" box and your subscription selected.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-subscription.png)
+   ![Screenshot shows Explorer pane with list named Select subscription and a selected subscription.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-subscription.png)
 
-1. From the resource groups list, select **Create new resource group**.
+1. After the resource groups list opens, select **Create new resource group**.
 
    ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
 
