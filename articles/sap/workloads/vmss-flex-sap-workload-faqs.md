@@ -47,13 +47,15 @@ If you're deploying VMs in flexible scale set without a scaling profile for SAP 
 
 You can use [PowerShell](../../site-recovery/azure-to-azure-powershell.md) to set up Azure Site Recovery for disaster recovery of VMs that are deployed in a flexible scale set. Currently, it's the only method available to configure disaster recovery for VMs deployed in scale set.
 
-### To configure fence agent for high availability SAP workload, how to enable system managed identity on the VMs deployed in flexible scale set without a scaling profile?
+### I want to use Azure fence agent with managed-system identity (MSI). How could I enable managed system identity on the VMs deployed in flexible scale set without a scaling profile?
 
-You can enable system managed identity at the VM level after a VM is manually deployed in the scale set.
+You can enable managed system identity at the VM level after a VM is manually deployed in the scale set.
 
 ## Migration of SAP workload
 
 ### How can I migrate my current Availability set or Availability zone deployment of SAP workload to flexible scale set with zonal deployment (FD=1)?
+
+For SAP systems that aren't currently deployed using the flexible scale set, you need to migrate SAP VMs to a flexible scale set.
 
 ### How can an existing deployment of SAP HANA, which is [pinned](../../azure-netapp-files/application-volume-group-considerations.md#best-practices-about-proximity-placement-groups) to Azure NetApp Files, be migrated to flexible scale set with FD=1?
 
