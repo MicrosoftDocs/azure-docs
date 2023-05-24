@@ -250,7 +250,7 @@ To use Azure Backup to back up the database, complete these steps:
 1. Create a new backup user `azbackup` which belongs to the operating system group you have verified or created in the previous steps. Please substitute \<group name\> for the name of the group verified. The user is also added to the oinstall group to enable it to open ASM disks:
 
    ```bash
-   sudo useradd -g <group name> -G oinstall azbackup
+   sudo useradd -g <group name> -G oinstall azbackup 
    ```
 
 1. Set up external authentication for the new backup user. 
