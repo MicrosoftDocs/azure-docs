@@ -1,5 +1,5 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Cosmos DB
+title: Migrate applications to use passwordless authentication with Azure Cosmos DB for NoSQL
 titleSuffix: Azure Cosmos DB
 description: Learn to migrate existing applications away from connection strings to instead use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Migrate an application to use passwordless connections with Azure Cosmos DB NoSQL
+# Migrate an application to use passwordless connections with Azure Cosmos for DB for NoSQL
 
-Application requests to Azure Cosmos DB must be authenticated. Although there are multiple options for authenticating to Azure Cosmos DB, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use connection strings with passwords or secret keys create security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
+Application requests to Azure Cosmos DB for NoSQL must be authenticated. Although there are multiple options for authenticating to Azure Cosmos DB, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use connection strings with passwords or secret keys create security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
 
-The following tutorial explains how to migrate an existing application to connect to Azure Cosmos DB NoSql using passwordless connections instead of a key-based solution.
+The following tutorial explains how to migrate an existing application to connect to Azure Cosmos DB for NoSql using passwordless connections instead of a key-based solution.
 
 ## Configure roles and users for local development authentication
 
@@ -190,5 +190,5 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* [Authorize access to blobs using Azure Active Directory](../../blobs/authorize-access-azure-active-directory.md)
+* [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md))
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
