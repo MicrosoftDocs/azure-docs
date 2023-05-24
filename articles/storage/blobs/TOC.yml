@@ -390,7 +390,7 @@ items:
             - name: .NET
               href: storage-blob-user-delegation-sas-create-dotnet.md
           - name: Create a service SAS
-            href: sas-service-create.md
+            href: sas-service-create-dotnet.md
           - name: Create an account SAS (.NET)
             href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Create a stored access policy
