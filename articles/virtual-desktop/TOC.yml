@@ -262,8 +262,6 @@
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD
           href: create-profile-container-azure-ad.md
-        - name: Install Office with FSLogix app containers
-          href: fslogix-office-app-rule-editor.md
       - name: Language packages
         items:
         - name: Windows 10 multi-session images
