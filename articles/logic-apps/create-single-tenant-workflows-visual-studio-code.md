@@ -741,7 +741,7 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 ## Deploy to Azure
 
-From Visual Studio Code, you can directly publish your project to Azure to deploy your Standard logic app. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed Standard logic app resource, which overwrites that logic app.
+From Visual Studio Code, you can directly publish your project to Azure to deploy your Standard logic app resource. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed Standard logic app resource, which overwrites that logic app.
 
 Deployment for the Standard logic app resource requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
@@ -751,9 +751,9 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. On the **Logic Apps (Standard)** pane toolbar, select **Deploy to Logic App**.
+1. In the Azure window, on the **Workspaces** toolbar, select **Deploy** > **Deploy to Logic App**.
 
-   ![Screenshot that shows the pane "Logic Apps (Standard)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot shows Azure window with Workspaces toolbar and Deploy, Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
@@ -765,7 +765,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
    This example continues with **Create new Logic App (Standard) in Azure Advanced**.
 
-   ![Screenshot that shows the "Logic Apps (Standard)" pane and a list with "Create new Logic App (Standard) in Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
+   ![Screenshot shows Azure window with deployment options list and selected option, Create new Logic App (Standard) in Azure.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
 
 1. To create your new Standard logic app resource, follow these steps:
 
