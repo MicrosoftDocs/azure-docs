@@ -89,7 +89,7 @@ To configure backups for AKS cluster, follow these steps:
 
 1. In the Azure portal, go to the **AKS Cluster** you want to back up, and then under **Settings**, select the **Backup** tab.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/view-azuere-kubernetes-cluster.png" alt-text="Screenshot shows viewing AKS cluster for backup.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/view-azure-kubernetes-cluster.png" alt-text="Screenshot shows viewing AKS cluster for backup.":::
 
 1. To prepare AKS cluster for backup or restore, you need to install backup extension in the cluster by selecting **Install Extension**.
 
