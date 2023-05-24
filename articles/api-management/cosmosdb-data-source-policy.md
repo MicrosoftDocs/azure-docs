@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Cosmos DB data source for a resolver
 
-The `cosmosdb-data-source` resolver policy ... for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `cosmosdb-data-source` resolver policy configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -22,7 +22,7 @@ The `cosmosdb-data-source` resolver policy ... for an object type and field in a
 <cosmosdb-data-source> 
     <connection-info>
         <!-- Required --> 
-        <connection-string use-managed-identity="true" client-id= "value" > {{connectString}} </connection-string> 
+        <connection-string use-managed-identity="true | false" client-id= "value"> {{connectString}} </connection-string> 
         <!-- Required --> 
         <database-name>{{databaseName}}</database-name> connection 
         <!-- Required --> 
@@ -125,97 +125,133 @@ The `cosmosdb-data-source` resolver policy ... for an object type and field in a
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| connection-info  |      |   Yes     |
-| query-request    |      |  No      |
-| read-request    |      |    No   |
-| delete-request    |      |   No     |
-| write-request |   |  No |
-| response  |    |    No |
-
+| [connection-info](#connection-info-elements)  |  TODO    |   Yes     |
+| [query-request](#query-request-elements)    |   TODO   |  No      |
+| [read-request](#read-request-attributes)    |  TODO    |    No   |
+| [delete-request](#delete-request-attributes)    |  TODO    |   No     |
+| [write-request](#write-request-attributes) | TODO  |  No |
+| [response](#response-elements)  |  TODO  |    No |
 
 
 ### connection-info elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| connection-string |    | Yes    |
-| database-name |  | Yes  |
-| container-name |  | Yes  |
+| [connection-string](#connection-string-attributes) | TODO   | Yes    |
+| database-name | TODO | Yes  |
+| container-name | TODO | Yes  |
 
 
 #### connection-string attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | ...  | No  | false   |
-| client-id | ... | No | N/A |
+| use-managed-identity | TODO  | No  | false   |
+| client-id | TODO | No | N/A |
 
 
 ### query-request elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|  sql-statement     |         |   No      |
-|  parameters     |         |     No    |
-|  partition-key     |         |     No    |
-|  paging     |        |      No   |
+|  sql-statement     |    A SQL statement for the query request.    |   No      |
+|  parameters     |   A list of query parameters, in [parameter](#parameter-attributes) subelements, for the query request.      |     No    |
+|  [partition-key](#partition-key-attributes)     |  A partition key for the query request.       |     No    |
+|  [paging](#paging-elements)     |    TODO    |      No   |
+
+#### parameter attributes
+
+| Attribute                                      | Description                                                                                 | Required                                           | Default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| name   | String or expression. Name of the parameter.    | Yes    | N/A  |
+| template    |  Used to set the templating mode for the query parameter. Currently the only supported value is:<br /><br />- `liquid` - the parameter will use the liquid templating engine   |  No   |  N/A |
+
+#### paging elements
+
+| Name|Description|Required|
+|----------|-----------------|--------------|
+|  [max-item-count](#max-item-count-attribute)     |    TODO    |   Yes      |
+| [continuation-token](#continuation-token-attribute) | TODO  | Yes |
+
+#### max-item-count attribute
+
+| Attribute                                      | Description                                                                                 | Required                                           | Default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| template    |  Used to set the templating mode for the `max-item-count`. Currently the only supported value is:<br /><br />- `liquid` - the `max-item-count` will use the liquid templating engine   |  No   |  N/A |
+
+#### continuation-token attribute
+
+| Attribute                                      | Description                                                                                 | Required                                           | Default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token will use the liquid templating engine   |  No   |  N/A |
+
 
 ### read-request attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| enable-low-precision-order-by | ...  | No  | N/A   |
+| enable-low-precision-order-by | TODO  | No  | N/A   |
 
 
 ### read-request elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|   id    |         |  Yes          |
-| partition-key    |        |      No      |    
-
-
+|   id    |   TODO      |  Yes          |
+| [partition-key](#partition-key-attributes)    |  A partition key for the read request.      |      No      |    
 
 ### delete-request attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| consistency-level | String. ...  | No  | N/A   |
-| pre-trigger | String. ... | No | N/A |
-| post-trigger | String. ... | No | N/A |
+| consistency-level | String. Sets the CosmosDB [consistency level](../cosmos-db/consistency-levels.md) of the delete request. | No  | N/A   |
+| pre-trigger | String. Identifier of a pre-trigger function that is registered in your CosmosDB database container. | No | N/A |
+| post-trigger | String. Identifier of a post-trigger function that is registered in your CosmosDB database container. | No | N/A |
 
 ### delete-request elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|   id    |         |  Yes          |
-| partition-key   |  | No |
-| etag |    |   No  |
+|   id    |   TODO      |  Yes          |
+| [partition-key](#partition-key-attributes)   |  A partition key for the delete request. | No |
+| [etag](#etag-attribute) | TODO     |   No  |
 
 #### write-request attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| type | String. ...  | No  | N/A   |
-| consistency-level | String. ...  | No  | N/A   |
-| enable-content-response-on-write | String. ...  | No  | N/A   |
-| indexing-directive | String. ...  | No  | N/A   |
-| pre-trigger | String. ... | No | N/A |
-| post-trigger | String. ... | No | N/A |
+| type | String. TODO  | No  | N/A   |
+| consistency-level | String. Sets the CosmosDB [consistency level](../cosmos-db/consistency-levels.md) of the write request.  | No  | N/A   |
+| enable-content-response-on-write | String. TODO  | No  | N/A   |
+| indexing-directive | String. TODO  | No  | N/A   |
+| pre-trigger | String. Identifier of a pre-trigger function that is registered in your CosmosDB database. | No | N/A |
+| post-trigger | String. Identifier of a post-trigger function that is registered in your CosmosDB database. | No | N/A |
 
 ### write-request elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-
+| [partition-key](#partition-key-attributes)   |  A partition key for the write request. | No |
+| [etag](#etag-attribute) | TODO     |   No  |
+| [set-body](set-body-policy.md)  |  Sets the body in the write request. | No  |
 
 ### response elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
+| [set-body](set-body-policy.md)  |  Sets the body in the resolver's response. | No  |
+| [publish-event](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in the GraphQL API schema. | No |
 
-#### connection-string attributes
+
+
+#### partition-key attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | ...  | No  | false   |
-| client-id | ... | No | N/A |
+|  data-type  | String. TODO    | No    | N/A    |
+| template    |  Used to set the templating mode for the partition key. Currently the only supported value is:<br /><br />- `liquid` - the partition key will use the liquid templating engine   |  No   |  N/A |
 
+
+#### etag attribute
+
+| Attribute                                      | Description                                                                                 | Required                                           | Default |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+|  type   | String.  TODO          |   No        |    N/A   |
 
 ## Usage
 
@@ -228,16 +264,104 @@ The `cosmosdb-data-source` resolver policy ... for an object type and field in a
 
 ## Examples
 
-### Resolver for GraphQL query
+### Cosmos DB query request 
 
 TODO
 
-#### Example schema
+```xml
+<cosmosdb-data-source>
+    <connection-info>
+        <connectionstring>
+            AccountEndpoint=https://contoso-cosmosdb.
+documents.azure.com:443/;AccountKey=CONTOSOKEY;
+        </connection-string>
+        <database-name>myDatabase</database-name>
+        <container-name>myContainer</container-name>
+    </connection-info>
+    <query-request>
+        <sql-statement>SELECT * FROM c</sqlstatement>
+    </query-request>
+</cosmosdb-data-source>
+```
+
+### Cosmos DB read request
 
 TODO
 
-#### Example policy
+```xml
+<cosmosdb-data-source>
+    <connection-info>
+        <connectionstring>
+            AccountEndpoint=https://contoso-cosmosdb.
+documents.azure.com:443/;AccountKey=CONTOSOKEY;
+        </connection-string>
+        <database-name>myDatabase</database-name>
+        <container-name>myContainer</container-name>
+    </connection-info>
+    <read-request>
+        <id>
+            @(context.GraphQL.Arguments["id"].ToString()
+        </id>
+        <partition-key>
+            @(context.GraphQL.Arguments["id"].ToString()
+        </partition-key>
+    </read-request>
+</cosmosdb-data-source>
+```
 
+### Cosomos DB delete request
+
+TODO
+
+```xml
+<cosmosdb-data-source>
+    <connection-info>
+        <connectionstring>
+            AccountEndpoint=https://contoso-cosmosdb.
+documents.azure.com:443/;AccountKey=CONTOSOKEY;
+        </connection-string>
+        <database-name>myDatabase</database-name>
+        <container-name>myContainer</container-name>
+    </connection-info>
+    <delete-request>
+        <id>
+            @(context.GraphQL.Arguments["id"].ToString())
+        </id>
+        <partition-key>
+            @(context.GraphQL.Arguments["id"].ToString())
+        </partition-key>
+    </delete-request>
+</cosmosdb-data-source>
+```
+
+### Cosmos DB write request
+
+TODO
+
+```xml
+<cosmosdb-data-source>
+    <connection-info>
+        <connectionstring>
+            AccountEndpoint=https://contoso-cosmosdb.
+documents.azure.com:443/;AccountKey=CONTOSOKEY;
+        </connection-string>
+        <database-name>myDatabase</database-name>
+        <container-name>myContainer</container-name>
+    </connection-info>
+    <write-request>
+        <partition-key>
+            @(context.GraphQL.Arguments["id"].ToString())
+        </partition-key>
+        <set-body template="liquid">
+            {"id" : "{{body.arguments.id}}" ,
+            "firstName" : "{{body.arguments.firstName}}",
+            "intField" : {{body.arguments.intField}} ,
+            "floatField" : {{body.arguments.floatField}} ,
+            "boolField" : {{body.arguments.boolField}}}
+        </set-body>
+    </write-request>
+</cosmosdb-data-source>
+```
 
 
 ## Related policies
