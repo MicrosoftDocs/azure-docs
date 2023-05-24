@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 
 # Push delivery with HTTP
-This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you will find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
+This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!Important]
 > This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).
@@ -17,7 +17,7 @@ This article builds on [What is Azure Event Grid?](overview.md) to provide essen
 
 ### CloudEvents
 
-Event Grid conforms to CNCF’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). This means that your solutions publish and consume event messages using a format like the following:
+Event Grid conforms to CNCF’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). It means that your solutions publish and consume event messages using a format like the following example:
 
 ```json
 {
@@ -44,11 +44,11 @@ An **event** is the smallest amount of information that fully describes somethin
 >[!Note]
 > We interchangeably use the terms **discrete events**, **cloudevents**, or just **events** to refer to those messages that inform about a change of a system state. 
 
-For more information on events, consult the Event Grid [Terminology](concepts.md#events).
+For more information on events, see the Event Grid [Terminology](concepts.md#events).
 
 #### Another kind of event
 
-The user community also refers to events to those type of messages that carry a data point, such as a single reading from a device or a single click on a web application page. That kind of event is usually analyzed over a time window or event stream size to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as **data point**, **streaming data**, or **telemetry**. They are a kind of data that Event Grid’s MQTT support and Azure Event Hubs usually handle.
+The user community also refers to events to those type of messages that carry a data point, such as a single reading from a device or a single click on a web application page. That kind of event is usually analyzed over a time window or event stream size to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as **data point**, **streaming data**, or **telemetry**. They're a kind of data that Event Grid’s MQTT support and Azure Event Hubs usually handle.
 
 ### Topics and event subscriptions
 
@@ -68,16 +68,16 @@ The following are general guidelines to help you decide when to use pull or push
 
 #### Pull delivery
 
-- Your applications or services publish events. Event Grid does not yet support pull delivery when the source of the events is an [Azure service](event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](partner-events-overview.md) (SaaS) system.
+- Your applications or services publish events. Event Grid doesn't yet support pull delivery when the source of the events is an [Azure service](event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](partner-events-overview.md) (SaaS) system.
 - You need full control as to when to receive events. For example, your application may not up all the time, not stable enough, or you process data at certain times.
 - You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows the consumer app to release an already read event back to the broker so that it can be delivered later.
 - You want to use [private links](../private-link/private-endpoint-overview.md) when receiving events. This is possible with pull delivery.
-- You do not have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
+- You don't have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
 
 #### Push delivery
 - You need to receive events from Azure services, partner (SaaS) event sources or from your applications. Push delivery supports these types of event sources. 
 - You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send events to you at the time state changes happen.
-- You have an application that cannot make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
+- You have an application that can't make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
 
 ## Push delivery
 

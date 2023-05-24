@@ -17,7 +17,7 @@ This article describes CloudEvents schema with Event Grid.
 
 ## Sample event using CloudEvents schema
 
-Here is an example of an Azure Blob Storage event in the CloudEvents format:
+Here's an example of an Azure Blob Storage event in the CloudEvents format:
 
 ```json
 {
@@ -50,7 +50,7 @@ The headers values for events delivered in the CloudEvents schema and the Event 
 
 ## Event Grid for CloudEvents
 
-You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. In addition to supporting CloudEvents, Event Grid suppports a proprietary, non-extensible, yet fully-functional [Event Grid event format](event-schema.md). The following table describes the transformation supported when using CloudEvents and Event Grid formats as an input schema in topics and as an output schema in event subscriptions. Note that an Event Grid output schema cannot be used when using CloudEvents as an input schema because CloudEvents supports [extension attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) which are not supported by the Event Grid schema.
+You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. In addition to supporting CloudEvents, Event Grid supports a proprietary, nonextensible, yet fully functional [Event Grid event format](event-schema.md). The following table describes the transformation supported when using CloudEvents and Event Grid formats as an input schema in topics and as an output schema in event subscriptions. An Event Grid output schema can't be used when using CloudEvents as an input schema because CloudEvents supports [extension attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) that aren't supported by the Event Grid schema.
 
 | Input schema       | Output schema
 |--------------------|---------------------
@@ -59,7 +59,7 @@ You can use Event Grid for both input and output of events in CloudEvents schema
 | Event Grid format  | Event Grid format
 
 
-For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
+For all event schemas, Event Grid requires validation when publishing to an Event Grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
 
 ## Next steps
 See [How to use CloudEvents v1.0 schema with Event Grid](cloudevents-schema.md).  

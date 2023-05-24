@@ -77,15 +77,15 @@ ms.date: 05/24/2023
 
 ### Simplified resource model
 
-The event subscriptions under a [Namespace Topic](concepts-pull-delivery.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the  the same except for the scenarios documented in the following sections.
+The event subscriptions under a [Namespace Topic](concepts-pull-delivery.md#namespace-topics) feature a simplified filtering configuration model when compared to that of event subscriptions to domains and to custom, system, partner, and domain topics. The filtering capabilities are the same except for the scenarios documented in the following sections.
 
 #### Filter on event data
 
-Filtering on event `data` is not currently supported. This capability will be available in a future release.
+Filtering on event `data` isn't currently supported. This capability will be available in a future release.
 
 #### Subject begins with
 
-There is no dedicated configuration properties to specify filters on `subject`. You can configure filters in the following way to filter the context attribute `subject` with a value that begins with a string.
+There's no dedicated configuration properties to specify filters on `subject`. You can configure filters in the following way to filter the context attribute `subject` with a value that begins with a string.
 
 | key value  | operator   |   value |
 |-----------|:---------:|-----------|
@@ -93,7 +93,7 @@ There is no dedicated configuration properties to specify filters on `subject`. 
 
 #### Subject ends with
 
-There is no dedicated configuration properties to specify filters on `subject`. You can configure filters in the following way to filter the context attribute `subject` with a value that ends with a string.
+There's no dedicated configuration properties to specify filters on `subject`. You can configure filters in the following way to filter the context attribute `subject` with a value that ends with a string.
 
 | key value  | operator   |   value |
 |-----------|:---------:|-----------|

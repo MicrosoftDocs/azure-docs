@@ -62,7 +62,7 @@ A Namespace also provides DNS-integrated network endpoints and a range of access
 
 ## Throughput units
 
-The capacity of Azure Event Grid namespace is controlled by throughput units (TUs) and allows user to control capacity of their namespace resource for message ingress and egress. See [Azure Event Grid quotas and limits](quotas-limits.md) for more information.
+The capacity of Azure Event Grid namespace is controlled by throughput units (TUs) and allows user to control capacity of their namespace resource for message ingress and egress. For more information, see [Azure Event Grid quotas and limits](quotas-limits.md).
 
 ## Topics
 
