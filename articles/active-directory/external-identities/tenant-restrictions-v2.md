@@ -61,7 +61,7 @@ Tenant restrictions V2 can be scoped to specific users, groups, organizations, o
 - When a user accesses a third-party app, like Slack, using an anonymous link or non-Azure AD account.
 - When a user copies an Azure AD-issued token from a home machine to a work machine and uses it to access a third-party app like Slack.
 
-### Comparing Tenant restrictions V1 and V2
+### Compare Tenant restrictions V1 and V2
 
 The following table compares the features in each version.
 
@@ -77,7 +77,7 @@ The following table compares the features in each version.
 |**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
 |**Unsupported apps**      |     N/A    |   Block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on). See [Block Chrome, Firefox and .NET applications like PowerShell](#block-chrome-firefox-and-net-applications-like-powershell).      |
 
-### Migrating tenant restrictions V1 policies to V2
+### Migrate tenant restrictions V1 policies to V2
 
 Along with using tenant restrictions V2 to manage access for your Windows device users, we recommend configuring your corporate proxy to enforce tenant restrictions V2 to manage other devices and apps in your corporate network. Although configuring tenant restrictions on your corporate proxy doesn't provide data plane protection, it provides authentication plane protection. For details, see [Step 4: Set up tenant restrictions V2 on your corporate proxy](#step-4-set-up-tenant-restrictions-v2-on-your-corporate-proxy).
 
@@ -199,7 +199,7 @@ Settings for tenant restrictions V2 are located in the Azure portal under **Cros
    - **All external applications**: Applies the action you chose under **Access status** to all external applications. If you block access to all external applications, you also need to block access for all of your users and groups (on the **Users and groups** tab).
    - **Select external applications**: Lets you choose the external applications you want the action under **Access status** to apply to. To select applications, choose **Add Microsoft applications** or **Add other applications**. Then search by the application name or the application ID (either the *client app ID* or the *resource app ID*) and select the app. ([See a list of IDs for commonly used Microsoft applications.](https://learn.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in)) If you want to add more apps, use the **Add** button. When you're done, select **Submit**. 
 
-   :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-default-applications-applies-to.png" alt-text="creenshot showing selecting the external applications tab.":::
+   :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-default-applications-applies-to.png" alt-text="Screenshot showing selecting the external applications tab.":::
 
 1. Select **Save**.
 
