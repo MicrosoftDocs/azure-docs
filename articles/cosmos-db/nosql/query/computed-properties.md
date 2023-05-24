@@ -20,7 +20,7 @@ Computed properties in Azure Cosmos DB have values derived from existing item pr
 
 ## Computed property definition
 
-Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties.
+Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties. Every container can have a maximum of 20 computed properties.
 
 Example computed property definition:
 ```json
@@ -66,9 +66,9 @@ The constraints on computed property query definitions are:
 
 - Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, and NONE.
 
-- Aggregate and spatial functions aren't supported.
-
 - Queries can't include a scalar subquery.
+
+- Aggregate functions, spatial functions, non-deterministic functions and user defined functions aren't supported.
 
 ## Creating computed properties 
 
@@ -87,7 +87,7 @@ Here's an example of how to create computed properties in a new container using 
 ```csharp
     ContainerProperties containerProperties = new ContainerProperties("myContainer", "/pk")
     {
-        ComputedProperties = new Collection<ComputedProperty
+        ComputedProperties = new Collection<ComputedProperty>
         {
             new ComputedProperty
             {
@@ -97,8 +97,37 @@ Here's an example of how to create computed properties in a new container using 
         }
     };
 
-    ContainerResponse response = await this.database.CreateContainerAsync(containerProperties);
+    Container container = await client.GetDatabase("myDatabase").CreateContainerAsync(containerProperties);
 ```
+
+Here's an example of how to update computed properties on an existing container using the .NET SDK:
+
+```csharp
+    var container = client.GetDatabase("myDatabase").GetContainer("myContainer");
+
+    // Read the current container properties
+    var containerProperties = await container.ReadContainerAsync();
+    // Make the necessary updates to the container properties
+    containerProperties.Resource.ComputedProperties = new Collection<ComputedProperty>
+        {
+            new ComputedProperty
+            {
+                Name = "cp_lowerName",
+                Query = "SELECT VALUE LOWER(c.name) FROM c"
+            },
+            new ComputedProperty
+            {
+                Name = "cp_upperName",
+                Query = "SELECT VALUE UPPER(c.name) FROM c"
+            }
+        };
+    // Update container with changes
+    await container.ReplaceContainerAsync(containerProperties);
+```
+
+> [!TIP]
+> Every time you update container properties, the old values are overwritten. 
+> If you have existing computed properties and want to add new ones, ensure you add both new and existing computed properties to the collection.
 
 ## Using computed properties in queries
 
