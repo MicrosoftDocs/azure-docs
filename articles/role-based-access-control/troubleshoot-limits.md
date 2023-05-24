@@ -54,24 +54,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
-    ```kusto
-    AuthorizationResources
-    | where type =~ "microsoft.authorization/roleassignments"
-    | where id startswith "/subscriptions"
-    | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
-    | join kind = leftouter (
-      AuthorizationResources
-      | where type =~ "microsoft.authorization/roledefinitions"
-      | extend RoleDefinitionName = tostring(properties.roleName)
-      | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
-      | project RoleDefinitionName, rdId
-    ) on $left.RoleId == $right.rdId
-    | extend principalId = tostring(properties.principalId)
-    | extend principal_to_ra = pack(principalId, id)
-    | summarize count_ = count(), AllPrincipals = make_set(principal_to_ra) by RoleDefinitionId = tolower(properties.roleDefinitionId), Scope = tolower(properties.scope), RoleDefinitionName
-    | where count_ > 1
-    | order by count_ desc
-    ```
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-scope](../../includes/resource-graph/samples/query/authorization-same-role-scope.md)]
 
     The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
@@ -147,25 +130,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
 1. Run the following query to get the role assignments with the same principal and same role, but at different scopes.
 
-    ```kusto
-    AuthorizationResources
-    | where type =~ "microsoft.authorization/roleassignments"
-    | where id startswith "/subscriptions"
-    | extend RoleDefinitionId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
-    | extend PrincipalId = tolower(properties.principalId)
-    | extend RoleDefinitionId_PrincipalId = strcat(RoleDefinitionId, "_", PrincipalId)
-    | join kind = leftouter (
-      AuthorizationResources
-      | where type =~ "microsoft.authorization/roledefinitions"
-      | extend RoleDefinitionName = tostring(properties.roleName)
-      | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
-      | project RoleDefinitionName, rdId
-    ) on $left.RoleDefinitionId == $right.rdId
-    | summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleDefinitionId_PrincipalId,RoleDefinitionName
-    | project RoleDefinitionId = split(RoleDefinitionId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleDefinitionId_PrincipalId, "_", 1)[0], count_, Scopes
-    | where count_ > 1
-    | order by count_ desc
-    ```
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-role-principal](../../includes/resource-graph/samples/query/authorization-same-role-principal.md)]
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same principal and same role. The count is sorted in descending order.
 
@@ -242,21 +207,7 @@ Follow these steps to find and delete unused Azure custom roles.
 
 1. Run the following query to get all custom roles that don't have any role assignments:
 
-    ```kusto
-    AuthorizationResources
-    | where type =~ "microsoft.authorization/roledefinitions"
-    | where tolower(properties.type) == "customrole"
-    | extend rdId = tostring(split(tolower(id), "roledefinitions/", 1)[0])
-    | extend Scope = tolower(properties.assignableScopes)
-    | join kind = leftouter (
-    AuthorizationResources
-      | where type =~ "microsoft.authorization/roleassignments"
-      | extend RoleId = tostring(split(tolower(properties.roleDefinitionId), "roledefinitions/", 1)[0])
-      | summarize RoleAssignmentCount = count() by RoleId
-    ) on $left.rdId == $right.RoleId
-    | where isempty(RoleAssignmentCount)
-    | project RoleDefinitionId = rdId, RoleDefinitionName = tostring(properties.roleName), Scope
-    ```
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-unused-custom-roles](../../includes/resource-graph/samples/query/authorization-unused-custom-roles.md)]
 
     The following shows an example of the results:
 
