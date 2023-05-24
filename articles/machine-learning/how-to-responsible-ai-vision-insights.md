@@ -116,9 +116,6 @@ After specifying and submitting the pipeline to Azure Machine Learning for execu
         type: mlflow_model
         path: azureml:<registered_model_name>:<registered model version>
       model_info: ${{parent.inputs.model_info}}
-      train_dataset:
-        type: mltable
-        path: ${{parent.inputs.my_training_data}}
       test_dataset:
         type: mltable
         path: ${{parent.inputs.my_test_data}}
@@ -145,7 +142,6 @@ rai_vision_insights_component = ml_client_registry.components.get(
             task_type="image_classification",
             model_info=expected_model_id,
             model_input=Input(type=AssetTypes.MLFLOW_MODEL, path= "<azureml:model_name:model_id>"),
-            train_dataset=train_data,
             test_dataset=test_data,
             target_column_name=target_column_name,
             classes=classes,
