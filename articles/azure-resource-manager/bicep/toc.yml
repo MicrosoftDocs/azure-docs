@@ -311,6 +311,8 @@
       href: bicep-functions-any.md
     - name: Array functions
       href: bicep-functions-array.md
+    - name: CIDR functions
+      href: bicep-functions-cidr.md
     - name: Date functions
       href: bicep-functions-date.md
     - name: Deployment functions

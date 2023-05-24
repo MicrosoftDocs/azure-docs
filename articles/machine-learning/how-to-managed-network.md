@@ -54,6 +54,15 @@ The managed virtual network is preconfigured with [required default rules](#list
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
+> [!IMPORTANT]
+> To use the information in this article, you must enable this preview feature for your subscription. To check whether it has been registered, or to register it, use the steps in the [Set up preview features in Azure subscription](https://azure/azure-resource-manager/management/preview-features). Depending on whether you use the Azure portal, Azure CLI, or Azure PowerShell, you may need to register the feature with a different name. Use the following table to determine the name of the feature to register:
+>
+> | Registration method | Feature name |
+> | ----- | ----- |
+> | Azure portal | `Azure Machine Learning Managed Network` |
+> | Azure CLI | `AMLManagedNetworkEnabled` |
+> | Azure PowerShell | `AMLManagedNetworkEnabled` |
+
 # [Azure CLI](#tab/azure-cli)
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -70,8 +79,6 @@ Before following the steps in this article, make sure you have the following pre
 * The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
-
-
 
 # [Python](#tab/python)
 
@@ -99,6 +106,10 @@ Before following the steps in this article, make sure you have the following pre
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     ```
+
+# [Azure portal](#tab/portal)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 ---
 
@@ -263,6 +274,28 @@ To configure a managed VNet that allows internet outbound communications, use th
     # Create the workspace
     ml_client.workspaces.begin_update(ws)
     ```
+
+# [Azure portal](#tab/portal)
+
+* __Create a new workspace__:
+
+    1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
+    1. Provide the required information on the __Basics__ tab.
+    1. From the __Networking__ tab, select __Private with Internet Outbound__.
+    
+        :::image type="content" source="./media/how-to-managed-network/use-managed-network-internet-outbound.png" alt-text="Screenshot of creating a workspace with an internet outbound managed network." lightbox="./media/how-to-managed-network/use-managed-network-internet-outbound.png":::
+
+    1. Continue creating the workspace as normal.
+
+* __Update an existing workspace__:
+
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+
+    1. Sign in to the [Azure portal](https://ms.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
+    1. Select __Networking__, then select __Private with Internet Outbound__. Select __Save__ to save the changes.
+    
+        :::image type="content" source="./media/how-to-managed-network/update-managed-network-internet-outbound.png" alt-text="Screenshot of updating a workspace to managed network with internet outbound." lightbox="./media/how-to-managed-network/update-managed-network-internet-outbound.png":::
 
 ---
 
@@ -480,6 +513,28 @@ To configure a managed VNet that allows only approved outbound communications, u
     ml_client.workspaces.begin_update(ws)
     ```
 
+# [Azure portal](#tab/portal)
+
+* __Create a new workspace__:
+
+    1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
+    1. Provide the required information on the __Basics__ tab.
+    1. From the __Networking__ tab, select __Private with Approved Outbound__.
+    
+        :::image type="content" source="./media/how-to-managed-network/use-managed-network-approved-outbound.png" alt-text="Screenshot of creating a workspace with an approved outbound managed network." lightbox="./media/how-to-managed-network/use-managed-network-approved-outbound.png":::
+
+    1. Continue creating the workspace as normal.
+
+* __Update an existing workspace__:
+
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+
+    1. Sign in to the [Azure portal](https://ms.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
+    1. Select __Networking__, then select __Private with Approved Outbound__. Select __Save__ to save the changes.
+    
+        :::image type="content" source="./media/how-to-managed-network/update-managed-network-approved-outbound.png" alt-text="Screenshot of updating a workspace to managed network with approved outbound." lightbox="./media/how-to-managed-network/update-managed-network-approved-outbound.png":::
+
 ---
 
 
@@ -554,6 +609,16 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     ml_client.workspaces.begin_update(ws)
     ```
 
+
+    # [Azure portal](#tab/portal)
+
+    1. Sign in to the [Azure portal](https://ms.azure.com), and select the Azure Machine Learning workspace.
+    1. Select __Networking__, then select __Add user-defined outbound rules__. Add a rule for the Azure Storage Account, and make sure that __Spark enabled__ is selected.
+    
+        :::image type="content" source="./media/how-to-managed-network/add-outbound-spark-enabled.png" alt-text="Screenshot of an endpoint rule with Spark enabled selected." lightbox="./media/how-to-managed-network/add-outbound-spark-enabled.png":::
+
+    1. Select __Save__ to save the rule, then select __Save__ from the top of __Networking__ to save the changes to the manged virtual network.
+
     ---
 
 1. Provision the managed VNet.
@@ -582,6 +647,10 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
     ```
+
+    # [Azure portal](#tab/portal)
+
+    Create a new compute instance or compute cluster, which also creates the managed virtual network.
 
     ---
 
@@ -629,6 +698,13 @@ print([r._to_dict() for r in rule_list])
 # Delete a rule from a workspace
 ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_name).result()
 ```
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://ms.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
+1. Select __Networking__. The __Workspace Outbound access__ section allows you to manage outbound rules.
+
+    :::image type="content" source="./media/how-to-managed-network/manage-outbound-rules.png" alt-text="Screenshot of the outbound rules section." lightbox="./media/how-to-managed-network/manage-outbound-rules.png":::
 
 ---
 

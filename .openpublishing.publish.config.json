@@ -997,7 +997,13 @@
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "azure-actions-workflow-samples",
+      "url": "https://github.com/Azure/actions-workflow-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    }  
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
