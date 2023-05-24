@@ -61,8 +61,7 @@ If you have an existing custom table to which you currently send data using the 
 
 - Maintain the existing table and data and set up a new data into which you ingest data using the Log Ingestion API. You can then delete the old table when you're ready.
 
-#### Table schema requirements
-> [!div class="checklist"]
+> [!IMPORTANT]
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Custom columns you add to an Azure table must have the suffix `_CF`.
