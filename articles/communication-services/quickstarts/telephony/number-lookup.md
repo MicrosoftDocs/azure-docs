@@ -10,7 +10,7 @@ ms.date: 05/30/2023
 ms.topic: quickstart
 ms.custom: mode-other
 ms.author: ericasp
-zone_pivot_groups: net
+zone_pivot_groups: csharp
 ---
 
 # Quickstart: Look up operator information for a phone number
@@ -18,7 +18,7 @@ zone_pivot_groups: net
 Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [CSharp](./includes/number-lookup-net.md)]
+[!INCLUDE [C#](./includes/number-lookup-net.md)]
 ::: zone-end
 
 ## Troubleshooting
