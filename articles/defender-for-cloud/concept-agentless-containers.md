@@ -19,6 +19,14 @@ Agentless Container Posture provides the following capabilities:
 
 - Using Kubernetes [attack path analysis](concept-attack-path.md) to visualize risks and threats to Kubernetes environments.
 
+- Using cloud security explorer for risk hunting by querying various risk scenarios.
+
+- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, search for `Kubernetes` in the [list of Insights](attack-path-reference.md#insights).
+
+- Agentless discovery and visibility within Kubernetes components.
+
+- Agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) with cloud security explorer.
+
 - Using [cloud security explorer](how-to-manage-cloud-security-explorer.md) for risk hunting by querying various risk scenarios. 
 
 - Viewing security insights, such as internet exposure, and other predefined security scenarios. For more information, search for Kubernetes in the [list of Insights](attack-path-reference.md#cloud-security-graph-components-list).
