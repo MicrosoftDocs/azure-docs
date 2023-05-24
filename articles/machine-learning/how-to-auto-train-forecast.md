@@ -1512,4 +1512,3 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 * Learn about [how AutoML builds forecasting models](./concept-automl-forecasting-methods.md).
 * Learn about [forecasting at scale](./concept-automl-forecasting-at-scale.md).
 * Learn how to [configure AutoML for various forecasting scenarios](./how-to-automl-forecasting-faq.md#what-modeling-configuration-should-i-use).
-

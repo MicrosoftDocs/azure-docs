@@ -2,8 +2,8 @@
 title: Azure Maps Web SDK best practices
 titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 04/13/2023
 ms.topic: conceptual
 ms.service: azure-maps

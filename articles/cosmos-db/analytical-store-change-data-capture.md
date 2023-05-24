@@ -32,16 +32,28 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
 
-> [!IMPORTANT]
-> Please note that if the "Start from beginning" option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. Similarly, when the "Start from timestamp" option is selected, the initial load processes the data from the given timestamp, and incremental or changed data is captured in subsequent runs. The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs`, which are found under the [source options](get-started-change-data-capture.md) tab, determine if intermediate updates and deletes are captured in sinks.
-
 ## Features
 
 Change data capture in Azure Cosmos DB analytical store supports the following key features.
 
-### Capturing deletes and intermediate updates
+### Capturing changes from the beginning
 
-The change data capture feature for the analytical store captures deleted records and the intermediate updates. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink.
+When the `Start from beginning` option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. This is limited by the `analytical TTL` property and documents TTL-removed from analytical store are not included in the change feed. Example: Imagine a container with `analytical TTL` set to 31536000 seconds, what is equivalent to 1 year. If you create a CDC process for this container, only documents newer than 1 year will be included in the initial load.
+
+### Capturing changes from a given timestamp
+
+When the `Start from timestamp` option is selected, the initial load processes the data from the given timestamp, and incremental or changed data is captured in subsequent runs. This process is also limited by the `analytical TTL` property.
+
+### Capturing changes from now
+
+When the `Start from timestamp` option is selected, all past operations of the container are not captured. 
+
+
+### Capturing deletes, intermediate updates, and TTLs
+
+The change data capture feature for the analytical store captures deletes, intermediate updates, and TTL operations. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink. 
+
+Note that TTL operations are considered deletes. Check the [source settings](get-started-change-data-capture.md) section to check mode details and the support for intermediate updates and deletes in sinks.
 
 ### Filter the change feed for a specific type of operation
 
@@ -57,8 +69,6 @@ FROM c
 WHERE Category = 'Urban'
 ```
 
-> [!NOTE]
-> If you would like to enable source-query based change data capture on Azure Data Factory data flows during preview, please email [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) and share your **subscription Id** and **region**. This is not necessary to enable source-query based change data capture on an Azure Synapse data flow.
 
 ### Multiple CDC processes
 
