@@ -39,7 +39,7 @@ The following table describes the minimum and recommended specifications for the
 
 | Model | Minimum cpu | Maximum cpu | Minimum memory | Maximum memory| | 
 |----------|--|--|--|--|--| 
-| Trial Matcher | 4000 m |4000m |5G | 7G | 
+| Trial Matcher | 4000m |4000m |5G | 7G | 
 | OncoPhenotype | 4000m |8000m |2G | 12G |
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
@@ -82,7 +82,7 @@ container-
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
->   * The [responsible AI](responsible-ai/transparency-note.md)  (RAI) acknowledgment must also be present with a value of `accept`.
+>   * The responsible AI '`RAI_Terms` acknowledgment must also be present with a value of `accept`.
 
 There are multiple ways you can install and run Project Health Insights containers. 
 
@@ -114,7 +114,7 @@ ApiKey={API_KEY}
 ```
 
 For Clinical Trials, add this value:
-TrialMatcher__TA4HConfiguration__Host={http://<text analytics container>:5000/}
+TrialMatcher__TA4HConfiguration__Host={http://<text-analytics container endpoint>:5000}
 
 This command:
 
@@ -147,7 +147,7 @@ services:
       - RAI_TERMS=accept
       - billing={AHI_ENDPOINT_URI}
       - ApiKey={AHI_API_KEY}
-      - TrialMatcher__TA4HConfiguration__Host=http://azure-cognitive-service-ta4h:5000/
+      - TrialMatcher__TA4HConfiguration__Host={http://<text-analytics container endpoint>:5000}
     ports:
       - 5000:5000/tcp
     networks:

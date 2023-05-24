@@ -25,7 +25,7 @@ The container has the following configuration settings:
 |Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[ApplicationInsights__InstrumentationKey ](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
-|Yes|[RAI_Terms](#rai-term)| Indicates acceptance of Responsible AI terms.|
+|Yes|[RAI_Terms](#rai-term-setting)| Indicates acceptance of Responsible AI terms.|
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](use-containers.md#billing).
@@ -77,7 +77,7 @@ The `RAI_Terms` setting indicates acceptance of Responsible AI terms. You must s
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `RAI-Terms` | String | Responsible AI terms acceptance **Example:** `RAI_Terms=accept` |
+|Yes| `RAI_Terms` | String | Responsible AI terms acceptance **Example:** `RAI_Terms=accept` |
 
 
 ## Logging settings
@@ -122,9 +122,12 @@ Logging:Console:LogLevel:Default=Debug
 
 The `Disk` logging provider supports the following configuration settings:
 
+
 | Name | Data type | Description |
 |------|-----------|-------------|
 | `Format` | String | The output format for log files.
+
+
 **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
 | `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. 
 When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider.

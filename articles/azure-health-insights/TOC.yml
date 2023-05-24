@@ -21,7 +21,7 @@ items:
      - name: How to Use Project Health Insights with containers
        href: use-containers.md
      - name: How to configure the containers
-       href: configures-containers.md
+       href: configure-containers.md
 - name: Responsible use of AI
   expanded: true
   items:
