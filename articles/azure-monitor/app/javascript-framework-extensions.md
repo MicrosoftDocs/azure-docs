@@ -97,7 +97,7 @@ appInsights.loadAppInsights();
 
 | Name    | Default | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). To learn how to access the history object outside of components, see the [React router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components).    |
+| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). |
 
 #### React components usage tracking
 
