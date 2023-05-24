@@ -31,7 +31,7 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
 
 1. Select Generate data blade under “Overview” section of Event Hubs namespace.
 
-   :::image type="content" source="media/send-and-receive-events-using-data-generator/Highlighted-final-overview-namespace.png" alt-text="Screenshot displaying overview page for event hub namespace ":::
+   :::image type="content" source="media/send-and-receive-events-using-data-generator/Highlighted-final-overview-namespace.png" alt-text="Screenshot displaying overview page for event hub namespace.":::
 
 2. On Generate Data blade, you would find below properties for Data generation: 
    1. **Select Event Hub:** Since you would be sending data to event hub, you could use the dropdown to send the data into event hubs of your choice. If there is no event hub created within event hubs namespaces, you could use “create Event Hubs” to [create a new event hub](/azure/event-hubs/event-hubs-create) within namespace and stream data post creation of event hub.  
@@ -40,7 +40,7 @@ You could follow the steps below to send events to Azure Event Hubs Data Generat
    4.  **Repeat send**:-If you want to send the same payload as multiple events, you can enter the number of repeat events that you wish to send. Repeat Send supports sending up to 100 repetitions.
    5.  **Authentication Type**: Under settings, you can choose from two different authentication type: Shared Access key or Azure Active Directory. Please make sure that you have Azure Event Hubs Data owner permission before using Azure Active Directory. 
    
-   :::image type="content" source="media/send-and-receive-events-using-data-generator/highlighted-data-generator-landing.png" alt-text="Screenshot displaying landing page for data generator ":::
+   :::image type="content" source="media/send-and-receive-events-using-data-generator/highlighted-data-generator-landing.png" alt-text="Screenshot displaying landing page for data generator.":::
 
 > [!TIP]
 > For user defined payload, the content under the "Enter payload" section is treated as a single event The number of events sent is equal to the value of repeat send. 
@@ -62,7 +62,7 @@ Maximum Payload Size| 	256 Kb		| 	1 MB 	     | 1 MB     | 1 MB
 
 As soon as you select send, data generator would take care of sending the events to event hubs of your choice and new collapsible “View Events” window would load automatically. You could expand any tabular row to review the event content sent to event hubs. 
 
-:::image type="content" source="media/send-and-receive-events-using-data-generator/view-events-window.png" alt-text="Screenshot for event hub data generator UI showcasing View events" lightbox="media/send-and-receive-events-using-data-generator/view-events-window.png":::
+:::image type="content" source="media/send-and-receive-events-using-data-generator/view-events-window.png" alt-text="Screenshot for event hub data generator UI showcasing View events." lightbox="media/send-and-receive-events-using-data-generator/view-events-window.png":::
 
 ## Frequently asked questions
 
