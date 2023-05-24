@@ -250,7 +250,9 @@ items:
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
       - name: Enable Closed captions for Teams Interoperability
-        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
+      - name: Get local capabilities
+        href: how-tos/calling-sdk/capabilities.md
     - name: Call recording
       items:
       - name: Record a call
