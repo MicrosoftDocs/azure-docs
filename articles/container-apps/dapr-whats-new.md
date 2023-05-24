@@ -12,14 +12,14 @@ ms.date: 05/24/2023
 
 This article lists significant changes to Azure Container Apps documentation.
 
-## Dapr v1.11 and highlight features
+## June 2023
 
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
 | [Stable Configuration API](https://docs.dapr.io/developing-applications/building-blocks/configuration/) | [Dapr integration with Azure Container Apps](./dapr-overview.md) | Dapr's Configuration API is now stable in v1.11 and supported in Azure Container Apps. |
 
 
-## Build 2023 features
+## May 2023
 
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
