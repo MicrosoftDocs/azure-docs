@@ -5,7 +5,7 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 05/23/2023
 ms.custom: engagement-fy23
 ---
 
@@ -47,6 +47,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **RDM/passthrough disks**      | Not supported for migration.|
 | **Shared disk** | VMs using shared disks aren't supported for migration.|
 | **NFS**                        | NFS volumes mounted as volumes on the VMs won't be replicated.|
+| **ReiserFS**                   | Not supported.
 | **ISCSI**                      | VMs with iSCSI targets aren't supported for migration.
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
 | **IPv6** | Not supported.|

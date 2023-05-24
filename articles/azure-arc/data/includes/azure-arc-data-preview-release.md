@@ -35,6 +35,7 @@ May 2023 preview release is now available.
 |`arcdata` Azure CLI extension version|1.5.0 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.19.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 931 |
 
 ### Release notes
 
