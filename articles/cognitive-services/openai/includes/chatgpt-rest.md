@@ -74,6 +74,9 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+
 ## REST API
 
 In a bash shell, run the following command. You will need to replace `gpt-35-turbo` with the deployment name you chose when you deployed the ChatGPT or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
@@ -107,6 +110,9 @@ If you want to run this command in a normal Windows command prompt you would nee
 ```
 
 Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-sample-code)
 
 ### Understanding the message structure
 

@@ -21,7 +21,7 @@ The App Service Authentication feature can automatically create an app registrat
 - [Use an existing registration created separately](#advanced)
 
 > [!NOTE]
-> The option to create a new registration is not available for government clouds. Instead, [define a registration separately](#advanced).
+> The option to create a new registration automatically is not available for government clouds or when using [Azure Active Directory for customers (Preview)]. Instead, [define a registration separately](#advanced).
 
 ## <a name="express"> </a> Option 1: Create a new app registration automatically
 
@@ -58,13 +58,33 @@ During creation of the app registration, collect the following information which
 
 - Client ID
 - Tenant ID
-- Client secret (optional)
+- Client secret (optional, but recommended)
 - Application ID URI
+
+The instructions for creating an app registration depend on if you are using [a workforce tenant](../active-directory/fundamentals/active-directory-whatis.md) or [a customer tenant (Preview)][Azure Active Directory for customers (Preview)]. Use the tabs below to select the right set of instructions for your scenario.
 
 To register the app, perform the following steps:
 
 1. Sign in to the [Azure portal], search for and select **App Services**, and then select your app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
-1. From the portal menu, select **Azure Active Directory**.
+1. Navigate to your tenant in the portal:
+
+    # [Workforce tenant](#tab/workforce-tenant)
+
+    From the portal menu, select **Azure Active Directory**. If the tenant you are using is different from the one you use to configure the App Service application, you will need to [change directories][Switch your directory] first.
+
+    # [Customer tenant (Preview)](#tab/customer-tenant)
+
+    1. If you do not already have a customer tenant, create one by following the instructions in [Create a customer identity and access management (CIAM) tenant](../active-directory/external-identities/customers/how-to-create-customer-tenant-portal.md).
+
+    1. [Switch your directory] in the Azure portal to the customer tenant.
+
+        > [!TIP]
+        > Because you are working in two tenant contexts (the tenant for your subscription and the customer tenant), you may want to open the Azure portal in two separate tabs of your web browser. Each can be signed into a different tenant.
+
+    1. From the portal menu, select **Azure Active Directory**.
+
+    ---
+
 1. From the left navigation, select **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Supported account types**, select the account type that can access this application.
@@ -88,23 +108,66 @@ To register the app, perform the following steps:
     1. In the **Value** field, copy the client secret value. It won't be shown again once you navigate away from this page.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
+1. Finish setting up your app registration:
+
+    # [Workforce tenant](#tab/workforce-tenant)
+
+    No additional steps are required for a workforce tenant.
+
+    # [Customer tenant (Preview)](#tab/customer-tenant)
+    
+    1. Create a user flow, which defines an authentication experience that can be shared across app registrations in the tenant:
+    
+        1. Navigate back to the tenant and select **External identities**.
+        1. (Optional) Configure identity providers under **All identity providers**. See [Authentication methods and identity providers for customers](../active-directory/external-identities/customers/concept-authentication-methods-customers.md) for details on the available options.
+        1. Select **User flows** > **New user flow**.
+        1. Enter a name such as "SignUpSignIn", and then select the identity providers and user attributes you wish to use in this flow. When done, select **Create**.
+    
+        These steps are also covered in [Create a sign-up and sign-in user flow].
+
+    1. Configure your app registration to work with the user flow:
+        
+        1. Select the user flow that you just created.
+        1. Select **Applications** > **Add application**.
+        1. Search for the app registration you created earlier, select it, and then click **Select**.
+
+        These steps are also covered in [Add your application to the user flow].
+
+    1. [Switch your directory] back to the tenant that includes your subscription and App Service app so that you can perform the next steps.
+    
+    ---
+
 #### <a name="secrets"> </a>Step 2: Enable Azure Active Directory in your App Service app
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. From the left navigation, select **Authentication** > **Add identity provider** > **Microsoft**.
-1. For **App registration type**, choose one of the following:
-    - **Pick an existing app registration in this directory**: Choose an app registration from the current tenant and automatically gather the necessary app information. 
-    - **Provide the details of an existing app registration**: Specify details for an app registration from another tenant or if your account does not have permission in the current tenant to query the registrations. For this option, you will need to fill in the following configuration details:
+1. Select the **Tenant type** of the app registration you created.
+1. Configure the app to use the registration you created, using the instructions for the appropriate tenant type:
 
-        |Field|Description|
-        |-|-|
-        |Application (client) ID| Use the **Application (client) ID** of the app registration. |
-        |Client Secret| Use the client secret you generated in the app registration. With a client secret, hybrid flow is used and the App Service will return access and refresh tokens. When the client secret is not set, implicit flow is used and only an ID token is returned. These tokens are sent by the provider and stored in the EasyAuth token store.|
-        |Issuer Url| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.|
-        |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If this is a cloud or server app and you want to accept authentication tokens from a client App Service app (the authentication token can be retrieved in the [X-MS-TOKEN-AAD-ID-TOKEN](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code)) header, add the **Application (client) ID** of the client app here. |
-    
-        The client secret will be stored as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
-    
+    # [Workforce tenant](#tab/workforce-tenant)
+
+    For **App registration type**, choose one of the following:
+
+    - **Pick an existing app registration in this directory**: Choose an app registration from the current tenant and automatically gather the necessary app information. The system will attempt to create a new client secret against the app registration and automatically configure your app to use it. A default issuer URL is set based on the supported account types configured in the app registration. If you intend to change this default, consult the table below.
+    - **Provide the details of an existing app registration**: Specify details for an app registration from another tenant or if your account does not have permission in the current tenant to query the registrations. For this option, you must manually fill in the configuration values according to the table below.
+
+    # [Customer tenant (Preview)](#tab/customer-tenant)
+
+    For a customer tenant, you must manually fill in the configuration values according to the table below.
+
+    ---
+
+    When filling in the configuration details directly, use the values you collected during the app registration creation process:
+
+    |Field|Description|
+    |-|-|
+    |Application (client) ID| Use the **Application (client) ID** of the app registration. |
+    |Client Secret| Use the client secret you generated in the app registration. With a client secret, hybrid flow is used and the App Service will return access and refresh tokens. When the client secret is not set, implicit flow is used and only an ID token is returned. These tokens are sent by the provider and stored in the App Service authentication token store.|
+    |Issuer URL| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.<br/><br/>Any configuration other than a tenant-specific endpoint will be treated as multi-tenant. In multi-tenant configurations, no validation of the issuer or tenant ID is performed by the system, and these checks should be fully handled in [your app's authorization logic](#authorize-requests).|
+    |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If your application represents an API that will be called by other clients, you should also add the **Application ID URI** that you configured on the app registration. There is a limit of 500 characters total across the list of allowed audiences.|
+
+    The client secret will be stored as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
+
 1. If this is the first identity provider configured for the application, you will also be prompted with an **App Service authentication settings** section. Otherwise, you may move on to the next step.
     
     These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
@@ -230,3 +293,7 @@ Regardless of the configuration you use to set up authentication, the following 
 
 [Azure portal]: https://portal.azure.com/
 [application setting]: ./configure-common.md#configure-app-settings
+[Azure Active Directory for customers (Preview)]: ../active-directory/external-identities/customers/overview-customers-ciam.md
+[Switch your directory]: ../azure-portal/set-preferences.md#switch-and-manage-directories
+[Create a sign-up and sign-in user flow]: ../active-directory/external-identities/customers/how-to-user-flow-sign-up-sign-in-customers.md
+[Add your application to the user flow]: ../active-directory/external-identities/customers/how-to-user-flow-add-application.md

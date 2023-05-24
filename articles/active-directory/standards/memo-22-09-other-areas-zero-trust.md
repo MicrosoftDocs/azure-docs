@@ -1,6 +1,6 @@
 ---
 title: Memo 22-09 other areas of Zero Trust
-description: Get guidance on understanding other Zero Trust requirements outlined in US government OMB memorandum 22-09.
+description: Understand other Zero Trust requirements in Office of Management and Budget memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -10,12 +10,12 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
-ms.date: 04/28/2023
+ms.date: 05/23/2023
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Other areas of Zero Trust addressed in memorandum 22-09
+# Other areas of Zero Trust addressed in memorandum 22-09 
 
 The other articles in this guidance address the identity pillar of Zero Trust principles, as described in the US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). This article covers Zero Trust maturity model areas beyond the identity pillar, and it addresses the following themes:
 
@@ -88,7 +88,7 @@ We recommend you set up an Azure function or an Azure logic app to use a system-
 
 Learn more: [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
-Another automation integration point is Azure AD PowerShell modules. Use PowerShell to perform common tasks or configurations in Azure AD, or incorporate into Azure functions or Azure Automation runbooks. 
+Another automation integration point is Microsoft Graph PowerShell modules. Use Microsoft Graph PowerShell to perform common tasks or configurations in Azure AD, or incorporate into Azure functions or Azure Automation runbooks. 
 
 ## Governance
 
