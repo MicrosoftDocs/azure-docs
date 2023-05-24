@@ -124,6 +124,11 @@ Based on the current health probe state of your backend instances, you receive d
 | **At least 1 backend instance is probed UP** | Successful echo replies |
 | **No backend instances behind Load Balancer/No load balancing rules associated** | Unresponsive: Request timed out |
 
+## Usage considerations
+  * ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers. 
+> [!NOTE]
+> ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer. 
+
 ## Next steps
 
 - To troubleshoot load balancer issues, see [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md).
