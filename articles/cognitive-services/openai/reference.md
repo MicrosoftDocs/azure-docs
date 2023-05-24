@@ -260,7 +260,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/dalle/images/generatio
 #### Example request
 
 ```console
-curl -X POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/dalle/images/generations:process-async?api-version=2023-04-15-preview \
+curl -X POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/dalle/images/generations:process-async?api-version=2023-06-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{
@@ -284,7 +284,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 ### Get a generated image result
 
 
-Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-04-15-preview`.
+Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
 
 ```http
 GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
@@ -300,12 +300,12 @@ GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{oper
 
 **Supported versions**
 
-- `2023-04-15-preview`
+- `2023-06-01-preview`
 
 #### Example request
 
 ```console
-curl -X GET "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-04-15-preview"
+curl -X GET "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
@@ -345,12 +345,12 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/dalle/operations/ima
 
 **Supported versions**
 
-- `2023-04-15-preview`
+- `2023-06-01-preview`
 
 #### Example request
 
 ```console
-curl -X DELETE "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-04-15-preview"
+curl -X DELETE "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
