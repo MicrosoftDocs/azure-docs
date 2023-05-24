@@ -31,7 +31,7 @@ These logs are a subset of the logs available in the [Microsoft 365 audit log](/
 
 ## How to export the logs
 
-Before you can stream logs to a SIEM tool, you need to create an Azure event hub and event hub namespace. For more information, see [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md).
+Before you can stream logs to a SIEM tool, you need to create an Azure event hub and event hub namespace. For more information, see [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
 
 Once the event hub is created, you configure Diagnostic settings to select the logs you want to route to the event hub. The logs are then routed through the event hub to your SIEM tool of choice. Learn how to [stream your activity logs to an event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
@@ -44,7 +44,7 @@ At this time, streaming logs directly to a Log Analytics workspace is not availa
 1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
-    - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
+    - [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md)
 
 Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.
 
@@ -54,7 +54,7 @@ Your independent security vendor should provide you with instructions on how to 
 1. Create an storage account.
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
-    - [Review the data retention policies](reference-reports-data-retention.md)
+    - [Review the data retention policies](../active-directory/reports-monitoring/reference-reports-data-retention.md)
 
 ## Next steps
 
