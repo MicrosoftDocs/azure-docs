@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 04/18/2023
+ms.date: 05/24/2023
 
 ---
 
@@ -247,4 +247,5 @@ Once deployment is complete, open your Function App in the Azure portal and sele
 
 ## Next steps
 
+- [Serverless event-based architectures with Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
 - [Build a write-behind cache using Azure Functions](cache-tutorial-write-behind.md)
