@@ -94,11 +94,14 @@ primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```python
 from azure.ai.ml import MLClient, load_workspace
 from azure.identity import DefaultAzureCredential
+
 sub_id="<subscription ID>"
 rg_name="<resource group name>"
 ws_name="<workspace name>"
+
 client = MLClient(DefaultAzureCredential(), sub_id, rg_name)
 wps = load_workspace("workspace_creation_with_multiple_UAIs.yml")
+
 workspace = client.workspaces.begin_create(workspace=wps).result()
 ```
 
@@ -136,11 +139,14 @@ primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```python
 from azure.ai.ml import MLClient, load_workspace
 from azure.identity import DefaultAzureCredential
+
 sub_id="<subscription ID>"
 rg_name="<resource group name>"
 ws_name="<workspace name>"
+
 client = MLClient(DefaultAzureCredential(), sub_id, rg_name)
 wps = load_workspace("workspace_update_with_multiple_UAIs.yml")
+
 workspace = client.workspaces.begin_update(workspace=wps).result()
 ```
 
