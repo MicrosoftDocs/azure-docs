@@ -19,6 +19,9 @@ keywords:
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
+
 ## Go to the Azure OpenAI Studio
 
 Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
@@ -47,7 +50,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 In the GPT-3 playground you can also view Python and curl code samples pre-filled according to your selected settings. Just select **View code** next to the examples dropdown. You can write an application to complete the same task with the OpenAI Python SDK, curl, or other REST API client.
 
-## Try text summarization
+### Try text summarization
 
 To use the Azure OpenAI for text summarization in the GPT-3 Playground, follow these steps:
 
@@ -66,6 +69,9 @@ To use the Azure OpenAI for text summarization in the GPT-3 Playground, follow t
     ```
 
 The accuracy of the response can vary per model. The Davinci based model in this example is well-suited to this type of summarization, whereas a Codex based model wouldn't perform as well at this particular task.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
 ## Clean up resources
 
