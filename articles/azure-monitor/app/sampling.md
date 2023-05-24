@@ -37,8 +37,9 @@ The following table summarizes the sampling types available for each SDK and typ
 | Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
 | All others | No | No | [Yes](#ingestion-sampling) |
 
-> [!NOTE]
-> The information on most of this page applies to the current versions of the Application Insights SDKs. For information on older versions of the SDKs, [see the section below](#older-sdk-versions).
+> [!NOTES]
+> - The Java Application Agent 3.4.0 and later uses rate-limited sampling as the default when sending telemetry to Application Insights. For more information, see [Rate-limited sampling](java-standalone-config#rate-limited-sampling).
+> - The information on most of this page applies to the current versions of the Application Insights SDKs. For information on older versions of the SDKs, [see the section below](#older-sdk-versions).
 
 ## When to use sampling
 
