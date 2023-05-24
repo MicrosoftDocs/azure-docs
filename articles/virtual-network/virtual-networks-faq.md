@@ -99,7 +99,7 @@ When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed 
 No. Multicast and broadcast are not supported.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets.  Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. You cannot use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). UDP source port 65330 which is reserved for the host. See ["Can I deploy a DHCP server in a VNet"](#can-i-deploy-a-dhcp-server-in-a-vnet) for more detail what is and is not supported for DHCP.
+You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets.  Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. You cannot use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). UDP source port 65330 which is reserved for the host. See ["Can I deploy a DHCP server in a VNet"](#can-i-deploy-a-dhcp-server-in-a-vnet) for more detail what is and is not supported for DHCP.
 
 ### Can I deploy a DHCP server in a VNet?
 Azure VNets provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a VNet.  You cannot deploy your own DHCP service to receive and provide unicast/broadcast client/server DHCP traffic for endpoints inside a VNet. It is also an *unsupported* scenario to deploy a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) DHCP traffic.
