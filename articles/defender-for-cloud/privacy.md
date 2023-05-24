@@ -92,7 +92,7 @@ The right of data portability allows data subjects to request a copy of thei
 You can manage requests to export customer or user data.
 
 #### Export customer data (tenant admin)
-As a tenant administrator, export customer data.
+As a tenant administrator, you have the ability to export customer data.
 
 1. Send an email to D4APIS_DSRRequests@microsoft.com specifying the customer’s email address in the request. The Defender for APIs team will send an email to the registered tenant admin email address, asking for confirmation to export data.
 1. Acknowledge the confirmation to export the data for the requested customer.
