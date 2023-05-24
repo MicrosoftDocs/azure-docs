@@ -69,12 +69,12 @@ As soon as you select send, data generator would take care of sending the events
 - **I am getting the error “Oops! We couldn't read events from Event Hub -`<your event hub name>`. Please make sure that there is no active consumer reading events from $Default Consumer group**”
 
 
-   Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to [Consumer group]() and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.  Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. Please disconnect any active consumer reading from $Default consumer group and try again. 
+   Data generator makes use of $Default [consumer group](/azure/event-hubs/event-hubs-features) to view events that have been sent to Event hubs. To start receiving events from event hubs, a receiver needs to connect to consumer group and take ownership of the underlying partition. If in case, there is already a consumer reading from $Default consumer group, then Data generator wouldn’t be able to establish a connection and view events.Additionally, If you have an active consumer silently listening to the events and checkpointing them, then data generator wouldn't find any events in event hub. Please disconnect any active consumer reading from $Default consumer group and try again. 
 
 - **I am observing additional events in the View events section from the ones I had sent using Data Generator. Where are those events coming from?**
 
 
-   Multiple applications can connect to Azure Event Hubs at the same time. If in case, there are multiple applications sending data to event hubs alongside Data generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
+   Multiple applications can connect to event hubs at the same time.If in case, there are multiple applications sending data to event hubs alongside Data generator, view events section would also show events sent by other clients. At any instance, view events would let you read last 15 events that have sent to Azure Event Hubs
 
 ## Next Steps
 
