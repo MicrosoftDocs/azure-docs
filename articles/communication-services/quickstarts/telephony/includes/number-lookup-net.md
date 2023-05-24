@@ -56,8 +56,8 @@ static async Task Main(string[] args)
 
 ### Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal][azure_portal].
-It is recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code.
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal][azure_portal].
+It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code.
 
 ```csharp
 // This code retrieves your connection string from an environment variable.
@@ -66,7 +66,7 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 PhoneNumbersClient client = new PhoneNumbersClient(connectionString, new PhoneNumbersClientOptions(PhoneNumbersClientOptions.ServiceVersion.V2023_05_01_Preview));
 ```
 
-Phone Number clients also have the option to authenticate with Azure Active Directory Authentication. With this option,
+Phone Number clients can also authenticate with Azure Active Directory Authentication. With this option,
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables need to be set up for authentication.
 
 ```csharp
@@ -85,20 +85,20 @@ OperatorInformationResult searchResult = await client.SearchOperatorInformationA
 OperatorInformation operatorInformation = searchResult.Results[0];
 ```
 
-Replace `<target-phone-number>` with the phone number you are looking up, usually a number you'd like to send a message to.
+Replace `<target-phone-number>` with the phone number you're looking up, usually a number you'd like to send a message to.
 
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
 ### Use operator information
 
-You can now use the operator information.  For this quickstart guide we can simply print some of the details to the console.
+You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
 
 ```csharp
 Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
 ```
 
-You may also use the operator information to determine whether to send an SMS.  See [SMS Quickstart](../sms/send.md) for more details on sending an SMS.
+You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS see the [SMS Quickstart](../sms/send.md).
 
 ## Run the code
 
