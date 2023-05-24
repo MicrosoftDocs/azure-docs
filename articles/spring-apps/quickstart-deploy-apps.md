@@ -334,18 +334,14 @@ Compiling the project takes 5-10 minutes. When the project is compiled, you shou
 
 The following steps show you how to generate configurations and deploy to Azure Spring Apps.
 
-1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
-
+1. Go to folder 'spring-petclinic-customers-service'. Generate configurations by running the following command. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=customers-service
    ```
-
    You're asked to select:
-
-   - **Modules:** Select `api-gateway` and `customers-service`.
    - **Subscription:** The subscription you used to create an Azure Spring Apps instance.
    - **Service Instance:** The name of your Azure Spring Apps instance.
-   - **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`, giving it public access.
+   - **Public endpoint:** Whether to assign a public endpoint to the app. Select No
 
 1. Verify that the `appName` elements in the POM files are correct:
 
@@ -361,19 +357,19 @@ The following steps show you how to generate configurations and deploy to Azure 
                    <clusterName>v-spr-cld</clusterName>
                    <appName>customers-service</appName>
    ```
-
-   Make sure `appName` is one of the following values:
-
-     - api-gateway
-     - customers-service
-
-   Remove any prefix if needed, and save the file.
-
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
+   The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
 
    ```bash
    mvn azure-spring-apps:deploy
    ```
+1. Go to folder 'spring-petclinic-api-gateway'. Run following command to generate the configuration and deploy api-gateway, please select yes for public endpoint.
+   ```bash
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=api-gateway
+   ``` 
+   
+   ```bash
+   mvn azure-spring-apps:deploy
+   ```    
 
 ## Verify the services
 
