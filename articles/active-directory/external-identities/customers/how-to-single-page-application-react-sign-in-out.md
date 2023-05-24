@@ -12,7 +12,7 @@ ms.date: 05/23/2023
 ms.author: godonnell
 ms.custom: it-pro
 
-#Customer intent: As a developer I want to add sign-in and sign-out functionality to my React Single Page App
+#Customer intent: As a developer I want to add sign-in and sign-out functionality to my React single-page app
 ---
 
 # Create components for sign in and sign out in a React single page app
@@ -30,7 +30,7 @@ In this tutorial:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare an Single Page Application for authentication](how-to-single-page-application-react-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare an single-page app for authentication](how-to-single-page-application-react-prepare-app.md).
 
 
 ## Adding components to the application
@@ -277,7 +277,7 @@ All the required code snippets have been added, so the application can now be ca
     npm start
     ```
 
-1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](./how-to-single-page-application-react-prepare-app.md). For example, http://localhost:3000/.
+1. Open a web browser and navigate to the port specified in [Prepare a single-page application for authentication](./how-to-single-page-application-react-prepare-app.md). For example, http://localhost:3000/.
 1. For the purposes of this how-to, choose the **Sign in using Popup** option.
 1. After the popup window appears with the sign-in options, select the account with which to sign-in.
 1. A second window may appear indicating that a code will be sent to your email address. If this happens, select **Send code**. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select **Sign in**.

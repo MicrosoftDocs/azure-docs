@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample React single-page application
-description: Learn how to configure a sample React SPA to sign in and sign out users.
+description: Learn how to configure a sample React single-page app (SPA) to sign in and sign out users.
 services: active-directory
 author: garrodonnell
 manager: celestedg
@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 05/23/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample React Single Page Application to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample React single-page app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample React single-page application 
+# Sign in users in a sample React single-page app (SPA) 
 
 This how-to guide uses a sample React single-page application (SPA) to demonstrate how to add authentication to a SPA. This SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 

@@ -1,5 +1,5 @@
 ---
-title: Prepare a React Single Page App (SPA) for authentication
+title: Prepare a React single-page app (SPA) for authentication
 description: Learn how to prepare a React single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: godonnell
@@ -14,9 +14,9 @@ ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or IT admin, enable authentication in my own React 
 ---
-# Prepare a React Single-page application for authentication
+# Prepare a React single-page app (SPA) for authentication
 
-After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a React Single-page application using npm and create files needed for authentication and authorization.
+After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a React single-page app using npm and create files needed for authentication and authorization.
 
 In this article, you learn how to:
 
@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * Add authentication code to the application
 
 ## Prerequisites
-* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA)](./how-to-single-page-application-react-prepare-tenant.md))
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React single-page app (SPA)](./how-to-single-page-application-react-prepare-tenant.md))
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
@@ -146,4 +146,4 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add Sign-in and Sign-out functionality to your app.](./how-to-single-page-application-react-sign-in-out.md)
+> [Add sign-in and sign-out functionality to your app.](./how-to-single-page-application-react-sign-in-out.md)
