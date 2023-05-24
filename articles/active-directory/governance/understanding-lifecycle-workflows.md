@@ -56,12 +56,12 @@ A workflow can be broken down into the following three main parts:
 |Workflow part|Description|
 |-----|-----|
 |General information|This portion of a workflow covers basic information such as display name, and a description of what the workflow does.|
-|Tasks|Tasks are the actions that will be taken when a workflow is executed.|
-|Execution conditions| Defines when(trigger), and for who(scope), a scheduled workflow will run. For more information on these two parameters, see  [Trigger details](understanding-lifecycle-workflows.md#trigger-details) and [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).|
+|Tasks|Tasks are the actions that are taken when a workflow is executed.|
+|Execution conditions| Defines when(trigger), and for who(scope), a scheduled workflow runs. For more information on these two parameters, see  [Trigger details](understanding-lifecycle-workflows.md#trigger-details) and [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).|
 
 ## Templates
 
-Creating a workflow via the Azure portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for pre-defined tasks, and helps automate the creation of a workflow.  
+Creating a workflow via the Azure portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for predefined tasks, and helps automate the creation of a workflow.  
 
   [![Understanding workflow template diagram.](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
 
@@ -80,11 +80,11 @@ Every workflow has its own overview section, where you can either take quick act
 - My Feed
 - Quick Action
 
-In this section you'll learn what each section tells you, and what actions you'll be able to take from this information.
+In this section you learn what each section tells you, and what actions you're able to take from this information.
 
 ### Basic Information
 
-When selecting a workflow, the overview provides you a list of basic details in the **Basic Information** section. These basic details provide you information such as the workflow category, its ID, when it was modified, and when it's scheduled to run again. This information is important in providing quick details surrounding its current usage for administrative purposes. Basic information is also live data, meaning any quick change action that you take place on the overview page, is shown immediately within this section.
+When selecting a workflow, the overview provides you with a list of basic details in the **Basic Information** section. These basic details provide you with information such as the workflow category, its ID, when it was modified, and when it's scheduled to run again. This information is important in providing quick details surrounding its current usage for administrative purposes. Basic information is also live data, meaning any quick change action that you take place on the overview page, is shown immediately within this section.
 
 Within the **Basic Information** you can view the following information:
 
@@ -126,20 +126,20 @@ Actions taken from the overview of a workflow allow you to quickly complete task
 ## Workflow basics
 
 After selecting a template, on the basics screen:
- - Provide the information that will be used in the description portion of the workflow.
+ - Provide the information that is used in the description portion of the workflow.
  - The trigger, defines when of the execution condition.
 
  [![Basics of a workflow.](media/understanding-lifecycle-workflows/workflow-4.png)](media/understanding-lifecycle-workflows/workflow-4.png#lightbox)
 
 ## Trigger details
 
-The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -180 and 180 days. 
+The trigger of a workflow defines when a scheduled workflow runs for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -180 and 180 days. 
 
 The time-based attribute can be either one of two values, which are automatically chosen based on the template in which you select during the creation of your workflow. The three values can be:
 
-- employeeHireDate: If the template is a joiner workflow.
-- createdDateTime: if the template is a joiner workflow designed to run either on hire or post onboarding.
-- employeeLeaveDateTime: If the template is a leaver workflow.
+- employeeHireDate: If the template is a joiner workflow
+- createdDateTime: if the template is a joiner workflow designed to run either on hire or post onboarding
+- employeeLeaveDateTime: If the template is a leaver workflow
 
 The values employeeHireDate and employeeLeaveDateTime must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
@@ -150,12 +150,12 @@ The offset determines how many days before or after the time-based attribute the
 
 [![Screenshot showing the rule section.](media/understanding-lifecycle-workflows/workflow-5.png)](media/understanding-lifecycle-workflows/workflow-5.png#lightbox)
 
-The scope defines for who the scheduled workflow will run. Configuring this parameter allows you to further narrow down the users for whom the workflow is to be executed.
+The scope defines for who the scheduled workflow runs. Configuring this parameter allows you to further narrow down the users for whom the workflow is to be executed.
 
 The scope is made up of the following two parts:
 
 - Scope type: Always preset as Rule based.
-- Rule: Where you can set expressions on user properties that define for whom the scheduled workflow will run. You can add extra expressions using **And, And not, Or, Or not** to create complex conditionals, and apply the workflow more granularly across your organization. Lifecycle Workflows supports a [rich set of user properties](/graph/api/resources/identitygovernance-rulebasedsubjectset#supported-user-properties-and-query-parameters) for configuring the scope.
+- Rule: Where you can set expressions on user properties that define for whom the scheduled workflow runs. You can add extra expressions using **And, And not, Or, Or not** to create complex conditionals, and apply the workflow more granularly across your organization. Lifecycle Workflows supports a [rich set of user properties](/graph/api/resources/identitygovernance-rulebasedsubjectset#supported-user-properties-and-query-parameters) for configuring the scope.
 
 [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
@@ -165,7 +165,7 @@ For a detailed guide on setting the execution conditions for a workflow, see: [C
 
 While newly created workflows are enabled by default, scheduling is an option that must be enabled manually. To verify whether the workflow is scheduled, you can view the **Scheduled** column. 
 
-Once scheduling is enabled, the workflow will be evaluated every three hours to determine whether or not it should run based on the execution conditions.
+Once scheduling is enabled, the workflow is evaluated every three hours to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
 
