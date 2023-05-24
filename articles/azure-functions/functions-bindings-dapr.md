@@ -40,11 +40,11 @@ With the integration between Dapr and Functions, you can build functions that re
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
-The extension NuGet package you install depends on the C# mode [in-process](functions-dotnet-class-library.md) or [isolated worker process](dotnet-isolated-process-guide.md)) you're using in your function app:
+The extension NuGet package you install depends on the C# mode [in-process](functions-dotnet-class-library.md) or [isolated worker process](dotnet-isolated-process-guide.md) you're using in your function app:
 
 # [In-process](#tab/in-process)
 
-This extension is available by installing the [Dapr.AzureFunction.Extension NuGet package](https://www.nuget.org/packages/Dapr.AzureFunctions.Extension#dotnet-cli), version 0.10.x.
+This extension is available by installing the [NuGet package](https://www.nuget.org/packages?q=Functions.Extensions.Dapr&frameworks=&tfms=&packagetype=&prerel=true&sortby=relevance), version 0.14.0-preview01.
 
 Using the .NET CLI:
 
@@ -54,7 +54,7 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 # [Isolated process](#tab/isolated-process)
 
-Add the extension to your project by installing the [Dapr.AzureFunction.Extension NuGet package](https://www.nuget.org/packages/Dapr.AzureFunctions.Extension#dotnet-cli), version 0.10.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages?q=Functions.Extensions.Dapr&frameworks=&tfms=&packagetype=&prerel=true&sortby=relevance), version 0.14.0-preview01.
 
 Using the .NET CLI:
 
