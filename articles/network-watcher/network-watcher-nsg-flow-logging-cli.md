@@ -6,7 +6,7 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 05/24/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
@@ -67,7 +67,7 @@ az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-g
 sa=$(az storage account show --name 'myStorageAccount' --query 'id' --output 'tsv')
 
 # Create a version 1 NSG flow log (the storage account is in a different resource group).
-az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount'
+az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account $sa
 ```
 
 ## Create a flow log and traffic analytics workspace
@@ -99,7 +99,7 @@ sa=$(az storage account show --name 'myStorageAccount' --query 'id' --output 'ts
 az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup'
 
 # Create a version 1 NSG flow log and enable traffic analytics for it (the storage account is in a different resource group).
-az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account 'myStorageAccount' --traffic-analytics 'true' --workspace 'myWorkspace'
+az network watcher flow-log create --name 'myFlowLog' --nsg 'myNSG' --resource-group 'myResourceGroup' --storage-account $sa --traffic-analytics 'true' --workspace 'myWorkspace'
 ```
 
 ## Change a flow log
@@ -158,7 +158,7 @@ az network watcher flow-log update --name 'myFlowLog' --nsg 'myNSG' --resource-g
 
 ## Delete a flow log
 
-To permanently delete a flow log, use [az network watcher flow-log delete](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete) command. Deleting a flow log deletes all its settings and associations. To begin flow logging again, you must create a new flow log for a particular network security group.
+To permanently delete a flow log, use [az network watcher flow-log delete](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete) command. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same network security group, you must create a new flow log for it.
 
 ```azurecli-interactive
 # Delete the flow log.
