@@ -78,6 +78,24 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.2.1.0
+
+### Release status
+5/23/2023: Released for auto-upgrade only
+
+### Functional Changes
+ - We have enabled Auto Upgrade for tenants with custom synchronization rules. Note that deleted (not disabled) default rules will be re-created and enabled upon Auto Upgrade.
+ - We have added Microsoft Azure AD Connect Agent Updater service to the install.
+ - We have removed the Synchronization Service WebService Connector Config program from the install.
+
+### Bug Fixes
+ - We have made improvements to accessibility.
+ - We have made the Microsoft Privacy Statement accessible in more places.
+
+
+
+
+
 ## 2.1.20.0
 
 ### Release status: 
