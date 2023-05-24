@@ -82,7 +82,7 @@ To access the browse experience for data assets from your Azure Machine Learning
 
 Browse by collection allows you to explore the different collections you're a data reader or curator for.
 
-:::image type="content" source="./media/register-scan-azure-machine-learning/browse-by-collection.png" alt-text="Screenshot of browsing by collection" lightbox="./media/register-scan-azure-machine-learning/browse-by-collection.png":::
+:::image type="content" source="./media/register-scan-azure-machine-learning/browse-by-collection.png" alt-text="Screenshot of browsing by collection." lightbox="./media/register-scan-azure-machine-learning/browse-by-collection.png":::
 
 ### Browse by source type
 
