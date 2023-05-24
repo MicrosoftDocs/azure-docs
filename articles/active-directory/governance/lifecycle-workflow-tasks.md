@@ -253,6 +253,46 @@ For Microsoft Graph, the parameters for the **Generate Temporary Access Pass and
 
 ```
 
+### Request user access package assignment
+
+Allows you to request an access package assignment for users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and task description for this task. You must also select an access package that is provided to the user, and the access package policy.
+:::image type="content" source="media/lifecycle-workflow-task/request-user-access-package-assignment-task.png" alt-text="Screenshot of the request user access package assignment task.":::
+
+For Microsoft Graph, the parameters for the **Request user access package assignment** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  joiner      |
+|displayName     |  Request user access package assignment (Customizable by user)        |
+|description     |  Request user assignment to selected access package (Customizable by user)       |
+|taskDefinitionId     |   c1ec1e76-f374-4375-aaa6-0bb6bd4c60be      |
+|arguments     |  Argument contains two name parameter that is the "assignmentPolicyId", and "accessPackageId".    |
+
+
+```Example for usage within the workflow
+{
+            "category": "joiner",
+            "description": "Request user assignment to selected access package",
+            "displayName": "Request user access package assignment",
+            "id": "c1ec1e76-f374-4375-aaa6-0bb6bd4c60be",
+            "parameters": [
+                {
+                    "name": "assignmentPolicyId",
+                    "values": [],
+                    "valueType": "string"
+                },
+                {
+                    "name": "accessPackageId",
+                    "values": [],
+                    "valueType": "string"
+                }
+            ]
+        }
+
+```
+
 ### Add user to groups
 
 
@@ -571,6 +611,96 @@ For Microsoft Graph, the parameters for the **Remove users from all teams** task
 
 ```
 
+### Remove access package assignment for user
+
+Allows you to remove an access package assignment from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and description for this task in the Azure portal. You must also select the access package which you want to unassign from users.
+:::image type="content" source="media/lifecycle-workflow-task/remove-access-package-assignment-user-task.png" alt-text="Screenshot of the remove access package assignment for user task.":::
+
+For Microsoft Graph, the parameters for the **Remove access package assignment for user** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  leaver      |
+|displayName     |  Remove access package assignment for user (Customizable by user)        |
+|description     |  Remove user assignment of selected access package (Customizable by user)        |
+|taskDefinitionId     |   4a0b64f2-c7ec-46ba-b117-18f262946c50      |
+|arguments     |  Argument contains a name parameter that is the "accessPackageId".   |
+
+
+```Example for usage within the workflow
+{
+            "category": "leaver",
+            "description": "Remove user assignment of selected access package",
+            "displayName": "Remove access package assignment for user",
+            "id": "4a0b64f2-c7ec-46ba-b117-18f262946c50",
+            "parameters": [
+                {
+                    "name": "accessPackageId",
+                    "values": [],
+                    "valueType": "string"
+                }
+            ]
+}
+```
+
+### Remove all access package assignments for user
+
+Allows you to remove all access package assignments from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and description for this task in the Azure portal.
+:::image type="content" source="media/lifecycle-workflow-task/remove-all-access-package-assignment-user-task.png" alt-text="Screenshot of the remove all user access package assignment task.":::
+
+For Microsoft Graph, the parameters for the **Remove all access package assignments for user** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  leaver      |
+|displayName     |  Remove all access package assignments for user (Customizable by user)        |
+|description     |  Remove all access packages assigned to the user (Customizable by user)        |
+|taskDefinitionId     |   42ae2956-193d-4f39-be06-691b8ac4fa1d      |
+
+
+```Example for usage within the workflow
+{
+            "category": "leaver",
+            "description": "Remove all access packages assigned to the user",
+            "displayName": "Remove all access package assignments for user",
+            "id": "42ae2956-193d-4f39-be06-691b8ac4fa1d",
+            "parameters": []
+}
+```
+
+
+### Cancel all pending access package assignment requests for user
+
+Allows you to remove all access package assignments from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and description for this task in the Azure portal.
+:::image type="content" source="media/lifecycle-workflow-task/cancel-all-pending-access-package-assignments-task.png" alt-text="Screenshot of the cancel all pending access package assignments requests for a user task.":::
+
+For Microsoft Graph, the parameters for the **Cancel all pending access package assignment requests for user** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  leaver      |
+|displayName     |  Cancel pending access package assignment requests for user (Customizable by user)        |
+|description     |  Cancel all pending access packages assignment requests for the user (Customizable by user)        |
+|taskDefinitionId     |   498770d9-bab7-4e4c-b73d-5ded82a1d0b3      |
+
+
+```Example for usage within the workflow
+{
+            "category": "leaver",
+            "description": "Cancel all pending access packages assignment requests for the user",
+            "displayName": "Cancel pending access package assignment requests for user",
+            "id": "498770d9-bab7-4e4c-b73d-5ded82a1d0b3",
+            "parameters": []
+}
+```
+
+
 ### Remove all license assignments from User
 
 Allows all direct license assignments to be removed from a user. For group-based license assignments, you would run a task to remove the user from the group the license assignment is part of.
@@ -632,7 +762,7 @@ For Microsoft Graph, the parameters for the **Delete User** task are as follows:
 
 ```
 
-## Send email to manager before user's last day
+### Send email to manager before user's last day
 
 Allows an email to be sent to a user's manager before their last day. You're able to customize the task name and the description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/send-email-before-last-day.png" alt-text="Screenshot of Workflows task: send email before user last day task.":::
@@ -682,7 +812,7 @@ For Microsoft Graph the parameters for the **Send email before user's last day**
 
 ```
 
-## Send email on user's last day
+### Send email on user's last day
 
 Allows an email to be sent to a user's manager on their last day. You're able to customize the task name and the description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/send-email-last-day.png" alt-text="Screenshot of Workflows task: task to send email last day.":::
@@ -731,7 +861,7 @@ For Microsoft Graph, the parameters for the **Send email on user last day** task
 
 ```
 
-## Send email to user's manager after their last day
+### Send email to user's manager after their last day
 
 Allows an email containing off-boarding information to be sent to the user's manager after their last day. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/offboard-email-manager.png" alt-text="Screenshot of Workflows task: send off-boarding email to users manager after their last day.":::
