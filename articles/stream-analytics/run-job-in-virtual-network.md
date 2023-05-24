@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/23/2023
 ---
 
-# Run your Azure Stream Analytics job in an Azure Virtual Network (Public Preview) 
+# Run your Azure Stream Analytics job in an Azure Virtual Network (Public preview) 
 This article describes how to run your Azure Stream Analytics (ASA) job in an Azure virtual network. 
 
 ## Overview 
@@ -37,6 +37,7 @@ Currently, this capability is only available in select regions.  If you're inter
     > Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.  Azure NAT Gateway simplifies outbound Internet connectivity for virtual networks.  When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses.
 
     :::image type="content" source="./media/run-job-in-virtual-network/vnet-nat.png" alt-text="Diagram showing the architecture of the virtual network.":::
+    
     To learn about setup and pricing, see [Azure NAT Gateway](../nat-gateway/nat-overview.md). 
 
 ## Subnet Requirements 
@@ -62,7 +63,7 @@ When you indicate VNET integration with your Azure Stream Analytics job, Azure p
 ### Last job 
 Several ASA jobs may utilize the same subnet.  The last job here refers to no other jobs utilizing the specified subnet.  When the last job has been deleted or removed by associated, Azure Stream Analytics releases the subnet as a resource, which was delegated to ASA as a service. Allow several minutes for this action to be completed. 
 
-## Setup VNET integration  
+## Set up VNET integration  
 
 ### Azure portal
 1. From the Azure portal, navigate to **Networking** from menu bar and select **Run this job in virtual network**.  This step informs us that your job must work with a VNET: 
@@ -78,7 +79,7 @@ Several ASA jobs may utilize the same subnet.  The last job here refers to no ot
     :::image type="content" source="./media/run-job-in-virtual-network/virtual-network-configuration.png" alt-text="Screenshot of the sample virtual network configuration." lightbox="./media/run-job-in-virtual-network/virtual-network-configuration.png":::
     
 
-## Set up an associated Storage Account  
+## Set up an associated storage account  
 1. On the **Stream Analytics job** page, select **Storage account settings** under **Configure** on the left menu.
 1. On the **Storage account settings** page, select **Add storage account**.
 1. Follow instructions to configure your storage account settings.
