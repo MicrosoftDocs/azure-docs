@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4, engagement-fy23
-ms.date: 02/07/2023
+ms.date: 05/24/2023
 ---
 
 # What is Azure Logic Apps?
@@ -170,6 +170,8 @@ The following screenshot shows part of an example enterprise workflow. This work
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
 You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
+
+logic apps implement at-least-once message delivery semantic. Rarely it could deliver a message more than once, but no message will be lost. If your business cannot tolerate duplicates, you will need to implement idempotence.
 
 ## Pricing options
 
