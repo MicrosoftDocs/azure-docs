@@ -291,7 +291,7 @@ You can override these defaults.  If you want to specify the VM type or number o
 
 ## Example for all fields with command jobs
 
-Here's an example of all fields specified including identity. There's no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
+Here's an example of all fields specified including identity the job should use. There's no need to specify virtual network settings as workspace level managed network isolation will be automatically used.
 
 # [Python SDK](#tab/python)
 
