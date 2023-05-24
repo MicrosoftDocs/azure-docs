@@ -120,7 +120,7 @@ Check the version of the `azure-mgmt-authorization` package that is installed an
 ## Feature Set Spec Create Errors
 
 - [Invalid schema in feature set spec](#invalid-schema-in-feature-set-spec)
-- [Can't find transformation class](#cannot-find-transformation-class)
+- [Can't find transformation class](#cant-find-transformation-class)
 - [FileNotFoundError on code folder](#filenotfounderror-on-code-folder)
 
 ### Invalid schema in feature set spec
