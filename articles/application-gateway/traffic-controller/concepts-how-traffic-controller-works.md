@@ -75,7 +75,7 @@ The DNS resolver translates the DNS record to an IP address.
 
 When the client initiates the request, the DNS name specified is passed as a host header to Traffic Controller on the defined frontend.
 
-A set of rules, defined by the Traffic Controller administrator, evaluates how the request for that hostname should be initiated to a defined backend resource.
+A set of routing rules evaluates how the request for that hostname should be initiated to a defined backend target.
 
 ## How Traffic Controller routes a request
 
