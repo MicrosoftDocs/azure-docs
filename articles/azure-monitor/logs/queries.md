@@ -9,7 +9,7 @@ ms.reviewer: roygal
 ms.date: 06/22/2022
 ---
 
-# Use queries in Azure Monitor Logs
+# Use queries in Log Analytics
 When you open Log Analytics, you can access existing log queries. You can either run these queries without modification or use them as a starting point for your own queries. The available queries include examples provided by Azure Monitor and queries saved by your organization. This article describes the queries that are available and how you can discover and use them.
 
 ## Permissions required
