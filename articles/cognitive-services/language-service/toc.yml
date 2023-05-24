@@ -1003,6 +1003,8 @@ items:
               href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
   - name: Custom
     items:
+      - name: Quickstart
+        href: sentiment-opinion-mining/custom/quickstart.md
       - name: How-to guides
         items:
         - name: Create projects
@@ -1013,6 +1015,28 @@ items:
           href: sentiment-opinion-mining/custom/how-to/deploy-model.md
         - name: Call the API
           href: sentiment-opinion-mining/custom/how-to/call-api.md
+      - name: Reference
+        items:
+        - name: Service limits
+          href: sentiment-opinion-mining/custom/service-limits.md
+        - name: Authoring API
+          items:
+          - name: REST API
+            href: https://aka.ms/ct-authoring-apis
+        - name: Runtime prediction API
+          items:
+          - name: REST API
+            href: https://aka.ms/ct-runtime-api
+          - name: SDK
+            items:
+            - name: C#
+              href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+            - name: Java
+              href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+            - name: JavaScript
+              href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+            - name: Python
+              href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
         
 - name: Text Analytics for health
   items:
