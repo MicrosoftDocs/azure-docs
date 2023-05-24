@@ -20,8 +20,7 @@ Microsoft 365 introduces triggers (examples of triggers are: button is selected,
 ## Prerequisites
 The reader of this article is expected to be familiar with: 
 -	[Microsoft Teams Virtual appointments](https://www.microsoft.com/microsoft-teams/premium/virtual-appointments) product and provided [user experience](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1) 
--	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-over
-) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
+-	[Microsoft Graph Booking API](https://learn.microsoft.com/graph/api/resources/booking-api-overview) to manage [Microsoft Booking](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
 -	[Microsoft Graph Online meeting API](https://learn.microsoft.com/graph/api/resources/onlinemeeting) to manage [Microsoft Teams meetings](https://www.microsoft.com/microsoft-teams/online-meetings) via [Microsoft Graph API](https://learn.microsoft.com/graph/overview)
 
 ## Send SMS, email, and chat message when booking is canceled
