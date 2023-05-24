@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Manage NSG flow logs using Azure PowerShell
- 
+
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
@@ -168,7 +168,7 @@ Set-AzNetworkWatcherFlowLog -Enabled $false -Name 'myFlowLog' -Location 'eastus'
 
 ## Delete a flow log
 
-To permanently delete a flow log, use [Remove-AzNetworkWatcherFlowLog](/powershell/module/az.network/remove-aznetworkwatcherflowlog) command. Deleting a flow log deletes all its settings and associations. To begin flow logging again, you must create a new flow log for a particular network security group.
+To permanently delete an NSG flow log, use [Remove-AzNetworkWatcherFlowLog](/powershell/module/az.network/remove-aznetworkwatcherflowlog) command. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same network security group, you must create a new flow log for it.
 
 ```azurepowershell-interactive
 # Delete the flow log.
