@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-api, event-tier1-build-202
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌️ Enterprise
 
 Azure Spring Apps enables Spring Boot applications on Azure.
 

@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 05/23/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -43,7 +43,7 @@ Deploy a [resource group](../../azure-resource-manager/management/manage-resourc
 
 ### Deploy an Event Hubs namespace and event hub
 
-Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces are logical containers for event hubs. Once the namespace is deployed, you can deploy an event hub, which the MedTech service reads from. For information about deploying Event Hubs namespaces and event hubs, see [Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
+Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces are logical containers for event hubs. Once the namespace is deployed, you can deploy an event hub, which the MedTech service reads device messages from. For information about deploying Event Hubs namespaces and event hubs, see [Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
 
 ### Deploy a workspace
 

@@ -2,6 +2,7 @@
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
 ms.topic: overview
+ms.custom: build-2023
 ms.date: 05/02/2023
 ---
 
@@ -21,6 +22,8 @@ When you deploy an AKS cluster, you specify the number and size of the nodes, an
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
+> [!NOTE]
 > AKS also supports Windows Server containers.
 
 ## Access, security, and monitoring
@@ -82,11 +85,11 @@ AKS supports the creation of Intel SGX-based, confidential computing node pools 
 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
-### Mariner nodes
+### Azure Linux nodes
 
-Mariner is an open-source Linux distribution created by Microsoft, and it’s now available for preview as a container host on Azure Kubernetes Service (AKS). The Mariner container host provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Mariner node pools in a new cluster, add Mariner node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Mariner nodes.
+The Azure Linux container host for AKS is an open-source Linux distribution created by Microsoft, and it’s available as a container host on Azure Kubernetes Service (AKS). The Azure Linux container host for AKS provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Azure Linux node pools in a new cluster, add Azure Linux node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Azure Linux nodes.
 
-For more information, see [Use the Mariner container host on AKS](use-mariner.md)
+For more information, see [Use the Azure Linux container host for AKS](use-azure-linux.md).
 
 ### Storage volume support
 
