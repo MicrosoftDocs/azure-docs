@@ -26,7 +26,7 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/v1/how-to-export-delete-data.md",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-export-delete-data.md",
         "redirect_url": "/azure/machine-learning/how-to-export-delete-data.md",
         "redirect_document_id": false   
     },
@@ -1626,8 +1626,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-differential-privacy.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-differential-privacy",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-differential-privacy.md",
+        "redirect_url": "/azure/machine-learning/how-to-differential-privacy",
         "redirect_document_id": true
     },
     {
