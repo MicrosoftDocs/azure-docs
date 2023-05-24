@@ -32,6 +32,8 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 
 | Area | Description |
 | ---- | ----------- |
+| [Azure OpenAI service](#azure-openai-service) | Learn how to integrate your SAP workloads with Azure OpenAI service. |
+| [Microsoft Copilot](#microsoft-copilot) | Learn how to integrate your SAP workloads with Microsoft Copilots. |
 | [SAP RISE managed workloads](rise-integration.md#sap-btp-connectivity) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
@@ -43,6 +45,28 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
 | [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time with this [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
+
+### Azure OpenAI service
+
+For more information about integration with [Azure OpenAI service](/azure/cognitive-services/openai/overview), see the following Azure documentation:
+
+- [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
+- [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)
+
+Also see these SAP resources:
+
+- [empower SAP RISE enterprise users with Azure OpenAI in multi-cloud environment](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
+- [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
+
+### Microsoft Copilot
+
+For more information about integration with [Microsoft 365 Copilot](https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/), see the following Microsoft documentation:
+
+- [The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration](https://azure.microsoft.com/blog/the-synergy-of-market-leaders-exploring-microsoft-and-saps-game-changing-collaboration/)
+
+Also see these SAP resources:
+
+-[The future of work is now: An update on generative AI at SAP SuccessFactors](https://blogs.sap.com/2023/05/15/the-future-of-work-is-now-an-update-on-generative-ai-at-sap-successfactors/)
 
 ### Microsoft Office
 
