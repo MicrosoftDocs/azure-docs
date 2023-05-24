@@ -47,7 +47,7 @@
           href: /azure/app-service/app-service-configuration-references
         - name: Azure Kubernetes Service
           href: quickstart-azure-kubernetes-service.md
-     - name: Deployment
+    - name: Deployment
       items:
         - name: Bicep
           href: quickstart-bicep.md
