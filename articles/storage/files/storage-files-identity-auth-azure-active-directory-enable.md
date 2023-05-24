@@ -50,7 +50,7 @@ This feature doesn't currently support user accounts that you create and manage 
 
 You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
-Azure AD Kerberos authentication only supports using AES-256 encryption for the Kerberos ticket. With Azure AD Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
+With Azure AD Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
 ## Regional availability
 
