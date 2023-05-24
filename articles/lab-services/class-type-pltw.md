@@ -113,7 +113,7 @@ As you follow this recommendation, note the major tasks for setting up a lab:
     > When you install the Autodesk applications, the computer that you're installing them on needs to be able to communicate with your license server. The Autodesk installation wizard will prompt you to specify the computer name of the machine that the license server is hosted on. If you're hosting your license server on an Azure VM, you might need to wait to install Autodesk on the lab template VM so that the installation wizard can access your license server.
 
     b. [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) or other backup options that your school might use.
-    c. [Install and configure Windows updates](./how-to-prepare-windows-template.md#install-and-configure-updates).
+    c. [Install and configure Windows updates](./how-to-prepare-windows-template.md#install-and-configure-windows-updates).
 
 1. Upload the custom image to the [compute gallery that's attached to your lab account](./how-to-attach-detach-shared-image-gallery.md).
 1. Create a lab, and then select the custom image that you uploaded in the preceding step.
