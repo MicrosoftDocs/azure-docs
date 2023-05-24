@@ -884,8 +884,8 @@
             # end v1
             - name: Time series forecasting
               items:
-                - name: Auto-train a forecasting model (Python)
-                  displayName: forecasting, time series, auto ML, automl, SDK
+                - name: Auto-train a forecasting model (SDK, CLI)
+                  displayName: forecasting, time series, auto ML, automl, Python, SDK, CLI
                   href: how-to-auto-train-forecast.md
                 # v1
                 - name: Auto-train a forecast model
