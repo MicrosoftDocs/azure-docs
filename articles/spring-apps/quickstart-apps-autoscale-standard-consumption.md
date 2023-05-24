@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Set up autoscale for applications in Azure Spring Apps Standard consumption plan
-description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption plan.
+title: Quickstart - Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan
+description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan.
 author: karlerickson
 ms.author: haojianzhong
 ms.service: spring-apps
@@ -9,14 +9,14 @@ ms.date: 03/21/2023
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Set up autoscale for applications in Azure Spring Apps Standard consumption plan
+# Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption plan. The plan uses an Azure Container Apps environment to host your Spring applications, and provides the following management and support:
+This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption and dedicated plan. The plan uses an Azure Container Apps environment to host your Spring applications, and provides the following management and support:
 
 - Manages automatic horizontal scaling through a set of declarative scaling rules.
 - Supports all the scaling rules that Azure Container Apps supports.
@@ -26,7 +26,7 @@ For more information, see [Azure Container Apps documentation](../container-apps
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
 - A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Scale definition
@@ -94,7 +94,7 @@ az spring app create \
 
 ## Clean up resources
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
@@ -106,4 +106,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Map a custom domain to Azure Spring Apps with the Standard consumption plan](./quickstart-standard-consumption-custom-domain.md)
+> [Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan](./quickstart-standard-consumption-custom-domain.md)
