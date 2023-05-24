@@ -4,7 +4,7 @@ description: Description of command line options available with kickstart deploy
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
-ms.date: 03/02/2022
+ms.date: 24/05/2023
 ---
 
 # Kickstart script reference
