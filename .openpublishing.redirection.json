@@ -14901,8 +14901,8 @@
         },
         {
             "source_path_from_root": "/articles/security/security-storage-overview.md",
-            "redirect_url": "/azure/security/fundamentals/storage-overview",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/blobs/security-recommendations",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security/azure-security-technical-capabilities.md",
