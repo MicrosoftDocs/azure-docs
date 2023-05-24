@@ -690,6 +690,8 @@
         href: debroome-brand-portal-tutorial.md
       - name: Degreed
         href: degreed-tutorial.md
+      - name: Delivery Solutions
+        href: delivery-solutions-tutorial.md
       - name: Deputy
         href: deputy-tutorial.md
       - name: Descartes
@@ -2049,6 +2051,8 @@
         href: recurly-tutorial.md  
       - name: RedBrick Health
         href: ./redbrick-health-tutorial.md
+      - name: Redocly
+        href: redocly-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
