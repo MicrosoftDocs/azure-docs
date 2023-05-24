@@ -1018,7 +1018,7 @@ items:
       - name: Reference
         items:
         - name: Service limits
-          href: sentiment-opinion-mining/service-limits.md
+          href: sentiment-opinion-mining/custom/service-limits.md
         - name: Authoring API
           items:
           - name: REST API
