@@ -50,8 +50,7 @@ Networking ISV partners include software vendors that provide network functions 
 
 |Firewall |SD-WAN |
 |---------|---------|
-| [Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.vmseries-ngfw-vm-edge-panos-10-1-5?exp=ubp8&tab=Overview) | [NetFoundry](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netfoundryinc.application-ziti-private-edge?exp=ubp8&tab=Overview) |
-| | [Nuage Networks by Nokia](https://aka.ms/nokianuage)|
+| [Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/paloaltonetworks.vmseries-ngfw-vm-edge-panos-10-2-4?tab=Overview) | [NetFoundry](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netfoundryinc.application-ziti-private-edge?exp=ubp8&tab=Overview) |
 | | [VMware SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
 | | [Versa Networks](https://aka.ms/versa) |
 
