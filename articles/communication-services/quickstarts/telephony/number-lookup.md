@@ -15,6 +15,8 @@ zone_pivot_groups: net
 
 # Quickstart: Look up operator information for a phone number
 
+Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [CSharp](./includes/number-lookup-net.md)]
 ::: zone-end
@@ -23,7 +25,7 @@ zone_pivot_groups: net
 
 Common Questions and Issues:
 
-- The data returned by this endpoint is subject to various laws and regulations.  Therefore, depending on the country where the target phone number is registered and whether or not that number has been ported, the operator information may not be available or may reflect the phone number's original operator as opposed to the current operator.
+- The data returned by this endpoint is subject to various international laws and regulations.  Therefore, depending on the country where the target phone number is registered and whether or not that number has been ported, the operator information may not be available or may reflect the phone number's original operator as opposed to the current operator.
 
 ## Next steps
 
