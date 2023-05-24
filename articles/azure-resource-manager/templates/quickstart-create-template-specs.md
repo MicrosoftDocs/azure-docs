@@ -1,10 +1,8 @@
 ---
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
-author: tfitzmac
-ms.date: 05/04/2021
+ms.date: 05/22/2023
 ms.topic: quickstart
-ms.author: tomfitz
 ms.custom: mode-api, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -172,7 +170,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
                   "resources": [
                     {
                       "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2021-04-01",
+                      "apiVersion": "2022-09-01",
                       "name": "[[variables('storageAccountName')]",
                       "location": "[[parameters('location')]",
                       "sku": {
