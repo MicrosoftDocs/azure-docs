@@ -9,7 +9,7 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 05/18/2023
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
@@ -62,6 +62,9 @@ The following section describes, in-depth, how password hash synchronization wor
 
 > [!NOTE]
 > The original MD4 hash is not transmitted to Azure AD. Instead, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained, it cannot be used in an on-premises pass-the-hash attack.
+
+> [!NOTE]
+> The password hash value is **NEVER** stored in SQL. These values are only processed in memory prior to being sent to Azure AD.
 
 ### Security considerations
 
