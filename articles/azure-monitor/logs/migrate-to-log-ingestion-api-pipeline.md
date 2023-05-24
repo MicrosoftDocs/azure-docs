@@ -71,7 +71,7 @@ For information about how to call the Log Ingestion API, see [Send data to Azure
 > [!NOTE]
 > When you first set up a pipeline or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.
 
-## Modify table schemas and data collection rules based on changes to source data
+## Modify table schemas and data collection rules based on changes to source data object
 
 The Data Collector API automatically adjusts the destination table schema when the source data object schema changes. The Log Ingestion API doesn't automatically adjust the destination table schema. This ensures that you don't collect new data into columns that you didn't intend to create.  
 
