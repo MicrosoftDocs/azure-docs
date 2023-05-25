@@ -15,7 +15,7 @@ ms.author: juergent
 > [!IMPORTANT]
 > In November 2021 we made significant changes in the way how proximity placement groups should be used with SAP workload in zonal deployments.
 >
-> In May 2023 we have introduced Flexible Virtual Machine Scale Sets with platformFaultDomainCount=1 (FD=1) that would distribute the VMs across different zones. The scale set would also distribute VMs across different fault domains within each zone on a best effort basis.
+> In May 2023 we have introduced Flexible Virtual Machine Scale Sets with platformFaultDomainCount=1 (FD=1) that would distribute VMs across different fault domain on best effort basis. When deploying VMs across multiple zones, the scale set will also make its best effort to distribute the VMs across different fault domains within each zone.
 
 SAP applications based on the SAP NetWeaver or SAP S/4HANA architecture are sensitive to network latency between the SAP application tier and the SAP database tier. This sensitivity is the result of most of the business logic running in the application layer. Because the SAP application layer runs the business logic, it issues queries to the database tier at a high frequency, at a rate of thousands or tens of thousands per second. In most cases, the nature of these queries is simple. They can often be run on the database tier in 500 microseconds or less.
 
