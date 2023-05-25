@@ -377,30 +377,6 @@ OR </br>
 ![An image showing typical chain of certificates.](./media/application-gateway-backend-health-troubleshooting/cert-chain.png)
 
 
-### Backend server certificate invalid CA
-
-**Message:** The server certificate used by the backend is not signed by a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
-
-**Cause:** End-to-end SSL with Application Gateway v2 requires the backend server's certificate to be verified in order to deem the server Healthy. For a TLS/SSL certificate to be trusted, that certificate of the backend server must be issued by a CA that's included in the trusted store of Application Gateway. If the certificate wasn't issued by a trusted CA (for example, if a self-signed certificate was used), users should upload the issuer's certificate to Application Gateway.
-
-**Solution:** Follow these steps to export and upload the trusted root certificate to Application Gateway. (These steps  are for Windows clients.)
-
-1. Sign in to the machine where your application is hosted.
-2. Select Win+R or right-click the **Start** button, and then select **Run**.
-3. Enter `certlm.msc` and select Enter. You can also search for Certificate Manager on the **Start** menu.
-4. Locate the certificate, typically in `Certificates - Local Computer\Personal\Certificates`, and open it.
-5. Select the root certificate and then select **View Certificate**.
-6. In the Certificate properties, select the **Details** tab.
-7. On the **Details** tab, select the **Copy to File** option and save the file in the Base-64 encoded X.509 (.CER) format.
-8. Open the Application Gateway HTTP **Settings** page in the Azure portal.
-9. Open the HTTP settings, select **Add Certificate**, and locate the certificate file that you saved.
-10. Select **Save** to save the HTTP settings.
-
-Alternatively, you can export the root certificate from a client machine by directly accessing the server (bypassing Application Gateway) through browser and exporting the root certificate from the browser.
-
-For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
-
-
 ### Certificate verification failed
 
 **Message:** The validity of the backend certificate could not be verified. To find out the reason, check OpenSSL diagnostics for the message associated with error code {errorCode}
