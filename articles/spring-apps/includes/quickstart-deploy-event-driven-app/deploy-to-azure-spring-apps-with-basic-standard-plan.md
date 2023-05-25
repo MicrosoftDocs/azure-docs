@@ -14,9 +14,9 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-### [Azure portal](#tab/Azure-portal)
-
 ## 2 Prepare Spring Project
+
+### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to prepare the sample locally.
 
@@ -52,7 +52,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
     - **Project Details**:
 
         - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
+        - **Resource group**: Create a new one, such as: `rg-wingtiptoy`.
 
     - **Instance Details**:
 
@@ -72,17 +72,17 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 1. Select **Queues** in the left navigational menu, select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* as **Name**, select **Create**.
+1. On the **Create Queue** page, enter `lower-case` as **Name**, select **Create**.
 
-1. Repeat the previous step, enter *upper-case* as **Name**, select **Create**.
+1. Repeat the previous step, enter `upper-case` as **Name**, select **Create**.
 
-### 3.2 Provision an instance of Key Vault
+### 3.2 Provision an instance of Key Vaults
 
-1. In the search box, search for *Key Vault*, and then select **Key Vault** in the results.
+1. In the search box, search for *Key vaults*, and then select **Key vaults** in the results.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-key-vault.png" alt-text="Screenshot of Azure portal showing Key Vault in search results, with Key Vault highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-key-vault.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-key-vaults.png" alt-text="Screenshot of Azure portal showing Key vaults in search results, with Key vaults highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-key-vaults.png":::
 
-1. On the Key Vault page, select **Create**.
+1. On the Key vaults page, select **Create**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-create.png" alt-text="Screenshot of Azure portal showing Key Vault page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-create.png":::
 
@@ -91,7 +91,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
     - **Project Details**:
 
         - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
+        - **Resource group**: Select the resource group you just created.
 
     - **Instance Details**:
 
@@ -99,7 +99,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
         - **Region**: Select the region for your service instance.
         - **Pricing tier**: Select `Standard` tier.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation.png" alt-text="Screenshot of Azure portal showing Key Vault creation" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png" alt-text="Screenshot of Azure portal showing Key Vault creation for basic tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png":::
+
+1. Navigate to the tab **Access configuration** on the key vault **Create** page, select **Vault access policy** for **Permission model**.
+
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-access-configuration.png" alt-text="Screenshot of Azure portal showing Key Vault creation for Access configuration tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-access-configuration.png":::
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Key Vault instance.
 
@@ -128,16 +132,16 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
     - **Project Details**:
 
         - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
+        - **Resource group**: Select the resource group you just created.
 
     - **Service Details**:
 
-        - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
-        - **Plan**: Select **Standard** for the **Pricing tier** option.
+        - **Name**: Create the name for the Azure Spring Apps instance.
+        - **Plan**: Select **Basic** for the **Pricing tier** option.
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/standard-plan-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-plan-creation.png" alt-text="Screenshot of Azure portal showing basic plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/basic-plan-creation.png":::
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
 
@@ -145,15 +149,15 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 1. Select **Apps** in the left navigational menu, select **Create App**.
 
-1. On the **Create App** page, enter *simple-event-driven-app* for **App name**, select *Java 17* for **Runtime platform**.
+1. On the **Create App** page, enter `simple-event-driven-app` for **App name**, select *Java 17* for **Runtime platform**.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/standard-app-creation.png" alt-text="Screenshot of Azure portal showing standard App creation for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/standard-app-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of Azure portal showing basic plan App creation for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
 
 1. Select **Create** to finish creating the Azure Spring Apps instance.
 
 1. After the app creation, select the app name you created in the previous step.
 
-1. On the **Configuration** page, select **Environment variables** tab page, enter *AZURE_KEY_VAULT_ENDPOINT* for **Key**, enter the Key Vault URI for **Value**., then select **Save**
+1. On the **Configuration** page, select **Environment variables** tab page, enter `AZURE_KEY_VAULT_ENDPOINT` for **Key**, enter the Key Vault URI for **Value**., then select **Save**
 
 ### 3.4 Config Key Vault access policy
 
@@ -163,9 +167,9 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 1. On the **App Overview** page, select **Identity** in the left navigational menu, select the **on** state switch, then select **Save**, and continue to select **Yes** when prompt `Enable system assigned managed identity`.
 
-1. Go to the Key Vault instance overview page.
+1. Go to the Key vault instance overview page.
 
-1. Select **Access policies** in the left navigational menu, select **Add Access Policy**.
+1. Select **Access policies** in the left navigational menu, select **Create**.
 
 1. On the **Create an access policy** page, select **Get** and **List** for **Secret permissions**, select **Next**.
 
@@ -191,7 +195,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
     - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you just created, If you use the default number, press Enter directly.
     - **Input the app name**: Provide an app name. If you use the default project artifact id, press Enter directly.
     - **Expose public access for this app (Simple Event Driven App)?**: Enter *n*.
-    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration will not be saved in the pom files.
+    - **Confirm to save all the above configurations (Y/n)**: Enter `y`. If Enter `n`, the configuration will not be saved in the pom files.
 
 1. Use the following command to deploy the app:
 
@@ -212,8 +216,6 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Install the [Azure Developer CLI](https://aka.ms/azd-install), version 1.0.0.
-
-## 2 Prepare Spring Project
 
 Use AZD to initialize the event-driven application from the Azure Developer CLI templates.
 
@@ -245,16 +247,16 @@ Use AZD to initialize the event-driven application from the Azure Developer CLI 
     Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
     ```
 
-## 2 Provision and Deployment
+## 2 Provision
 
-Use AZD to package the app, provision the Azure resources required by the event-driven application and then deploy to Azure Spring Apps.
+Use AZD to provision the Azure resources required by the event-driven application.
 
 1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
 
    ```bash
    azd auth login
    ```
-   
+
 1. Run the following command to enable Azure Spring Apps feature.
 
    ```bash
@@ -272,16 +274,31 @@ Use AZD to package the app, provision the Azure resources required by the event-
     - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
     - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
-   > [!NOTE]
-   > The `Basic` plan of Azure Spring Apps is used by default. If you want to use the `Standard` plan,
-   > you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
-   > 
-   > ```text
-   > sku: {
-   >   name: 'S0'
-   >   tier: 'Standard'
-   > }
-   > ```
+   The console outputs messages similar to the following:
+
+   ```text
+   SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name>-<random-string>> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   ```
+
+> [!NOTE]
+> This may take a while to complete. You will see a progress indicator as it provisions Azure resources. See more details from [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
+
+## 3 Deployment
+
+Use AZD to package the app, provision the Azure resources required by the event-driven application and then deploy to Azure Spring Apps.
+
+1. Run the following command to provision the template's infrastructure to Azure.
+
+   ```bash
+   azd up
+   ```
+
+   Command interaction description:
+
+    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
+    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
    The console outputs messages similar to the following:
 
@@ -297,8 +314,5 @@ Use AZD to package the app, provision the Azure resources required by the event-
    
    SUCCESS: Your application was provisioned and deployed to Azure in xx minutes xx seconds.
    ```
-
-> [!NOTE]
-> This may take a while to complete as it executes three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). You will see a progress indicator as it packages, provisions and deploys your application. See more details from [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
 
 ---
