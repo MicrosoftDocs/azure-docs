@@ -32,3 +32,5 @@ You may configure Virtual WAN to enable inter-region security use cases in the h
 
 - Review Firewall Manager architecture options: [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 - To create a secured virtual hub and use it  to secure and govern a hub and spoke network, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).
+- [Learn more about Azure network security](../networking/security/index.yml)
+

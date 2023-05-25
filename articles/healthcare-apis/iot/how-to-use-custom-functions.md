@@ -223,4 +223,14 @@ For an overview of the MedTech service device mapping, see
 > [!div class="nextstepaction"]
 > [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
+For an overview of the MedTech service FHIR destination mapping, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+To learn about the MedTech service frequently asked questions (FAQs), see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
+
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
