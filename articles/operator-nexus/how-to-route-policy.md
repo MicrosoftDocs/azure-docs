@@ -11,11 +11,8 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Route Policy in Network Fabric
 
-Layer 3 route policies control the flow of traffic between different networks.
-They're used to filter traffic based on various criteria such as source IP address,
-destination IP address, protocol type, etc. These policies are used to allow or deny
-traffic between different networks or to modify the traffic in some way before it's
-forwarded.
+Route policies provides Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
+
 With route policies, routes are tagged with certain attributes via community values
 and extended community values when they're distributed via Border Gateway Patrol (BGP).
 Similarly, on the BGP listener side, route policies can be authored to discard/allow
