@@ -174,6 +174,10 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 
 ## Help and support
 
+### Azure technical support
+
+For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+
 ### Microsoft Q&A questions forum
 
 Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
