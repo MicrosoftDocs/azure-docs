@@ -1011,7 +1011,11 @@ items:
           href: sentiment-opinion-mining/custom/how-to/create-project.md
         - name: Data selection and schema
           href: sentiment-opinion-mining/custom/how-to/design-schema.md
-        - name: Deploy model
+        - name: Train a model
+          href: sentiment-opinion-mining/custom/how-to/train-model.md
+        - name: View model evaluation
+          href: sentiment-opinion-mining/custom/how-to/view-model-evaluation.md
+        - name: Deploy a model
           href: sentiment-opinion-mining/custom/how-to/deploy-model.md
         - name: Call the API
           href: sentiment-opinion-mining/custom/how-to/call-api.md
