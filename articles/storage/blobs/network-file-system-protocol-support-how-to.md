@@ -130,7 +130,7 @@ Create a directory on your Linux system and then mount the container in the stor
      ``` 
      
      > [!TIP]
-     > We highly recommend that you mount containers by using the `aznfs` option instead of the `nfs` option. By using the `aznfs` option, you ensure that the fully qualified domain name of your Azure Blob NFS share always resolves to the IP address of the storage endpoint even if that endpoint changes.
+     > By using the `-t aznfs` mount option, you ensure that the NFS client always remains correctly connected to the storage endpoint even if the endpoint IP changes after the mount. NFS shares that are mounted by using the `-t nfs` mount option might become disconnected from the storage endpoint if the IP address of that endpoint changes.
 
 ## Resolve common errors
 
