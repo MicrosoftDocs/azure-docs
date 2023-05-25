@@ -17,7 +17,7 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_.  Serverless compute is a compute resource that you don't need to manage. It's created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
+You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_.  Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a compute resource that you don't need to manage. It's created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -25,17 +25,18 @@ Machine learning professionals can specify the resources the job needs. Azure Ma
 
 Enterprises can also reduce costs by specifying optimal resources for each job. IT Admins can still apply control by specifying cores quota at subscription and workspace level and apply Azure policies.
 
-Serverless compute can be used to run command, sweep, AutoML, pipeline, distributed training, and interactive jobs from Azure Machine Learning studio, SDK and CLI.  Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs.
+Serverless compute can be used to run command, sweep, AutoML, pipeline, distributed training, and interactive jobs from Azure Machine Learning studio, SDK and CLI.  Serverless jobs consume the same quota as Azure Machine Learning compute quota. You can choose standard (dedicated) tier or spot (low-priority) VMs. Managed identity and user identity are supported for serverless jobs. Billing model is the same as Azure Machine Learning compute.
 
 ## Advantages of serverless compute
 
 * You don't need to create, setup, and manage compute anymore to run training jobs thus reducing steps involved to run a job.
-* You don't need to learn about various compute concepts and related properties. 
+* You don't need to learn about various compute types and related properties. 
 * There's no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace.  
 * You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would need.
 * To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
+* Lesser wait times before job starts executing in some cases
 * User identity and workspace user assigned managed identity is supported for job submission. 
-* Managed network isolation is supported. 
+* With managed network isolation you can streamline and automate your network isolation configuration 
 
 ## How to use serverless compute
 
