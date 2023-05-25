@@ -74,7 +74,7 @@ If you don't have an existing key vault, use the following steps to create one:
     
     Leave the other options at their defaults.
 
-1. On the Access policy tab, select **Azure role-based access control**, and then select **Review + create**.
+1. On the Access configuration tab, select **Azure role-based access control**, and then select **Review + create**.
 
 1. On the Review + create tab, select **Create**.
 
