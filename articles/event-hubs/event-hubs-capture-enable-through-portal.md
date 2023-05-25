@@ -11,7 +11,6 @@ ms.custom: mode-ui
 Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice.You can configure capture settings using the [Azure portal](https://portal.azure.com) when creating an event hub or for an existing event hub. For conceptual information on this feature, see [Event Hubs Capture overview][capture-overview].
 
 > [!IMPORTANT]
-> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
 > - Event Hubs doesn't support capturing events in a **premium** storage account. 
 
 

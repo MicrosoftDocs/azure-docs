@@ -66,7 +66,7 @@ The following table shows the primary settings that are available in the **Heat 
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+> [Add a bar chart layer](power-bi-visual-add-3d-column-layer.md)
 
 Add more context to the map:
 
