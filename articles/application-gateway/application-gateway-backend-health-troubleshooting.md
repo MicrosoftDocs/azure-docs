@@ -252,14 +252,14 @@ For V1, verify the backend pool target's FQDN is same the Common Name (CN).
 
 * By using browser or any client:
 Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You will find it under the “Issued To” section.
-![An image that shows certificate details in a browser.](./media/application-gateway-backend-health-troubleshooting/browser-cert.png)
+[ ![Screenshot that shows certificate details in a browser.](./media/application-gateway-backend-health-troubleshooting/browser-cert.png) ](./media/application-gateway-backend-health-troubleshooting/browser-cert.png#lightbox)
 
 * By logging into the backend server (Windows):
-1. Sign into the machine where your application is hosted.
-2. Select Win+R or right-click the Start button and select Run.
-3. Enter certlm.msc and select Enter. You can also search for Certificate Manager on the Start menu.
-4. Locate the certificate (typically in Certificates - Local Computer\Personal\Certificates), and open the certificate.
-5. On the Details tab, check the certificate Subject.
+   1. Sign into the machine where your application is hosted.
+   2. Select Win+R or right-click the Start button and select Run.
+   3. Enter certlm.msc and select Enter. You can also search for Certificate Manager on the Start menu.
+   4. Locate the certificate (typically in Certificates - Local Computer\Personal\Certificates), and open the certificate.
+   5. On the Details tab, check the certificate Subject.
 
 * By logging to the backend server (Linux):
 Run this OpenSSL command by specifying the right certificate filename ` openssl x509 -in certificate.crt -subject -noout`
@@ -295,7 +295,7 @@ For V1 SKU,
 > A self-signed certificate which is NOT a Certificate Authority will also result in the same error. This is because application gateway considers such self-signed certificate as "Leaf" certificate and looks for its signing Intermediate certificate. You can follow this article to correctly [generate a self-signed certificate](./self-signed-certificates.md).
 
 These images show the difference between the self-signed certificates.
-![An image showing difference between self-signed certificates.](./media/application-gateway-backend-health-troubleshooting/self-signed-types.png)
+[ ![Screenshot showing difference between self-signed certificates.](./media/application-gateway-backend-health-troubleshooting/self-signed-types.png) ](./media/application-gateway-backend-health-troubleshooting/self-signed-types.png#lightbox)
 
 ### The leaf or server certificate was not found
 **Message:** The **Leaf certificate is missing** from the certificate chain presented by the backend server. Ensure the chain is complete and correctly ordered on the backend server.
@@ -339,27 +339,27 @@ These images show the difference between the self-signed certificates.
 **Tips:** To identify and download the root certificate, you can use any of these methods.
 
 * Using a browser: Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. 
-1.	Choose the root certificate in the chain and click on Export. By default, this will be a .CRT file. 
-2.	Open that .CRT file.
-3.	Go to the Details tab and click on “Copy to File”,
-4.	On Certificate Export Wizard page, click Next,
-5.	Select “Base-64 encoded X.509 (.CER) and click Next,
-6.	Give a new file name and click Next,
-7.	Click Finish to get a .CER file. 
-8.	Upload this Root certificate (.CER) of your private CA to the application gateway’s backend setting.
+   1.	Choose the root certificate in the chain and click on Export. By default, this will be a .CRT file. 
+   2.	Open that .CRT file.
+   3.	Go to the Details tab and click on “Copy to File”,
+   4.	On Certificate Export Wizard page, click Next,
+   5.	Select “Base-64 encoded X.509 (.CER) and click Next,
+   6.	Give a new file name and click Next,
+   7.	Click Finish to get a .CER file. 
+   8.	Upload this Root certificate (.CER) of your private CA to the application gateway’s backend setting.
 
 * By logging into the backend server (Windows)
-1.	Sign into the machine where your application is hosted.
-2.	Select Win+R or right-click the Start button, and then select Run.
-3.	Enter certlm.msc and select Enter. You can also search for Certificate Manager on the Start menu.
-4.	Locate the certificate, typically in Certificates - Local Computer\Personal\Certificates, and open it.
-5.	Select the root certificate and then select View Certificate.
-6.	In the Certificate properties, select the Details tab and click “Copy to File”,
-7.	On Certificate Export Wizard page, click Next,
-8.	Select “Base-64 encoded X.509 (.CER) and click Next,
-9.	Give a new file name and click Next,
-10.	Click Finish to get a .CER file. 
-11.	Upload this Root certificate (.CER) of your private CA to the application gateway’s backend setting.
+   1.	Sign into the machine where your application is hosted.
+   2.	Select Win+R or right-click the Start button, and then select Run.
+   3.	Enter certlm.msc and select Enter. You can also search for Certificate Manager on the Start menu.
+   4.	Locate the certificate, typically in Certificates - Local Computer\Personal\Certificates, and open it.
+   5.	Select the root certificate and then select View Certificate.
+   6.	In the Certificate properties, select the Details tab and click “Copy to File”,
+   7.	On Certificate Export Wizard page, click Next,
+   8.	Select “Base-64 encoded X.509 (.CER) and click Next,
+   9.	Give a new file name and click Next,
+   10.	Click Finish to get a .CER file. 
+   11.	Upload this Root certificate (.CER) of your private CA to the application gateway’s backend setting.
 
 ### Leaf must be topmost in chain.
 
@@ -374,7 +374,7 @@ Given is an example of a Server certificate installation along with its Intermed
 OR </br>
 `s_client -connect <IPaddress>:443 -servername <TLS SNI hostname> -showcerts`
 
-![An image showing typical chain of certificates.](./media/application-gateway-backend-health-troubleshooting/cert-chain.png)
+[ ![Screenshot showing typical chain of certificates.](./media/application-gateway-backend-health-troubleshooting/cert-chain.png) ](./media/application-gateway-backend-health-troubleshooting/cert-chain.png#lightbox)
 
 
 ### Certificate verification failed
