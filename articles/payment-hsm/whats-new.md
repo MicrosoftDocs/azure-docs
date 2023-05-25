@@ -11,7 +11,7 @@ ms.date: 05/25/2023
 
 # What's new for Azure Payment HSM
 
-Here's what's new with Azure Payment HSM. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/en-us/updates/?category=security&query=payment%20hsm).
+Here's what's new with Azure Payment HSM. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=payment%20hsm).
 
 ## May 2023
 
