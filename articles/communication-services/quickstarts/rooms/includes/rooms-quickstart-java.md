@@ -146,8 +146,6 @@ List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
 roomParticipants.add(participant_1);
 roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
-        
-System.out.print("Creating room...\n");
 
 CreateRoomOptions roomOptions = new CreateRoomOptions()
     .setValidFrom(validFrom)
@@ -171,11 +169,7 @@ Retrieve the details of an existing `room` by referencing the `roomId`:
 // Retrieve the room with corresponding ID
 CommunicationRoom roomResult = roomsClient.getRoom(roomId);
 
-System.out.println("RoomId: " + roomResult.getRoomId());
-System.out.println("Create at: " + roomResult.getCreatedAt());
-System.out.println("ValidFrom: " + roomResult.getValidFrom());
-System.out.println("ValidUntil: " + roomResult.getValidUntil());
-
+System.out.println("Retrieved room with id: " + roomResult.getRoomId());
 ```
 
 ## Update the lifetime of a room
@@ -194,28 +188,25 @@ UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
 
 CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
             
-System.out.println("ValidFrom: " + roomResult.getValidFrom());
-System.out.println("ValidUntil: " + roomResult.getValidUntil());
-
+System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
 ```
 
-## Add or Update participants
+## Add or update participants
 
 To add or update participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client.
 
 ```java
 
 // Add participants to room
-List<RoomParticipant> participantsToAddAndUpdate = new ArrayList<>();
+List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
 // Adding new participant
- participantsToAddAndUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
+ participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
 
 // Updating current participant
-participantsToAddAndUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
-
+participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
         
-AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAndUpdate);
+AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
 
 System.out.println("Participant(s) added/updated");
 
@@ -233,6 +224,8 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 try {
      
 PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
+
+System.out.println("Participants:/n");
 
 for (RoomParticipant participant : participants) {
     System.out.println(participant.getCommunicationIdentifier().getRawId() + " (" + participant.getRole() + ")");
@@ -254,12 +247,31 @@ List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
 
 participantsToRemove.add(participant_3.getCommunicationIdentifier());
             
-System.out.print("Removing participant(s)...\n");
-
 RemoveParticipantsResult removeParticipantsResult = roomsClient.removeParticipants(roomId,participantsToRemove);
 
 System.out.println("Participant(s) removed");
 
+```
+
+### List all existing rooms
+
+Retrieve all existing `rooms` under your ACS resource.
+
+```java
+try {
+    PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+    int count = 0;
+    
+    for (CommunicationRoom room : rooms) {
+        System.out.println("\nRoom ID: " + room.getRoomId());
+        
+            if (count >= 1) {
+                break;
+            }
+      }
+} catch (Exception ex) {
+    System.out.println(ex);
+}
 ```
 
 ## Delete room
@@ -274,20 +286,6 @@ System.out.println("\nDeleted the room with ID: " + roomId);
 
 ```
 
-### List all existing rooms
-
-Retrieve all existing `rooms` under your ACS resource.
-
-```java
-try {
-     PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
-      for (CommunicationRoom room : rooms) {
-         System.out.println(room.getRoomId());
-     }
-} catch (Exception ex) {
-    System.out.println(ex);
-}
-```
 
 ## Run the code
 
@@ -327,28 +325,17 @@ Retrieved room with id:  99445276259151407
 
 Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
 
-Added participants to room
+Participant(s) added/updated
 
-Retrieved participants for room:  [
-  {
-    id: {
-      kind: 'communicationUser',
-      communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901'
-    },
-    role: 'Attendee'
-  },
-  {
-    id: {
-      kind: 'communicationUser',
-      communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7ccc-35f3-343a0d00e902'
-    },
-    role: 'Consumer'
-  }
-]
+Participants: 
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
 
-Removed participants from room
+Participant(s) removed
 
-Deleted room with id:  99445276259151407
+Room ID: 99445276259151407
+
+Deleted the room with ID:  99445276259151407
 
 ```
 
