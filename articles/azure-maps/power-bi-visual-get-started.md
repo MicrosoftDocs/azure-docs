@@ -112,7 +112,7 @@ The following settings are available in the **Style** section:
 
 | Setting     | Description  |
 |-------------|--------------|
-| Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], ,[high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
+| Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], [high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
 | Show labels | A toggle switch that enables you to either show or hide map labels. For more information, see list item number five in the previous section. |
 
 ### View
