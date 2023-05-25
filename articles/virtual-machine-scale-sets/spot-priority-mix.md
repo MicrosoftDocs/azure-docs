@@ -24,15 +24,15 @@ Azure allows you to have the flexibility of running a mix of uninterruptible sta
 - Simplify the scale-out and scale-in of compute workloads that require both Spot and standard VMs by letting Azure orchestrate the creation and deletion of VMs
 
 ## Limitations
-- Spot Priority Mix is not supported with singlePlacementMode enabled on the scale set.
+Spot Priority Mix is not supported with `singlePlacementMode` enabled on the scale set.
 
 ## Configure your mix
 
 You can configure a custom percentage distribution across Spot and standard VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base standard VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
 
-The eviction policy of your Spot VMs will follow what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. If you wish, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks will be deleted.
+The eviction policy of your Spot VMs will follow what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. Alternatively, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks will be deleted.
 
-### [Template](#tab/template-1)
+### [Template]
 
 You can set your Spot Priority Mix by using a template to add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
 
@@ -108,15 +108,15 @@ New-AzVmss `
 ## Updating your Spot Priority Mix
 Should your ideal percentage split of Spot and Standard VMs change, you can update your Spot Priority Mix after your scale set has been deployed. Updating your Spot Priority Mix will apply for all scale set actions *after* the change is made, existing VMs will remain as is.
 
-### [Portal](#tab/portal-1) 
-You can update your Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. 
+### [Portal](#tab/portal-2)
+You can update your existing Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. Note: in Portal, you can only update the Spot Priority Mix for scale sets that already have Spot Priority Mix enabled.
 1. Navigate to the specific virtual machine scale set that you're adjusting the Spot Priority Mix on.
 1. In the left side bar, scroll down to and select **Configuration**.
 1. Your current Spot Priority Mix should be visible. Here you can change the **Base VM (uninterruptible) count** and **Instance distribution** of Spot and Standard VMs. 
 1. Update your Spot Mix as needed.
 1. Press the **Save** button to apply your changes. 
 
-### [Azure CLI](#tab/cli-1)
+### [Azure CLI](#tab/cli-2)
 
 You can update your Spot Priority Mix using Azure CLI by updating the `regular-priority-count` and `regular-priority-percentage` flags.  
 
@@ -127,7 +127,7 @@ az vmss update --resource-group myResourceGroup \
         --regular-priority-percentage 80 \
 ```
 
-### [Azure PowerShell](#tab/powershell-1)
+### [Azure PowerShell](#tab/powershell-2)
 
 You can update your Spot Priority Mix using Azure PowerShell by updating the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
 
