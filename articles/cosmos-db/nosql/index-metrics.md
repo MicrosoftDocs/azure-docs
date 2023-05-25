@@ -71,13 +71,14 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
 
     CosmosPagedFlux<JsonNode> items = container.queryItems(querySpec, options, JsonNode.class);
 
-    items.byPage().toIterable().forEach(itemsResponse -> {
-        logger.info("Query item diagnostics through iterableByPage : {}",
-                itemsResponse.getCosmosDiagnostics());
+    items.byPage(100).flatMap(itemsResponse -> {
+        logger.info("diagnostics: {}",itemsResponse.getCosmosDiagnostics());
         for (JsonNode item : itemsResponse.getResults()) {
             logger.info("Item: {}", item.toString());
         }
-    });    
+        executeCountQueryPrintSingleResultNumber.incrementAndGet();
+        return Flux.just(itemsResponse);
+    }).blockLast();   
 ```
 ---
 
