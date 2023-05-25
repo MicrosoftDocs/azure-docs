@@ -13,7 +13,9 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Create an Azure Payment HSM with Azure PowerShell
 
-This article describes how you can create an Azure Payment HSM using the [Az.DedicatedHsm](/powershell/module/az.dedicatedhsm) PowerShell module.
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
+
+This quickstart describes how you can create an Azure Payment HSM using the [Az.DedicatedHsm](/powershell/module/az.dedicatedhsm) PowerShell module.
 
 ## Prerequisites
 

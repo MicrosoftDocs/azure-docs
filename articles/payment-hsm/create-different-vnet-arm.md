@@ -14,11 +14,12 @@ ms.date: 05/25/2023
 
 [!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
-This article describes how to create a payment HSM with the host and management port in same virtual network.  You can instead:
+This tutorial describes how to create a payment HSM with static host and management subnets in same virtual network, using an ARM template.  You can instead:
 - [Create a payment HSM with the host and management port in the same virtual network using Azure CLI or PowerShell](create-payment-hsm.md)
 - [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
 - [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet-arm.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
+
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -59,6 +60,12 @@ The template used in this quickstart is azuredeploy.json:
       "metadata": {
         "description": "Azure Payment HSM resource name"
       }
+    },
+    "host1PrivateIPAddress": {
+      "type": "string"
+    },
+    "host2PrivateIPAddress": {
+      "type": "string"
     },
     "stampId": {
       "type": "string",
@@ -140,9 +147,17 @@ The template used in this quickstart is azuredeploy.json:
       "properties": {
         "networkProfile": {
           "subnet": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('hsmSubnetName'))]"
-          }
-        },
+              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('hsmSubnetName'))]"
+          },
+          "NetworkInterfaces": [
+              {
+                "privateIpAddress": "[parameters('host1PrivateIPAddress')]"
+              },
+              {
+                "privateIpAddress": "[parameters('host2PrivateIPAddress')]"
+              }
+          ]
+        },  
         "managementNetworkProfile": {
           "subnet": {
             "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('managementVnetName'), parameters('managementHsmSubnetName'))]"
@@ -304,6 +319,12 @@ The corresponding azuredeploy.parameters.json file is:
     },
     "hsmSubnetPrefix": {
       "value": "10.0.0.0/24"
+    },
+    "host1PrivateIPAddress": {
+      "value": "10.0.0.5"
+    },
+    "host2PrivateIPAddress": {
+      "value": "10.0.0.6"
     },
     "managementVnetName": {
       "value": "MGMTVNet"

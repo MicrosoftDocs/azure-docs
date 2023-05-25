@@ -12,7 +12,7 @@ ms.date: 05/25/2023
 
 # Create a payment HSM with host and management port with IP addresses in different virtual networks using ARM template
 
-Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. For more information, see [Azure Payment HSM: Overview](./overview.md).
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
 This tutorial describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM with host and management port with IP addresses in different virtual networks. You can instead:
 
