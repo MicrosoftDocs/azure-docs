@@ -110,13 +110,23 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="The Notifications pane.":::
+    :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="The Notifications pane":::
 
 [!INCLUDE [provision-psql-flexible](./provision-psql.md)]
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-No extra action needs to take at this step.
+1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
+
+   ```bash
+   azd auth login
+   ```
+
+1. Run the following command to provision the template's infrastructure to Azure.
+
+   ```bash
+   azd provision
+   ```
 
 ---
 
@@ -140,16 +150,10 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    - **Expose public access for this app (Simple Event Driven App)?**: Enter *n*.
    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration will not be saved in the pom files.
 
-1. Build the sample project by using the following commands:
-
-   ```bash
-   ./mvnw clean package -DskipTests
-   ```
-
 1. Use the following command to deploy the app:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ./mvnw clean com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
    ```
 
    Command interaction description:
@@ -166,13 +170,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
 Use AZD to package the app, provision the Azure resources required by the web application and then deploy to Azure Spring Apps.
 
-1. Run the following command to log in Azure with OAuth2, ignore this step if you have already logged in.
-
-   ```bash
-   azd auth login
-   ```
-
-1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
+1. Run the following command to package a deployable copy of your application and deploy the application code to those newly provisioned resources.
 
    ```bash
    azd up
@@ -183,35 +181,26 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
    > [!NOTE]
-   > 1. This template may only be used with the following Azure locations:
-   >    - Australia East
-   >    - Brazil South
-   >    - Canada Central
-   >    - Central US
-   >    - East Asia
-   >    - East US
-   >    - East US 2
-   >    - Germany West Central
-   >    - Japan East
-   >    - Korea Central
-   >    - North Central US
-   >    - North Europe
-   >    - South Central US
-   >    - UK South
-   >    - West Europe
-   >    - West US
+   > This template may only be used with the following Azure locations:
+   >  - Australia East
+   >  - Brazil South
+   >  - Canada Central
+   >  - Central US
+   >  - East Asia
+   >  - East US
+   >  - East US 2
+   >  - Germany West Central
+   >  - Japan East
+   >  - Korea Central
+   >  - North Central US
+   >  - North Europe
+   >  - South Central US
+   >  - UK South
+   >  - West Europe
+   >  - West US
    >
-   >    If you attempt to use the template with an unsupported region, the provision step will fail.
-   >
-   > 2. The `Basic` plan of Azure Spring Apps is used by default. If you want to use the `Standard` plan,
-   >    you can update the SKU information of the *asaInstance* resource in the bicep script *infra/modules/springapps/springapps.bicep* to the following:
-   >
-   >    ```text
-   >    sku: {
-   >      name: 'S0'
-   >      tier: 'Standard'
-   >    }
-   >    ```
+   >  If you attempt to use the template with an unsupported region, the provision step will fail.
+   
 
    The console outputs messages similar to the following:
 
