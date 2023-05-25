@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
-ms.date: 04/10/2023
+ms.date: 05/25/2023
 keywords: aro cluster, aro, networking, azure, openshift, red hat, architecture, diagram
 #Customer intent: As a cluster administrator, I want to understand networking in a Azure Red Hat OpenShift cluster.
 ---
@@ -14,9 +14,12 @@ keywords: aro cluster, aro, networking, azure, openshift, red hat, architecture,
 
 This guide covers an overview of Azure Red Hat OpenShift networking on OpenShift 4 clusters, along with a diagram and a list of important endpoints. For more information on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/container-platform/4.11/networking/understanding-networking.html).
 
-[![Diagram of Azure Red Hat OpenShift 4.5 networking.](./media/concepts-networking/aro-4-5-networking-diagram.png)](./media/concepts-networking/aro-4-5-networking-diagram.png#lightbox)
+[![Diagram of Azure Red Hat OpenShift networking.](./media/concepts-networking/aro-networking-diagram.png)](./media/concepts-networking/aro-networking-diagram.png#lightbox)
 
 When you deploy Azure Red Hat OpenShift on OpenShift 4, your entire cluster is contained within a virtual network. Within this virtual network, your control plane nodes and worker nodes each live in their own subnet. Each subnet uses an internal load balancer and a public load balancer.
+
+> [!NOTE]
+> For information on the latest changes introduced to ARO, check out [What's new with Azure Red Hat OpenShift?](azure-redhat-openshift-release-notes.md). For information about the latest r
 
 ## Networking components
 
@@ -38,9 +41,8 @@ The following list covers important networking components in an Azure Red Hat Op
         * As a consequence of the two previous points, the only way of adding ephemeral SNAT ports is by adding public LoadBalancer-type services to ARO.
 
 * **aro-nsg**
-    * When you expose a service, the API creates a rule in this network security group so traffic flows through and reaches the control plane and nodes.
+    * When you expose a service, the API creates a rule in this network security group so traffic flows through and reaches the control plane and nodes through port 6443.
     * By default this network security group allows all outbound traffic. Currently, outbound traffic can only be restricted to the Azure Red Hat OpenShift control plane.
-  * This endpoint allows traffic to enter through port 6443 for the control plane nodes.
 
 * **Azure Container Registry**
     * This container registry is provided and used by Microsoft internally. It's read-only and not intended for use by Azure Red Hat OpenShift users.
@@ -96,12 +98,6 @@ With a publicly visible API server, you can't create network security groups and
 ## Domain forwarding
 
 Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured. You can’t bring your own DNS to your virtual networks. For more information, see the documentation on [using DNS forwarding](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
-
-## Upgrading from versions before OpenShift 4.5
-
-With the support of OpenShift 4.5, Azure Red Hat OpenShift introduced a few significant architectural changes. These changes only apply to newly created clusters running OpenShift 4.5 and later. Existing clusters that have been upgraded to OpenShift 4.5 or later won't have their networking architecture changed by the upgrade process. Users will need to re-create their clusters to use this new architecture.
-
-For more information on the changes introduced in OpenShift 4.5, check out the [OpenShift 4.5 release notes](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
 
 ## Next steps
 For more information on outbound traffic and what Azure Red Hat OpenShift supports for egress, see the [support policies](support-policies-v4.md) documentation.
