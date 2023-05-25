@@ -4,14 +4,12 @@ description: Learn how to configure a sample JavaSCript single-page application 
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
-
 ms.author: owenrichards
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/25/2023
-ms.custom: developer
+
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
