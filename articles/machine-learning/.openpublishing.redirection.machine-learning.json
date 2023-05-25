@@ -1,19 +1,24 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-data.md",
+        "redirect_url": "/azure/machine-learning/concept-data",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-access-data.md",
         "redirect_url": "/azure/machine-learning/how-to-access-data",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-network-data-access.md",
         "redirect_url": "/azure/machine-learning/concept-data-access",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-model-management-and-deployment.md",
         "redirect_url": "/azure/machine-learning/concept-model-management-and-deployment",
-        "redirect_document_id": true 
+        "redirect_document_id": false 
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-set-up-vs-code-remote.md",
@@ -2746,8 +2751,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-attach-compute-targets.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-attach-compute-targets",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-attach-compute-targets.md",
+        "redirect_url": "/azure/machine-learning/how-to-attach-compute-targets",
         " redirect_document_id": true
     },
     {
