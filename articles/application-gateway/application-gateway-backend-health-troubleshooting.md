@@ -279,7 +279,7 @@ For V2 SKU,
 
 * Expired Intermediate or Root certificate – Typically, these certificates have relatively extended validity periods (a decade or two). When Root/Intermediate certificate expires, we recommend you check with your certificate provider for the renewed certificate files. Ensure you have installed this updated and complete certificate chain comprising `Leaf (topmost) > Intermediate(s) > Root` on the backend server. 
   * If the Root certificate remains unchanged or if the issuer is a well-known CA, you need NOT take any action on the application gateway. 
-  * When using a Private CA, if the Root CA certificate itself or the root of the renewed Intermediate certficate has changed, you must upload the new Root certificate to the application gateway’s Backend Setting.
+  * When using a Private CA, if the Root CA certificate itself or the root of the renewed Intermediate certificate has changed, you must upload the new Root certificate to the application gateway’s Backend Setting.
 
 For V1 SKU,
 * Renew the expired Leaf (also known as Domain or Server) certificate with your CA and upload the same leaf certificate (.CER) to the associated Backend setting of your application gateway. 
