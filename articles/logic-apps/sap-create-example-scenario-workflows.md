@@ -109,7 +109,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
 1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   The preview SAP built-in trigger, **Register SAP RFC server for trigger**, is a webhook-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
+   The preview SAP built-in trigger, **Register SAP RFC server for trigger**, is an Azure Functions-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
@@ -144,8 +144,6 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
    Your workflow is now ready to receive messages from your SAP server.
-
-1. After the trigger fires and runs your workflow, review the workflow's trigger history to confirm that trigger registration succeeded.
 
 ---
 
@@ -238,7 +236,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 ## Filter received messages with SAP actions
 
-You can optionally filter the messages that your workflow receives from your SAP server by providing a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong. Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to test sending IDocs to Azure Logic Apps from SAP](logic-apps-using-sap-connector.md#test-sending-idocs-from-sap).
+If you use the SAP managed connector or ISE-versioned SAP connector, under the trigger in your workflow, set up a way to explicitly filter out any unwanted actions from your SAP server, based on the root node namespace in the received XML payload. You can provide a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong. Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to test sending IDocs to Azure Logic Apps from SAP](logic-apps-using-sap-connector.md#test-sending-idocs-from-sap).
 
 If you can't send IDoc packets from SAP to your trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
@@ -321,8 +319,8 @@ To configure an asynchronous request-reply pattern for your workflow using the S
 
 1. Based on whether you have a Consumption or Standard workflow, follow the corresponding steps:
 
-   * Consumption: Under **Asynchronous Response**, turn the setting from **Off** to **On**, and select **Done**.
-   * Standard: Expand **Networking**, and under **Asynchronous Response**, turn the setting from **Off** to **On**.
+   - Consumption: Under **Asynchronous Response**, turn the setting from **Off** to **On**, and select **Done**.
+   - Standard: Expand **Networking**, and under **Asynchronous Response**, turn the setting from **Off** to **On**.
 
 1. Save your workflow.
 
@@ -674,7 +672,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 ### Create a remote function call (RFC) request-response pattern
 
-If you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow, make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
+For the SAP managed connector and ISE-versioned SAP connector, if you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow, make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
 
 > [!NOTE]
 >
