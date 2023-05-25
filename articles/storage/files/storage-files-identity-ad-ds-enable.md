@@ -224,6 +224,9 @@ $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```
 
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
+
 ### Debugging
 
 If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials).
