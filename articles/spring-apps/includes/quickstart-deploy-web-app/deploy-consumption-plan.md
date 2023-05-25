@@ -27,7 +27,7 @@ Use the following steps to clone and run the app locally.
 
    ```bash
    cd ASA-Samples-Web-Application
-   ./mvnw clean package -DskipTests
+   ./mvnw clean package
    ```
 
 3. Use the following command to run the sample application by Maven:
