@@ -81,37 +81,36 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 #### [Azure portal](#tab/Azure-portal)
 
-### Create a new resource group
+### Sign in to the Azure portal
+
+Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### Create an Azure Spring Apps instance
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select Create a resource (+) in the upper-left corner of the portal.
 
-1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
+1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-web-app/search-azure-spring-apps-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
 
-1. On the Azure Spring Apps page, select **Create**.
+1. Fill out the **Basics** form with the following information:
+   
+   :::image type="content" source="../../media/quickstart-deploy-web-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
+   
+   Setting|Suggested Value|Description
+   ---|---|---
+   Subscription|Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.
+   Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
+   Name |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+   Plan|*Basic*|Pricing Tier determines the resource and cost associated with your instance.
+   Region|The region closest to your users| The location that is closest to your users.
+   Zone Redundant|Unchecked|Wether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/azure-spring-apps-create.png":::
+1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-    - **Project Details**:
-
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
-
-    - **Service Details**:
-
-        - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
-        - **Plan**: Select **Standard** for the **Pricing tier** option.
-        - **Region**: Select the region for your service instance.
-        - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
-
-   :::image type="content" source="../../media/quickstart-deploy-web-app/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-web-app/standard-plan-creation.png":::
-
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
+    :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="The Notifications pane.":::
 
 [!INCLUDE [provision-psql-flexible](./provision-psql.md)]
 
