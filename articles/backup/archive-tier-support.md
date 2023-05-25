@@ -43,8 +43,7 @@ Archive tier supports the following clients:
 
 | Supported workload | Supported region |
 | --- | --- |
-| **Azure VMs**, **SQL Server in Azure VMs**, **SAP HANA in Azure VMs** | Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US 2, East US, France Central, Germany West Central, Central India, South India, Japan East, Japan West, Korea Central,
- Korea South, North Central US, North Europe, Norway East, South Central US, South East Asia, UAE North, UK South, UK West, West Central US, West Europe, West US 2, West US, US Gov Arizona, US Gov Virginia, US Gov Texas, China North 2, China East 2 |
+| **Azure VMs**, **SQL Server in Azure VMs**, **SAP HANA in Azure VMs** | Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US 2, East US, France Central, Germany West Central, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, South Central US, South East Asia, UAE North, UK South, UK West, West Central US, West Europe, West US 2, West US, US Gov Arizona, US Gov Virginia, US Gov Texas, China North 2, China East 2 |
 
 ## How Azure Backup moves recovery points to the Vault-archive tier?
 
