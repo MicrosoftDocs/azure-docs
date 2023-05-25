@@ -6,44 +6,46 @@ ms.date: 05/12/2023
 ms.author: glenga
 ---
 
-## Create a function app in a container
+## Choose your functions development language
 
-First, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
+You use Azure Functions tools and Docker to create your project code as a function app in a Docker container using a language-specific Linux base image. Because of this, make sure to select your development language of choice at the top of the article. 
 
 [!INCLUDE [functions-linux-custom-container-note](functions-linux-custom-container-note.md)]
 
-### Configure your local environment
+Core Tools automatically generates a Dockerfile for your project that uses the most up-to-date version of the correct base image for your functions language. 
+
+## Prerequisites 
 
 Before you begin, you must have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp"
-+ The [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
++ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
++ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ A version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
++ Install a version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ A version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#python-version). 
++ Install a version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#python-version). 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ The [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ A version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
++ Install a version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
 
-+ [Apache Maven](https://maven.apache.org) version 3.0 or above.
++ Install [Apache Maven](https://maven.apache.org) version 3.0 or above.
 
 ::: zone-end
 <!---removing the other pivot until we camn get ACA tested with custom handlers
 ::: zone pivot="programming-language-other"
-+ Development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
++ Install the development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
 -->
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or a later version.
@@ -65,210 +67,215 @@ You should be all set.
 
 [!INCLUDE [functions-cli-create-venv](functions-cli-create-venv.md)]
 
-### Create and test the local functions project
+## Create and test the local functions project
 
+<!---add back programming-language-other-->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-
-```console
-func init --worker-runtime dotnet-isolated --docker
-```
+    ```console
+    func init --worker-runtime dotnet-isolated --docker
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```console
-func init --worker-runtime node --language javascript --docker
-```
+    ```console
+    func init --worker-runtime node --language javascript --docker
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```console
-func init --worker-runtime powershell --docker
-```
+    ```console
+    func init --worker-runtime powershell --docker
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-```console
-func init --worker-runtime python --docker
-```
+    ```console
+    func init --worker-runtime python --docker
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```console
-func init --worker-runtime node --language typescript --docker
-```
+    ```console
+    func init --worker-runtime node --language typescript --docker
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
+1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
 
-# [Bash](#tab/bash)
-```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
-```
-# [PowerShell](#tab/powershell)
-```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
-```
-# [Cmd](#tab/cmd)
-```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
-```
----
+    # [Bash](#tab/bash)
+    ```bash
+    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
+    ```
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
+    ```
+    # [Cmd](#tab/cmd)
+    ```cmd
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
+    ```
+    ---
 
-The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want your functions to run on Java 11. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions).
+    The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want your functions to run on Java 11. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions).
 
-> [!IMPORTANT]
-> The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
+    > [!IMPORTANT]
+    > The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
 
-Maven asks you for values needed to finish generating the project on deployment.
-Follow the prompts and provide the following information:
+    Maven asks you for values needed to finish generating the project on deployment.
 
-| Prompt | Value | Description |
-| ------ | ----- | ----------- |
-| **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
-| **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
-| **version** | `1.0-SNAPSHOT` | Select the default value. |
-| **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
+1. Follow the prompts and provide the following information:
 
-Type `Y` or press Enter to confirm.
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+    | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
+    | **version** | `1.0-SNAPSHOT` | Select the default value. |
+    | **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
 
-Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
+1. Type `Y` or press Enter to confirm.
+
+    Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
 ::: zone-end
 <!---
 :: zone pivot="programming-language-other"  
-```console
-func init --worker-runtime custom --docker
-```
+    ```console
+    func init --worker-runtime custom --docker
+    ```
 ::: zone-end
 -->
-The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
+    The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
-Navigate into the project folder:
+4. Navigate into the project folder:
 
-```console
-cd fabrikam-functions
-```
+    ```console
+    cd fabrikam-functions
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
+2. Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
 
-```console
-func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
-```
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
+    ```
 ::: zone-end
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
+2. Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
-```console
-func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
-```
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
+    ```
 ::: zone-end  
 <!---
 ::: zone pivot="programming-language-other"
-In a text editor, create a file in the project folder named *handler.R*. Add the following code as its content:
+3. In a text editor, create a file in the project folder named *handler.R*. Add the following code as its content:
 
-```r
-library(httpuv)
-
-PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
-PORT <- strtoi(PORTEnv , base = 0L)
-
-http_not_found <- list(
-  status=404,
-  body='404 Not Found'
-)
-
-http_method_not_allowed <- list(
-  status=405,
-  body='405 Method Not Allowed'
-)
-
-hello_handler <- list(
-  GET = function (request) {
-    list(body=paste(
-      "Hello,",
-      if(substr(request$QUERY_STRING,1,6)=="?name=") 
-        substr(request$QUERY_STRING,7,40) else "World",
-      sep=" "))
-  }
-)
-
-routes <- list(
-  '/api/HttpExample' = hello_handler
-)
-
-router <- function (routes, request) {
-  if (!request$PATH_INFO %in% names(routes)) {
-    return(http_not_found)
-  }
-  path_handler <- routes[[request$PATH_INFO]]
-
-  if (!request$REQUEST_METHOD %in% names(path_handler)) {
-    return(http_method_not_allowed)
-  }
-  method_handler <- path_handler[[request$REQUEST_METHOD]]
-
-  return(method_handler(request))
-}
-
-app <- list(
-  call = function (request) {
-    response <- router(routes, request)
-    if (!'status' %in% names(response)) {
-      response$status <- 200
+    ```r
+    library(httpuv)
+    
+    PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
+    PORT <- strtoi(PORTEnv , base = 0L)
+    
+    http_not_found <- list(
+      status=404,
+      body='404 Not Found'
+    )
+    
+    http_method_not_allowed <- list(
+      status=405,
+      body='405 Method Not Allowed'
+    )
+    
+    hello_handler <- list(
+      GET = function (request) {
+        list(body=paste(
+          "Hello,",
+          if(substr(request$QUERY_STRING,1,6)=="?name=") 
+            substr(request$QUERY_STRING,7,40) else "World",
+          sep=" "))
+      }
+    )
+    
+    routes <- list(
+      '/api/HttpExample' = hello_handler
+    )
+    
+    router <- function (routes, request) {
+      if (!request$PATH_INFO %in% names(routes)) {
+        return(http_not_found)
+      }
+      path_handler <- routes[[request$PATH_INFO]]
+    
+      if (!request$REQUEST_METHOD %in% names(path_handler)) {
+        return(http_method_not_allowed)
+      }
+      method_handler <- path_handler[[request$REQUEST_METHOD]]
+    
+      return(method_handler(request))
     }
-    if (!'headers' %in% names(response)) {
-      response$headers <- list()
+    
+    app <- list(
+      call = function (request) {
+        response <- router(routes, request)
+        if (!'status' %in% names(response)) {
+          response$status <- 200
+        }
+        if (!'headers' %in% names(response)) {
+          response$headers <- list()
+        }
+        if (!'Content-Type' %in% names(response$headers)) {
+          response$headers[['Content-Type']] <- 'text/plain'
+        }
+    
+        return(response)
+      }
+    )
+    
+    cat(paste0("Server listening on :", PORT, "...\n"))
+    runServer("0.0.0.0", PORT, app)
+    ```
+    
+    In *host.json*, modify the `customHandler` section to configure the custom handler's startup command.
+    
+    ```json
+    "customHandler": {
+      "description": {
+          "defaultExecutablePath": "Rscript",
+          "arguments": [
+          "handler.R"
+        ]
+      },
+      "enableForwardingHttpRequest": true
     }
-    if (!'Content-Type' %in% names(response$headers)) {
-      response$headers[['Content-Type']] <- 'text/plain'
-    }
-
-    return(response)
-  }
-)
-
-cat(paste0("Server listening on :", PORT, "...\n"))
-runServer("0.0.0.0", PORT, app)
-```
-
-In *host.json*, modify the `customHandler` section to configure the custom handler's startup command.
-
-```json
-"customHandler": {
-  "description": {
-      "defaultExecutablePath": "Rscript",
-      "arguments": [
-      "handler.R"
-    ]
-  },
-  "enableForwardingHttpRequest": true
-}
-```
+    ```
 ::: zone-end
 -->
-To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+3. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+::: zone-end
 ::: zone pivot="programming-language-csharp"  
-```console
-func start  
-```
+    ```console
+    func start  
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
-```console
-func start  
-```
+    ```console
+    func start  
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```console
-npm install
-npm start
-```
+    ```console
+    npm install
+    npm start
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-```console
-mvn clean package  
-mvn azure-functions:run
-```
+5. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+
+    ```console
+    mvn clean package  
+    mvn azure-functions:run
+    ```
 ::: zone-end
 <!---
 ::: zone pivot="programming-language-other"
@@ -279,18 +286,21 @@ func start
 ::: zone-end
 -->
 ::: zone pivot="programming-language-csharp"  
-After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
+4. After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
-After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+4. After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
+::: zone-end
+::: zone pivot="programming-language-java"
+6. After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 ::: zone-end
 
-Press **Ctrl**+**C** to stop the host.
+Press **Ctrl**+**C** (**Command**+**C** on MacOs) to stop the host.
 
-### Build the container image and test locally
+## Build the container image and verify locally
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
-(Optional) Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+1. Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The correct base image is chosen for you based on your functions language and runtime version. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 ::: zone-end
 <!---
 ::: zone pivot="programming-language-other"
@@ -319,10 +329,10 @@ docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 
 When the command completes, you can run the new container locally.
 
-To test the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<docker_id>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
+To test the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<DOCKER_ID>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
 
 ```console
-docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
+docker run -p 8080:80 -it <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp"
