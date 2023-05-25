@@ -20,7 +20,7 @@ Some scenarios where this feature is useful:
 
 **Audio effect detection** can detect and classify different categories. In the following table, you can find the different categories split in to the different presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
 
-<!-- The following table shows which categories are supported depending on **Preset Name** (**"Audio Only"** / **"Video + Audio"** vs. **"Advance Audio"** / **"Advance Video + Audio"**). When you are using the **Advanced** indexing, categories appear in the **Insights** pane of the website. -->
+The following table shows which categories are supported depending on **Preset Name** (**Audio Only** / **Video + Audio** vs. **Advance Audio** / **Advance Video + Audio**). When you are using the **Advanced** indexing, categories appear in the **Insights** pane of the website.
 
 |Indexing type |Standard indexing| Advanced indexing|
 |---|---|---|
