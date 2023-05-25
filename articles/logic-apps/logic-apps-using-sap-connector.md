@@ -508,7 +508,9 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
    The connector detects the PSE change and updates its own copy during the next connection request.
 
-##### Convert a binary PSE file into base64-encoded format
+---
+
+### Convert a binary PSE file into base64-encoded format
 
 1. Use a PowerShell script, for example:
 
@@ -534,8 +536,6 @@ After you delete the SAP connections, you must delete the SAP connector from you
    ```
 
    If you don't provide the output path parameter, the script's output to the console contains line breaks. Remove the line breaks in the base 64-encoded string for the connection input parameter.
-
----
 
 <a name="enable-secure-network-communications"></a>
 
@@ -914,7 +914,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. Return to your logic app's **Overview** pane. Under **Runs history**, find any new runs for your workflow.
 
-1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
+1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
 
 ### [Standard](#tab/standard)
 
@@ -926,8 +926,8 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. Return to your workflow's **Overview** pane. Under **Run History**, find any new runs for your workflow.
 
-1. Open the most recent run. Find and review the trigger outputs section, which shows the message sent from your SAP system.
-
+1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
+1. 
 ### [ISE](#tab/ise)
 
 See the steps for [SAP logging for Consumption logic apps in multi-tenant workflows](?tabs=multi-tenant#test-workflow-logging).
