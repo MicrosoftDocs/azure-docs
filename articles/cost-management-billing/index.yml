@@ -44,130 +44,23 @@ highlightedContent:
       url: costs/cost-mgt-best-practices.md?toc=/azure/cost-management-billing/toc.json
 
 productDirectory:
-  title: Billing + subscriptions + Cost Management
-  items:
+  sections:
     - title: Manage your account
-      imageSrc: ./media/billing-hub.svg
-      links:
-        - url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
-          text: Get started with Microsoft Customer Agreement
-        - url: manage/view-all-accounts.md?toc=/azure/cost-management-billing/toc.json
-          text: View billing accounts
-        - url: manage/change-credit-card.md?toc=/azure/cost-management-billing/toc.json
-          text: Change credit card
-    - title: Manage your subscription
-      imageSrc: ./media/subscription.svg
-      links:
-        - url: manage/create-subscription.md?toc=/azure/cost-management-billing/toc.json
-          text: Create an additional subscription
-        - url: manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/toc.json
-          text: Change administrator
-    - title: Access + permissions
-      imageSrc: ./media/team-project.svg
-      links:
-        - url: costs/assign-access-acm-data.md?toc=/azure/cost-management-billing/toc.json
-          text: Assign access to cost data
-        - url: manage/understand-mca-roles.md?toc=/azure/cost-management-billing/toc.json
-          text: Microsoft Customer Agreement roles
-        - url: manage/understand-ea-roles.md?toc=/azure/cost-management-billing/toc.json
-          text: Enterprise Agreement roles
-    - title: Review your bill
-      imageSrc: ./media/invoices.svg
-      links:
-        - url: understand/review-individual-bill.md?toc=/azure/cost-management-billing/toc.json
-          text: Review your individual account bill
-        - url: understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-          text: Review your Microsoft Customer Agreement bill
-        - url: understand/review-enterprise-agreement-bill.md?toc=/azure/cost-management-billing/toc.json
-          text: Review your Enterprise Agreement bill
-    - title: Downloads + payments
-      imageSrc: ./media/download.svg
-      links:
-        - url: understand/download-azure-invoice.md?toc=/azure/cost-management-billing/toc.json
-          text: Download your invoice
-        - url: understand/mca-download-tax-document.md?toc=/azure/cost-management-billing/toc.json
-          text: Download your tax documents
-        - url: understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/toc.json
-          text: Download your usage and charges
-        - url: understand/pay-bill.md?toc=/azure/cost-management-billing/toc.json
-          text: Pay your bill
-        - url: manage/pay-by-invoice.md?toc=/azure/cost-management-billing/toc.json
-          text: Pay by wire transfer
-    - title: Learn more
-      imageSrc: ./media/learn.svg
-      links:
-        - url: understand/understand-usage.md?toc=/azure/cost-management-billing/toc.json
-          text: Usage terms explained
-        - url: understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/toc.json
-          text: Microsoft Customer Agreement usage terms
-        - url: understand/understand-invoice.md?toc=/azure/cost-management-billing/toc.json
-          text: Invoice terms explained
-        - url: understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/toc.json
-          text: Microsoft Customer Agreement invoice terms
-        - url: /training/paths/control-spending-manage-bills/
-          text: Learn at your own pace
-    - title: Pricing + estimation
-      imageSrc: ./media/controls-horizontal.svg
-      links:
-        - url: https://azure.microsoft.com/pricing/calculator
-          text: Pricing calculator
-        - url: https://azure.microsoft.com/pricing/tco/calculator
-          text: TCO calculator
-        - url: ../migrate/index.yml
-          text: Azure Migrate
-    - title: Reporting + analytics
-      imageSrc: ./media/cost-analysis.svg
-      links:
-        - url: costs/reporting-get-started.md?toc=/azure/cost-management-billing/toc.json
-          text: Overview
-        - url: costs/quick-acm-cost-analysis.md?toc=/azure/cost-management-billing/toc.json
-          text: Start analyzing costs
-        - url: understand/analyze-unexpected-charges.md?toc=/azure/cost-management-billing/toc.json
-          text: Analyze unexpected charges
-        - url: costs/cost-analysis-common-uses.md?toc=/azure/cost-management-billing/toc.json
-          text: Use Cost analysis for common tasks
-        - url: /power-bi/desktop-connect-azure-cost-management
-          text: Connect with Power BI
-    - title: Monitoring
-      imageSrc: ./media/alerts.svg
-      links:
-        - url: costs/cost-mgt-alerts-monitor-usage-spending.md?toc=/azure/cost-management-billing/toc.json
-          text: Use cost alerts
-        - url: costs/tutorial-acm-create-budgets.md?toc=/azure/cost-management-billing/toc.json
-          text: Create a budget
-        - url: understand/analyze-unexpected-charges.md?toc=/azure/cost-management-billing/toc.json
-          text: Configure anomaly alerts
-        - url: costs/reservation-utilization-alerts.md?toc=/azure/cost-management-billing/toc.json
-          text: Reservation utilization alerts
-        - url: costs/save-share-views.md#subscribe-to-scheduled-alerts
-          text: Subscribe to scheduled alerts
-    - title: Optimization
-      imageSrc: ./media/optimization.svg
-      links:
-        - url: costs/tutorial-acm-opt-recommendations.md?toc=/azure/cost-management-billing/toc.json
-          text: Act on recommendations
-        - url: savings-plan/index.yml?toc=/azure/cost-management-billing/savings-plan/toc.json
-          text: Save with savings plans
-        - url: reservations/save-compute-costs-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-          text: Save with reservations
-        - url: scope-level/index.yml?toc=/azure/cost-management-billing/scope-level/toc.json
-          text: Manage Azure Hybrid Benefit for SQL Server
-    - title: Cost allocation
-      imageSrc: ./media/cost-allocation.svg
-      links:
-        - url: costs/enable-tag-inheritance.md?toc=/azure/cost-management-billing/toc.json
-          text: Enable tag inheritance
-        - url: costs/allocate-costs.md?toc=/azure/cost-management-billing/toc.json
-          text: Split shared costs
-    - title: Automation + extensibility
-      imageSrc: ./media/automation.svg
-      links:
-        - url: automate/automation-overview.md?toc=/azure/cost-management-billing/toc.json
-          text: Overview
-        - url: automate/usage-details-best-practices.md?toc=/azure/cost-management-billing/toc.json
-          text: Choose a cost details solution
-        - url: automate/partner-automation.md?toc=/azure/cost-management-billing/toc.json
-          text: Automation for partners
+      items:
+        - imageSrc: ./media/billing-hub.svg
+          title: Manage your account
+          links:
+            - text: Manage your account
+              url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
+            - text: Manage your account
+              url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
+        - imageSrc: ./media/billing-hub.svg
+          title: Manage your account
+          links:
+            - text: Manage your account
+              url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
+            - text: Manage your account
+              url: understand/mca-overview.md?toc=/azure/cost-management-billing/toc.json
 
 additionalContent:
   sections:
