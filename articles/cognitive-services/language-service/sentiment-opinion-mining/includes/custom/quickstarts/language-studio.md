@@ -43,7 +43,7 @@ After you have created an Azure storage account and connected it to your Languag
     * "Comedy"
     * "Action"
 
-[!INCLUDE [Uploading sample data for Custom sentiment analysis](../../../../includes/custom/langauge-studio/upload-data-to-storage.md)]
+[!INCLUDE [Uploading sample data for Custom sentiment analysis](../../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
 ## Create a Custom sentiment analysis project
 
@@ -57,7 +57,7 @@ Once your resource and storage container are configured, create a new Custom sen
 
 Typically after you create a project, you start labeling the documents you have in the container connected to your project. For this quickstart, you have imported a sample labeled dataset and initialized your project with the sample JSON labels file.
 
-[!INCLUDE [Train a model using Language Studio](../../../../includes/custom/langauge-studio/train-your-model.md)]
+[!INCLUDE [Train a model using Language Studio](../../../../includes/custom/language-studio/train-your-model.md)]
 
 
 
@@ -65,7 +65,7 @@ Typically after you create a project, you start labeling the documents you have 
 
 Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
-[!INCLUDE [Deploy a model using Language Studio](../../../../includes/custom/langauge-studio/deployment.md)]
+[!INCLUDE [Deploy a model using Language Studio](../../../../includes/custom/language-studio/deployment.md)]
 
 
 
