@@ -69,9 +69,9 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 ### Restrict access by IP address range
 
-You can limit access to the inputs and outputs in your logic app's run history so that only requests from specific IP address ranges can view that data.
+You can limit access to the inputs and outputs in the run history for your logic app workflows so that only requests from specific IP address ranges can view that data.
 
-For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to your logic app's data.
+For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to data in your logic app workflows.
 
 To specify the allowed IP ranges, follow these steps for either the Azure portal or your Azure Resource Manager template:
 
