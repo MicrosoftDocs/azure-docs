@@ -84,7 +84,7 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 
 ```
 
-### [ARM template](#tag/arm1)
+### [ARM template](#tab/arm1)
 
 ```json
 "ipConfigurations": [{
