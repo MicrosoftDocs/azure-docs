@@ -37,7 +37,7 @@ For a demonstration of this process, see the following video:
 
 ## Build the sample application
 
-Use the following steps to deploy the Spring Petclinic microservices project:
+Use the following steps to build the Spring Petclinic microservices project:
 
 1. In your local environment, use the following command to clone the sample application repository:
 
@@ -171,7 +171,7 @@ Use the following steps to create and run a *.proto* file that defines the messa
 
 1. Create a new file with the *.proto* extension in the source code folder that has the following content:
 
-   ```java
+   ```protobuf
    syntax = "proto3";
    option java_multiple_files = true;
    package org.springframework.samples.petclinic.customers.grpc;

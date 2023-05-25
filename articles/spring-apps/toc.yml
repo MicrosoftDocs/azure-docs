@@ -228,7 +228,7 @@ items:
     - name: Azure Load Balance Solutions
       href: how-to-integrate-azure-load-balancers.md
     - name: Use gRPC
-      href: how-to-use-grpc.mdv
+      href: how-to-use-grpc.md
   - name: Monitor
     items:
     - name: Alerts and action groups
