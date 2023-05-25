@@ -205,7 +205,7 @@ If supported by a specific claim, you can also modify the behavior of the Option
 
 In addition to the standard optional claims set, you can also configure tokens to include Microsoft Graph extensions. For more information, see [Add custom data to resources using extensions](/graph/extensibility-overview).
 
-Optional claims support extension attributes and directory extensions. This feature is useful for attaching more user information that your app can use. For example, an additional identifier or important configuration option that the user has set. If your application manifest requests a custom extension and an MSA user logs in to your app, these extensions aren't returned.
+Optional claims support extension attributes and directory extensions. This feature is useful for attaching more user information that your app can use. For example, other identifiers or important configuration options that the user has set. If your application manifest requests a custom extension and an MSA user logs in to your app, these extensions aren't returned.
 
 ### Directory extension formatting
 
