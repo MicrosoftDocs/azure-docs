@@ -283,7 +283,7 @@ NAME                       TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S) 
 ingress-nginx-controller   LoadBalancer   10.0.65.205   EXTERNAL-IP     80:30957/TCP,443:32414/TCP   1m   app.kubernetes.io/component=controller,app.kubernetes.io/instance=ingress-nginx,app.kubernetes.io/name=ingress-nginx
 ```
 
-No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the external IP address. Ingress rules are configured in the following steps.
+If you browse to the external IP address at this stage, you see a 404 page displayed. This is because you still need to set up the connection to the external IP, which is done in the next sections.
 
 ## Run demo applications
 
