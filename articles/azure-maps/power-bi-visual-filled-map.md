@@ -128,11 +128,7 @@ There are two places where you can adjust filled maps settings: Build and format
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD
-> [Add a bar chart layer](power-bi-visual-add-3d-column-layer.md)
-=======
 > [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
->>>>>>> 28706c167f187d38ae934291c8d83fb1a36c6657
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
