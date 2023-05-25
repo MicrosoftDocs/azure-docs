@@ -16,9 +16,7 @@ show_latex: true
 
 # Set up AutoML to train a time-series forecasting model with SDK and CLI
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-auto-train-forecast-v1.md?view=azureml-api-1&preserve-view=true)

@@ -1,7 +1,7 @@
 ---
 title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 using Azure Machine Learning automated ML.
+description: Learn how to set up an AutoML training run for tabular data with the Azure Machine Learning CLI and Python SDK v2.
 ms.author: rasavage
 author: ericwrightatwork
 ms.reviewer: ssalgado
@@ -14,9 +14,10 @@ ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 show_latex: true
 ---
 
-# Set up AutoML training for tabular data with the Azure Machine Learning Python SDK v2
+# Set up AutoML training for tabular data with the Azure Machine Learning CLI and Python SDK 
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
 > * [v1](./v1/how-to-configure-auto-train-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-configure-auto-train.md)
@@ -25,32 +26,28 @@ In this guide, learn how to set up an automated machine learning, AutoML, traini
 
 If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
-If you prefer to submit training jobs with the Azure Machine Learning CLI v2 extension, see [Train models](how-to-train-model.md).
-
 ## Prerequisites
 
-For this article you need: 
-* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Create resources to get started](quickstart-create-resources.md) article.
 
-* The Azure Machine Learning Python SDK v2 installed.
-    To install the SDK you can either, 
-    * Create a compute instance, which already has installed the latest Azure Machine Learning Python SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+# [Python SDK](#tab/python)
 
-    * Use the followings commands to install Azure Machine Learning Python SDK v2:
-       * Uninstall previous preview version:
-       ```Python
-       pip uninstall azure-ai-ml
-       ```
-       * Install the Azure Machine Learning Python SDK v2:
-       ```Python
-       pip install azure-ai-ml azure-identity
-       ```
+To use the **SDK** information, install the Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
 
-    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+# [Azure CLI](#tab/azurecli)
+
+To use the **CLI** information, install the [Azure CLI and extension for machine learning](how-to-configure-cli.md).
+
+---
 
 ## Set up your workspace 
 
-To connect to a workspace, you need to provide a subscription, resource group and workspace name. These details are used in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. 
+To connect to a workspace, you need to provide a subscription, resource group and workspace name. 
+
+# [Python SDK](#tab/python)
+
+The Workspace details are used in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. 
 
 In the following example, the default Azure authentication is used along with the default workspace configuration or from any `config.json` file you might have copied into the folders structure. If no `config.json` is found, then you need to manually introduce the subscription_id, resource_group and workspace when creating `MLClient`.
 
@@ -72,6 +69,24 @@ except Exception as ex:
 
 ```
 
+# [Azure CLI](#tab/azurecli)
+
+In the CLI, you begin by logging into your Azure account. You may also need to set the subscription if your account is associated with multiple subscriptions. 
+
+```azurecli
+az login
+```
+
+You can also set default values for your Workspace to avoid typing these flags into every CLI command:
+
+```azurecli
+az configure --defaults group=<RESOURCE_GROUP> workspace=<AZUREML_WORKSPACE_NAME> location=<LOCATION>
+```
+
+For more information, see the [CLI setup](how-to-configure-cli.md#set-up) article section.
+
+---
+
 ## Data source and format
 
 In order to provide training data to AutoML in SDK v2 you need to upload it into the cloud through an **MLTable**.
@@ -80,12 +95,31 @@ Requirements for loading data into an MLTable:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
-Training data must be accessible from the remote compute. Automated ML v2 (Python SDK and CLI/YAML) accepts MLTable data assets (v2), although for backwards compatibility it also supports v1 Tabular Datasets from v1 (a registered Tabular Dataset) through the same input dataset properties. However the recommendation is to use MLTable available in v2.
+Training data must be accessible from the remote compute. Automated ML v2 (Python SDK and CLI/YAML) accepts MLTable data assets (v2), although for backwards compatibility it also supports v1 Tabular Datasets from v1 (a registered Tabular Dataset) through the same input dataset properties. However the recommendation is to use MLTable available in v2. In this example, we assume the data is stored at the local path, `./train_data/bank_marketing_train_data.csv`
 
-The following YAML code is the definition of a MLTable that could be placed in a local folder or a remote folder in the cloud, along with the data file (.CSV or Parquet file).
+# [Python SDK](#tab/python)
 
+You can create an MLTable using the [mltable Python SDK](/python/api/mltable) as in the following example:
+
+```python
+import mltable
+
+paths = [
+    {'file': './train_data/bank_marketing_train_data.csv'}
+]
+
+train_table = mltable.from_delimited_files(paths)
+train_table.save('./train_data')
 ```
-# MLTable definition file
+
+This code creates a new file, `./train_data/MLTable`, which contains the file format and loading instructions.
+
+# [Azure CLI](#tab/azurecli)
+
+The following YAML code is the definition of a MLTable that is placed in a local folder or a remote folder in the cloud, along with the data file (.CSV or Parquet file). In this case, we write the YAML text to the local file, `./train_data/MLTable`.
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json
 
 paths:
   - file: ./bank_marketing_train_data.csv
@@ -95,24 +129,11 @@ transformations:
         encoding: 'ascii'
 ```
 
-Therefore, the MLTable folder would have the MLTable definition file plus the data file (the bank_marketing_train_data.csv file in this case).
+---
 
-The following shows two ways of creating an MLTable.
-- A. Providing your training data and MLTable definition file from your local folder and it will be automatically uploaded into the cloud (default Workspace Datastore)
-- B. Providing a MLTable already registered and uploaded into the cloud.
+Now the `./train_data` folder has the MLTable definition file plus the data file, `bank_marketing_train_data.csv`.
 
-```Python
-from azure.ai.ml.constants import AssetTypes
-from azure.ai.ml import automl, Input
-
-# A. Create MLTable for training data from your local directory
-my_training_data_input = Input(
-    type=AssetTypes.MLTABLE, path="./data/training-mltable-folder"
-)
-
-# B. Remote MLTable definition
-my_training_data_input  = Input(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
-```
+For more information on MLTable, see the [mltable how-to](how-to-mltable.md) article
 
 ### Training, validation, and test data
 
@@ -128,21 +149,30 @@ If you don't explicitly specify a `validation_data` or `n_cross_validation` para
 
 ## Compute to run experiment
 
-
 Automated ML jobs with the Python SDK v2 (or CLI v2) are currently only supported on Azure Machine Learning remote compute (cluster or compute instance).
 
 [Learn more about creating compute with the Python SDKv2 (or CLIv2).](./how-to-train-model.md).
- 
-<a name='configure-experiment'></a>
 
 ## Configure your experiment settings
 
-There are several options that you can use to configure your automated ML experiment. These configuration parameters are set in your task method. You can also set job training settings and [exit criteria](#exit-criteria) with the `set_training()` and `set_limits()` functions, respectively. 
+There are several options that you can use to configure your automated ML experiment. These configuration parameters are set in your task method. You can also set job training settings and [exit criteria](#exit-criteria) with the `training` and `limits` settings.
 
 The following example shows the required parameters for a classification task that specifies accuracy as the [primary metric](#primary-metric) and 5 cross-validation folds.
 
+# [Python SDK](#tab/python)
+
 ```python
-# note that the below is a code snippet -- you might have to modify the variable values to run it successfully
+from azure.ai.ml.constants import AssetTypes
+from azure.ai.ml import automl, Input
+
+# note that this is a code snippet -- you might have to modify the variable values to run it successfully
+
+# make an Input object for the training data
+my_training_data_input = Input(
+    type=AssetTypes.MLTABLE, path="./data/training-mltable-folder"
+)
+
+# configure the classification job
 classification_job = automl.classification(
     compute=my_compute_name,
     experiment_name=my_exp_name,
@@ -155,7 +185,6 @@ classification_job = automl.classification(
 )
 
 # Limits are all optional
-
 classification_job.set_limits(
     timeout_minutes=600, 
     trial_timeout_minutes=20, 
@@ -165,10 +194,46 @@ classification_job.set_limits(
 
 # Training properties are optional
 classification_job.set_training(
-    blocked_training_algorithms=["LogisticRegression"], 
+    blocked_training_algorithms=["logistic_regression"], 
     enable_onnx_compatible_models=True
 )
 ```
+
+# [Azure CLI](#tab/azurecli)
+
+```yml
+$schema: https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLJob.schema.json
+type: automl
+
+experiment_name: <my_exp_name>
+description: A classification AutoML job
+task: classification
+
+training_data:
+    path: "./train_data"
+    type: mltable
+
+compute: azureml:<my_compute_name>
+primary_metric: accuracy  
+target_column_name: y
+n_cross_validations: 5
+enable_model_explainability: True
+
+tags:
+    <my_custom_tag>: <My custom value>
+
+limits:
+    timeout_minutes: 600 
+    trial_timeout_minutes: 20 
+    max_trials: 5
+    enable_early_termination: True
+
+training:
+    blocked_training_algorithms: ["logistic_regression"] 
+    enable_onnx_compatible_models: True
+```
+
+---
 
 ### Select your machine learning task type (ML problem)
 
@@ -250,16 +315,16 @@ Threshold-dependent metrics, like `accuracy`, `recall_score_weighted`, `norm_mac
 
 #### Metrics for regression scenarios
 
-`r2_score`, `normalized_mean_absolute_error` and `normalized_root_mean_squared_error` are all trying to minimize prediction errors. `r2_score` and `normalized_root_mean_squared_error` are both minimizing average squared errors while `normalized_mean_absolute_error` is minizing the average absolute value of errors. Absolute value treats errors at all magnitudes alike and squared errors will have a much larger penalty for errors with larger absolute values. Depending on whether larger errors should be punished more or not, one can choose to optimize squared error or absolute error.
+`r2_score`, `normalized_mean_absolute_error` and `normalized_root_mean_squared_error` are all trying to minimize prediction errors. `r2_score` and `normalized_root_mean_squared_error` are both minimizing average squared errors while `normalized_mean_absolute_error` is minimizing the average absolute value of errors. Absolute value treats errors at all magnitudes alike and squared errors will have a much larger penalty for errors with larger absolute values. Depending on whether larger errors should be punished more or not, one can choose to optimize squared error or absolute error.
 
 The main difference between `r2_score` and `normalized_root_mean_squared_error` is the way they're normalized and their meanings. `normalized_root_mean_squared_error` is root mean squared error normalized by range and can be interpreted as the average error magnitude for prediction. `r2_score` is mean squared error normalized by an estimate of variance of data. It's the proportion of variation that can be captured by the model. 
 
-> [!Note]
+> [!NOTE]
 > `r2_score` and `normalized_root_mean_squared_error` also behave similarly as primary metrics. If a fixed validation set is applied, these two metrics are optimizing the same target, mean squared error, and will be optimized by the same model. When only a training set is available and cross-validation is applied, they would be slightly different as the normalizer for `normalized_root_mean_squared_error` is fixed as the range of training set, but the normalizer for `r2_score` would vary for every fold as it's the variance for each fold.
 
 If the rank, instead of the exact value is of interest, `spearman_correlation` can be a better choice as it measures the rank correlation between real values and predictions.
 
-However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a $20k prediction error the same for a worker with a $30k salary as a worker making $20M, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only $20k off from a $20M salary is very close (a small 0.1% relative difference), whereas $20k off from $30k isn't close (a large 67% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
+However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a \$20k prediction error the same for a worker with a \$30k salary as a worker making \$20M, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only \$20k off from a \$20M salary is very close (a small 0.1\% relative difference), whereas \$20k off from \$30k isn't close (a large 67\% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -293,7 +358,7 @@ In every automated ML experiment, your data is automatically transformed to numb
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same featurization steps applied during training are applied to your input data automatically.
 
-When configuring your automated ML jobs, you can enable/disable the `featurization` settings by using the `.set_featurization()` setter function. 
+When configuring your automated ML jobs, you can enable/disable the `featurization` settings. 
 
 The following table shows the accepted settings for featurization. 
 
@@ -304,6 +369,8 @@ The following table shows the accepted settings for featurization.
 |`"mode":`&nbsp;`'custom'`| Indicates customized featurization step should be used.|
 
 The following code shows how custom featurization can be provided in this case for a regression job.
+
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml.automl import ColumnTransformer
@@ -322,7 +389,45 @@ regression_job.set_featurization(
 )
 ```
 
-<a name="exit"></a> 
+# [Azure CLI](#tab/azurecli)
+
+```yml
+$schema: https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLJob.schema.json
+type: automl
+
+experiment_name: <my_exp_name>
+description: A classification AutoML job
+task: classification
+
+training_data:
+    path: "./train_data"
+    type: mltable
+
+compute: azureml:<my_compute_name>
+primary_metric: accuracy  
+target_column_name: y
+n_cross_validations: 5
+enable_model_explainability: True
+
+featurization:
+    mode: custom
+    column_name_and_types:
+        CHMIN: Categorical
+    blocked_transformers: ["label_encoder"]
+    transformer_params:
+        imputer:
+            - fields: ["CACH", "PRP"]
+            parameters:
+                strategy: most_frequent
+
+limits:
+    # limit settings
+
+training:
+    # training settings
+```
+
+---
 
 ### Exit criteria
 
@@ -334,17 +439,19 @@ No&nbsp;criteria | If you don't define any exit parameters the experiment contin
 `timeout`| Defines how long, in minutes, your experiment should continue to run. If not specified, the default job's total timeout is 6 days (8,640 minutes). To specify a timeout less than or equal to 1 hour (60 minutes), make sure your dataset's size isn't greater than 10,000,000 (rows times column) or an error results. <br><br> This timeout includes setup, featurization and training runs but doesn't include the ensembling and model explainability runs at the end of the process since those actions need to happen once all the trials (children jobs) are done. 
 `trial_timeout_minutes` | Maximum time in minutes that each trial (child job) can run for before it terminates. If not specified, a value of 1 month or 43200 minutes is used
 `enable_early_termination`|Whether to end the job if the score is not improving in the short term
-`max_trials`| The maximum number of trials/runs each with a different combination of algorithm and hyperparameters to try during an AutoML job. If not specified, the default is 1000 trials. If using `enable_early_termination` the number of trials used can be smaller.
+`max_trials`| The maximum number of trials/runs each with a different combination of algorithm and hyper-parameters to try during an AutoML job. If not specified, the default is 1000 trials. If using `enable_early_termination` the number of trials used can be smaller.
 `max_concurrent_trials`| Represents the maximum number of trials (children jobs) that would be executed in parallel. It's a good practice to match this number with the number of nodes your cluster
 
 ## Run experiment
 > [!NOTE]
-> If you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score and generated models. The algorithms automated ML employs have inherent randomness that can cause slight variation in the models output by the experiment and the recommended model's final metrics score, like accuracy. You'll likely also see results with the same model name, but different hyperparameters used. 
+> If you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score and generated models. The algorithms automated ML employs have inherent randomness that can cause slight variation in the models output by the experiment and the recommended model's final metrics score, like accuracy. You'll likely also see results with the same model name, but different hyper-parameters used. 
 
 > [!WARNING]
 > If you have set rules in firewall and/or Network Security Group over your workspace, verify that required permissions are given to inbound and outbound network traffic as defined in [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 Submit the experiment to run and generate a model. With the `MLClient` created in the prerequisites, you can run the following command in the workspace.
+
+# [Python SDK](#tab/python)
 
 ```python
 
@@ -359,6 +466,22 @@ print(f"Created job: {returned_job}")
 returned_job.services["Studio"].endpoint
 
 ```
+
+# [Azure CLI](#tab/azurecli)
+
+In following CLI command, we assume the job YAML configuration is at the path, `./automl-classification-job.yml`:
+
+```azurecli
+run_id=$(az ml job create --file automl-classification-job.yml)
+```
+
+You can use the stored run ID to return information about the job. The `--web` parameter opens the Azure Machine Learning studio web UI where you can drill into details on the job:
+
+```azurecli
+az ml job show -n $run_id --web
+```
+
+---
 
 ### Multiple child runs on clusters
 
@@ -379,7 +502,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
-From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular model and also view and customize the internal model's training code used. 
+From Azure Machine Learning UI at the model's page you can also view the hyper-parameters used when training a particular model and also view and customize the internal model's training code used. 
 
 ## Register and deploy models
 
@@ -394,6 +517,8 @@ After you test a model and confirm you want to use it in production, you can reg
 To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [Azure Machine Learning Pipelines](./how-to-create-component-pipeline-python.md). This allows you to automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
 
 Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
+
+# [Python SDK](#tab/python)
 
 ``` python
 # Define pipeline
@@ -415,7 +540,10 @@ def automl_classification(
     )
     # set limits and training
     classification_node.set_limits(max_trials=1)
-    classification_node.set_training(enable_stack_ensemble=False, enable_vote_ensemble=False)
+    classification_node.set_training(
+        enable_stack_ensemble=False,
+        enable_vote_ensemble=False
+    )
 
     command_func = command(
         inputs=dict(
@@ -427,17 +555,86 @@ def automl_classification(
     show_output = command_func(automl_output=classification_node.outputs.best_model)
 
 
-pipeline_classification = automl_classification(
+pipeline_job = automl_classification(
     classification_train_data=Input(path="./training-mltable-folder/", type="mltable"),
     classification_validation_data=Input(path="./validation-mltable-folder/", type="mltable"),
 )
 
+# set pipeline level compute
+pipeline_job.settings.default_compute = compute_name
+
+# submit the pipeline job
+returned_pipeline_job = ml_client.jobs.create_or_update(
+    pipeline_job,
+    experiment_name=experiment_name
+)
+returned_pipeline_job
+
 # ...
-# Note that the above is only a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
+# Note that this is a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
 
 ```
 
 For more examples on how to include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1h_automl_in_pipeline/).
+
+# [Azure CLI](#tab/azurecli)
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+description: AutoML Classification Pipeline
+experiment_name: <exp_name>
+
+# set the default compute for the pipeline steps
+settings:
+    default_compute: azureml:<my_compute>
+
+# pipeline inputs
+inputs:
+    classification_train_data:
+        type: mltable
+        path: "./train_data"
+    classification_validation_data:
+        type: mltable
+        path: "./valid_data"
+
+jobs:
+    # Configure the automl training node of the pipeline 
+    classification_node:
+        type: automl
+        task: classification
+        primary_metric: accuracy
+        target_column_name: y
+        training_data: ${{parent.inputs.classification_train_data}}
+        validation_data: ${{parent.inputs.classification_validation_data}}
+        training:
+            max_trials: 1
+        limits:
+            enable_stack_ensemble: False
+            enable_vote_ensemble: False
+        outputs:
+            best_model:
+                type: mlflow_model
+
+    show_output:
+        type: command
+        inputs:
+            automl_output: ${{parent.jobs.classification_node.outputs.best_model}}
+        environment: "AzureML-sklearn-0.24-ubuntu18.04-py37-cpu:latest"
+        command: >-
+            ls ${{inputs.automl_output}}
+        
+```
+
+Now, you launch the pipeline run using the following command, assuming the pipeline configuration is at the path `./automl-classification-pipeline.yml`:
+
+```azurecli
+> run_id=$(az ml job create --file automl-classification-pipeline.yml)
+> az ml job show -n $run_id --web
+```
+
+---
 
 ## AutoML at scale: distributed training
 
@@ -461,6 +658,8 @@ max_nodes | The number of nodes to use for training by each AutoML trial
 
 The following code samples shows an example of these settings for a classification job:
 
+# [Python SDK](#tab/python)
+
 ```python
 from azure.ai.ml.constants import TabularTrainingMode
 
@@ -477,6 +676,21 @@ classification_job.set_limits(
 )
 ```
 
+# [Azure CLI](#tab/azurecli)
+
+```yml
+# Set the training mode to distributed
+training:
+    allowed_training_algorithms: ["light_gbm"]
+    training_mode: distributed
+
+# Distribute training across 4 nodes for each trial
+limits:
+    max_nodes: 4
+```
+
+---
+
 ### Distributed training for forecasting
 
 To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training) article. To use distributed training for forecasting, you need to set set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
@@ -489,6 +703,8 @@ max_concurrent_trials | This is the maximum number of trial models to train in p
 max_nodes | The total number of nodes to use for training. For forecasting, each trial model is trained using $\text{max}\left(2, \text{floor}( \text{max\_nodes} / \text{max\_concurrent\_trials}) \right)$ nodes.
 
 The following code samples shows an example of these settings for a forecasting job:
+
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml.constants import TabularTrainingMode
@@ -508,6 +724,25 @@ forecasting_job.set_limits(
     # other limit settings
 )
 ```
+
+# [Azure CLI](#tab/azurecli)
+
+```yml
+# Set the training mode to distributed
+training:
+    allowed_training_algorithms: ["tcn_forecaster"]
+    training_mode: distributed
+
+# Distribute training across 4 nodes
+# Train 2 trial models in parallel => 2 nodes per trial
+limits:
+    max_concurrent_trials: 2
+    max_nodes: 4
+```
+
+---
+
+See previous sections on [configuration](#configure-your-experiment-settings) and [job submission](#run-experiment) for samples of full configuration code.
 
 ## Next steps
 
