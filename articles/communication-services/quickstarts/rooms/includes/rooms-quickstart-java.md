@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: t-siddiquim
+manager: alexo
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/08/2022
+ms.date: 05/25/2023
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson
+ms.author: t-siddiquim
 ---
 
 ## Prerequisites
@@ -36,7 +36,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.3/jar) or above. 
 
 #### Include the BOM file
 
@@ -124,11 +124,10 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .connectionString(connectionString)
     .buildClient();
 
-List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.VOIP);
-CommunicationUserIdentifierAndToken result1 = communicationIdentityClient.createUserAndToken(scopes);
-CommunicationUserIdentifier user1 = result1.getUser();
-CommunicationUserIdentifierAndToken result2 = communicationIdentityClient.createUserAndToken(scopes);
-CommunicationUserIdentifier user2 = result2.getUser();
+//Create Participants
+RoomParticipant participant_1 = new RoomParticipant(communicationClient.createUser());
+RoomParticipant participant_2 = new RoomParticipant(communicationClient.createUser());
+RoomParticipant participant_3 = new RoomParticipant(communicationClient.createUser());
 
 
 ```
@@ -142,18 +141,20 @@ Create a new `room` with default properties using the code snippet below:
 // Create room
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
-RoomJoinPolicy roomJoinPolicy = RoomJoinPolicy.INVITE_ONLY;
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
-roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user1.getId())).setRole(RoleType.CONSUMER));
+roomParticipants.add(participant_1);
+roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
+        
+System.out.print("Creating room...\n");
 
-CommunicationRoom roomCreated = roomsClient.createRoom(
-    validFrom,
-    validUntil,
-    roomJoinPolicy,
-    roomParticipants
-);
+CreateRoomOptions roomOptions = new CreateRoomOptions()
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil)
+    .setParticipants(roomParticipants);
+
+CommunicationRoom roomCreated = roomsClient.createRoom(roomOptions);
 
 System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
@@ -169,7 +170,11 @@ Retrieve the details of an existing `room` by referencing the `roomId`:
 
 // Retrieve the room with corresponding ID
 CommunicationRoom roomResult = roomsClient.getRoom(roomId);
-System.out.println("\nRetrieved room with id: " + roomResult.getRoomId());
+
+System.out.println("RoomId: " + roomResult.getRoomId());
+System.out.println("Create at: " + roomResult.getCreatedAt());
+System.out.println("ValidFrom: " + roomResult.getValidFrom());
+System.out.println("ValidUntil: " + roomResult.getValidUntil());
 
 ```
 
@@ -183,22 +188,36 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, validFrom, validUntil);
+UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil);
 
-System.out.println("\nUpdated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
+            
+System.out.println("ValidFrom: " + roomResult.getValidFrom());
+System.out.println("ValidUntil: " + roomResult.getValidUntil());
 
 ```
 
-## Add new participants
+## Add or Update participants
 
-To add new participants to a `room`, use the `addParticipants` method exposed on the client.
+To add or update participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client.
 
 ```java
 
 // Add participants to room
-RoomParticipant newParticipant = new RoomParticipant(new CommunicationUserIdentifier(user2.getId())).setRole(RoleType.CONSUMER)
-AddOrUpdateParticipantsResult updatedParticipants = roomsClient.addOrUpdateParticipants(roomId, List.of(newParticipant));
-System.out.println("\nAdded participants to room:")
+List<RoomParticipant> participantsToAddAndUpdate = new ArrayList<>();
+
+// Adding new participant
+ participantsToAddAndUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
+
+// Updating current participant
+participantsToAddAndUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
+
+        
+AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAndUpdate);
+
+System.out.println("Participant(s) added/updated");
 
 ```
 
@@ -212,8 +231,12 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 // Get list of participants
 try {
-     ParticipantsCollection participants = roomsClient.getParticipants(roomId);
-     System.out.println("Participants: \n" + listParticipantsAsString(participants.getParticipants()));
+     
+PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
+
+for (RoomParticipant participant : participants) {
+    System.out.println(participant.getCommunicationIdentifier().getRawId() + " (" + participant.getRole() + ")");
+   }
 } catch (Exception ex) {
     System.out.println(ex);
 }
@@ -227,9 +250,15 @@ To remove a participant from a `room` and revoke their access, use the `removePa
 ```java
 
 // Remove a participant from the room
-RoomParticipant existingParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(user1.getId()));
-emoveParticipantsResult removedParticipants = roomsAsyncClient.removeParticipants(roomId, Arrays.asList(existingParticipant.getCommunicationIdentifier()););
-System.out.println("\nRemoved participants from room")
+List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
+
+participantsToRemove.add(participant_3.getCommunicationIdentifier());
+            
+System.out.print("Removing participant(s)...\n");
+
+RemoveParticipantsResult removeParticipantsResult = roomsClient.removeParticipants(roomId,participantsToRemove);
+
+System.out.println("Participant(s) removed");
 
 ```
 
@@ -243,6 +272,21 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 roomsClient.deleteRoomWithResponse(roomId, Context.NONE);
 System.out.println("\nDeleted the room with ID: " + roomId);
 
+```
+
+### List all existing rooms
+
+Retrieve all existing `rooms` under your ACS resource.
+
+```java
+try {
+     PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+      for (CommunicationRoom room : rooms) {
+         System.out.println(room.getRoomId());
+     }
+} catch (Exception ex) {
+    System.out.println(ex);
+}
 ```
 
 ## Run the code
