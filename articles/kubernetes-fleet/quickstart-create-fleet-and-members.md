@@ -51,6 +51,12 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
     export FLEET=<your_fleet_name>
     ```
 
+* Install `kubectl` and `kubelogin` using the az aks install-cli command:
+
+  ```azurecli
+  az aks install-cli
+  ```
+
 * The AKS clusters that you want to join as member clusters to the fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy).
 
 ## Create a resource group
