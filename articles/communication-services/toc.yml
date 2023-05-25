@@ -631,6 +631,8 @@ items:
         href: concepts/analytics/call-logs-azure-monitor.md
       - name: Recording logs
         href: concepts/analytics/recording-logs.md
+      - name: Rooms logs
+        href: concepts/analytics/logs/rooms-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: UI Library
