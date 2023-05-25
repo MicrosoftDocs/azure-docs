@@ -33,7 +33,7 @@ items:
         href: rise-integration.md
       - name: Virtual Machine Scale Sets
         items:
-        - name: Flexible Virtual Machine Scale Sets
+        - name: Flexible scale sets deployment guide
           href: virtual-machine-scale-set-sap-deployment-guide.md
         - name: Frequently asked questions
           href: virtual-machine-scale-set-sap-faq.md
@@ -47,7 +47,7 @@ items:
           href: vm-extension-for-sap-new.md
       - name: SAP BOBI platform on Azure
         items:
-        - name: SAPI BOBI planning and implementation guide on Azure
+        - name: SAP BOBI planning and implementation guide on Azure
           href: businessobjects-deployment-guide.md
         - name: Deployment for Windows on Azure
           href: businessobjects-deployment-guide-windows.md
