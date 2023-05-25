@@ -19,8 +19,6 @@ Sentiment analysis and opinion mining are features offered by [Azure Cognitive S
 
 Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
-#### [prebuilt model](#tab/prebuilt)
-
 ## Sentiment analysis 
 
 The sentiment analysis feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. 
@@ -28,6 +26,8 @@ The sentiment analysis feature provides sentiment labels (such as "negative", "n
 ## Opinion mining
 
 Opinion mining is a feature of sentiment analysis. Also known as aspect-based sentiment analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
+
+#### [prebuilt model](#tab/prebuilt)
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
