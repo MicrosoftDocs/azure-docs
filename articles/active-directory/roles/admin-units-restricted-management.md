@@ -75,7 +75,7 @@ Only administrators with an explicit assignment at the scope of a restricted man
 | Administrators assigned at the scope of restricted management administrative unit |  | :heavy_check_mark: |
 | Administrators assigned at the scope of another restricted management administrative unit of which the object is a member |  | :heavy_check_mark: |
 | Administrators assigned at the scope of another regular administrative unit of which the object is a member | :x: |  |
-| Groups Administrator, User Administrator, and other resource role assigned at the scope of a resource | :x: |  |
+| Groups Administrator, User Administrator, and other role assigned at the scope of a resource | :x: |  |
 | Owners of groups or devices added to restricted management administrative units | :x: |  |
 
 ## Limitations
