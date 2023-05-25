@@ -22,7 +22,7 @@ Kubernetes audit logging isn't enabled by default on an AKS cluster on account o
 * **Destination details:** Select the checkbox for **Log Analytics**.
 
 > [!NOTE]
-> There could be substantial cost involved once kube-audit logs are enabled. Consider disabling kube-audit logging when not required. If you're okay with only PUT and DELETE-style requests getting logged (meaning minimal GET requests), then kube-audit-admin instead of kube-audit is one way to help reduce cost.
+> There could be substantial cost involved once kube-audit logs are enabled. Consider disabling kube-audit logging when not required. An alternative approach to significantly reduce the number of logs and help reduce cost is by enabling collection from kube-audit-admin, which excludes the get and list audit events.
 > For strategies to reduce your Azure Monitor costs, see [Cost optimization and Azure Monitor][cost-optimization-azure-monitor].
 
 After a few moments, the new setting appears in your list of settings for this resource. Logs are streamed to the specified destinations as new event data is generated. It might take up to 15 minutes between when an event is emitted and when it appears in a [Log Analytics workspace][log-analytics-workspace-overview].
