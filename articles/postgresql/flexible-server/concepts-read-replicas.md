@@ -151,7 +151,7 @@ When there is a major disaster event such as availability zone-level or regional
 
 This section summarizes considerations about the read replica feature. The following considerations do apply.
 
-- **Power operations**: Power operations, including start and stop actions, can be applied to both the primary server and its replica servers. However, to preserve system integrity, a specific sequence should be followed. Prior to stopping the read replicas, ensure the primary server is stopped first. When commencing operations, initiate the start action on the replica servers before starting the primary server.
+- **Power operations**: [Power operations](how-to-stop-start-server-portal.md), including start and stop actions, can be applied to both the primary server and its replica servers. However, to preserve system integrity, a specific sequence should be followed. Prior to stopping the read replicas, ensure the primary server is stopped first. When commencing operations, initiate the start action on the replica servers before starting the primary server.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
 - [In-place major version upgrade](concepts-major-version-upgrade.md) in Azure Database for PostgreSQL requires removing any read replicas that are currently enabled on the server. Once the replicas have been deleted, the primary server can be upgraded to the desired major version. After the upgrade is complete, you can recreate the replicas to resume the replication process.
 
