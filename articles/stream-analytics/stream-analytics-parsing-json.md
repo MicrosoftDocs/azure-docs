@@ -18,7 +18,7 @@ Azure Stream Analytics support processing events in CSV, JSON, and Avro data for
 
 
 ## Record data types
-Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here is example of a single event:
+Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here's example of a single event:
 
 ```json
 {
@@ -105,7 +105,7 @@ The goal here is to join our sample dataset from the top of the article to that 
 SELECT
     input.DeviceID,
     thresholds.SensorName,
-    "Alert : Sensor above threshold" AS AlertMessage
+    "Alert: Sensor above threshold" AS AlertMessage
 FROM input      -- stream input
 JOIN thresholds -- reference data input
 ON
@@ -169,8 +169,8 @@ When using Azure SQL Database as reference data in your job, it's possible to ha
 
 |DeviceID|Data|
 |-|-|
-|12345|{"key" : "value1"}|
-|54321|{"key" : "value2"}|
+|12345|{"key": "value1"}|
+|54321|{"key": "value2"}|
 
 You can parse the JSON record in the *Data* column by writing a simple JavaScript user-defined function.
 
@@ -200,7 +200,7 @@ You can then create a step in your Stream Analytics query as shown below to acce
 
 Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples use the functions [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics), and the [APPLY](/stream-analytics-query/apply-azure-stream-analytics) operator.
 
-Here is an example of a single event. Both `CustomSensor03` and `SensorMetadata` are of type **array**:
+Here's an example of a event. Both `CustomSensor03` and `SensorMetadata` are of type **array**:
 
 ```json
 {
@@ -294,7 +294,7 @@ The result is:
 |12345|Manufacturer|ABC|
 |12345|Version|1.2.45|
 
-If the extracted fields need to appear in columns, it is possible to pivot the dataset using the [WITH](/stream-analytics-query/with-azure-stream-analytics) syntax in addition to the [JOIN](/stream-analytics-query/join-azure-stream-analytics) operation. That join will require a [time boundary](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) condition that prevents duplication:
+If the extracted fields need to appear in columns, it is possible to pivot the dataset using the [WITH](/stream-analytics-query/with-azure-stream-analytics) syntax in addition to the [JOIN](/stream-analytics-query/join-azure-stream-analytics) operation. That join requires a [time boundary](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) condition that prevents duplication:
 
 ```SQL
 WITH DynamicCTE AS (
