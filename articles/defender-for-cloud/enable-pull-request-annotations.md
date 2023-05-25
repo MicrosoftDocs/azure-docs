@@ -133,7 +133,7 @@ Once you've completed these steps, you can select the build pipeline you created
 
 1. Select **Configure**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select the configure button on the screen.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you how to configure PR annotations within the portal.":::
 
 1. Toggle Pull request annotations to **On**.
 
@@ -142,16 +142,13 @@ Once you've completed these steps, you can select the build pipeline you created
 1. (Optional) Select a category from the drop-down menu. 
 
     > [!NOTE]
-    > Only secret scan results are currently supported.
+    > Only secret scan results and Infrastructure-as-Code misconfigurations for ARM/Bicep templates are currently supported.
 
 1. (Optional) Select a severity level from the drop-down menu.
 
-    > [!NOTE]
-    > Only high-level severity findings are currently supported.
-
 1. Select **Save**.
 
-All annotations on your main branch will be displayed from now on based on your configurations with the relevant line of code.
+All annotations on your pull requests will be displayed from now on based on your configurations.
 
 ### Resolve security issues in Azure DevOps
 
