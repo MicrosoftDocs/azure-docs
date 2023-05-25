@@ -62,7 +62,6 @@ Communication Services offers the following types of logs that you can enable:
 | `AddedRoomParticipantsCount` | The count of participants added to a room. |
 | `UpsertedRoomParticipantsCount` | The count of participants upserted in a room. |
 | `RemovedRoomParticipantsCount` | The count of participants removed in a room. |
-| `TenantId` | The tenant id of the resource. |
 | `TimeGenerated` | The timestamp (UTC) of when the log was generated. |
 
 
@@ -86,7 +85,6 @@ Communication Services offers the following types of logs that you can enable:
       "AddedRoomParticipantsCount": 0,
       "UpsertedRoomParticipantsCount": 0,
       "RemovedRoomParticipantsCount": 0,
-      "TenantId": "f606d782-d5dd-47e9-a299-815b9be0ea25",
       "TimeGenerated [UTC]": "5/25/2023, 4:32:49.469 AM",
       }
     ]
@@ -112,9 +110,75 @@ Communication Services offers the following types of logs that you can enable:
       "AddedRoomParticipantsCount": 0,
       "UpsertedRoomParticipantsCount": 0,
       "RemovedRoomParticipantsCount": 0,
-      "TenantId": "f606d782-d5dd-47e9-a299-815b9be0ea25",
       "TimeGenerated": "2022-08-19T17:07:30.2400300Z",
       },
     ]
 ```
+
+#### Example PatchRoom log
+
+```json
+    [
+      {
+      "CorrelationId": "99466387192310000",
+      "Level": "Informational",
+      "OperationName": "PatchRoom",
+      "OperationVersion": "2022-02-01",
+      "ResultType": "Succeeded",
+      "ResultSignature": "200",
+      "RoomLifespan": 121,
+      "RoomParticipantsCount": 6,
+      "RoomParticipantsConsumer": 1,
+      "RoomParticipantsAttendee": 3,
+      "RoomParticipantsPresenter": 2,
+      "RoomJoinPolicy": ""
+      "AddedRoomParticipantsCount": 0,
+      "UpsertedRoomParticipantsCount": 0,
+      "RemovedRoomParticipantsCount": 0,
+      "TimeGenerated": "2022-08-19T17:07:30.3543160Z",
+      },
+    ]
+```
+
+#### Example DeleteRoom log
+
+```json
+    [
+      {
+      "CorrelationId": "99466387192310000",
+      "Level": "Informational",
+      "OperationName": "DeleteRoom",
+      "OperationVersion": "2022-02-01",
+      "ResultType": "Succeeded",
+      "ResultSignature": "204",
+      "RoomLifespan": 121,
+      "RoomParticipantsCount": 4,
+      "RoomParticipantsConsumer": 1,
+      "RoomParticipantsAttendee": 1,
+      "RoomParticipantsPresenter": 2,
+      "RoomJoinPolicy": ""
+      "TimeGenerated": "2022-08-19T17:07:30.5393800Z",
+      },
+    ]
+```
+
+#### Example UpdateParticipants log
+
+```json
+    [
+      {
+      "CorrelationId": "99466387192310000",
+      "Level": "Informational",
+      "OperationName": "UpdateParticipants",
+      "OperationVersion": "2022-03-31-preview",
+      "ResultType": "Succeeded",
+      "ResultSignature": "200",
+      "RoomLifespan": 121,
+      "UpsertedRoomParticipantsCount": 5,
+      "RemovedRoomParticipantsCount": 1,
+      "TimeGenerated": "2023-04-14T17:07:30.5393800Z",
+      },
+    ]
+```
+
  (see also [FAQ](../../../../azure-monitor/faq.yml)). 
