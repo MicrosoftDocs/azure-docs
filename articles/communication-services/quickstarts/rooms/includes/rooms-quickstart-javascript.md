@@ -54,7 +54,6 @@ npm install @azure/communication-identity --save
 In the `index.js` file add the following code. We will be adding the code for the quickstart in the `main` function.
 
 ``` javascript
-
 const { CommunicationIdentityClient } = require('@azure/communication-identity');
 const { RoomsClient } = require('@azure/communication-rooms');
 
@@ -69,7 +68,6 @@ main().catch((error) => {
   console.log("Encountered an error");
   console.log(error);
 })
-
 ```
 
 ## Initialize a room client
@@ -79,7 +77,6 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 Add the following code in `index.js` inside the `main` function.
 
 ```javascript
-
 const connectionString =
     process.env["COMMUNICATION_CONNECTION_STRING"] ||
     "endpoint=https://<resource-name>.communication.azure.com/;<access-key>";
@@ -91,7 +88,6 @@ const user2 = await identityClient.createUserAndToken(["voip"]);
 
 // create RoomsClient
 const roomsClient = new RoomsClient(connectionString);
-
 ```
 
 ## Create a room
@@ -99,9 +95,8 @@ const roomsClient = new RoomsClient(connectionString);
 Create a new `room` with default properties using the code snippet below:
 
 ```javascript
-
 //Create a room
-var validFrom = new Date(Date.now());
+var validFrom = new Date();
 var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);  
 
 // options payload to create a room
@@ -119,7 +114,6 @@ const createRoomOptions = {
 const createRoom = await roomsClient.createRoom(createRoomOptions);
 const roomId = createRoom.id;
 console.log("\nCreated a room with id: ", roomId);
-
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
@@ -129,11 +123,9 @@ Since `rooms` are server-side entities, you may want to keep track of and persis
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
 ```javascript
-
 // Retrieve the room with corresponding ID
 const getRoom = await roomsClient.getRoom(roomId);
 console.log("\nRetrieved room with id: ", getRoom.id);
-
 ```
 
 ## Update the lifetime of a room
@@ -141,7 +133,6 @@ console.log("\nRetrieved room with id: ", getRoom.id);
 The lifetime of a `room` can be modified by issuing an update request for the `validFrom` and `validUntil` parameters. A room can be valid for a maximum of six months.
 
 ```javascript
-
 //Update room lifetime
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
@@ -155,7 +146,6 @@ const updateRoomOptions = {
 // updates the specified room with the request payload
 const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
 console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, " and validUntil: ", updateRoom.validUntil);
-
 ```
 
 ## Get list of rooms
@@ -164,8 +154,7 @@ Retrieve your list of rooms by using the `listRooms` method:
 ```javascript
 const roomsList = await roomsClient.listRooms();
 for await (const currentRoom of roomsList) {
-  // access room data
-  console.log(`The room id is ${currentRoom.id}.`);
+  // access room data here
 }
 ```
 
@@ -196,8 +185,10 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 ```javascript
 const participantsList = await roomsClient.listParticipants(roomId);
+console.log("\nRetrieved participants for room:");
 for await (const participant of participantsList) {
   // access participant data here
+  console.log(participant);
 }
 ```
 
@@ -206,25 +197,21 @@ for await (const participant of participantsList) {
 To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
 ```javascript
-
 // Remove both users from the room
 const removeParticipantsList = [user1.user, user2.user]
 
 // remove both users from the room with the request payload
 await roomsClient.removeParticipants(roomId, removeParticipantsList);
 console.log("\nRemoved participants from room");
-
 ```
 
 ## Delete room
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
 ```javascript
-
 // Deletes the specified room
 await roomsClient.deleteRoom(roomId);
 console.log("\nDeleted room with id: ", roomId)
-
 ```
 
 ## Run the code
@@ -232,15 +219,12 @@ console.log("\nDeleted room with id: ", roomId)
 To run the code, make sure you are on the directory where your `index.js` file is. 
 
 ```console
-
 node index.js
-
 ```
 
 The expected output describes each completed action:
 
 ```console
-
 Azure Communication Services - Rooms Quickstart
 
 Created a room with id:  99445276259151407
@@ -251,27 +235,25 @@ Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05
 
 Added participants to room
 
-Retrieved participants for room:  [
-  {
-    id: {
-      kind: 'communicationUser',
-      communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901'
-    },
-    role: 'Attendee'
+Retrieved participants for room:
+{
+  id: {
+    kind: 'communicationUser',
+    communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901'
   },
-  {
-    id: {
-      kind: 'communicationUser',
-      communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7ccc-35f3-343a0d00e902'
-    },
-    role: 'Consumer'
-  }
-]
+  role: 'Attendee'
+}
+{
+  id: {
+    kind: 'communicationUser',
+    communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7ccc-35f3-343a0d00e902'
+  },
+  role: 'Consumer'
+}
 
 Removed participants from room
 
 Deleted room with id:  99445276259151407
-
 ```
 
 ## Reference documentation
