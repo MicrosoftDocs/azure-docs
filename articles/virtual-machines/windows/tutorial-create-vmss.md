@@ -149,7 +149,7 @@ In this tutorial, you created a virtual machine scale set. You learned how to:
 > * Open port 80 to HTTP traffic.
 > * Test the scale set.
 
-Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
+Advance to the next topic to learn more about load balancing concepts for virtual machines.
 
 > [!div class="nextstepaction"]
-> [Load balance virtual machines](tutorial-load-balancer.md)
+> [Load balance virtual machines](../../load-balancer/quickstart-load-balancer-standard-public-powershell.md)

@@ -6,6 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 03/31/2022
 ms.author: allensu
@@ -78,11 +79,9 @@ When a custom IP prefix transitions to a fully **Commissioned** state, the range
 Use the following steps in the Azure portal to put a custom IP prefix into this state:
 
 1. In the search box at the top of the Azure portal, enter **Custom IP** and select **Custom IP Prefixes**.
-1. In **Custom IP Prefixes**, verify your custom IP prefix is listed in a **Provisioned** state. Refresh the status if needed until state is correct.
-
-1. Select your custom IP prefix from the list of resources.
-
-1. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only**.
+2. In **Custom IP Prefixes**, verify your custom IP prefix is listed in a **Provisioned** state. Refresh the status if needed until state is correct.
+3. Select your custom IP prefix from the list of resources.
+4. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only**.
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
 
@@ -111,7 +110,7 @@ To view a custom IP prefix, the following commands can be used in Azure CLI and 
 A custom IP prefix must be decommissioned to turn off advertisements.
 
 > [!NOTE]
-> All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.
+> All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, please see the section below on regional commissioning.
 > 
 > The estimated time to fully complete the decommissioning process is 3-4 hours.
 
@@ -126,6 +125,21 @@ The following commands can be used in Azure CLI and Azure PowerShell to begin th
 |PowerShell|[Update-AzCustomIpPrefix](/powershell/module/az.network/update-azcustomipprefix) with the `--state` flag set to decommission |
 
 Alternatively, a custom IP prefix can be decommissioned via the Azure portal using the **Decommission** button in the **Overview** section of the custom IP prefix.
+
+### Use the regional commissioning feature to assist decommission
+
+As mentioned above, a Custom IP Prefix must be complete clear of Public IP Prefixes before it can be put into **Decommissioning* state.  In order to ease a migration, you can use the regional commissioning feature "in reverse".  Specifically - you can put a globally commissioned range back into a regionally commissioned status, which would allow you to ensure the range was no longer being advertised beyond the scope of a single region before removing any Public IP addresses from their respecive resources. 
+
+The command is similar as the one from earlier on this page:
+
+ ```azurepowershell-interactive
+Update-AzCustomIpPrefix 
+(other arguments)
+-Decommission
+-NoInternetAdvertise
+ ```
+
+The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range will be partially advertised while still in the **InternetDecommissioningInProgress** status.
 
 ## Deprovision/Delete a custom IP prefix
 
@@ -174,6 +188,10 @@ If a custom IP prefix is unable to be fully advertised, it moves to a **Commissi
 ### I’m unable to decommission a custom IP prefix
 
 Before decommissioning a custom IP prefix, ensure it has no public IP prefixes or public IP addresses.
+
+### I’m unable to delete a custom IP prefix
+
+Before deleting a custom IP prefix, it must be in either Deprovisioned or ValidationFailed state.  If your range is in ProvisionFailed state, it must be Deprovsioned before it can be deleted.  If the range is "stuck" in Provisioning or Deprovisioning state for an extended period of time, please contact Microsoft support.
 
 ### How can I migrate a range from one region to another
 

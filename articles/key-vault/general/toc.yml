@@ -95,14 +95,16 @@
   items:
   - name: Authorize access
     items:
-    - name: Assign an access policy
-      href: assign-access-policy.md
+    - name: RBAC vs. access policy
+      href: rbac-access-policy.md
     - name: Azure RBAC permission model
       items:
-      - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
+      - name: Use an Azure RBAC for managing access
         href: rbac-guide.md
       - name: Vault access policies to Azure RBAC migration guide
-        href: rbac-migration.md  
+        href: rbac-migration.md
+    - name: Assign an access policy
+      href: assign-access-policy.md
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
   - name: Develop

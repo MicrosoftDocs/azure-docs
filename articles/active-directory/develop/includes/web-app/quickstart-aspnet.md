@@ -26,7 +26,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
 * [.NET Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
 
 ## Register and download the app
@@ -71,11 +71,11 @@ If you want to manually configure your application and code sample, use the foll
 3. Depending on the version of Visual Studio, you might need to right-click the project **AppModelv2-WebApp-OpenIDConnect-DotNet** and then select **Restore NuGet packages**.
 4. Open the Package Manager Console by selecting **View** > **Other Windows** > **Package Manager Console**. Then run `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`.
 
-5. Edit *Web.config* and replace the parameters `ClientId`, `Tenant`, and `redirectUri` with:
-   ```xml
-   <add key="ClientId" value="Enter_the_Application_Id_here" />
-   <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
-   <add key="redirectUri" value="https://localhost:44368/" />
+5. Edit *appsettings.json* and replace the parameters `ClientId`, `Tenant`, and `redirectUri` with:
+   ```json
+   "ClientId" :"Enter_the_Application_Id_here" />
+   "TenantId": "Enter_the_Tenant_Info_Here" />
+   "RedirectUri" :"https://localhost:44368/" />
    ```
    In that code:
 
@@ -100,9 +100,9 @@ This section gives an overview of the code required to sign in users. This overv
 You can set up the authentication pipeline with cookie-based authentication by using OpenID Connect in ASP.NET with OWIN middleware packages. You can install these packages by running the following commands in Package Manager Console within Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Owin.Security.OpenIdConnect
+Install-Package Microsoft.Identity.Web.Owin
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### OWIN startup class
@@ -110,38 +110,20 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 The OWIN middleware uses a *startup class* that runs when the hosting process starts. In this quickstart, the *startup.cs* file is in the root folder. The following code shows the parameters that this quickstart uses:
 
 ```csharp
-public void Configuration(IAppBuilder app)
-{
-    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+    public void Configuration(IAppBuilder app)
+    {
+        app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
-    app.UseCookieAuthentication(new CookieAuthenticationOptions());
-    app.UseOpenIdConnectAuthentication(
-        new OpenIdConnectAuthenticationOptions
-        {
-            // Sets the client ID, authority, and redirect URI as obtained from Web.config
-            ClientId = clientId,
-            Authority = authority,
-            RedirectUri = redirectUri,
-            // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it's using the home page
-            PostLogoutRedirectUri = redirectUri,
-            Scope = OpenIdConnectScope.OpenIdProfile,
-            // ResponseType is set to request the code id_token, which contains basic information about the signed-in user
-            ResponseType = OpenIdConnectResponseType.CodeIdToken,
-            // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
-            // To only allow users from a single organization, set ValidateIssuer to true and the 'tenant' setting in Web.config to the tenant name
-            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use the ValidIssuers parameter
-            TokenValidationParameters = new TokenValidationParameters()
-            {
-                ValidateIssuer = false // Simplification (see note below)
-            },
-            // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to the OnAuthenticationFailed method
-            Notifications = new OpenIdConnectAuthenticationNotifications
-            {
-                AuthenticationFailed = OnAuthenticationFailed
-            }
-        }
-    );
-}
+        app.UseCookieAuthentication(new CookieAuthenticationOptions());
+        OwinTokenAcquirerFactory factory = TokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>();
+
+        app.AddMicrosoftIdentityWebApp(factory);
+        factory.Services
+            .Configure<ConfidentialClientApplicationOptions>(options => { options.RedirectUri = "https://localhost:44368/"; })
+            .AddMicrosoftGraph()
+            .AddInMemoryTokenCaches();
+        factory.Build();
+    }
 ```
 
 |Where  | Description |
@@ -154,10 +136,6 @@ public void Configuration(IAppBuilder app)
 | `ResponseType`     | The request that the response from authentication contains an authorization code and an ID token. |
 | `TokenValidationParameters`     | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, work, or school account type. |
 | `Notifications`     | A list of delegates that can be run on `OpenIdConnect` messages. |
-
-
-> [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer. See the samples to understand how to do that.
 
 ### Authentication challenge
 
@@ -181,6 +159,24 @@ public void SignIn()
 ### Attribute for protecting a controller or a controller actions
 
 You can protect a controller or controller actions by using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller. An authentication challenge will then happen automatically when an unauthenticated user tries to access one of the actions or controllers decorated by the `[Authorize]` attribute.
+
+### Call Microsoft Graph from the controller
+
+You can call Microsoft Graph from the controller by getting the instance of GraphServiceClient using the `GetGraphServiceClient` extension method on the controller, like in the following code:
+
+```csharp
+    try
+    { 
+        var me = await this.GetGraphServiceClient().Me.Request().GetAsync();
+        ViewBag.Username = me.DisplayName;
+    }
+    catch (ServiceException graphEx) when (graphEx.InnerException is MicrosoftIdentityWebChallengeUserException)
+    {
+        HttpContext.GetOwinContext().Authentication.Challenge(OpenIdConnectAuthenticationDefaults.AuthenticationType);
+        return View();
+    }
+```
+
 
 [!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 

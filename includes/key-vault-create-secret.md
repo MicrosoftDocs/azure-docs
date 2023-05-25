@@ -4,9 +4,7 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.custom: "devx-track-azurepowershell"
 # Used by articles that register native client applications in the B2C tenant.
-
 ---
 
 Let's create a secret called **mySecret**, with a value of **Success!**. A secret might be a password, a SQL connection string, or any other information that you need to keep both secure and available to your application. 

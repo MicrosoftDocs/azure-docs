@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with YouEarnedIt | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with YouEarnedIt'
 description: Learn how to configure single sign-on between Azure Active Directory and YouEarnedIt.
 services: active-directory
 author: jeevansd

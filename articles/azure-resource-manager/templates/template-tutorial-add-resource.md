@@ -5,7 +5,7 @@ author: mumian
 ms.date: 06/14/2022
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Add a resource to your ARM template

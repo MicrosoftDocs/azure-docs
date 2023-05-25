@@ -8,7 +8,7 @@ manager: guillasi
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 11/15/2021
 ms.author: rwaller
 ---

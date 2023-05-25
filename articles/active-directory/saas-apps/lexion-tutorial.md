@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lexion | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lexion'
 description: Learn how to configure single sign-on between Azure Active Directory and Lexion.
 services: active-directory
 author: jeevansd

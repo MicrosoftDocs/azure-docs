@@ -2,8 +2,6 @@
 title: Troubleshoot the Azure Monitor agent on Windows Arc-enabled server
 description: Guidance for troubleshooting issues on Windows Arc-enabled server with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
 ms.date: 7/19/2022
 ms.custom: references_region
 ms.reviewer: shseth

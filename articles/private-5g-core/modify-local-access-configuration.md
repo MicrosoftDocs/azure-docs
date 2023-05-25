@@ -81,13 +81,13 @@ If you switched from Azure AD to local usernames and passwords:
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Delete the Kubernetes Secret Objects:
 
-    `kubectl delete secrets sas-auth-secrets grafana-auth-secrets --kubeconfig=<core kubeconfig>`
+    `kubectl delete secrets sas-auth-secrets grafana-auth-secrets --kubeconfig=<core kubeconfig> -n core`
 
 1. Restart the distributed tracing and packet core dashboards pods.
 
     1. Obtain the name of your packet core dashboards pod:
         
-        `kubectl get pods -n core --kubeconfig=<core kubeconfig>" | grep "grafana"`
+        `kubectl get pods -n core --kubeconfig=<core kubeconfig> | grep "grafana"`
 
     1. Copy the output of the previous step and replace it into the following command to restart your pods.
 

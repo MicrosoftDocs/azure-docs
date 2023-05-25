@@ -10,7 +10,7 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -24,7 +24,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 [!INCLUDE [endpoints-option](../../../includes/machine-learning-endpoints-preview-note.md)]
 
 > [!IMPORTANT]
-> When using the Azure ML __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure ML __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-online-endpoints.md).
+> When using the Azure Machine Learning __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure Machine Learning __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-online-endpoints.md).
 
 > For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). 
 
@@ -146,7 +146,7 @@ The conda environment file specifies the dependencies for the service. It includ
 name: project_environment
 dependencies:
   # The Python interpreter version.
-  # Currently Azure ML only supports 3.5.2 and later.
+  # Currently Azure Machine Learning only supports 3.5.2 and later.
 - python=3.7
 
 - pip:

@@ -6,6 +6,7 @@ author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 01/04/2023
 ms.author: mbaldwin
@@ -44,7 +45,7 @@ You must provide the following inputs to create a Managed HSM resource:
 - The Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
+The following example creates an HSM named **ContosoMHSM2**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -89,7 +90,7 @@ The `az keyvault security-domain upload` command performs following operations:
 In the following example, we use the Security Domain from the **ContosoMHSM**, the 2 of the corresponding private keys, and upload it to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
 
 ```azurecli-interactive
-az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
+az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
 ```
 
 Now both the source HSM (ContosoMHSM) and the destination HSM (ContosoMHSM2) have the same security domain. We can now restore a full backup from the source HSM into the destination HSM.

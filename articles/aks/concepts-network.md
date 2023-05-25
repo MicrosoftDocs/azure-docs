@@ -95,7 +95,7 @@ The *kubenet* networking option is the default configuration for AKS cluster cre
 1. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network.
 1. The source IP address of the traffic is translated to the node's primary IP address.
 
-Nodes use the [kubenet][kubenet] Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet.
+Nodes use the kubenet Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet.
 
 Only the nodes receive a routable IP address. The pods use NAT to communicate with other resources outside the AKS cluster. This approach reduces the number of IP addresses you need to reserve in your network space for pods to use.
 
@@ -145,7 +145,7 @@ The following behavior differences exist between kubenet and Azure CNI:
 
 Regarding DNS, with both kubenet and Azure CNI plugins DNS are offered by CoreDNS, a deployment running in AKS with its own autoscaler. For more information on CoreDNS on Kubernetes, see [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS by default is configured to forward unknown domains to the DNS functionality of the Azure Virtual Network where the AKS cluster is deployed. Hence, Azure DNS and Private Zones will work for pods running in AKS.
 
-For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][kubenet-aks].
+For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
 
 ### Support scope between network models
 
@@ -245,7 +245,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
 [k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
@@ -269,4 +268,3 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
 [nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
 [azure-cni-aks]: configure-azure-cni.md
-[kubenet-aks]: configure-kubenet.md

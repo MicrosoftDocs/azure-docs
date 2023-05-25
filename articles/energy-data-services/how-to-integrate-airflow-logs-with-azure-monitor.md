@@ -1,17 +1,17 @@
 ---
-title: Integrate airflow logs with Azure Monitor - Microsoft Energy Data Services Preview
+title: Integrate airflow logs with Azure Monitor - Microsoft Microsoft Azure Data Manager for Energy Preview
 description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: how-to 
 ms.date: 08/18/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Integrate airflow logs with Azure Monitor
 
-In this article, you'll learn how to start collecting Airflow Logs for your Microsoft Energy Data Services instances into Azure Monitor. This integration feature helps you debug Airflow DAG ([Directed Acyclic Graph](https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html)) run failures. 
+In this article, you'll learn how to start collecting Airflow Logs for your Microsoft Azure Data Manager for Energy Preview instances into Azure Monitor. This integration feature helps you debug Airflow DAG ([Directed Acyclic Graph](https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html)) run failures. 
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ In this article, you'll learn how to start collecting Airflow Logs for your Micr
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Microsoft Energy Data Services instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Azure Data Manager for Energy Preview instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
 * Log Analytics workspace
@@ -42,7 +42,7 @@ To access logs via any of the above two options, you need to create a Diagnostic
 
 Follow the following steps to set up Diagnostic Settings:
 
-1. Open Microsoft Energy Data Services' *Overview* page
+1. Open Microsoft Azure Data Manager for Energy Preview' *Overview* page
 1. Select *Diagnostic Settings* from the left panel
 
     [![Screenshot for Azure monitor diagnostic setting overview page. The page shows a list of existing diagnostic settings and the option to add a new one.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png#lightbox)
@@ -76,7 +76,7 @@ After a diagnostic setting is created for archiving Airflow task logs into a sto
 
 ## Enabling diagnostic settings to integrate logs with Log Analytics Workspace
 
-You can integrate Airflow logs with Log Analytics Workspace by using **Diagnostic Settings** under the left panel of your Microsoft Energy Data Services instance overview page. 
+You can integrate Airflow logs with Log Analytics Workspace by using **Diagnostic Settings** under the left panel of your Microsoft Azure Data Manager for Energy Preview instance overview page. 
 
 [![Screenshot for creating a diagnostic setting. It shows the options to select subscription & Log Analytics Workspace with which to integrate.](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-choosing-destination-retention.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-choosing-destination-retention.png#lightbox)
 

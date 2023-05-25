@@ -1,14 +1,14 @@
 ---
-title: Azure IoT device management with IoT extension for Azure CLI | Microsoft Docs
+title: Azure IoT device management with IoT extension for Azure CLI
 description: Use the IoT extension for Azure CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
 author: kgremban
-manager: 
-keywords: azure iot device management, azure iot hub device management, device management iot, iot hub device management
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/16/2018
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.date: 01/16/2018
+ROBOTS: NOINDEX
 ---
 
 # Use the IoT extension for Azure CLI for Azure IoT Hub device management
@@ -27,9 +27,7 @@ In this article, you learn how to use the IoT extension for Azure CLI with vario
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
-
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
+Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](device-twins-node.md).
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

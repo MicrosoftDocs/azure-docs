@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Acunetix 360 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Acunetix 360'
 description: Learn how to configure single sign-on between Azure Active Directory and Acunetix 360.
 services: active-directory
 author: jeevansd

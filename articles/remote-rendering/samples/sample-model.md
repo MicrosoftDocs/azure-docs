@@ -23,14 +23,16 @@ Model statistics:
 |-----------|:-----------|
 | [Required server size](../reference/vm-sizes.md) | standard |
 | Number of triangles | 18.7 Million |
+| Number of vertices | 35.0 Million |
 | Number of movable parts | 2073 |
 | Number of materials | 94 |
+| Number of textures | 393, using more than 1.6 GB of GPU memory |
 
 ## Third-party data
 
 ### Triangular meshes
 
-The Khronos Group maintains a set of glTF sample models for testing. ARR supports the glTF format both in text (*.gltf*) and in binary (*.glb*) form. We suggest using the PBR models for best visual results:
+The Khronos Group maintains a set of glTF sample models for testing. ARR supports the glTF format both in text (`.gltf`) and in binary (`.glb`) form. We suggest using the PBR models for best visual results:
 
 * [glTF Sample Models](https://github.com/KhronosGroup/glTF-Sample-Models)
 

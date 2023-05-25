@@ -19,9 +19,9 @@ In this article, asynchronous Conversation Transcription is demonstrated using t
 
 ## Asynchronous vs. real-time + asynchronous
 
-With asynchronous transcription, you stream the conversation audio, but don't need a transcription returned in real time. Instead, after the audio is sent, use the `conversationId` of `Conversation` to query for the status of the asynchronous transcription. When the asynchronous transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
+With asynchronous transcription, you stream the conversation audio, but don't need a transcription returned in real-time. Instead, after the audio is sent, use the `conversationId` of `Conversation` to query for the status of the asynchronous transcription. When the asynchronous transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
 
-With real-time plus asynchronous, you get the transcription in real time, but also get the transcription by querying with the `conversationId` (similar to asynchronous scenario).
+With real-time plus asynchronous, you get the transcription in real-time, but also get the transcription by querying with the `conversationId` (similar to asynchronous scenario).
 
 Two steps are required to accomplish asynchronous transcription. The first step is to upload the audio, choosing either asynchronous only or real-time plus asynchronous. The second step is to get the transcription results.
 

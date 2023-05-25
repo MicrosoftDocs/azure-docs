@@ -10,7 +10,7 @@ author: saachigopal
 ms.reviewer: ssalgado
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # Train a model by using a custom Docker image
@@ -26,7 +26,7 @@ Azure Machine Learning provides a default Docker base image. You can also use Az
 Run the code on either of these environments:
 
 * Azure Machine Learning compute instance (no downloads or installation necessary):
-  * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
+  * Complete the [Create resources to get started](../quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](../how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 

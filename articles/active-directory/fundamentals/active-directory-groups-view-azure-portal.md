@@ -1,5 +1,5 @@
 ---
-title: Quickstart - View groups & members - Azure AD
+title: Quickstart - View groups & members
 description: Instructions about how to search for and view your organization's groups and their assigned members.
 services: active-directory
 author: barclayn
@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Before you begin, you’ll need to:
 
-- Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
+- Create an Azure Active Directory tenant. For more information, see [Access the Azure portal and create a new tenant](active-directory-access-create-new-tenant.md).
 
 ## Sign in to the Azure portal
 

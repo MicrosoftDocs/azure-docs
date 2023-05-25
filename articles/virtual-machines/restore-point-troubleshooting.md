@@ -2,7 +2,7 @@
 title: Troubleshoot restore point failures
 description: Symptoms, causes, and resolutions of restore point failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 07/13/2022
+ms.date: 04/12/2023
 ms.service: virtual-machines
 ---
 
@@ -25,20 +25,26 @@ Most common restore point failures can be resolved by following the troubleshoot
 ### Step 2: Check the health of Azure VM Guest Agent service
 
 **Ensure Azure VM Guest Agent service is started and up-to-date**:
-- On a Windows VM:
-  - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms).
-  - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
-  - Review the support matrix to check if VM runs on the [supported Windows operating system](concepts-restore-points.md#operating-system-support).
-- On Linux VM,
-  - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. [Learn more](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
-  - Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
-  - Review the support matrix to check if VM runs on the [supported Linux operating system.](concepts-restore-points.md#operating-system-support).
+
+# [On a Windows VM](#tab/windows)
+
+- Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms).
+- The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
+- Review the support matrix to check if VM runs on the [supported Windows operating system](concepts-restore-points.md#operating-system-support).
+
+# [On Linux VM](#tab/linux)
+
+- Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. [Learn more](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+- Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
+- Review the support matrix to check if VM runs on the [supported Linux operating system.](concepts-restore-points.md#operating-system-support).
+
+---
 
 ### Step 3: Check the health of Azure VM Extension
 
 - **Ensure all Azure VM Extensions are in 'provisioning succeeded' state**:
   If any extension is in a failed state, then it can interfere with the restore point operation.
-  - In the Azure portal, go to **Virtual machines** > **Settings** > **Extensions** > **Extensions status** and check if all the extensions are in **provisioning succeeded** state.
+  - In the Azure portal, go to **Virtual machines** > **Settings** > **Extensions** > **Extensions status** and check if all the extensions are in **provisioning succeeded** state.
   - Ensure all [extension issues](../virtual-machines/extensions/overview.md#troubleshoot-extensions) are resolved and retry the restore point operation.
 - **Ensure COM+ System Application** is up and running. Also, the **Distributed Transaction Coordinator service** should be running as **Network Service account**. 
 
@@ -87,7 +93,7 @@ Restore point creation fails if there are changes being made in parallel to the 
 
 **Error code**: OperationNotAllowed
 
-**Error message**: Operation 'Create Restore Point' is not allowed as disk(s) have not been allocated successfully. Please exclude these disk(s) using excludeDisks property and retry. 
+**Error message**: Operation 'Create Restore Point' is not allowed as disk(s) have not been allocated successfully. Please exclude these disk(s) using excludeDisks property and retry.
 
 If any one of the disks attached to the VM isn't allocated properly, the restore point fails. You must exclude these disks before triggering creation of restore points for the VM. If you're using ARM processor API to create a restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you're using [CLI](virtual-machines-create-restore-points-cli.md#exclude-disks-when-creating-a-restore-point), [PowerShell](virtual-machines-create-restore-points-powershell.md#exclude-disks-from-the-restore-point), or [Portal](virtual-machines-create-restore-points-portal.md#step-2-create-a-vm-restore-point), set the respective parameters.
 
@@ -95,13 +101,13 @@ If any one of the disks attached to the VM isn't allocated properly, the restore
 
 **Error code**: VMRestorePointClientError
 
-**Error message**: Creation of Restore Point of a Virtual Machine with Shared disks is not supported. You may exclude this disk from the restore point via excludeDisks property. 
+**Error message**: Creation of Restore Point of a Virtual Machine with Shared disks is not supported. You may exclude this disk from the restore point via excludeDisks property.
 
 Restore points are currently not supported for shared disks. You need to exclude these disks before triggering creation of restore point for the VM. If you are using ARM processor API to create restore point, to exclude a disk, add its identifier to the excludeDisks property in the request body. If you are using [CLI](virtual-machines-create-restore-points-cli.md#exclude-disks-when-creating-a-restore-point), [PowerShell](virtual-machines-create-restore-points-powershell.md#exclude-disks-from-the-restore-point), or [Portal](virtual-machines-create-restore-points-portal.md#step-2-create-a-vm-restore-point), follow the respective steps.
 
 ### VMAgentStatusCommunicationError - VM agent unable to communicate with compute service
 
-**Error code**: VMAgentStatusCommunicationError 
+**Error code**: VMAgentStatusCommunicationError
 
 **Error message**: VM has not reported status for VM agent or extensions.
 
@@ -141,7 +147,7 @@ This error could also occur when one of the extension failures puts the VM into 
 
 **Error code**: VMRestorePointClientError
 
-**Error message**: Restore Point creation failed due to COM+ error. Please restart windows service "COM+ System Application" (COMSysApp). If the issue persists, restart the VM. 
+**Error message**: Restore Point creation failed due to COM+ error. Please restart windows service "COM+ System Application" (COMSysApp). If the issue persists, restart the VM.
 
 Restore point operations fail if the COM+ service is not running or if there are any errors with this service. Restart the COM+ System Application, and restart the VM and retry the restore point operation.
 
@@ -175,7 +181,7 @@ Restore point operations require Visual C++ Redistributable for Visual Studio 20
 
 **Error message**: Restore Point creation failed as the maximum allowed snapshot limit of one or more disk blobs has been reached. Please delete some existing restore points of this VM and then retry.
 
-The number of restore points across the restore point collections and resource groups for a VM can't exceed 500. To create a new restore point, delete the existing restore points. 
+The number of restore points across the restore point collections and resource groups for a VM can't exceed 500. To create a new restore point, delete the existing restore points.
 
 ### VMRestorePointClientError - Restore Point creation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator".
 
@@ -184,10 +190,10 @@ The number of restore points across the restore point collections and resource g
 **Error message**: Restore Point creation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator". 
 
 Follow these steps to resolve this error:  
- - Open services.msc from an elevated command prompt
- - Make sure that **Log On As** value for **Distributed Transaction Coordinator** service is set to **Network Service** and the service is running. 
- - If this service fails to start, reinstall this service.
 
+- Open services.msc from an elevated command prompt
+- Make sure that **Log On As** value for **Distributed Transaction Coordinator** service is set to **Network Service** and the service is running. 
+- If this service fails to start, reinstall this service.
 
 ### VMRestorePointClientError - Restore Point creation failed due to inadequate VM resources.
 
@@ -214,7 +220,7 @@ After you trigger creation of restore point, the compute service starts communic
 **Error message**: RestorePoint creation failed since a concurrent 'Create RestorePoint' operation was triggered on the VM.
 
 Your recent restore point creation failed because there's already an existing restore point being created. You can't create a new restore point until the current restore point is fully created. Ensure the restore point creation operation currently in progress is completed before triggering another restore point creation operation.
- 
+
 To check the restore points in progress, do the following steps:
 
 1. Sign in to the Azure portal, select **All services**. Enter **Recovery Services** and select **Restore point collection**. The list of Restore point collections appears.
@@ -294,7 +300,6 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 5. Verify that the Microsoft Azure Guest Agent services appear in services.
 6. Retry the restore point operation.
 
-
 Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
 
 ### The agent installed in the VM is out of date (for Linux VMs)
@@ -312,8 +317,17 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: `service walinuxagent start`
-   - For other distributions: `service waagent start`
+   - For Ubuntu/Debian:
+
+   ```bash
+   sudo systemctl start walinuxagent
+   ```
+
+   - For other Linux distributions:
+
+   ```bash
+   sudo systemctl start waagent
+   ```
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Retry the restore point operation. If the failure persists, collect the following logs from the VM:
@@ -324,13 +338,13 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 If you require verbose logging for waagent, follow these steps:
 
-1. In the /etc/waagent.conf file, locate the following line: **Enable verbose logging (y|n)**.
+1. In the `/etc/waagent.conf` file, locate the following line: **Enable verbose logging (y|n)**.
 2. Change the **Logs.Verbose** value from *n* to *y*.
 3. Save the change, and then restart waagent by completing the steps described earlier in this section.
 
 ### VM-Agent configuration options are not set (for Linux VMs)
 
-A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** should be set to **y** and **Provisioning.Agent** should be set to **auto** for restore points to work.
+A configuration file (`/etc/waagent.conf`) controls the actions of waagent. Configuration File Options **Extensions.Enable** should be set to **y** and **Provisioning.Agent** should be set to **auto** for restore points to work.
 For the full list of VM-Agent Configuration File Options, see https://github.com/Azure/WALinuxAgent#configuration-file-options.
 
 ### Application control solution is blocking IaaSBcdrExtension.exe

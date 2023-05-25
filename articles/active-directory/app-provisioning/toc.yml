@@ -29,6 +29,12 @@ items:
         href: on-premises-sql-connector-configure.md
       - name: Provisioning to LDAP based apps
         href: on-premises-ldap-connector-configure.md
+      - name: Provisioning to PowerShell based apps
+        href: on-premises-powershell-connector.md
+      - name: Provisioning with the web services connector
+        href: on-premises-web-services-connector.md
+      - name: Provisioning with custom connectors
+        href: on-premises-custom-connector.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
@@ -75,6 +81,8 @@ items:
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      - name: Provisioning insights workbook
+        href: provisioning-workbook.md  
     - name: Workday provisioning scenarios
       items:
       - name: Retrieve pronoun information

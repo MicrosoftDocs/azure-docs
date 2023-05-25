@@ -23,6 +23,8 @@
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
+  - name: Create a new resource using Terraform
+    href: create-account-terraform.md
 - name: How-To
   items:
   - name: Plan and manage costs 
@@ -35,8 +37,6 @@
     href: diagnostic-logging.md
   - name: Manage resources
     href: manage-resources.md
-  - name: Disaster recovery
-    href: disaster-recovery.md
   - name: Deploy
     items:
     - name: Containers

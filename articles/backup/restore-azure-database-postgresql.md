@@ -44,6 +44,9 @@ You can restore a database to any Azure PostgreSQL server of a different/same su
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Screenshot showing the selected restore type as Restore as Database." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
 
+> [!IMPORTANT]
+> The DB user whose credentials were chosen via the key vault will have all the privileges over the restored database and any existing DB user boundaries will be overridden. For eg: If the backed up database had any DB user specific permissions/constraints such as DB user A can access few tables, and DB user B can access few other tables, such permissions will not be preserved after restore. If you want to preserve those permissions, use restore as files and use the pg_restore command with the relevant switch.
+
    - **Restore as Files: Dump the backup files to the target storage account (blobs).**
 
      You can choose from the storage accounts across all subscriptions, but in the same region as that of the vault.     

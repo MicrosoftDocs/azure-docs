@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lexonis TalentScape | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lexonis TalentScape'
 description: Learn how to configure single sign-on between Azure Active Directory and Lexonis TalentScape.
 services: active-directory
 author: jeevansd

@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 09/28/2022
+  ms.date: 03/10/2023
   ms.custom: jordan-changes, event-tier1-build-2022, ignite-2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,32 +25,37 @@ landingContent:
         links:  
           - text: "What is Azure Machine Learning?"       
             url: overview-what-is-azure-machine-learning.md
-          - text:  Glossary
-            url: azure-machine-learning-glossary.md
-          - text: What is CLI & SDK v2?
-            url: concept-v2.md
   # Card
-  - title: Get Started
+  - title: Setup & quickstart
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:   
-        - text: Set up resources
+        - text: Create resources 
           url: quickstart-create-resources.md
-        - text: Run Jupyter notebooks
-          url: quickstart-run-notebooks.md
-        - text: "Azure Machine Learning in a day"
+        - text: Get started with Azure Machine Learning
           url: tutorial-azure-ml-in-a-day.md
+  # Card
+  - title: "Start with the basics"
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Prepare and explore data
+        url: tutorial-explore-data.md
+      - text: Develop on a cloud workstation
+        url: tutorial-cloud-workstation.md
+      - text: Train a model
+        url: tutorial-train-model.md
+      - text: Deploy a model
+        url: tutorial-deploy-model.md
+      - text: Set up a reusable pipeline
+        url: tutorial-pipeline-python-sdk.md
 
   # Card
   - title: Work with data
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Create datastore
-          url: how-to-datastore.md
-        - text: Access data in a notebook
-          url: how-to-access-data-interactive.md
-        - text: Use Apache Spark in Azure ML
+        - text: Use Apache Spark in Azure Machine Learning
           url: interactive-data-wrangling-with-apache-spark-azure-ml.md
         - text: Create data assets
           url: how-to-create-data-assets.md
@@ -72,6 +77,8 @@ landingContent:
             url: tutorial-first-experiment-automated-ml.md
           - text: Use designer (drag-n-drop) in studio
             url: tutorial-designer-automobile-price-train-score.md
+          - text: Train with R
+            url: how-to-r-train-model.md
   # Card
   - title: Deploy models
     linkLists:
@@ -83,7 +90,9 @@ landingContent:
           url: how-to-deploy-online-endpoints.md
         - text: Batch scoring with batch endpoints 
           url: batch-inference/how-to-use-batch-endpoint.md
-
+        - text: Deploy R models
+          url: how-to-r-deploy-r-model.md
+  
   # Card
   - title: "Manage the ML lifecycle (MLOps)"
     linkLists:

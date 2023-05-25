@@ -3,11 +3,11 @@ title: Create a cloud service (classic) container with PowerShell | Microsoft Do
 description: This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen, devx-track-azurepowershell
 ---
 
 # Use an Azure PowerShell command to create an empty cloud service (classic) container

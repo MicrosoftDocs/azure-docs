@@ -1,5 +1,5 @@
 ---
-title: Use managed identities on a virtual machine to acquire access token - Azure AD
+title: Use managed identities on a virtual machine to acquire access token
 description: Step-by-step instructions and examples for using managed identities for Azure resources on virtual machines to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
@@ -29,7 +29,7 @@ This article provides various code and script examples for token acquisition. It
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps).
+If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 
 > [!IMPORTANT]
@@ -224,7 +224,7 @@ class GetMSIToken {
 
 ## Get a token using Go
 
-```
+```go
 package main
 
 import (

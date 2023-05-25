@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fivetran | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fivetran'
 description: Learn how to configure single sign-on between Azure Active Directory and Fivetran.
 services: active-directory
 author: jeevansd

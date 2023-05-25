@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/02/2022
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, event-tier1-build-2022
 ---
 
 # Hyperparameter tuning a model with Azure Machine Learning (v1)
@@ -17,8 +17,8 @@ ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-tune-hyperparameters-v1.md)
-> * [v2 (current version)](../how-to-tune-hyperparameters.md)
-	 
+> * [v2 (current version)](../how-to-tune-hyperparameters.md?view=azureml-api-2&preserve-view=true)
+     
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
 Automate efficient hyperparameter tuning by using Azure Machine Learning (v1) [HyperDrive package](/python/api/azureml-train-core/azureml.train.hyperdrive). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
@@ -185,7 +185,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values in model training runs, see [Enable logging in Azure ML training runs](../how-to-log-view-metrics.md).
+For more information on logging values in model training runs, see [Enable logging in Azure Machine Learning training runs](../how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 

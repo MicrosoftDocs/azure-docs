@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Hosted Graphite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Hosted Graphite'
 description: Learn how to configure single sign-on between Azure Active Directory and Hosted Graphite.
 services: active-directory
 author: jeevansd

@@ -63,9 +63,9 @@ Operational data is collected for all database instances and for the Azure Arc-e
 
 - Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – Records emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – Records emitted by all components including failure, warning, and informational events are collected to an OpenSearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. Prior to the May, 2023 release, the log database used Elasticsearch. Thereafter, it uses OpenSearch. 
 
-The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana. 
+The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana.
 
 The operational data does not leave your environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
 
@@ -189,16 +189,156 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 | Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime | 
 | Data controller state | ProvisioningState | string | 
 
-#### Data controller 
+The following JSON document is an example of the Azure Arc Data Controller resource. 
 
-- Location information
-   - `public OnPremiseProperty OnPremiseProperty` 
-- The raw Kubernetes information (`kubectl get datacontroller`) 
-   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
-- Last uploaded date from on-premises cluster.
-   - `System.DateTime: LastUploadedDate` 
-- Data controller state
-   - `string: ProvisioningState` 
+
+
+
+
+```json
+{
+    "id": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/dataControllers/contosodc",
+    "name": "contosodc",
+    "type": "microsoft.azurearcdata/datacontrollers",
+    "location": "eastus",
+    "extendedLocation": {
+        "name": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+        "type": "CustomLocation"
+    },
+    "tags": {},
+    "systemData": {
+        "createdBy": "contosouser@contoso.com",
+        "createdByType": "User",
+        "createdAt": "2023-01-03T21:35:36.8412132Z",
+        "lastModifiedBy": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+        "lastModifiedByType": "Application",
+        "lastModifiedAt": "2023-02-15T17:13:26.6429039Z"
+    },
+    "properties": {
+        "infrastructure": "azure",
+        "onPremiseProperty": {
+            "id": "4eb0a7a5-5ed6-4463-af71-12590b2fad5d",
+            "publicSigningKey": "MIIDWzCCAkOgAwIBAgIIA8OmTJKpD8AwDQYJKoZIhvcNAQELBQAwKDEmMCQGA1UEAxMdQ2x1c3RlciBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjMwMTAzMjEzNzUxWhcNMjgwMTAyMjEzNzUxWjAaMRgwFgYDVQQDEw9iaWxsaW5nLXNpZ25pbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3rAuXaXIeaipFiqGW5rtkdq/1+S58CRMEkANHvwFnimXEWIt8VnbG9foIm20r0RK+6XeRpn5r92jrOl/3R4Q9AAiF3Tgzy3NF9Dg9OsKo1bnrfWHMxmyX2w8TxyZSvWKEUVpVhjhqyhy/cqSJA5ASjEtthMx4Q1HTVcEDSTfnPHPz9EhfZqZ6ES3Yqun2D9MIatkSUpjHJbqYwRTzzrsPG84hJX7EGAWntvEzzCjmTUsouShEwUhi8c05CLBwzF5bxDNLhTdy+tj2ZyUzL7R+BmifwPR9jvOziYPlrbgIIs77sPbNlZjZvMeeBaJHktWZ0s8/UpUpV1W69m7hT2gbAgMBAAGjgZYwgZMwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDBfBgNVHREEWDBWgg5jb250cm9sbGVyLXN2Y4IoY29udHJvbGxlci1zdmMuY29udG9zby5zdmMuY2x1c3Rlci5sb2NhbIIaY29udHJvbGxlci1zdmMuY29udG9zby5zdmMwDQYJKoZIhvcNAQELBQADggEBADcZNIZcDDUC79ElbRrXdbHo9bUUv/NJfY7Dx226jc8j0AdDq8MbHAnt+JiMH6+GDb88avleA448yZ9ujBP9zC8v8IyaWu4vQpPT7MagzlsAhb6VEWU0FQfM6R14WwbATWSOIwDlMn4I33mZULyJdZhk4TqzqTQ8F0I3TavHh8TWBbjnwg1IhR/8TQ9HfgceoI80SBE3BDI5at/CzYgoWcWS2pzfd3QYwD8DIPVLCdcx1LNSDjdlQCQTKal0yKMauGIzMuYpCF1M6Z0LunPU/Ns96T9mqLXJHu+wmAoJ2CwdXa4FruwTSgrQlY3pokjTMwGaP3uzpnCSI7ykvi5kp4Q=",
+            "signingCertificateThumbprint": "8FB48D0DD44DCFB25ECC13B9CB5F493F5438D38C"
+        },
+        "k8sRaw": {
+            "kind": "DataController",
+            "spec": {
+                "credentials": {
+                    "dockerRegistry": "arc-private-registry",
+                    "domainServiceAccount": "domain-service-account-secret",
+                    "serviceAccount": "sa-arc-controller"
+                },
+                "security": {
+                    "allowDumps": true,
+                    "allowNodeMetricsCollection": true,
+                    "allowPodMetricsCollection": true
+                },
+                "services": [
+                    {
+                        "name": "controller",
+                        "port": 30080,
+                        "serviceType": "LoadBalancer"
+                    }
+                ],
+                "settings": {
+                    "ElasticSearch": {
+                        "vm.max_map_count": "-1"
+                    },
+                    "azure": {
+                        "autoUploadMetrics": "true",
+                        "autoUploadLogs": "false",
+                        "subscription": "7894901a-dfga-rf4d-85r4-cc1234459df2",
+                        "resourceGroup": "contoso-rg",
+                        "location": "eastus",
+                        "connectionMode": "direct"
+                    },
+                    "controller": {
+                        "logs.rotation.days": "7",
+                        "logs.rotation.size": "5000",
+                        "displayName": "contosodc"
+                    }
+                },
+                "storage": {
+                    "data": {
+                        "accessMode": "ReadWriteOnce",
+                        "className": "managed-premium",
+                        "size": "15Gi"
+                    },
+                    "logs": {
+                        "accessMode": "ReadWriteOnce",
+                        "className": "managed-premium",
+                        "size": "10Gi"
+                    }
+                },
+                "infrastructure": "azure",
+                "docker": {
+                    "registry": "mcr.microsoft.com",
+                    "imageTag": "v1.14.0_2022-12-13",
+                    "repository": "arcdata",
+                    "imagePullPolicy": "Always"
+                }
+            },
+            "metadata": {
+                "namespace": "contoso",
+                "name": "contosodc",
+                "annotations": {
+                    "management.azure.com/apiVersion": "2022-03-01-preview",
+                    "management.azure.com/cloudEnvironment": "AzureCloud",
+                    "management.azure.com/correlationId": "aa531c88-6dfb-46c3-af5b-d93f7eaaf0f6",
+                    "management.azure.com/customLocation": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                    "management.azure.com/location": "eastus",
+                    "management.azure.com/operationId": "265b98a7-0fc2-4dce-9cef-26f9b6dd000c*705EDFCA81D01028EFA1C3E9CB3CEC2BF472F25894ACB2FFDF955711236F486D",
+                    "management.azure.com/resourceId": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/dataControllers/contosodc",
+                    "management.azure.com/systemData": "{\"createdBy\":\"9c1a17be-338f-4b3c-90e9-55eb526c5aef\",\"createdByType\":\"User\",\"createdAt\":\"2023-01-03T21:35:36.8412132Z\",\"resourceUID\":\"74087467-4f98-4a23-bacf-a1e40404457f\"}",
+                    "management.azure.com/tenantId": "123488bf-8asd-41wf-91ab-211kl345db47",
+                    "traceparent": "00-197d885376f938d6138babf8ed4d809c-1a584b84b3c8f5df-01"
+                },
+                "creationTimestamp": "2023-01-03T21:35:42Z",
+                "generation": 2,
+                "resourceVersion": "15446366",
+                "uid": "4eb0a7a5-5ed6-4463-af71-12590b2fad5d"
+            },
+            "apiVersion": "arcdata.microsoft.com/v5",
+            "status": {
+                "observedGeneration": 2,
+                "state": "Ready",
+                "azure": {
+                    "uploadStatus": {
+                        "logs": {
+                            "lastUploadTime": "0001-01-01T00:00:00Z",
+                            "message": "Automatic upload of logs is disabled. Execution time: 02/15/2023 17:07:57"
+                        },
+                        "metrics": {
+                            "lastUploadTime": "2023-02-15T17:00:57.047934Z",
+                            "message": "Success"
+                        },
+                        "usage": {
+                            "lastUploadTime": "2023-02-15T17:07:53.843439Z",
+                            "message": "Success. Records uploaded: 1."
+                        }
+                    }
+                },
+                "lastUpdateTime": "2023-02-15T17:07:57.587925Z",
+                "runningVersion": "v1.14.0_2022-12-13",
+                "arcDataServicesK8sExtensionLatestVersion": "v1.16.0",
+                "registryVersions": {
+                    "available": [
+                        "v1.16.0_2023-02-14",
+                        "v1.15.0_2023-01-10"
+                    ],
+                    "behind": 2,
+                    "current": "v1.14.0_2022-12-13",
+                    "latest": "v1.16.0_2023-02-14",
+                    "next": "v1.15.0_2023-01-10",
+                    "previous": "v1.13.0_2022-11-08"
+                }
+            }
+        },
+        "provisioningState": "Succeeded"
+    }
+}
+```
 
 
 
@@ -213,21 +353,6 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 | Last uploaded date from on premises cluster | LastUploadedDate | System.DateTime |
 | Group provisioning state | ProvisioningState | string |
 
-#### Azure Arc-enabled PostgreSQL
-
-- The data controller ID
-   - `string: DataControllerId`
-- The instance admin name
-   - `string: Admin`
-- Username and password for basic authentication
-   - `public: BasicLoginInformation BasicLoginInformation` 
-- The raw Kubernetes information (`kubectl get postgres12`) 
-   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
-- Last uploaded date from on premises cluster. 
-   - `System.DateTime: LastUploadedDate` 
-- Group provisioning state
-   - `string: ProvisioningState` 
-
 ### SQL managed instance - Azure Arc
 
 | Description | Property name | Property type|
@@ -241,26 +366,195 @@ The following JSON document is an example of the SQL Server database - Azure Arc
 | Last uploaded date from on-premises cluster | LastUploadedDate | System.DateTime |
 | SQL managed instance provisioning state | ProvisioningState | string |
 
-The following JSON document is an example of the SQL managed instance - Azure Arc resource. 
 
-#### SQL managed instance 
+The following JSON document is an example of the SQL Managed Instance - Azure Arc resource. 
 
-- The managed instance ID
-   - `public string: DataControllerId` 
-- The instance admin username 
-   - `string: Admin` 
-- The instance start time 
-   - `string: StartTime`
-- The instance end time 
-   - `string: EndTime` 
-- The raw kubernetes information (`kubectl get sqlmi`) 
-   - `object: K8sRaw` [Details](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/crds)
-- Username and password for basic authentication. 
-   - `public: BasicLoginInformation BasicLoginInformation`
-- Last uploaded date from on-premises cluster. 
-   - `public: System.DateTime LastUploadedDate` 
-- SQL managed instance provisioning state
-   - `public string: ProvisioningState` 
+
+
+
+
+```json
+
+{
+    "id": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/sqlManagedInstances/sqlmi1",
+    "name": "sqlmi1",
+    "type": "microsoft.azurearcdata/sqlmanagedinstances",
+    "sku": {
+        "name": "vCore",
+        "tier": "BusinessCritical"
+    },
+    "location": "eastus",
+    "extendedLocation": {
+        "name": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourcegroups/contoso-rg/providers/microsoft.extendedlocation/customlocations/contoso",
+        "type": "CustomLocation"
+    },
+    "tags": {},
+    "systemData": {
+        "createdBy": "contosouser@contoso.com",
+        "createdByType": "User",
+        "createdAt": "2023-01-04T01:33:57.5232885Z",
+        "lastModifiedBy": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+        "lastModifiedByType": "Application",
+        "lastModifiedAt": "2023-02-15T01:39:11.6582399Z"
+    },
+    "properties": {
+        "dataControllerId": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/dataControllers/contosodc",
+        "admin": "sqladmin",
+        "k8sRaw": {
+            "spec": {
+                "scheduling": {
+                    "default": {
+                        "resources": {
+                            "requests": {
+                                "cpu": "2",
+                                "memory": "4Gi"
+                            },
+                            "limits": {
+                                "cpu": "2",
+                                "memory": "4Gi"
+                            }
+                        }
+                    }
+                },
+                "replicas": 2,
+                "dev": true,
+                "services": {
+                    "primary": {
+                        "type": "LoadBalancer"
+                    },
+                    "readableSecondaries": {}
+                },
+                "readableSecondaries": 1,
+                "syncSecondaryToCommit": 0,
+                "storage": {
+                    "data": {
+                        "volumes": [
+                            {
+                                "size": "5Gi"
+                            }
+                        ]
+                    },
+                    "logs": {
+                        "volumes": [
+                            {
+                                "size": "5Gi"
+                            }
+                        ]
+                    },
+                    "datalogs": {
+                        "volumes": [
+                            {
+                                "size": "5Gi"
+                            }
+                        ]
+                    },
+                    "backups": {
+                        "volumes": [
+                            {
+                                "className": "azurefile",
+                                "size": "5Gi"
+                            }
+                        ]
+                    }
+                },
+                "security": {
+                    "adminLoginSecret": "sqlmi1-login-secret"
+                },
+                "tier": "BusinessCritical",
+                "update": {},
+                "backup": {
+                    "retentionPeriodInDays": 7
+                },
+                "licenseType": "LicenseIncluded",
+                "orchestratorReplicas": 1,
+                "parentResource": {
+                    "apiGroup": "arcdata.microsoft.com",
+                    "kind": "DataController",
+                    "name": "contosodc",
+                    "namespace": "contoso"
+                },
+                "settings": {
+                    "collation": "SQL_Latin1_General_CP1_CI_AS",
+                    "language": {
+                        "lcid": 1033
+                    },
+                    "network": {
+                        "forceencryption": 0,
+                        "tlsciphers": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384",
+                        "tlsprotocols": "1.2"
+                    },
+                    "sqlagent": {
+                        "enabled": false
+                    },
+                    "timezone": "UTC"
+                }
+            },
+            "metadata": {
+                "annotations": {
+                    "management.azure.com/apiVersion": "2022-03-01-preview",
+                    "management.azure.com/cloudEnvironment": "AzureCloud",
+                    "management.azure.com/correlationId": "3a49178d-a09f-48d3-9292-3133f6591743",
+                    "management.azure.com/customLocation": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/microsoft.extendedlocation/customlocations/contoso",
+                    "management.azure.com/location": "eastus",
+                    "management.azure.com/operationId": "dbf2e708-78da-4762-8fd5-75ba43721b24*4C234309E6735F28E751F5734D64E8F98A910A88E54A1AD35C6469BCD0E6EA84",
+                    "management.azure.com/resourceId": "/subscriptions/7894901a-dfga-rf4d-85r4-cc1234459df2/resourceGroups/contoso-rg/providers/Microsoft.AzureArcData/sqlManagedInstances/sqlmi1",
+                    "management.azure.com/systemData": "{\"createdBy\":\"9c1a17be-338f-4b3c-90e9-55eb526c5aef\",\"createdByType\":\"User\",\"createdAt\":\"2023-01-04T01:33:57.5232885Z\",\"resourceUID\":\"40fa8b55-4b7d-4d6a-b783-043169d7fd03\"}",
+                    "management.azure.com/tenantId": "123488bf-8asd-41wf-91ab-211kl345db47",
+                    "traceparent": "00-3c07cf4caa8b4778591b02b1bf3979ef-f2ee2c890c21ea8a-01"
+                },
+                "creationTimestamp": "2023-01-04T01:34:03Z",
+                "generation": 1,
+                "labels": {
+                    "management.azure.com/resourceProvider": "Microsoft.AzureArcData"
+                },
+                "name": "sqlmi1",
+                "namespace": "contoso",
+                "resourceVersion": "15215035",
+                "uid": "6d653cd8-f17e-437a-b0dc-48154164c1ad"
+            },
+            "status": {
+                "lastUpdateTime": "2023-02-15T01:39:07.691211Z",
+                "observedGeneration": 1,
+                "readyReplicas": "2/2",
+                "roles": {
+                    "sql": {
+                        "replicas": 2,
+                        "lastUpdateTime": "2023-02-14T11:37:14.875705Z",
+                        "readyReplicas": 2
+                    }
+                },
+                "state": "Ready",
+                "endpoints": {
+                    "logSearchDashboard": "https://230.41.13.18:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqlmi1'))",
+                    "metricsDashboard": "https://230.41.13.18:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqlmi1-0",
+                    "mirroring": "230.41.13.18:5022",
+                    "primary": "230.41.13.18,1433",
+                    "secondary": "230.41.13.18,1433"
+                },
+                "highAvailability": {
+                    "lastUpdateTime": "2023-02-14T11:47:42.208708Z",
+                    "mirroringCertificate": "-----BEGIN CERTIFICATE-----\nMIIDQzCCAiugAwIBAgIISqqmfCPaolkwDQYJKoZIhvcNAQELBQAwKDEmMCQGA1UEAxMdQ2x1c3Rl\r\nciBDZXJ0aWZpDEzNDA2WhcNMjgwMTAzMDEzNDA2WjAO\r\nMQwwCgYDVQQDEwNkYm0wggEiMA0GCSqgEKAoIBAQDEXj2nm2cGkyfu\r\npXWQ4s6G//AI1rbH4JStZOAHwJNYmBuESSHz0i6znjnQQloFe+g2KM+1m4TN1T39Lz+/ufEYQQX9\r\nx9WuGP2IALgH1LXc/0DGuOB16QXqN7ZWULQ4ovW4Aaz5NxTSDXWYPK+zpb1c8adsQyamLHwmSPs4\r\nMpsgfOR9EUCqdnuKjSHbWCtkJTYogpAFyZb5HOgY1TMICrTkXG6VYoCPS/EDNmtPOyVuykdjjsxx\r\nIC5KkVgHWTaYIDjim7L44FPh4HUIVM/OFScRijCZTJogN/Fe94+kGDWfgWIG36Jlz127BbWV3HNJ\r\nkH2oLchIABvgTXsdKnjK3i2TAgMBAAGjgYowgYcwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwIGCCsG\r\nAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDBTBgNVHREETDBKggpzcWxtaTEtc3ZjgiRzcWxtaTEtc3Zj\r\nLmNvbnRvc28uc3ZjLmNsdXN0ZXIubG9jYWyCFnNxbG1pMS1zdmMuY29udG9zby5zdmMwDQYJKoZI\r\nhvcNAQELBQADggEBAA+Wj6WK9NgX4szxT7zQxPVIn+0iviO/2dFxHmjmvj+lrAffsgNdfeX5095f\r\natxIO+no6VW2eoHze2f6AECh4/KefyAzd+GL9MIksJcMLqSqAemXju3pUfGBS1SAW8Rh361D8tmA\r\nEFpPMwZG3uMidYMso0GqO0tpejz2+5Q4NpweHBGoq6jk+9ApTLD+s5qetZHrxGD6tS1Z/Lvt24lE\r\nKtSKEDw5O2qnqbsOe6xxtPAuIfTmpwIzIv2WiGC3aGuXSr0bNyPHzh5RL1MCIpwLMrnruFwVzB25\r\nA0xRalcXVZRZ1H0zbznGsecyBRJiA+7uxNB7/V6i+SjB/qxj2xKh4s8=\n-----END CERTIFICATE-----\n",
+                    "healthState": "Error",
+                    "replicas": []
+                },
+                "logSearchDashboard": "https://230.41.13.18:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqlmi1'))",
+                "metricsDashboard": "https://230.41.13.18:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqlmi1-0",
+                "primaryEndpoint": "230.41.13.18,1433",
+                "runningVersion": "v1.14.0_2022-12-13",
+                "registryVersions": {
+                    "available": [],
+                    "behind": 0,
+                    "current": "v1.14.0_2022-12-13",
+                    "latest": "v1.14.0_2022-12-13",
+                    "previous": "v1.13.0_2022-11-08"
+                }
+            }
+        },
+        "provisioningState": "Succeeded",
+        "licenseType": "LicenseIncluded"
+    }
+}
+```
 
 ## Examples
 
@@ -375,4 +669,7 @@ In support situations, you may be asked to provide database instance logs, Kuber
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)
+
+
+
 

@@ -1,12 +1,12 @@
 ---
-title: Authentication methods and features - Azure Active Directory
+title: Authentication methods and features
 description: Learn about the different authentication methods and features available in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/17/2022
+ms.date: 03/13/2023
 
 ms.author: justinha
 author: justinha
@@ -38,7 +38,8 @@ The following table outlines the security considerations for the available authe
 | Authentication method          | Security | Usability | Availability |
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | High     | High      | High         |
-| Microsoft Authenticator app    | High     | High      | High         |
+| Microsoft Authenticator        | High     | High      | High         |
+| Authenticator Lite             | High     | High      | High         |
 | FIDO2 security key             | High     | High      | High         |
 | Certificate-based authentication (preview)| High | High | High       |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
@@ -63,10 +64,12 @@ The following table outlines when an authentication method can be used during a 
 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello for Business     | Yes                    | MFA\*                      |
-| Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
+| Windows Hello for Business     | Yes                    | MFA\*                     |
+| Microsoft Authenticator (Push) | No                     | MFA and SSPR              |
+| Microsoft Authenticator (Passwordless) | Yes            | No                        |
+| Authenticator Lite             | No                     | MFA                       |
 | FIDO2 security key             | Yes                    | MFA                       |
-| Certificate-based authentication (preview) | Yes        | No              |
+| Certificate-based authentication | Yes                  | No                        |
 | OATH hardware tokens (preview) | No                     | MFA and SSPR              |
 | OATH software tokens           | No                     | MFA and SSPR              |
 | SMS                            | Yes                    | MFA and SSPR              |

@@ -9,25 +9,24 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 04/04/2023
 ---
 
 # Index data from SharePoint document libraries
 
-> [!IMPORTANT] 
-> SharePoint indexer support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview) to this feature, and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+> [!IMPORTANT]
+> SharePoint indexer support is in public preview. It's offered "as-is", under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview features aren't recommended for production workloads and aren't guaranteed to become generally available.
+>
+>To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview), and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
 This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure Cognitive Search. Configuration steps are followed by a deeper exploration of behaviors and scenarios you're likely to encounter.
-
-> [!NOTE]
-> SharePoint supports a granular authorization model that determines per-user access at the document level. The SharePoint indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) of unauthorized content. 
 
 ## Functionality
 
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from a data source. The SharePoint indexer will connect to your SharePoint site and index documents from one or more document libraries. The indexer provides the following functionality:
 
 + Index content and metadata from one or more document libraries.
-+ Incremental indexing, where the indexer identifies which files have changed and indexes only the updated content. For example, if five PDFs are originally indexed and one is updated, only the updated PDF is indexed.
++ Incremental indexing, where the indexer identifies which file content or metadata have changed and indexes only the updated data. For example, if five PDFs are originally indexed and one is updated, only the updated PDF is indexed.
 + Deletion detection is built in. If a document is deleted from a document library, the indexer will detect the delete on the next indexer run and remove the document from the index.
 + Text and normalized images will be extracted by default from the documents that are indexed. Optionally a [skillset](cognitive-search-working-with-skillsets.md) can be added to the pipeline for [AI enrichment](cognitive-search-concept-intro.md). 
 
@@ -71,7 +70,7 @@ The SharePoint indexer supports both [delegated and application](/graph/auth/aut
 
 + Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
-If your Azure Active Directory organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, see [SharePoint Conditional Access policies](./search-indexer-troubleshooting.md#sharepoint-conditional-access-policies).
+If your Azure Active Directory organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, see [Azure Active Directory Conditional Access policies](./search-indexer-troubleshooting.md#azure-active-directory-conditional-access-policies).
 
 ### Step 3: Create an Azure AD application
 
@@ -465,6 +464,29 @@ You can also continue indexing if errors happen at any point of processing, eith
     "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
 }
 ```
+
+## Limitations and considerations
+
+These are the limitations of this feature:
+
++ Indexing [SharePoint Lists](https://support.microsoft.com/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7) is not supported.
+
++ If a SharePoint file content and/or metadata has been indexed, renaming a SharePoint folder in its parent hierarchy is not a condition that will re-index the document.
+
++ Indexing SharePoint .ASPX site content is not supported.
+
++ [Private endpoint](search-indexer-howto-access-private.md) is not supported.
+
++ SharePoint supports a granular authorization model that determines per-user access at the document level. The SharePoint indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) of unauthorized content. 
+
+
+These are the considerations when using this feature:
+
++ If there is a requirement to implement a SharePoint content indexing solution with Cognitive Search in a production environment, consider create a custom connector using [Microsoft Graph Data Connect](/graph/data-connect-concept-overview) with [Blob indexer](search-howto-indexing-azure-blob-storage.md) and [Microsoft Graph API](/graph/use-the-api) for incremental indexing.
+
++ There could be Microsoft 365 processes that update SharePoint file system-metadata (based on different configurations in SharePoint) and will cause the SharePoint indexer to trigger. Make sure that you test your setup and understand the document processing count prior to using any AI enrichment. Since this is a third-party connector to Azure (since SharePoint is located in Microsoft 365), SharePoint configuration is not checked by the indexer.
+
+
 
 ## See also
 

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/10/2022
-ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, build-2023
 ---
 
 # Tutorial: Designer - train a no-code regression model
@@ -79,17 +79,18 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 A pipeline jobs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future jobs.
 
-
 > [!Important]
 > Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
 You can set a **Default compute target** for the entire pipeline, which will tell every component to use the same compute target by default. However, you can specify compute targets on a per-module basis.
 
 1. Select ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png)**Settings** to the right of the canvas to open the **Settings** pane.
+ 
+1. Select **Create Azure Machine Learning compute instance**.
 
-1. Select **Create Azure ML compute instance**.
+    * If you already have an available compute target, you can select it from the **Select Azure Machine Learning compute instance** drop-down to run this pipeline.
 
-    If you already have an available compute target, you can select it from the **Select Azure ML compute instance** drop-down to run this pipeline.
+    * Or, select "Serverless" to use [serverless compute (preview)](./how-to-use-serverless-compute.md).
 
 1. Enter a name for the compute resource.
 

@@ -16,7 +16,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to monitor of Spring Boot applications in Azure Spring Apps with the New Relic Java agent.
 
@@ -59,45 +59,43 @@ Use the following procedure to access the agent:
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-Azure Spring Apps pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+Azure Spring Apps preinstalls the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-## Portal
+## Azure portal
 
-You can also activate this agent from portal with the following procedure.
+You can also activate this agent from the Azure portal with the following procedure.
 
-1. Find the app from **Settings**/**Apps** in the navigation pane.
+1. In your Azure Spring Apps instance, select **Apps** in the navigation pane.
 
-   [![Find app to monitor](media/new-relic-monitoring/find-app.png)](media/new-relic-monitoring/find-app.png)
+   :::image type="content" source="media/new-relic-monitoring/find-app.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/new-relic-monitoring/find-app.png":::
 
-2. Select the application to jump to the **Overview** page.
+1. Select the application from the list, and then select **Configuration** in the navigation pane.
 
-   [![Overview page](media/new-relic-monitoring/overview-page.png)](media/new-relic-monitoring/overview-page.png)
+1. Use the **General settings** tab to update values such as the JVM options.
 
-3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
+   :::image type="content" source="media/new-relic-monitoring/update-jvm-option.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/new-relic-monitoring/update-jvm-option.png":::
 
-   [![Update environment](media/new-relic-monitoring/configurations-update-environment.png)](media/new-relic-monitoring/configurations-update-environment.png)
+1. Select **Environment variables** to add or update the variables used by your application.
 
-4. Select **General settings** to add/update/delete the **JVM options** of the application.
+   :::image type="content" source="media/new-relic-monitoring/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/new-relic-monitoring/configurations-update-environment.png":::
 
-   [![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png)](media/new-relic-monitoring/update-jvm-option.png)
-
-5. View the application api/gateway **Summary** page from the New Relic dashboard.
+1. View the application api/gateway **Summary** page from the New Relic dashboard.
 
    [![App summary page](media/new-relic-monitoring/app-summary-page.png)](media/new-relic-monitoring/app-summary-page.png)
 
-6. View the application customers-service **Summary** page from the New Relic dashboard.
+1. View the application customers-service **Summary** page from the New Relic dashboard.
 
    [![Customers-service page](media/new-relic-monitoring/customers-service.png)](media/new-relic-monitoring/customers-service.png)
 
-7. View the **Service Map** page from the New Relic dashboard.
+1. View the **Service Map** page from the New Relic dashboard.
 
    [![Service map page](media/new-relic-monitoring/service-map.png)](media/new-relic-monitoring/service-map.png)
 
-8. View the **JVMs** page of the application from the New Relic dashboard.
+1. View the **JVMs** page of the application from the New Relic dashboard.
 
    [![JVM page](media/new-relic-monitoring/jvm-page.png)](media/new-relic-monitoring/jvm-page.png)
 
-9. View the application profile from the New Relic dashboard.
+1. View the application profile from the New Relic dashboard.
 
    [![Application profile](media/new-relic-monitoring/profile-app.png)](media/new-relic-monitoring/profile-app.png)
 
@@ -153,7 +151,7 @@ To configure the environment variables in an ARM template, add the following cod
 
 ## View New Relic Java Agent logs
 
-By default, Azure Spring Apps will print the logs of the New Relic Java agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the logs of the New Relic Java agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the New Relic agent from the following locations:
 
@@ -161,21 +159,21 @@ You can also get the logs of the New Relic agent from the following locations:
 * Azure Spring Apps Application Insights
 * Azure Spring Apps LogStream
 
-You can leverage some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+You can use some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 > [!CAUTION]
-> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Apps for New Relic. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
+> We strongly recommend that you don't override the logging default behavior provided by Azure Spring Apps for New Relic. If you do, the logging scenarios previously described are blocked, and the log file(s) may be lost. For example, you shouldn't pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
 >
 > * NEW_RELIC_LOG
 > * NEW_RELIC_LOG_FILE_PATH
 
 ## New Relic Java Agent update/upgrade
 
-The New Relic Java agent will update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
+The New Relic Java agent update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
 
-* Existing applications that use the New Relic Java agent before update/upgrade will be unchanged.
+* Existing applications that use the New Relic Java agent before update/upgrade are unchanged.
 * Existing applications that use the New Relic Java agent before update/upgrade require restart or redeploy to engage the new version of the New Relic Java agent.
-* New applications created after update/upgrade will use the new version of the New Relic Java agent.
+* New applications created after update/upgrade use the new version of the New Relic Java agent.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
@@ -183,4 +181,4 @@ For a vnet injection instance of Azure Spring Apps, you need to make sure the ou
 
 ## Next steps
 
-* [Distributed tracing and App Insights](how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

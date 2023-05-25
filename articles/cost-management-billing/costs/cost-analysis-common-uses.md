@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/20/2021
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

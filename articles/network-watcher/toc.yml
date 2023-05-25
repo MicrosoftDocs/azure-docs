@@ -31,27 +31,17 @@
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
     href: network-watcher-nsg-flow-logging-portal.md
-  - name: Configure NSG flow logs
-    items:
-    - name: PowerShell
-      href: network-watcher-nsg-flow-logging-powershell.md
-    - name: Azure CLI
-      href: network-watcher-nsg-flow-logging-cli.md
-    - name: REST
-      href: network-watcher-nsg-flow-logging-rest.md
-    - name: ARM template
-      href: network-watcher-nsg-flow-logging-azure-resource-manager.md
-    - name: Built-in Policy
-      href: nsg-flow-logs-policy-portal.md
 - name: Concepts
   items:
-  - name: Connection Monitor
+  - name: Network Watcher FAQ
+    href: frequently-asked-questions.yml
+  - name: Connection monitor
     href: connection-monitor-overview.md
-  - name: Connection Monitor schema
+  - name: Connection monitor schema
     href: connection-monitor-schema.md
   - name: IP flow verify
     href: network-watcher-ip-flow-verify-overview.md
-  - name: NSG Diagnostics
+  - name: NSG diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Next hop
     href: network-watcher-next-hop-overview.md
@@ -61,6 +51,10 @@
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
     href: network-watcher-packet-capture-overview.md
+  - name: Effective security rules
+    href: network-watcher-security-group-view-overview.md
+  - name: NSG flow logs
+    href: network-watcher-nsg-flow-logging-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
@@ -73,11 +67,7 @@
       href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
-  - name: NSG flow logs
-    href: network-watcher-nsg-flow-logging-overview.md
-  - name: Effective security rules
-    href: network-watcher-security-group-view-overview.md
-  - name: RBAC Permissions
+  - name: RBAC permissions
     href: required-rbac-permissions.md
   - name: Security
     items:
@@ -85,31 +75,33 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
+  - name: Moving Network Watcher resources
+    href: resource-move.md
 - name: How-to guides
   items:
-  - name: Configure Network Watcher
+  - name: Manage Network Watcher
     href: network-watcher-create.md
-  - name: Connection Monitor using Azure Monitor Agent
+  - name: Connection monitor using Azure Monitor agent
     items: 
-    - name: Monitor connectivity by using Azure Monitor Agent
+    - name: Monitor connectivity using Azure Monitor agent
       href: azure-monitor-agent-with-connection-monitor.md
-    - name: Install the Azure Connected Machine agent
+    - name: Install Azure Connected Machine agent
       href: connection-monitor-connected-machine-agent.md
-    - name: Install Azure Monitor Agent
+    - name: Install Azure Monitor agent
       href: connection-monitor-install-azure-monitor-agent.md
   - name: Create a connection monitor
     items:
     - name: Portal
       href: connection-monitor-create-using-portal.md
-    - name: ARMClient
-      href: connection-monitor-create-using-template.md
     - name: PowerShell
       href: connection-monitor-create-using-powershell.md
-  - name: Migrate to Connection Monitor
+    - name: ARMClient
+      href: connection-monitor-create-using-template.md
+  - name: Migrate to connection monitor
     items:
-    - name: From Network Performance Monitor
+    - name: From Network performance monitor
       href: migrate-to-connection-monitor-from-network-performance-monitor.md
-    - name: From Connection Monitor (classic)
+    - name: From connection monitor (classic)
       href: migrate-to-connection-monitor-from-connection-monitor-classic.md
   - name: Diagnose VM network problems
     items:
@@ -163,8 +155,20 @@
           href: network-watcher-intrusion-detection-open-source-tools.md
         - name: Visualize network traffic patterns using open source tools
           href: network-watcher-using-open-source-tools.md
-  - name: Flow Log Traffic Monitoring
+  - name: Flow log traffic monitoring
     items:
+    - name: Manage NSG flow logs
+      items:
+      - name: PowerShell
+        href: network-watcher-nsg-flow-logging-powershell.md
+      - name: Azure CLI
+        href: network-watcher-nsg-flow-logging-cli.md
+      - name: REST
+        href: network-watcher-nsg-flow-logging-rest.md
+      - name: ARM template
+        href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+      - name: Built-in Policy
+        href: nsg-flow-logs-policy-portal.md
     - name: Read NSG flow logs
       href: network-watcher-read-nsg-flow-logs.md
     - name: Analyze NSG flow logs
@@ -181,9 +185,9 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics
       items:
-      - name: Built-in Policy
+      - name: Built-in policy
         href: traffic-analytics-policy-portal.md
-      - name: Schema and Data Aggregation
+      - name: Schema and data aggregation
         href: traffic-analytics-schema.md
       - name: Schema update (March 2020)
         href: traffic-analytics-schema-update.md
@@ -216,11 +220,8 @@
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
   - name: Monitor network performance
-    href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-  - name: Move resources
-    items:
-    - name: Move Network Watcher Resources
-      href: resource-move.md
+    href: /previous-versions/azure/azure-monitor/insights/network-performance-monitor
+    maintainContext: true
 - name: Reference
   items:
   - name: Azure CLI
@@ -243,10 +244,6 @@
     href: /azure/templates/microsoft.network/networkWatchers/
 - name: Resources
   items:
-  - name: Network Watcher FAQ
-    href: frequently-asked-questions.yml
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
   - name: Pricing

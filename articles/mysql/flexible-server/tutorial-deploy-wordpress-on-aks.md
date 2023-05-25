@@ -286,7 +286,7 @@ The following example output shows the Deployments and Services created successf
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
+service "blog-nginx-service" created
 ```
 
 ## Test the application
@@ -296,20 +296,20 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service php-svc --watch
+kubectl get service blog-nginx-service --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *wordpress-blog* service is shown as *pending*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-php-svc  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+blog-nginx-service  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
 ```output
-  php-svc  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+ blog-nginx-service  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 ### Browse WordPress

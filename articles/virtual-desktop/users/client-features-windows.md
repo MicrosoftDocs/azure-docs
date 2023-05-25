@@ -132,7 +132,7 @@ Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for
 | <kbd>ALT</kbd>+<kbd>PRINT SCREEN</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>-</kbd> (minus sign) | Takes a snapshot of the active window in the remote session, and places it in the clipboard. |
 
 > [!NOTE]
-> Keyboard shortcuts will not work when using Remote Desktop or RemoteApp sessions that are nested.
+> Keyboard shortcuts will not work when using remote desktop or RemoteApp sessions that are nested.
 
 ### Keyboard language
 
@@ -270,15 +270,9 @@ You can set the *AutomaticUpdates* registry key to one of the following values:
 
 ### URI to subscribe to a workspace
 
-The Remote Desktop client for Windows supports the *ms-rd* Uniform Resource Identifier (URI) scheme. This enables you to use a link that users can help to automatically subscribe to a workspace, rather than them having to manually add the workspace in the Remote Desktop client.
+The Remote Desktop client for Windows supports the *ms-rd* and *ms-avd* (preview) Uniform Resource Identifier (URI) schemes. This enables you to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
 
-To subscribe to a workspace with a link:
-
-1. Open the following link in a web browser: `ms-rd:subscribe?url=https://rdweb.wvd.microsoft.com`.
-
-1. If you see the prompt **This site is trying to open Microsoft Remote Desktop Connection Center**, select **Open**. The **Remote Desktop** application should open and automatically show a sign-in prompt.
-
-1. Enter your user account, then select **Sign in**. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
+For more information and the available commands, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json)
 
 ## Azure Virtual Desktop (HostApp)
 

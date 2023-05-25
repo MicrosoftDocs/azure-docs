@@ -6,7 +6,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022
-ms.date: 12/18/2022
+ms.date: 2/17/2023
 ---
 # Capture data from Event Hubs in Delta Lake format (preview)
 
@@ -40,7 +40,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 1. On the **Azure Data Lake Storage Gen2** configuration page, follow these steps:     
     1. Select the subscription, storage account name and container from the drop-down menu. 
     1. Once the subscription is selected, the authentication method and storage account key should be automatically filled in.  
-    1. For **Delta table path**, it's used to specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2. You can choose to use one or more path segments to define the path to the delta table and the delta table name. To learn more, see to [Write to Delta Lake table](./write-to-delta-lake.md).  
+    1. For **Delta table path**, it's used to specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2. You can choose to use one or more path segments to define the path to the delta table and the delta table name. To learn more, see to [Write to Delta Lake table (Public Preview)](./write-to-delta-lake.md).  
     1. Select **Connect**.
     
         :::image type="content" source="./media/capture-event-hub-data-delta-lake/blob-configuration.png" alt-text="First screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-delta-lake/blob-configuration.png" :::  

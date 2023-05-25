@@ -31,6 +31,8 @@
     href: storage-files-networking-overview.md
   - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
+  - name: Geo-redundancy for large file shares
+    href: geo-redundant-storage-for-large-file-shares.md
   - name: Azure file share snapshots
     href: storage-snapshots-files.md
   - name: Performance and scale
@@ -39,10 +41,18 @@
       href: understand-performance.md
     - name: SMB Multichannel performance
       href: storage-files-smb-multichannel-performance.md
+    - name: NFS nconnect performance
+      href: nfs-nconnect-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
+  - name: Authentication and authorization
+    items:
+    - name: Authorize with Azure AD
+      href: authorize-oauth-rest.md
   - name: Understanding billing
     href: understanding-billing.md
+  - name: Windows Server to Azure Files
+    href: windows-server-to-azure-files.md    
   - name: Prevent accidental data deletion
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares
@@ -73,6 +83,8 @@
       href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
     - name: Purchase storage reservations
       href: files-reserve-capacity.md
+    - name: Use Azure independent clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
   - name: Mount
     items:
     - name: Mount SMB file share to Windows
@@ -111,16 +123,18 @@
         href: storage-files-identity-ad-ds-mount-file-share.md
       - name: Update password
         href: storage-files-identity-ad-ds-update-password.md
+    - name: Use Azure Files with multiple AD DS forests
+      href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable Azure AD Kerberos authentication for hybrid accounts
       href: storage-files-identity-auth-azure-active-directory-enable.md
-  - name: Manage
+    - name: Enable AD Kerberos authentication for Linux clients (SMB)
+      href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Authorize
     items:
-    - name: Manage storage in Azure independent clouds
-      href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-    - name: Initiate an account failover
-      href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
+    - name: Authorize access to file data
+      href: authorize-data-operations-portal.md
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -130,12 +144,7 @@
       - name: Change how data is replicated
         href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
       - name: Design highly available applications
-        items:
-        - name: .NET (v12 SDK)
-          href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
-        - name: .NET (v11 SDK)
-          href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
-        
+        href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
@@ -162,7 +171,7 @@
         href: ../../backup/restore-afs-powershell.md?toc=/azure/storage/files/toc.json
       - name: REST API
         href: ../../backup/restore-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
-    - name: Manage file shares
+    - name: Manage file share backups
       items:
       - name: Portal
         href: ../../backup/manage-afs-backup.md?toc=/azure/storage/files/toc.json
@@ -262,14 +271,20 @@
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot
     items:
-    - name: Troubleshoot Azure Files on Windows (SMB)
-      href: storage-troubleshoot-windows-file-connection-problems.md
-    - name: Troubleshoot Azure Files on Linux (SMB)
-      href: storage-troubleshoot-linux-file-connection-problems.md
-    - name: Troubleshoot Azure file shares performance
-      href: storage-troubleshooting-files-performance.md
-    - name: Troubleshoot Azure Files on Linux (NFS)
-      href: storage-troubleshooting-files-nfs.md
+    - name: Troubleshoot Azure Files
+      href: files-troubleshoot.md
+    - name: Troubleshoot Azure Files connectivity (SMB)
+      href: files-troubleshoot-smb-connectivity.md
+    - name: Troubleshoot Azure Files authentication (SMB)
+      href: files-troubleshoot-smb-authentication.md
+    - name: Troubleshoot Azure Files performance
+      href: files-troubleshoot-performance.md
+    - name: Troubleshoot general SMB issues on Linux
+      href: files-troubleshoot-linux-smb.md
+    - name: Troubleshoot general NFS issues on Linux
+      href: files-troubleshoot-linux-nfs.md
+    - name: Create file share throttling alerts
+      href: files-troubleshoot-create-alerts.md
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
 - name: Reference
@@ -302,6 +317,8 @@
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md
+  - name: Premium file shares ZRS support
+    href: redundancy-premium-file-shares.md    
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
@@ -320,7 +337,7 @@
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    href: ../common/videos-azure-files-and-file-sync.md
   - name: Azure Files and Azure NetApp Files comparison
     href: storage-files-netapp-comparison.md
   - name: Compare access with NFS to Azure Files, Blob Storage, and NetApp Files
@@ -375,3 +392,15 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1     
         href: https://github.com/Azure/azure-storage-python
+  - name: Code samples using deprecated SDKs
+    items:
+    - name: .NET
+      items:
+      - name: Version 11.x samples
+        href: files-samples-dotnet-v11.md
+      - name: Design highly available applications (.NET version 11.x)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
+    - name: Java version 8 samples
+      href: files-samples-java-v8.md
+    - name: Python version 2 samples
+      href: files-samples-python-v2.md

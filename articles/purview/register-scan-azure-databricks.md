@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -18,9 +18,9 @@ This article outlines how to register Azure Databricks, and how to authenticate 
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](#lineage) | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No| [Yes](#lineage) | No |
 
 When scanning Azure Databricks source, Microsoft Purview supports:
 
@@ -32,14 +32,18 @@ When scanning Azure Databricks source, Microsoft Purview supports:
    - Tables including the columns, foreign keys, unique constraints, and storage description
    - Views including the columns and storage description
 
-- Fetching relationship between external tables and Azure Data Lake Storage Gen2/Azure Blob assets. 
-- Fetching static lineage on assets relationships among tables and views.
+- Fetching relationship between external tables and Azure Data Lake Storage Gen2/Azure Blob assets (external locations). 
+- Fetching static lineage between tables and views based on the view definition.
 
-This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore-source.md) in case you use it to scan Azure Databricks earlier:  
+This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore-source.md) in case you use it to scan Azure Databricks earlier:
 
 - You can directly set up scan for Azure Databricks workspaces without direct HMS access. It uses Databricks personal access token for authentication and connects to a cluster to perform scan. 
 - The Databricks workspace info is captured.
 - The relationship between tables and storage assets is captured.
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -143,7 +147,10 @@ Use the following steps to scan Azure Databricks to automatically identify asset
 
       `/mnt/ADLS2=abfss://samplelocation1@azurestorage1.dfs.core.windows.net/;/mnt/Blob=wasbs://samplelocation2@azurestorage2.blob.core.windows.net`
 
-    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
+    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Azure Databricks to be scanned.
+
+        > [!Note]
+        > As a thumb rule, please provide 1GB memory for every 1000 tables.
 
     :::image type="content" source="media/register-scan-azure-databricks/scan.png" alt-text="Screenshot of setting up Azure Databricks scan." border="true":::
 
@@ -173,7 +180,7 @@ From the Databricks workspace asset, you can find the associated Hive Metastore 
 
 Refer to the [supported capabilities](#supported-capabilities) section on the supported Azure Databricks scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
-Go to the Hive table/view asset -> lineage tab, you can see the asset relationship when applicable. For relationship between table and external storage assets, you'll see Hive Table asset and the storage asset are directly connected bi-directionally, as they mutually impact each other.
+Go to the Hive table/view asset -> lineage tab, you can see the asset relationship when applicable. For relationship between table and external storage assets, you'll see Hive table asset and the storage asset are directly connected bi-directionally, as they mutually impact each other. If you use mount point in create table statement, you need to provide the mount point information in [scan settings](#scan) to extract such relationship.
 
 :::image type="content" source="media/register-scan-azure-databricks/lineage.png" alt-text="Screenshot that shows Azure Databricks lineage example." border="true":::
 

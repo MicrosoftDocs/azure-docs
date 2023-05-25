@@ -220,4 +220,4 @@ For more information about SSO, see:
 
 - [MSAL.js prompt behavior](msal-js-prompt-behavior.md)
 - [Optional token claims](active-directory-optional-claims.md)
-- [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
+- [Configurable token lifetimes](configurable-token-lifetimes.md)

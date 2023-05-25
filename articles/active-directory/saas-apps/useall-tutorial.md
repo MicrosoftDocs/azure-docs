@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Useall | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Useall'
 description: Learn how to configure single sign-on between Azure Active Directory and Useall.
 services: active-directory
 author: jeevansd

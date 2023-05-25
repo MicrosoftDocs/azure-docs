@@ -1,19 +1,19 @@
 ---
-title: Create and manage registries (preview)
+title: Create and manage registries
 titleSuffix: Azure Machine Learning
-description: Learn how create registries with the CLI, Azure portal and AzureML Studio 
+description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: mabables
-author: ManojBableshwar
+ms.author: kritifaujdar
+author: fkriti
 ms.reviewer: larryfr
-ms.date: 09/21/2022
+ms.date: 05/23/2023
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, build-2023
 ---
 
-# Manage Azure Machine Learning registries (preview)
+# Manage Azure Machine Learning registries
 
 Azure Machine Learning entities can be grouped into two broad categories:
 
@@ -22,13 +22,15 @@ Azure Machine Learning entities can be grouped into two broad categories:
 
 Assets lend themselves to being stored in a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
-AzureML registries (preview) enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+Azure Machine Learning registries enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry provisions Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
 ## Prerequisites
 
 [!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]
+
+[!INCLUDE [CLI v2 update](./includes/new-feature-cli.md)]
 
 ## Prepare to create registry
 
@@ -38,7 +40,7 @@ You need to decide the following information carefully before proceeding to crea
 
 Consider the following factors before picking a name.
 * Registries are meant to facilitate sharing of ML assets across teams within your organization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or organization. 
-* Registry unique with your organization (Azure Active Directory tenant). It's recommended to prefix your team or organization name and avoid generic names. 
+* Registry name is unique with your organization (Azure Active Directory tenant). It's recommended to prefix your team or organization name and avoid generic names. 
 * Registry names can't be changed once created because they're used in IDs of models, environments and components that are referenced in code. 
   * Length can be 2-32 characters. 
   * Alphanumerics, underscore, hyphen are allowed. No other special characters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  
@@ -64,8 +66,8 @@ Create the YAML definition and name it `registry.yml`.
 
 ```YAML
 name: DemoRegistry1
-description: Basic registry with one primary region and to additional regions
 tags:
+  description: Basic registry with one primary region and to additional regions
   foo: bar
 location: eastus
 replication_locations:
@@ -74,6 +76,7 @@ replication_locations:
   - location: westus
 ```
 
+For more information on the structure of the YAML file, see the [registry YAML reference](reference-yaml-registry.md) article.
 
 > [!TIP]
 > You typically see display names of Azure regions such as 'East US' in the Azure Portal but the registry creation YAML needs names of regions without spaces and lower case letters. Use `az account list-locations -o table` to find the mapping of region display names to the name of the region that can be specified in YAML.
@@ -82,17 +85,17 @@ Run the registry create command.
 
 `az ml registry create --file registry.yml`
 
-# [AzureML studio](#tab/studio)
+# [Azure Machine Learning studio](#tab/studio)
 
-You can create registries in AzureML studio using the following steps:
+You can create registries in Azure Machine Learning studio using the following steps:
 
-1. In the [AzureML studio](https://ml.azure.com), select the __Registries__, and then __Manage registries__. Select __+ Create registry__.
+1. In the [Azure Machine Learning studio](https://ml.azure.com), select the __Registries__, and then __Manage registries__. Select __+ Create registry__.
 
     > [!TIP]
     > If you are in a workspace, navigate to the global UI by clicking your organization or tenant name in the navigation pane to find the __Registries__ entry.  You can also go directly there by navigating to [https://ml.azure.com/registries](https://ml.azure.com/registries).
 
     :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-button.png" lightbox="./media/how-to-manage-registries/studio-create-registry-button.png" alt-text="Screenshot of the create registry screen.":::
-	
+    
 1. Enter the registry name, select the subscription and resource group and then select __Next__.
 
     :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-basics.png" alt-text="Screenshot of the registry creation basics tab.":::
@@ -109,14 +112,85 @@ You can create registries in AzureML studio using the following steps:
 1. From the [Azure portal](https://portal.azure.com), navigate to the Azure Machine Learning service. You can get there by searching for __Azure Machine Learning__ in the search bar at the top of the page or going to __All Services__ looking for __Azure Machine Learning__ under the __AI + machine learning__ category. 
 
 1. Select __Create__, and then select __Azure Machine Learning registry__. Enter the registry name, select the subscription, resource group and primary region, then select __Next__.
-	
+    
 1. Select the additional regions the registry must support, then select __Next__ until you arrive at the __Review + Create__ tab.
 
     :::image type="content" source="./media/how-to-manage-registries/create-registry-review.png" alt-text="Screenshot of the review + create tab.":::
 
 1. Review the information and select __Create__.
 
+
+
+# [REST API](#tab/rest)
+
+> [!TIP]
+> You need the **curl** utility to complete this step. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`.  
+
+To authenticate REST API calls, you need an authentication token for your Azure user account. You can use the following command to retrieve a token:
+
+```azurecli
+az account get-access-token 
+```
+
+The response should provide an access token good for one hour. Make note of the token, as you use it to authenticate all administrative requests. The following JSON is a sample response:
+
+> [!TIP]
+> The value of the `access_token` field is the token.
+
+```json
+{
+    "access_token": "YOUR-ACCESS-TOKEN",
+    "expiresOn": "<expiration-time>",
+    "subscription": "<subscription-id>",
+    "tenant": "your-tenant-id",
+    "tokenType": "Bearer"
+}
+```
+
+To create a registry, use the following command. You can edit the JSON to change the inputs as needed. Replace the `<YOUR-ACCESS-TOKEN>` value with the access token retrieved previously:
+ 
+```bash
+curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2022-12-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
+{
+    "properties":
+    {
+        "regionDetails": 
+        [
+            {
+                "location": "eastus",
+                "storageAccountDetails":
+                [
+                    {
+                        "systemCreatedStorageAccount": 
+                        {
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    }
+                ],
+                "acrDetails": 
+                [
+                    {
+                        "systemCreatedAcrAccount":
+                        {
+                            "acrAccountSku": "Premium"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "identity": {
+        "type": "SystemAssigned"
+        },
+    "location": "eastus"
+}
+'
+```
+
+You should receive a `202 Accepted` response.
+
 ---
+
 
 ## Specify storage account type and SKU (optional)
 
@@ -130,12 +204,12 @@ Next, decide if you want to use an [Azure Blob storage](../storage/blobs/storage
 > [!NOTE]
 >The `hns` portion of `storage_account_hns` refers to the [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) capability of Azure Data Lake Storage Gen2 accounts.
 
-Below is an example YAML that demonstrates this advanced storage configuration:
+The following example YAML file demonstrates this advanced storage configuration:
 
 ```YAML
 name: DemoRegistry2
-description: Registry with additional configuration for storage accounts
 tags:
+  description: Registry with additional configuration for storage accounts
   foo: bar
 location: eastus
 replication_locations:
@@ -187,8 +261,8 @@ Permission | Description
 Microsoft.MachineLearningServices/registries/write| Allows the user to create or update registries
 Microsoft.MachineLearningServices/registries/delete | Allows the user to delete registries
 
----
 
 ## Next steps
 
-* [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Learn how to share models, components and environments across workspaces with registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
+* [Network isolation with registries](./how-to-registry-network-isolation.md)

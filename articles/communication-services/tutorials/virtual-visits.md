@@ -9,12 +9,13 @@ ms.author: chpalm
 ms.date: 05/24/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ms.custom: event-tier1-build-2022
 ---
 
 # Virtual appointments
 
-This tutorial describes concepts for virtual appointment applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you will understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further.
+This tutorial describes concepts for virtual appointment applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you'll understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further.
 
 Virtual appointments are a communication pattern where a **consumer** and a **business** assemble for a scheduled appointment. The **organizational boundary** between consumer and business, and **scheduled** nature of the interaction, are key attributes of most virtual appointments. Many industries operate virtual appointments: meetings with a healthcare provider, a loan officer, or a product support technician.
 
@@ -39,7 +40,7 @@ These three **implementation options** are columns in the table below, while eac
 | *Provider* | Managing upcoming appointments | Outlook & Teams | Outlook & Teams | Custom |
 | *Provider* | Join the appointment | Teams | Teams | ACS Calling & Chat |
 | *Consumer* | Schedule an appointment | Bookings | Bookings | ACS Rooms |
-| *Consumer*| Be reminded of a appointment | Bookings | Bookings | ACS SMS |
+| *Consumer*| Be reminded of an appointment | Bookings | Bookings | ACS SMS |
 | *Consumer*| Join the appointment | Teams or virtual appointments | ACS Calling & Chat | ACS Calling & Chat |
 
 There are other ways to customize and combine Microsoft tools to deliver a virtual appointments experience:
@@ -51,13 +52,13 @@ The rest of this tutorial focuses on Microsoft 365 and Azure hybrid solutions. T
 
 ![High-level architecture of a hybrid virtual appointments solution](./media/virtual-visits/virtual-visit-arch.svg)
 1. Consumer schedules the appointment using Microsoft 365 Bookings.
-2. Consumer gets a appointment reminder through SMS and Email.
+2. Consumer gets an appointment reminder through SMS and Email.
 3. Provider joins the appointment using Microsoft Teams.
 4. Consumer uses a link from the Bookings reminders to launch the Contoso consumer app and join the underlying Teams meeting.
-5. The users communicate with each other using voice, video, and text chat in a meeting.
+5. The users communicate with each other using voice, video, and text chat in a meeting. Specifically, Teams chat interoperability enables Teams user to send inline images directly to ACS users seamlessly. 
 
 ## Building a virtual appointment sample
-In this section we’re going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual appointments application to an Azure subscription. This application will be a desktop and mobile friendly browser experience, with code that you can use to explore and productionize.
+In this section, we’re going to use a Sample Builder tool to deploy a Microsoft 365 + Azure hybrid virtual appointments application to an Azure subscription. This application is a desktop and mobile friendly browser experience, with code that you can use to explore and for production.
 
 ### Step 1 - Configure bookings
 
@@ -65,7 +66,7 @@ This sample uses takes advantage of the Microsoft 365 Bookings app to power the 
 
 ![Screenshot of Booking configuration experience.](./media/virtual-visits/bookings-url.png)
 
-Make sure online meeting is enable for the calendar by going to https://outlook.office.com/bookings/services.
+Make sure online meeting is enabled in the calendar by going to https://outlook.office.com/bookings/services.
 
 ![Screenshot of Booking services configuration experience.](./media/virtual-visits/bookings-services.png)
 
@@ -89,7 +90,7 @@ The deployment launches an Azure Resource Manager (ARM) template that deploys th
 
 ![Screenshot of Sample builder arm template.](./media/virtual-visits/sample-builder-arm.png)
 
-After walking through the ARM template you can **Go to resource group**.
+After walking through the ARM template, you can **Go to resource group**.
 
 ![Screenshot of a completed Azure Resource Manager Template.](./media/virtual-visits/azure-complete-deployment.png)
 
@@ -110,7 +111,7 @@ Enter the application url followed by "/visit" in the "Deployed App URL" field i
 The Sample Builder gives you the basics of a Microsoft 365 and Azure virtual appointment: consumer scheduling via Bookings, consumer joins via custom app, and the provider joins via Teams. However, there are several things to consider as you take this scenario to production.
 
 ### Launching patterns
-Consumers want to jump directly to the virtual appointment from the scheduling reminders they receive from Bookings. In Bookings, you can provide a URL prefix that will be used in reminders. If your prefix is `https://<YOUR URL>/VISIT`, Bookings will point users to `https://<YOUR URL>/VISIT?MEETINGURL=<MEETING URL>.`
+Consumers want to jump directly to the virtual appointment from the scheduling reminders they receive from Bookings. In Bookings, you can provide a URL prefix that is used in reminders. If your prefix is `https://<YOUR URL>/VISIT`, Bookings point users to `https://<YOUR URL>/VISIT?MEETINGURL=<MEETING URL>.`
 
 ### Integrate into your existing app
 The app service generated by the Sample Builder is a stand-alone artifact, designed for desktop and mobile browsers. However you may have a website or mobile application already and need to migrate these experiences to that existing codebase. The code generated by the Sample Builder should help, but you can also use:
@@ -118,4 +119,4 @@ The app service generated by the Sample Builder is a stand-alone artifact, desig
 -  **Core SDKs –** The underlying [Call](../quickstarts/voice-video-calling/get-started-teams-interop.md) and [Chat](../quickstarts/chat/meeting-interop.md) services can be accessed and you can build any kind of user experience.
 
 ### Identity & security
-The Sample Builder’s consumer experience does not authenticate the end user, but provides [Azure Communication Services user access tokens](../quickstarts/access-tokens.md) to any random visitor. That isn’t realistic for most scenarios, and you will want to implement an authentication scheme.
+The Sample Builder’s consumer experience doesn't authenticate the end user, but provides [Azure Communication Services user access tokens](../quickstarts/identity/access-tokens.md) to any random visitor. That isn’t realistic for most scenarios, and you want to implement an authentication scheme.

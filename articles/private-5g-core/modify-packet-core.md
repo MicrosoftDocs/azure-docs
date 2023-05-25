@@ -2,17 +2,17 @@
 title: Modify a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 03/31/2023
 ms.custom: template-how-to
 ---
 
-# Modify the packet core instance in a site
+# Modify a packet core instance
 
-Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge device, and access network configuration. You'll also learn how to add and modify the data networks attached to the packet core instance.
+Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core's custom location, connected Azure Stack Edge (ASE) device, and access network configuration. You'll also learn how to add and modify the data networks attached to the packet core instance.
 
 If you want to modify a packet core instance's local access configuration, follow [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
@@ -28,7 +28,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the new values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that triggers a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools and you're making a change that requires a packet core reinstall, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Plan a maintenance window
 
@@ -38,13 +38,18 @@ The following modifications will trigger a packet core reinstall, during which y
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
 
-If you're making any of these changes, we recommend modifying your packet core instance during a maintenance window to minimize the impact on your service. You should allow up to two hours for the reinstall process to complete.
+Additionally, the following changes don't trigger a packet core reinstall, but will require you to manually perform a reinstall to allow the new configuration to take effect:
 
-If you're making a change that doesn't trigger a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
+- Modifying the access network configuration.
+- Modifying an attached data network's configuration.
+
+If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. You should allow up to two hours for the process to complete.
+
+If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you won't need a packet core reinstall after making your changes. In this case, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 ## Back up deployment information
 
-The following list contains the data that will be lost over a packet core reinstall. If you're making a change that triggers a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
+The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     - If you use Azure AD, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
@@ -58,21 +63,22 @@ The following list contains the data that will be lost over a packet core reinst
 In this step, you'll navigate to the **Packet Core Control Plane** resource representing your packet core instance.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Search for and select the **Mobile Network** resource representing the private mobile network.
+1. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-3. In the **Resource** menu, select **Sites**.
-4. Select the site containing the packet core instance you want to modify.
-5. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
+1. In the **Resource** menu, select **Sites**.
+1. Select the site containing the packet core instance you want to modify.
+1. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-6. Select **Modify packet core**.
+1. Select **Modify packet core**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
 
-7. Choose the next step:
+1. If you're making a change that requires a packet core reinstall, enable the **Enable changes to configuration that require a reinstall to take effect** toggle.
+1. Choose the next step:
    - If you want to make changes to the packet core configuration or access network values, go to [Modify the packet core configuration](#modify-the-packet-core-configuration).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
@@ -82,35 +88,38 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 To modify the packet core and/or access network configuration:
 
 1. If you haven't already, [select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
-2. In the **Configuration** tab, fill out the fields with any new values.
+1. In the **Configuration** tab, fill out the fields with any new values.
   
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Configuration tab.":::
 
-3. Choose the next step:
+1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
 
 ## Attach a data network
 
+> [!IMPORTANT]
+> You must configure the ASE device with interfaces corresponding to the data networks before you can attach them to the packet core. See [Changing ASE configuration after deployment](commission-cluster.md#changing-ase-configuration-after-deployment).
+
 To configure a new or existing data network and attach it to your packet core instance:
 
 1. If you haven't already, [select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
-2. Select the **Data networks** tab.
-3. Select **Attach data network**.
+1. Select the **Data networks** tab.
+1. Select **Attach data network**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-attach.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data networks tab. The option to attach a data network is highlighted.":::
 
-4. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
+1. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
 
-5. Select **Attach**.
-6. Repeat the steps above for each additional data network you want to configure.
-7. Choose the next step:
+1. Select **Attach**.
+1. Repeat the steps above for each additional data network you want to configure.
+1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
 
@@ -119,28 +128,28 @@ To configure a new or existing data network and attach it to your packet core in
 To make changes to a data network attached to your packet core instance:
 
 1. If you haven't already, [select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
-2. Select the **Data networks** tab.
-3. Select the data network you want to modify.
+1. Select the **Data networks** tab.
+1. Select the data network you want to modify.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-modify.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data networks tab. A data network is highlighted.":::
 
-4. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Modify attached data network** window.
+1. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Modify attached data network** window.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-modify-data-network.png" alt-text="Screenshot of the Azure portal showing the Modify attached data network screen.":::
 
-5. Select **Modify**. You should see your changes under the **Data networks** tab.
-6. Go to [Submit and verify changes](#submit-and-verify-changes).
+1. Select **Modify**. You should see your changes under the **Data networks** tab.
+1. Go to [Submit and verify changes](#submit-and-verify-changes).
 
 ## Submit and verify changes
 
 1. Select **Modify**.
-2. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display the following confirmation screen when this deployment is complete.
+1. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display the following confirmation screen when this deployment is complete.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
 
-3. Navigate to the **Packet Core Control Plane** resource as described in [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
+1. Navigate to the **Packet Core Control Plane** resource as described in [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
-    - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Custom ARC location** and **Access network** contain the updated information.
+    - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Azure Arc Custom Location** and **Access network** contain the updated information.
     - If you made changes to the attached data networks, check that the fields under **Data networks** contain the updated information.
 
 ## Restore backed up deployment information
@@ -157,7 +166,5 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 
 ## Next steps
 
-Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after you modify it.
-
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
-- [Packet core dashboards](packet-core-dashboards.md)
+- If you made a configuration change that requires you to manually perform packet core reinstall, follow [Reinstall the packet core instance in a site](reinstall-packet-core.md).
+- Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify it.

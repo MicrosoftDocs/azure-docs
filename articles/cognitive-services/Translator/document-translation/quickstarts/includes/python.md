@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 02/10/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -18,20 +18,16 @@ recommendations: false
 1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
 
     > [!TIP]
-    >
     > If you're new to Python, try the [Introduction to Python](/training/paths/beginner-python/) Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 
     ```console
-       pip install requests uuid
+    pip install requests uuid
     ```
 
-    > [!NOTE]
-    > We will also use a Python built-in package called json. It's used to work with JSON data.
-
-  > [!div class="nextstepaction"]
-  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+> [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
 
 ## Translate all documents in a storage container
 
@@ -47,8 +43,8 @@ recommendations: false
 
 ## Code sample
 
-  > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```python
 import requests
@@ -93,27 +89,25 @@ print(f'response status code: {response.status_code}\nresponse status: {response
 
 for key, value in response_headers.items():
     print(key, ":", value)
-
 ```
 
 ## Run your Python application
 
-* Once you've added a code sample to your application, build and run your program:
+Once you've added a code sample to your application, build and run your program:
 
   1. Navigate to your **document-translation** directory.
 
-  1. Type the following command in your console:
+  1. Enter and run the following command in your console:
 
       ```console
       python document-translation.py
+      ```
 
-     ```
+Upon successful completion: 
 
-* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
-
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents are listed in your target container.
-
-  > [!div class="nextstepaction"]
-  > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+> [!div class="nextstepaction"]
+> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

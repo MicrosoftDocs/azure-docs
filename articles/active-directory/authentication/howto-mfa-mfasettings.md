@@ -1,12 +1,12 @@
 ---
-title: Configure Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Configure Azure AD Multi-Factor Authentication
 description: Learn how to configure settings for Azure AD Multi-Factor Authentication in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 05/17/2023
 
 ms.author: justinha
 author: justinha
@@ -26,7 +26,7 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 | ------- | ----------- |
 | [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
-| [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
+| [Report suspicious activity](#report-suspicious-activity) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure AD Multi-Factor Authentication environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
@@ -76,33 +76,38 @@ To unblock a user, complete the following steps:
 1. Enter a comment in the **Reason for unblocking** box.
 1. Select **OK** to unblock the user.
 
-## Fraud alert
+## Report suspicious activity
 
-The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using the Microsoft Authenticator app or through their phone.
+A preview of **Report Suspicious Activity**, the updated MFA **Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
 
-The following fraud alert configuration options are available:
+Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
-* **Automatically block users who report fraud**. If a user reports fraud, the Azure AD Multi-Factor Authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks the account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
-* **Code to report fraud during initial greeting**. When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it. If automatic blocking is enabled, after the user presses **0#** to report fraud, they need to press **1** to confirm the account blocking.
+To enable **Report Suspicious Activity** from the Authentication Methods Settings:   
 
-   > [!NOTE]
-   > The default voice greetings from Microsoft instruct users to press **0#** to submit a fraud alert. If you want to use a code other than **0**, record and upload your own custom voice greetings with appropriate instructions for your users.
+1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
+1. Set **Report Suspicious Activity** to **Enabled**. 
+1. Select **All users** or a specific group. 
 
-To enable and configure fraud alerts, complete the following steps:
+### View suspicious activity events 
 
-1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Fraud alert**.
-1. Set **Allow users to submit fraud alerts** to **On**.
-1. Configure the **Automatically block users who report fraud** or **Code to report fraud during initial greeting** setting as needed.
-1. Select **Save**.
+When a user reports a MFA prompt as suspicious, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user), in the Audit logs, and in the Risk detections report.   
 
-### View fraud reports
+- To view the risk detections report, select **Azure Active Directory** > **Security** > **Identity Protection** > **Risk detection**.  The risk event is part of the standard **Risk Detections** report, and will appear as Detection Type **User Reported Suspicious Activity**, Risk level **High**, Source **End user reported**. 
 
-When a user reports fraud, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user) and in the Audit logs.
+- To view fraud reports in the Sign-ins report, select **Azure Active Directory** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard **Azure AD Sign-ins** report and appears in the Result Detail as MFA denied, Fraud Code Entered. 
 
-- To view fraud reports in the Sign-ins report, select **Azure Active Directory** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard Azure AD Sign-ins report and appears in the **Result Detail** as **MFA denied, Fraud Code Entered**.
+- To view fraud reports in the Audit logs, select **Azure Active Directory** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
 
-- To view fraud reports in the Audit logs, select **Azure Active Directory** > **Audit logs**. The fraud report appears under Activity type **Fraud reported - user is blocked for MFA** or **Fraud reported - no action taken** based on the tenant-level settings for fraud report.
- 
+### Manage suspicious activity events 
+
+Once a user has reported a prompt as suspicious, the risk should be investigated and remediated with [Identity Protection](../identity-protection/howto-identity-protection-remediate-unblock.md). 
+
+### Report suspicious activity and fraud alert 
+
+**Report Suspicious Activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report Suspicious Activity** with a targeted test group. 
+
+If **Fraud Alert** is enabled with Automatic Blocking, and **Report Suspicious Activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
+
 ## Notifications
 
 You can configure Azure AD to send email notifications when users report fraud alerts. These notifications are typically sent to identity administrators, because the user's account credentials are likely compromised. The following example shows what a fraud alert notification email looks like:
@@ -154,7 +159,7 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Users with spam filters should exclude this number.
 
 * *+1 (855) 330-8653*
 
@@ -230,7 +235,7 @@ To use your own custom messages, complete the following steps:
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
+Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure portal.
 
 You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
@@ -361,6 +366,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 >
 > The **remember multi-factor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
+> The **remember multi-factor authentication** feature isn't compatible with the Sign-in frequency Conditional Access control. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#configuring-authentication-session-controls).
 
 #### Enable remember multi-factor authentication
 

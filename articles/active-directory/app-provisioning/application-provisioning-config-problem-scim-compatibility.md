@@ -1,5 +1,5 @@
 ---
-title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance - Azure AD
+title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
@@ -269,7 +269,7 @@ Following the steps below will delete your existing customappsso job and create 
 
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, reapply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you copied, and entering the JSON output from step #7 as the request body.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `PUT https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
 
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.

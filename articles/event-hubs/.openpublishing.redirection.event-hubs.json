@@ -1,6 +1,12 @@
 {
   "redirections": [
   {
+    "source_path": "event-hubs-tutorial-visualize-anomalies.md",
+    "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+    "redirect_document_id": false
+  },
+  
+  {
     "source_path": "event-hubs-api-overview.md",
     "redirect_url": "/azure/event-hubs/event-hubs-samples",
     "redirect_document_id": false

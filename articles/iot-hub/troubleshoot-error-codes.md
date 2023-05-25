@@ -55,7 +55,7 @@ For device developers, if the volume of errors is a concern, switch to the C SDK
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 * The SAS or other security token you use isn't expired.
-* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Set up X.509 security in your Azure IoT hub](tutorial-x509-scripts.md).
+* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](tutorial-x509-test-certs.md).
 * For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 * The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 * The authorization rule used has the permission for the operation requested.
@@ -128,7 +128,7 @@ This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-hub-mqtt-support.md#default-keep-alive-timeout), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](../iot/iot-mqtt-connect-to-iot-hub.md#default-keep-alive-timeout), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
 * The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, this issue is caused by bugs in older versions of the Azure IoT SDK.
 * The device side application crashed.
 
@@ -141,7 +141,7 @@ To resolve this error:
 * Use the latest versions of the [IoT SDKs](iot-hub-devguide-sdks.md).
 * See the guidance for [IoT Hub internal server errors](#500xxx-internal-errors).
 
-We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md)
+We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-develop/concepts-manage-device-reconnections.md)
 
 ## 409001 DeviceAlreadyExists
 
@@ -199,7 +199,7 @@ You may see that your request to IoT Hub fails with an error that begins with 50
 
 There can be a number of causes for a 500xxx error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
 
-To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](../iot-develop/concepts-manage-device-reconnections.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-iot-hub-health-with-azure-resource-health) and [Azure Status](https://azure.status.microsoft/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
 

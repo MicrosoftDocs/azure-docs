@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure AD certificate-based authentication - Azure Active Directory 
+title: Overview of Azure AD certificate-based authentication 
 description: Learn about Azure AD certificate-based authentication without federation
 
 services: active-directory
@@ -66,7 +66,7 @@ The following scenarios are supported:
 
 The following scenarios aren't supported:
 
-- Certificate Authority hints aren't supported, so the list of certificates that appears for users in the certificate picket UI isn't scoped.
+- Certificate Authority hints aren't supported, so the list of certificates that appears for users in the certificate picker UI isn't scoped.
 - Only one CRL Distribution Point (CDP) for a trusted CA is supported.
 - The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
 - Configuring other certificate-to-user account bindings, such as using the **Subject**, **Subject + Issuer** or **Issuer + Serial Number**, aren’t available in this release.

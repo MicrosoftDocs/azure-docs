@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 02/08/2023
+ms.date: 04/04/2023
 ms.author: banders
 ---
 
@@ -36,13 +36,9 @@ For more information about how savings plan scope works, see [Saving plan scopes
 
 ## Determine your savings plan commitment
 
-Pay-as-you-go usage from the following compute services is [eligible for savings plan benefits](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#how-it-works).
+Usage from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#how-it-works) is eligible for savings plan benefits.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
-- [Azure Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
-- [Azure Container Instances](https://azure.microsoft.com/pricing/details/container-instances/)
-- [Azure Functions premium plan](https://azure.microsoft.com/pricing/details/functions/)
-- [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/)
+In addition, virtual machines used with the [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service/) and [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/products/virtual-desktop/) are eligible for the savings plan.
 
 It's important to consider your hourly spend when you determine your hourly commitment. Azure provides commitment recommendations based on usage from your last 30 days. The recommendations may be found in:
 
@@ -91,7 +87,7 @@ Savings plan purchases can't be canceled or refunded.
 
 ## Charges covered by savings plan
 
-- Virtual Machines - A savings plan only covers the virtual machine compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure, A, G, and GS series. Spot VMs aren't covered by savings plans.
+- Virtual Machines - A savings plan only covers the virtual machine compute costs. It doesn't cover other software, Windows, networking, or storage charges. Virtual machines don't include BareMetal Infrastructure or the Av1 series. Spot VMs aren't covered by savings plans.
 - Azure Dedicated Hosts - Only the compute costs are included with the dedicated hosts.
 - Container Instances
 - Azure Premium Functions

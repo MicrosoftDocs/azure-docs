@@ -23,11 +23,20 @@ Rules and Display definitions are used to define a credential. You can read more
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `attestations`| [idTokenAttestation](#idtokenattestation-type) and/or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) |
+| `attestations`| [idTokenAttestation](#idtokenattestation-type) and/or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) | defines the attestation flow(s) to be used for gathering claims to issue in the verifiable credential. |
 | `validityInterval` | number | represents the lifespan of the credential in seconds |
 | `vc`| [vcType](#vctype-type) | verifiable credential types for this contract |
 
-
+The attestation type example in JSON. Notice that `selfIssued` is a single instance while the others are collections. For examples of how to use the attestation type, please the [Sample JSON rules definitions](how-to-use-quickstart-multiple.md#sample-json-rules-definitions) in the How-to guides.
+ 
+```json
+"attestations": {
+  "idTokens": [],
+  "idTokenHints": [],
+  "presentations": [],
+  "selfIssued": {}
+}
+```
 ### idTokenAttestation type
 
 When you sign in the user from within Authenticator, you can use the returned ID token from the OpenID Connect compatible provider as input.
@@ -145,7 +154,7 @@ When you want the user to enter information themselves. This type is also called
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`url`| string (url) | url of the logo (optional if image is specified) |
+|`uri`| string (url) | url of the logo (optional if image is specified) |
 |`description` | string | the description of the logo |
 |`image` | string | the base-64 encoded image (optional if url is specified) |
 
@@ -162,7 +171,7 @@ When you want the user to enter information themselves. This type is also called
 | Property | Type | Description |
 | -------- | -------- | -------- |
 |`label`| string | the label of the claim in display |
-|`claim`| string | the name of the claim to which the label applies |
+|`claim`| string | the name of the claim to which the label applies. For the JWT-VC format, the value needs to have the `vc.credentialSubject.` prefix. |
 |`type`| string | the type of the claim |
 |`description` | string (optional) | the description of the claim |
 

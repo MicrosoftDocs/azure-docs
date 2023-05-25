@@ -10,7 +10,7 @@ ms.reviewer: ssalgado
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/30/2022
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
 > * [v1](concept-train-machine-learning-model-v1.md)
-> * [v2 (current)](../concept-train-machine-learning-model.md)
+> * [v2 (current)](../concept-train-machine-learning-model.md?view=azureml-api-2&preserve-view=true)
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
 
@@ -27,7 +27,7 @@ Azure Machine Learning provides several ways to train your models, from code-fir
 
     | Training method | Description |
     | ----- | ----- |
-    | [Run configuration](#run-configuration) | A **typical way to train models** is to use a training script and job configuration. The job configuration provides the information needed to configure the training environment used to train your model. You can specify your training script, compute target, and Azure ML environment in your job configuration and run a training job. |
+    | [Run configuration](#run-configuration) | A **typical way to train models** is to use a training script and job configuration. The job configuration provides the information needed to configure the training environment used to train your model. You can specify your training script, compute target, and Azure Machine Learning environment in your job configuration and run a training job. |
     | [Automated machine learning](#automated-machine-learning) | Automated machine learning allows you to **train models without extensive data science or programming knowledge**. For people with a data science and programming background, it provides a way to save time and resources by automating algorithm selection and hyperparameter tuning. You don't have to worry about defining a job configuration when using automated machine learning. |
     | [Machine learning pipeline](#machine-learning-pipeline) | Pipelines are not a different training method, but a **way of defining a workflow using modular, reusable steps** that can include training as part of the workflow. Machine learning pipelines support using automated machine learning and run configuration to train models. Since pipelines are not focused specifically on training, the reasons for using a pipeline are more varied than the other training methods. Generally, you might use a pipeline when:<br>* You want to **schedule unattended processes** such as long running training jobs or data preparation.<br>* Use **multiple steps** that are coordinated across heterogeneous compute resources and storage locations.<br>* Use the pipeline as a **reusable template** for specific scenarios, such as retraining or batch scoring.<br>* **Track and version data sources, inputs, and outputs** for your workflow.<br>* Your workflow is **implemented by different teams that work on specific steps independently**. Steps can then be joined together in a pipeline to implement the workflow. |
 

@@ -11,7 +11,7 @@ ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.devlang: powershell, azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Remediate anonymous public read access to blob data (classic deployments)

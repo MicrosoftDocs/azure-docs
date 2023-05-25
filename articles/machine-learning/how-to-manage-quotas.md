@@ -8,7 +8,7 @@ ms.subservice: core
 author: SimranArora904
 ms.author: siarora
 ms.reviewer: larryfr
-ms.date: 11/28/2022
+ms.date: 04/28/2023
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -40,7 +40,7 @@ Along with managing quotas, you can learn how to [plan and manage costs for Azur
 In this section, you learn about the default and maximum quota limits for the following resources:
 
 + Azure Machine Learning assets
-    + Azure Machine Learning compute
+    + Azure Machine Learning computes
     + Azure Machine Learning managed online endpoints
     + Azure Machine Learning pipelines
 + Virtual machines
@@ -79,7 +79,7 @@ Available resources:
 > [!TIP]
 > To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](../virtual-machines/sizes.md). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
 
-The following table shows more limits in the platform. Reach out to the AzureML product team through a **technical** support ticket to request an exception.
+The following table shows more limits in the platform. Reach out to the Azure Machine Learning product team through a **technical** support ticket to request an exception.
 
 | **Resource or Action** | **Maximum limit** |
 | --- | --- |
@@ -99,25 +99,25 @@ The following table shows more limits in the platform. Reach out to the AzureML 
 
 ### Azure Machine Learning managed online endpoints
 
-Azure Machine Learning managed online endpoints have limits described in the following table. 
+Azure Machine Learning managed online endpoints have limits described in the following table. These are regional limits, meaning that you can use up to these limits per each region you are using.
 
-| **Resource** | **Limit** |
-| --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
-| Number of endpoints per subscription | 50 |
-| Number of deployments per subscription | 200 |
-| Number of deployments per endpoint | 20 |
-| Number of instances per deployment | 20 <sup>2</sup> |
-| Max request time-out at endpoint level  | 90 seconds |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> |
+| **Resource** | **Limit** | **Allows exception** |
+| --- | --- | --- |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
+| Number of endpoints per subscription | 50 | Yes |
+| Number of deployments per subscription | 200 | Yes |
+| Number of deployments per endpoint | 20 | Yes |
+| Number of instances per deployment | 20 <sup>2</sup> | Yes |
+| Max request time-out at endpoint level  | 90 seconds | - |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | Yes |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you'll receive an error.
+<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
 
 <sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
@@ -125,6 +125,20 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases).
 
+### Azure Machine Learning kubernetes online endpoints
+
+Azure Machine Learning kubernetes online endpoints have limits described in the following table. 
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Endpoint name| Same as [managed online endpoint](#azure-machine-learning-managed-online-endpoints) |
+| Deployment name| Same as [managed online endpoint](#azure-machine-learning-managed-online-endpoints)|
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
+| Number of deployments per endpoint | 20 |
+| Max request time-out at endpoint level  | 300 seconds |
+
+The sum of kubernetes online endpoints and managed online endpoints under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription can't exceed 200.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -135,9 +149,12 @@ To request an exception from the Azure Machine Learning product team, use the st
 | Workspaces per resource group | 800 |
 
 ### Azure Machine Learning integration with Synapse
-Synapse spark clusters have a default limit of 12-2000, depending on your subscription offer type. This limit can be increased by submitting a support ticket and requesting for quota increase under the "Machine Learning Service: Spark vCore Quota" category.
 
-:::image type="content" source="./media/how-to-manage-quotas/spark-vcore-quota-increase.png" alt-text="Screenshot of the quota increase form with the Spark vCore Quota category selected.":::
+Azure Machine Learning serverless Spark provides easy access to distributed computing capability for scaling Apache Spark jobs. This utilizes the same dedicated quota as Azure Machine Learning Compute. Quota limits can be increased by submitting a support ticket and requesting for quota increase under the "Machine Learning Service: Virtual Machine" category.
+ 
+ To view quota usage, navigate to Machine Learning studio and select the subscription name that you would like to see usage for. Select "Quota" in the left panel.
+
+:::image type="content" source="media/how-to-manage-quotas/azure-machine-learning-quota.png" lightbox="media/how-to-manage-quotas/azure-machine-learning-quota.png" alt-text="Screenshot of the Azure Machine Learning quotas.":::
 
 ### Virtual machines
 Each Azure subscription has a limit on the number of virtual machines across all services. Virtual machine cores have a regional total limit and a regional limit per size series. Both limits are separately enforced.
@@ -154,9 +171,6 @@ For more information, see [Container Instances limits](../azure-resource-manager
 
 ### Storage
 Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
-
-To increase the limit, make a request through [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
-
 
 ## Workspace-level quotas
 
@@ -179,7 +193,7 @@ You can't set a negative value or a value higher than the subscription-level quo
 
 ## View quotas in the studio
 
-1. When you create a new compute resource, by default you'll see only VM sizes that you already have quota to use.  Switch the view to **Select from all options**.  
+1. When you create a new compute resource, by default you see only VM sizes that you already have quota to use.  Switch the view to **Select from all options**.  
 
     :::image type="content" source="media/how-to-manage-quotas/select-all-options.png" alt-text="Screenshot shows select all options to see compute resources that need more quota":::
 
@@ -219,11 +233,11 @@ When you're requesting a quota increase, select the service that you have in min
  
 1. Scroll to **Machine Learning Service: Virtual Machine Quota**.
  
-    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details.":::
 
-2. Under **Additonal Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
+2. Under **Additional Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
  
-    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details.":::
 
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).

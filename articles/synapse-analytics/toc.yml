@@ -123,6 +123,8 @@ items:
           href: ./security/synapse-workspace-ip-firewall.md
         - name: Connectivity settings
           href: ./security/connectivity-settings.md
+        - name: Gateway IP addresses
+          href: ./security/gateway-ip-addresses.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayName: vnet
@@ -290,6 +292,12 @@ items:
         displayName: sql pool
     - name: Workload management
       items: 
+      - name: Scale compute using the Azure portal
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-portal.md
+      - name: Scale compute using PowerShell
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-powershell.md
+      - name: Scale compute using T-SQL
+        href: ./sql-data-warehouse/quickstart-scale-compute-tsql.md?context=/azure/synapse-analytics/context/context 
       - name: Create workload classifier
         items:
         - name: Portal
@@ -714,6 +722,8 @@ items:
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Optimize Apache Spark writes on Delta Lake
       href: ./spark/optimize-write-for-apache-spark.md
+    - name: Low Shuffle Merge on Delta Lake
+      href: ./spark/low-shuffle-merge-for-apache-spark.md 
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
@@ -722,13 +732,13 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (Preview)
+        - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime
+        - name: Azure Synapse Apache Spark 3.2 runtime (GA)
           href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime
+        - name: Azure Synapse Apache Spark 3.1 runtime (EOLA)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
+        - name: Azure Synapse Apache Spark 2.4 runtime (EOLA)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -756,7 +766,7 @@ items:
         href: ./spark/apache-spark-troubleshoot-library-errors.md
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
-      - name: Manage your package outside Synapse Studio portal
+      - name: Automate the library management process through Azure PowerShell cmdlets and REST APIs
         href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:
@@ -908,8 +918,6 @@ items:
           href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
         - name: Troubleshoot initial snapshot
           href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
-        - name: Troubleshoot snapshot errors due to primary key column order
-          href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md
         - name: Troubleshoot creation
           href: ./synapse-link/troubleshoot/troubleshoot-sql-link-creation.md
     - name: SQL Server 2022
@@ -1559,8 +1567,6 @@ items:
         - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-    - name: Cognitive service with SynapseML
-      href: ./cognitive-services-with-synapseml-overview.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts

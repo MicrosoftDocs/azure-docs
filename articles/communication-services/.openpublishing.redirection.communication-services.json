@@ -133,6 +133,76 @@
         "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/call-automation.md",
         "redirect_url": "/azure/communication-services/concepts/call-automation/call-automation",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/identity/quick-create-identity.md",
+        "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/identity/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/access-tokens.md",
+        "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/identity/service-principal-from-cli.md",
+        "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/identity/access-token-teams-external-users.md",
+        "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/insights.md",
+        "redirect_url": "/azure/communication-services/concepts/analytics/log-analytics",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/email/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-power-platform",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/chat/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-power-platform",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/sms/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/sms/send?pivots=programming-language-power-platform",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/call-automation/teams-interop-call-automation-quickstart.md",
+        "redirect_url": "/azure/communication-services/how-tos/call-automation/teams-interop-call-automation",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/call-logs-azure-monitor.md",
+        "redirect_url": "/azure/communication-services/concepts/analytics/logs/voice-and-video-logs",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/log-analytics.md",
+        "redirect_url": "/azure/communication-services/concepts/analytics/query-call-logs",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/recording-logs.md",
+        "redirect_url": "/azure/communication-services/concepts/analytics/logs/recording-logs",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/logging-and-diagnostics.md",
+        "redirect_url": "/azure/communication-services/concepts/analytics/enable-logging",
+        "redirect_document_id": true
       }
     ]
 }

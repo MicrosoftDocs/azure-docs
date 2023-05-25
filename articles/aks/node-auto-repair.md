@@ -1,7 +1,6 @@
 ---
 title: Automatically repairing Azure Kubernetes Service (AKS) nodes 
 description: Learn about node auto-repair functionality, and how AKS fixes broken worker nodes.
-services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
 ---
@@ -30,18 +29,15 @@ kubectl get nodes
 
 > [!Note]
 > AKS initiates repair operations with the user account **aks-remediator**.
-> Minimum required Nodes in an AKS Cluster for auto repair is 2. 
 
-If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS takes the following actions:
+If AKS identifies an unhealthy node that remains unhealthy for 5 minutes, AKS takes the following actions:
 
-1. Reboot the node.
-1. If the reboot is unsuccessful, reimage the node.
-1. If the reimage is unsuccessful, redeploy the node.
+1. Restarts the node.
+1. If the restart is unsuccessful, reimages the node.
+1. If the reimage is unsuccessful, and this is a Linux node, redeploys the node.
 
 Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful. 
-
-If AKS finds multiple unhealthy nodes during a health check, each node is repaired individually before another repair begins.
-
+As well as if you want to get the node to reimage you can always add the nodeCondition "customerMarkedAsUnhealthy": true, and remediator will reimage your node that way. 
 
 ## Node Autodrain
 [Scheduled Events][scheduled-events] can occur on the underlying virtual machines (VMs) in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node autodrain to attempt a cordon and drain of the affected node, which allows for a graceful reschedule of any affected workloads on that node. When this happens, you might notice the node to receive a taint with *"remediator.aks.microsoft.com/unschedulable"*, because of *"kubernetes.azure.com/scalesetpriority: spot"*.

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: troubleshooting, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, troubleshooting, sdkv1, event-tier1-build-2022
 ms.reviewer: lagayhar
 ms.author: scottpolly
 author: scottpolly

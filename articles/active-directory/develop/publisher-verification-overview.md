@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2022
+ms.date: 04/27/2023
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: ardhanap, brianokoyo, jesakowi
+ms.reviewer: xurobert
 ---
 
 # Publisher verification
@@ -58,7 +58,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
 - The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set.
 
-- The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant.
+- The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant. (**NOTE**__: the app's publisher domain can't be *.onmicrosoft.com to be publisher verified) 
 
 - The user who initiates verification must be authorized to make changes both to the app registration in Azure AD and to the MPN account in Partner Center.  The user who initiates the verification must have one of the required roles in both Azure AD and Partner Center.
 
@@ -66,7 +66,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
   - In Partner Center, this user must have one of the following [roles](/partner-center/permissions-overview): MPN Partner Admin, Account Admin, or Global Administrator (a shared role that's mastered in Azure AD).
   
-- The user who initiates verification must sign in by using [multifactor authentication](../authentication/howto-mfa-getstarted.md).
+- The user who initiates verification must sign in by using [Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md).
 
 - The publisher must consent to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 

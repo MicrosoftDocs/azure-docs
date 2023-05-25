@@ -77,7 +77,7 @@ Further included in same technical document(s) should be:
     - [IBM Db2 HADR](./high-availability-guide-rhel-ibm-db2-luw.md)
   - For disaster recovery across Azure regions, review the solutions offered by different DBMS vendors. Most of them support asynchronous replication or log shipping.
   - For the SAP application layer, determine whether you'll run your business regression test systems, which ideally are replicas of your production deployments, in the same Azure region or in your DR region. In the second case, you can target that business regression system as the DR target for your production deployments.
-  - Look into Azure Site Recovery as a method for replicating the SAP application layer into the Azure DR region. For more information, see a [set-up disaster recovery for a multi-tier SAP NetWeaver app deployment](/azure/site-recovery/site-recovery-sap).
+  - Look into Azure Site Recovery as a method for replicating the SAP application layer into the Azure DR region. For more information, see a [set-up disaster recovery for a multi-tier SAP NetWeaver app deployment](../../site-recovery/site-recovery-sap.md).
   - For projects required to remain in a single region for compliance reasons, consider a combined HADR configuration by using [Azure Availability Zones](./high-availability-zones.md#combined-high-availability-and-disaster-recovery-configuration).
 -  An inventory of all SAP interfaces and the connected systems (SAP and non-SAP)
 -	Design of foundation services. This design should include the following items, many of which are covered by the [landing zone accelerator for SAP](/azure/cloud-adoption-framework/scenarios/sap/):

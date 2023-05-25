@@ -4,6 +4,40 @@ items:
   topicHref: /azure/index
   items:
     - name: Reliability
+      tocHref: /azure/virtual-machines
+    - name: Reliability
+      tocHref:  /azure/batch/
+    - name: Reliability
+      tocHref: /azure/cloud-services-extended-support
+    - name: Reliability
+      tocHref: /azure/app-service/environment/
+    - name: Reliability
+      tocHref: /azure/api-management
+    - name: Reliability
+      tocHref: /azure/azure-cache-for-redis
+    - name: Reliability
+      tocHref: /azure/azure-resource-manager
+    - name: Reliability
+      tocHref: /azure/logic-apps/export-from-ise-to-standard-logic-app
+    - name: Reliability
+      tocHref: /powershell/high-performance-computing
+    - name: Reliability
+      tocHref: /azure/virtual-wan/
+    - name: Reliability
+      tocHref: /azure/storage/
+    - name: Reliability
+      tocHref: /azure/storage/common/
+    - name: Reliability
+      tocHref: /azure/virtual-network
+    - name: Reliability
+      tocHref: /azure/application-gateway/
+    - name: Reliability
+      tocHref: /azure/virtual-network/
+    - name: Reliability
+      tocHref: /azure/expressroute/
+    - name: Reliability
+      tocHref: /azure/vpn-gateway/
+    - name: Reliability
       tocHref: /azure/api-management/
       topicHref: /azure/reliability/index
     - name: Reliability

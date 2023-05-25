@@ -1,22 +1,22 @@
 ---
-title: 'How to customize a model with Azure OpenAI'
+title: 'How to customize a model with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/05/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 zone_pivot_groups: openai-fine-tuning
 keywords: 
-
 ---
 # Learn how to customize a model for your application
 
-The Azure OpenAI Service lets you tailor our models to your personal datasets using a process known as *fine-tuning*. This customization step will let you get more out of the service by providing:
+Azure OpenAI Service lets you tailor our models to your personal datasets using a process known as *fine-tuning*. This customization step will let you get more out of the service by providing:
 
 - Higher quality results than what you can get just from prompt design
 - The ability to train on more examples than can fit into a prompt

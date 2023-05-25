@@ -308,30 +308,6 @@ items:
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-- name: SAP knowledge center
-  items:
-  - name: Overview
-    href: industry-sap-overview.md
-  - name: SAP connectors
-    href: industry-sap-connectors.md
-  - name: SAP templates
-    href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) capabilities
-    items:
-    - name: Overview and architecture
-      href: sap-change-data-capture-introduction-architecture.md
-      displayName: SAP, change data capture, CDC
-    - name: Prerequisites and setup
-      href: sap-change-data-capture-prerequisites-configuration.md
-    - name: Set up a self-hosted integration runtime
-      href: sap-change-data-capture-shir-preparation.md
-    - name: Set up a linked service and source dataset
-      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-    - name: Debug issues with the SAP CDC connector
-      href: sap-change-data-capture-debug-shir-logs.md
-    - name: Manage the SAP CDC process
-      href: sap-change-data-capture-management.md
-      displayName: SAP, change data capture, CDC
 - name: How-to guides 
   items:
   - name: Create Data Factory Programmatically
@@ -362,6 +338,8 @@ items:
       href: how-to-change-data-capture-resource.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
+    - name: Manage your environment with DataOps
+      href: apply-dataops.md
     - name: Continuous integration and delivery
       items:
       - name: Overview
@@ -410,6 +388,8 @@ items:
       displayName: timeout
     - name: Azure Cognitive Search
       href: connector-azure-search.md
+    - name: Azure Cosmos DB analytical store
+      href: connector-azure-cosmos-analytical-store.md
     - name: Azure Cosmos DB for NoSQL
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB for MongoDB
@@ -441,9 +421,6 @@ items:
       displayName: upsert
     - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
-      displayName: polybase
-    - name: Azure Synapse Analytics (Artifacts)
-      href: connector-azure-synapse-analytics-artifacts.md
       displayName: polybase
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -761,6 +738,8 @@ items:
     - name: Set Variable activity
       href: control-flow-set-variable-activity.md
       displayName: variables, control flow
+    - name: Set Pipeline Return Value
+      href: tutorial-pipeline-return-value.md
     - name: Switch activity
       href: control-flow-switch-activity.md
       displayName: control flow
@@ -875,6 +854,8 @@ items:
       href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
+    - name: Configure outbound allow lists (Preview)
+      href: configure-outbound-allow-list-azure-policy.md
       displayName: self hosted
     - name: Credentials in Data Factory
       href: credentials.md
@@ -1151,6 +1132,8 @@ items:
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
       displayName: diu
+    - name: FinOps in Azure Data Factory
+      href: apply-finops.md
     - name: Pricing examples     
       items:
       - name: Pricing overview
@@ -1291,14 +1274,36 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+- name: SAP knowledge center
+  items:
+  - name: Overview
+    href: industry-sap-overview.md
+  - name: SAP connectors
+    href: industry-sap-connectors.md
+  - name: SAP templates
+    href: industry-sap-templates.md
+  - name: SAP change data capture (CDC) capabilities
+    items:
+    - name: Overview and architecture
+      href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
+    - name: Prerequisites and setup
+      href: sap-change-data-capture-prerequisites-configuration.md
+    - name: Set up a self-hosted integration runtime
+      href: sap-change-data-capture-shir-preparation.md
+    - name: Set up a linked service and source dataset
+      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+    - name: Debug issues with the SAP CDC connector
+      href: sap-change-data-capture-debug-shir-logs.md
+    - name: Manage the SAP CDC process
+      href: sap-change-data-capture-management.md
+      displayName: SAP, change data capture, CDC
 - name: Managed Airflow
   items:
   - name: Tutorials
     items:
     - name: Run an existing pipeline with Airflow
       href: tutorial-run-existing-pipeline-with-airflow.md
-    - name: Refresh a Power BI dataset with Airflow
-      href: tutorial-refresh-power-bi-dataset-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
   - name: How-to

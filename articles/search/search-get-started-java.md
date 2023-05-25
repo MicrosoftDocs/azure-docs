@@ -22,7 +22,7 @@ ms.custom: devx-track-java, mode-api
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure.Search.Documents client library in the Azure SDK for Java.](/java/api/overview/azure/search). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/quickstart).
+Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure.Search.Documents client library in the Azure SDK for Java.](/java/api/overview/azure/search). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/main/quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -32,7 +32,7 @@ We used the following software and services to build and test this quickstart:
 
 + [Visual Studio Code](https://code.visualstudio.com/)
 
-+ [Java extension for Visual Studio Code](https://vscode.trafficmanager.net/docs/java/extensions)
++ [Java extension for Visual Studio Code](https://code.visualstudio.com/docs/java/extensions)
 
 + [Java 11 SDK](/java/azure/jdk/)
 

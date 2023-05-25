@@ -2,8 +2,8 @@
 title: Resource provider registration errors
 description: Describes how to resolve Azure resource provider registration errors for resources deployed with a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 01/03/2023
-ms.custom:  devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-bicep, devx-track-arm-template
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for resource provider registration

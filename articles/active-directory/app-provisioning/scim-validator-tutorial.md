@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/13/2022
+ms.date: 03/20/2023
 ms.custom: template-tutorial
 ms.reviewer: arvinh
 ---
@@ -41,7 +41,7 @@ The first step is to select a testing method to validate your SCIM endpoint.
 
 **Use default attributes** - The system provides the default attributes, and you modify them to meet your need.
 
-**Discover schema** - If your end point supports /Schema, this option will allow the tool to discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
+**Discover schema** - If your end point supports /Schema, this option lets the tool discover the supported attributes. We recommend this option as it reduces the overhead of updating your app as you build it out.
 
 **Upload Azure AD Schema** - Upload the schema you've downloaded from your sample app on Azure AD.
 
@@ -75,7 +75,7 @@ Finally, you need to test and validate your endpoint.
 
 ### Use Postman to test endpoints (optional)
 
-In addition to using the SCIM Validator tool, you can also use Postman to validate an endpoint. This example provides a set of tests in Postman that validate CRUD (create, read, update, and delete) operations on users and groups, filtering, updates to group membership, and disabling users.
+In addition to using the SCIM Validator tool, you can also use Postman to validate an endpoint. This example provides a set of tests in Postman. The example validates create, read, update, and delete (CRUD) operations. The operations are validated on users and groups, filtering, updates to group membership, and disabling users.
 
 The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
 
@@ -120,10 +120,10 @@ If you created any Azure resources in your testing that are no longer needed, do
 ## Known Issues with Azure AD SCIM Validator
 
 - Soft deletes (disables) aren’t yet supported.
-- The time zone format is randomly generated and will fail for systems that try to validate it.
-- The preferred language format is randomly generated and will fail for systems that try to validate it.
+- The time zone format is randomly generated and fails for systems that try to validate it.
+- The preferred language format is randomly generated and fails for systems that try to validate it.
 - The patch user remove attributes may attempt to remove mandatory/required attributes for certain systems. Such failures should be ignored.
 
 
 ## Next steps
-- [Learn how to add an app that is not in the Azure AD app gallery](../manage-apps/overview-application-gallery.md)
+- [Learn how to add an app that's not in the Azure AD app gallery](../manage-apps/overview-application-gallery.md)

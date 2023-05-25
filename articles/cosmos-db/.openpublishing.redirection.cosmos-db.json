@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/cosmos-db/account-databases-containers-items.md",
+      "redirect_url": "/azure/cosmos-db/resource-model",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-mongodb-flask.md",
       "redirect_url": "/azure/cosmos-db/mongodb-introduction",
       "redirect_document_id": false
@@ -63,6 +68,11 @@
     {
       "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-java-sdk-samples.md",
       "redirect_url": "/azure/cosmos-db/nosql/samples-java",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/how-to-model-partition-example.md",
+      "redirect_url": "/azure/cosmos-db/nosql/model-partition-example",
       "redirect_document_id": true
     }, 
     {
@@ -586,6 +596,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/configure-periodic-backup-restore.md",
+      "redirect_url": "/azure/cosmos-db/periodic-backup-restore-introduction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/update-backup-storage-redundancy.md",
+      "redirect_url": "/azure/cosmos-db/periodic-backup-update-storage-redundancy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
       "redirect_document_id": true
@@ -729,6 +749,11 @@
       "source_path_from_root": "/articles/documentdb/documentdb-sql-query.md",
       "redirect_url": "/azure/cosmos-db/documentdb-sql-query",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/performance-testing.md",
+      "redirect_url": "/azure/cosmos-db/nosql/benchmarking-framework",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cosmos-db/table/create-table-dotnet.md",
@@ -6014,6 +6039,11 @@
       "source_path_from_root": "/articles/cosmos-db/graph/use-regional-endpoints.md",
       "redirect_url": "/azure/cosmos-db/gremlin/use-regional-endpoints",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/serverless-1TB.md",
+      "redirect_url": "/azure/cosmos-db/serverless-performance",
+      "redirect_document_id": false
     }
   ]
 }

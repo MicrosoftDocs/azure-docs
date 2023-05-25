@@ -8,8 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 02/03/2022
 ms.reviewer: amjads
-ms.custom: 
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create and deploy VM Applications

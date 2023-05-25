@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 1/11/2023
+ms.date: 02/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -40,9 +40,7 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 
 - Encryption key sets are regional resources, so each region requires a different encryption key set.
 
-- You can't copy or share images that use customer-managed keys. 
-
-- After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
+- After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
 - VM image version source doesn't currently support customer-managed key encryption.
 

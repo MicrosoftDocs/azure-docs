@@ -7,6 +7,7 @@ ms.topic: sample
 ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: devx-track-arm-template
 ---
 
 # Resource Manager template samples for targets and capabilities in Azure Chaos Studio

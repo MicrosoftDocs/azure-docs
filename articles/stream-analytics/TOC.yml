@@ -21,23 +21,23 @@
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-azure-resource-manager.md
+    - name: Terraform
+      href: quick-create-terraform.md
     - name: PowerShell
       href: stream-analytics-quick-create-powershell.md
   - name: Create a cluster
     items:
     - name: Azure portal
       href: create-cluster.md
-  - name: Build application
-    items:
-    - name: Clickstream analysis
-      href: quick-start-build-application.md
+  - name: Build an End-to-End streaming application
+    href: quick-start-build-application.md
 - name: Tutorials
   items:
   - name: Capture Event Hubs data in Parquet format
     href: event-hubs-parquet-capture-tutorial.md
   - name: Write output data to delta table in ADLS Gen2
     href: write-to-delta-table-adls-gen2.md
-  - name: Build near-real time dashboards with no code editor
+  - name: Build real-time dashboards with no code editor
     href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
@@ -83,6 +83,8 @@
       href: stream-analytics-job-metrics.md
     - name: Stream Analytics metrics dimensions
       href: stream-analytics-job-metrics-dimensions.md
+  - name: Integrate with Schema Registry
+    href: stream-analytics-schema-registry-integration.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -235,6 +237,8 @@
       href: move-cluster.md  
   - name: Build with no code editor
     items:
+    - name: Build real-time dashboard with Power BI dataset
+      href: no-code-build-power-bi-dashboard.md
     - name: Capture Event Hubs data in Delta Lake format
       href: capture-event-hub-data-delta-lake.md
     - name: Capture Event Hubs data in Parquet format
@@ -318,6 +322,14 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
+  - name: Optimize jobs
+    items:
+    - name: Job simulation
+      href: optimize-query-using-job-diagram-simulator.md
+    - name: Physical job diagram
+      href: stream-analytics-job-physical-diagram-with-metrics.md
+    - name: Logical job diagram
+      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Automate
     items:
     - name: Using PowerShell for auto-pausing
@@ -336,11 +348,13 @@
       href: cicd-tools.md
     - name: Set up a pipeline with Azure DevOps
       href: set-up-cicd-pipeline.md
+    - name: Set up a pipeline using GitHub Actions
+      href: cicd-github-actions.md
     - name: Configure autoscale settings
       href: cicd-autoscale.md
   - name: Visual Studio
     items:
-    - name: Migrate ASA projects to VSCode
+    - name: Migrate Stream Analytics projects to VS Code
       href: migrate-to-vscode.md
     - name: Quickstart
       href: stream-analytics-quick-create-vs.md
@@ -420,16 +434,10 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug and optimize using job diagram
-    items:
-    - name: Optimize query using job diagram simulator
-      href: optimize-query-using-job-diagram-simulator.md
-    - name: Physical job diagram
-      href: stream-analytics-job-physical-diagram-with-metrics.md
-    - name: Logical job diagram
-      href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Run job in your virtual network
+    href: run-job-in-virtual-network.md
 - name: Stream Analytics Query Language
   items:
     - name: Stream Analytics Query Language overview

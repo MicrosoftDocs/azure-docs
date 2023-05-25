@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix Cloud SAML SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix Cloud SAML SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix Cloud SAML SSO.
 services: active-directory
 author: jeevansd

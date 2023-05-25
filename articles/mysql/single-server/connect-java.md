@@ -8,7 +8,7 @@ ms.devlang: java
 author: jdubois
 ms.author: judubois
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java
-ms.date: 08/15/2022
+ms.date: 05/03/2023
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for MySQL
@@ -83,7 +83,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 Next, create a resource group by using the following command:
 
-```azurecli
+```azurecli-interactive
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
@@ -99,17 +99,17 @@ The first thing you'll create is a managed MySQL server.
 > [!NOTE]
 > You can read more detailed information about creating MySQL servers in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
-```bash
+```azurecli-interactive
 az login --scope https://graph.microsoft.com/.default
 ```
 
 Then, run the following command to create the server:
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME \
@@ -121,7 +121,7 @@ az mysql server create \
 
 Next, run the following command to set the Azure AD admin user:
 
-```azurecli
+```azurecli-interactive
 az mysql server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_SERVER_NAME \
@@ -136,7 +136,7 @@ This command creates a small MySQL server and sets the Active Directory admin to
 
 #### [Password](#tab/password)
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME \
@@ -158,7 +158,7 @@ Azure Databases for MySQL instances are secured by default. These instances have
 
 Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip \
@@ -184,7 +184,7 @@ AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 
 Then, use the following command to open the server's firewall to your WSL-based app:
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_SERVER_NAME-database-allow-local-ip-wsl \
@@ -198,7 +198,7 @@ az mysql server firewall-rule create \
 
 The MySQL server that you created earlier is empty. Use the following command to create a new database.
 
-```azurecli
+```azurecli-interactive
 az mysql db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
@@ -213,7 +213,7 @@ Next, create a non-admin user and grant all permissions to the database.
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](./how-to-create-users.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
@@ -278,7 +278,7 @@ rm create_user.sql
 
 Using your favorite IDE, create a new Java project using Java 8 or above. Create a *pom.xml* file in its root directory and add the following contents:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -347,7 +347,7 @@ This file is an [Apache Maven](https://maven.apache.org/) file that configures y
 
 Run the following script in the project root directory to create a *src/main/resources/database.properties* file and add configuration details:
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 ```bash
 mkdir -p src/main/resources && touch src/main/resources/database.properties
@@ -357,7 +357,6 @@ url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_D
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
-
 
 > [!NOTE]
 > If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin" in the url.
@@ -370,6 +369,7 @@ url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_D
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
 ```
+
 #### [Password](#tab/password)
 
 ```bash
@@ -724,7 +724,7 @@ Congratulations! You've created a Java application that uses JDBC to store and r
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes

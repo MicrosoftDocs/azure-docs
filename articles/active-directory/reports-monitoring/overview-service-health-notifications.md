@@ -1,5 +1,5 @@
 ---
-title: What are Service Health notifications in Azure Active Directory? | Microsoft Docs
+title: What are Service Health notifications in Azure Active Directory?
 description: Learn how Service Health notifications provide you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. 
 services: active-directory
 author: shlipsey3

@@ -74,6 +74,8 @@ Use the following steps to label your data:
     
     ---
 
+    You can also use the [auto labeling feature](use-autolabeling.md) to ensure complete labeling.
+
 6. In the right side pane under the **Labels** pivot you can find all the classes in your project and the count of labeled instances per each.
 
 7. In the bottom section of the right side pane you can add the current file you are viewing to the training set or the testing set. By default all the documents are added to your training set. Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.

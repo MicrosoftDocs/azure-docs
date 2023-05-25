@@ -1,31 +1,31 @@
 ---
-title: How to deploy polyglot apps in Azure Spring Apps Enterprise tier
-description: Shows you how to deploy polyglot apps in Azure Spring Apps Enterprise tier.
+title: How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
+description: Shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/13/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# How to deploy polyglot apps in Azure Spring Apps Enterprise tier
+# How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to deploy polyglot apps in Azure Spring Apps Enterprise tier, and how these polyglot apps can use the build service features provided by buildpacks.
+This article shows you how to deploy polyglot apps in the Azure Spring Apps Enterprise plan, and how these polyglot apps can use the build service features provided by buildpacks.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.43.0 or higher.
+- An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 
 ## Deploy a polyglot application
 
-When you create an Enterprise tier instance of Azure Spring Apps, you'll be provided with a `default` builder with one of the following supported [language family buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html):
+When you create an Enterprise plan instance of Azure Spring Apps, you'll be provided with a `default` builder with one of the following supported [language family buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html):
 
 - [tanzu-buildpacks/java-azure](https://network.tanzu.vmware.com/products/tanzu-java-azure-buildpack)
 - [tanzu-buildpacks/dotnet-core](https://network.tanzu.vmware.com/products/tanzu-dotnet-core-buildpack)
@@ -82,7 +82,7 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-The default build CPU/memory resource is `1 vCPU, 2 Gi`. If your app needs a smaller or larger amount of memory, then use `--build-memory` to specify the memory resources; for example, `500Mi`, `1Gi`, `2Gi`, and so on. If your app needs a smaller or larger amount of CPU resources, then use `--build-cpu` to specify the CPU resources; for example, `500m`, `1`, `2`, and so on.
+The default build CPU/memory resource is `1 vCPU, 2 Gi`. If your app needs a smaller or larger amount of memory, then use `--build-memory` to specify the memory resources; for example, `500Mi`, `1Gi`, `2Gi`, and so on. If your app needs a smaller or larger amount of CPU resources, then use `--build-cpu` to specify the CPU resources; for example, `500m`, `1`, `2`, and so on. The maximum CPU/memory resource limit for a build is `8 vCPU, 16Gi`.
 
 The CPU and memory resources are limited by the build service agent pool size. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md). The sum of the processing build resource quota can't exceed the agent pool size.
 
@@ -174,7 +174,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                 | Comment                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                  |
 |---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Specify a Python version.                                           | Supports *3.7.\**, *3.8.\**, *3.9.\**, *3.10.\**. The default value is *3.10.\**<br> You can specify the version via the `BP_CPYTHON_VERSION` environment variable during build.                                                                           | `BP_CPYTHON_VERSION`                                                                                                  | `--build-env BP_CPYTHON_VERSION=3.8.*` |
+| Specify a Python version.                                           | Supports *3.7.\**, *3.8.\**, *3.9.\**, *3.10.\**, *3.11.\**. The default value is *3.10.\**<br> You can specify the version via the `BP_CPYTHON_VERSION` environment variable during build.                                                                | `BP_CPYTHON_VERSION`                                                                                                  | `--build-env BP_CPYTHON_VERSION=3.8.*` |
 | Add CA certificates to the system trust store at build and runtime. | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                    |
 | Enable configuration of labels on the created image.                | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`   |
 
@@ -200,7 +200,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                  | Comment                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                |
 |----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| Specify a Node version.                                              | Supports *12.\**, *14.\**, *16.\**, *18.\**. The default value is *16.\**. <br>You can specify the Node version via an *.nvmrc* or *.node-version* file at the application directory root. `BP_NODE_VERSION` overrides the settings.                       | `BP_NODE_VERSION`                                                                                                     | `--build-env BP_NODE_VERSION=18.*`   |
+| Specify a Node version.                                              | Supports *12.\**, *14.\**, *16.\**, *18.\**, *19.\**. The default value is *18.\**. <br>You can specify the Node version via an *.nvmrc* or *.node-version* file at the application directory root. `BP_NODE_VERSION` overrides the settings.              | `BP_NODE_VERSION`                                                                                                     | `--build-env BP_NODE_VERSION=18.*`   |
 | Add CA certificates to the system trust store at build and runtime.  | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                  |
 | Integrate with Dynatrace, Elastic, New Relic, App Dynamic APM agent. | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).                                                                                                                         | N/A                                                                                                                   | N/A                                  |
 | Enable configuration of labels on the created image.                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>` |

@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Java | Microsoft Docs
 description: Application performance monitoring for Azure app services using Java. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ms.devlang: java
 ms.custom: "devx-track-java"
 ms.reviewer: abinetabate
@@ -100,9 +100,17 @@ To manually update, follow these steps:
 
 2. Disable Application Insights via the Application Insights tab in the Azure portal.
 
-3. Once the agent jar file is uploaded, go to App Service configurations and add a new environment variable, `JAVA_OPTS`, with the value `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
+3. Once the agent jar file is uploaded, go to App Service configurations. If you
+   need to use **Startup Command** for Linux, please include jvm arguments:
 
-4. Restart the app, leaving the **Startup Command** field blank, to apply the changes.
+   :::image type="content"source="./media/azure-web-apps/startup-command.png" alt-text="Screenshot of startup command.":::
+   
+   **Startup Command** won't honor `JAVA_OPTS`.
+
+   If you don't use **Startup Command**, create a new environment variable, `JAVA_OPTS`, with the value
+   `-javaagent:{PATH_TO_THE_AGENT_JAR}/applicationinsights-agent-{VERSION_NUMBER}.jar`.
+
+4. Restart the app to apply the changes.
 
 > [!NOTE]
 > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the `JAVA_OPTS` variable in App Service configurations settings. 
@@ -118,4 +126,4 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
-* [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
+* [Availability overview](availability-overview.md)

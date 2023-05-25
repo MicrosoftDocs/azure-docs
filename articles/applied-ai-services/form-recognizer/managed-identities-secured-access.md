@@ -7,17 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 03/03/2023
 ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Configure secure access with managed identities and private endpoints
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-This how-to guide will walk you through the process of enabling secure connections for your Form Recognizer resource. You can secure the following connections:
+This how-to guide walks you through the process of enabling secure connections for your Form Recognizer resource. You can secure the following connections:
 
 * Communication between a client application within a Virtual Network (VNET) and your Form Recognizer Resource.
 
@@ -25,21 +24,21 @@ This how-to guide will walk you through the process of enabling secure connectio
 
 * Communication between your Form Recognizer resource and a storage account (needed when training a custom model).
 
-You'll be setting up your environment to secure the resources:
+ You're setting up your environment to secure the resources:
 
   :::image type="content" source="media/managed-identities/secure-config.png" alt-text="Screenshot of secure configuration with managed identity and private endpoints.":::
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You'll create containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. Create containers to store and organize your blob data within your storage account.
 
-* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Form Recognizer resource. You'll create a virtual network to deploy your application resources to train models and analyze documents.
+* An [**Azure virtual network**](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) in the same region as your Form Recognizer resource. Create a virtual network to deploy your application resources to train models and analyze documents.
 
 * An **Azure data science VM** for [**Windows**](../../machine-learning/data-science-virtual-machine/provision-vm.md) or [**Linux/Ubuntu**](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md) to optionally deploy a data science VM in the virtual network to test the secure connections being established.
 
@@ -49,7 +48,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 * Configure the Form Recognizer Studio to use the newly created Form Recognizer resource by accessing the settings page and selecting the resource.
 
-* Validate that the configuration works by selecting the Read API and analyzing a sample document. If the resource was configured correctly, the request will successfully complete.
+* Validate that the configuration works by selecting the Read API and analyzing a sample document. If the resource was configured correctly, the request successfully completes.
 
 * Add a training dataset to a container in the Storage account you created.
 
@@ -57,7 +56,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 * Select the container with the training dataset you uploaded in the previous step. Ensure that if the training dataset is within a folder, the folder path is set appropriately.
 
-* If you have the required permissions, the Studio will set the CORS setting required to access the storage account. If you don't have the permissions, you'll need to ensure that the CORS settings are configured on the Storage account before you can proceed.
+* If you have the required permissions, the Studio sets the CORS setting required to access the storage account. If you don't have the permissions, you need to ensure that the CORS settings are configured on the Storage account before you can proceed.
 
 * Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections have been established.
 
@@ -65,7 +64,7 @@ You now have a working implementation of all the components needed to build a Fo
 
   :::image type="content" source="media/managed-identities/default-config.png" alt-text="Screenshot of default security configuration.":::
 
-Next, you'll complete the following steps:
+Next, complete the following steps:
 
 * Setup managed identity on the Form Recognizer resource.
 
@@ -105,7 +104,7 @@ Start configuring secure communications by navigating to the **Networking** tab 
 
 ## Enable access to storage from Form Recognizer
 
-To ensure that the Form Recognizer resource can access the training dataset, you'll need to add a role assignment for the managed identity that was created earlier.
+To ensure that the Form Recognizer resource can access the training dataset, you need to add a role assignment for your [managed identity](#setup-managed-identity-for-form-recognizer).
 
 1. Staying on the storage account window in the Azure portal, navigate to the **Access Control (IAM)** tab in the left navigation bar.
 
@@ -113,7 +112,7 @@ To ensure that the Form Recognizer resource can access the training dataset, you
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assign-role.png" alt-text="Screenshot of add role assignment window.":::
 
-1. On the **Role** tab, search for and select the**Storage Blob Reader** permission and select **Next**.
+1. On the **Role** tab, search for and select the **Storage Blob Data Reader** permission and select **Next**.
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assignment.png" alt-text="Screenshot of choose a role tab.":::
 
@@ -142,9 +141,9 @@ Great! You've configured your Form Recognizer resource to use a managed identity
 
 ## Configure private endpoints for access from VNETs
 
-When you connect to resources from a virtual network, adding private endpoints will ensure both the storage account and the Form Recognizer resource are accessible from the virtual network.
+When you connect to resources from a virtual network, adding private endpoints ensures both the storage account, and the Form Recognizer resource are accessible from the virtual network.
 
-Next, you'll configure the virtual network to ensure only resources within the virtual network or traffic router through the network will have access to the Form Recognizer resource and the storage account.
+Next, configure the virtual network to ensure only resources within the virtual network or traffic router through the network have access to the Form Recognizer resource and the storage account.
 
 ### Enable your virtual network and private endpoints
 
@@ -162,8 +161,7 @@ Next, you'll configure the virtual network to ensure only resources within the v
 
 ### Configure your private endpoint
 
-1. Navigate to the **Private endpoint connections** tab and select the **+ Private endpoint**. You'll be
-navigated to the **Create a private endpoint** dialog page.
+1. Navigate to the **Private endpoint connections** tab and select the **+ Private endpoint**. You're navigated to the **Create a private endpoint** dialog page.
 
 1. On the **Create private endpoint** dialog page, select the following options:
 

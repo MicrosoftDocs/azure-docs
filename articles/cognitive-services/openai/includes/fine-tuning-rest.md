@@ -1,12 +1,12 @@
 ---
-title: 'How to customize a model with Azure OpenAI (REST)'
+title: 'How to customize a model with Azure OpenAI Service (REST)'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI by using the REST API
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
+ms.topic: include
 ms.date: 06/30/2022
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -17,9 +17,9 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource
     
     For more information about creating a resource, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
@@ -96,7 +96,8 @@ The first step in creating a customized model is to choose a base model. The cho
 - `curie`
 - `code-cushman-001`\*
 - `davinci`\*
-    \* available by request
+
+    \* currently unavailable for new customers. 
 
 You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
@@ -131,7 +132,7 @@ api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE"
 api_type = 'azure'
 # The API version may change in the future.
-api_version = '2022-06-01-preview'
+api_version = '2023-05-15'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'
@@ -243,6 +244,8 @@ print(f'Found {len((r.json())["data"])} fine-tune jobs.')
 ## Deploy a customized model
 
 When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
@@ -378,6 +381,8 @@ The result file is a CSV file containing a header row and a row for each trainin
 When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
 
 ### Delete your model deployment
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 You can use various methods to delete the deployment for your customized model:
 

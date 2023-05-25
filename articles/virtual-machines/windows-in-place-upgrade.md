@@ -4,19 +4,21 @@ description: This article describes how to do an in-place upgrade for VMs runnin
 services: virtual-machines
 author: cynthn
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.date: 01/19/2023
 ms.author: cynthn
-
 ---
 
 # In-place upgrade for VMs running Windows Server in Azure
 
-An in-place upgrade allows you to go from an older operating system to a newer one while keeping your settings, server roles, and data intact. This article will teach you how to move your Azure VMs to a later version of Windows Server using an in-place upgrade. Currently, upgrading to Windows Server 2019 and Windows Server 2022 is supported.
+An in-place upgrade allows you to go from an older operating system to a newer one while keeping your settings, server roles, and data intact. This article teaches you how to move your Azure VMs to a later version of Windows Server using an in-place upgrade. Currently, upgrading to Windows Server 2016, Windows Server 2019 and Windows Server 2022 are supported.
 
 Before you begin an in-place upgrade:
 
 - Review the upgrade requirements for the target operating system:
 
+   - Upgrade options for Windows Server 2016 from Windows Server 2012 or Windows Server 2012 R2
+   
    - Upgrade options for Windows Server 2019 from Windows Server 2012 R2 or Windows Server 2016
 
    - Upgrade options for Windows Server 2022 from Windows Server 2016 or Windows Server 2019
@@ -28,8 +30,6 @@ Before you begin an in-place upgrade:
 ## Windows versions not yet supported for in-place upgrade
 For the following versions, consider using the [workaround](#workaround) later in this article:
 
-- Windows Server 2012 Datacenter
-- Windows Server 2012 Standard
 - Windows Server 2008 R2 Datacenter
 - Windows Server 2008 R2 Standard
 
@@ -47,7 +47,7 @@ The in-place upgrade process requires the use of Managed Disks on the VM to be u
 
 ## Create snapshot of the operating system disk 
 
-We recommend that you create a snapshot of your operating system disk and any data disks before starting the in-place upgrade process. This will enable you to revert to the previous state of the VM if anything fails during the in-place upgrade process. To create a snapshot on each disk, follow these steps to [create a snapshot of a disk](./snapshot-copy-managed-disk.md). 
+We recommend that you create a snapshot of your operating system disk and any data disks before starting the in-place upgrade process. This enables you to revert to the previous state of the VM if anything fails during the in-place upgrade process. To create a snapshot on each disk, follow these steps to [create a snapshot of a disk](./snapshot-copy-managed-disk.md). 
 
  
 ## Create upgrade media disk
@@ -56,11 +56,11 @@ To start an in-place upgrade the upgrade media must be attached to the VM as a M
 
 | Parameter | Definition |
 |---|---|
-| resourceGroup | Name of the resource group where the upgrade media Managed Disk will be created. The named resource group will be created if it doesn't exist. |
-| location | Azure region where the upgrade media Managed Disk will be created. This must be the same region as the VM to be upgraded. |
+| resourceGroup | Name of the resource group where the upgrade media Managed Disk will be created. The named resource group is created if it doesn't exist. |
+| location | Azure region where the upgrade media Managed Disk is created. This must be the same region as the VM to be upgraded. |
 | zone | Azure zone in the selected region where the upgrade media Managed Disk will be created. This must be the same zone as the VM to be upgraded. For regional VMs (non-zonal) the zone parameter should be "". |
 | diskName | Name of the Managed Disk that will contain the upgrade media |
-| sku | Windows Server upgrade media version. This must be either:  `server2022Upgrade` or `server2019Upgrade` |
+| sku | Windows Server upgrade media version. This must be either:  `server2016Upgrade` or `server2019Upgrade` or `server2022Upgrade` |
 
 ### PowerShell script 
 
@@ -177,19 +177,7 @@ To initiate the in-place upgrade the VM must be in the `Running` state. Once the
    .\setup.exe /auto upgrade /dynamicupdate disable 
    ```
 
-1. Select the correct "Upgrade to" image based on the current version and configuration of the VM using the following table:
-
-| Upgrade from | Upgrade to |
-|---|---|
-| Windows Server 2012 R2 (Core)	| Windows Server 2019 |
-| Windows Server 2012 R2 | Windows Server 2019 (Desktop Experience) |
-| Windows Server 2016 (Core) | Windows Server 2019   -or-  Windows Server 2022 |
-| Windows Server 2016 (Desktop Experience) | Windows Server 2019 (Desktop Experience)  -or-  Windows Server 2022 (Desktop Experience) |
-| Windows Server 2019 (Core) | Windows Server 2022 |
-| Windows Server 2019 (Desktop Experience) | Windows Server 2022 (Desktop Experience) |
-
-
- 
+1. Select the correct "Upgrade to" image based on the current version and configuration of the VM using the [Windows Server upgrade matrix](/windows-server/get-started/upgrade-overview).
 
 During the upgrade process the VM will automatically disconnect from the RDP session. After the VM is disconnected from the RDP session the progress of the upgrade can be monitored through the [screenshot functionality available in the Azure portal](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine).
 
@@ -224,11 +212,11 @@ Create an Azure VM that runs a supported version of the operating system, and th
 ## Recover from failure
 If the in-place upgrade process failed to complete successfully you can return to the previous version of the VM if snapshots of the operating system disk and data disk(s) were created. To revert the VM to the previous state using snapshots complete the following steps: 
 
-1. Create a new Managed Disk from the OS disk snapshot and each data disk snapshot following the steps in [Create a disk from a snapshot](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) making sure to create the disks in the same Availability Zone as the VM if the VM is in a zone.
+1. Create a new Managed Disk from the OS disk snapshot and each data disk snapshot following the steps in [Create a disk from a snapshot](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) making sure to create the disks in the same Availability Zone as the VM if the VM is in a zone.
 
 1. Stop the VM.
 
-1. [Swap the OS disk](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) of the VM. 
+1. [Swap the OS disk](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) of the VM. 
 
 1. [Detach any data disks](./windows/detach-disk.md) from the VM.
 

@@ -1,12 +1,12 @@
 ---
-title: Microsoft Energy Data Services Preview - How to convert a segy to ovds file #Required; page title is displayed in search results. Include the brand.
-description: This article explains how to convert a SGY file to oVDS file format #Required; article description that is displayed in search results. 
-author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
-ms.author: elhalper #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - How to convert a segy to ovds file
+description: This article explains how to convert a SGY file to oVDS file format
+author: elizabethhalper
+ms.author: elhalper
+ms.service: energy-data-services
+ms.topic: how-to
 ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # How to convert a SEG-Y file to oVDS
@@ -21,7 +21,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the Open 
 
 1. Download and install [Postman](https://www.postman.com/) desktop app.
 2. Import the [oVDS Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oVDS_Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-3. Ensure that a Microsoft Energy Data Services Preview instance is created already
+3. Ensure that an Azure Data Manager for Energy Preview instance is created already
 4. Clone the **sdutil** repo as shown below:
 
   ```markdown

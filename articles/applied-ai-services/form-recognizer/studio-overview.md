@@ -10,7 +10,6 @@ ms.topic: overview
 ms.date: 02/14/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -54,13 +53,9 @@ The studio supports Form Recognizer v3.0 models and v3.0 model training. Previou
 
 1. After you've tried Form Recognizer Studio, use the [**C#**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**Python**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) client libraries or the [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to get started incorporating Form Recognizer models into your own applications.
 
-   To learn more about each model, *see* concepts pages.
+To learn more about each model, *see* concept pages.
 
-   | Model type| Models |
-   |-----|-----|
-   |Document analysis models| <ul><li>[**Read model**](concept-read.md)</li><li>[**Layout model**](concept-layout.md)</li><li>[**General document model**](concept-general-document.md)</li></ul>.</br></br>
-   |**Prebuilt models**|<ul><li>[**W-2 form model**](concept-w2.md)</li><li>[**Invoice model**](concept-invoice.md)</li><li>[**Receipt model**](concept-receipt.md)</li><li>[**ID document model**](concept-id-document.md)</li><li>[**Business card model**](concept-business-card.md)</li></ul>
-   |Custom models|<ul><li>[**Custom model**](concept-custom.md)</li><ul><li>[**Template model**](concept-custom-template.md)</li><li>[**Neural model**](concept-custom-template.md)</li></ul><li>[**Composed model**](concept-model-overview.md)</li></ul>
+[!INCLUDE [Models](includes/model-type-name.md)]
 
 ### Manage your resource
 

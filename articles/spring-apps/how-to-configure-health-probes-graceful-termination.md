@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to customize apps running in Azure Spring Apps with health probes and graceful termination periods.
 
@@ -256,25 +256,25 @@ This section provides answers to frequently asked questions about using health p
   "startupProbe": null,
   "livenessProbe": {
       "disableProbe": false,
-      "failureThreshold": 24,
-      "initialDelaySeconds": 60,
+      "failureThreshold": 3,
+      "initialDelaySeconds": 300,
       "periodSeconds": 10,
       "probeAction": {
           "type": "TCPSocketAction"
       },
       "successThreshold": 1,
-      "timeoutSeconds": 1
+      "timeoutSeconds": 3
   },
   "readinessProbe": {
       "disableProbe": false,
       "failureThreshold": 3,
       "initialDelaySeconds": 0,
-      "periodSeconds": 10,
+      "periodSeconds": 5,
       "probeAction": {
           "type": "TCPSocketAction"
       },
       "successThreshold": 1,
-      "timeoutSeconds": 1
+      "timeoutSeconds": 3
   }
   ```
 

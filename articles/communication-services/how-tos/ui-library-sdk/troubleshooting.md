@@ -21,7 +21,7 @@ When troubleshooting happens for voice or video calls, you may be asked to provi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/access-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-web"
@@ -39,7 +39,7 @@ When troubleshooting happens for voice or video calls, you may be asked to provi
 [!INCLUDE [Troubloshooting over the iOS UI library](./includes/troubleshooting/ios.md)]
 ::: zone-end
 
-User may find Call ID via the action bar on the bottom of the call screen. See more [Troubleshooting guide](../../concepts/ui-library/ui-library-use-cases.md?branch=pr-en-us-217148&pivots=platform-mobile#troubleshooting-guide)
+User may find Call ID via the action bar on the bottom of the call screen. See more [Troubleshooting guide](../../concepts/ui-library/ui-library-use-cases.md?&pivots=platform-mobile#troubleshooting-guide)
 
 ## Next steps
 

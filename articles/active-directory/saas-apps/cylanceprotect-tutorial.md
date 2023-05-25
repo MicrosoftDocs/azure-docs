@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CylancePROTECT | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CylancePROTECT'
 description: Learn how to configure single sign-on between Azure Active Directory and CylancePROTECT.
 services: active-directory
 author: jeevansd

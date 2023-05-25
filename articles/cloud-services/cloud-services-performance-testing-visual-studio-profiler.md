@@ -3,11 +3,11 @@ title: Profiling a Cloud Service (classic) Locally in the Compute Emulator | Mic
 description: Investigate performance issues in cloud services with the Visual Studio profiler
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 # Testing the Performance of a Cloud Service (classic) Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 

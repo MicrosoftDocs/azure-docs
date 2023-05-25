@@ -5,7 +5,7 @@ description: Learn how to build a Bicep file or an Azure Resource Manager templa
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 08/30/2022
-ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
 ---
 
 # Automate resource deployment for your function app in Azure Functions
@@ -52,15 +52,21 @@ An Azure Functions deployment typically consists of these resources:
 
 A storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](storage-considerations.md#storage-account-requirements).
 
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource storageAccountName 'Microsoft.Storage/storageAccounts@2021-09-01' = {
+resource storageAccountName 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   name: storageAccountName
   location: location
   kind: 'StorageV2'
   sku: {
     name: storageAccountType
+  }
+  properties: {
+    supportsHttpsTrafficOnly: true
+    defaultToOAuthAuthentication: true
   }
 }
 ```
@@ -71,12 +77,16 @@ resource storageAccountName 'Microsoft.Storage/storageAccounts@2021-09-01' = {
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2021-09-01",
+    "apiVersion": "2022-05-01",
     "name": "[parameters('storageAccountName')]",
     "location": "[parameters('location')]",
     "kind": "StorageV2",
     "sku": {
       "name": "[parameters('storageAccountType')]"
+    },
+    "properties": {
+      "supportsHttpsTrafficOnly": true,
+      "defaultToOAuthAuthentication": true
     }
   }
 ]
@@ -84,11 +94,7 @@ resource storageAccountName 'Microsoft.Storage/storageAccounts@2021-09-01' = {
 
 ---
 
-You must also specify the `AzureWebJobsStorage` property as an app setting in the site configuration. If the function app doesn't use Application Insights for monitoring, it should also specify `AzureWebJobsDashboard` as an app setting.
-
-The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues.  When Application Insights isn't enabled, the runtime uses the `AzureWebJobsDashboard` connection string to log to Azure Table storage and power the **Monitor** tab in the portal.
-
-These properties are specified in the `appSettings` collection in the `siteConfig` object:
+You must also specify the `AzureWebJobsStorage` connection in the site configuration. This can be set in the `appSettings` collection in the `siteConfig` object:
 
 # [Bicep](#tab/bicep)
 
@@ -100,10 +106,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
     siteConfig: {
       ...
       appSettings: [
-        {
-          name: 'AzureWebJobsDashboard'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
         {
           name: 'AzureWebJobsStorage'
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
@@ -128,10 +130,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         ...
         "appSettings": [
           {
-            "name": "AzureWebJobsDashboard",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
             "name": "AzureWebJobsStorage",
             "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
           },
@@ -144,6 +142,73 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+
+In some hosting plan options, function apps should also have an Azure Files content share, and they will need additional app settings referencing this storage account. These are covered later in this article as a part of the hosting plan options to which this applies.
+
+#### Storage logs
+
+Because the storage account is used for important function app data, you may want to monitor for modification of that content. To do this, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2021-09-01' existing = {
+  name:'default'
+  parent:storageAccountName
+}
+
+resource storageDataPlaneLogs 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: '${storageAccountName}-logs'
+  scope: blobService
+  properties: {
+    workspaceId: myLogAnalytics.id
+    logs: [
+      {
+        category: 'StorageWrite'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Insights/diagnosticSettings",
+    "apiVersion": "2021-05-01-preview",
+    "scope": "[format('Microsoft.Storage/storageAccounts/{0}/blobServices/default', parameters('storageAccountName'))]",
+    "name": "[parameters('storageDataPlaneLogsName')]",
+    "properties": {
+        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('myLogAnalytics'))]",
+        "logs": [
+          {
+            "category": "StorageWrite",
+            "enabled": true
+          }
+        ],
+        "metrics": [
+          {
+            "category": "Transaction",
+            "enabled": true
+          }
+        ]
+    }
+  }
+]
+```
+
+---
+
+See [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md) for instructions on how to work with these logs.
 
 ### Application Insights
 
@@ -1332,7 +1397,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+          value: '~4'
         }
         {
           name: 'DOCKER_REGISTRY_SERVER_URL'
@@ -1392,7 +1457,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           },
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
+            "value": "~4"
           },
           {
             "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -1552,7 +1617,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+          value: '~4'
         }
         {
           name: 'AzureWebJobsStorage'
@@ -1598,7 +1663,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         "appSettings": [
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
+            "value": "~4"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -1640,7 +1705,7 @@ Considerations for custom deployments:
           appSettings: [
             {
               name: 'FUNCTIONS_EXTENSION_VERSION'
-              value: '~3'
+              value: '~4'
             }
             {
               name: 'Project'
@@ -1660,7 +1725,7 @@ Considerations for custom deployments:
       properties: {
         AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        FUNCTIONS_EXTENSION_VERSION: '~3'
+        FUNCTIONS_EXTENSION_VERSION: '~4'
         FUNCTIONS_WORKER_RUNTIME: 'dotnet'
         Project: 'src'
       }
@@ -1698,7 +1763,7 @@ Considerations for custom deployments:
             "appSettings": [
               {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~3"
+                "value": "~4"
               },
               {
                 "name": "Project",
@@ -1719,7 +1784,7 @@ Considerations for custom deployments:
         "properties": {
           "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~3",
+          "FUNCTIONS_EXTENSION_VERSION": "~4",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         },
@@ -1789,7 +1854,7 @@ Here's an example that uses HTML:
 
 ### Deploy using PowerShell
 
-The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-azure-powershell) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
 
 # [Bicep](#tab/bicep)
 

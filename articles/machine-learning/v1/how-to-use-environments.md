@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, cliv1, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -19,13 +19,13 @@ ms.devlang: azurecli
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-use-environments.md)
-> * [v2 (current version)](../how-to-manage-environments-v2.md)
+> * [v2 (current version)](../how-to-manage-environments-v2.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) using CLI v1. Use the environments to track and reproduce your projects' software dependencies as they evolve. The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) v1 mirrors most of the functionality of the Python SDK v1. You can use it to create and manage environments.
 
 Software dependency management is a common task for developers. You want to ensure that builds are reproducible without extensive manual software configuration. The Azure Machine Learning `Environment` class accounts for local development solutions such as pip and Conda and distributed cloud development through Docker capabilities.
 
-For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](../concept-environments.md) For information about managing environments in the Azure ML studio, see [Manage environments in the studio](../how-to-manage-environments-in-studio.md). For information about configuring development environments, see [Set up a Python development environment for Azure ML](how-to-configure-environment-v1.md).
+For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](../concept-environments.md) For information about managing environments in the Azure Machine Learning studio, see [Manage environments in the studio](../how-to-manage-environments-in-studio.md). For information about configuring development environments, see [Set up a Python development environment for Azure Machine Learning](how-to-configure-environment-v1.md).
 
 ## Prerequisites
 
@@ -67,5 +67,5 @@ az ml environment download -n myenv -d downloaddir
 
 ## Next steps
 
-* After you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
+* After you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [`Environment` class SDK reference](/python/api/azureml-core/azureml.core.environment%28class%29).

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022, build-2023
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -18,7 +18,7 @@ ms.date: 10/19/2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI or SDK version you are using:"]
-> * [v1](v1/how-to-create-attach-compute-cluster.md)
+> * [v1](v1/how-to-create-attach-compute-cluster.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
@@ -30,6 +30,8 @@ In this article, learn how to:
 * Create a compute cluster
 * Lower your compute cluster cost with low priority VMs
 * Set up a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the cluster
+
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
 
 ## Prerequisites
 
@@ -61,9 +63,12 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
-* Azure allows you to place _locks_ on resources, so that they can't be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure ML compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
+* Azure allows you to place _locks_ on resources, so that they can't be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure Machine Learning compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
 
 ## Create
+
+> [!NOTE]
+> If you use serverless compute, you don't need to create a compute cluster.
 
 **Time estimate**: Approximately 5 minutes.
 
@@ -75,9 +80,8 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
 
-The fastest way to create a compute cluster is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
 
-Or use the following examples to create a compute cluster with more options:
+Use the following examples to create a compute cluster:
     
 # [Python SDK](#tab/python)
 
@@ -177,6 +181,7 @@ Use any of these ways to specify a low-priority VM:
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
+
     
 # [Azure CLI](#tab/azure-cli)
 
@@ -191,6 +196,9 @@ az ml compute create -f create-cluster.yml
 Where the file *create-cluster.yml* is:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
+
+> [!NOTE]
+> When you use [serverless compute](./how-to-use-serverless-compute.md), you don't need to create a compute cluster. To specify a low-priority serverless compute, set the `job_tier` to `Spot` in the [queue settings](./how-to-use-serverless-compute.md#configure-properties-for-command-jobs).
 
 # [Studio](#tab/azure-studio)
 

@@ -5,9 +5,8 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 05/19/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway listener configuration
@@ -38,7 +37,18 @@ Choose the frontend IP address that you plan to associate with this listener. Th
 
 ## Frontend port
 
-Choose the frontend port. Select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. A port can be used for public-facing listeners or private-facing listeners, however the same port cannot be used for both at the same time.
+Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners (Preview feature). 
+
+>[!NOTE] 
+> When using private and public listeners with the same port number, your application gateway changes the "destination" of the inbound flow to the frontend IPs of your gateway. Hence, depending on your Network Security Group's configuration, you may need an inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs.
+> 
+> **Inbound Rule**:
+> - Source: (as per your requirement)
+> - Destination IP addresses: Public and Private frontend IPs of your application gateway.
+> - Destination Port: (as per listener configuration)
+> - Protocol: TCP
+> 
+> **Outbound Rule**: (no specific requirement)
 
 ## Protocol
 
@@ -70,6 +80,8 @@ $gw.EnableHttp2 = $true
 
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
+
+You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
 
 ### WebSocket support
 

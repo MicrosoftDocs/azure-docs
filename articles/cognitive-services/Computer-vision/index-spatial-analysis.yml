@@ -4,15 +4,15 @@ title: Spatial Analysis documentation # < 60 chars
 summary: The Spatial Analysis service helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems. # < 160 chars
 
 metadata:
-  title: Spatial Analysis documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: The Spatial Analysis service helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems.  # Required; article description that is displayed in search results. < 160 chars.
+  title: Spatial Analysis documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  description: The Spatial Analysis service helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems.
   services: cognitive-services
-  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.topic: landing-page # Required
-  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
-  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 30/31/2021 #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 30/31/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

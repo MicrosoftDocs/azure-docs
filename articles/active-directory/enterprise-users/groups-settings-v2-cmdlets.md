@@ -1,5 +1,5 @@
 ---
-title: PowerShell V2 examples for managing groups - Azure AD  | Microsoft Docs
+title: PowerShell V2 examples for managing groups 
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory

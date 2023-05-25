@@ -23,6 +23,8 @@ Learn how to use the Visual Studio Code (VS Code) debugger to test and debug onl
 
 Azure Machine Learning local endpoints help you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Online endpoint local debugging
 
 Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with VS Code.
@@ -86,7 +88,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [VS Code](https://code.visualstudio.com/#alt-downloads)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
-- [Azure ML Python SDK (v2)](https://aka.ms/sdk-v2-install)
+- [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install)
 
 For more information, see the guide on [how to prepare your system to deploy online endpoints](how-to-deploy-online-endpoints.md#prepare-your-system).
 
@@ -218,14 +220,14 @@ Once your environment is set up, use the VS Code debugger to test and debug your
     - To debug scoring behavior, place your breakpoint(s) inside the `run` function.
 
 1. Select the VS Code Job view.
-1. In the Run and Debug dropdown, select **Azure ML: Debug Local Endpoint** to start debugging your endpoint locally.
+1. In the Run and Debug dropdown, select **AzureML: Debug Local Endpoint** to start debugging your endpoint locally.
 
     In the **Breakpoints** section of the Run view, check that:
 
     - **Raised Exceptions** is **unchecked**
     - **Uncaught Exceptions** is **checked**
 
-    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Configure Azure ML Debug Local Environment debug profile":::
+    :::image type="content" source="media/how-to-debug-managed-online-endpoints-visual-studio-code/configure-debug-profile.png" alt-text="Configure Azure Machine Learning Debug Local Environment debug profile":::
 
 1. Select the play icon next to the Run and Debug dropdown to start your debugging session.
 

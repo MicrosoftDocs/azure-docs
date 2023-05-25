@@ -8,57 +8,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 05/16/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
 # Connect to Azure Cognitive Search using Azure role-based access control (Azure RBAC)
 
-Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can:
+Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use Azure roles for:
 
-+ Use generally available roles for service administration.
++ Control plane operations (service administration tasks through Azure Resource Manager).
 
-+ Use new preview roles for data requests, including creating, loading, and querying indexes.
++ Data plane operations, such as creating, loading, and querying indexes.
 
 Per-user access over search results (sometimes referred to as row-level security or document-level security) isn't supported. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor shouldn't have access.
 
+> [!NOTE]
+> In Cognitive Search, "control plane" refers to operations supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+
 ## Built-in roles used in Search
 
-Built-in roles include generally available and preview roles. If these roles are insufficient, [create a custom role](#create-a-custom-role) instead.
+The following roles are built in. If these roles are insufficient, [create a custom role](#create-a-custom-role). 
 
-| Role | Description and availability |
-| ---- | ---------------------------- |
-| [Owner](../role-based-access-control/built-in-roles.md#owner) | (Generally available) Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default.</br></br> (Preview) This role has the same access as the Search Service Contributor role on the data plane. It includes access to all data plane actions except the ability to query the search index or index documents. |
-| [Contributor](../role-based-access-control/built-in-roles.md#contributor) | (Generally available) Same level of access as Owner, minus the ability to assign roles or change authorization options. </br></br> (Preview) This role has the same access as the Search Service Contributor role on the data plane. It includes access to all data plane actions except the ability to query the search index or index documents. |
-| [Reader](../role-based-access-control/built-in-roles.md#reader) | (Generally available) Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: service name, resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>This role doesn't allow access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). </br></br> (Preview) When you enable the RBAC preview for the data plane, the Reader role has read access across the entire service. This allows you to read search metrics, content metrics (storage consumed, number of objects), and the definitions of data plane resources (indexes, indexers, etc.). The Reader role still won't have access to read API keys or read content within indexes. |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | (Generally available) This role is identical to the Contributor role and applies to control plane operations. </br></br>(Preview) When you enable the RBAC preview for the data plane, this role also provides full access to all data plane actions on indexes, synonym maps, indexers, data sources, and skillsets as defined by [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role doesn't give you access to query search indexes or index documents. This role is for search service administrators who need to manage the search service and its objects, but without the ability to view or access object data. </br></br>Like Contributor, members of this role can't make or manage role assignments or change authorization options. To use the preview capabilities of this role, your service must have the preview feature enabled, as described in this article. |
-| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | (Preview) Provides full data plane access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
-| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | (Preview) Provides read-only data plane access to search indexes on the search service. This role is for apps and users who run queries. |
+| Role | Plane | Description  |
+| ---- | ------|--------------------- |
+| [Owner](../role-based-access-control/built-in-roles.md#owner) | Control & Data | Full access to the control plane of the search resource, including the ability to assign Azure roles. Only the Owner role can enable or disable authentication options or manage roles for other users. Subscription administrators are members by default. </br></br>On the data plane, this role has the same access as the Search Service Contributor role. It includes access to all data plane actions except the ability to query or index documents.|
+| [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Control & Data |  Same level of control plane access as Owner, minus the ability to assign roles or change authentication options. </br></br>On the data plane, this role has the same access as the Search Service Contributor role. It includes access to all data plane actions except the ability to query or index documents.|
+| [Reader](../role-based-access-control/built-in-roles.md#reader) | Control & Data | Read access across the entire service, including search metrics, content metrics (storage consumed, number of objects), and the object definitions of data plane resources (indexes, indexers, and so on). However, it can't read API keys or read content within indexes. |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Control & Data | Read-write access to object definitions (indexes, synonym maps, indexers, data sources, and skillsets). See [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch) for the permissions list. This role can't access content in an index, so no querying or indexing, but it can create, delete, and list indexes, return index definitions and statistics, and test analyzers. This role is for search service administrators who need to manage the search service and its objects, but without content access. |
+| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Data | Read-write access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
+| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Data |  Read-only access to all search indexes on the search service. This role is for apps and users who run queries. |
 
 > [!NOTE]
-> Azure resources have the concept of [control plane and data plane](../azure-resource-manager/management/control-plane-and-data-plane.md) categories of operations. In Cognitive Search, "control plane" refers to any operation supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+> If you disable Azure role-based access, built-in roles for the control plane (Owner, Contributor, Reader) continue to be available. Disabling Azure RBAC removes just the data-related permissions associated with those roles. In a disabled-RBAC scenario, Search Service Contributor is equivalent to control-plane Contributor.
 
-<a name="preview-limitations"></a>
+## Limitations
 
-## Preview capabilities and limitations
-
-+ Role-based access control for data plane operations, such as creating an index or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-+ There are no regional, tier, or pricing restrictions for using Azure RBAC preview, but your search service must be in the Azure public cloud. The preview isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
-
-+ If you migrate your Azure subscription to a new tenant, the Azure RBAC preview will need to be re-enabled. 
-
-+ Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
++ Adoption of role-based access control might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
-
-+ Role-based access control is supported in Azure portal and in the following search clients: 
-
-  + [Search REST APIs](/rest/api/searchservice/) (all supported versions)
-  + [azure.search.documents (Azure SDK for .NET) version 11.4](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md)
-  + [azure.search.documents (Azure SDK for Python) version 11.3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md)
-  + [azure-search-documents (Azure SDK for Java) beta versions of 11.5 and 11.6](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md),
-  + [@azure/search-documents (Azure SDK for JavaScript), version 11.3 (see change log)](https://www.npmjs.com/package/@azure/search-documents?activeTab=explore).
 
 ## Configure role-based access for data plane
 
@@ -76,38 +63,38 @@ In this step, configure your search service to recognize an **authorization** he
 
 1. Choose an **API access control** option. We recommend **Both** if you want flexibility or need to migrate apps. 
 
-   | Option | Status | Description |
-   |--------|--------|-------------|
-   | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
-   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
-   | Both | Preview | Requests are valid using either an API key or role-based access control. |
+   | Option | Description |
+   |--------|--------------|
+   | API Key | (default). Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
+   | Role-based access control | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. |
+   | Both | Requests are valid using either an API key or role-based access control. |
 
 The change is effective immediately, but wait a few seconds before testing. 
 
-All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
+All network calls for search service operations and content respect the option you select: API keys, bearer token, or either one if you select **Both**.
 
-When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails.
+When you enable role-based access control in the portal, the failure mode is "http401WithBearerChallenge" if authorization fails.
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API version 2021-04-01-Preview, [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update), to configure your service.
+Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
 
-All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Azure Active Directory, with Contributor or Owner permissions. For help with setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
    ```
 
 1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](#disable-api-key-authentication).
 
-   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
     {
         "properties": {
             "disableLocalAuth": false,
@@ -149,9 +136,9 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
    + Owner
    + Contributor
    + Reader
-   + Search Service Contributor (preview for data plane requests)
-   + Search Index Data Contributor (preview)
-   + Search Index Data Reader (preview)
+   + Search Service Contributor
+   + Search Index Data Contributor
+   + Search Index Data Reader
 
 1. On the **Members** tab, select the Azure AD user or group identity.
 
@@ -161,7 +148,7 @@ Role assignments in the portal are service-wide. If you want to [grant permissio
 
 When [using PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
-Before you start, make sure you load the Az and AzureAD modules and connect to Azure:
+Before you start, make sure to load the **Az** and **AzureAD** modules and connect to Azure:
 
 ```powershell
 Import-Module -Name Az
@@ -169,7 +156,7 @@ Import-Module -Name AzureAD
 Connect-AzAccount
 ```
 
-Scoped to the service, your syntax should look similar to the following example:
+This example creates a role assignment scoped to a search service:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -177,7 +164,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>"
 ```
 
-Scoped to an individual index:
+This example creates a role assignment scoped to a specific index:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -191,7 +178,9 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 ## Test role assignments
 
-When testing roles, remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group can't be deleted or denied at the resource (search service) level. 
+Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group can't be deleted or denied at the resource (search service) level. 
+
+Make sure that you [register your client application with Azure Active Directory](search-howto-aad.md) and have role assignments in place before testing access. 
 
 ### [**Azure portal**](#tab/test-portal)
 
@@ -201,15 +190,15 @@ When testing roles, remember that roles are cumulative and inherited roles that 
 
 1. On the Overview page, select the **Indexes** tab:
 
-   + Members of the Contributor role can view and create any object, but can't query an index using Search Explorer.
+   + Contributors can view and create any object, but can't query an index using Search Explorer.
 
-   + Members of Search Index Data Reader can use Search Explorer to query the index. You can use any API version to check for access. You should be able to issue queries and view results, but you shouldn't be able to view the index definition.
+   + Search Index Data Readers can use Search Explorer to query the index. You can use any API version to check for access. You should be able to send queries and view results, but you shouldn't be able to view the index definition.
 
-   + Members of Search Index Data Contributor can select **New Index** to create a new index. Saving a new index will verify write access on the service.
+   + Search Index Data Contributors can select **New Index** to create a new index. Saving a new index verifies write access on the service.
 
 ### [**REST API**](#tab/test-rest)
 
-This approach assumes Postman as the REST client and uses a Postman collection and variables to provide the bearer token. You'll need Azure CLI or another tool to create a security principal for the REST client.
+This approach assumes Postman as the REST client and uses a Postman collection and variables to provide the bearer token. Use Azure CLI or another tool to create a security principal for the REST client.
 
 1. Open a command shell for Azure CLI and sign in to your Azure subscription.
 
@@ -217,25 +206,25 @@ This approach assumes Postman as the REST client and uses a Postman collection a
    az login
    ```
 
-1. Get your subscription ID. You'll provide this value as variable in a future step. 
+1. Get your subscription ID. The ID is used as a variable in a future step. 
 
    ```azurecli
    az account show --query id -o tsv
    ````
 
-1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step. The role you'll create will be scoped to the resource group.
+1. Create a resource group for your security principal. This example uses the West US region. You provide this value as a variable in a future step. The role that you create is scoped to the resource group.
 
    ```azurecli
    az group create -l westus -n MyResourceGroup
    ```
 
-1. Create the service principal, replacing the placeholder values with valid values. You'll need a descriptive security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
+1. Create the service principal, replacing the placeholder values with valid values for a security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
 
     ```azurecli
     az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
     ```
 
-   A successful response includes "appId", "password", and "tenant". You'll use these values for the variables "clientId", "clientSecret", and "tenant".
+   A successful response includes "appId", "password", and "tenant". You use these values for the variables "clientId", "clientSecret", and "tenant".
 
 1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
 
@@ -307,29 +296,105 @@ This approach assumes Postman as the REST client and uses a Postman collection a
 
 For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
-### [**.NET SDK**](#tab/test-csharp)
+### [**.NET**](#tab/test-csharp)
 
-See [Authorize access to a search app using Azure Active Directory](/search-howto-aad.md) for instructions that create an identity for your client app, assign a role, and call [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential).
+1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
 
-The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package. Configuration is required to register an application with Azure Active Directory, and to obtain and pass authorization tokens:
+1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
-+ When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
+   + When obtaining the OAuth token, the scope is "https://search.azure.com/.default". The SDK requires the audience to be "https://search.azure.com". The ".default" is an Azure AD convention.
 
-+ The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for "https://search.azure.com/.default".
+   + The SDK validates that the user has the "user_impersonation" scope, which must be granted by your app, but the SDK itself just asks for "https://search.azure.com/.default".
 
-Example of using [client secret credential](/dotnet/api/azure.core.tokencredential):
+1. Here's an example of a client connection using `DefaultAzureCredential()`.
 
-```csharp
-var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
-SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
-```
+    ```csharp
+    // Create a SearchIndexClient to send create/delete index commands
+    SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, new DefaultAzureCredential());
 
-More details about using [Azure AD authentication with the Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) are available in the SDK's GitHub repo.
+    // Create a SearchClient to load and query documents
+    SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, new DefaultAzureCredential());
+    ```
 
-> [!NOTE]
-> If you get a 403 error, verify that your search service is enrolled in the preview program and that your service is configured for preview role assignments.
+1. Here's another example of using [client secret credential](/dotnet/api/azure.core.tokencredential):
+
+    ```csharp
+    var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
+    SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
+    ```
+
+### [**Python**](#tab/test-python)
+
+1. Use [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/).
+
+1. Use [Azure.Identity for Python](/python/api/overview/azure/identity-readme) for token authentication.
+
+1. Use [DefaultAzureCredential](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential&preserve-view=true) if the Python client is an application that executes server-side. Enable [interactive authentication](/python/api/overview/azure/identity-readme?view=azure-python#enable-interactive-authentication-with-defaultazurecredential&preserve-view=true) if the app runs in a browser.
+
+1. Here's an example:
+
+    ```python
+    from azure.search.documents import SearchClient
+    from azure.identity import DefaultAzureCredential
+    
+    credential = DefaultAzureCredential()
+    endpoint = "https://<mysearch>.search.windows.net"
+    index_name = "myindex"
+    client = SearchClient(endpoint=endpoint, index_name=index_name, credential=credential)
+    ```
+
+### [**JavaScript**](#tab/test-javascript)
+
+1. Use [@azure/search-documents (Azure SDK for JavaScript), version 11.3](https://www.npmjs.com/package/@azure/search-documents).
+
+1. Use [Azure.Identity for JavaScript](/javascript/api/overview/azure/identity-readme) for token authentication.
+
+1. If you're using React, use `InteractiveBrowserCredential` for Azure AD authentication to Search. See [When to use `@azure/identity`](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#when-to-use&preserve-view=true) for details.
+
+### [**Java**](#tab/test-java)
+
+1. Use [azure-search-documents (Azure SDK for Java) version 11.5.6](https://central.sonatype.com/artifact/com.azure/azure-search-documents/11.5.6).
+
+1. Use [Azure.Identity for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true) for token authentication.
+
+1. Microsoft recommends [DefaultAzureCredential](/java/api/overview/azure/identity-readme?view=azure-java-stable#defaultazurecredential&preserve-view=true) for apps that run on Azure.
 
 ---
+
+## Test as current user
+
+If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure Cognitive Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
+
+1. Get a bearer token for the current user:
+
+    ```azurecli
+    az account get-access-token https://search.azure.com/.default
+    ```
+
+1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
+
+    | Variable | Description |
+    |----------|-------------|
+    | bearerToken | (copy-paste from get-access-token output on the command line) |
+
+1. In the Authorization tab, select **Bearer Token** as the type.
+
+1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
+
+1. Save the collection.
+
+1. Send a request to confirm access. Here's one that queries the hotels-quickstart index:
+
+   ```http
+   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-30
+   {
+    "queryType": "simple",
+    "search": "motel",
+    "filter": "",
+    "select": "HotelName,Description,Category,Tags",
+    "count": true
+    }
+   ```
 
 <a name="rbac-single-index"></a>
 
@@ -502,13 +567,13 @@ To disable key-based authentication, set "disableLocalAuth" to true.
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-preview
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
    ```
 
 1. Use PATCH to update service configuration. The following modification will set "authOptions" to null.
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
     {
         "properties": {
             "disableLocalAuth": true
@@ -516,9 +581,9 @@ To disable key-based authentication, set "disableLocalAuth" to true.
     }
     ```
 
-Requests that include an API key only, with no bearer token, will fail with an HTTP 401.
+Requests that include an API key only, with no bearer token, fail with an HTTP 401.
 
-To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they're specified).
+To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service resumes acceptance of API keys on the request automatically (assuming they're specified).
 
 ---
 

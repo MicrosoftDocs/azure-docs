@@ -35,12 +35,14 @@ sections:
           Microsoft Defender for Cloud monitors the following Azure resources:
           
           * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-          * Virtual machine scale sets
-          * [The many Azure PaaS services listed in the product overview](features-paas.md)
+          * Virtual Machine Scale Sets
+          * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#security-benefits-for-azure-services)
+
+          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and [multicloud resources](multicloud.yml), including Amazon AWS and Google Cloud.
           
           
       - question: |
-          How can I see the current security state of my Azure resources?
+          How can I see the current security state of my Azure, multicloud, and on-premises resources?
         answer: |
           The **Defender for Cloud Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing identified security vulnerabilities. Clicking each tile displays a list of security issues identified by Defender for Cloud, along with an inventory of the resources in your subscription.
           
@@ -49,7 +51,7 @@ sections:
       - question: |
           What is a security initiative?
         answer: |
-          A security initiative defines the set of controls (policies) that are recommended for resources within the specified subscription. In Microsoft Defender for Cloud, you assign initiatives for your Azure subscriptions according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
+          A security initiative defines the set of controls (policies) that are recommended for resources within the specified subscription. In Microsoft Defender for Cloud, you assign initiatives for your Azure subscriptions, AWS accounts, and GCP projects according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
           
           The security policies enabled in Microsoft Defender for Cloud drive security recommendations and monitoring. Learn more in [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
           
@@ -65,7 +67,7 @@ sections:
       - question: |
           What is a security recommendation?
         answer: |
-          Microsoft Defender for Cloud analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
+          Microsoft Defender for Cloud analyzes the security state of your Azure, multicloud, and on-premises resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
           
           * Provisioning of anti-malware to help identify and remove malicious software
           * [Network security groups](../virtual-network/network-security-groups-overview.md) and rules to control traffic to virtual machines
@@ -79,7 +81,7 @@ sections:
       - question: |
           What triggers a security alert?
         answer: |
-          Microsoft Defender for Cloud automatically collects, analyzes, and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
+          Microsoft Defender for Cloud automatically collects, analyzes, and fuses log data from your Azure, multicloud, and on-premises resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
           
           * Compromised virtual machines communicating with known malicious IP addresses
           * Advanced malware detected using Windows error reporting
@@ -92,4 +94,16 @@ sections:
         answer: |
           The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact is not specified.
           
-          Defender for Cloud is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
+          Defender for Cloud is an Azure service that continuously monitors the customer’s Azure, multicloud, and on-premises environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the workload protection dashboard.
+
+
+      - question: |
+          How can I track who in my organization enabled a Microsoft Defender plan in Defender for Cloud?
+        answer: |
+          Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
+
+          :::image type="content" source="media/faq-general/logged-change-to-pricing.png" alt-text="Screenshot of Azure Activity log showing a pricing change event.":::
+
+          If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
+
+          :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::

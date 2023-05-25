@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/07/2022
-ms.author: v-erinkelly
+ms.author: rohogue
 ---
 
 # Customize file write-back in Azure HPC Cache

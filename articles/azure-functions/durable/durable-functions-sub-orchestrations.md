@@ -2,7 +2,7 @@
 title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 02/14/2023
 ms.author: azfuncdf
 ---
 
@@ -16,6 +16,8 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 
 > [!NOTE]
 > Sub-orchestrations are not yet supported in PowerShell.
+
+[!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 ## Example
 
@@ -61,7 +63,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -77,6 +79,26 @@ module.exports = df.orchestrator(function*(context) {
 
     // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
     yield context.df.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+});
+```
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("deviceProvisioningOrchestration", function* (context) {
+    const deviceId = context.df.getInput();
+
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl = yield context.df.callActivity("createInstallationPackage", deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield context.df.callActivity("sendPackageUrlToDevice", { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.df.waitForExternalEvent("downloadCompletedAck");
 
     // Step 4: ...
 });
@@ -179,7 +201,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
 const df = require("durable-functions");
@@ -193,6 +215,34 @@ module.exports = df.orchestrator(function*(context) {
     for (const deviceId of deviceIds) {
         const child_id = context.df.instanceId+`:${id}`;
         const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId, child_id);
+        provisioningTasks.push(provisionTask);
+        id++;
+    }
+
+    yield context.df.Task.all(provisioningTasks);
+
+    // ...
+});
+```
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("provisionNewDevices", function* (context) {
+    const deviceIds = yield context.df.callActivity("getNewDeviceIds");
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = [];
+    var id = 0;
+    for (const deviceId of deviceIds) {
+        const child_id = context.df.instanceId + `:${id}`;
+        const provisionTask = context.df.callSubOrchestrator(
+            "deviceProvisioningOrchestration",
+            deviceId,
+            child_id
+        );
         provisioningTasks.push(provisionTask);
         id++;
     }

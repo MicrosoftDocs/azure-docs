@@ -13,26 +13,26 @@ ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-# Create, run, and delete Azure ML resources using REST
+# Create, run, and delete Azure Machine Learning resources using REST
 
 
 
-There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](/cli/azure), or [Python SDK](https://aka.ms/sdk-v2-install). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+There are several ways to manage your Azure Machine Learning resources. You can use the [portal](https://portal.azure.com/), [command-line interface](/cli/azure), or [Python SDK](https://aka.ms/sdk-v2-install). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Retrieve an authorization token
 > * Create a properly-formatted REST request using service principal authentication
-> * Use GET requests to retrieve information about Azure ML's hierarchical resources
+> * Use GET requests to retrieve information about Azure Machine Learning's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
-> * Use PUT requests to create Azure ML workspaces
+> * Use PUT requests to create Azure Machine Learning workspaces
 > * Use DELETE requests to clean up resources 
 
 ## Prerequisites
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/)
-- An [Azure Machine Learning Workspace](quickstart-create-resources.md).
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](./how-to-setup-authentication.md#service-principal-authentication) to create a service principal in your workspace
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
@@ -273,7 +273,7 @@ A successful request will get a `201 Created` response, but note that this respo
 
 ## Create a workspace using REST 
 
-Every Azure ML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+Every Azure Machine Learning workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
 
 To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
 
@@ -422,6 +422,6 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Next steps
 
-- Explore the complete [AzureML REST API reference](/rest/api/azureml/).
+- Explore the complete [Azure Machine Learning REST API reference](/rest/api/azureml/).
 - Learn how to use the designer to [Predict automobile price with the designer](./tutorial-designer-automobile-price-train-score.md).
 - Explore [Azure Machine Learning with Jupyter notebooks](..//machine-learning/samples-notebooks.md).

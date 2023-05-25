@@ -682,10 +682,10 @@ Navigate to your Service Bus namespace in the Azure portal, and select **Delete*
 
 See the following documentation and samples:
 
-- [Abstract away infrastructure concerns with higher-level frameworks like NServiceBus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
 - [.NET API reference](/dotnet/api/azure.messaging.servicebus)
+- [Abstract away infrastructure concerns with higher-level frameworks like NServiceBus](./build-message-driven-apps-nservicebus.md)
 
 ## Next steps
 

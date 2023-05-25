@@ -90,12 +90,14 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * This action requires at least Application Administrator role permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
+> * The application ID is assigned by Azure specifically for Azure Front Door (classic).
 > * Azure Front Door (classic) has a different *Application Id* than Azure Front Door Standard/Premium tier.
+> * The role assigned is only for the subscription selected unless you define a different scope.
 
 ##### Azure PowerShell
 
-1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-azure-powershell) in PowerShell on your local machine.
 
 2. In PowerShell, run the following command:
 
@@ -154,7 +156,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
     - The available secret versions.
 
     > [!NOTE]
-    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 72 hours for the new version of the certificate/secret to be deployed.
+    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes 72 - 96 hours for the new version of the certificate/secret to be deployed.
     >
     > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
 

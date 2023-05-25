@@ -3,10 +3,11 @@ title: Configure role-based access control in Azure Cosmos DB for MongoDB databa
 description: Learn how to configure native role-based access control in Azure Cosmos DB for MongoDB
 author: gahl-levy
 ms.service: cosmos-db
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: gahllevy
+ms.subservice: mongodb
 ---
 
 # Configure role-based access control in Azure Cosmos DB for MongoDB

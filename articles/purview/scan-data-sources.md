@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/23/2023
 ---
 
 # Scan data sources in Microsoft Purview
@@ -38,8 +38,10 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
 >[!IMPORTANT]
 > These are the general steps for creating a scan, but you should refer to [the source page](microsoft-purview-connector-overview.md) for source-specific prerequistes and scanning instructions.
 
+1. Open the Microsoft Purview governance portal by:
 
-1. In the [Azure portal](https://portal.azure.com), open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal** button.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
    :::image type="content" source="./media/scan-data-sources/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
@@ -66,6 +68,8 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
    :::image type="content" source="media/scan-data-sources/register-blob-scan-rule-set.png" alt-text="Screenshot of the select a scan rule set page with the default set selected.":::
 
 1. Choose your scan trigger. You can set up a schedule (monthly or weekly) or run the scan once.
+   >[!NOTE]
+   > **Start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
 
    :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="Screenshot of the set a scan trigger page showing a recurring monthly schedule.":::
 

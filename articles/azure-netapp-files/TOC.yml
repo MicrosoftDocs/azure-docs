@@ -13,7 +13,7 @@
   items:
   - name: Set up Azure NetApp Files and create an NFS volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-# - name: Tutorials
+# - name: Tutorials 
 # - name: Samples
 - name: Concepts
   items:
@@ -45,6 +45,10 @@
       href: volume-hard-quota-guidelines.md
     - name: Regional capacity quota
       href: regional-capacity-quota.md
+    - name: Understand default and individual user and group quotas
+      href: default-individual-user-group-quotas-introduction.md
+    - name: Requirements and considerations for large volumes
+      href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
@@ -57,8 +61,12 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
+    - name: Oracle database performance on Azure NetApp Files multiple volumes
+      href: performance-oracle-multiple-volumes.md
     - name: Azure NetApp Files datastore performance benchmarks for AVS 
       href: performance-benchmarks-azure-vmware-solution.md
+    - name: AVS datastore performance considerations for Azure NetApp Files 
+      href: performance-azure-vmware-solution-datastore.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
@@ -215,6 +223,8 @@
         href: configure-nfs-clients.md
       - name: Convert an NFS volume between NFSv3 and NFSv4.1
         href: convert-nfsv3-nfsv41.md
+      - name: Disable showmount
+        href: disable-showmount.md
     - name: Manage SMB volumes
       items:
       - name: Create an SMB volume
@@ -237,6 +247,8 @@
         href: configure-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
+      - name: Configure customer-managed keys 
+        href: configure-customer-managed-keys.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes
@@ -253,6 +265,8 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
+      - name: Manage default and individual user and group quotas for a volume
+        href: manage-default-individual-user-group-quotas.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -349,6 +363,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot file locks
+      href: troubleshoot-file-locks.md
 - name: Reference
   items:
   - name: REST

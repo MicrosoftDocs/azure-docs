@@ -91,6 +91,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-explorer-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/storage-explorer-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-storage-performance.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-storage-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-storage-availability.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-storage-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-storage-client-application-errors.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-monitoring-diagnosing-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/troubleshoot-latency-storage-analytics-logs.md",
+            "redirect_url": "/troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-account.md",
             "redirect_url": "/azure/storage/common/storage-account-create",
             "redirect_document_id": false
@@ -468,6 +503,11 @@
         {
             "source_path_from_root": "/articles/storage/common/storage-auth-aad-msi.md",
             "redirect_url": "/azure/storage/blobs/authorize-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-account-migrate-classic.md",
+            "redirect_url": "/azure/storage/common/classic-account-migrate",
             "redirect_document_id": false
         },
         {
@@ -2029,6 +2069,26 @@
             "source_path_from_root": "/articles/vs-azure-tools-storage-emulator-using.md",
             "redirect_url": "/azure/storage/common/storage-use-emulator",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshoot-linux-file-connection-problems.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-performance.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-troubleshooting-files-nfs.md",
+            "redirect_url": "/azure/storage/files/files-troubleshoot-linux-nfs",
+            "redirect_document_id": false
+        }            
     ]
 }

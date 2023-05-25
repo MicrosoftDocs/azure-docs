@@ -24,7 +24,7 @@ Azure Database for PostgreSQL encrypts data in two ways:
 
 - **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [guide](how-to-connect-tls-ssl.md) for more details. For better security, you may choose to enable [SCRAM authentication](how-to-connect-scram.md).
 
-   Although its not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_min_protocol_version` and `ssl_max_protocol_version` server parameters.
+   Although it's not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating  the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_min_protocol_version` and `ssl_max_protocol_version` server parameters.
 
 
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running. 
@@ -46,8 +46,8 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Access management
 
-Best way to manage PostgreSQL database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users, moreover roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It is also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
-PostgreSQL lets you grant permissions directly to the database users. As a good security practice, it can be recommended that you create roles with specific sets of permissions based on minimum application and access requirements and then assign the appropriate roles to each user. The roles should be used to enforce a *least privilege model* for accessing database objects.
+Best way to manage PostgreSQL database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users.  Roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It is also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
+PostgreSQL lets you grant permissions directly to the database users. As a good security practice, it can be recommended that you create roles with specific sets of permissions based on minimum application and access requirements. You can then assign the appropriate roles to each user.  Roles are used to enforce a *least privilege model* for accessing database objects.
 
 The Azure Database for PostgreSQL server is created with the 3 default roles defined. You can see these roles by running the command: 
 ```sql
@@ -65,9 +65,11 @@ postgres=> create role demouser with password 'password123';
 ```
 The **administrator role** should never be used by the application.
 
-In cloud-based PaaS environments access to a PostgreSQL superuser account is restricted to control plane operations only by cloud operators. Therefore, the **azure_pg_admin** account is added to the database as a pseudo-superuser account. Your administrator role is a member of the **azure_pg_admin** role. 
+In cloud-based PaaS environments access to a PostgreSQL superuser account is restricted to control plane operations only by cloud operators. Therefore, the **azure_pg_admin** account exists as a pseudo-superuser account. Your administrator role is a member of the **azure_pg_admin** role. 
 However, the server admin account is not part of the **azuresu** role, which has superuser privileges and is used to perform control pane operations. Since this service is a managed PaaS service, only Microsoft is part of the superuser role.
 
+> [!NOTE]
+> Number of superuser only permissions , such as creation of certain [implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html), are not available with Azure Database for PostgreSQL - Flexible Server, since azure_pg_admin role doesn't align to permissions of postgresql superuser role. 
 
 You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table which lists all the roles along with privileges such as create additional roles, create databases, replication etc. 
 
@@ -99,6 +101,24 @@ oid            | 24827
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible Server currently doesn't support [Microsoft Defender for Cloud protection](../../security-center/azure-defender.md). 
+
+
+## Row  level security
+
+[Row level security (RLS)](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) is a PostgreSQL security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles.  Row level security is an additional filter you can apply to a PostgreSQL database table. When a user tries to perform an action on a table, this filter is applied before the query criteria or other filtering, and the data is narrowed or rejected according to your security policy. You can create row level security policies for specific commands like *SELECT*, *INSERT*, *UPDATE*, and *DELETE*, specify it for ALL commands. Use cases for row level security include PCI compliant implementations, classified environments, as well as shared hosting / multi-tenant applications. 
+Only users with `SET ROW SECURITY` rights may apply row security rights to a table. The table owner may set row security on a table. Like `OVERRIDE ROW SECURITY` this is currently an implicit right. Row-level security does not override existing *GRANT* permissions, it adds a finer grained level of control. For example, setting `ROW SECURITY FOR SELECT` to allow a given user to give rows would only give that user access if the user also has *SELECT* privileges on the column or table in question.
+
+Here is an example showing how to create a policy that ensures only members of the custom created *“manager”* [role](#access-management) can access only the rows for a specific account. The code in below example was shared in the [PostgreSQL documentation](https://www.postgresql.org/docs/current/ddl-rowsecurity.html).
+
+```sql
+CREATE TABLE accounts (manager text, company text, contact_email text);
+
+ALTER TABLE accounts ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY account_managers ON accounts TO managers
+    USING (manager = current_user);
+```
+The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role cannot perform SELECT, DELETE, or UPDATE operations on rows that belong to other managers, and cannot INSERT new rows belonging to another manager.
 
 ## Updating passwords
 

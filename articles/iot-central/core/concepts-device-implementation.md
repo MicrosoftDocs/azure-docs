@@ -1,6 +1,5 @@
 ---
 title: Device implementation
-titleSuffix: Azure IoT Central
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
@@ -26,7 +25,7 @@ Devices that connect to IoT Central should follow the _IoT Plug and Play convent
 
 An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
 
-Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
+Each model has a unique _digital twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
 
 [IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
 
@@ -115,6 +114,8 @@ If the device gets any of the following errors when it connects, it should use a
 - Internal error 500 from the service.
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
+
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
 
 ### Test failover capabilities
 

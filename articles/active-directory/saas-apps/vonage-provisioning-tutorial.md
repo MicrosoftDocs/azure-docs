@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Vonage for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Vonage for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Vonage.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: dfb7e9bb-c29e-4476-adad-4ab254658e83
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

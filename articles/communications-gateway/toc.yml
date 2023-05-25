@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Azure Communications Gateway?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
 - name: Deployment
   items:
   - name: Prepare to deploy
@@ -20,12 +22,18 @@ items:
     href: onboarding.md
   - name: Interoperability with Microsoft Teams
     href: interoperability.md
+  - name: Mobile Control Point
+    href: mobile-control-point.md
   - name: Emergency calling
     href: emergency-calling.md
   - name: Reliability
     href: reliability-communications-gateway.md
   - name: Security
-    href: security.md
+    items:
+    - name: Overview of security
+      href: security.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-communications-gateway-security-baseline?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
   - name: Monitoring
     href: monitor-azure-communications-gateway.md
 - name: How-to guides
@@ -34,8 +42,6 @@ items:
     href: provision-user-roles.md
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
-  - name: Rotate deployment secrets
-    href: rotate-secrets.md
   - name: Get support or request changes
     href: request-changes.md
 - name: Reference
@@ -52,3 +58,4 @@ items:
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
   - name: Overview of Teams Phone Mobile
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
+

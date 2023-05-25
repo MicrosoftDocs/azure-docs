@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 10/27/2022
+ms.date: 05/10/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -19,11 +19,6 @@ ms.custom: engagement-fy23
 Encryption scopes enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
-
-> [!IMPORTANT]
-> Encryption scopes are in preview for storage accounts with a hierarchical namespace enabled. The preview supports REST, HDFS, NFSv3 and SFTP protocols.
-> The preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How encryption scopes work
 
@@ -74,8 +69,6 @@ If no default encryption scope is specified for the container, then you can uplo
 
 When you disable an encryption scope, any subsequent read or write operations made with the encryption scope will fail with HTTP error code 403 (Forbidden). If you re-enable the encryption scope, read and write operations will proceed normally again.
 
-When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
-
 If your encryption scope is protected with a customer-managed key, and you revoke the key in the key vault, the data will become inaccessible. Be sure to disable the encryption scope prior to revoking the key in key vault to avoid being charged for the encryption scope.
 
 Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
@@ -85,6 +78,16 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
+
+## Billing for encryption scopes
+
+When you configure an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis.
+
+If you disable the encryption scope within the first month, then you are billed for that full month, but not for subsequent months. If you disable the encryption scope after the first month, then you are charged for the first month, plus the number of hours that the encryption scope was in effect after the first month.
+
+Disable any encryption scopes that are not needed to avoid unnecessary charges.
+
+To learn about pricing for encryption scopes, see [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
 
 ## Feature support
 

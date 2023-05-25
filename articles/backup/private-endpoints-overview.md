@@ -2,7 +2,7 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 05/24/2023
 ms.custom: devx-track-azurepowershell
 ms.service: backup
 author: jyothisuri
@@ -26,7 +26,6 @@ This article will help you understand how private endpoints for Azure Backup wor
 - A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher for certain Azure regions. So we suggest that you have enough private IPs (/26) available when you attempt to create private endpoints for Backup.
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
 - Private endpoints for Backup don’t include access to Azure Active Directory (Azure AD) and the same needs to be ensured separately. So, IPs and FQDNs required for Azure AD to work in a region will need outbound access to be allowed from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
-- Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to [disable Network Polices](../private-link/disable-private-endpoint-network-policy.md) before continuing.
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 - [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported if the vault has private endpoints enabled.
 - When you move a Recovery Services vault already using private endpoints to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and create new private endpoints as needed (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any Azure role-based access control (Azure RBAC) permissions set up within the subscription will need to be reconfigured.
@@ -42,9 +41,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
-
+>Private endpoints are supported with only DPM server 2022, MABS v4, and later.
 
 ## Difference in network connections due to private endpoints
 
@@ -54,19 +51,19 @@ In all the scenarios (with or without private endpoints), both the workload exte
 
 In addition to these connections when the workload extension or MARS agent is installed for recovery services vault *without private endpoints*, connectivity to the following domains is also required:
 
-| Service | Domain names |
-| --- | --- |
-| Azure Backup | `*.backup.windowsazure.com` |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
-| Azure Active Directory (Azure AD) | [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). |
+| Service | Domain names | Port |
+| --- | --- | --- |
+| Azure Backup | `*.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` <br><br> `*.storage.azure.net` | 443 |
+| Azure Active Directory (Azure AD) | `*.australiacentral.r.login.microsoft.com` <br><br>  [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 When the workload extension or MARS agent is installed for Recovery Services vault with private endpoint, the following endpoints are hit:
 
-| Service | Domain name |
-| --- | --- |
-| Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 
-| Azure Active Directory (Azure AD) | [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). |
+| Service | Domain name | Port |
+| --- | --- | --- |
+| Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net`   <br><br> `*.storage.azure.net` | 443 | 
+| Azure Active Directory (Azure AD) |`*.australiacentral.r.login.microsoft.com` <br><br> [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 >[!Note]
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -75,7 +72,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should return a private IP address. This can be achieved by using:
+For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. This can be achieved by using:
 
 - Azure Private DNS zones
 - Custom DNS
@@ -108,7 +105,7 @@ When workload backup extensions are installed on the virtual machine registered 
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with Azure Backup over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting backup and restore on the vault. We recommend setting the public network access to *Deny*, along with private endpoint setup. As the extension and agent attempt the private URL initially, the  `*.privatelink.<geo>.backup.windowsazure.com` URL should resolve to the corresponding private IP associated with the private endpoint.
+These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with Azure Backup over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting backup and restore on the vault. We recommend setting the public network access to *Deny*, along with private endpoint setup. As the extension and agent attempt the private URL initially, the  `*.privatelink.<geo>.backup.windowsazure.com` DNS resolution of the URL should return the corresponding private IP associated with the private endpoint.
 
 The solutions for DNS resolution are:
 
@@ -129,7 +126,7 @@ The following diagram shows how the resolution works when using a private DNS zo
 
 The workload extension running on Azure VM requires connection to at least two storage accounts - the first one is used as communication channel (via queue messages) and second one for storing backup data. The MARS agent requires access to one storage account used for storing backup data.
 
-For a private endpoint enabled vault, Azure Backup creates private endpoint for these storage accounts. This prevents any network traffic related to Azure Backup (control plane traffic to service and backup data to storage blob) from leaving the virtual network. In addition to Azure Backup cloud services, the workload extension and agent require connectivity to Azure Storage accounts and Azure Active Directory (Azure AD).
+For a private endpoint enabled vault, the Azure Backup service creates private endpoint for these storage accounts. This prevents any network traffic related to Azure Backup (control plane traffic to service and backup data to storage blob) from leaving the virtual network. In addition to Azure Backup cloud services, the workload extension and agent require connectivity to Azure Storage accounts and Azure Active Directory (Azure AD).
 
 As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). Recovery Services vault searches for private DNS zones in the resource groups where VNet and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault; otherwise, you must create them manually.
 

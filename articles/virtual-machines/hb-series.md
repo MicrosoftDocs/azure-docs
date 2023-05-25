@@ -4,7 +4,7 @@ description: Specifications for the HB-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 03/04/2023
 ms.reviewer: jushiman
 ---
 
@@ -32,11 +32,11 @@ HB-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 8 |
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hb-series-overview.md)
-- Supported [software stack](./workloads/hpc/hb-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hb-series-performance.md) of the HB-series VM
+- [Architecture and VM topology](hb-series-overview.md)
+- Supported [software stack](hb-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hb-series-performance.md) of the HB-series VM
 
-[!INCLUDE [hpc-include.md](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include.md](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

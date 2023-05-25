@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on Android devices - Azure Active Directory
+title: Azure Active Directory certificate-based authentication on Android devices
 description: Learn about Azure Active Directory certificate-based authentication on Android devices
 
 services: active-directory
@@ -61,7 +61,7 @@ Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are 
 
 To determine if your email application supports Azure AD CBA, contact your application developer.
 
-## Support for certificates on hardware security key (preview)
+## Support for certificates on hardware security key
 
 Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. Azure AD supports CBA with YubiKey.  
 
@@ -116,7 +116,7 @@ Before installing Microsoft Authenticator, uninstall Company Portal and install 
 
 #### Does Azure AD CBA support YubiKey via NFC? 
 
-This feature currently only supports using YubiKey with USB and not NFC. We are working to add support for NFC. 
+This feature supports using YubiKey with USB and NFC.
 
 #### Once CBA fails, clicking on the CBA option again in the ‘Other ways to signin’ link on the error page fails. 
 

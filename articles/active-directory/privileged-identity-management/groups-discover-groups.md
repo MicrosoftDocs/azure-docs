@@ -1,5 +1,5 @@
 ---
-title: Bring groups into Privileged Identity Management (preview) - Azure Active Directory
+title: Bring groups into Privileged Identity Management (preview)
 description: Learn how to bring groups into Privileged Identity Management (preview).
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/12/2023
+ms.date: 4/12/2023
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.collection: M365-identity-device-management
@@ -26,10 +26,13 @@ Before you will start, you need an Azure AD Security group or Microsoft 365 grou
 
 Dynamic groups and groups synchronized from on-premises environment cannot be managed in PIM for Groups.
 
-You should either be a group Owner, have Global Administrator role, or Privileged Role Administrator role to bring the group under management with PIM.
+You need appropriate permissions to bring groups in Azure AD PIM. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
+
+> [!NOTE]
+> Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> Groups (Preview)** and view groups that are already enabled for PIM for Groups.
 

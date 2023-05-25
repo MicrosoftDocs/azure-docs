@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 02/23/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -20,6 +20,10 @@ ms.collection: M365-identity-device-management
 Use sensitivity labels to help control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They protect content without hindering user collaboration. Use sensitivity labels to send organization-wide content across devices, apps, and services, while protecting data. Sensitivity labels help organizations meet compliance and security policies. 
  
 See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true)
+
+## Before you begin
+
+This article is number 8 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
 ## Assign classification and enforce protection settings
 
@@ -59,7 +63,7 @@ As you plan the governance of external access to your content, consider content,
 
 To define High, Medium, or Low Business Impact (HBI, MBI, LBI) for data, sites, and groups, consider the effect on your organization if the wrong content types are shared. 
 
-* Credit card, passport, national-ID numbers
+* Credit card, passport, national/regional ID numbers
   * [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
 * Content created by corporate officers: compliance, finance, executive, etc.
 * Strategic or financial data in libraries or sites. 
@@ -97,7 +101,7 @@ You can apply sensitivity labels to containers such as Microsoft 365 Groups, Mic
 * **External user access** - determine if group owners can add guests to a group
 * **Access from unmanaged devices** - decide if and how unmanaged devices access content
 
-   ![Screenshot of otions and entries under Site and group settings.](media/secure-external-access/8-edit-label.png)
+   ![Screenshot of options and entries under Site and group settings.](media/secure-external-access/8-edit-label.png)
 
 Sensitivity labels applied to a container, such as a SharePoint site, aren't applied to content in the container; they control access to content in the container. Labels can be applied automatically to the content in the container. For users to manually apply labels to content, enable sensitivity labels for Office files in SharePoint and OneDrive.
 
@@ -117,22 +121,24 @@ After you determine use of sensitivity labels, see the following documentation f
 
 ## Next steps
 
-See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-3. [Create a security plan for external access](3-secure-access-plan.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
 
-7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) 
 
 8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

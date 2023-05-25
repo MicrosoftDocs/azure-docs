@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
 
-This article creates an HTTP triggered function that runs on .NET. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
+This article creates an HTTP triggered function that runs on .NET 6 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
@@ -31,28 +31,17 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Select the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
  
-1. For **Select a language**, choose `C#`.
- 
-1. For **Select a .NET runtime**, choose from one of the following options: 
-
-    | .NET runtime | Process model | Description |
-    | --- | --- |  --- |
-    | **.NET 6.0 (LTS)** | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
-    | **.NET 6.0 Isolated (LTS)** |  [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
-    | **.NET 7.0 Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
-    | **.NET Framework Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
-
-    The two process models use different APIs, and each process model uses a different template when generating the function project code. If you don't see these options, press F1 and type `Preferences: Open user settings`, then search for `Azure Functions: Project Runtime` and make sure that the default runtime version is set to `~4`.
-
-1. Provide the remaining information at the prompts:
+1. Provide the following information at the prompts:
 
     |Prompt|Selection|
     |--|--|
+    |**Select a language for your function project**|Choose `C#`.|
+    | **Select a .NET runtime** | Choose `.NET 6.0 Isolated (LTS)`.|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Select `Add to workspace`.|
+    |**Select how you would like to open your project**|Select `Open in current window`.|
 
 1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=csharp#generated-project-files).
 
@@ -72,21 +61,10 @@ After checking that the function runs correctly on your local computer, it's tim
 
 You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Queue Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
 
-The next article depends on your chosen process model.
-
-# [In-process](#tab/in-process) 
-
-> [!div class="nextstepaction"]
-> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
-> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
-
-# [Isolated process](#tab/isolated-process)
-
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-
----
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

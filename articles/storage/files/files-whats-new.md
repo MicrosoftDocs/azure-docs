@@ -4,13 +4,43 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 05/24/2023
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # What's new in Azure Files
 Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
+
+## What's new in 2023
+
+### 2023 quarter 2 (April, May, June)
+#### Geo-redundant storage for large file shares is in public preview
+
+Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
+
+#### New SLA of 99.99 percent uptime for Azure Files Premium Tier is generally available
+
+Azure Files now offers a 99.99 percent SLA per file share for all Azure Files Premium shares, regardless of protocol (SMB, NFS, and REST) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99 percent uptime, you’re eligible for service credits.
+
+#### Azure Active Directory support for Azure Files REST API with OAuth authentication is in public preview
+
+This preview enables share-level read and write access to SMB Azure file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
+
+#### AD Kerberos authentication for Linux clients (SMB) is generally available
+
+Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+
+### 2023 quarter 1 (January, February, March)
+#### Nconnect for NFS Azure file shares is generally available
+
+Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+
+#### Improved Azure File Sync service availability
+
+Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
+Note: Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
 
 ## What's new in 2022
 
@@ -47,8 +77,8 @@ For more information, see:
 - [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-#### NFS 4.1 protocol support is generally available
-Premium Azure file shares now support either the SMB or the NFS 4.1 protocols. NFS 4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFS 4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
+#### NFSv4.1 protocol support is generally available
+Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. NFSv4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFSv4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
 
 For more information, see:
 

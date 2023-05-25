@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, automl, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
 ms.author: mithigpe
 author: minthigpen
 ms.date: 10/21/2021
@@ -31,6 +31,8 @@ In this article, you learn how to:
 
 - Interpretability features. Run `pip install azureml-interpret` to get the necessary package.
 - Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [object detection model tutorial](../tutorial-auto-train-image-models.md) or see how to [configure automated ML experiments](../how-to-configure-auto-train.md).
+
+[!INCLUDE [disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Interpretability during training for the best model
 

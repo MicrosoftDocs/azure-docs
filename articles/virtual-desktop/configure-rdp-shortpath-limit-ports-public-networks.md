@@ -3,7 +3,7 @@ title: Limit the port range when using RDP Shortpath for public networks - Azure
 description: Learn how to limit the port range used by clients when using RDP Shortpath for public networks for Azure Virtual Desktop, which establishes a UDP-based transport between a Remote Desktop client and session host.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 02/02/2023
+ms.date: 03/01/2023
 ms.author: daknappe
 ---
 # Limit the port range when using RDP Shortpath for public networks
@@ -17,7 +17,8 @@ When choosing the base and pool size, consider the number of ports you choose. T
 ## Prerequisites
 
 - A client device running the [Remote Desktop client for Windows](users/connect-windows.md), version 1.2.3488 or later. Currently, non-Windows clients aren't supported.
-- Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet. For more information you can use to configure firewalls and Network Security Group, see [Network configurations for RDP Shortpath](rdp-shortpath.md#network-configuration). 
+
+- Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet. For more information you can use to configure firewalls and Network Security Group, see [Network configurations for RDP Shortpath](rdp-shortpath.md?tabs=public-networks#network-configuration). 
 
 ## Enable a limited port range
 
@@ -29,10 +30,12 @@ To enable a limited port range when using RDP Shortpath for public networks, you
    
    **AD Domain**:
    1. Copy and paste the **terminalserver-avd.admx** file to the Central Store for your domain, for example `\\contoso.com\SYSVOL\contoso.com\policies\PolicyDefinitions`, where *contoso.com* is your domain name. Then copy the **en-us\terminalserver-avd.adml** file to the `en-us` subfolder.
+
    1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
    
    **Locally**:
    1. Copy and paste the **terminalserver-avd.admx** file to `%windir%\PolicyDefinitions`. Then copy the **en-us\terminalserver-avd.adml** file to the `en-us` subfolder.
+
    1. Open the **Local Group Policy Editor** on the session host.
 
 1. Browse to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop, as shown in the following screenshot:

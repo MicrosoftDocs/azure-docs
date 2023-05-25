@@ -7,6 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
+ms.custom: build-2023
 ms.topic: reference
 ms.date: 12/17/2022
 ms.author: lajanuar
@@ -15,20 +16,20 @@ ms.author: lajanuar
 # Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](../overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
+[Document Translation](../overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation isn't supported for the free tier).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure Blob Storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
-  * **Target container**. This container is where your translated files will be stored (required).
+  * **Target container**. This container is where your translated files are stored (required).
 
 * You also need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` , must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](create-sas-tokens.md).
 
@@ -103,7 +104,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](../quickstarts/get-started-with-rest-api.md#your-custom-domain-name-and-key)
+In the application's **Program** class, create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../quickstarts/get-started-with-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -112,12 +113,12 @@ private static readonly string key = "<your key>";
 
 ### Translate a document or batch files
 
-* To Start a translation operation for one or more documents in a single blob container, you'll call the `StartTranslationAsync` method.
+* To Start a translation operation for one or more documents in a single blob container, you call the `StartTranslationAsync` method.
 
 * To call `StartTranslationAsync`, you need to initialize a `DocumentTranslationInput`  object that contains the following parameters:
 
 * **sourceUri**. The SAS URI for the source container containing documents to be translated.
-* **targetUri** The SAS URI for the target container to which the translated documents will be written.
+* **targetUri** The SAS URI for the target container to which the translated documents are written.
 * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
 
 ```csharp
@@ -185,8 +186,7 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.translation.document import DocumentTranslationClient
 ```
 
-Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Custom domain name and key](../quickstarts/get-started-with-rest-api.md#your-custom-domain-name-and-key)
+Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For more information, *see* [Retrieve your key and custom domain endpoint](../quickstarts/get-started-with-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
 ```python
 key = "<your-key>"

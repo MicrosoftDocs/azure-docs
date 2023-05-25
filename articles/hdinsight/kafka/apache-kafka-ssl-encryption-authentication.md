@@ -4,10 +4,10 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/03/2023
+ms.date: 02/16/2023
 ---
 
-# Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
+# Set up TLS encryption and authentication for Non ESP Apache Kafka cluster in Azure HDInsight
 
 This article shows you how to set up Transport Layer Security (TLS) encryption, previously known as Secure Sockets Layer (SSL) encryption, between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way TLS).
 
@@ -16,13 +16,13 @@ This article shows you how to set up Transport Layer Security (TLS) encryption, 
 
 ## Apache Kafka broker setup
 
-The Kafka TLS broker setup will use four HDInsight cluster VMs in the following way:
+The Kafka TLS broker setup uses four HDInsight cluster VMs in the following way:
 
 * headnode 0 - Certificate Authority (CA)
 * worker node 0, 1, and 2 - brokers
 
 > [!Note] 
-> This guide will use self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
+> This guide uses self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
 
 The summary of the broker setup process is as follows:
 
@@ -42,7 +42,7 @@ Use the following detailed instructions to complete the broker setup:
 > [!Important]
 > In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
 
-1. Perform initial setup on head node 0, which for HDInsight will fill the role of the Certificate Authority (CA).
+1. Perform initial setup on head node 0, which for HDInsight fills the role of the Certificate Authority (CA).
 
     ```bash
     # Create a new directory 'ssl' and change into it
@@ -76,7 +76,7 @@ Use the following detailed instructions to complete the broker setup:
     wn0-espkaf.securehadooprc.onmicrosoft.com
     wn0-kafka2.zbxwnwsmpcsuvbjqbmespcm1zg.bx.internal.cloudapp.net
     ```
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing etc hosts output." border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/etc-hosts.png" alt-text="Screenshot showing hosts file output." border="true":::
  
 1. On the CA machine, run the following command to create ca-cert and ca-key files:
 
@@ -128,21 +128,34 @@ To complete the configuration modification, do the following steps:
 1. Under **Kafka Broker** set the **listeners** property to `PLAINTEXT://localhost:9092,SSL://localhost:9093`
 1. Under **Advanced kafka-broker** set the **security.inter.broker.protocol** property to `SSL`
 
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari" border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Editing Kafka ssl configuration properties in Ambari." border="true":::
 
 1. Under **Custom kafka-broker** set the **ssl.client.auth** property to `required`. 
 
    
    > [!Note] 
-   > Note: This step is only required if you are setting up authentication and encryption.
+   > Note: This step is only required if you're setting up authentication and encryption.
    
-    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari" border="true":::
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Editing kafka ssl configuration properties in Ambari." border="true":::
 
 1. Here's the screenshot that shows Ambari configuration UI with these changes.
+   
+   > [!Note] 
+   > 1.	ssl.keystore.location and ssl.truststore.location is the complete path of your keystore, truststore location in Certificate Authority (hn0)
+   > 1.	ssl.keystore.password and ssl.truststore.password is the password set for the keystore and truststore. In this case as an example, `MyServerPassword123`
+   > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
+
 
     For HDI version 4.0 or 5.0
+    
+   1. If you're setting up authentication and encryption, then the screenshot looks like
 
-     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four" border="true":::
+      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four." border="true":::
+           
+   1. If you are setting up encryption only, then the screenshot looks like   
+      
+      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four-encryption-only.png" alt-text="Screenshot showing how to edit kafka-env template property field in Ambari for encryption only." border="true":::
+ 
 
 1. Restart all Kafka brokers.
 
@@ -151,10 +164,10 @@ To complete the configuration modification, do the following steps:
 If you don't need authentication, the summary of the steps to set up only TLS encryption are:
 
 1. Sign in to the CA (active head node).
-1. Copy the CA cert to client machine from the CA machine (wn0).
+1. Copy the CA certificate to client machine from the CA machine (wn0).
 1. Sign in to the client machine (hn1) and navigate to the `~/ssl` folder.
-1. Import the CA cert to the truststore.
-1. Import the CA cert to the keystore.
+1. Import the CA certificate to the truststore.
+1. Import the CA certificate to the keystore.
 
 These steps are detailed in the following code snippets.
 
@@ -184,7 +197,7 @@ These steps are detailed in the following code snippets.
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. Import the CA cert to keystore.
+1. Import the CA certificate to keystore.
     
     ```bash
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt

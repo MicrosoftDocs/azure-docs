@@ -1,11 +1,10 @@
 ---
 title: Advanced features of Metrics Explorer
 description: Metrics are a series of measured values and counts that Azure collects. Learn to use Metrics Explorer to investigate the health and usage of resources.
-author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2022
-ms.author: vitalyg
+ms.reviewer: vitalyg
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -172,11 +171,8 @@ You can split a metric by dimension to visualize how different segments of the m
 ### Apply splitting
 
 1. Above the chart, select **Apply splitting**.
-
-   > [!NOTE]
-   > Charts that have multiple metrics can't use the splitting functionality. Also, although a chart can have multiple filters, it can have only one splitting dimension.
-
-1. Choose a dimension on which to segment your chart:
+   
+1. Choose dimension(s) on which to segment your chart:
 
    ![Screenshot that shows the selected dimension on which to segment the chart.](./media/metrics-charts/031.png)
 
@@ -192,7 +188,11 @@ You can split a metric by dimension to visualize how different segments of the m
 
    ![Screenshot that shows sort order on split values.](./media/metrics-charts/segment-dimension-sort.png)
 
-1. Click away from the grouping selector to close it.
+1. If you like to segment by multiple segments select multiple dimensions from the values dropdown. The legends will show a comma-separated list of dimension values for each segment
+
+   ![Screenshot that shows multiple segments selected, and the corresponding chart below.](./media/metrics-charts/segment-dimension-multiple.png)
+   
+3. Click away from the grouping selector to close it.
 
    > [!NOTE]
    > To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.

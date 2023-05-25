@@ -38,7 +38,7 @@ The primary resources you work with in an Azure AD B2C tenant are:
 An Azure AD B2C tenant is the first resource you need to create to get started with Azure AD B2C. Learn how to:
 
 * [Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
-* [Manage your Azure AD B2C tenant](tenant-management.md)
+* [Manage your Azure AD B2C tenant](tenant-management-manage-administrator.md)
 
 ## Accounts in Azure AD B2C
 

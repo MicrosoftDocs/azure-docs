@@ -14,7 +14,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/28/2022
+ms.date: 04/25/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -65,6 +65,12 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- April 25, 2023: Adjust mount options in [HA for HANA Scale-up with ANF on SLES](sap-hana-high-availability-netapp-files-suse.md), [HANA scale-out with standby node with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), [HA for HANA Scale-out HA on SLES](sap-hana-high-availability-scale-out-hsr-suse.md), [HA for HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), [HA for HANA scale-out on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [HA for SAP NW on SLES with ANF](./high-availability-guide-suse-netapp-files.md) , [HA for SAP NW on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on SLES with simple mount and NFS](high-availability-guide-suse-nfs-simple-mount.md)
+- April 6, 2023: Updates for RHEL 9 in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md)
+- March 26, 2023: Adding recommended sector size in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
+- March 1, 2023: Change in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add configuration for cluster default properties
+- February 21, 2023: Correct link to HANA hardware directory in [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md) and fixed a bug in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
+- February 17, 2023: Add support and Sentinel sections, few other minor updates in [RISE with SAP integration](rise-integration.md)
 - February 02, 2023: Add new HA provider susChkSrv for [SAP HANA Scale-out HA on SUSE](sap-hana-high-availability-scale-out-hsr-suse.md) and change from SAPHanaSR to SAPHanaSrMultiTarget provider, enabling HANA multi-target replication
 - January 27, 2023: Mark Azure Active Directory Domain Services as supported AD solution in [SAP workload on Azure virtual machine supported scenarios](planning-supported-configurations.md) after successful testing
 - December 28, 2022: Update documents [Azure Storage types for SAP workload](./planning-guide-storage.md) and [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md) to provide more details on ANF deployment processes to achieve proximity and low latency. Introduction of zonal deployment process of NFS shares on ANF

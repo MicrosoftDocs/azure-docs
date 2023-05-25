@@ -1,16 +1,16 @@
 ---
 title: Azure Network Watcher Agent virtual machine extension for Windows 
 description: Deploy the Network Watcher Agent on Windows virtual machine using a virtual machine extension.
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
-ms.date: 02/14/2017 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 02/15/2023
+ms.custom: template-concept, engagement-fy23
 ---
+
 # Network Watcher Agent virtual machine extension for Windows
 
 ## Overview
@@ -18,21 +18,21 @@ ms.custom: devx-track-azurepowershell
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring of Azure networks. The Network Watcher Agent virtual machine extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines.
 
 
-This document details the supported platforms and deployment options for the Network Watcher Agent virtual machine extension for Windows. Installation of the agent does not disrupt, or require a reboot, of the virtual machine. You can deploy the extension into virtual machines that you deploy. If the virtual machine is deployed by an Azure service, check the documentation for the service to determine whether or not it permits installing extensions in the virtual machine.
+This document details the supported platforms and deployment options for the Network Watcher Agent virtual machine extension for Windows. Installation of the agent doesn't disrupt, or require a reboot, of the virtual machine. You can deploy the extension into virtual machines that you deploy. If the virtual machine is deployed by an Azure service, check the documentation for the service to determine whether or not it permits installing extensions in the virtual machine.
 
 ## Prerequisites
 
 ### Operating system
 
-The Network Watcher Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, 2016 and 2019 releases. Nano Server is not supported at this time.
+The Network Watcher Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, 2016, 2019 and 2022 releases. Nano Server isn't supported at this time.
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that the target virtual machine be connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent will not be able to upload packet captures to your storage account. For more details, please see the [Network Watcher documentation](../../network-watcher/network-watcher-monitoring-overview.md).
+Some of the Network Watcher Agent functionality requires that the virtual machine is connected to the Internet. Without the ability to establish outgoing connections, the Network Watcher Agent won't be able to upload packet captures to your storage account. For more details, please see the [Network Watcher documentation](../../network-watcher/index.yml).
 
 ## Extension schema
 
-The following JSON shows the schema for the Network Watcher Agent extension. The extension neither requires, nor supports, any user-supplied settings, and relies on its default configuration.
+The following JSON shows the schema for the Network Watcher Agent extension. The extension doesn't require, or support, any user-supplied settings, and relies on its default configuration.
 
 ```json
 {
@@ -56,7 +56,7 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2022-11-01 |
 | publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |

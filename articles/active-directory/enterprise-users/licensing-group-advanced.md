@@ -1,5 +1,5 @@
 ---
-title: Group-based licensing additional scenarios - Azure AD | Microsoft Docs
+title: Group-based licensing additional scenarios
 description: More scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing

@@ -1,18 +1,18 @@
 ---
-title: Delete an Azure Elastic SAN (preview)
-description: Learn how to delete an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or the Azure CLI.
+title: Delete an Azure Elastic SAN Preview
+description: Learn how to delete an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Delete an Elastic SAN (preview)
+# Delete an Elastic SAN Preview
 
-To delete an elastic storage area network (SAN), you first need to disconnect every volume in your Elastic SAN (preview) from any connected hosts.
+To delete an elastic storage area network (SAN), you first need to disconnect every volume in your Elastic SAN Preview from any connected hosts.
 
 ## Disconnect volumes from clients
 
@@ -37,7 +37,7 @@ In your compute client, retrieve the sessionID for the Elastic SAN volumes you'd
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to disconnect an Elastic SAN volume.
 
 ```
-iscsicli RemovePersistentTarget $yourStorageTargetIQN $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
+iscsicli RemovePersistentTarget ROOT\ISCSIPRT\0000_0 $yourStorageTargetIQN -1 $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
 
 iscsicli LogoutTarget <sessionID>
 
@@ -111,4 +111,4 @@ az elastic-san delete -n $sanName -g $resourceGroupName
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)

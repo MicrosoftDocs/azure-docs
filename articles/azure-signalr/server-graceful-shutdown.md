@@ -26,9 +26,9 @@ In general, there will be four stages in a graceful shutdown process:
 2. **Trigger `OnShutdown` hooks**
 
     You could register shutdown hooks for each hub you have owned in your server.
-    They will be called with respect to the registered order right after we got an **FINACK** response from our Azure SignalR Service, which means this server has been set offline in the Azure SignalR Service.
+    They'll be called with respect to the registered order right after we got an **FINACK** response from our Azure SignalR Service, which means this server has been set offline in the Azure SignalR Service.
 
-    You can broadcast messages or do some cleaning jobs in this stage, once all shutdown hooks has been executed, we will proceed to the next stage.
+    You can broadcast messages or do some cleaning jobs in this stage, once all shutdown hooks has been executed, we'll proceed to the next stage.
 
 3. **Wait until all client connections finished**, depends on the mode you choose, it could be:
 
@@ -36,7 +36,7 @@ In general, there will be four stages in a graceful shutdown process:
 
     Azure SignalR Service will hold existing clients.
 
-    You may have to design a way, like broadcast a closing message to all clients, and then let your clients to decide when to close/reconnect itself.
+    You may have to design a way, like broadcast a closing message to all clients, and then let your clients decide when to close/reconnect itself.
 
     Read [ChatSample](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample) for sample usage, which we broadcast a 'exit' message to trigger client close in shutdown hook.
 
@@ -44,7 +44,7 @@ In general, there will be four stages in a graceful shutdown process:
 
     Azure SignalR Service will try to reroute the client connection on this server to another valid server. 
     
-    In this scenario, `OnConnectedAsync` and `OnDisconnectedAsync` will be triggered on the new server and the old server respectively with an `IConnectionMigrationFeature` set in the `Context`, which can be used to identify if the client connection was being migrated-in our migrated-out. It could be useful especially for stateful scenarios.
+    In this scenario, `OnConnectedAsync` and `OnDisconnectedAsync` will be triggered on the new server and the old server respectively with an `IConnectionMigrationFeature` set in the `Context`, which can be used to identify if the client connection was being migrated-in or migrated-out. This feature could be useful especially for stateful scenarios.
 
     The client connection will be immediately migrated after the current message has been delivered, which means the next message will be routed to the new server.
 
@@ -76,7 +76,7 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### configure `OnConnected` and `OnDisconnected` while setting graceful shutdown mode to `MigrateClients`.
 
-We have introduced an "IConnectionMigrationFeature" to indicate if a connection was being migrated-in/out.
+We've introduced an "IConnectionMigrationFeature" to indicate if a connection was being migrated-in/out.
 
 ```csharp
 public class Chat : Hub {

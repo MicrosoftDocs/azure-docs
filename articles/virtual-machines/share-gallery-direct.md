@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/25/2022
+ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -29,11 +29,11 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Share with\: | Option |
-|----|----|
-| [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](explained in this article) | Direct shared gallery lets you share to everyone in a subscription or tenant (all users, service principals and managed identities) |
-| [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+| Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
+|---|---|---|---|---|---|
+| [RBAC Sharing](share-gallery.md) | Yes | Yes | Yes | No | No |
+| RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
+| RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
 
 ## Limitations
@@ -90,6 +90,9 @@ To share the gallery:
    :::image type="content" source="media/create-gallery/direct-share-add.png" alt-text="Screenshot showing the option to share with a subscription or tenant.":::
 
 1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
+
+	**When a gallery is shared with the tenant, all subscriptions within the tenant will get access to the image and don't have to share it with individual subscription(s) in the tenant**
+
 1. When you are done adding items, select **Save**.
 
 
@@ -227,4 +230,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Next steps
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-gallery-shared-with-your-subscription-or-tenant) image from a direct shared image in the target subscription or tenant.
+- Create a VM from a [generalized](vm-generalized-image-version.md#direct-shared-gallery) or [specialized](vm-specialized-image-version.md#direct-shared-gallery) image from a direct shared image in the target subscription or tenant.

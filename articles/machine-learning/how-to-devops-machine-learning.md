@@ -10,7 +10,7 @@ ms.author: jukullam
 ms.reviewer: larryfr
 ms.date: 11/11/2022
 ms.topic: how-to
-ms.custom: devops-pipelines-deploy
+ms.custom: devops-pipelines-deploy, devx-track-arm-template
 ---
 
 # Use Azure Pipelines with Azure Machine Learning
@@ -30,10 +30,11 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 
 ## Prerequisites
 
-Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
-* Create a workspace
-* Create a cloud-based compute instance to use for your development environment
-* Create a cloud-based compute cluster to use for training your model
+* Complete the [Create resources to get started](quickstart-create-resources.md) to:
+    * Create a workspace
+    * Create a cloud-based compute instance to use for your development environment
+
+* [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
 
 ## Step 1: Get the code
 
@@ -80,7 +81,7 @@ You'll need an Azure Resource Manager connection to authenticate with Azure port
 
 ## Step 5: Create variables
 
-You should already have a resource group in Azure with [Azure Machine Learning](overview-what-is-azure-machine-learning.md). To deploy your DevOps pipeline to AzureML, you'll need to create variables for your subscription ID, resource group, and machine learning workspace. 
+You should already have a resource group in Azure with [Azure Machine Learning](overview-what-is-azure-machine-learning.md). To deploy your DevOps pipeline to Azure Machine Learning, you'll need to create variables for your subscription ID, resource group, and machine learning workspace. 
 
 1. Select the Variables tab on your pipeline edit page.  
 
@@ -88,7 +89,7 @@ You should already have a resource group in Azure with [Azure Machine Learning](
  
 1. Create a new variable, `Subscription_ID`, and select the checkbox **Keep this value secret**. Set the value to your [Azure portal subscription ID](../azure-portal/get-subscription-tenant-id.md).
 1. Create a new variable for `Resource_Group` with the name of the resource group for Azure Machine Learning (example: `machinelearning`). 
-1. Create a new variable for `AzureML_Workspace_Name` with the name of your Azure ML workspace (example: `docs-ws`).
+1. Create a new variable for `AzureML_Workspace_Name` with the name of your Azure Machine Learning workspace (example: `docs-ws`).
 1. Select **Save** to save your variables. 
 
 ## Step 6: Build your YAML pipeline
@@ -97,7 +98,7 @@ Delete the starter pipeline and replace it with the following YAML code. In this
 
 * Use the Python version task to set up Python 3.8 and install the SDK requirements.
 * Use the Bash task to run bash scripts for the Azure Machine Learning SDK and CLI.
-* Use the Azure CLI task to pass the values of your three variables and use papermill to run your Jupyter notebook and push output to AzureML. 
+* Use the Azure CLI task to pass the values of your three variables and use papermill to run your Jupyter notebook and push output to Azure Machine Learning. 
 
 ```yaml
 trigger:
@@ -141,7 +142,7 @@ steps:
 
 1. Open your completed pipeline run and view the AzureCLI task. Check the task view to verify that the output task finished running. 
  
-   :::image type="content" source="media/how-to-devops-machine-learning/machine-learning-azurecli-output.png" alt-text="Screenshot of machine learning output to AzureML.":::
+   :::image type="content" source="media/how-to-devops-machine-learning/machine-learning-azurecli-output.png" alt-text="Screenshot of machine learning output to Azure Machine Learning.":::
 
 1. Open Azure Machine Learning studio and navigate to the completed `sklearn-diabetes-example` job. On the **Metrics** tab, you should see the training results. 
 

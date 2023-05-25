@@ -1,7 +1,7 @@
 ---
 title: Train a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to train Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft base model or a custom model.
+description: Learn how to train Custom Speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -19,7 +19,7 @@ zone_pivot_groups: speech-studio-cli-rest
 In this article, you'll learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a Custom Speech model will remain consistent, even when a new base model is released.
 
 > [!NOTE]
-> You pay to use Custom Speech models, but you are not charged for training a model. Usage includes hosting of your deployed custom endpoint in addition to using the endpoint for speech-to-text. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> You pay for Custom Speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md), but you are not charged for training a model. 
 
 Training a model is typically an iterative process. You will first select a base model that is the starting point for a new model. You train a model with [datasets](./how-to-custom-speech-test-and-train.md) that can include text and audio, and then you test. If the recognition quality or accuracy doesn't meet your requirements, you can create a new model with additional or modified training data, and then test again.
 
@@ -126,7 +126,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
@@ -224,13 +224,13 @@ After the model is successfully copied, you'll be notified and can view it in th
 
 ::: zone pivot="speech-cli"
 
-Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech-to-text REST API](rest-speech-to-text.md).
+Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech to text REST API](rest-speech-to-text.md).
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-To copy a model to another Speech resource, use the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To copy a model to another Speech resource, use the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `targetSubscriptionKey` property to the key of the destination Speech resource.
 
@@ -328,7 +328,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 

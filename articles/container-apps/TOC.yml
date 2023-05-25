@@ -9,21 +9,14 @@
 - name: Quickstarts
   expanded: true
   items: 
-  - name: With a sample container image
+  - name: Deploy from an existing container image
     expanded: true
     items:
     - name: Azure portal
       href: quickstart-portal.md
     - name: Command line
       href: get-started.md
-  - name: With an existing container image
-    expanded: true
-    items:
-    - name: Azure portal
-      href: get-started-existing-container-image-portal.md
-    - name: Command line
-      href: get-started-existing-container-image.md
-  - name: With code on your local machine
+  - name: Deploy an app from code
     expanded: true
     items:
     - name: Command line
@@ -32,8 +25,12 @@
       href: deploy-visual-studio.md
     - name: Visual Studio Code
       href: deploy-visual-studio-code.md
+  - name: Run a job
+    href: jobs-get-started-cli.md
 - name: Concepts
   items:
+    - name: Plans
+      href: plans.md
     - name: Environment
       href: environment.md
     - name: Containers
@@ -42,12 +39,16 @@
       href: revisions.md
     - name: Application lifecycle management
       href: application-lifecycle-management.md
+    - name: Jobs
+      href: jobs.md
     - name: Microservices
       href: microservices.md
-    - name: Networking
+    - name: Networking and ingress
       items: 
       - name: Architecture overview
         href: networking.md
+      - name: Ingress
+        href: ingress-overview.md
       - name: Deploy with an external environment
         href: vnet-custom.md
       - name: Deploy with an internal environment
@@ -76,10 +77,18 @@
         href: alerts.md
     - name: Authentication
       href: authentication.md
-    - name: Dapr integration
-      href: dapr-overview.md
+    - name: Workload profiles
+      href: workload-profiles-overview.md
+    - name: Dapr
+      items:
+      - name: Dapr integration
+        href: dapr-overview.md
+      - name: Scale Dapr apps with KEDA using Bicep
+        href: dapr-keda-scaling.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
+    - name: Connect to services
+      href: services.md
 - name: How-to guides
   items:
     - name: Deploy an app with containerapp up
@@ -96,20 +105,51 @@
         href: managed-identity-image-pull.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS or TCP ingress
-      href: ingress.md
+    - name: Manage workload profiles
+      items:
+        - name: CLI
+          href: workload-profiles-manage-cli.md
+        - name: Portal
+          href: workload-profiles-manage-portal.md
+    - name: Ingress
+      items:
+      - name: Configure ingress
+        href: ingress-how-to.md
+      - name: Configure IP restrictions
+        href: ip-restrictions.md
+      - name: Add client certificates
+        href: client-certificate-authorization.md
+      - name: Configure traffic-splitting
+        href: traffic-splitting.md
+      - name: Session affinity
+        href: sticky-sessions.md
+        displayName: Sticky sessions
+      - name: CORS
+        href: cors.md
+        displayName: Cross origin resource sharing
     - name: Custom domains and certificates
       items:
-      - name: Set up container app custom domain
+      - name: Set up custom domain with a free certificate
+        href: custom-domains-managed-certificates.md
+        displayName: Set up custom domain with a managed certificate
+      - name: Set up custom domain with existing certificate
         href: custom-domains-certificates.md
       - name: Set up environment custom DNS suffix
         href: environment-custom-dns-suffix.md
+    - name: Network security
+      items:
+        - name: Configure WAF Application Gateway
+          href: waf-app-gateway.md
+        - name: Enable User Defined Routes (UDR)
+          href: user-defined-routes.md
     - name: Connect to a cloud service using Service Connector
       items:
         - name: .NET app with Blob Storage
           href: service-connector.md
         - name: Java Quarkus app with Postgres DB
           href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+    - name: Connect to Azure services via Dapr components
+      href: dapr-component-connection.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Set up continuous deployment
@@ -139,24 +179,51 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Dapr
+      items:
+        - name: Enable token authentication for Dapr requests 
+          href: dapr-authentication-token.md
     - name: Use storage mounts
       href: storage-mounts.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: Tutorials
-  items:
-    - name: Communicate between microservices
-      href: communicate-between-microservices.md
-    - name: Microservices with Dapr using the CLI
-      href: microservices-dapr.md
-    - name: Microservices with Dapr using ARM or Bicep
-      href: microservices-dapr-azure-resource-manager.md
-    - name: Deploy a Dapr application using GitHub Actions
-      href: dapr-github-actions.md
-    - name: Background processing
-      href: background-processing.md
+  expanded: true
+  items: 
+    - name: Create and deploy a container app using the CLI
+      href: tutorial-deploy-first-app-cli.md
+    - name: Build a multiple app scenario
+      expanded: true
+      items:
+        - name: 1. Deploy a backend microservice app
+          href: tutorial-code-to-cloud.md
+        - name: 2. Deploy a frontend microservice app
+          href: communicate-between-microservices.md
+    - name: Deploy microservices with Dapr
+      expanded: true
+      items:
+      - name: Microservices with Dapr using the CLI
+        href: microservices-dapr.md
+      - name: Microservices with Dapr using ARM or Bicep
+        href: microservices-dapr-azure-resource-manager.md
+      - name: Event-driven work using Dapr Bindings
+        href: microservices-dapr-bindings.md
+      - name: Microservices communication using Dapr Pub/Sub
+        href: microservices-dapr-pubsub.md
+      - name: Microservices communication using Dapr Service Invocation
+        href: microservices-dapr-service-invoke.md
+      - name: Deploy a Dapr application using GitHub Actions
+        href: dapr-github-actions.md
+    - name: Event-driven processing
+      items:
+      - name: With an app
+        href: background-processing.md
+      - name: With a job
+        href: tutorial-event-driven-jobs.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
+    - name: Connect development and production services
+      href: connect-services.md
     - name: Azure Arc
       items:
       - name: 1 - Set up Azure Arc-enabled Kubernetes clusters

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with PrinterLogic | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with PrinterLogic"
 description: Learn how to configure single sign-on between Azure Active Directory and PrinterLogic.
 services: active-directory
 author: jeevansd

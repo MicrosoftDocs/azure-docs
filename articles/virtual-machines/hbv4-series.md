@@ -6,7 +6,7 @@ author: Padmalathas
 ms.author: padmalathas
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 11/1/2022
+ms.date: 03/04/2023
 ms.reviewer: wwilliams
 ---
 
@@ -26,7 +26,7 @@ All HBv4-series VMs feature 400 Gb/s NDR InfiniBand from NVIDIA Networking to en
 [Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance)\
 [Live Migration](maintenance-and-updates.md): Not Supported\
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported\
-[VM Generation Support](generation-2.md): Generation 1 and 2\
+[VM Generation Support](generation-2.md): Generation 2\
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported at preview\
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported  
 <br>
@@ -39,7 +39,7 @@ All HBv4-series VMs feature 400 Gb/s NDR InfiniBand from NVIDIA Networking to en
 |Standard_HB176-48rs_v4 |48  |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 |Standard_HB176-24rs_v4 |24  |AMD EPYC Genoa |688 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 
-[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

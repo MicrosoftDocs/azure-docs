@@ -174,7 +174,7 @@ SigninLogs
 
 ### Sorting data: *sort* / *order*
 
-The [*sort*](/azure/data-explorer/kusto/query/sortoperator) operator (and the identical [order](/azure/data-explorer/kusto/query/orderoperator) operator) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
+The [*sort*](/azure/data-explorer/kusto/query/sort-operator) operator (and the identical [order](/azure/data-explorer/kusto/query/orderoperator) operator) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
 
 > [!NOTE]
 > The default direction for sorts is descending, so technically you only have to specify if you want to sort in ascending order. However, specifying the sort direction in any case will make your query more readable.

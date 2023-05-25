@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 
 ## Speech synchronization 
 
-You might want to synchronize transcriptions with an audio track, whether it's done in real time or with a prerecording. 
+You might want to synchronize transcriptions with an audio track, whether it's done in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 
@@ -21,7 +21,7 @@ The end of a single utterance is determined by listening for silence at the end.
 
 ### Recognizing offset and duration
 
-You'll want to synchronize captions with the audio track, whether it's done in real time or with a prerecording. With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
+You'll want to synchronize captions with the audio track, whether it's done in real-time or with a prerecording. With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
 
 For example, run the following command to get the offset and duration of the recognized speech:
 

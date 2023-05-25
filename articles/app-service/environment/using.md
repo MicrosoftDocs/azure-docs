@@ -3,7 +3,7 @@ title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: madsd
 ms.topic: article
-ms.date: 02/14/2022
+ms.date: 03/27/2023
 ms.author: madsd
 ---
 
@@ -92,7 +92,7 @@ To configure DNS in Azure DNS private zones:
 1. Create an A record in that zone that points @ to the inbound IP address.
 1. Create an A record in that zone that points *.scm to the inbound IP address.
 
-The DNS settings for the default domain suffix of your App Service Environment don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an App Service Environment. If you then want to create a zone named `contoso.net`, you can do so and point it to the inbound IP address. The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
+The DNS settings for the default domain suffix of your App Service Environment don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an App Service Environment. If you then want to create a zone named `contoso.net`, you can do so and point it to the inbound IP address. The custom domain name works for app requests, and if the custom domain suffix certificate includes a wildcard SAN for scm, custom domain name also work for `scm` site and you can create a `*.scm` record and point it to the inbound IP address.
 
 ## Publishing
 
@@ -173,6 +173,7 @@ If you have multiple App Service Environments, you might want some of them to be
 - **None**: Azure upgrades in no particular batch. This value is the default.
 - **Early**: Upgrade in the first half of the App Service upgrades.
 - **Late**: Upgrade in the second half of the App Service upgrades.
+- **Manual**: Get [15 days window](./how-to-upgrade-preference.md) to deploy the upgrade manually.
 
 Select the value you want, and then select **Save**.
 

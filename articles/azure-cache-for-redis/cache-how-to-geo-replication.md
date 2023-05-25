@@ -42,6 +42,7 @@ To configure geo-replication between two caches, the following prerequisites mus
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache. To use geo-failover, both caches must be the same size.
 - Both caches are created and in a running state.
+- Both caches are running the same version of Redis server.
 
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -229,7 +230,7 @@ Yes, geo-replication of caches in VNets is supported with caveats:
 - Geo-replication between caches in the same VNet is supported.
 - Geo-replication between caches in different VNets is also supported.
   - If the VNets are in the same region, you can connect them using [VNet peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-  - If the VNets are in different regions, geo-replication using VNet peering is supported. A client VM in VNet 1 (region 1) isn't able to access the cache in VNet 2 (region 2) using its DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend using a VPN Gateway VNet-to-VNet connection.
+  - If the VNets are in different regions, geo-replication using VNet peering is not supported. A client VM in VNet 1 (region 1) isn't able to access the cache in VNet 2 (region 2) using its DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend using a VPN Gateway VNet-to-VNet connection.
 
 To configure your VNet effectively and avoid geo-replication issues, you must configure both the inbound and outbound ports correctly. For more information on avoiding the most common VNet misconfiguration issues, see [Geo-replication peer port requirements](cache-how-to-premium-vnet.md#geo-replication-peer-port-requirements).
   

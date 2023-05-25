@@ -2,7 +2,7 @@
 title: Azure Event Hubs - exceptions (legacy)
 description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 03/08/2023
 ms.devlang: csharp
 ---
 
@@ -121,7 +121,7 @@ This error can occur for one of two reasons:
     
     On the **Overview** page, in the **Show metrics** section, switch to the **Throughput** tab. Select the chart to open it in a larger window with 1-minute intervals on the x-axis. Look at the peak values and divide them by 60 to get incoming bytes/second or outgoing bytes/second. Use similar approach to calculate number of requests per second at peak times on the **Requests** tab. 
 
-    If you see values higher than number of TUs * limits (1 MB per second for ingress or 1000 requests for ingress/second, 2 MB per second for egress), increase the number of TUs by using the **Scale** (on the left menu) page of an Event Hubs namespace to manually scale higher or to use the [Auto-inflate](event-hubs-auto-inflate.md) feature of Event Hubs. Note that auto-Inflate can only increase up to 20 TUS. To raise it to exactly 40 TUs, submit a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+    If you see values higher than number of TUs * limits (1 MB per second for ingress or 1000 requests for ingress/second, 2 MB per second for egress), increase the number of TUs by using the **Scale** (on the left menu) page of an Event Hubs namespace to manually scale higher or to use the [Auto-inflate](event-hubs-auto-inflate.md) feature of Event Hubs. You can scale up to 40 TUs when you are manually scaling or automatically scaling the namespace. 
 
 ### Error code 50008
 

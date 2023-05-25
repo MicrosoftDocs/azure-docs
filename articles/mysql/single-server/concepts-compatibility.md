@@ -15,10 +15,10 @@ ms.date: 06/20/2022
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-This article describes the drivers and management tools that are compatible with Azure Database for MySQL Single Server.
+This article describes the drivers and management tools that are compatible with Azure Database for MySQL single server.
 
 > [!NOTE]
-> This article is only applicable to Azure Database for MySQL Single Server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](../flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition.
+> This article is only applicable to Azure Database for MySQL single server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](../flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition.
 
 ## MySQL Drivers
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. As such, it's compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open-source community to constantly improve the functionality and usability of MySQL drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 is provided in the following table:

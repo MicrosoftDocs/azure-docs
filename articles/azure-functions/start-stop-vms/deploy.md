@@ -171,12 +171,16 @@ For each scenario, you can target the action against one or more subscriptions, 
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
+        "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+         ],
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       }
     }
@@ -265,12 +269,16 @@ In an environment that includes two or more components on multiple Azure Resourc
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
+        "Subscriptions":[
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+        ],
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       },
        "Sequenced": true

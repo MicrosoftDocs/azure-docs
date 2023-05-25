@@ -9,8 +9,6 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham 
-ms.custom: devx-track-azurepowershell
-
 ---
 # How to map Azure Disks to Windows VM guest disks
 

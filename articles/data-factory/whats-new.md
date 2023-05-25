@@ -24,6 +24,26 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## February 2023
+
+### Data movement
+
+- Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
+- Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
+
+### Monitoring
+
+Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
+
+### Orchestration
+
+- Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
+- Managed Airflow (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-managed-airflow-in-azure-data-factory/ba-p/3730151)
+
+### Developer productivity
+
+Dark theme support added (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-dark-mode-for-adf-studio/ba-p/3757961)
+
 ## January 2023
 
 ### Data flow
@@ -37,7 +57,7 @@ New top-level CDC resource - native CDC configuration in 3 simple steps [Learn m
 
 ### Orchestration
 
-Orchestyrate Synapse notebooks and Synapse spark job definitions natively [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/orchestrate-and-operationalize-synapse-notebooks-and-spark-job/ba-p/3724379)
+Orchestrate Synapse notebooks and Synapse spark job definitions natively [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/orchestrate-and-operationalize-synapse-notebooks-and-spark-job/ba-p/3724379)
 
 ### Region expansion
 

@@ -5,9 +5,9 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.service: azure-monitor
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to 
 ms.date: 11/09/2022
-
 # Customer intent: As a Log Analytics workspace administrator, I want to create a table with a custom schema to store logs from an Azure or non-Azure data source.
 ---
 
@@ -33,12 +33,13 @@ To create a custom table, you need:
     ``` 
     
     For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
+
 ## Create a custom table
 
 Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
 
 > [!NOTE]
-> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
+> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log-table).
 
 # [Portal](#tab/azure-portal-1)
 
@@ -181,6 +182,10 @@ To delete a table using PowerShell:
 ## Add or delete a custom column
 
 You can modify the schema of custom tables and add custom columns to, or delete columns from, a standard table.  
+
+> [!NOTE]
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
+
 # [Portal](#tab/azure-portal-3)
 
 To add a custom column to a table in your Log Analytics workspace, or delete a column:

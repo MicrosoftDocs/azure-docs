@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Amazon Web Services to connect multiple accounts | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Amazon Web Services to connect multiple accounts"
 description: Learn how to configure single sign-on between Azure AD and Amazon Web Services (legacy tutorial).
 services: active-directory
 author: jeevansd

@@ -1,9 +1,8 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/23/2023
+ms.date: 05/12/2023
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of Azure Connected Machine agent
@@ -14,7 +13,7 @@ The Azure Connected Machine agent enables you to manage your Windows and Linux m
 
 :::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc-enabled servers agent architectural overview." border="false":::
 
-The Azure Connected Machine agent package contains several logical components, which are bundled together:
+The Azure Connected Machine agent package contains several logical components bundled together:
 
 * The Hybrid Instance Metadata service (HIMDS) manages the connection to Azure and the connected machine's Azure identity.
 
@@ -24,9 +23,9 @@ The Azure Connected Machine agent package contains several logical components, w
 
   * An Azure Policy assignment that targets disconnected machines is unaffected.
   * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
-  * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
+  * Assignments are deleted after 14 days, and aren't reassigned to the machine after the 14-day period.
 
-* The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
+* The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
 >[!NOTE]
 > The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
@@ -37,10 +36,10 @@ The following information describes the directories and user accounts used by th
 
 ### Windows agent installation details
 
-The Windows agent is distributed as a Windows Installer package (MSI) and can be downloaded from the [Microsoft Download Center](https://aka.ms/AzureConnectedMachineAgent).
-After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
+The Windows agent is distributed as a Windows Installer package (MSI). Download the Windows agent from the [Microsoft Download Center](https://aka.ms/AzureConnectedMachineAgent).
+Installing the Connected Machine agent for Window applies the following system-wide configuration changes:
 
-* The following installation folders are created during setup.
+* The installation process creates the following folders during setup.
 
     | Directory | Description |
     |-----------|-------------|
@@ -51,7 +50,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     | %ProgramData%\GuestConfig | Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
     | %SYSTEMDRIVE%\packages | Extension package executables |
 
-* The following Windows services are created on the target machine during installation of the agent.
+* Installing the agent creates the following Windows services on the target machine.
 
     | Service name | Display name | Process name | Description |
     |--------------|--------------|--------------|-------------|
@@ -59,7 +58,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     | GCArcService | Guest configuration Arc Service | gc_service | Audits and enforces Azure guest configuration policies on the machine. |
     | ExtensionService | Guest configuration Extension Service | gc_service | Installs, updates, and manages extensions on the machine. |
 
-* The following virtual service account is created during agent installation.
+* Agent installation creates the following virtual service account.
 
     | Virtual Account  | Description |
     |------------------|-------------|
@@ -68,20 +67,20 @@ After installing the Connected Machine agent for Windows, the following system-w
     > [!TIP]
     > This account requires the "Log on as a service" right. This right is automatically granted during agent installation, but if your organization configures user rights assignments with Group Policy, you may need to adjust your Group Policy Object to grant the right to  "NT SERVICE\\himds" or "NT SERVICE\\ALL SERVICES" to allow the agent to function.
 
-* The following local security group is created during agent installation.
+* Agent installation creates the following local security group.
 
     | Security group name | Description |
     |---------------------|-------------|
     | Hybrid agent extension applications | Members of this security group can request Azure Active Directory tokens for the system-assigned managed identity |
 
-* The following environmental variables are created during agent installation.
+* Agent installation creates the following environmental variables
 
     | Name | Default value | Description |
     |------|---------------|------------|
     | IDENTITY_ENDPOINT | `http://localhost:40342/metadata/identity/oauth2/token` |
     | IMDS_ENDPOINT | `http://localhost:40342` |
 
-* There are several log files available for troubleshooting. They are described in the following table.
+* There are several log files available for troubleshooting, described in the following table.
 
     | Log | Description |
     |-----|-------------|
@@ -91,9 +90,9 @@ After installing the Connected Machine agent for Windows, the following system-w
     | %ProgramData%\GuestConfig\ext_mgr_logs\gc_ext.log | Records details about extension manager activity (extension install, uninstall, and upgrade events). |
     | %ProgramData%\GuestConfig\extension_logs | Directory containing logs for individual extensions. |
 
-* The local security group **Hybrid agent extension applications** is created.
+* The process creates the local security group **Hybrid agent extension applications**.
 
-* During uninstall of the agent, the following artifacts are not removed.
+* After uninstalling the agent, the following artifacts remain.
 
   * %ProgramData%\AzureConnectedMachineAgent\Log
   * %ProgramData%\AzureConnectedMachineAgent
@@ -102,13 +101,13 @@ After installing the Connected Machine agent for Windows, the following system-w
 
 ### Linux agent installation details
 
-The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+The preferred package format for the distribution (`.rpm` or `.deb`) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configurs the agent.
 
-Installing, upgrading, and removing the Connected Machine agent will not require you to restart your server.
+Installing, upgrading, and removing the Connected Machine agent isn't required after server restart.
 
-After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
+Installing the Connected Machine agent for Linux applies the following system-wide configuration changes.
 
-* The following installation folders are created during setup.
+* Setup creates the following installation folders.
 
     | Directory | Description |
     |-----------|-------------|
@@ -118,7 +117,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
     | /var/opt/azcmagent/ | Configuration, log and identity token files for azcmagent CLI and instance metadata service.|
     | /var/lib/GuestConfig/ | Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
 
-* The following daemons are created on the target machine during installation of the agent.
+* Installing the agent creates the following daemons.
 
     | Service name | Display name | Process name | Description |
     |--------------|--------------|--------------|-------------|
@@ -126,7 +125,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
     | gcad.service | GC Arc Service | gc_linux_service | Audits and enforces Azure guest configuration policies on the machine. |
     | extd.service | Extension Service | gc_linux_service | Installs, updates, and manages extensions on the machine. |
 
-* There are several log files available for troubleshooting. They are described in the following table.
+* There are several log files available for troubleshooting, described in the following table.
 
     | Log | Description |
     |-----|-------------|
@@ -136,14 +135,14 @@ After installing the Connected Machine agent for Linux, the following system-wid
     | /var/lib/GuestConfig/ext_mgr_logs | Records details about extension manager activity (extension install, uninstall, and upgrade events). |
     | /var/lib/GuestConfig/extension_logs | Directory containing logs for individual extensions. |
 
-* The following environment variables are created during agent installation. These variables are set in `/lib/systemd/system.conf.d/azcmagent.conf`.
+* Agent installation creates the following environment variables, set in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
     | Name | Default value | Description |
     |------|---------------|-------------|
     | IDENTITY_ENDPOINT | `http://localhost:40342/metadata/identity/oauth2/token` |
     | IMDS_ENDPOINT | `http://localhost:40342` |
 
-* During uninstall of the agent, the following artifacts are not removed.
+* After uninstalling the agent, the following artifacts remain.
 
   * /var/opt/azcmagent
   * /var/lib/GuestConfig
@@ -152,14 +151,24 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
-* The Guest Configuration agent is limited to use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent is limited to use up to 5% of the CPU to install, upgrade, run, and delete extensions. The following exceptions apply:
+* The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
+* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. The following exceptions apply:
 
-  * If the extension installs background services that run independent of Azure Arc, such as the Microsoft Monitoring Agent, those services will not be subject to the resource governance constraints listed above.
-  * The Log Analytics agent and Azure Monitor Agent are allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
+  * If the extension installs background services that run independent of Azure Arc, such as the Microsoft Monitoring Agent, those services aren't subject to the resource governance constraints listed above.
+  * The Log Analytics agent and Azure Monitor Agent can use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
   * The Azure Monitor Agent can use up to 30% of the CPU during normal operations.
   * The Linux OS Update Extension (used by Azure Update Management Center) can use up to 30% of the CPU to patch the server.
   * The Microsoft Defender for Endpoint extension can use up to 30% of the CPU during installation, upgrades, and removal operations.
+  * The Microsoft Sentinel DNS extension can use up to 30% of the CPU to collect logs from DNS servers
+
+During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
+
+|     | Windows | Linux |
+| --- | ------- | ----- |
+| **CPU usage (normalized to 1 core)** | 0.07% | 0.02% |
+| **Memory usage** | 57 MB | 42 MB |
+
+The performance data above was gathered in April 2023 on virtual machines running Windows Server 2022 and Ubuntu 20.04. Actual agent performance and resource consumption will vary based on the hardware and software configuration of your servers.
 
 ## Instance metadata
 
@@ -195,7 +204,7 @@ Metadata information about a connected machine is collected after the Connected 
   * Service accounts
   * Zone
 
-The following metadata information is requested by the agent from Azure:
+The agent requests the following metadata information from Azure:
 
 * Resource location (region)
 * Virtual machine ID
@@ -209,7 +218,7 @@ The following metadata information is requested by the agent from Azure:
 
 ## Deployment options and requirements
 
-To deploy the agent and connect a machine, certain [prerequisites](prerequisites.md) must be met. There are also [networking requirements](network-requirements.md) to be aware of.
+Agent deployment and machine connection requires certain [prerequisites](prerequisites.md). There are also [networking requirements](network-requirements.md) to be aware of.
 
 We provide several options for deploying the agent. For more information, see [Plan for deployment](plan-at-scale-deployment.md) and [Deployment options](deployment-options.md).
 

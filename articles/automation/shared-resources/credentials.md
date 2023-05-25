@@ -5,7 +5,6 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/22/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Manage credentials in Azure Automation

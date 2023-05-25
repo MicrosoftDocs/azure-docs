@@ -12,6 +12,7 @@ ms.date: 06/11/2019
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # One-click app configuration of single sign-on

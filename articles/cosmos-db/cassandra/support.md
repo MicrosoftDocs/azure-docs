@@ -137,7 +137,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 |---------|---------|
 | `ALLOW FILTERING` | Yes |
 | `ALTER KEYSPACE` | N/A (PaaS service, replication managed internally)|
-| `ALTER MATERIALIZED VIEW` | No |
+| `ALTER MATERIALIZED VIEW` | Yes |
 | `ALTER ROLE` | No |
 | `ALTER TABLE` | Yes |
 | `ALTER TYPE` | No |
@@ -149,7 +149,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md), and cluster key index is currently in [private preview](https://devblogs.microsoft.com/cosmosdb/now-in-private-preview-cluster-key-index-support-for-azure-cosmos-db-cassandra-api/) but full FROZEN collection is not supported) |
 | `CREATE FUNCTION` | No |
 | `CREATE KEYSPACE` (replication settings ignored) | Yes |
-| `CREATE MATERIALIZED VIEW` | No |
+| `CREATE MATERIALIZED VIEW` | Yes |
 | `CREATE TABLE` | Yes |
 | `CREATE TRIGGER` | No |
 | `CREATE TYPE` | Yes |
@@ -161,7 +161,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `DROP FUNCTION` | No |
 | `DROP INDEX` | Yes |
 | `DROP KEYSPACE` | Yes |
-| `DROP MATERIALIZED VIEW` | No |
+| `DROP MATERIALIZED VIEW` | Yes |
 | `DROP ROLE` | No |
 | `DROP TABLE` | Yes |
 | `DROP TRIGGER` | No | 

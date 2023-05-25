@@ -2,8 +2,8 @@
 title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
-ms.topic: conceptual
-ms.date: 01/19/2023
+ms.topic: release-notes
+ms.date: 03/01/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -17,7 +17,17 @@ This article provides information about the latest updates to the Remote Desktop
 
 The following sections describe what changed in each version of the Remote Desktop WebRTC Redirector Service.
 
+### Updates for version 1.33.2302.07001
+
+Date published: March 1, 2023
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWDIg)
+
+- Support for non-Latin characters for window names in the application window share tray.
+
 ### Updates for version 1.31.2211.15001 
+
+Date published: January 19, 2023
 
 Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5c8Kk)
 

@@ -28,7 +28,7 @@ The following block diagram shows the proof of concept. The guidance will show h
 
 1. [Create a tenant.](../active-directory-b2c/tutorial-create-tenant.md)
 
-1. [Configure federations to each Azure AD B2C tenant/policy combination](tenant-management.md)
+1. [Configure federations to each Azure AD B2C tenant/policy combination](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-user-flow)
 
 1. Configure client_id mapping to region – use [lookup claim transformation](general-transformations.md) to emulate.
 
@@ -108,7 +108,7 @@ The following block diagram shows the proof of concept. The guidance will show h
 
       ```xml
       <TechnicalProfile Id="REST-login-NonInteractive-APAC">
-        <DisplayName>non interactive authetnication to APAC</DisplayName>
+        <DisplayName>non interactive authentication to APAC</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
           <Item Key="ServiceUrl">https://login.microsoftonline.com/b2capac.onmicrosoft.com/oauth2/v2.0/token</Item>

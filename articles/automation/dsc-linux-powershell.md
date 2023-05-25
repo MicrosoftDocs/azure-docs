@@ -4,6 +4,7 @@ description: This article tells you how to configure a Linux virtual machine to 
 ms.topic: conceptual
 services: automation
 ms.subservice: dsc
+ms.custom: devx-track-azurepowershell
 ms.date: 08/31/2021
 ---
 
@@ -232,7 +233,9 @@ Register the Azure Linux VM as a Desired State Configuration (DSC) node for the 
 
    ```cmd
    ssh user@IP
+   ```
 
+   ```bash
    sudo apt-get update
    sudo apt-get install -y python
    ```

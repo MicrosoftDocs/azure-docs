@@ -10,7 +10,7 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
-ms.date: 12/13/2022
+ms.date: 03/09/2023
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---

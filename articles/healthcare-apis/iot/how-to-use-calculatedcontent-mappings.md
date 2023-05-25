@@ -1,24 +1,27 @@
 ---
-title: How to use CalculatedContentT mappings with the MedTech service device mappings - Azure Health Data Services
-description: This article describes how to use CalculatedContent mappings with the MedTech service device mappings. 
+title: How to use CalculatedContent mappings with the MedTech service device mapping - Azure Health Data Services
+description: Learn how to use CalculatedContent mappings with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 05/04/2023
 ms.author: jasteppe
 ---
 
-# How to use CalculatedContent mappings
-
-This article describes how to use CalculatedContent mappings with MedTech service device mappings.
-
-## CalculatedContent mappings
-
-The MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JMESPath. Each expression within the template may choose its own expression language. 
+# How to use CalculatedContent mappings with the MedTech service device mapping
 
 > [!NOTE]
-> If an expression language isn't defined, the default expression language configured for the template will be used. The default is JSONPath but can be overwritten if needed.
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+This article describes how to use CalculatedContent mappings with MedTech service device mappings in Azure Health Data Services.
+
+## Overview of CalculatedContent mappings
+
+The MedTech service provides an expression-based content template to both match the wanted template and extract values. Either JSONPath or JMESPath can use expressions. Each expression within the template can use its own expression language.
+
+> [!NOTE]
+> If you don't define an expression language, MedTech service device mappings use the default expression language that's configured for the template. The default is JSONPath, but you can overwrite it if necessary.
 
 An expression is defined as:
 
@@ -29,7 +32,7 @@ An expression is defined as:
     }
 ```
 
-In the example below, *typeMatchExpression* is defined as:
+In the following example, `typeMatchExpression` is defined as:
 
 ```json
 "templateType": "CalculatedContent",
@@ -44,7 +47,7 @@ In the example below, *typeMatchExpression* is defined as:
 ```
 
 > [!TIP]
-> The default expression language to use for a MedTech service device mappings is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
+> If you want to use JSON instead of the default JSONPath expression language, you can supply the expression alone.
 
 ```json
 "templateType": "CalculatedContent",
@@ -55,7 +58,7 @@ In the example below, *typeMatchExpression* is defined as:
     }
 ```
 
-The default expression language to use for a MedTech service device mappings can be explicitly set using the `defaultExpressionLanguage` parameter:
+You can explicitly set the default expression language for MedTech service device mappings by using the `defaultExpressionLanguage` parameter:
 
 ```json
 "templateType": "CalculatedContent",
@@ -67,48 +70,48 @@ The default expression language to use for a MedTech service device mappings can
     }
 ```
 
-The CalculatedContent mappings allow matching on and extracting values from an Azure Event Hubs message using **Expressions** as defined below:
+CalculatedContent mappings allow matching on, and extracting values from, an Azure Event Hubs message through the following expressions:
 
 |Property|Description|Example|
 |--------|-----------|-------|
-|TypeName|The type to associate with measurements that match the template|`heartrate`|
-|TypeMatchExpression|The expression that is evaluated against the EventData payload. If a matching JToken is found, the template is considered a match. All later expressions are evaluated against the extracted JToken matched here.|`$..[?(@heartRate)]`|
-|TimestampExpression|The expression to extract the timestamp value for the measurement's OccurrenceTimeUtc.|`$.matchedToken.endDate`|
-|DeviceIdExpression|The expression to extract the device identifier.|`$.matchedToken.deviceId`|
-|PatientIdExpression|*Required* when IdentityResolution is in **Create** mode and *Optional* when IdentityResolution is in **Lookup** mode. The expression to extract the patient identifier.|`$.matchedToken.patientId`|
-|EncounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
-|CorrelationIdExpression|*Optional*: The expression to extract the correlation identifier. This output can be used to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
-|Values[].ValueName|The name to associate with the value extracted by the next expression. Used to bind the wanted value/component in the FHIR destination mapping template.|`hr`|
-|Values[].ValueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
-|Values[].Required|Will require the value to be present in the payload. If not found, a measurement won't be generated, and an InvalidOperationException will be created.|`true`|
+|`TypeName`|The type to associate with measurements that match the template.|`heartrate`|
+|`TypeMatchExpression`|The expression that the MedTech service evaluates against the `EventData` payload. If the service finds a matching `JToken` value, it considers the template a match. The service evaluates all later expressions against the extracted `JToken` value matched here.|`$..[?(@heartRate)]`|
+|`TimestampExpression`|The expression to extract the timestamp value for the measurement's `OccurrenceTimeUtc` value.|`$.matchedToken.endDate`|
+|`DeviceIdExpression`|The expression to extract the device identifier.|`$.matchedToken.deviceId`|
+|`PatientIdExpression`|The expression to extract the patient identifier. *Required* when `IdentityResolution` is in `Create` mode, and *optional* when `IdentityResolution` is in `Lookup` mode.|`$.matchedToken.patientId`|
+|`EncounterIdExpression`|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
+|`CorrelationIdExpression`|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mappings.|`$.matchedToken.correlationId`|
+|`Values[].ValueName`|The name to associate with the value that the next expression extracts. Used to bind the wanted value or component in the FHIR destination mapping.|`hr`|
+|`Values[].ValueExpression`|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
+|`Values[].Required`|Requires the value to be present in the payload. If the MedTech service doesn't find the value, it won't generate a measurement, and it will create an `InvalidOperationException` instance.|`true`|
 
-### Expression Languages
+## Expression languages
 
-When specifying the language to use for the expression, the below values are valid:
+When you're specifying the language to use for the expression, the following values are valid:
 
-| Expression Language | Value        |
+| Expression language | Value        |
 |---------------------|--------------|
-| JSONPath            | **JsonPath** |
-| JMESPath            | **JmesPath** |
+| JSONPath            | `JsonPath` |
+| JMESPath            | `JmesPath` |
 
 >[!TIP]
-> For more information on JSONPath, see [JSONPath](https://goessner.net/articles/JsonPath/). CalculatedContent mappings use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
+> For more information on JSONPath, see [JSONPath - XPath for JSON](https://goessner.net/articles/JsonPath/). CalculatedContent mappings use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 >
-> For more information on JMESPath, see [JMESPath](https://jmespath.org/specification.html). CalculatedContent mappings use the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
+> For more information on JMESPath, see [JMESPath Specification](https://jmespath.org/specification.html). CalculatedContent mappings use the [JMESPath .NET implementation](https://github.com/jdevillard/JmesPath.Net) for resolving JMESPath expressions.
 
-### Custom functions
+## Custom functions
 
-A set of MedTech service custom functions are also available. The MedTech service custom functions are outside of the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use MedTech service custom functions](how-to-use-custom-functions.md).
+A set of custom functions for the MedTech service is also available. The MedTech service custom functions are outside the functions provided as part of the JMESPath specification. For more information on the MedTech service custom functions, see [How to use custom functions](how-to-use-custom-functions.md).
 
-### Matched Token
+## Matched token
 
-The **TypeMatchExpression** is evaluated against the incoming EventData payload. If a matching JToken is found, the template is considered a match. 
+The MedTech service evaluates `TypeMatchExpression` against the incoming `EventData` payload. If the service finds a matching `JToken` value, it considers the template a match.
 
-All later expressions are evaluated against a new JToken. This new JToken contains both the original EventData payload and the extracted JToken matched here. 
+The MedTech service evaluates all later expressions against a new `JToken` value. This new `JToken` value contains both the original `EventData` payload and the extracted `JToken` value matched here.
 
-In this way, the original payload and the matched object are available to each later expression. The extracted JToken will be available as the property **matchedToken**.
+In this way, the original payload and the matched object are available to each later expression. The extracted `JToken` value will be available as the property `matchedToken`.
 
-Given this example message:
+Here's an example message:
 
 *Message*
 
@@ -165,7 +168,7 @@ Given this example message:
 }
 ```
 
-Two matches will be extracted using the above expression and used to create JTokens. Later expressions will be evaluated using the following JTokens:
+The MedTech service extracts two matches by using the preceding expression and uses them to create `JToken` values. The MedTech service will evaluate later expressions by using the following `JToken` values:
 
 ```json
 {
@@ -223,9 +226,9 @@ And
 }
 ```
 
-### Examples
+## Examples
 
-**Heart Rate**
+### Heart rate
 
 *Message*
 
@@ -262,7 +265,7 @@ And
     }
 ```
 
-**Blood Pressure**
+### Blood pressure
 
 *Message*
 
@@ -305,7 +308,7 @@ And
     }
 ```
 
-**Project Multiple Measurements from Single Message**
+### Projection of multiple measurements from a single message
 
 *Message*
 
@@ -364,7 +367,7 @@ And
     }
 ```
 
-**Project Multiple Measurements from Array in Message**
+### Projection of multiple measurements from an array in a message
 
 *Message*
 
@@ -413,7 +416,7 @@ And
     }
 ```
 
-**Project Data From Matched Token And Original Event**
+### Projection of data from a matched token and an original event
 
 *Message*
 
@@ -465,9 +468,9 @@ And
     }
 ```
 
-**Select and transform incoming data**
+### Selection and transformation of incoming data
 
-In the below example, height data arrives in either inches or meters. We want all normalized height data to be in meters. To achieve this outcome, we create a template that targets only height data in inches and transforms it into meters. Another template targets height data in meters and simply stores it as is.
+In the following example, height data arrives in either inches or meters. Assume that you want all normalized height data to be in meters. To achieve this outcome, you create a template that targets only height data in inches and transforms it into meters. Another template targets height data in meters and simply stores it as is.
 
 *Message*
 
@@ -538,15 +541,15 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing MedTech service errors.
+> For assistance in fixing MedTech service errors, see [Troubleshoot MedTech service errors](troubleshoot-errors.md).
 
 ## Next steps
 
-In this article, you learned how to configure the MedTech service device mappings using CalculatedContent mappings. 
+In this article, you learned how to configure MedTech service device mappings by using CalculatedContent mappings.
 
-To learn how to configure FHIR destination mappings, see
+To learn how to configure FHIR destination mappings, see:
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
+> [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office, and is used with permission.

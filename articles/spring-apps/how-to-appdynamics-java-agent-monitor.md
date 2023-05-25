@@ -16,7 +16,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article explains how to use the AppDynamics Java Agent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -90,21 +90,19 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Navigate to your Azure Spring Apps instance in the Azure portal.
 
-1. Select **Apps** from the **Settings** section of the left navigation pane.
+1. Select **Apps** in the **Settings** section of the navigation pane.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png" alt-text="Screenshot of Azure portal showing the Apps section." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png" alt-text="Screenshot of the Azure portal showing the Apps page for an Azure Spring Apps instance." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png":::
 
-1. Select the application to navigate to the **Overview** page.
+1. Select the app, and then select **Configuration** in the navigation pane.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png" alt-text="Screenshot of Azure portal app overview page." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png":::
+1. Use the **General settings** tab to update values such as the JVM options.
 
-1. Select **Configuration** in the left navigation pane to add, update, or delete the environment variables of the application.
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the General settings tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Screenshot of Azure portal showing the 'Environment variables' section of the app's Configuration page." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
+1. Select **Environment variables** to add or update the variables used by your application.
 
-1. Select **General settings** to add, update, or delete the JVM options of the application.
-
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Screenshot of Azure portal showing the 'General settings' section of the app's Configuration page, with 'J V M options' highlighted." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environment variables tab selected." lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
 
 ## Automate provisioning
 

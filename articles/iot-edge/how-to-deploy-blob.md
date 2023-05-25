@@ -52,7 +52,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - **IoT Edge Module Name**: `azureblobstorageoniotedge`
    - **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![Screenshot shows the Module Settings tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab1.png)
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab1.png" alt-text="Screenshot showing the Module Settings tab of the Add I o T Edge Module page. .":::
 
    Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and  **Module Twin Settings** tabs as described in this procedure.
 
@@ -61,7 +61,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 3. Open the **Container Create Options** tab.
 
-   ![Screenshot shows the Container Create Options tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab3.png)
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab3.png" alt-text="Screenshot showing the Container Create Options tab of the Add I o T Edge Module page..":::
 
    Copy and paste the following JSON into the box, to provide storage account information and a mount for the storage on your device.
   
@@ -106,7 +106,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 5. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
 
-   ![Screenshot shows the Module Twin Settings tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab4.png)
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add I o T Edge Module page.":::
 
    Configure each property with an appropriate value, as indicated by the placeholders. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
@@ -170,7 +170,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**.
 
-   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
+   :::image type="content" source="./media/how-to-develop-csharp-module/new-solution.png" alt-text="Screenshot showing how to run the New IoT Edge Solution.":::
 
    Follow the prompts in the command palette to create your solution.
 
@@ -203,7 +203,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
       }
       ```
 
-      ![Update module createOptions - Visual Studio Code](./media/how-to-deploy-blob/create-options.png)
+      :::image type="content" source="./media/how-to-deploy-blob/create-options.png" alt-text="Screenshot showing how to update module createOptions - Visual Studio Code .":::
 
 1. Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
@@ -249,7 +249,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
    }
    ```
 
-   ![set desired properties for azureblobstorageoniotedge - Visual Studio Code](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
+   :::image type="content" source="./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png" alt-text="Screenshot showing how to set desired properties for azureblobstorageoniotedge in Visual Studio Code .":::
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
@@ -296,7 +296,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Add `HTTPS_PROXY` for the **Name** and your proxy URL for the **Value**.
 
-      ![Screenshot shows the Update I o T Edge Module pane where you can enter the specified values.](./media/how-to-deploy-blob/https-proxy-config.png)
+   :::image type="content" source="./media/how-to-deploy-blob/https-proxy-config.png" alt-text="Screenshot showing the Update I o T Edge Module pane where you can enter the specified values.":::
 
 1. Click **Update**, then **Review + Create**.
 
@@ -304,7 +304,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Verify the setting by selecting the module from the device details page, and on the lower part of the **IoT Edge Modules Details** page select the **Environment Variables** tab.
 
-      ![Screenshot shows Environment Variables tab.](./media/how-to-deploy-blob/verify-proxy-config.png)
+   :::image type="content" source="./media/how-to-deploy-blob/verify-proxy-config.png" alt-text="Screenshot showing the Environment Variables tab.":::
 
 ## Next steps
 

@@ -47,9 +47,11 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Limitations
 
-* A custom IP prefix must be associated with a single Azure region.
+* A custom IPv4 prefix must be associated with a single Azure region.
 
-* An IPv4 range can be equal or between /21 to /24.  An IPv6 range must be /48.
+* The number of overall prefixes that can be brought to Azure is limited to 5 per region.
+
+* A custom IPv4 Prefix must be between /21 and /24; an global (parent) custom IPv6 prefix must be /48.
 
 * Custom IP prefixes do not currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
@@ -59,7 +61,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
 
-* IPs brought to Azure may have a delay up to 2 weeks before they can be used for Windows Server Activation.
+* IPs brought to Azure may have a delay of up to a week before they can be used for Windows Server Activation.
 
 > [!IMPORTANT]
 > There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized.  Please see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-powershell.md#differences-between-using-byoipv4-and-byoipv6) for more details.

@@ -7,32 +7,22 @@
   - name: What is Microsoft Defender for Cloud?
     displayName: Defender for cloud, servers, storage, sql, containers, app service, key vault, resource manager, dns, open-source relational databases, Azure cosmos db, db, Azure, defender
     href: defender-for-cloud-introduction.md
-  - name: What are the enhanced security features?
-    displayName: azure defender
-    href: enhanced-security-features-overview.md
   - name: What's new?
     displayName: changelog, news, release notes
     href: release-notes.md
   - name: Important upcoming changes
     displayName: release notes, changelog, news
     href: upcoming-changes.md
-  - name: Availability
+  - name: Common questions
     items:
-    - name: Supported platforms for servers
-      displayName: coverage, supported platforms, cloud services, virtual machines
-      href: os-coverage.md
-    - name: Servers coverage by OS, machine type, and cloud
-      displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
-      href: supported-machines-endpoint-solutions-clouds-servers.md
-    - name: Defender for Containers feature availability
-      displayName: Containers, features availability, environment information
-      href: supported-machines-endpoint-solutions-clouds-containers.md
-    - name: Feature coverage for Azure PaaS resources
-      displayName: Paas, resources
-      href: features-paas.md
-    - name: User roles and permissions
-      displayName: RBAC, permissions, roles, contributor, security, reader, admin, owner
-      href: permissions.md
+    - name: General questions
+      href: faq-general.yml
+    - name: Permissions questions
+      href: faq-permissions.yml
+    - name: Data collection and agent questions
+      href: faq-data-collection-agents.yml
+    - name: Azure Virtual Machines questions
+      href: faq-vms.yml
 
 - name: Quickstarts
   items:
@@ -98,10 +88,31 @@
 
 - name: Concepts
   items:
+  - name: Interoperability and permissions
+    items:
+    - name: User roles and permissions
+      href: permissions.md
+    - name: Defender for Cloud support matrices
+      displayName: coverage, supported platforms, cloud services, roles, permissions
+      href: support-matrix-defender-for-cloud.md
+    - name: Defender for Cloud cloud support
+      href: support-matrix-cloud-environment.md
+    - name: Defender for Servers support matrices
+      displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
+      href: support-matrix-defender-for-servers.md
+    - name: Defender for Containers support matrices
+      displayName: Containers, features availability, environment information
+      href: support-matrix-defender-for-containers.md
   - name: Protect multicloud resources
     items:
     - name: The Defender for Cloud multicloud solution
       href: multicloud.yml
+    - name: Protecting your GCP projects and organizations
+      displayName: GCP, connector, project, organizations
+      href: concept-gcp-connector.md
+    - name: Zero Trust infrastructure and integrations
+      displayName: zero trust, zero, trust
+      href: zero-trust.md
     - name: Planning multicloud security
       items:
       - name: Get started
@@ -136,7 +147,7 @@
       - name: Policies, initiatives, and recommendations
         displayName: policies, security, initiative, Microsoft cloud security benchmark, mcsb, recommendation
         href: security-policy-concept.md
-      - name: Security posture
+      - name: Secure score
         displayName: security, posture, secure, score, calculate, control, improve, 
         href: secure-score-security-controls.md
       - name: Cloud Security Posture Management (CSPM)
@@ -145,55 +156,69 @@
       - name: Microsoft cloud security benchmark (MCSB)
         displayName: mcsb, azure, security, benchmark 
         href: concept-regulatory-compliance.md
-      - name: What is the cloud security graph
+      - name: Identify and analyze risks across your environment
         displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer, explore, analysis
         href: concept-attack-path.md
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
-      - name: Reference list of Azure recommendations
-        displayName: Azure, recommendations
-        href: recommendations-reference.md
-      - name: Reference list of AWS recommendations
-        displayName: AWS, recommendations
-        href: recommendations-reference-aws.md
-      - name: Reference list of GCP recommendations
-        displayName: gcp, recommendations
-        href: recommendations-reference-gcp.md
-      - name: Reference list of attack paths and cloud security graph components
-        displayName: attack, paths, security, graph, components
-        href: attack-path-reference.md
-  - name: Protect servers
+      - name: Agentless scanning
+        displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+        href: concept-agentless-data-collection.md
+  - name: Improve your data security posture
     items:
-    - name: Plan Defender for Servers deployment
-      items:
-      - name: Get started
-        displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
-        href: plan-defender-for-servers.md
-      - name: Review data residency and workspace design 
-        href: plan-defender-for-servers-data-workspace.md
-      - name: Determine roles and access
-        href: plan-defender-for-servers-roles.md
-      - name: Select a plan
-        href: plan-defender-for-servers-select-plan.md
-      - name: Review agents and extensions
-        href: plan-defender-for-servers-agents.md
-      - name: Scale a Defender for Servers deployment
-        href: plan-defender-for-servers-scale.md
-      - name: Common questions
-        href: faq-defender-for-servers.yml
-  - name: Protect cloud workloads
+    - name: About data-aware security posture
+      href: concept-data-security-posture.md
+    - name: Support and prerequisites
+      href: concept-data-security-posture-prepare.md
+  - name: Improve your container security posture
     items:
+    - name: Agentless Container Posture (Preview)
+      href: concept-agentless-containers.md
+    - name: Support and prerequisites
+      href: support-agentless-containers-posture.md
+  - name: Security recommendations
+    items:
+    - name: Reference list of Azure recommendations
+      displayName: Azure, recommendations
+      href: recommendations-reference.md
+    - name: Reference list of AWS recommendations
+      displayName: AWS, recommendations
+      href: recommendations-reference-aws.md
+    - name: Reference list of GCP recommendations
+      displayName: gcp, recommendations
+      href: recommendations-reference-gcp.md
+    - name: Reference list of attack paths and cloud security graph components
+      displayName: attack, paths, security, graph, components
+      href: attack-path-reference.md
+  - name: Security alerts
+    items:
+    - name: About security alerts and incidents
+      displayName: security, alerts, classification, incident, threat, detection, analytics, 
+      href: alerts-overview.md
+    - name: Security alerts reference list
+      displayName: alerts, mitre
+      href: alerts-reference.md
+  - name: Plan Defender for Servers deployment
+    items:
+    - name: Get started
+      displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat management, defender for endpoint, vulnerability scanner, Qualys, FIM, File integrity monitoring, adaptive application controls, adaptive network hardening, docker, fileless attack detection, auditd, simulate alerts
+      href: plan-defender-for-servers.md
+    - name: Review data residency and workspace design 
+      href: plan-defender-for-servers-data-workspace.md
+    - name: Determine roles and access
+      href: plan-defender-for-servers-roles.md
+    - name: Select a plan
+      href: plan-defender-for-servers-select-plan.md
+    - name: Review agents and extensions
+      href: plan-defender-for-servers-agents.md
     - name: Agentless scanning
       displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
       href: concept-agentless-data-collection.md
-    - name: Security alerts and incidents
-      displayName: security, alerts, classification, incident, threat, detection, analytics, 
-      href: alerts-overview.md
-    - name: Reference list of alerts
-      displayName: alets, mitre
-      href: alerts-reference.md
-
+    - name: Scale a Defender for Servers deployment
+      href: plan-defender-for-servers-scale.md
+    - name: Common questions
+      href: faq-defender-for-servers.yml
 - name: How-to guides
   items:
   - name: Cloud security posture
@@ -210,6 +235,8 @@
     - name: Build interactive reports with Azure Monitor workbooks
       displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
       href: custom-dashboards-azure-workbooks.md
+    - name: Create custom recommendations and security standards
+      href: create-custom-recommendations.md
     - name: View recommendations and alerts in Windows Admin Center
       displayName: windows, admin, center
       href: windows-admin-center-integration.md
@@ -224,6 +251,20 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+  - name: Data-aware security posture
+    items:
+    - name: Enable data-aware security posture
+      href: data-security-posture-enable.md
+    - name: Explore risks to sensitive data
+      href: data-security-review-risks.md
+    - name: Customize sensitivity settings
+      href: data-sensitivity-settings.md
+  - name: Container security posture
+    items:
+    - name: Onboard agentless containers for CSPM
+      href: how-to-enable-agentless-containers.md
+    - name: View and remediate vulnerability assessment findings for registry images 
+      href: view-and-remediate-vulnerability-assessment-findings.md
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
@@ -252,7 +293,7 @@
       href: workflow-automation.md
     - name: Disable a recommendation
       displayName: recommendation, disable, security, policy, 
-      href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+      href: tutorial-security-policy.md#disable-a-security-recommendation
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable, resource, exempt, recommendation
       href: exempt-resource.md
@@ -341,6 +382,21 @@
     - name: Working with the Log Analytics agent
       displayName: log analytics, agent
       href: working-with-log-analytics-agent.md
+  - name: Defender for APIs
+    items: 
+    - name: About Defender for APIs
+      href: defender-for-apis-introduction.md
+    - name: Support and prerequisites
+      href: defender-for-apis-prepare.md
+    - name: Onboard Defender for APIs
+      href: defender-for-apis-deploy.md
+    - name: Validate APIs alerts
+      displayName: validate, api, apis
+      href: defender-for-apis-validation.md
+    - name: Investigate findings, recommendations, alerts
+      href: defender-for-apis-posture.md
+    - name: Manage Defender for APIs
+      href: defender-for-apis-manage.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -502,11 +558,30 @@
     - name: Overview
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage, storage, Azure-native security, automated response, alerts, security, hash reputation analysis
       href: defender-for-storage-introduction.md
-    - name: Enable Defender for Storage
-      href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
-    - name: Exclude a storage account (per-transaction)
-      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
-      href: defender-for-storage-exclude.md
+    - name: Malware Scanning
+      href: defender-for-storage-malware-scan.md
+    - name: Sensitive data threat detection
+      href: defender-for-storage-data-sensitivity.md
+    - name: Enable and configure with Defender for Storage
+      items:
+      - name: Enable and configure Defender for Storage
+        href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
+      - name: Required permissions
+        href: support-matrix-defender-for-storage.md
+      - name: Setting up response to Malware Scanning
+        href: defender-for-storage-configure-malware-scan.md
+      - name: Test and run a Proof of Concept
+        href: defender-for-storage-test.md
+    - name: List of security threats and security alerts
+      href: defender-for-storage-threats-alerts.md
+    - name: Defender for Storage (classic)
+      items:
+      - name: Overview (classic)
+        href: defender-for-storage-classic.md
+      - name: Enable and configure Defender for Storage (classic)
+        href: defender-for-storage-classic-enable.md
+      - name: Migrating to the new plan
+        href: defender-for-storage-classic-migrate.md
   - name: Defender for Key Vault
     items:
     - name: Overview
@@ -577,18 +652,6 @@
     href: /rest/api/defenderforcloud/
   - name: Security baseline
     href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
-  - name: FAQ for Microsoft Defender for Cloud
-    items:
-    - name: General questions
-      href: faq-general.yml
-    - name: Permissions questions
-      href: faq-permissions.yml
-    - name: Data collection and agent questions
-      href: faq-data-collection-agents.yml
-    - name: Virtual Machines questions
-      href: faq-vms.yml
-    - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.yml
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
@@ -604,7 +667,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?term=defender%20for%20cloud
+    href: /training/browse/?term=defender%20for%20cloud&terms=defender%20for%20cloud&expanded=microsoft-defender&products=defender-for-cloud
   - name: Defender for Cloud glossary of terms
     href: defender-for-cloud-glossary.md
   - name: Microsoft Defender for Cloud in the field
@@ -661,6 +724,16 @@
       href: episode-twenty-five.md
     - name: Governance capability improvements in Defender for Cloud
       href: episode-twenty-six.md
+    - name: Demystifying Defender for Servers
+      href: episode-twenty-seven.md
+    - name: Zero Trust and Defender for Cloud
+      href: episode-twenty-eight.md
+    - name: Security policy enhancements in Defender for Cloud
+      href: episode-twenty-nine.md
+    - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
+      href: episode-thirty.md
+    - name: Understanding data aware security posture capability
+      href: episode-thirty-one.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: How to acquire a token for the authenticated user in Azure Cloud Shell
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 11/14/2022
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: azure
 tags: azure-resource-manager
 title: Acquiring a user token in Azure Cloud Shell
 ---
@@ -37,12 +30,12 @@ If you want to authenticate with different credentials, you can do so using `az 
 ### Acquire token
 
 Execute the following commands to set your user access token as an environment variable,
-`access_token`.
+`ACCESS_TOKEN`.
 
 ```bash
-response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
-access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
-echo The access token is $access_token
+RESPONSE=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
+ACCESS_TOKEN=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+echo The access token is $ACCESS_TOKEN
 ```
 
 ### Use token
@@ -51,7 +44,7 @@ Execute the following command to get a list of all Virtual Machines in your acco
 you acquired in the previous step.
 
 ```bash
-curl https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/virtualMachines?api-version=2021-07-01 -H "Authorization: Bearer $access_token" -H "x-ms-version: 2019-02-02"
+curl https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/virtualMachines?api-version=2021-07-01 -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-ms-version: 2019-02-02"
 ```
 
 ## Handling token expiration
@@ -65,7 +58,7 @@ has expired.
 - There's an allowlist of resources that Cloud Shell tokens can be provided for. When you try to use
   a token with a service that is not listed, you may see the following error message:
 
-  ```
+  ```output
   "error":{"code":"AudienceNotSupported","message":"Audience https://newservice.azure.com/
   isn't a supported MSI token audience...."}
   ```

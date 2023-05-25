@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 02/20/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -186,6 +186,44 @@ If you've selected **Full & Differential** as the restore type, do the following
 If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## Recover a database from .bak file using SSMS
+
+You can use *Restore as Files* operation to restore the database files in `.bak` format while restoring from the Azure portal. [Learn more](restore-sql-database-azure-vm.md#restore-as-files). 
+
+When the restoration of the `.bak` file to the Azure virtual machine is complete, you can trigger restore using **TSQL commands** through SSMS. 
+ 
+To restore the database files to the *original path on the source server*, remove the `MOVE` clause from the TSQL restore query. 
+  
+**Example**
+
+  ```azurecli-interactive
+    USE [master] 
+    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'
+  ```
+
+>[!Note]
+>You shouldn’t have the same database files on the target server (restore with replace).  Also, you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16).
+
+To relocate the database files from the target restore server, you can frame a TSQL command using the `MOVE` clauses.
+
+  ```azurecli
+    USE [master] 
+    RESTORE DATABASE [<DBName>] FROM  DISK = N'<.bak file path>'  MOVE N'<LogicalName1>' TO N'<TargetFilePath1OnDisk>',  MOVE N'<LogicalName2>' TO N'<TargetFilePath2OnDisk>' GO
+  ```
+
+**Example**
+
+  ```azurecli
+    USE [master] 
+    RESTORE DATABASE [test] FROM  DISK = N'J:\dbBackupFiles\test.bak' WITH  FILE = 1,  MOVE N'test' TO N'F:\data\test.mdf',  MOVE N'test_log' TO N'G:\log\test_log.ldf',  NOUNLOAD,  STATS = 5 
+    GO
+  ```
+
+If there are more than two files for the database, you can add additional `MOVE` clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
+
+>[!Note]
+>For large database recovery, we recommend you to use TSQL statements. If you want to relocate the specific database files, see the list of database files in the JSON format created during the **Restore as Files** operation.
 
 ## Cross Region Restore
 

@@ -18,7 +18,7 @@ If your deployment contains multiple sites, we recommend upgrading the packet co
 
 ## Prerequisites
 
-- You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
+- You must have a running packet core. Use Azure monitor platform metrics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - If you use Azure Active Directory (Azure AD) to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
@@ -109,33 +109,31 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 Once the upgrade completes, check if your deployment is operating normally.
 
 1. Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version). Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
-1. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
+1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
 ## Rollback
 
-If you encountered issues after the upgrade, you can roll back the packet core instance to a previous version.
+If you encountered issues after the upgrade, you can roll back the packet core instance to the version you were previously running.
 
-Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
+If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 > [!NOTE]
-> You can roll back your packet core instance to version [PMN-4-18-0](azure-private-5g-core-release-notes-2210.md) or later.
+> You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
 1. Navigate to the **Packet Core Control Plane** resource that you want to roll back as described in [View the current packet core version](#view-the-current-packet-core-version).
-1. Select **Upgrade version**.
+1. Select **Rollback version**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-version.png" alt-text="Screenshot of the Azure portal showing the Upgrade version option.":::
+    :::image type="content" source="media/upgrade-packet-core-azure-portal/roll-back-packet-core.png" alt-text="Screenshot of the Azure portal showing the Rollback version option.":::
 
-1. From the **New version** list, select the packet core version you want to downgrade to.
+1. In the **Roll back packet core** screen on the right, in the **Confirm rollback** field, type **yes**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/downgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the New version field on the Upgrade packet core version screen. A down-level version is selected.":::
+    :::image type="content" source="media/upgrade-packet-core-azure-portal/confirm-rollback.png" alt-text="Screenshot of the Azure portal showing the Confirm rollback field in the Rollback packet core screen.":::
 
-1. Select **Modify**.
-1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
-
-    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
-
+1. Select **Roll back packet core**.
+1. Azure will now redeploy the packet core instance at the new software version. You can check the latest status of the rollback by looking at the **Packet core installation state** field. The **Packet Core Control Plane** resource's overview page will refresh every 20 seconds, and you can select **Refresh** to trigger a manual update. The **Packet core installation state** field will show as **RollingBack** during the rollback and update to **Installed** when the process completes.
+1. Follow the steps in [Restore backed up deployment information](#restore-backed-up-deployment-information) to reconfigure your deployment.
 1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
 
 ## Next steps
@@ -143,4 +141,4 @@ Note that any configuration you set while your packet core instance was running 
 You've finished upgrading your packet core instance.
 
 - If your deployment contains multiple sites, upgrade the packet core instance in another site.
-- Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to monitor your deployment.
+- Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to monitor your deployment.

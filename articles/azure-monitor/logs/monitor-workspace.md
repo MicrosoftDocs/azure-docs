@@ -56,7 +56,7 @@ After your data collection reaches the set limit, it automatically stops for the
 Recommended actions:
 
 *	Check the `_LogOperation` table for collection stopped and collection resumed events:</br>
-`_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Data collection"`
+`_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Detail has "Data collection"`
 *	[Create an alert](daily-cap.md#alert-when-daily-cap-is-reached) on the "Data collection stopped" Operation event. This alert notifies you when the collection limit is reached.
 *	Data collected after the daily collection limit is reached will be lost. Use the **Workspace insights** pane to review usage rates from each source. Or you can decide to [manage your maximum daily data volume](daily-cap.md) or [change the pricing tier](cost-logs.md#commitment-tiers) to one that suits your collection rates pattern.
 * The data collection rate is calculated per day and resets at the start of the next day. You can also monitor a collection resume event by [creating an alert](./daily-cap.md#alert-when-daily-cap-is-reached) on the "Data collection resumed" Operation event.
@@ -108,7 +108,7 @@ In some situations, like moving a subscription to a different tenant, the Azure 
 
 Recommended actions:
 
-* If the subscription mentioned in the warning message no longer exists, go to the **Azure Activity log** pane under **Workspace Data Sources**. Select the relevant subscription, and then select the **Disconnect** button.
+* If the subscription mentioned in the warning message no longer exists, go to the **Legacy activity log connector** pane under **Classic**. Select the relevant subscription, and then select the **Disconnect** button.
 * If you no longer have access to the subscription mentioned in the warning message:
   * Follow the preceding step to disconnect the subscription.
   * To continue collecting logs from this subscription, contact the subscription owner to fix the permissions and re-enable activity log collection.

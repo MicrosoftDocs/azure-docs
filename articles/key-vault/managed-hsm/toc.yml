@@ -43,7 +43,7 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
-  - name: Enable Multi-Region Replication on Managed HSM (Preview)
+  - name: Enable Multi-Region Replication on Managed HSM
     href: multi-region-replication.md 
   - name: Integrate Managed HSM with Azure Policy
     href: azure-policy.md
@@ -71,6 +71,8 @@ items:
   items:
   - name: Secure key release policy grammar 
     href: policy-grammar.md
+  - name: TLS offload library
+    href: tls-offload-library.md
   - name: Key management in Azure
     href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell

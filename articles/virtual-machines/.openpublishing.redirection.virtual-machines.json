@@ -1,6 +1,91 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-availability-sets.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-availability-sets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/symantec.md",
+            "redirect_url": "/azure/virtual-machines/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-availability-sets.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-availability-sets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-load-balancer.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/create-vm-specialized-portal.md",
+            "redirect_url": "/azure/virtual-machines/attach-os-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/create-vm-specialized.md",
+            "redirect_url": "/azure/virtual-machines/attach-os-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-manage.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-move-resource.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-planning.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-troubleshoot.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-deprovision.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-deploy.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/move-vm.md",
+            "redirect_url": "/azure-resource-manager/management/move-resource-group-and-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/aws-to-azure.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-aws-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-load-balancer.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-load-balancer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/freebsd-pf-nat.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
             "redirect_document_id": false
@@ -163,6 +248,16 @@
         {
             "source_path_from_root": "/articles/virtual-machines/troubleshooting/rdp.md",
             "redirect_url": "/troubleshoot/azure/virtual-machines/rdp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/capture-image.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/upload-vhd.md",
+            "redirect_url": "/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli",
             "redirect_document_id": false
         },
         {
@@ -1557,17 +1652,27 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/endpoints-in-resource-manager.md",
-            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
-            "redirect_document_id": true
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/openshift-origin.md",
-            "redirect_url": "/azure/virtual-machines/linux/openshift-get-started",
+            "redirect_url": "/azure/openshift/intro-openshift",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-get-started.md",
+            "redirect_url": "/azure/openshift/intro-openshift",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-okd.md",
+            "redirect_url": "/azure/openshift/intro-openshift",
             "redirect_document_id": false
         },
         {
@@ -1586,6 +1691,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/create-vm-rest-api.md",
+            "redirect_url": "/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/nsg-quickstart-portal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
             "redirect_url": "/azure/virtual-machines/linux/reset-password",
             "redirect_document_id": false
@@ -1596,9 +1721,24 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/put-calls-create-or-update.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/put-calls-create-or-update",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/virtual-machines-linux-security-controls.md",
             "redirect_url": "/azure/virtual-machines/linux/security-baseline",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/quotas.md",
+            "redirect_url": "/azure/virtual-machines/quotas",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/a8-a9-a10-a11-specs.md",
@@ -1758,6 +1898,16 @@
         {
             "source_path_from_root": "/articles/virtual-machines/windows/manage-availability.md",
             "redirect_url": "/azure/virtual-machines/manage-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/instance-metadata-service.md",
+            "redirect_url": "/azure/virtual-machines/instance-metadata-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/instance-metadata-service.md",
+            "redirect_url": "/azure/virtual-machines/instance-metadata-service",
             "redirect_document_id": false
         },
         {
@@ -4575,6 +4725,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/windows/tutorial-monitor.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-monitor",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/sa-copy-generalized.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
             "redirect_document_id": false
@@ -4800,6 +4955,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/virtual-machines/overview#service-disruptions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
             "redirect_url": "/azure/architecture/topics/high-performance-computing/",
             "redirect_document_id": false
@@ -4810,9 +4970,134 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/tag-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-portal.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-powershell.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/tag-template.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/tag-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/create-vm-generalized-managed.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/upload-generalized-managed.md",
+            "redirect_url": "/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-resource",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
             "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/azure-hybrid-benefit-byos-linux.md",
+            "redirect_url": "/azure/virtual-machines/linux/azure-hybrid-benefit-linux/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/policy.md",
+            "redirect_url": "/azure/governance/policy/assign-policy-azurecli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/policy.md",
+            "redirect_url": "/azure/governance/policy/assign-policy-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hb-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-series-performance.md",
+            "redirect_url": "/azure/virtual-machines/hb-series-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv2-performance.md",
+            "redirect_url": "/azure/virtual-machines/hbv2-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv2-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hbv2-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv3-performance.md",
+            "redirect_url": "/azure/virtual-machines/hbv3-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hbv3-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hbv3-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hc-series-overview.md",
+            "redirect_url": "/azure/virtual-machines/hc-series-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hc-series-performance.md",
+            "redirect_url": "/azure/virtual-machines/hc-series-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/overview.md",
+            "redirect_url": "/azure/virtual-machines/overview-hb-hc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/set-up-hpc-vms.md",
+            "redirect_url": "/azure/virtual-machines/set-up-hpc-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/configure.md",
+            "redirect_url": "/azure/virtual-machines/configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/enable-infiniband.md",
+            "redirect_url": "/azure/virtual-machines/extensions/enable-infiniband",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/setup-mpi.md",
+            "redirect_url": "/azure/virtual-machines/setup-mpi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/compiling-scaling-applications.md",
+            "redirect_url": "/azure/virtual-machines/compiling-scaling-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
+            "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
+            "redirect_document_id": false
+        }     
     ]
 }

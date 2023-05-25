@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Wizergos Productivity Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Wizergos Productivity Software'
 description: Learn how to configure single sign-on between Azure Active Directory and Wizergos Productivity Software.
 services: active-directory
 author: jeevansd

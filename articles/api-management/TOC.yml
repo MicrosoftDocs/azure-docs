@@ -26,6 +26,8 @@
       - name: Create an instance - ARM template
         displayName: Resource Manager
         href: quickstart-arm-template.md
+      - name: Create an instance - Terraform
+        href: quickstart-terraform.md
 - name: Tutorials
   items:
       - name: 1 - Import your first API
@@ -70,6 +72,8 @@
         href: self-hosted-gateway-overview.md
       - name: High availability
         href: high-availability.md
+      - name: Workspaces
+        href: workspaces-overview.md
         displayName: reliability, resilience, resiliency  
       - name: Networking
         href: virtual-network-concepts.md
@@ -79,15 +83,30 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
-            - name: Authentication and authorization
+            - name: Authentication and authorization options
               href: authentication-authorization-overview.md
+            - name: API security
+              items:
+              - name: Defender for APIs (preview)
+                href: protect-with-defender-for-apis.md              
+              - name: Mitigate OWASP API threats
+                href: mitigate-owasp-api-threats.md
+                displayName: OWASP top 10, vulnerability, vulnerabilities
+      - name: API authorizations
+        href: authorizations-overview.md
+        displayName: OAuth
       - name: Observability
         href: observability.md
         displayName: monitoring
+      - name: Compute platform
+        href: compute-infrastructure.md
+        displayName: stv1, stv2
       - name: DevOps and CI/CD
         href: devops-api-development-templates.md  
       - name: APIs
         items:
+            - name: GraphQL APIs
+              href: graphql-apis-overview.md
             - name: API design ebook
               href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: RESTful web API design
@@ -128,6 +147,10 @@
               href: api-management-howto-disaster-recovery-backup-restore.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
+            - name: Create a workspace
+              href: how-to-create-workspace.md
+            - name: Use a workspace
+              href: api-management-in-workspace.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Send events to Event Grid
@@ -139,6 +162,8 @@
             - name: Recover a deleted instance
               displayName: soft delete
               href: soft-delete.md
+            - name: Migrate to stv2 platform
+              href: migrate-stv1-to-stv2.md
             - name: Configure networking
               items:
                 - name: Connect to a virtual network
@@ -181,10 +206,16 @@
                   href: how-to-configure-cloud-metrics-logs.md
                 - name: Configure local metrics and logs for self-hosted gateway
                   href: how-to-configure-local-metrics-logs.md
+                - name: Enable Dapr support on self-hosted gateway
+                  href: self-hosted-gateway-enable-dapr.md  
+                - name: Use Azure AD authentication on self-hosted gateway
+                  href: self-hosted-gateway-enable-azure-ad.md
                 - name: Guidance for running on Kubernetes
                   href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
                 - name: Migrate to self-hosted gateway v2
                   href: self-hosted-gateway-migration-guide.md
+                - name: Support policy for self-hosted gateway
+                  href: self-hosted-gateway-support-policies.md
       - name: Define and manage APIs
         items:
           - name: Create APIs
@@ -232,9 +263,6 @@
                   href: backends.md
                 - name: Automate API deployments
                   href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-                - name: Test and monitor APIs in Postman
-                  href: export-api-postman.md
-                  displayName: collection
           - name: Cache
             items:
                 - name: Add caching to improve performance
@@ -265,6 +293,8 @@
                 - name: Manage secrets using named values
                   displayName: Azure CLI, az apim nv
                   href: api-management-howto-properties.md
+                - name: Configure a GraphQL resolver
+                  href: configure-graphql-resolver.md
       - name: Secure your APIs
         items:
           - name: Secure API access
@@ -281,15 +311,16 @@
               href: api-management-howto-manage-protocols-ciphers.md
             - name: Defend against DDoS attacks
               href: protect-with-ddos-protection.md
-            - name: Mitigate OWASP API threats
-              href: mitigate-owasp-api-threats.md
-              displayName: OWASP top 10, vulnerability, vulnerabilities
           - name: Manage API authorizations
             items:
-            - name: Authorizations overview
-              href: authorizations-overview.md
-            - name: Configure and use authorization
-              href: authorizations-how-to.md
+            - name: Configure common authorization providers
+              href: authorizations-configure-common-providers.md
+            - name: Configure and use authorization - Azure AD
+              href: authorizations-how-to-azure-ad.md
+            - name: Configure and use authorization - GitHub
+              href: authorizations-how-to-github.md
+            - name: Configure multiple authorization connections
+              href: configure-authorization-connection.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
@@ -350,8 +381,19 @@
                   href: developer-portal-alternative-processes-self-host.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
-            - name: Export APIs to the Power Platform
-              href: export-api-power-platform.md  
+      - name: Export APIs
+        items:
+        - name: Test and monitor APIs in Postman
+          href: export-api-postman.md
+          displayName: collection
+        - name: Export APIs to the Power Platform
+          items:
+            - name: Export API as custom connector
+              href: export-api-power-platform.md
+              displayName: Power Platform
+            - name: Enable CORS for custom connector
+              href: enable-cors-power-platform.md
+              displayName: Power Platform
       - name: Monitor APIs
         items:
         - name: Get API analytics
@@ -432,12 +474,16 @@
               href: forward-request-policy.md
             - name: get-authorization-context
               href: get-authorization-context-policy.md
+            - name: http-data-source
+              href: http-data-source-policy.md
             - name: include-fragment
               href: include-fragment-policy.md
             - name: invoke-dapr-binding
               href: invoke-dapr-binding-policy.md
             - name: ip-filter
               href: ip-filter-policy.md
+            - name: jsonp
+              href: jsonp-policy.md
             - name: json-to-xml
               href: json-to-xml-policy.md
             - name: limit-concurrency
@@ -448,6 +494,8 @@
               href: mock-response-policy.md
             - name: proxy
               href: proxy-policy.md
+            - name: publish-event
+              href: publish-event-policy.md
             - name: publish-to-dapr
               href: publish-to-dapr-policy.md
             - name: quota
@@ -512,8 +560,6 @@
               href: xml-to-json-policy.md
             - name: xsl-transform
               href: xsl-transform-policy.md
-      - name: Authorizations - identity providers
-        href: authorizations-reference.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
@@ -543,6 +589,8 @@
               href: breaking-changes/overview.md
             - name: Virtual network changes (March 2023)
               href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+            - name: Metrics retirements (August 2023)
+              href: breaking-changes/metrics-retirement-aug-2023.md
             - name: Virtual network changes (September 2023)
               href: breaking-changes/rp-source-ip-address-change-sep-2023.md
             - name: API version retirements (September 2023)
@@ -591,5 +639,3 @@
         href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
-      - name: Additional resources
-        href: https://aka.ms/apimlove

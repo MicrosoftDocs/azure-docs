@@ -32,14 +32,8 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Azure Maps Creator Tutorials
-      items:
-      - name: Create indoor maps
-        href: tutorial-creator-indoor-maps.md
-      - name: Query datasets with WFS API
-        href: tutorial-creator-wfs.md
-      - name: Create a feature stateset
-        href: tutorial-creator-feature-stateset.md
+    - name: Create indoor maps
+      href: tutorial-creator-indoor-maps.md
     - name: Set up a geofence
       href: tutorial-geofence.md
     - name: Spatial analytics
@@ -139,10 +133,24 @@ items:
           href: how-to-secure-device-code.md
     - name: Manage pricing tier
       href: how-to-manage-pricing-tier.md
-    - name: Manage Creator
-      href: how-to-manage-creator.md
     - name: View usage metrics
       href: how-to-view-api-usage.md
+  - name: Creator Indoor Maps
+    items:
+    - name: Manage Creator
+      href: how-to-manage-creator.md
+    - name: Query datasets with WFS API
+      href: how-to-creator-wfs.md
+    - name: Create a feature stateset
+      href: how-to-creator-feature-stateset.md
+    - name: Custom styling for indoor maps
+      href: how-to-create-custom-styles.md
+    - name: Indoor maps wayfinding service
+      href: how-to-creator-wayfinding.md
+    - name: Drawing package guide
+      href: drawing-package-guide.md
+    - name: Create dataset using GeoJson package
+      href: how-to-dataset-geojson.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -155,8 +163,6 @@ items:
       href: how-to-render-custom-data.md
     - name: Request real-time and forecasted weather data
       href: how-to-request-weather-data.md
-    - name: Request elevation data
-      href: how-to-request-elevation-data.md
   - name: Develop with the REST SDK
     items:
     - name: REST SDK Developer Guide
@@ -241,18 +247,12 @@ items:
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
-    - name: Indoor Maps module
+    - name: Creator indoor maps module
       items:
-      - name: Indoor Maps module
+      - name: Indoor Maps module with custom styles
         href: how-to-use-indoor-module.md
-      - name: Create dataset using GeoJson package (Preview)
-        href: how-to-dataset-geojson.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
-      - name: Custom styling for indoor maps
-        href: how-to-create-custom-styles.md
-      - name: Indoor maps wayfinding service
-        href: how-to-creator-wayfinding.md    
       - name: Drawing error visualizer
         href: drawing-error-visualizer.md
     - name: Spatial IO module 
@@ -362,7 +362,7 @@ items:
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
-      href: power-bi-visual-add-bar-chart-layer.md
+      href: power-bi-visual-add-3d-column-layer.md
     - name: Add a heat map layer
       href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
@@ -371,26 +371,34 @@ items:
       href: power-bi-visual-add-tile-layer.md
     - name: Add a filled map
       href: power-bi-visual-filled-map.md
+    - name: On-object interaction
+      href: power-bi-visual-on-object-interaction.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
     - name: Use Azure Maps in Power Apps
       href: /powerapps/maker/canvas-apps/geospatial-component-map
+  - name: Use your own data storage
+    href: how-to-create-data-registries.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
   - name: Show right attribution
     href: how-to-show-attribution.md
 - name: Reference
   items:
-  - name: API and parameter extensions
-    items:
+  - name: Creator Indoor Maps
+    items:   
+    - name: Drawing error visualizer
+      href: drawing-error-visualizer.md
     - name: Drawing package requirements
       href: drawing-requirements.md
-    - name: Drawing package guide
-      href: drawing-package-guide.md
     - name: Dynamic maps StylesObject
       href: schema-stateset-stylesobject.md
+    - name: Facility Ontology
+      href: creator-facility-ontology.md
+  - name: API and parameter extensions
+    items:
     - name: Vehicle consumption model
       href: consumption-model.md
     - name: Extended GeoJSON format
@@ -399,50 +407,76 @@ items:
       href: geofence-geojson.md
     - name: Supported search categories
       href: supported-search-categories.md
-    - name: Facility Ontology
-      href: creator-facility-ontology.md
   - name: REST
     items:
-    - name: Data service
+    - name: Overview
+      href: /rest/api/maps
+    - name: Data
       href: /rest/api/maps/data
-    - name: Data service V2
+    - name: Data V2
       href: /rest/api/maps/data-v2
-    - name: Elevation service
-      href: /rest/api/maps/elevation
-    - name: Geolocation service
+    - name: Data Registry
+      href: /rest/api/maps/data-registry
+    - name: Geolocation
       href: /rest/api/maps/geolocation
-    - name: Render service
+    - name: Render
       href: /rest/api/maps/render
-    - name: Render service V2
+    - name: Render V2
       href: /rest/api/maps/render-v2
-    - name: Route service
+    - name: Route
       href: /rest/api/maps/route
-    - name: Search service
+    - name: Search
       href: /rest/api/maps/search
-    - name: Search service V2
+    - name: Search V2
       href: /rest/api/maps/search-v2
-    - name: Spatial service
+    - name: Spatial
       href: /rest/api/maps/spatial
-    - name: Timezone service
+    - name: Timezone
       href: /rest/api/maps/timezone
-    - name: Traffic service
+    - name: Traffic
       href: /rest/api/maps/traffic
-    - name: Weather services
+    - name: Weather
       href: /rest/api/maps/weather
-    - name: Maps Creator service
+    - name: Maps Creator
       items:
-      - name: Alias service
-        href: /rest/api/maps/v2/alias
-      - name: Conversion service
-        href: /rest/api/maps/v2/conversion
-      - name: Dataset service
-        href: /rest/api/maps/v2/dataset
-      - name: Feature State service
-        href: /rest/api/maps/v2/feature-state
-      - name: Tileset service
-        href: /rest/api/maps/v2/tileset
-      - name: WFS service
-        href: /rest/api/maps/v2/wfs
+      - name: Overview
+        href: /rest/api/maps-creator/
+      - name: 2023-03-01-preview
+        items:
+        - name: Alias
+          href: /rest/api/maps/2023-03-01-preview/alias
+        - name: Conversion
+          href: /rest/api/maps/2023-03-01-preview/conversion		
+        - name: Dataset
+          href: /rest/api/maps/2023-03-01-preview/dataset
+        - name: Feature State
+          href: /rest/api/maps/2023-03-01-preview/feature-state
+        - name: Features
+          href: /rest/api/maps/2023-03-01-preview/features
+        - name: Map configuration
+          href: /rest/api/maps/2023-03-01-preview/map-configuration
+        - name: Routeset
+          href: /rest/api/maps/2023-03-01-preview/routeset
+        - name: Style
+          href: /rest/api/maps/2023-03-01-preview/style
+        - name: Tileset
+          href: /rest/api/maps/2023-03-01-preview/tileset
+        - name: Wayfinding
+          href: /rest/api/maps/2023-03-01-preview/wayfinding
+      - name: V2
+        items:
+          - name: Alias
+            href: /rest/api/maps/v2/alias
+          - name: Conversion
+            href: /rest/api/maps/v2/conversion
+          - name: Dataset
+            href: /rest/api/maps/v2/dataset
+          - name: Feature State
+            href: /rest/api/maps/v2/feature-state
+          - name: Tileset
+            href: /rest/api/maps/v2/tileset
+          - name: WFS
+            href: /rest/api/maps/v2/wfs
       - name: V20220901Preview
         items:
         - name: Dataset
@@ -475,6 +509,10 @@ items:
       items:
       - name: Map control
         href: release-notes-map-control.md
+      - name: Indoor module
+        href: release-notes-indoor-module.md
+      - name: Spatial IO module
+        href: release-notes-spatial-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
@@ -484,7 +522,7 @@ items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
   - name: Azure IoT services
@@ -535,3 +573,5 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+  - name: Create elevation data & services
+    href: elevation-data-services.md

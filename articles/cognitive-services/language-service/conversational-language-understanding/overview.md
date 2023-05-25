@@ -1,7 +1,7 @@
 ---
 title: Conversational Language Understanding - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Conversational Language Understanding.
+description: Customize an AI model to predict the intentions of utterances, and extract important information from them.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -40,7 +40,7 @@ One example of a human assistant bot is to help staff improve customer engagemen
 
 ### Command and control application
 
-When you integrate a client application with a speech-to-text component, users can speak a command in natural language for CLU to process, identify intent, and extract information from the text for the client application to perform an action. This use case has many applications, such as to stop, play, forward, and rewind a song or turn lights on or off.
+When you integrate a client application with a speech to text component, users can speak a command in natural language for CLU to process, identify intent, and extract information from the text for the client application to perform an action. This use case has many applications, such as to stop, play, forward, and rewind a song or turn lights on or off.
 
 ### Enterprise chat bot
 

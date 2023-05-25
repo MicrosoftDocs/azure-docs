@@ -62,7 +62,7 @@ IoT Central can also control devices by calling commands on the device. For exam
 
 The [telemetry, properties, and commands](concepts-telemetry-properties-commands.md) that a device implements are collectively known as the device capabilities. You define these capabilities in a model that's shared between the device and the IoT Central application. In IoT Central, this model is part of the device template that defines a specific type of device. To learn more, see [Assign a device to a device template](concepts-device-templates.md#assign-a-device-to-a-device-template).
 
-The [device implementation](tutorial-connect-device.md) should follow the [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot-develop/libraries-sdks.md).
+The [device implementation](tutorial-connect-device.md) should follow the [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot-develop/about-iot-sdks.md).
 
 Devices connect to IoT Central using one the supported protocols: [MQTT, AMQP, or HTTP](../../iot-hub/iot-hub-devguide-protocols.md).
 

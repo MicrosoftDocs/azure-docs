@@ -16,9 +16,9 @@ This article outlines how to register a Power BI tenant in a cross-tenant scenar
 
 ## Supported capabilities
 
-|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| No| [Yes](how-to-lineage-powerbi.md)| No|
 
 When scanning Power BI source, Microsoft Purview supports:
 
@@ -160,7 +160,7 @@ Use either of the following deployment checklists during the setup, or for troub
       - `*.analysis.windows.net` 
    
    1. Network connectivity from the self-hosted runtime to Microsoft services is enabled.
-   1. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   1. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed. Restart the machine after you newly install the JDK for it to take effect.
 1. In Power BI tenant, In Azure Active Directory create a security group.
 1. In Power BI tenant, from Azure Active Directory tenant, make sure [Service Principal is member of the new security group](#authenticate-to-power-bi-tenant).
 1. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group. 

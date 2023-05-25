@@ -1,21 +1,21 @@
 ---
-title: Share models, components, and environments across workspaces with registries (preview)
+title: Share models, components, and environments across workspaces with registries
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: mabables
-author: ManojBableshwar
+ms.author: kritifaujdar
+author: fkriti
 ms.reviewer: larryfr
-ms.date: 09/21/2022
+ms.date: 05/23/2022
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, devx-track-azurecli, build-2023
 ---
 
-# Share models, components and environments across workspaces with registries (preview)
+# Share models, components, and environments across workspaces with registries
 
-Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
+Azure Machine Learning registry enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
 There are two scenarios where you'd want to use the same set of models, components and environments in multiple workspaces:
 
@@ -28,18 +28,19 @@ In this article, you'll learn how to:
 * Use the component from registry to submit a model training job in a workspace.
 * Register the trained model in the registry.
 * Deploy the model from the registry to an online-endpoint in the workspace, then submit an inference request.
+
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- An Azure Machine Learning registry (preview) to share models, components and environments. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
+- An Azure Machine Learning registry to share models, components and environments. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
 
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
-    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure ML registry
+    > The Azure region (location) where you create your workspace must be in the list of supported regions for Azure Machine Learning registry
 
 - The Azure CLI and the `ml` extension __or__ the Azure Machine Learning Python SDK v2:
 
@@ -67,7 +68,7 @@ Before following the steps in this article, make sure you have the following pre
     To install the Python SDK v2, use the following command:
 
     ```bash
-    pip install --pre azure-ai-ml
+    pip install --pre --upgrade azure-ai-ml azure-identity
     ```
 
     ---
@@ -102,7 +103,7 @@ For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [
 > [!TIP]
 > This step is only needed when using the Python SDK.
 
-Create a client connection to both the AzureML workspace and registry:
+Create a client connection to both the Azure Machine Learning workspace and registry:
 
 ```python
 ml_client_workspace = MLClient( credential=credential,
@@ -111,8 +112,9 @@ ml_client_workspace = MLClient( credential=credential,
     workspace_name = "<workspace-name>")
 print(ml_client_workspace)
 
-ml_client_registry = MLClient ( credential=credential,
-        registry_name = "<registry-name>")
+ml_client_registry = MLClient(credential=credential,
+                        registry_name="<REGISTRY_NAME>",
+                        registry_location="<REGISTRY_REGION>")
 print(ml_client_registry)
 ```
 
@@ -193,14 +195,14 @@ You can also use `ml_client_registry.environments.list()` to list all environmen
 
 ---
 
-You can browse all environments in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
+You can browse all environments in the Azure Machine Learning studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/environment-in-registry.png" alt-text="Screenshot of environments in the registry.":::
 
  
 ## Create a component in registry
 
-Components are reusable building blocks of Machine Learning pipelines in AzureML. You can package the code, command, environment, input interface and output interface of an individual pipeline step into a component. Then you can reuse the component across multiple pipelines without having to worry about porting dependencies and code each time you write a different pipeline.
+Components are reusable building blocks of Machine Learning pipelines in Azure Machine Learning. You can package the code, command, environment, input interface and output interface of an individual pipeline step into a component. Then you can reuse the component across multiple pipelines without having to worry about porting dependencies and code each time you write a different pipeline.
 
 Creating a component in a workspace allows you to use the component in any pipeline job within that workspace. Creating a component in a registry allows you to use the component in any pipeline in any workspace within your organization. Creating components in a registry is a great way to build modular reusable utilities or shared training tasks that can be used for experimentation by different teams within your organization.
 
@@ -293,11 +295,11 @@ ml_client_registry.components.create_or_update(train_model)
 
 Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.component.get()` method to fetch the component from registry. 
 
-You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
-You can browse all components in the AzureML studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
+You can browse all components in the Azure Machine Learning studio. Make sure you navigate to the global UI and look for the __Registries__ entry.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/component-in-registry.png" alt-text="Screenshot of components in the registry.":::
 
@@ -408,13 +410,13 @@ Since the component used in the training job is shared through a registry, you c
 
 ---
 
-In AzureML studio, select the endpoint link in the job output to view the job. Here you can analyze training metrics, verify that the job is using the component and environment from registry, and review the trained model. Note down the `name` of the job from the output or find the same information from the job overview in AzureML studio. You'll need this information to download the trained model in the next section on creating models in registry.
+In Azure Machine Learning studio, select the endpoint link in the job output to view the job. Here you can analyze training metrics, verify that the job is using the component and environment from registry, and review the trained model. Note down the `name` of the job from the output or find the same information from the job overview in Azure Machine Learning studio. You'll need this information to download the trained model in the next section on creating models in registry.
 
-:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" alt-text="Screenshot of the pipeline in AzureML studio.":::
+:::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" lightbox="./media/how-to-share-models-pipelines-across-workspaces-with-registries/job-using-component-from-registy-metrics.png" alt-text="Screenshot of the pipeline in Azure Machine Learning studio.":::
 
 ## Create a model in registry
 
-You'll learn how to create models in a registry in this section. Review [manage models](./how-to-manage-models.md) to learn more about model management in AzureML. We'll look at two different ways to create a model in a registry. First is from local files. Second, is to copy a model registered in the workspace to a registry. 
+You'll learn how to create models in a registry in this section. Review [manage models](./how-to-manage-models.md) to learn more about model management in Azure Machine Learning. We'll look at two different ways to create a model in a registry. First is from local files. Second, is to copy a model registered in the workspace to a registry. 
 
 In both the options, you'll create model with the [MLflow format](./how-to-manage-models-mlflow.md), which will help you to [deploy this model for inference without writing any inference code](./how-to-deploy-mlflow-models-online-endpoints.md). 
 
@@ -475,14 +477,14 @@ mlflow_model = Model(
     version=str(1), # use str(int(time.time())) if you want a random model number
     description="MLflow model created from local path",
 )
-ml_client_registry.model.create_or_update(mlflow_model)
+ml_client_registry.models.create_or_update(mlflow_model)
 ```
 
 ---
 
-### Copy a model from workspace to registry 
+### Share a model from workspace to registry 
 
-In this workflow, you'll first create the model in the workspace and then copy it to the registry. This workflow is useful when you want to test the model in the workspace before sharing it. For example, deploy it to endpoints, try out inference with some test data and then copy the model to a registry if everything looks good. This workflow may also be useful when you're developing a series of models using different techniques, frameworks or parameters and want to promote just one of them to the registry as a production candidate. 
+In this workflow, you'll first create the model in the workspace and then share it to the registry. This workflow is useful when you want to test the model in the workspace before sharing it. For example, deploy it to endpoints, try out inference with some test data and then copy the model to a registry if everything looks good. This workflow may also be useful when you're developing a series of models using different techniques, frameworks or parameters and want to promote just one of them to the registry as a production candidate. 
 
 # [Azure CLI](#tab/cli)
 
@@ -501,24 +503,24 @@ az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path 
 
 Note down the model name and version. You can validate if the model is registered in the workspace by browsing it in the Studio UI or using `az ml model show --name nyc-taxi-model --version $model_version` command.  
 
-Next, you'll now copy the model from the workspace to the registry. Note now the `--path` parameter is referring to the model with the workspace with the `azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/<model-name>/versions/<model-version>` syntax.
+Next, you'll now share the model from the workspace to the registry. 
 
 
 ```azurecli
-# copy model registered in workspace to registry
-az ml model create --registry-name <registry-name> --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
+# share model registered in workspace to registry
+az ml model share --name nyc-taxi-model --version 1 --registry-name <registry-name> --share-with-name <new-name> --share-with-version <new-version>
 ```
 
 > [!TIP]
 > * Make sure to use the right model name and version if you changed it in the `az ml model create` command.
-> * The above command creates the model in the registry with the same name and version. You can provide a different name or version with the `--name` or `--version` parameters. 
+> * The above command has two optional parameters "--share-with-name" and "--share-with-version". If these are not provided the new model will have the same name and version as the model that is being shared.
 Note down the `name` and `version` of the model from the output of the `az ml model create` command and use them with `az ml model show` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 
 ```azurecli 
 az ml model show --name <model_name> --version <model_version> --registry-name <registry-name>
 ```
 
-You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 # [Python SDK](#tab/python)
 
@@ -544,7 +546,7 @@ mlflow_model = Model(
     version=version_timestamp,
     description="MLflow model created from job output",
 )
-ml_client_workspace.model.create_or_update(mlflow_model)
+ml_client_workspace.models.create_or_update(mlflow_model)
 ```
 
 > [!TIP]
@@ -552,22 +554,15 @@ ml_client_workspace.model.create_or_update(mlflow_model)
 
 Note down the model name and version. You can validate if the model is registered in the workspace by browsing it in the Studio UI or fetching it using `ml_client_workspace.model.get()` method.
 
-Next, you'll now copy the model from the workspace to the registry. Construct the path to the model with the workspace using the `azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/<model-name>/versions/<model-version>` syntax.
-
+Next, you'll now share the model from the workspace to the registry.
 
 ```python
-# fetch the model from workspace
-model_in_workspace = ml_client_workspace.models.get(name="nyc-taxi-model", version=version)
-print(model_in_workspace )
-# change the format such that the registry understands the model (when you print the model_ready_to_copy object, notice the asset id 
-model_ready_to_copy = ml_client_workspace.models._prepare_to_copy(model_in_workspace)
-print(model_ready_to_copy)
-# copy the model from registry to workspace
-ml_client_registry.models.create_or_update(model_ready_to_copy)
+# share the model from registry to workspace
+ml_client.models.share(name="nyc-taxi-model", version=1, registry_name=<registry_name>, share_with_name=<new-name>, share_with_version=<new-version>)
 ```
 
 > [!TIP]
-> Make sure to use the right model name and version if you changed it in the `ml_client_workspace.model.create_or_update()` method used to create the model in workspace. 
+> The above code has two optional parameters "share-with-name" and "share-with-version". If these are not provided the new model will have the same name and version as the model that is being shared.
 
 Note down the `name` and `version` of the model from the output and use them with `ml_client_workspace.model.get()` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 
@@ -575,11 +570,11 @@ Note down the `name` and `version` of the model from the output and use them wit
 mlflow_model_from_registry = ml_client_registry.models.get(name="nyc-taxi-model", version=str(1))
 print(mlflow_model_from_registry)
 ```
-You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
-The following screenshot shows a model in a registry in AzureML studio. If you created a model from the job output and then copied the model from the workspace to registry, you'll see that the model has a link to the job that trained the model. You can use that link to navigate to the training job to review the code, environment and data used to train the model.
+The following screenshot shows a model in a registry in Azure Machine Learning studio. If you created a model from the job output and then copied the model from the workspace to registry, you'll see that the model has a link to the job that trained the model. You can use that link to navigate to the training job to review the code, environment and data used to train the model.
 
 :::image type="content" source="./media/how-to-share-models-pipelines-across-workspaces-with-registries/model-in-registry.png" alt-text="Screenshot of the models in the registry.":::
 
@@ -688,6 +683,7 @@ ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
+* [How to share data assets using registries](how-to-share-data-across-workspaces-with-registries.md)
 * [How to create and manage registries](how-to-manage-registries.md)
 * [How to manage environments](how-to-manage-environments-v2.md)
 * [How to train models](how-to-train-cli.md)

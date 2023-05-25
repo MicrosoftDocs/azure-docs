@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hopsworks.ai | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hopsworks.ai'
 description: Learn how to configure single sign-on between Azure Active Directory and Hopsworks.ai.
 services: active-directory
 author: jeevansd

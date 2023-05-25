@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -27,7 +26,7 @@ The Form Recognizer receipt model combines powerful Optical Character Recognitio
 
 ## Receipt data extraction
 
-Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR-powered receipt data extraction helps to automate the conversion and save time and effort. The output from the receipt data extraction is used for accounts payable and receivables automation, sales data analytics, and other business scenarios.
+Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure Form Recognizer OCR-powered receipt data extraction helps to automate the conversion and save time and effort.
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -48,7 +47,7 @@ Receipt digitization is the process of converting scanned receipts into digital 
 ## Development options
 
 ::: moniker range="form-recog-3.0.0"
-The following tools are supported by Form Recognizer v3.0:
+Form Recognizer v3.0 Supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -58,7 +57,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ::: moniker range="form-recog-2.1.0"
 
-The following tools are supported by Form Recognizer v2.1:
+Form Recognizer v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -77,14 +76,14 @@ The following tools are supported by Form Recognizer v2.1:
 ::: moniker range="form-recog-2.1.0"
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* For PDF and TIFF, Form Recognizer can process up to 2000 pages for standard tier subscribers or only the first two pages for free-tier subscribers.
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
 ### Try receipt data extraction
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts. You need the following resources:
+See how Form Recognizer extracts data, including time and date of transactions, merchant information, and amount totals from receipts. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -154,23 +153,86 @@ See how data, including time and date of transactions, merchant information, and
 
 ::: moniker range="form-recog-3.0.0"
 
-## Supported languages and locales v3.0
+## Supported languages and locales
 
 >[!NOTE]
 > Form Recognizer auto-detects language and locale data.
 
-The receipt model supports all English receipts and the following locales:
+### [**2022-08-31 (GA)**](#tab/2022-08-31)
 
-|Supported Languages| Details |
-|:-----|:----:|
-|&bullet; English| United States (-us), Australia (-au), Great Britain (-gb), India (-in), United Arab Emirates (-ae)|
-|&bullet; Dutch| Netherlands (nl-nl)|
-|&bullet; French | France (fr-fr), Canada (fr-ca) |
-|&bullet; German | Germany (de-de) |
-|&bullet; Italian | Italy (it-it) |
-|&bullet; Japanese | Japan (ja-ja)|
-|&bullet; Portuguese| Portugal (pt-pt), Brazil (pt-br)|
-|&bullet; Spanish | Spain (es-es) |
+#### Thermal receipts (retail, meal, parking, etc.)
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
+|Croatian|Croatia (`hr-HR`)|
+|Czech|Czechia (`cs-CZ`)|
+|Danish|Denmark (`da-DK`)|
+|Dutch|Netherlands (`nl-NL`)|
+|Finnish|Finland (`fi-FI`)|
+|French|Canada (`fr-CA`), France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Hungarian|Hungary (`hu-HU`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Latvian|Latvia (`lv-LV`)|
+|Lithuanian|Lithuania (`lt-LT`)|
+|Norwegian|Norway (`no-NO`)|
+|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+|Swedish|Sweden (`sv-SE`)|
+|Vietnamese|Vietnam (`vi-VN`)|
+
+#### Hotel receipts
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`)|
+|French|France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Portuguese|Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+
+### [2023-02-28-preview](#tab/2023-02-28-preview)
+
+#### Thermal receipts (retail, meal, parking, etc.)
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
+|Croatian|Croatia (`hr-HR`)|
+|Czech|Czechia (`cs-CZ`)|
+|Danish|Denmark (`da-DK`)|
+|Dutch|Netherlands (`nl-NL`)|
+|Finnish|Finland (`fi-FI`)|
+|French|Canada (`fr-CA`), France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Hungarian|Hungary (`hu-HU`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Latvian|Latvia (`lv-LV`)|
+|Lithuanian|Lithuania (`lt-LT`)|
+|Norwegian|Norway (`no-NO`)|
+|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+|Swedish|Sweden (`sv-SE`)|
+|Vietnamese|Vietnam (`vi-VN`)|
+
+#### Hotel receipts
+
+| Supported Languages | Details |
+|:--------------------|:-------:|
+|English|United States (`en-US`)|
+|French|France (`fr-FR`)|
+|German|Germany (`de-DE`)|
+|Italian|Italy (`it-IT`)|
+|Japanese|Japan (`ja-JP`)|
+|Portuguese|Portugal (`pt-PT`)|
+|Spanish|Spain (`es-ES`)|
+
+
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -187,6 +249,8 @@ The receipt model supports all English receipts and the following locales:
 ::: moniker-end
 
 ## Field extraction
+
+::: moniker range="form-recog-2.1.0"
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
@@ -206,35 +270,105 @@ The receipt model supports all English receipts and the following locales:
 | Price | Number | Individual price of each item unit| Two-decimal float |
 | TotalPrice | Number | Total price of line item | Two-decimal float |
 
+::: moniker-end
+
 ::: moniker range="form-recog-3.0.0"
 
- Form Recognizer v3.0 introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
+ Form Recognizer v3.0 introduces several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
 
-### Hotel receipt field extraction
+### [**2022-08-31 (GA)**](#tab/2022-08-31)
 
-|Name| Type | Description | Standardized output |
-|:-----|:----|:----|:----|
-| ArrivalDate | Date | Date of arrival | yyyy-mm-dd |
-| Currency | Currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
-| DepartureDate | Date | Date of departure | yyyy-mm-dd |
-| Items | Array | | |
-| Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
-| Items.*.Date | Date | Item date | yyyy-mm-dd |
-| Items.*.Description | String | Item description | |
-| Items.*.TotalPrice |  Number | Item total price | Two-decimal float |
-| MerchantAddress | String | Listed address of merchant | |
-| MerchantAliases | Array| | |
-| MerchantAliases.* | String | Alternative name of merchant |  |
-| MerchantName | String | Name of the merchant issuing the receipt | |
-| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
-| ReceiptType | String | Type of receipt, for example, Hotel, Itemized | |
-| Total | Number | Full transaction total of receipt | Two-decimal float |
+#### Thermal receipts (receipt, receipt.retailMeal, receipt.creditCard, receipt.gas, receipt.parking)
 
-### Hotel receipt supported languages and locales
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
+|`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
+|`Subtotal`|`number`|Subtotal of receipt, often before taxes are applied|$12.34|
+|`TotalTax`|`number`|Tax on receipt, often sales tax or equivalent|$2.00|
+|`Tip`|`number`|Tip included by buyer|$1.00|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Surface Pro 6|
+|`Items.*.Quantity`|`number`|Quantity of each item|1|
+|`Items.*.Price`|`number`|Individual price of each item unit|$999.00|
+|`Items.*.ProductCode`|`string`|Product code, product number, or SKU associated with the specific line item|A123|
+|`Items.*.QuantityUnit`|`string`|Quantity unit of each item||
+|`TaxDetails`|`array`|||
+|`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
+#### Hotel receipts (receipt.hotel)
 
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Receipt (hotel) | <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`ArrivalDate`|`date`|Date of arrival|27Mar21|
+|`DepartureDate`|`date`|Date of departure|28Mar21|
+|`Currency`|`string`|Currency unit of receipt amounts (ISO 4217), or 'MIXED' if multiple values are found|USD|
+|`MerchantAliases`|`array`|||
+|`MerchantAliases.*`|`string`|Alternative name of merchant|Contoso (R)|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Room Charge|
+|`Items.*.Date`|`date`|Item date|27Mar21|
+|`Items.*.Category`|`string`|Item category|Room|
+
+### [2023-02-28-preview](#tab/2023-02-28-preview)
+
+#### Thermal receipts (receipt, receipt.retailMeal, receipt.creditCard, receipt.gas, receipt.parking)
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
+|`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
+|`Subtotal`|`number`|Subtotal of receipt, often before taxes are applied|$12.34|
+|`TotalTax`|`number`|Tax on receipt, often sales tax or equivalent|$2.00|
+|`Tip`|`number`|Tip included by buyer|$1.00|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Surface Pro 6|
+|`Items.*.Quantity`|`number`|Quantity of each item|1|
+|`Items.*.Price`|`number`|Individual price of each item unit|$999.00|
+|`Items.*.ProductCode`|`string`|Product code, product number, or SKU associated with the specific line item|A123|
+|`Items.*.QuantityUnit`|`string`|Quantity unit of each item||
+|`TaxDetails`|`array`|||
+|`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
+
+#### Hotel receipts (receipt.hotel)
+
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`ArrivalDate`|`date`|Date of arrival|27Mar21|
+|`DepartureDate`|`date`|Date of departure|28Mar21|
+|`Currency`|`string`|Currency unit of receipt amounts (ISO 4217), or 'MIXED' if multiple values are found|USD|
+|`MerchantAliases`|`array`|||
+|`MerchantAliases.*`|`string`|Alternative name of merchant|Contoso (R)|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Room Charge|
+|`Items.*.Date`|`date`|Item date|27Mar21|
+|`Items.*.Category`|`string`|Item category|Room|
+
+---
 
 ::: moniker-end
 

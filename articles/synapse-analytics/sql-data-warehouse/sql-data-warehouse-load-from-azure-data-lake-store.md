@@ -23,7 +23,7 @@ This guide outlines how to use the [COPY statement](/sql/t-sql/statements/copy-i
 > * Create the target table to load data from Azure Data Lake Storage.
 > * Create the COPY statement to load data into the data warehouse.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Before you begin
 

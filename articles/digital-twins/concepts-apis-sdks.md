@@ -27,43 +27,15 @@ Azure Digital Twins comes equipped with control plane APIs, data plane APIs, and
 
 ## Control plane APIs
 
-The control plane APIs are [ARM](../azure-resource-manager/management/overview.md) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You'll also use these APIs to create and delete endpoints.
+[!INCLUDE [digital-twins-sdks-control-plane](../../includes/digital-twins-sdks-control-plane.md)]
 
-To call the APIs directly, reference the latest Swagger folder in the [control plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). This folder also includes a folder of examples that show the usage.
-
-Here are the SDKs currently available for the Azure Digital Twins control APIs.
-
-| SDK language | Package link | Reference documentation | Source code |
-| --- | --- | --- | --- |
-| .NET (C#) | [Azure.ResourceManager.DigitalTwins on NuGet](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins) | [Reference for Azure DigitalTwins SDK for .NET](/dotnet/api/overview/azure/digitaltwins) | [Microsoft Azure Digital Twins management client library for .NET on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins) |
-| Java | [azure-resourcemanager-digitaltwins on Maven](https://repo1.maven.org/maven2/com/azure/resourcemanager/azure-resourcemanager-digitaltwins/) | [Reference for Resource Management - Digital Twins](/java/api/overview/azure/digital-twins) | [Azure Resource Manager AzureDigitalTwins client library for Java on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins) |
-| JavaScript | [AzureDigitalTwinsManagement client library for JavaScript on npm](https://www.npmjs.com/package/@azure/arm-digitaltwins) | | [AzureDigitalTwinsManagement client library for JavaScript on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins) |
-| Python | [azure-mgmt-digitaltwins on PyPI](https://pypi.org/project/azure-mgmt-digitaltwins/) | | [Microsoft Azure SDK for Python on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins) |
-| Go | [azure-sdk-for-go/services/digitaltwins/mgmt](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) | | [Azure SDK for Go on GitHub](https://github.com/Azure/azure-sdk-for-go)
-
-You can also exercise control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
+You can also exercise the control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
 
 ## Data plane APIs
 
-The data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins, and can be broadly divided into the following categories:
-* `DigitalTwinModels` - The DigitalTwinModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
-* `DigitalTwins` - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
-* `Query` - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
-* `Event Routes` - The Event Routes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
-* `Import Jobs` - The Import Jobs API lets you manage a long running, asynchronous action to [import models, twins, and relationships in bulk](#bulk-import-with-the-import-jobs-api).
+[!INCLUDE [digital-twins-sdks-data-plane](../../includes/digital-twins-sdks-data-plane.md)]
 
-To call the APIs directly, reference the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. You can also view the [data plane API reference documentation](/rest/api/azure-digitaltwins/).
-
-Here are the SDKs currently available for the Azure Digital Twins control APIs.
-
-| SDK language | Package link | Reference documentation | Source code |
-| --- | --- | --- | --- |
-| .NET (C#) | [Azure.DigitalTwins.Core on NuGet](https://www.nuget.org/packages/Azure.DigitalTwins.Core) | [Reference for Azure IoT Digital Twins client library for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme) | [Azure IoT Digital Twins client library for .NET on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.DigitalTwins.Core) |
-| Java | [com.azure:azure-digitaltwins-core on Maven](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar) | [Reference for Azure Digital Twins SDK for Java](/java/api/overview/azure/digital-twins) | [Azure IoT Digital Twins client library for Java on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins/azure-digitaltwins-core) |
-| JavaScript | [Azure Azure Digital Twins Core client library for JavaScript on npm](https://www.npmjs.com/package/@azure/digital-twins-core) | [Reference for @azure/digital-twins-core](/javascript/api/@azure/digital-twins-core) | [Azure Azure Digital Twins Core client library for JavaScript on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/digital-twins-core) |
-| Python | [Azure Azure Digital Twins Core client library for Python on PyPI](https://pypi.org/project/azure-digitaltwins-core/) | [Reference for azure-digitaltwins-core](/python/api/azure-digitaltwins-core/azure.digitaltwins.core) | [Azure Azure Digital Twins Core client library for Python on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-digitaltwins-core) |
-
-You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
+You can also exercise the data plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
 
 ## Usage notes
 
@@ -99,20 +71,20 @@ The available helper classes are:
 * `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
 
 
-## Bulk import with the Import Jobs API
+## Bulk import with the Jobs API
 
-The [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Import Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Import Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) (currently in preview) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 
-To use the Import Jobs API, you'll need to have write permission in your Azure Digital Twins instance for the following data action categories: 
+To use the Jobs API, you'll need to have write permission in your Azure Digital Twins instance for the following data action categories: 
 * `Microsoft.DigitalTwins/jobs/*`
 * Any graph elements that you want to include in the Jobs call. This might include `Microsoft.DigitalTwins/models/*`, `Microsoft.DigitalTwins/digitaltwins/*`, and/or `Microsoft.DigitalTwins/digitaltwins/relationships/*`.
 
 The built-in role that provides all of these permissions is *Azure Digital Twins Data Owner*. You can also use a custom role to grant granular access to only the data types that you need. For more information about roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
 
 >[!NOTE]
-> If you attempt an Import Jobs API call and you're missing write permissions to one of the graph element types you're trying to import, the job will skip that type and import the others. For example, if you have write access to models and twins, but not relationships, an attempt to bulk import all three types of element will only succeed in importing the models and twins. The job status will reflect a failure and the message will indicate which permissions are missing.
+> If you attempt an Jobs API call and you're missing write permissions to one of the graph element types you're trying to import, the job will skip that type and import the others. For example, if you have write access to models and twins, but not relationships, an attempt to bulk import all three types of element will only succeed in importing the models and twins. The job status will reflect a failure and the message will indicate which permissions are missing.
 
 ### Format data 
 
@@ -136,14 +108,15 @@ Here's a sample input data file for the import API:
 >[!TIP]
 >For a sample project that converts models, twins, and relationships into the NDJSON supported by the import API, see [Azure Digital Twins Bulk Import NDJSON Generator](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/bulk-import/ndjson-generator). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
 
-Once the file has been created, upload it to a block blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the Import Jobs API call.
+Once the file has been created, upload it to a block blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the Jobs API call.
 
 ### Run the import job
 
-Now you can proceed with calling the [Import Jobs API](/rest/api/digital-twins/dataplane/import-jobs). For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships in bulk with the Import Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-import-jobs-api). You can also use the Import Jobs API to import each resource type independently. For more information on using the Import Jobs API with individual resource types, see Import Jobs API instructions for [models](how-to-manage-model.md#upload-large-model-sets-with-the-import-jobs-api), [twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-import-jobs-api), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-import-jobs-api).
+Now you can proceed with calling the [Jobs API](/rest/api/digital-twins/dataplane/import-jobs). For detailed instructions on importing a full graph in one API call, see  [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api). You can also use the Jobs API to import each resource type independently. For more information on using the Jobs API with individual resource types, see Jobs API instructions for [models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api), [twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
 
-In the body of the API call, you'll provide the blob storage URL of the NDJSON input file, as well as another blob storage URL for where you'd like the output log to be stored.
-As the import job executes, a structured output log is generated by the service and stored as a new append blob in your blob container, according to the output blob URL and name you provided. Here's an example output log for a successful job importing models, twins, and relationships:
+In the body of the API call, you'll provide the blob storage URL of the NDJSON input file. You'll also provide a new blob storage URL to indicate where you'd like the output log to be stored once the service creates it. 
+
+As the import job executes, a structured output log is generated by the service and stored as a new append blob in your blob container, at the URL location you specified for the output blob in the request. Here's an example output log for a successful job importing models, twins, and relationships:
 
 ```json
 {"timestamp":"2022-12-30T19:50:34.5540455Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"status":"Started"}}
@@ -156,16 +129,16 @@ As the import job executes, a structured output log is generated by the service 
 {"timestamp":"2022-12-30T19:50:41.3043264Z","jobId":"test1","jobType":"Import","logType":"Info","details":{"status":"Succeeded"}}
 ```
 
-When the job is complete, you can see the total number of ingested entities using the [BulkOperationEntityCount metric](how-to-monitor.md#bulk-operation-metrics-from-the-import-jobs-api).
+When the job is complete, you can see the total number of ingested entities using the [BulkOperationEntityCount metric](how-to-monitor.md#bulk-operation-metrics-from-the-jobs-api).
 
-It's also possible to cancel a running import job with the [Cancel operation](/rest/api/digital-twins/dataplane/import-jobs/cancel?tabs=HTTP) from the Import Jobs API. Once the job has been canceled and is no longer running, you can delete it.
+It's also possible to cancel a running import job with the [Cancel operation](/rest/api/digital-twins/dataplane/import-jobs/cancel?tabs=HTTP) from the Jobs API. Once the job has been canceled and is no longer running, you can delete it.
 
 ### Limits and considerations
 
-Keep the following considerations in mind while working with the Import Jobs API:
-* Currently, the Import Jobs API only supports "create" operations.
+Keep the following considerations in mind while working with the Jobs API:
+* Currently, the Jobs API only supports "create" operations.
 * Import Jobs are not atomic operations. There is no rollback in the case of failure, partial job completion, or usage of the [Cancel operation](/rest/api/digital-twins/dataplane/import-jobs/cancel?tabs=HTTP).
-* Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Import Jobs API in [Azure Digital Twins limits](reference-service-limits.md).
+* Only one bulk import job is supported at a time within an Azure Digital Twins instance. You can view this information and other numerical limits of the Jobs API in [Azure Digital Twins limits](reference-service-limits.md).
 
 ## Monitor API metrics
 

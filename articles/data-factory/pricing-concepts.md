@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 09/22/2022
 ---
 
-# Understanding Data Factory pricing through examples
+# Understanding Azure Data Factory pricing through examples
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.  To understand how to estimate pricing for any scenario, not just the examples here, refer to the article [Plan and manage costs for Azure Data Factory](plan-manage-costs.md).
 
-For more details about pricing in Azure Data Factory, refer to the [Data Pipeline Pricing and FAQ](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
+For more details about pricing in Azure Data Factory, see the [Data Pipeline Pricing and FAQ](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 
 ## Pricing examples
-The prices used in these examples below are hypothetical and are not intended to imply exact actual pricing.  Read/write and monitoring costs are not shown since they are typically negligible and will not impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
+The prices used in the following examples are hypothetical and don't intend to imply exact actual pricing.  Read/write and monitoring costs aren't shown since they're typically negligible and won't impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
 - [Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

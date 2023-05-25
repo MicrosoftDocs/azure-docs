@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ceridian Dayforce HCM | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Ceridian Dayforce HCM'
 description: Learn how to configure single sign-on between Azure Active Directory and Ceridian Dayforce HCM.
 services: active-directory
 author: jeevansd

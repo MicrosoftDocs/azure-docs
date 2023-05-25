@@ -42,14 +42,14 @@ You can either use one of the [built-in security roles](../role-based-access-con
 The following examples show different ways to start batch deployment jobs using different types of credentials:
 
 > [!IMPORTANT] 
-> When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure ML studio. Please use the Azure ML CLI v2 instead for job creation.
+> When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure Machine Learning studio. Please use the Azure Machine Learning CLI v2 instead for job creation.
 
 ### Running jobs using user's credentials
 
 In this case, we want to execute a batch endpoint using the identity of the user currently logged in. Follow these steps:
 
 > [!NOTE]
-> When working on Azure ML studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
+> When working on Azure Machine Learning studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
 
 # [Azure CLI](#tab/cli)
 
@@ -67,7 +67,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [Python](#tab/sdk)
 
-1. Use the Azure ML SDK for Python to log in using either interactive or device authentication:
+1. Use the Azure Machine Learning SDK for Python to log in using either interactive or device authentication:
 
     ```python
     from azure.ai.ml import MLClient
@@ -101,7 +101,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Azure CLI](#tab/cli)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 32: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). 
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
@@ -116,7 +116,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [Python](#tab/sdk)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret).
 1. To authenticate using a service principal, indicate the tenant ID, client ID and client secret of the service principal using environment variables as demonstrated:
 
     ```python
@@ -145,9 +145,9 @@ In this case, we want to execute a batch endpoint using a service principal alre
 
 # [REST](#tab/rest)
 
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret). 
+1. Create a secret to use for authentication as explained at [Option 3: Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret). 
 
-1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine learning is `https://ml.azure.com`. The request would look as follows:
+1. Use the login service from Azure to get an authorization token. Authorization tokens are issued to a particular scope. The resource type for Azure Machine Learning is `https://ml.azure.com`. The request would look as follows:
     
     __Request__:
     

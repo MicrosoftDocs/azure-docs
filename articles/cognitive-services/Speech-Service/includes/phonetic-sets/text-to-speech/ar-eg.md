@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for ar-EG
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3        |
 |-------|----------|-------------|-----------------|------------------|
@@ -9,7 +17,7 @@
 | `u`   | 7        |             | آج**ُ**رّ       | مُنْذ**ُ**       |
 | `uː`  | 7        |             | آخَر**و**نَ     | أَعاق**و**ا      |
 
-### Consonant
+### Consonant for ar-EG
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3        |
 |-------|----------|-------------|-----------------|------------------|

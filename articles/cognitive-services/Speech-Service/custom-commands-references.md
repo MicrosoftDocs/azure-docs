@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Custom Commands concepts and definitions
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 This article serves as a reference for concepts and definitions for Custom Commands applications.
 
 ## Commands configuration

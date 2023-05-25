@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Stream logs to an Azure event hub | Microsoft Docs
+title: Tutorial - Stream logs to an Azure event hub
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub
 services: active-directory
 author: shlipsey3

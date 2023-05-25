@@ -54,7 +54,7 @@ If the required controls of a policy weren't previously satisfied, the policy is
 - Country location (resolving new IP or GPS coordinates)
 - Authentication strengths
 
-When active, the Backup Authentication Service doesn't evaluate authentication methods required by [authentication strengths](../authentication/concept-authentication-strengths.md). If you used a non-phishing-resistant authentication method before an outage, during an outage you aren't be prompted for multifactor authentication even if accessing a resource protected by a Conditional Access policy with a phishing-resistant authentication strength.
+When active, the Backup Authentication Service doesn't evaluate authentication methods required by [authentication strengths](../authentication/concept-authentication-strengths.md). If you used a non-phishing-resistant authentication method before an outage, during an outage you aren't prompted for multifactor authentication even if accessing a resource protected by a Conditional Access policy with a phishing-resistant authentication strength.
 
 ## Resilience defaults enabled
 
@@ -73,7 +73,7 @@ When resilience defaults are disabled, the Backup Authentication Service won't u
 
 ## Testing resilience defaults
 
-It isn't possible to conduct a dry run using the Backup Authentication Service or simulate the result of a policy with resilience defaults enabled or disabled at this time. Azure AD will conduct monthly exercises using the Backup Authentication Service. The sign-in logs will display if the Backup Authentication Service was used to issue the access token.
+It isn't possible to conduct a dry run using the Backup Authentication Service or simulate the result of a policy with resilience defaults enabled or disabled at this time. Azure AD will conduct monthly exercises using the Backup Authentication Service. The sign-in logs will display if the Backup Authentication Service was used to issue the access token. In **Azure portal** > **Monitoring** > **Sign-in Logs** blade, you can add the filter "Token issuer type == Azure AD Backup Auth" to display the logs processed by Azure AD Backup Authentication service. 
 
 ## Configuring resilience defaults
 

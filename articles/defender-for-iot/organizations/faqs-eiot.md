@@ -1,8 +1,9 @@
 ---
 title: FAQs for Enterprise IoT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT Enterprise IoT networks.
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 07/07/2022
+ms.custom: enterprise-iot
 ---
 
 # Enterprise IoT network security frequently asked questions
@@ -29,7 +30,7 @@ Enterprise IoT is designed to help customers secure un-managed devices throughou
 
     For more information, see [Onboard with Microsoft Defender for IoT](eiot-defender-for-endpoint.md).
 
-- **In the Azure portal**: Defender for IoT customers can view their discovered IoT devices in the **Device inventory** page in Defender for IoT in the Azure portal. Register an Enterprise IoT network sensor, currently in **Public preview** to gain visibility to additional devices that aren't covered by Defender for Endpoint.
+- **In the Azure portal**: Defender for IoT customers can view their discovered IoT devices in the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Register an Enterprise IoT network sensor, currently in **Public preview** to gain visibility to additional devices that aren't covered by Defender for Endpoint.
 
     For more information, see [Enhance device discovery with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
@@ -82,7 +83,7 @@ To make any changes to an existing plan, you'll need to cancel your existing pla
 
 To remove only Enterprise IoT from your plan, cancel your plan from Microsoft Defender for Endpoint. For more information, see [Cancel your Defender for IoT plan](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration#cancel-your-defender-for-iot-plan).
 
-To cancel the plan and remove all Defender for IoT services from the associated subscription, cancel the plan in Defender for IoT in the Azure portal. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
+To cancel the plan and remove all Defender for IoT services from the associated subscription, cancel the plan in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 
 ## What happens when the 30-day trial ends?
 

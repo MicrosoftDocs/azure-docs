@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Use these Azure PowerShell scripts for creating VPN gateways, creating site-to-site and VNet-to-VNet connections, and downloading VPN device templates.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 09/03/2020
 ms.author: cherylmc
-
 ---
 # Azure PowerShell samples for VPN Gateway
 

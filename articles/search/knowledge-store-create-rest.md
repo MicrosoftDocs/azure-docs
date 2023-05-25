@@ -23,7 +23,7 @@ To make the initial data set available, the hotel reviews are first imported int
 
 ## Prerequisites
 
-+ [Postman desktop app](https://www.getpostman.com/)
++ [Postman app](https://www.postman.com/downloads/)
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 

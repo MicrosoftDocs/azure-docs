@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zylo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zylo'
 description: Learn how to configure single sign-on between Azure Active Directory and Zylo.
 services: active-directory
 author: jeevansd

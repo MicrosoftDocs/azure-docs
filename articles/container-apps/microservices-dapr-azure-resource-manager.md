@@ -6,8 +6,8 @@ author: asw101
 ms.service: container-apps
 ms.topic: conceptual
 ms.date: 06/29/2022
-ms.author: keroden
-ms.custom: devx-track-azurecli, ignite-2022
+ms.author: cshoe
+ms.custom: ignite-2022, devx-track-bicep, devx-track-arm-template
 zone_pivot_groups: container-apps
 ---
 

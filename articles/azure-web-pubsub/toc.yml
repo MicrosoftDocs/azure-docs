@@ -1,40 +1,28 @@
-- name: Azure Web PubSub service documentation
+- name: Web PubSub documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About the Azure Web PubSub service
+    - name: About Web PubSub
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an instance
-      expanded: true
-      items:
-        - name: The Azure portal
-          href: howto-develop-create-instance.md
-        - name: The Azure CLI
-          href: quickstart-cli-create.md
-        - name: By using a Bicep template
-          href: quickstart-bicep-template.md
-    - name: Connect to the instance
-      expanded: true
-      items:
-        - name: PubSub with client SDK
-          href: quickstart-use-client-sdk.md
-        - name: PubSub from the browser
-          href: quickstart-live-demo.md
-        - name: PubSub from the Azure CLI
-          href: quickstart-cli-try.md
-        - name: PubSub by using the Service SDK
-          href: quickstart-use-sdk.md
+    - name: Create a resource
+      href: howto-develop-create-instance.md
+    - name: PubSub among clients
+      href: quickstarts-pubsub-among-clients.md
+    - name: Push message from server
+      href: quickstarts-push-messages-from-server.md
+    - name: Event notifications from clients
+      href: quickstarts-event-notifications-from-clients.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
     - name: Serverless development
-      expanded: true
+      expanded: false
       items:
         - name: Build a notification app by using Azure Functions
           href: tutorial-serverless-notification.md
@@ -53,7 +41,7 @@
     - name: Authentication and permissions
       href: tutorial-permission.md
 - name: How-to guides
-  expanded: true
+  expanded: false
   items:
     - name: Develop
       items:
@@ -61,24 +49,30 @@
           href: howto-websocket-connect.md
         - name: Create reliable Websocket clients
           href: howto-develop-reliable-clients.md
+        - name: Generate client access URL
+          href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
-        - name: Create `WebPubSubServiceClient` with Azure Identity
+        - name: Use server SDK with Azure Identity
           items:
-            - name: Create `WebPubSubServiceClient` with Azure Identity and .NET
+            - name: Use server SDK with Azure Identity and .NET
               href: howto-create-serviceclient-with-net-and-azure-identity.md
-            - name: Create `WebPubSubServiceClient` with Azure Identity and Java
+            - name: Use server SDK with Azure Identity and Java
               href: howto-create-serviceclient-with-java-and-azure-identity.md
-            - name: Create `WebPubSubServiceClient` with Azure Identity and JavaScript
+            - name: Use server SDK with Azure Identity and JavaScript
               href: howto-create-serviceclient-with-javascript-and-azure-identity.md
-            - name: Create `WebPubSubServiceClient` with Azure Identity and Python
+            - name: Use server SDK with Azure Identity and Python
               href: howto-create-serviceclient-with-python-and-azure-identity.md
     - name: Monitor
       items:
         - name: Audit compliance using Azure Policy
           href: howto-monitor-azure-policy.md
+        - name: Monitor Azure Web PubSub
+          href: howto-azure-monitor.md
+        - name: Monitor Azure Web PubSub data reference
+          href: howto-monitor-data-reference.md
     - name: Secure
       items:
         - name: Protect the access key
@@ -91,16 +85,18 @@
           href: howto-secure-network-access-control.md
         - name: Secure outbound traffic through shared private endpoints
           href: howto-secure-shared-private-endpoints.md
-        - name: Access Key Vault in private network through Shared Private Endpoints
+        - name: Access Key Vault through shared private endpoints
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
-        - name: Configure Azure AD Authorization
+        - name: Configure Azure AD Authorizations
           items:
             - name: Authorize from Azure applications
               href: howto-authorize-from-application.md
             - name: Authorize from managed identities
               href: howto-authorize-from-managed-identity.md
+            - name: Disable local authentication
+              href: howto-disable-local-auth.md
         - name: Custom domain
           href: howto-custom-domain.md
     - name: Troubleshooting
@@ -111,6 +107,8 @@
           href: howto-troubleshoot-network-trace.md
         - name: Capture resource logs
           href: howto-troubleshoot-resource-logs.md
+        - name: Common issues
+          href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
     - name: Scale
@@ -118,7 +116,7 @@
         - name: Autoscale
           href: howto-scale-autoscale.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
     - name: Service internals
       href: concept-service-internals.md
@@ -145,7 +143,7 @@
 - name: Reference
   items:
     - name: WebSocket subprotocols
-      expanded: true
+      expanded: false
       items:
         - name: JSON WebSocket subprotocol
           href: reference-json-webpubsub-subprotocol.md

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure SurveyMonkey Enterprise for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SurveyMonkey Enterprise for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SurveyMonkey Enterprise.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 50c400a2-8dd9-41ba-b11d-b1516b9d2967
 ms.service: active-directory
