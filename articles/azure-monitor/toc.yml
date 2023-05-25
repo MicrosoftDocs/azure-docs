@@ -558,6 +558,387 @@ items:
     href: insights/insights-overview.md
   - name: Troubleshoot insights
     href: insights/troubleshoot-workbooks.md 
+- name: Visualize
+  items:
+  - name: Workbooks
+    items:
+    - name: Overview
+      href: visualize/workbooks-overview.md 
+    - name: Get started with workbooks
+      href: visualize/workbooks-getting-started.md    
+    - name: Create a new workbook
+      items:
+        - name: Create a workbook with a template
+          href: visualize/workbooks-templates.md
+        - name: Create a new workbook
+          href: visualize/workbooks-create-workbook.md
+        - name: Data sources
+          href: visualize/workbooks-data-sources.md         
+        - name: Visualizations
+          items:
+          - name: Overview
+            href: visualize/workbooks-visualizations.md         
+          - name: Text
+            href: visualize/workbooks-text-visualizations.md
+          - name: Chart
+            href: visualize/workbooks-chart-visualizations.md
+          - name: Grid
+            href: visualize/workbooks-grid-visualizations.md
+          - name: Tile
+            href: visualize/workbooks-tile-visualizations.md
+          - name: Tree
+            href: visualize/workbooks-tree-visualizations.md
+          - name: Graph
+            href: visualize/workbooks-graph-visualizations.md
+          - name: Map
+            href: visualize/workbooks-map-visualizations.md
+          - name: Honey comb
+            href: visualize/workbooks-honey-comb.md
+          - name: Composite bar
+            href: visualize/workbooks-composite-bar.md
+          - name: Renderers
+            href: visualize/workbooks-renderers.md
+          - name: Link actions
+            href: visualize/workbooks-link-actions.md  
+        - name: Parameters
+          items:
+          - name: Workbook parameters
+            href: visualize/workbooks-parameters.md
+          - name: Time parameters
+            href: visualize/workbooks-time.md
+          - name: Drop down parameters
+            href: visualize/workbooks-dropdowns.md
+          - name: Options group parameters
+            href: visualize/workbooks-options-group.md
+          - name: Text parameters
+            href: visualize/workbooks-text.md
+          - name: Criteria
+            href: visualize/workbooks-criteria.md
+          - name: Resource parameters
+            href: visualize/workbooks-resources.md
+          - name: Multi-value parameters
+            href: visualize/workbooks-multi-value.md               
+        - name: Workbook configuration options
+          href: visualize/workbooks-configurations.md
+        - name: Commonly used components
+          href: visualize/workbooks-commonly-used-components.md
+        - name: Workbook result limits
+          href: visualize/workbooks-limits.md   
+    - name: Integrate with other Azure services
+      items:
+      - name: Deploy with Azure Resource Manager
+        href: visualize/workbooks-automate.md
+      - name: Bring your own storage
+        href: visualize/workbooks-bring-your-own-storage.md
+      - name: Transform JSON data with JSONPath
+        href: visualize/workbooks-jsonpath.md
+      - name: Move Workbooks to another region
+        href: visualize/workbooks-move-region.md
+      - name: Move Workbook templates to another region
+        href: visualize/workbook-templates-move-region.md
+    - name: Transition from View Designer
+      items:
+      - name: Move from View Designer to Workbooks
+        href: visualize/workbooks-view-designer-conversion-overview.md
+      - name: Sample JSON to covert View Designer views
+        href: visualize/workbooks-view-designer-conversions.md 
+    - name: Retrieve legacy workbooks
+      href: visualize/workbooks-retrieve-legacy-workbooks.md
+    - name: Access Troubleshooting guides
+      href: visualize/workbooks-access-troubleshooting-guide.md
+    - name: Workbook Samples
+      href: visualize/workbooks-samples.md          
+  - name: Dashboards
+    items:
+     - name: Dashboard using log data
+       href: visualize/tutorial-logs-dashboards.md
+     - name: Dashboard using application data
+       href: app/tutorial-app-dashboards.md
+  - name: Power BI
+    href: logs/log-powerbi.md
+  - name: Grafana
+    href: visualize/grafana-plugin.md
+- name: Analyze
+  items:
+  - name: Metrics explorer
+    items:
+      - name: Getting started with Metrics Explorer
+        href: essentials/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: essentials/metrics-charts.md
+      - name: Viewing multiple resources in Metric Explorer
+        href: essentials/metrics-dynamic-scope.md
+      - name: Understanding metrics aggregation
+        href: essentials/metrics-aggregation-explained.md
+      - name: Examples of metric charts
+        href: essentials/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: essentials/metrics-troubleshoot.md
+  - name: Log Analytics
+    items:
+    - name: Overview
+      href: logs/log-analytics-overview.md
+    - name: Query scope
+      href: logs/scope.md
+    - name: Saving queries
+      href: logs/save-query.md
+    - name: Using queries
+      href: logs/queries.md
+    - name: Query packs
+      href: logs/query-packs.md
+    - name: Tutorial
+      displayName: Log Analytics workspace, log query, log queries, query, queries
+      href: logs/log-analytics-tutorial.md
+  - name: Log queries
+    items:
+      - name: Overview
+        displayName: log query, log queries, query, queries
+        href: logs/log-query-overview.md
+      - name: Get started
+        displayName: log query, log queries, query, queries
+        href: logs/get-started-queries.md
+      - name: KQL reference
+        href: /azure/data-explorer/kusto/query/
+      - name: Sample queries
+        href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+      - name: Detect and analyze anomalies in log data
+        href: logs/kql-machine-learning-azure-monitor.md
+      - name: Standard columns
+        href: logs/log-standard-columns.md
+      - name: Query Basic logs
+        href: logs/basic-logs-query.md
+      - name: Audit queries
+        href: logs/query-audit.md
+      - name: Optimize queries
+        href: logs/query-optimization.md
+      - name: Functions
+        href: logs/functions.md
+      - name: Parse text data
+        href: logs/parse-text.md
+      - name: Computer groups
+        href: logs/computer-groups.md
+      - name: Cross resource queries
+        items:
+        - name: Overview
+          displayName: cross-resource queries
+          href: logs/cross-workspace-query.md
+        - name: app expression
+          href: logs/app-expression.md
+        - name: workspace expression
+          href: logs/workspace-expression.md
+        - name: resource expression
+          href: logs/resource-expression.md
+        - name: Unify application data resources
+          href: logs/unify-app-resource-data.md
+        - name: Query Azure Data Explorer from Azure Monitor
+          href: logs/azure-monitor-data-explorer-proxy.md
+      - name: API
+        items:
+        - name: Overview
+          href: logs/api/overview.md
+        - name: Using the API
+          items:
+          - name: API access, authentication and authorization
+            href: logs/api/access-api.md
+          - name: Application Insights API access with Azure Active Directory
+            href: logs/api/app-insights-azure-ad-api.md
+          - name: Register an app for API access
+            href: logs/api/register-app-for-token.md 
+          - name: Request format
+            href: logs/api/request-format.md
+          - name: Response format
+            href: logs/api/response-format.md
+          - name: Batch queries
+            href: logs/api/batch-queries.md
+          - name: Cross-resource queries
+            href: logs/api/cross-workspace-queries.md
+          - name: Azure resource queries
+            href: logs/api/azure-resource-queries.md
+          - name: Response caching
+            href: logs/api/cache.md
+          - name: Server timeouts
+            href: logs/api/timeouts.md
+          - name: Prefer headers
+            href: logs/api/prefer-options.md
+          - name: Errors
+            href: logs/api/errors.md
+  - name: Change Analysis
+    items:
+    - name: Overview
+      href: change/change-analysis.md
+    - name: Enable Change Analysis
+      href: change/change-analysis-enable.md
+    - name: Visualizations
+      href: change/change-analysis-visualizations.md
+    - name: Track a web outage with Change Analysis
+      href: change/change-analysis-track-outages.md
+    - name: Troubleshoot
+      href: change/change-analysis-troubleshoot.md
+- name: Respond
+  items:
+  - name: Alerts
+    items:
+    - name: Overview
+      href: alerts/alerts-overview.md
+    - name: Alert types
+      href: alerts/alerts-types.md
+    - name: Alert rules
+      items:
+        - name: Create a new alert rule
+          href: alerts/alerts-create-new-alert-rule.md
+        - name: Manage alert rules
+          href: alerts/alerts-manage-alert-rules.md
+        - name: Metric alert rules
+          items:
+          - name: Dynamic thresholds
+            href: alerts/alerts-dynamic-thresholds.md
+          - name: Single alert for multiple time series
+            href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Metric alerts on logs
+            href: alerts/alerts-metric-logs.md
+          - name: Troubleshoot metric alerts
+            href: alerts/alerts-troubleshoot-metric.md
+        - name: Log alert rules
+          items:
+          - name: Edit log alerts created in previous versions
+            href: alerts/alerts-manage-alerts-previous-version.md
+          - name: Optimizing alert queries
+            href: alerts/alerts-log-query.md
+          - name: Troubleshoot log alerts
+            href: alerts/alerts-troubleshoot-log.md
+          - name: Webhook actions
+            href: alerts/alerts-log-webhook.md
+          - name: Legacy Log Analytics alerts API
+            href: alerts/api-alerts.md
+          - name: Upgrade from the legacy Log Analytics alerts API
+            href: alerts/alerts-log-api-switch.md
+    - name: Manage alert instances
+      href: alerts/alerts-manage-alert-instances.md
+    - name: Prometheus metric alerts
+      href: alerts/prometheus-alerts.md
+    - name: Service health alerts
+      items:
+      - name: View notifications
+        href: ../service-health/service-notifications.md
+      - name: Configure alerts on notification events
+        href: ../service-health/alerts-activity-log-service-notifications-portal.md
+    - name: Respond to an alert
+      items:
+      - name: Common schema for alerts
+        href: alerts/alerts-common-schema.md
+      - name: Action groups
+        href: alerts/action-groups.md
+      - name: Alert processing rules
+        href: alerts/alerts-processing-rules.md
+        displayName: Azure CLI, az monitor action rule
+      - name: Configure the schema to get activity log alerts
+        href: alerts/activity-log-alerts-webhook.md        
+      - name: Non-common alert schema definition
+        href: alerts/alerts-non-common-schema-definitions.md
+      - name: Customize alert notifications using Logic apps
+        href: alerts/alerts-logic-apps.md
+      - name: Test notification troubleshooting guide
+        href: alerts/test-action-group-errors.md
+    - name: Troubleshoot alerts
+      href: alerts/alerts-troubleshoot.md
+    - name: Alerts and region moves
+      href: alerts/alerts-resource-move.md
+    - name: IT Service Management
+      items:
+      - name: Integrate with ITSM Providers
+        href: alerts/itsmc-overview.md
+      - name: Connect using a Secure Webhook action
+        items:
+        - name: Overview
+          href: alerts/it-service-management-connector-secure-webhook-connections.md
+        - name: Configure Azure for a Secure Webhook
+          href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
+        - name: ITSM Connector Partners Setup
+          items:
+          - name: BMC Helix
+            href: alerts/itsmc-secure-webhook-connections-bmc.md
+          - name: ServiceNow ITOM
+            href: alerts/itsmc-secure-webhook-connections-servicenow.md
+      - name: Connect using an ITSM action
+        items:
+          - name: Connect ServiceNow with an ITSM Connector
+            href: alerts/itsmc-connections-servicenow.md
+          - name: Configure Azure for an ITSM Connector
+            href: alerts/itsmc-definition.md
+          - name: Data Synced From Your ITSM Product
+            href: alerts/itsmc-synced-data.md
+          - name: Convert ITSM ServiceNow actions to secure webhook actions 
+            href: alerts/itsm-convert-servicenow-to-webhook.md   
+          - name: Troubleshooting problems in ITSM Connector
+            items:
+            - name: Overview
+              href: alerts/itsmc-troubleshoot-overview.md
+            - name: Dashboard Investigation
+              href: alerts/itsmc-dashboard.md
+            - name: Common Errors
+              href: alerts/itsmc-dashboard-errors.md
+            - name: Sync ITSM Connector
+              href: alerts/itsmc-resync-servicenow.md
+            - name: Connector deletion
+              href: alerts/itsmc-connector-deletion.md
+    - name: Migrate classic alert rules
+      items:
+      - name: About classic alerts
+        href: alerts/alerts-classic.overview.md
+      - name: Prepare for migration
+        href: alerts/alerts-prepare-migration.md
+      - name: Understand the migration tool
+        href: alerts/alerts-understand-migration.md
+      - name: Use the migration tool
+        href: alerts/alerts-using-migration-tool.md
+      - name: Automatic migration process
+        href: alerts/alerts-automatic-migration.md
+      - name: Manage classic metric alerts
+        href: alerts/alerts-classic-portal.md
+      - name: Classic metric alert using a Resource Manager template
+        href: alerts/alerts-enable-template.md
+      - name: Classic metric alert calling a webhook
+        href: alerts/alerts-webhooks.md
+    - name: Tutorials
+      items:
+      - name: Create a metric alert
+        href: alerts/tutorial-metric-alert.md
+      - name: Create a log query alert
+        href: alerts/tutorial-log-alert.md
+  - name: AutoScale
+    items:
+      - name: Overview
+        href: autoscale/autoscale-overview.md
+      - name: Walkthrough
+        href: autoscale/autoscale-get-started.md
+      - name: Configuration settings
+        href: autoscale/autoscale-understanding-settings.md
+      - name: Predictive autoscale
+        href: autoscale/autoscale-predictive.md
+      - name: Best practices
+        href: autoscale/autoscale-best-practices.md
+      - name: Flapping in autoscale
+        href: autoscale/autoscale-flapping.md
+      - name: Common metrics
+        href: autoscale/autoscale-common-metrics.md
+      - name: Autoscale with multiple profiles
+        href: autoscale/autoscale-multiprofile.md
+      - name: Common patterns
+        href: autoscale/autoscale-common-scale-patterns.md
+      - name: Scale with custom metrics
+        href: autoscale/autoscale-custom-metric.md
+      - name: Autoscale Virtual Machine Scale Sets using PowerShell
+        href: autoscale/autoscale-using-powershell.md
+      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
+        href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
+      - name: Scale Virtual Machine Scale Sets using CLI
+        href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
+      - name: Use webhooks and email notifications
+        href: autoscale/autoscale-webhook-email.md
+      - name: Autoscale diagnostics
+        href: autoscale/autoscale-diagnostics.md  
+      - name: Troubleshooting
+        href: autoscale/autoscale-troubleshoot.md
 - name: Monitor Azure services
   items:
   - name: Tutorials
@@ -1027,7 +1408,7 @@ items:
 - name: Monitor Containers
   items:
   - name: Best practices
-    href: containers/best-practices-containers.md
+    href: best-practices-containers.md
   - name: Monitor containers
     href: containers/monitor-containers.md
   - name: Container insights
@@ -1127,387 +1508,6 @@ items:
   - name: Troubleshooting
     displayName: Network Insights, Network
     href: ../network-watcher/network-insights-troubleshooting.md    
-- name: Visualize
-  items:
-  - name: Workbooks
-    items:
-    - name: Overview
-      href: visualize/workbooks-overview.md 
-    - name: Get started with workbooks
-      href: visualize/workbooks-getting-started.md    
-    - name: Create a new workbook
-      items:
-        - name: Create a workbook with a template
-          href: visualize/workbooks-templates.md
-        - name: Create a new workbook
-          href: visualize/workbooks-create-workbook.md
-        - name: Data sources
-          href: visualize/workbooks-data-sources.md         
-        - name: Visualizations
-          items:
-          - name: Overview
-            href: visualize/workbooks-visualizations.md         
-          - name: Text
-            href: visualize/workbooks-text-visualizations.md
-          - name: Chart
-            href: visualize/workbooks-chart-visualizations.md
-          - name: Grid
-            href: visualize/workbooks-grid-visualizations.md
-          - name: Tile
-            href: visualize/workbooks-tile-visualizations.md
-          - name: Tree
-            href: visualize/workbooks-tree-visualizations.md
-          - name: Graph
-            href: visualize/workbooks-graph-visualizations.md
-          - name: Map
-            href: visualize/workbooks-map-visualizations.md
-          - name: Honey comb
-            href: visualize/workbooks-honey-comb.md
-          - name: Composite bar
-            href: visualize/workbooks-composite-bar.md
-          - name: Renderers
-            href: visualize/workbooks-renderers.md
-          - name: Link actions
-            href: visualize/workbooks-link-actions.md  
-        - name: Parameters
-          items:
-          - name: Workbook parameters
-            href: visualize/workbooks-parameters.md
-          - name: Time parameters
-            href: visualize/workbooks-time.md
-          - name: Drop down parameters
-            href: visualize/workbooks-dropdowns.md
-          - name: Options group parameters
-            href: visualize/workbooks-options-group.md
-          - name: Text parameters
-            href: visualize/workbooks-text.md
-          - name: Criteria
-            href: visualize/workbooks-criteria.md
-          - name: Resource parameters
-            href: visualize/workbooks-resources.md
-          - name: Multi-value parameters
-            href: visualize/workbooks-multi-value.md               
-        - name: Workbook configuration options
-          href: visualize/workbooks-configurations.md
-        - name: Commonly used components
-          href: visualize/workbooks-commonly-used-components.md
-        - name: Workbook result limits
-          href: visualize/workbooks-limits.md   
-    - name: Integrate with other Azure services
-      items:
-      - name: Deploy with Azure Resource Manager
-        href: visualize/workbooks-automate.md
-      - name: Bring your own storage
-        href: visualize/workbooks-bring-your-own-storage.md
-      - name: Transform JSON data with JSONPath
-        href: visualize/workbooks-jsonpath.md
-      - name: Move Workbooks to another region
-        href: visualize/workbooks-move-region.md
-      - name: Move Workbook templates to another region
-        href: visualize/workbook-templates-move-region.md
-    - name: Transition from View Designer
-      items:
-      - name: Move from View Designer to Workbooks
-        href: visualize/workbooks-view-designer-conversion-overview.md
-      - name: Sample JSON to covert View Designer views
-        href: visualize/workbooks-view-designer-conversions.md 
-    - name: Retrieve legacy workbooks
-      href: visualize/workbooks-retrieve-legacy-workbooks.md
-    - name: Access Troubleshooting guides
-      href: visualize/workbooks-access-troubleshooting-guide.md
-    - name: Workbook Samples
-      href: visualize/workbooks-samples.md          
-  - name: Dashboards
-    items:
-     - name: Dashboard using log data
-       href: visualize/tutorial-logs-dashboards.md
-     - name: Dashboard using application data
-       href: app/tutorial-app-dashboards.md
-  - name: Power BI
-    href: logs/log-powerbi.md
-  - name: Grafana
-    href: visualize/grafana-plugin.md
-- name: Analyze
-  items:
-  - name: Metrics explorer
-    items:
-      - name: Getting started with Metrics Explorer
-        href: essentials/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: essentials/metrics-charts.md
-      - name: Viewing multiple resources in Metric Explorer
-        href: essentials/metrics-dynamic-scope.md
-      - name: Understanding metrics aggregation
-        href: essentials/metrics-aggregation-explained.md
-      - name: Examples of metric charts
-        href: essentials/metric-chart-samples.md
-      - name: Troubleshooting metric charts
-        href: essentials/metrics-troubleshoot.md
-  - name: Log Analytics
-    items:
-    - name: Overview
-      href: logs/log-analytics-overview.md
-    - name: Query scope
-      href: logs/scope.md
-    - name: Saving queries
-      href: logs/save-query.md
-    - name: Using queries
-      href: logs/queries.md
-    - name: Query packs
-      href: logs/query-packs.md
-    - name: Tutorial
-      displayName: Log Analytics workspace, log query, log queries, query, queries
-      href: logs/log-analytics-tutorial.md
-  - name: Log queries
-    items:
-      - name: Overview
-        displayName: log query, log queries, query, queries
-        href: logs/log-query-overview.md
-      - name: Get started
-        displayName: log query, log queries, query, queries
-        href: logs/get-started-queries.md
-      - name: KQL reference
-        href: /azure/data-explorer/kusto/query/
-      - name: Sample queries
-        href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
-      - name: Detect and analyze anomalies in log data
-        href: logs/kql-machine-learning-azure-monitor.md
-      - name: Standard columns
-        href: logs/log-standard-columns.md
-      - name: Query Basic logs
-        href: logs/basic-logs-query.md
-      - name: Audit queries
-        href: logs/query-audit.md
-      - name: Optimize queries
-        href: logs/query-optimization.md
-      - name: Functions
-        href: logs/functions.md
-      - name: Parse text data
-        href: logs/parse-text.md
-      - name: Computer groups
-        href: logs/computer-groups.md
-      - name: Cross resource queries
-        items:
-        - name: Overview
-          displayName: cross-resource queries
-          href: logs/cross-workspace-query.md
-        - name: app expression
-          href: logs/app-expression.md
-        - name: workspace expression
-          href: logs/workspace-expression.md
-        - name: resource expression
-          href: logs/resource-expression.md
-        - name: Unify application data resources
-          href: logs/unify-app-resource-data.md
-        - name: Query Azure Data Explorer from Azure Monitor
-          href: logs/azure-monitor-data-explorer-proxy.md
-      - name: API
-        items:
-        - name: Overview
-          href: logs/api/overview.md
-        - name: Using the API
-          items:
-          - name: API access, authentication and authorization
-            href: logs/api/access-api.md
-          - name: Application Insights API access with Azure Active Directory
-            href: logs/api/app-insights-azure-ad-api.md
-          - name: Register an app for API access
-            href: logs/api/register-app-for-token.md 
-          - name: Request format
-            href: logs/api/request-format.md
-          - name: Response format
-            href: logs/api/response-format.md
-          - name: Batch queries
-            href: logs/api/batch-queries.md
-          - name: Cross-resource queries
-            href: logs/api/cross-workspace-queries.md
-          - name: Azure resource queries
-            href: logs/api/azure-resource-queries.md
-          - name: Response caching
-            href: logs/api/cache.md
-          - name: Server timeouts
-            href: logs/api/timeouts.md
-          - name: Prefer headers
-            href: logs/api/prefer-options.md
-          - name: Errors
-            href: logs/api/errors.md
-  - name: Change Analysis
-    items:
-    - name: Overview
-      href: change/change-analysis.md
-    - name: Enable Change Analysis
-      href: change/change-analysis-enable.md
-    - name: Visualizations
-      href: change/change-analysis-visualizations.md
-    - name: Track a web outage with Change Analysis
-      href: change/change-analysis-track-outages.md
-    - name: Troubleshoot
-      href: change/change-analysis-troubleshoot.md
-- name: Respond
-  items:
-  - name: Alerts
-    items:
-    - name: Overview
-      href: alerts/alerts-overview.md
-    - name: Alert types
-      href: alerts/alerts-types.md
-    - name: Alert rules
-      items:
-        - name: Create a new alert rule
-          href: alerts/alerts-create-new-alert-rule.md
-        - name: Manage alert rules
-          href: alerts/alerts-manage-alert-rules.md
-        - name: Metric alert rules
-          items:
-          - name: Dynamic thresholds
-            href: alerts/alerts-dynamic-thresholds.md
-          - name: Single alert for multiple time series
-            href: alerts/alerts-metric-multiple-time-series-single-rule.md
-          - name: Metric alerts on logs
-            href: alerts/alerts-metric-logs.md
-          - name: Troubleshoot metric alerts
-            href: alerts/alerts-troubleshoot-metric.md
-        - name: Log alert rules
-          items:
-          - name: Edit log alerts created in previous versions
-            href: alerts/alerts-manage-alerts-previous-version.md
-          - name: Optimizing alert queries
-            href: alerts/alerts-log-query.md
-          - name: Troubleshoot log alerts
-            href: alerts/alerts-troubleshoot-log.md
-          - name: Webhook actions
-            href: alerts/alerts-log-webhook.md
-          - name: Legacy Log Analytics alerts API
-            href: alerts/api-alerts.md
-          - name: Upgrade from the legacy Log Analytics alerts API
-            href: alerts/alerts-log-api-switch.md
-    - name: Manage alert instances
-      href: alerts/alerts-manage-alert-instances.md
-    - name: Prometheus metric alerts
-      href: alerts/prometheus-alerts.md
-    - name: Service health alerts
-      items:
-      - name: View notifications
-        href: ../service-health/service-notifications.md
-      - name: Configure alerts on notification events
-        href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Respond to an alert
-      items:
-      - name: Common schema for alerts
-        href: alerts/alerts-common-schema.md
-      - name: Action groups
-        href: alerts/action-groups.md
-      - name: Alert processing rules
-        href: alerts/alerts-processing-rules.md
-        displayName: Azure CLI, az monitor action rule
-      - name: Configure the schema to get activity log alerts
-        href: alerts/activity-log-alerts-webhook.md        
-      - name: Non-common alert schema definition
-        href: alerts/alerts-non-common-schema-definitions.md
-      - name: Customize alert notifications using Logic apps
-        href: alerts/alerts-logic-apps.md
-      - name: Test notification troubleshooting guide
-        href: alerts/test-action-group-errors.md
-    - name: Troubleshoot alerts
-      href: alerts/alerts-troubleshoot.md
-    - name: Alerts and region moves
-      href: alerts/alerts-resource-move.md
-    - name: IT Service Management
-      items:
-      - name: Integrate with ITSM Providers
-        href: alerts/itsmc-overview.md
-      - name: Connect using a Secure Webhook action
-        items:
-        - name: Overview
-          href: alerts/it-service-management-connector-secure-webhook-connections.md
-        - name: Configure Azure for a Secure Webhook
-          href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
-        - name: ITSM Connector Partners Setup
-          items:
-          - name: BMC Helix
-            href: alerts/itsmc-secure-webhook-connections-bmc.md
-          - name: ServiceNow ITOM
-            href: alerts/itsmc-secure-webhook-connections-servicenow.md
-      - name: Connect using an ITSM action
-        items:
-          - name: Connect ServiceNow with an ITSM Connector
-            href: alerts/itsmc-connections-servicenow.md
-          - name: Configure Azure for an ITSM Connector
-            href: alerts/itsmc-definition.md
-          - name: Data Synced From Your ITSM Product
-            href: alerts/itsmc-synced-data.md
-          - name: Convert ITSM ServiceNow actions to secure webhook actions 
-            href: alerts/itsm-convert-servicenow-to-webhook.md   
-          - name: Troubleshooting problems in ITSM Connector
-            items:
-            - name: Overview
-              href: alerts/itsmc-troubleshoot-overview.md
-            - name: Dashboard Investigation
-              href: alerts/itsmc-dashboard.md
-            - name: Common Errors
-              href: alerts/itsmc-dashboard-errors.md
-            - name: Sync ITSM Connector
-              href: alerts/itsmc-resync-servicenow.md
-            - name: Connector deletion
-              href: alerts/itsmc-connector-deletion.md
-    - name: Migrate classic alert rules
-      items:
-      - name: About classic alerts
-        href: alerts/alerts-classic.overview.md
-      - name: Prepare for migration
-        href: alerts/alerts-prepare-migration.md
-      - name: Understand the migration tool
-        href: alerts/alerts-understand-migration.md
-      - name: Use the migration tool
-        href: alerts/alerts-using-migration-tool.md
-      - name: Automatic migration process
-        href: alerts/alerts-automatic-migration.md
-      - name: Manage classic metric alerts
-        href: alerts/alerts-classic-portal.md
-      - name: Classic metric alert using a Resource Manager template
-        href: alerts/alerts-enable-template.md
-      - name: Classic metric alert calling a webhook
-        href: alerts/alerts-webhooks.md
-    - name: Tutorials
-      items:
-      - name: Create a metric alert
-        href: alerts/tutorial-metric-alert.md
-      - name: Create a log query alert
-        href: alerts/tutorial-log-alert.md
-  - name: AutoScale
-    items:
-      - name: Overview
-        href: autoscale/autoscale-overview.md
-      - name: Walkthrough
-        href: autoscale/autoscale-get-started.md
-      - name: Configuration settings
-        href: autoscale/autoscale-understanding-settings.md
-      - name: Predictive autoscale
-        href: autoscale/autoscale-predictive.md
-      - name: Best practices
-        href: autoscale/autoscale-best-practices.md
-      - name: Flapping in autoscale
-        href: autoscale/autoscale-flapping.md
-      - name: Common metrics
-        href: autoscale/autoscale-common-metrics.md
-      - name: Autoscale with multiple profiles
-        href: autoscale/autoscale-multiprofile.md
-      - name: Common patterns
-        href: autoscale/autoscale-common-scale-patterns.md
-      - name: Scale with custom metrics
-        href: autoscale/autoscale-custom-metric.md
-      - name: Autoscale Virtual Machine Scale Sets using PowerShell
-        href: autoscale/autoscale-using-powershell.md
-      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale Virtual Machine Scale Sets using CLI
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Use webhooks and email notifications
-        href: autoscale/autoscale-webhook-email.md
-      - name: Autoscale diagnostics
-        href: autoscale/autoscale-diagnostics.md  
-      - name: Troubleshooting
-        href: autoscale/autoscale-troubleshoot.md
 - name: Reference
   items:
   - name: Service limits
