@@ -83,7 +83,11 @@ This article provides 2 options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-enterprise, sc-consumption-plan"
 
-[!INCLUDE [clean-up-resources-portal](includes/quickstart-deploy-web-app/clean-up-resources-portal.md)]
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete them by deleting the resource group. Use the following command to delete the resource group:
+
+```azurecli
+az group delete --name ${RESOURCE_GROUP}
+```
 
 ::: zone-end
 
