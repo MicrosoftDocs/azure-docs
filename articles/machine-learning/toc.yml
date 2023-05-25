@@ -511,8 +511,6 @@
     - name: Interactive development with Apache Spark
       displayName: Interactive Data Wrangling with Apache Spark
       href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-  - name: Productionizing data
-    items:
   - name: Managed Feature Store
     items:
     - name: What is managed feature store
