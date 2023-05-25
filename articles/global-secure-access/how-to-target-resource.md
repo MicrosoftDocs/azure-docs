@@ -1,11 +1,11 @@
 ---
-title: Global Secure Access as a Conditional Access target resource
+title: Traffic profiles as a target resource in Conditional Access
 description: How to use a traffic profile in a Conditional Access policy.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,6 +33,7 @@ This functionality allows administrators to consistently enforce Conditional Acc
 
 The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, or hybrid Azure AD join when accessing Microsoft 365 traffic.
 
+<!---Change name of policy when capturing new screenshot to MFA for Microsoft 365 traffic--->
 :::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
@@ -57,8 +58,18 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 When users sign in to a machine with the Global Secure Access client installed, configured, and running they may be prompted to sign in. Looking at the system tray icon for the Global Secure Access client you see a red circle indicating it's signed out or not running.
 
+<!---Try to make the icon and state appear larger in some way clean up the notifications area--->
 :::image type="content" source="media/how-to-target-resource/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
 
 When a user signs in the Global Secure Access Client has a green circle that you're signed in, and the client is running.
 
 :::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
+
+<!--- To be added
+## FAQs
+## Known limitations
+## Next steps
+Tenant restrictions
+Source IP restoration
+Compliant network policy
+--->
