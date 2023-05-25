@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) schedule YAML schema for data import (preview)'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) schedule YAML schema.
+description: Reference documentation for the CLI (v2) data import schedule YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,8 +13,7 @@ ms.date: 05/25/2023
 ms.reviewer: franksolomon
 ---
 
-
-# CLI (v2) schedule YAML schema
+# CLI (v2) import schedule YAML schema
 
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
@@ -32,7 +31,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the schedule. | |
 | `tags` | object | Dictionary of tags for the schedule. | |
 | `trigger` | object | The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |
-| `create_job` | object or string | **Required.** The definition of the job that triggered by a  schedule. **One of `string` or `JobDefinition` is required.**| |
+| `import_data` | object or string | **Required.** The definition of the import data action that a schedule has triggered. **One of `string` or `ImportDataDefinition` is required.**| |
 
 ### Trigger configuration
 
@@ -103,11 +102,11 @@ The `az ml schedule` command can be used for managing Azure Machine Learning mod
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/blob/main/cli/assets/data/README.md). A couple are shown below.
 
-## YAML: Schedule for a job with recurrence pattern
+## YAML: Schedule for a data import with recurrence pattern
 
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
-## YAML: Schedule for data import with recurrence pattern  (preview)
+## YAML: Schedule for data import with recurrence pattern (preview)
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/schedule.schema.json
 name: simple_recurrence_import_schedule
@@ -155,7 +154,7 @@ import_data:
 
 ```
 
-## YAML: Schedule for a job with cron expression
+## YAML: Schedule for a data import with cron expression
 
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
@@ -201,7 +200,7 @@ import_data:
 
 ### Timezone
 
-The current schedule supports the timezones in this table. The key can be used directly in the Python SDK, while the value can be used in the YAML job. The table is sorted by UTC (Coordinated Universal Time).
+The current schedule supports the timezones in this table. The key can be used directly in the Python SDK, while the value can be used in the data import YAML. The table is sorted by UTC (Coordinated Universal Time).
 
 | UTC         | Key                             | Value                             |
 |-------------|---------------------------------|-----------------------------------|
