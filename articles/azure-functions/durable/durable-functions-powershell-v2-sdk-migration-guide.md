@@ -139,6 +139,6 @@ TODO: how to show the entire signature of the suborchestrator CmdLet.
 * Exceptions thrown by activities scheduled through `Wait-DurableTask` (as in the Fan-Out/Fan-In pattern) are no longer ignored. Instead, on an exception, the CmdLet propagates it to the orchestrator so that it may be handled by user-code.
 * Null-valued task results in a `Wait-DurableTask` (i.e WhenAll) invocation are no longer dropped. Instead, `Wait-DurableTask`'s result array will include null values in the corresponding to position of the tasks that returned them. This means that a successful invocation of `Wait-DurableTask` without the `-Any` flag should return an array of the same size as the number of tasks it scheduled.
 
-#### Where to get support, provide feedback, and suggest changes
+#### Where to get support, providie feedback, and suggest changes
 
-During the preview phase of this release, the standalone SDK may introduce a few more changes. These changes can be influenced by the community so please report any feedback and suggestions to the SDK's [_new GitHub repo_](here).
+During the preview phase of this release, the standalone SDK may introduce a few more changes. These changes can be influenced by the community so please report any feedback and suggestions to the SDK's [_new GitHub repo_](https://github.com/Azure/azure-functions-durable-powershell).
