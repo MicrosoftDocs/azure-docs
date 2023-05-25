@@ -33,8 +33,6 @@
       href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
-  - name: Integrate with Microsoft Purview
-    href: purview-solution.md
 - name: Concepts
   items:
   - name: Plan
@@ -95,6 +93,8 @@
       href: entities.md
     - name: Ingestion-time data transformation
       href: data-transformation.md
+    - name: AMA migration for Microsoft Sentinel
+      href: ama-migrate.md
   - name: Write queries with Kusto Query Language
     items:
     - name: Overview
@@ -349,16 +349,12 @@
         href: data-connectors/cisco-application-centric-infrastructure.md
       - name: Cisco ASA
         href: data-connectors/cisco-asa.md
-      - name: Cisco ASA/FTD via AMA (Preview)
-        href: data-connectors/cisco-asa-ftd-via-ama.md
       - name: Cisco Duo Security (using Azure Function)
         href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
         href: data-connectors/cisco-firepower-estreamer.md
       - name: Cisco Identity Services Engine
         href: data-connectors/cisco-identity-services-engine.md
-      - name: Cisco Meraki
-        href: data-connectors/cisco-meraki.md
       - name: Cisco Secure Email Gateway
         href: data-connectors/cisco-secure-email-gateway.md
       - name: Cisco Secure Endpoint (AMP) (using Azure Function)
@@ -669,8 +665,6 @@
         href: data-connectors/threat-intelligence-taxii.md
       - name: Threat Intelligence Platforms
         href: data-connectors/threat-intelligence-platforms.md
-      - name: Threat Intelligence Upload Indicators API (Preview)
-        href: data-connectors/threat-intelligence-upload-indicators-api.md
       - name: Trend Micro Apex One
         href: data-connectors/trend-micro-apex-one.md
       - name: Trend Micro Deep Security
@@ -697,8 +691,6 @@
         href: data-connectors/windows-dns-events-via-ama.md
       - name: Windows Firewall
         href: data-connectors/windows-firewall.md
-      - name: Windows Firewall Events via AMA (Preview)
-        href: data-connectors/windows-firewall-events-via-ama.md
       - name: Windows Forwarded Events
         href: data-connectors/windows-forwarded-events.md
       - name: Windows Security Events via AMA
@@ -723,7 +715,7 @@
         href: data-connectors/zscaler-private-access.md
     - name: Connection instructions by type
       items:
-      - name: Azure, Windows, and Microsoft connectors
+      - name: General instructions for Microsoft connectors
         items: 
         - name: Connect Microsoft Sentinel to Microsoft connectors
           href: connect-azure-windows-microsoft-services.md
@@ -733,12 +725,8 @@
           href: connect-services-diagnostic-setting-based.md
         - name: Windows agent-based connection
           href: connect-services-windows-based.md
-        - name: Microsoft Purview Information Protection
-          href: connect-microsoft-purview.md
-        - name: Azure Virtual Desktop
-          href: connect-azure-virtual-desktop.md
-      - name: AMA migration for Microsoft Sentinel
-        href: ama-migrate.md
+      - name: Azure Functions API connection
+        href: connect-azure-functions-template.md    
       - name: CEF/Syslog        
         items:
         - name: CEF/Syslog options
@@ -754,15 +742,9 @@
         - name: Syslog (raw) sources (legacy)
           href: connect-syslog.md
       - name: DNS via AMA
-        href: connect-dns-ama.md      
-      - name: Microsoft Purview Information Protection
-        href: connect-microsoft-purview.md
-      - name: Microsoft Sentinel Data Collector API
-        href: connect-rest-api-template.md      
-      - name: Azure Functions API connection
-        href: connect-azure-functions-template.md      
+        href: connect-dns-ama.md   
       - name: Custom log sources
-        href: connect-custom-logs.md      
+        href: connect-custom-logs.md
       - name: GCP audit logs
         href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
@@ -781,8 +763,14 @@
       href: create-codeless-connector.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
+    - name: Connect Azure Virtual Desktop
+      href: connect-azure-virtual-desktop.md
     - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
+    - name: Stream Microsoft Purview Information Protection data
+      href: connect-microsoft-purview.md
+    - name: Integrate Microsoft Purview
+      href: purview-solution.md  
   - name: Normalize data
     items:
     - name: Use ASIM
