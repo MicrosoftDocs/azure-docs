@@ -92,6 +92,9 @@ New-AzNetworkWatcher -Name 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWa
 Create a Network Watcher instance using [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command:
 
 ```azurecli-interactive
+# Create a resource group for the Network Watcher instance (if it doesn't already exist).
+az group create --name 'NetworkWatcherRG' --location 'eastus'
+
 # Create an instance of Network Watcher in East US region.
 az network watcher configure --resource-group 'NetworkWatcherRG' --locations 'eastus' --enabled
 ```
