@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 05/24/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -50,7 +50,7 @@ This feature doesn't currently support user accounts that you create and manage 
 
 You must disable multi-factor authentication (MFA) on the Azure AD app representing the storage account.
 
-Azure AD Kerberos authentication only supports using AES-256 encryption.
+With Azure AD Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
 ## Regional availability
 
