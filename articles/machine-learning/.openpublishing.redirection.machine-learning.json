@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-consume-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-consume-web-service.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-private-link.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-private-link.md",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-authenticate-web-service.md",
         "redirect_url": "/azure/machine-learning/how-to-authenticate-web-service",
         "redirect_document_id": false
@@ -56,8 +66,8 @@
         "redirect_document_id": false   
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-configure-auto-features.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-configure-auto-features",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-features.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-auto-features",
         "redirect_document_id": true
     },
     {
@@ -66,8 +76,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-configure-databricks-automl-environment.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-configure-databricks-automl-environment",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-databricks-automl-environment.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-databricks-automl-environment",
         "redirect_document_id": true
     },
     {
@@ -1271,8 +1281,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-connect-data-ui.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-connect-data-ui",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-connect-data-ui.md",
+        "redirect_url": "/azure/machine-learning/how-to-connect-data-ui",
         "redirect_document_id": true
     },
     {
@@ -2691,8 +2701,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-cicd-data-ingestion.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-cicd-data-ingestion",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-cicd-data-ingestion.md",
+        "redirect_url": "/azure/machine-learning/how-to-cicd-data-ingestion",
         "redirect_document_id": true
     },
     {
@@ -3841,8 +3851,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-change-storage-access-key.md",
-        "redirect_url": "/azure/machine-learning/v1/how-to-change-storage-access-key",
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-change-storage-access-key.md",
+        "redirect_url": "/azure/machine-learning/how-to-change-storage-access-key",
         "redirect_document_id": true
     },
     {
