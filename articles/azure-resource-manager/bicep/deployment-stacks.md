@@ -24,7 +24,7 @@ Deployment stacks provide the following benefits:
 - The ability to rapidly clean up environments by setting appropriate delete flags on a Deployment stack update.
 - The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
 
-### Known issues
+### Known issues (remove this section)
 
 jgao: not sure we need to list the known issues.
 
@@ -54,7 +54,7 @@ New-AzResourceGroupDeploymentStack `
   -DenySettingsMode none
 ```
 
-For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
+For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion).
 
 # [CLI](#tab/azure-cli)
 
@@ -63,7 +63,7 @@ az stack group create \
   --name <deployment-stack-name> \
   --resource-group <resource-group-name> \
   --template-file <bicep-file-name> \
-  --deny-settings-mode denyWriteAndDelete
+  --deny-settings-mode none
 ```
 
 For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
@@ -95,7 +95,7 @@ az stack mg create \
   --template-file <bicep-file-name> \
   --management-group-id <management-group-id> \
   --deployment-subscription-id <subscription-id> \
-  --deny-settings-mode denyWriteAndDelete
+  --deny-settings-mode none
 ```
 
 For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
@@ -125,7 +125,7 @@ az stack sub create \
   --location <location> \
   --template-file <bicep-file-name> \
   --deployment-resource-group-name <resource-group-name> \
-  --deny-settings-mode denyWriteAndDelete
+  --deny-settings-mode none
 ```
 
 The `deployment-resource-group-name` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you. For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
@@ -216,7 +216,7 @@ az stack group create \
   --name <deployment-stack-name> \
   --resource-group <resource-group-name> \
   --template-file <bicep-file-name> \
-  --deny-settings-mode denyWriteAndDelete
+  --deny-settings-mode none
 ```
 
 ---
@@ -244,7 +244,7 @@ az stack mg create \
   --template-file <bicep-file-name> \
   --management-group-id <management-group-id> \
   --deployment-subscription-id <subscription-id> \
-  --deny-settings-mode denyWriteAndDelete
+  --deny-settings-mode none
 ```
 
 ---
@@ -272,7 +272,7 @@ az stack sub create \
   --location <location> \
   --template-file <bicep-file-name> \
   --deployment-resource-group-name <resource-group-name> \
-  --deny-settings-mode denyWriteAndDelete
+  --deny-settings-mode none
 ```
 
 ---
@@ -289,24 +289,47 @@ For more information, see [Create deployment stacks](#create-deployment-stacks).
 
 ### Control detachment and deletion
 
+A detached resource (or unmanaged resource) refers to a resource that is not tracked or managed by the deployment stack but still exists within Azure.
+
 To instruct Azure to delete unmanaged resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stacks).
 
 # [PowerShell](#tab/azure-powershell)
 
 - `-DeleteAll`: Flag to indicate delete rather than detach for managed resources and resource groups.
-- `-DeleteResources`: Flag to indicate delete rather than attach for managed resources only.
+- `-DeleteResources`: Flag to indicate delete rather than detach for managed resources only.
 - `-DeleteResourceGroups`: Flag to indicate delete rather than detach for managed resource groups only.
+
+For example:
+
+```azurepowershell
+New-AzSubscriptionDeploymentStack `
+  -Name '<deployment-stack-name' `
+  -TemplateFile '<bicep-file-name>' `
+  -DeleteAll
+```
+
+jgao: include  -DenySettingsMode none here?
 
 # [CLI](#tab/azure-cli)
 
 - `--delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
-- `--delete-resources`: Flag to indicate delete rather than attach for managed resources only.
+- `--delete-resources`: Flag to indicate delete rather than detach for managed resources only.
 - `--delete-resource-groups`: Flag to indicate delete rather than detach for managed resource groups only.
+
+For example:
+
+```azurecli
+az stack sub create `
+  --name <deployment-stack-name> `
+  --location <location> `
+  --template-file <bicep-file-name> `
+  --delete-resources
+```
 
 ---
 
 > [!WARNING]
-> When you delete resource groups using the previously listed parameters, the resource groups are deleted regardless of whether they're empty.
+> When deleting resource groups with either the `DeleteAll` or `DeleteResourceGroups` properties, the managed resource groups and all the resources contained within them will also be deleted.
 
 ## Delete deployment stacks
 
@@ -460,7 +483,7 @@ See [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
 
-When you create a deployment stack, you can places a special type of lock on managed resources that prevents them from deletion by unauthorized security principals
+When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -492,7 +515,7 @@ The `--deny-delete` CLI parameter places a special type of lock on managed resou
 
 Following are the relevant `az stack sub create` parameters:
 
-- `deny-settings-mode`: Defines which operations are denied on resources managed by the stack: `denyWrite` or `denyWriteAndDelete`.
+- `deny-settings-mode`: Defines which operations are denied on resources managed by the stack: `denyWrite`, `denyWriteAndDelete`, or `none`.
 - `deny-settings-excluded-principals`: Comma-separated list of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed
 - `deny-settings-apply-to-child-scopes`: Deny settings will be applied to child Azure management scopes
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed
@@ -513,49 +536,9 @@ jgao: use which value for deny-settings-mode?  none or denyDelete?
 
 ---
 
-## Detach managed resources
+## Detach managed resources from deployment stack
 
-By default, deployment stacks detach and don't delete unmanaged resources when they're no longer contained within the stack's management scope.
-
-# [PowerShell](#tab/azure-powershell)
-
-With Azure PowerShell, you specify what you want to happen after detaching a managed
-resource by using one of the following switch parameters of the `New-AzSubscriptionDeploymentStack` command:
-
-- `-DeleteAll`
-- `-DeleteResources`
-- `-DeleteResourceGroups`
-
-For example:
-
-```azurepowershell
-New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name' `
-  -TemplateFile '<bicep-file-name>' `
-  -DeleteAll
-```
-
-jgao: include  -DenySettingsMode none here?
-
-# [CLI](#tab/azure-cli)
-
-In Azure CLI, unmanaged resources are detached by default. If you'd like to delete rather than detach, you can specify by using one of the following parameters of the `az stack sub create` command:
-
-- --delete-all
-- --delete-resources
-- --delete-resource-groups
-
-Here's an example:
-
-```azurecli
-az stack sub create `
-  --name <deployment-stack-name> `
-  --location <location> `
-  --template-file <bicep-file-name> `
-  --delete-resources
-```
-
----
+By default, deployment stacks detach and don't delete unmanaged resources when they're no longer contained within the stack's management scope. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
 ## Export managed resources from deployment stack
 
