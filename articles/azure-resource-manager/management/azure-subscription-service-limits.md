@@ -59,6 +59,11 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
+## API Center (preview) limits
+
+[!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
+
+
 ## API Management limits
 
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
