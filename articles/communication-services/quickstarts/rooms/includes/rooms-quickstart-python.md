@@ -148,7 +148,7 @@ To retrieve all active rooms created under your resource, use the `list_rooms` m
 ```python
 # List all active rooms
 try:
-    list_room_response = self.rooms_client.list_rooms()
+    rooms = self.rooms_client.list_rooms()
     count = 0
         for room in rooms:
             if count == 1:
