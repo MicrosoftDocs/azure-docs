@@ -12,14 +12,6 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 [!INCLUDE [deploy-to-azure-spring-apps-with-enterprise-plan](includes/quickstart-deploy-event-driven-app/deploy-to-azure-spring-apps-with-enterprise-plan.md)]
 
-
-
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](../../how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](../../how-to-enterprise-marketplace-offer.md).
-- [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-
 -->
 
 ## 2 Prepare Spring Project
@@ -116,14 +108,7 @@ az servicebus queue create \
 
 An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
 
-1. Use the following command to install the Azure CLI extension designed for Azure Spring Apps:
-
-   ```azurecli
-   az extension remove --name spring && \
-   az extension add --name spring
-   ```
-
-2. Use the following command to create your Azure Spring Apps instance:
+1. Use the following command to create your Azure Spring Apps instance:
 
    ```azurecli
    az spring create \
@@ -164,7 +149,7 @@ Now both the Service Bus and the app in Azure Spring Apps have been created, but
    az spring app update \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING}
+       --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING} spring.cloud.azure.keyvault.secret.property-source-enabled=false
    ```
 
 1. Now the cloud environment is ready. Deploy the app by using the following command.

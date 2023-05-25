@@ -223,7 +223,7 @@ Use AZD to initialize the event-driven application from the Azure Developer CLI 
 1. Run the following command to initialize the project.
 
     ```bash
-    azd init --template https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application/
+    azd init --template Azure-Samples/ASA-Samples-Event-Driven-Application
     ```
 
    Command interaction description:

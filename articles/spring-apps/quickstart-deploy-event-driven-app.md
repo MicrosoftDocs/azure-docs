@@ -18,9 +18,21 @@ zone_pivot_groups: spring-apps-plan-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
+::: zone pivot="sc-consumption-plan,sc-enterprise"
+
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps.
+
+The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
+
+:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram.png" alt-text="Diagram of Azure Spring Apps event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram.png" border="false":::
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
 This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps. The sample project is an event-driven application, which utilizes the following Azure resources:
 
-:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram.png" alt-text="Diagram of Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-event-driven-app/diagram-v2.png" alt-text="Diagram of Spring event-driven app architecture." lightbox="media/quickstart-deploy-event-driven-app/diagram-v2.png" border="false":::
 
 Diagram of Spring event-driven app architecture:
 - Use Azure Spring Apps to host the Spring Boot app.
@@ -28,11 +40,40 @@ Diagram of Spring event-driven app architecture:
 - Subscribe to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase.
 - Use Azure Monitor for monitoring and logging.
 
+::: zone-end
+
 ## 1 Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Apache Maven](https://maven.apache.org/download.cgi)
+
+::: zone pivot="sc-consumption-plan"
+
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption and dedicated plan by using the following command:
+
+  ```azurecli-interactive
+  az extension remove --name spring && \
+  az extension add --name spring
+  ```
+
+- Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
+
+  ```azurecli-interactive
+  az extension add --name containerapp --upgrade
+  az provider register --namespace Microsoft.App
+  az provider register --namespace Microsoft.OperationalInsights
+  az provider register --namespace Microsoft.AppPlatform
+  ```
+
+::: zone-end
+
+::: zone pivot="sc-standard,sc-enterprise"
+
+- [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+
+::: zone-end
 
 [!INCLUDE [quickstart-two-options](includes/quickstart-two-options.md)]
 

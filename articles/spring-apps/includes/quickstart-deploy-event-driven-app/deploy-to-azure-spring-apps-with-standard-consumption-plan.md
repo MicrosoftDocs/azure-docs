@@ -12,12 +12,6 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 [!INCLUDE [deploy-to-azure-spring-apps-with-standard-consumption-plan](includes/quickstart-deploy-event-driven-app/deploy-to-azure-spring-apps-with-basic-standard-plan.md)]
 
-
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-
 -->
 
 ## 2 Prepare Spring Project
@@ -117,24 +111,6 @@ The Azure Container Apps environment creates a secure boundary around a group of
 
 Use the following steps to create the environment:
 
-1. Use the following command to install the Azure Container Apps extension for the Azure CLI:
-
-   ```azurecli
-   az extension add --name containerapp --upgrade
-   ```
-
-1. Use the following command to register the `Microsoft.App` namespace:
-
-   ```azurecli
-   az provider register --namespace Microsoft.App
-   ```
-
-1. If you haven't previously used the Azure Monitor Log Analytics workspace, register the `Microsoft.OperationalInsights` provider by using the following command:
-
-   ```azurecli
-   az provider register --namespace Microsoft.OperationalInsights
-   ```
-
 1. Use the following command to create the environment:
 
    ```azurecli
@@ -144,19 +120,6 @@ Use the following steps to create the environment:
 ### 3.5 Create the Azure Spring Apps instance
 
 An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
-
-1. Use the following command to install the Azure CLI extension designed for Azure Spring Apps:
-
-   ```azurecli
-   az extension remove --name spring && \
-   az extension add --name spring
-   ```
-
-2. Use the following command to register the `Microsoft.AppPlatform` provider for Azure Spring Apps:
-
-   ```azurecli
-   az provider register --namespace Microsoft.AppPlatform
-   ```
 
 1. Get the Azure Container Apps environment resource ID by using the following command:
 
@@ -251,7 +214,7 @@ Now both the Service Bus and the app in Azure Spring Apps have been created, but
    az spring app update \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING}
+       --env SERVICE-BUS-CONNECTION-STRING=${SERVICE_BUS_CONNECTION_STRING} spring.cloud.azure.keyvault.secret.property-source-enabled=false
    ```
 
 1. Now the cloud environment is ready. Deploy the app by using the following command.
