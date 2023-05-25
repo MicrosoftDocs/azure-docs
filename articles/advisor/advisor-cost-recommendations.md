@@ -83,8 +83,8 @@ In some cases recommendations can't be adopted or might not be applicable, such 
 In such cases, simply use the Dismiss/Postpone options associated with the recommendation. 
 
 ### Limitations
-- The savings associated with the recommendations are based on retail rates and do not take into account any temporary or long term discounts that might apply to your account. This may result in the savings to be listed as higher than actually possible.  
-- The recommendations do not take into account the presense of Reserved Instances(RI)/Savings plan purchases. This may result in the savings to be listed as higher than actually possible. In some cases, like for example in the case of cross series recommendations, depending on the types of SKUs that reserved instances have been purchased for, the costs might increase upon acting upon the optimization recommendations. We caution you to take your RI/Savings plan purhcases into account while acting on the right size recommendations. 
+- The savings associated with the recommendations are based on retail rates and don't take into account any temporary or long-term discounts that might apply to your account. As a result, the listed savings might be higher than actually possible.  
+- The recommendations don't take into account the presence of Reserved Instances (RI) / Savings plan purchases. As a result, the listed savings might be higher than actually possible. In some cases, for example in the case of cross-series recommendations, depending on the types of SKUs that reserved instances have been purchased for, the costs might increase when the optimization recommendations are followed. We caution you to consider your RI/Savings plan purchases when you act on the right-size recommendations. 
 
 We're constantly working on improving these recommendations. Feel free to share feedback on [Advisor Forum](https://aka.ms/advisorfeedback).
 
