@@ -65,17 +65,17 @@ Image definitions contain metadata for the image to allow grouping of images tha
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 - The `features` parameter can track what features are supported. Some features support is also based on the type of gallery:
 
-|  | Feature | Accepted values | Definition | Supported gallery types |
-|--|--|--|--|--|
-|  | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
-|  | IsAcceleratedNetworkSupported | True, False | Create VMs with accelerated networking enabled can be created when set on the image. When set to True on tImage definition, you won't be able to capture VMs that don't support accelerated networking. | Private, direct shared, community |
-|  | DiskControllerType | SCSI, NVMe | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in Image definitions that support NVMe. | Private, direct shared, community |
+   | Feature | Accepted values | Definition | Supported gallery types |
+   |--|--|--|--|
+   | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VMs with accelerated networking enabled can be created when set on the image. When set to True on tImage definition, you won't be able to capture VMs that don't support accelerated networking. | Private, direct shared, community |
+   | DiskControllerType | SCSI, NVMe | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in Image definitions that support NVMe. | Private, direct shared, community |
  
 
 - Architecture - specifies the CPU architecture. Can be set to x64 or ARM64 [Architecture](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 - SecurityType can be one of the following:
-|
+
    | Accepted Values | Definition | Supported gallery types |
    |--|--|--|
    | ConfidentialVM | Only [Confidential VMs](../confidential-computing/create-confidential-vm-from-compute-gallery.md#confidential-vm-images) can be created from this image type | Private | 
