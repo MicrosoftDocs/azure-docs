@@ -19,7 +19,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## May 2023
 
-- Your threat intelligence platform or custom solution has a new way of connecting to Microsoft Sentinel with the [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api)
+- Connect your threat intelligence platform or custom solution to Microsoft Sentinel with the new [upload indicators API](#connect-threat-intelligence-with-the-upload-indicators-api)
 - [Use Hunts to conduct end-to-end proactive threat hunting in Microsoft Sentinel](#use-hunts-to-conduct-end-to-end-proactive-threat-hunting)
 - [Audit and track incident task activity](#audit-and-track-incident-task-activity)
 - Updated the announcement for [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes) to include information on the **Next Steps** tab in data connectors that's deprecated.
@@ -28,13 +28,13 @@ See these [important announcements](#announcements) about recent changes to feat
 
 There's a new and improved API for connecting your threat intelligence platform or custom solution to add Indicators of Compromise (IOCs) into Microsoft Sentinel. The data connector and the API it relies on offer the following improvements:
 - The threat indicator fields use the standardized format of the STIX specification.
-- The Azure Active Directory (Azure AD) application registration only requires Microsoft Sentinel Contributor role.
-- The API request endpoint is scoped at the workspace level and the Azure AD application permissions required allow granular assignment at the workspace level.
+- The Azure Active Directory (Azure AD) application registration only requires the Microsoft Sentinel Contributor role.
+- The API request endpoint is scoped to the workspace level and the Azure AD application permissions required allow granular assignment at the workspace level.
 
 Learn more about the [TI upload indicators API data connector](connect-threat-intelligence-upload-api.md).
 Learn more about the underlying [TI upload indicators API](upload-indicators-api.md).
 
-The Threat Intelligence Platform data connector is now on a path for deprecation. More details will be published on the precise timeline. New solutions should use the upload indicators API instead of the Microsoft Graph threat intelligence indicator API. 
+The [Threat Intelligence Platform data connector](connect-threat-intelligence-tip.md) is now on a path for deprecation. More details will be published on the precise timeline. New Microsoft Sentinel solutions should use the upload indicators API instead of the Microsoft Graph threat intelligence indicator API. 
 
 ### Use Hunts to conduct end-to-end proactive threat hunting
 

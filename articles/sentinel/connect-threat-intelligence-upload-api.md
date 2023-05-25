@@ -63,10 +63,10 @@ For more information on generating a client secret, see [Add a client secret](..
 The upload indicators API ingests threat indicators at the workspace level and allows a least privilege role of Microsoft Sentinel contributor.
 
 1. From the Azure portal, go to Log Analytics workspaces.
-1. Select **Access control (IAM).
-1. Select **Add**, the select **Add role assignment**.
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment**.
 1. In the **Role** tab, select the **Microsoft Sentinel Contributor** role > **Next**.
-1. On the **Members** tab, select **Assign access to**, then select **User, group, or service principal**.
+1. On the **Members** tab, select **Assign access to** > **User, group, or service principal**.
 1. **Select members**. By default, Azure AD applications aren't displayed in the available options. To find your application, search for it by name.
     :::image type="content" source="media/connect-threat-intelligence-upload-api/assign-role.png" alt-text="Screenshot showing the Microsoft Sentinel contributor role assigned to the application at the workspace level.":::
 
@@ -105,7 +105,7 @@ The following configuration information required by the upload indicators API:
 1. Within a few minutes, threat indicators should begin flowing into your Microsoft Sentinel workspace. Find the new indicators in the **Threat intelligence** blade, accessible from the Microsoft Sentinel navigation menu.
 1. The data connector status reflects the **Connected** status and the **Data received** graph is updated once indicators are submitted successfully. 
 
-    :::image type="content" source="media/connect-threat-intelligence-upload-api/upload-api-data-connector-connected.png" alt-text="Screenshot showing upload indicators API data connector in the connected state.":::
+    :::image type="content" source="media/connect-threat-intelligence-upload-api/upload-api-data-connector-connected.png" alt-text="Screenshot showing upload indicators API data connector in the connected state." lightbox="media/connect-threat-intelligence-upload-api/upload-api-data-connector-connected.png":::
 
 ## Next steps
 

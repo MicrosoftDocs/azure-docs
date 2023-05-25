@@ -16,7 +16,7 @@ The Microsoft Sentinel upload indicators API allows for threat intelligence plat
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-To call the upload indicators API, you need five components:
+An upload indicators API call has five components:
 
 1. The request URI
 1. HTTP request message header
@@ -135,8 +135,8 @@ The response body is an array of error messages in JSON format:
 ## Throttling limits for the API
 
 All limits are applied per user:
-- 100 calls in a minute.
 - 100 indicators per request. 
+- 100 requests per minute.
 
 If there are more requests than the limit, a `429` http status code in the response header is returned with the following response body:
 ```json
@@ -247,12 +247,9 @@ The indicators are sent as an array, so the `recordIndex` begins at `0`.
 
 ## Next steps
 
-To learn more about Microsoft Sentinel, see the following articles:
+To learn more about how to work with threat intelligence in Microsoft Sentinel, see the following articles:
 
-- Learn more about entities:
-
-    - [Microsoft Sentinel entity types reference](entities-reference.md)
-    - [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
-    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
-
-- Explore other uses of the [Microsoft Sentinel API](/rest/api/securityinsights/)
+- [Understand threat intelligence](understand-threat-intelligence.md)
+- [Work with threat indicators](work-with-threat-indicators.md)
+- [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md)
+- Utilize the intelligence feed from Microsoft and [enable MDTI data connector](connect-mdti-data-connector.md)
