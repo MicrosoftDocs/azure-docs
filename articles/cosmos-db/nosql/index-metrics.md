@@ -43,7 +43,7 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
         }
 ```
 
-## [Java SDK Sync](#tab/java-async)
+## [Java SDK Sync](#tab/java-sync)
 
 ```java    
     SqlQuerySpec querySpec = new SqlQuerySpec("SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2");
