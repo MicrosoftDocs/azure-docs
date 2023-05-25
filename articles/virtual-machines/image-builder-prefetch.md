@@ -3,7 +3,7 @@ title: VM Boot Optimization for Azure Compute Gallery Images with Azure VM Image
 description: Optimize VM Boot and Provisioning time with Azure VM Image Builder 
 ms.author: surbhijain 
 ms.reviewer: kofiforson 
-ms.date: 05/16/2023 
+ms.date: 05/25/2023 
 ms.topic: how-to 
 ms.service: virtual-machines 
 ms.subservice: image-builder
@@ -26,7 +26,7 @@ Optimization for the following images is supported:
 
 | Features  | Details   |
 |---|---|
-|OS Type| Linux/Windows |
+|OS Type| Linux |
 | Partition | MBR/GPT |
 | Hyper-V | Gen1/Gen2 |
 | OS State | Generalized |
