@@ -78,7 +78,7 @@ In the **User settings** area of Azure AD, you can adjust several settings that 
 
 Go to **Azure AD** > **User settings**. 
 
-![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png)
+[ ![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png) ](media/how-to-manage-user-profile-info/user-settings.png#lightbox)
 
 The following settings can be managed from Azure AD **User settings**.
 
