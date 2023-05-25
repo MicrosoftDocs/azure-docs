@@ -95,7 +95,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
      - Select *Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
      
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-vmss-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-vms-monitoring-agent/enable-for-vmss-expanded.png":::
+       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-expanded.png":::
 
     #### [Virtual machines](#tab/vm)
 
