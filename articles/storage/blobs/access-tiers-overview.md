@@ -257,7 +257,7 @@ If you plan to refer to the cold tier by using code in a custom application, you
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
 
 > [!NOTE]
-> If you plan to refer to the cold tier when using the AzCopy tool, make sure to install AzCopy version 12.18.0 or later.
+> If you plan to refer to the cold tier when using the AzCopy tool, make sure to install AzCopy version 10.18.1 or later.
 
 
 ## Feature support
