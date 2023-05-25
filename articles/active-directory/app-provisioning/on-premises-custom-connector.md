@@ -32,7 +32,7 @@ For connectivity to applications that don't support the aforementioned protocols
 ## Exporting and importing a MIM connector
 If you've got a customer connector in MIM, you can export it by following the instructions [here](on-premises-migrate-microsoft-identity-manager.md#export-a-connector-configuration-from-mim-sync).  You need to save the XML file, the DLL, and related software for your connector.
 
-To import your connector, you can use the instructions [here](on-premises-migrate-microsoft-identity-manager.md#import-a-connector-configuration).  You will need to copy the DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.
+To import your connector, you can use the instructions [here](on-premises-migrate-microsoft-identity-manager.md#import-a-connector-configuration).  You will need to copy the DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.  After the xml has been imported, continue through the wizard and ensure that all the required fields are populated.
 
 ## Limitations 
 
