@@ -328,7 +328,7 @@ The workflow in this example uses the following trigger and actions:
 
 1. Find the Request trigger named **When an HTTP request is received** by using the search box, and add that trigger to your workflow. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   ![Screenshot shows workflow designer, **Add a trigger** pane, and selected trigger named When an HTTP request is received.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
+   ![Screenshot shows workflow designer, Add a trigger pane, and selected trigger named When an HTTP request is received.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's information pane opens and shows the trigger's parameters, settings, and other related tasks.
 
@@ -349,7 +349,7 @@ If you need to delete an item from the designer, [follow these steps for deletin
 
 1. Find the Office 365 Outlook managed connector action named **Send an email (V2)** by using the search box, and add that action to your workflow. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   ![Screenshot shows workflow designer and **Add an action** pane with selected Office 365 Outlook action named Send an email.](./media/create-single-tenant-workflows-visual-studio-code/add-send-email-action.png)
+   ![Screenshot shows workflow designer and Add an action pane with selected Office 365 Outlook action named Send an email.](./media/create-single-tenant-workflows-visual-studio-code/add-send-email-action.png)
 
 1. When the action's authentication pane opens, select **Sign in** to create a connection to your email account.
 
@@ -1116,7 +1116,7 @@ After you deploy a **Logic App (Standard)** resource from Visual Studio Code to 
 
 1. When you're done, on the **CORS** toolbar, select **Save**.
 
-   ![Screenshot shows Azure portal with deployed Standard logic app resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-single-tenant-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+   ![Screenshot shows Azure portal with deployed Standard logic app resource. On the resource menu, CORS is selected with a new entry for Allowed Origins set to the wildcard * character.](./media/create-single-tenant-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
 <a name="enable-open-application-insights"></a>
 
