@@ -32,7 +32,7 @@ To remediate the existing resources, follow these steps:
 1. On the tab, set the following options:
 
    - **Definition Location**: Set to target scope.
-   - **Name**: Set to name of the custom definition. Example: "Modify identities on existing VM and VMSS [ASSIGN TO DO NOT ENFORCE]"
+   - **Name**: Set to name of the custom definition. Example: "_Modify identities on existing VM and VMSS [ASSIGN TO DO NOT ENFORCE]_"
 
 1. In the **Policy Rule** json block, remove the example JSON and paste the following definition that uses the `modify` effect to add the user assign identity: 
 
@@ -167,8 +167,7 @@ To remediate the existing resources, follow these steps:
         }
       }
     }
-
-  ```
+     ```
 
    For more information about authoring a policy definition, see [Azure Policy Definition
    Structure](../concepts/definition-structure.md).
@@ -198,8 +197,9 @@ To remediate the existing resources, follow these steps:
    $VMuserassignedidentityid = $VMuserassignedidentity.Id
    New-AzPolicyAssignment -Name 'ModifyVMIdentities' -PolicyDefinition $Policy -Scope "/subscriptions/$($Subscription.Id)" -EnforcementMode DoNotEnforce -Location 'westus' -IdentityType "SystemAssigned" -PolicyParameterObject $VMuserassignedidentityid
    ```
-  > [!NOTE]
-   > The definition  MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources.  
+
+    > [!NOTE]
+    > The definition  MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources.  
 
    Replace _Subscription01_ with the name of your intended resource group.
 
@@ -218,9 +218,9 @@ To remediate the existing resources, follow these steps:
 
 1. After you create the policy assignment, you can create a remediation task that adds the identity to existing virtual machine and virtual machine scale sets resources by running the following command: 
 
-```azurepowershell-interactive
-Start-AzPolicyRemediation -Name 'remediationVMidentities' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/ModifyVMIdentities'
-```
+    ```azurepowershell-interactive
+    Start-AzPolicyRemediation -Name 'remediationVMidentities' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/ModifyVMIdentities'
+    ```
 
 
 ## Next steps
