@@ -42,76 +42,200 @@ Use the following steps to clone and run the app locally.
 
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
 
+### Provide names for each resource
+
+Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+
+```azurecli
+RESOURCE_GROUP=<resource-group-name>
+LOCATION=<location>
+POSTGRESQL_SERVER=<server-name>
+POSTGRESQL_DB=<database-name>
+AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
+APP_NAME=<web-app-name>
+CONNECTION=<connection-name>
+```
+
 ### Create a new resource group
+
+Use the following steps to create a new resource group.
+
+1. Use the following command to sign in to the Azure CLI.
+
+   ```azurecli
+   az login
+   ```
+
+1. Use the following command to set the default location.
+
+   ```azurecli
+   az configure --defaults location=${LOCATION}
+   ```
+
+1. Use the following command to list all available subscriptions to determine the subscription ID to use.
+
+   ```azurecli
+   az account list --output table
+   ```
+
+1. Use the following command to set the default subscription:
+
+   ```azurecli
+   az account set --subscription <subscription-ID>
+   ```
+
+1. Use the following command to create a resource group.
+
+   ```azurecli
+   az group create --resource-group ${RESOURCE_GROUP}
+   ```
+
+1. Use the following command to set the newly created resource group as the default resource group.
+
+   ```azurecli
+   az configure --defaults group=${RESOURCE_GROUP}
+   ```
 
 ### Create an Azure Spring Apps instance
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+Azure Spring Apps is used to host the Spring web app. Create an Azure Spring Apps instance and an application inside it.
 
-1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
+1. Use the following command to create an Azure Spring Apps service instance.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-azure-spring-apps-service.png":::
+   ```azurecli
+   az spring create --name ${AZURE_SPRING_APPS_NAME} --sku enterprise
+   ```
 
-1. On the Azure Spring Apps page, select **Create**.
+1. Use the following command to create an application in the Azure Spring Apps instance.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/azure-spring-apps-create.png":::
+   ```azurecli
+   az spring app create \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME} \
+       --assign-endpoint true
+   ```
 
-1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
+### Prepare the PostgreSQL instance
 
-    - **Project Details**:
+The Spring web app uses H2 for the database in localhost, and Azure Database for PostgreSQL for the database in Azure.
 
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
+Use the following command to create a PostgreSQL instance:
 
-    - **Service Details**:
+```azurecli
+az postgres flexible-server create \
+    --name ${POSTGRESQL_SERVER} \
+    --database-name ${POSTGRESQL_DB} \
+    --active-directory-auth Enabled
+```
 
-        - **Name**: Create the name for the Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
-        - **Plan**: Select **Standard** for the **Pricing tier** option.
-        - **Region**: Select the region for your service instance.
-        - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
+To ensure that the application is accessible only by PostgreSQL in Azure Spring Apps, enter `n` to the prompts to enable access to a specific IP address and to enable access for all IP addresses.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/standard-plan-creation.png":::
+```output
+Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
+Do you want to enable access for all IPs  (y/n): n
+```
 
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
+### Connect app instance to PostgreSQL instance
 
-[!INCLUDE [provision-psql-flexible](./provision-psql.md)]
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../service-connector/overview.md).
+
+1. If you're using Service Connector for the first time, use the following command to register the Service Connector resource provider.
+
+   ```azurecli
+   az provider register --namespace Microsoft.ServiceLinker
+   ```
+
+1. Use the following command to achieve a passwordless connection:
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
+   ```
+
+1. Use the following command to create a service connection between the application and the PostgreSQL database:
+
+   ```azurecli
+   az spring connection create postgres-flexible \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --app ${APP_NAME} \
+       --client-type springBoot \
+       --target-resource-group ${RESOURCE_GROUP} \
+       --server ${POSTGRESQL_SERVER} \
+       --database ${POSTGRESQL_DB} \
+       --system-identity \
+       --connection ${CONNECTION}
+   ```
+
+   The `--system-identity` parameter is required for the passwordless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](how-to-bind-postgres.md).
+
+1. After the connection is created, use the following command to validate the connection:
+
+   ```azurecli
+   az spring connection validate \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --app ${APP_NAME} \
+       --connection ${CONNECTION}
+   ```
+
+   The output should appear similar to the following JSON code:
+
+   ```json
+   [
+   {
+       "additionalProperties": {},
+       "description": null,
+       "errorCode": null,
+       "errorMessage": null,
+       "name": "The target existence is validated",
+       "result": "success"
+   },
+   {
+       "additionalProperties": {},
+       "description": null,
+       "errorCode": null,
+       "errorMessage": null,
+       "name": "The target service firewall is validated",
+       "result": "success"
+   },
+   {
+       "additionalProperties": {},
+       "description": null,
+       "errorCode": null,
+       "errorMessage": null,
+       "name": "The configured values (except username/password) is validated",
+       "result": "success"
+   },
+   {
+       "additionalProperties": {},
+       "description": null,
+       "errorCode": null,
+        "errorMessage": null,
+       "name": "The identity existence is validated",
+       "result": "success"
+   }
+   ]
+   ```
 
 ## Deploy the app to Azure Spring Apps
 
-Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy.
+Now that the cloud environment is prepared, the application is ready to deploy.
 
-1. Navigate to the sample project directory and execute the following command to config the app in Azure Spring Apps:
+1. Use the following command to deploy the app:
 
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   ```azurecli
+   az spring app deploy \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME} \
+       --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
    ```
 
-   Command interaction description:
-   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you just created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-   - **Select Azure Spring Apps for deployment**: Select the number of the Azure Spring Apps instance you just created, If you use the default number, press Enter directly.
-   - **Input the app name**: Provide an app name. If you use the default project artifact id, press Enter directly.
-   - **Expose public access for this app (Simple Event Driven App)?**: Enter *n*.
-   - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration will not be saved in the pom files.
+2. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
 
-2. Build the sample project by using the following commands:
+3. Use the following command to check the app's log to investigate any deployment issue:
 
-   ```bash
-   ./mvnw clean package -DskipTests
-   ```
-
-3. Use the following command to deploy the app:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
-   ```
-
-   Command interaction description:
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-
-   After the command is executed, you can see the following log signs that the deployment was successful.
-
-   ```text
-   [INFO] Deployment(default) is successfully updated.
-   [INFO] Deployment Status: Running
+   ```azurecli
+   az spring app logs \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME}
    ```
