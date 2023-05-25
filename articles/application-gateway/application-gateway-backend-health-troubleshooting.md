@@ -367,9 +367,11 @@ These images show the difference between the self-signed certificates.
 
 **Cause:** The Leaf (aka Domain or Server) certificate is not installed in the correct order on the backend server.
 
-**Solution:** The certificate installed on the server must include an ordered list of certificates comprising the leaf certificate and all its signing certificates (Intermediate and Root CA certificates). This chain must start with the leaf certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. Here is an example of a Server certificate installation along with its Intermediate and Root CA certificates, denoted as depths (0, 1, 2, and so on) in OpenSSL. You can verify the same for your backend server’s certificate using the following OpenSSL commands.
-`s_client -connect <FQDN>:443 -showcerts` 
-OR 
+**Solution:** The certificate installation on the backend server must include an ordered list of certificates comprising the leaf certificate and all its signing certificates (Intermediate and Root CA certificates). This chain must start with the leaf certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. 
+
+Given is an example of a Server certificate installation along with its Intermediate and Root CA certificates, denoted as depths (0, 1, 2, and so on) in OpenSSL. You can verify the same for your backend server’s certificate using the following OpenSSL commands.</br>
+`s_client -connect <FQDN>:443 -showcerts`</br> 
+OR </br>
 `s_client -connect <IPaddress>:443 -servername <TLS SNI hostname> -showcerts`
 
 ![An image showing typical chain of certificates.](./media/application-gateway-backend-health-troubleshooting/cert-chain.png)
