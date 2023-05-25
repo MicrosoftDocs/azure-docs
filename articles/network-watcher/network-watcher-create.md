@@ -5,7 +5,7 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 05/27/2023
 ms.author: halkazwini
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
@@ -44,7 +44,7 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 
 ---
 
-## Enable Network Watcher for your region
+## <a name="enable"></a>Enable Network Watcher for your region
 
 You can enable Network Watcher for a region by creating a Network Watcher instance in that region. You can create a Network Watcher instance using the [Azure portal](?tabs=portal#enable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#enable-network-watcher-for-your-region), [REST API](/rest/api/network-watcher/network-watchers/create-or-update), or Azure Resource Manager (ARM) template.
 
@@ -108,12 +108,12 @@ If you wish to customize the name of the Network Watcher instance, you can use [
 
 ---
 
-## Disable Network Watcher for your region
+## <a name="disable"></a>Disable Network Watcher for your region
 
 You can disable Network Watcher for a region by deleting the Network Watcher instance in that region. You can delete a Network Watcher instance using the [Azure portal](?tabs=portal#disable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#disable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#disable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/delete).
 
 > [!WARNING]
-> Deleting a Network Watcher instance deletes all Network Watcher running operations, historical data, and alerts with no option to revert. For example, deleting `NetworkWatcher_eastus` instance deletes all Network Watcher running operations, data, and alerts in East US region.
+> Deleting a Network Watcher instance deletes all Network Watcher running operations, historical data, and alerts with no option to revert. For example, if you delete `NetworkWatcher_eastus` instance, all flow logs, connection monitors and packet captures in East US region will be deleted.
 
 # [**Portal**](#tab/portal)
 
@@ -147,7 +147,7 @@ az network watcher configure --locations 'eastus' --enabled 'false'
 
 ---
 
-## Opt out of Network Watcher automatic enablement
+## <a name="optout"></a>Opt out of Network Watcher automatic enablement
 
 You can opt out of Network Watcher automatic enablement using Azure PowerShell or Azure CLI.
 
@@ -183,6 +183,9 @@ az provider register --name 'Microsoft.Network'
 ```
 
 ---
+
+> [!NOTE]
+> After you opt out of Network Watcher automatic enablement, you must manually enable Network Watcher in each region where you want to use Network Watcher. For more information, see [Enable Network Watcher for your region](#enable-network-watcher-for-your-region). 
 
 ## List Network Watcher instances
 
