@@ -294,7 +294,6 @@ The `IPExtendedCommunity`resource allows operators to manipulate routes  based o
 ### Parameters for IP extended community
 
 | Parameter | Description | Example | Required |
-
 |-----------|-------------|---------|----------|
 | resource-group | Use an appropriate resource group name specifically for your IP prefix |  ResourceGroupName |True |
 | resource-name | Resource Name of the ipPrefix |  ipprefixv4-1204-cn1 |True |
