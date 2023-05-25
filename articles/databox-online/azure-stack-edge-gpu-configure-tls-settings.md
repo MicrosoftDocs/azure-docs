@@ -21,7 +21,7 @@ The guidelines provided here are based on testing performed on a client running 
 
 ## Configure TLS 1.2 for current PowerShell session
 
-Do the following steps to configure TLS 1.2 on your client.
+Use the following steps to configure TLS 1.2 on your client.
 
 1. Run PowerShell as administrator.
 2. To set TLS 1.2 for the current PowerShell session, type:
