@@ -15,7 +15,7 @@ ms.date: 05/23/2023
 
 # Sign in users in a sample React single-page app (SPA) 
 
-This how-to guide uses a sample React single-page application (SPA) to demonstrate how to add authentication to a SPA. This SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This guide uses a sample React single-page application (SPA) to demonstrate how to add authentication to a SPA. This SPA enables users to sign in and sign out by using you Azure Active Directory (Azure AD) for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 ## Prerequisites
 * Although any IDE that supports React applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
@@ -77,7 +77,6 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Save the file.
 
 ## Run your project and sign in
-
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.

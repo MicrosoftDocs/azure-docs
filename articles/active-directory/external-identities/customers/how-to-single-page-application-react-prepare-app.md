@@ -13,15 +13,7 @@ ms.author: godonnell
 #Customer intent: As a dev, devops, or IT admin, I want to learn how to enable authentication in my own React single-page app
 ---
 # Prepare a React single-page app (SPA) for authentication
-After registration is complete, you can create a React project using an integrated development environment (IDE). This tutorial demonstrates how to create a React single-page app using npm and create files needed for authentication and authorization.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create a new React project
-> * Configure the settings for the application
-> * Install identity and bootstrap packages
-> * Add authentication code to the application
+After registration is complete, you can create a React project using an integrated development environment (IDE). This guide demonstrates how to create a React single-page app using npm and create files needed for authentication and authorization.
 
 ## Prerequisites
 * Completion of the prerequisites and steps in [Prepare your customer tenant for building a React single-page app (SPA)](./how-to-single-page-application-react-prepare-tenant.md))

@@ -17,12 +17,7 @@ ms.author: godonnell
 
 Before your applications can interact with Microsoft identity platform they must be registered in a customer tenant that you manage and must be associated with a user flow.
 
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Register your application and record identifiers
-> * Create a user flow to allow sign-up and sign-in
-> * Associate the user flow with your application
+In this article, you learn how to register your application and record identifies, create a user flow and associate that user flow with your application.
 
 ## Prerequisites
 
