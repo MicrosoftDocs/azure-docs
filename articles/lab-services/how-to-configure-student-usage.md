@@ -69,7 +69,7 @@ To sync a lab with an existing Azure AD group:
 
     Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
     
-Users are auto registered to the lab and VMs are automatically assigned when the VM pool syncs with the AAD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
+Users are auto-registered to the lab and VMs are automatically assigned when the VM pool syncs with the Azure AD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
 
 ### Automatic management of virtual machines based on changes to the Azure AD group
 
