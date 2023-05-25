@@ -25,16 +25,17 @@ To define Quick Access ranges, you must have:
 
 ## How it works
 
-What functionality does it unlock?
-Why would I use it?
+Quick access for Microsoft Entra Private Access unlocks the ability to specify the apps and websites that you consider to be private or internal, so you can manage how your organization accesses them. By defining this group of apps and websites, you are essentially packaging up all the private resources into one. 
 
-## How to set it up
+By configuring Quick access and enabling Microsoft Entra Private Access you can modernize how your organization's users access private apps and resources. Remote workers don't need to use a VPN to access these resources if they have the Global Secure Access client installed. The client quietly and seamlessly connects them to the resources they need. 
+
+## Setup overview
 
 Configuring your Quick access settings is a major component to utilizing Microsoft Entra Private Access. If you don't configure these settings, the service has no sites or apps to forward traffic to. 
 
-When you configure Quick access for the first time, Entra Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Entra Private Access. 
+When you configure Quick access for the first time, Microsoft Entra Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Microsoft Entra Private Access. 
 
-You also need to have an Application Proxy connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector. For more information, check out the following articles:
+You also need to have an Entra ID Application Proxy connector group set up. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector. For more information, check out the following articles:
 
 - [Remote access to on-premises apps through App Proxy](../active-directory/app-proxy/application-proxy.md)
 - [Understand App Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md)
