@@ -6,7 +6,7 @@ editor: ''
  
 ms.service: api-center
 ms.topic: overview
-ms.date: 05/19/2023
+ms.date: 05/24/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -14,6 +14,8 @@ ms.custom:
 # What is Azure API Center (preview)?
 
 API Center enables tracking all of your APIs in a centralized location for discovery, reuse, and governance. Use API Center to develop and maintain a structured and organized inventory of your organization's APIs - regardless of their type, lifecycle stage, or deployment location - along with related information such as version details, specification files, and common metadata. 
+
+[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 > [!NOTE]
 > API Center is a solution for API inventory management. If you're looking for a solution to manage, secure, and publish your organization's API backends through a managed gateway, see the [Azure API Management](../api-management/api-management-key-concepts.md) service.
@@ -32,7 +34,7 @@ In preview, create and use an API Center in the Azure portal for the following:
 
 * **API inventory management** - Register all of your organization's APIs for inclusion in a centralized inventory.
 * **Real-world API representation** - Add real-world information about each API including versions and specifications such as OpenAPI specifications. Connect to API deployment and management environments.
-* **Custom metadata properties** - Organize and filter APIs and related information assets using built-in and custom metadata properties, to help with API governance and discoverability by API consumers.  
+* **Metadata properties** - Organize and filter APIs and related information assets using built-in and custom metadata properties, to help with API governance and discoverability by API consumers.  
 * **Workspaces** - Enable multiple teams to work independently in API Center by creating workspaces with permissions based on role-based access control.
 
 For more information about the information assets and capabilities in API Center, see [Key concepts](key-concepts.md).
@@ -53,6 +55,8 @@ For more information about the information assets and capabilities in API Center
     * Australia East 
     
 ## Frequently asked questions
+
+### Q: How can I provide feedback about API Center?
 
 ### Q: Is API Center part of Azure API Management? 
 

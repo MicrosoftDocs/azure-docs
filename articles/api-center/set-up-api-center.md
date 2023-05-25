@@ -4,7 +4,7 @@ description: Follow this tutorial to set up your API center for API discovery, r
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 05/19/2023
+ms.date: 05/24/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -16,10 +16,14 @@ Set up your [API center](overview.md) to start an inventory of your organization
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
 > * Create an API center
-> * Define metadata properties in a schema
+> * Define metadata properties in the schema
 > * Register one or more APIs in your API center
 > * Add a version to an API
 > * Add information about API environments and deployments
+
+For background information about the assets you can organize in API Center, see [Key concepts](key-concepts.md).
+
+[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 
 ## Prerequisites
@@ -46,7 +50,7 @@ To register the API Center resource provider using the portal:
 
 1. In the search bar, enter *Subscriptions*, and select your subscription.
 
-1.  In the left menu, select **Resource providers**.
+1. In the left menu, select **Resource providers**.
 
 1. Search for *Microsoft.ApiCenter*, and then select **Register**.
 
@@ -74,11 +78,11 @@ To register the API Center resource provider using the portal:
 
 1. After validation completes, select **Create**.
 
-After a short time, your API center is ready to use!
+After deployment, your API center is ready to use!
 
-## Define properties in metadata schema
+## Define properties in the metadata schema
 
-Each API center provides a configurable metadata schema to help you organize APIs and other assets according to properties that you define. Here you define two example properties: *Line of business* and *Public facing*; if you prefer, define other properties of your own. When you add or update APIs and other assets in your API center, you'll set values for these properties and any common built-in properties.
+Each API center provides a configurable metadata schema to help you organize APIs and other assets according to properties that you define. Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs and other assets in your API center, you'll set values for these properties and any common built-in properties.
 
 1. In the left menu, select **Metadata > + Add property**. 
 
@@ -98,7 +102,7 @@ Each API center provides a configurable metadata schema to help you organize API
 
 1. On the **Details** tab, enter information about the property. 
 
-    1. In **Title**, enter *Public facing*. 
+    1. In **Title**, enter *Public-facing*. 
     
     1. Select type **Boolean**. 
 
@@ -114,10 +118,9 @@ Each API center provides a configurable metadata schema to help you organize API
 
 Now add (register) APIs in your API center. Each API registration includes: 
 
-* Required information such as the name and API type
-* A version identifier and optional API specification
+* An API name, version identifier, and optional API specification
+* Configuration of built-in API properties and any custom metadata properties you've defined
 * Optional links to documentation and contacts
-* Any required API properties defined in your metadata schema 
 
 The following steps register two sample APIs: Azure Demo Conference API and Swagger Petstore API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
  
@@ -125,7 +128,7 @@ The following steps register two sample APIs: Azure Demo Conference API and Swag
 
 1. In the left menu, select **APIs** > **+ Register API**.
 
-1. In the **Register API** page, add the following information for the Demo Conference API. You'll see the *Line of business* and *Public facing* metadata properties that you defined in the preceding section at the bottom of the page.
+1. In the **Register API** page, add the following information for the Demo Conference API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the preceding section at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -142,7 +145,7 @@ The following steps register two sample APIs: Azure Demo Conference API and Swag
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |  
     |**Contact**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
     | **Line of business** | If you added this custom property, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
-    | **Public facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public facing or internal only.     |
+    | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
 1. Select **Create**. 
 1. Repeat the preceding three steps to register the Swagger Petstore API.
@@ -179,15 +182,16 @@ Here you add a version to your Demo Conference API:
 
 ## Add an environment
 
-API center helps you keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. You can add multiple environments to your API center, each aligned with a phase such as development, testing, staging, or production.
+Your API center helps you keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. You can add multiple environments to your API center, each aligned with a phase such as development, testing, staging, or production.
 
-Here you add a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. 
+Here you add a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in properties and any custom metadata properties you've defined.
+
 
 1. In the portal, navigate to your API center.
 
 1. In the left menu, select **Environments** > **Add environment**.
 
-1. In the **Create environment** page, add the following information.
+1. In the **Create environment** page, add the following information. You'll see the custom *Line of business* metadata property that you defined at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -207,7 +211,7 @@ Here you add a fictitious Azure API Management environment to your API center. I
 
 API center can also help you catalog your API deployments - the environments where specific API versions are deployed. 
 
-Here you associate one of your API versions with the environment you created in the previous section. 
+Here you create a deployment by associating one of your API versions with the environment you created in the previous section. You'll configure both built-in properties and any custom metadata properties you've defined.
 
 1. In the portal, navigate to your API center.
 
@@ -221,7 +225,7 @@ Here you associate one of your API versions with the environment you created in 
 
 1. Select **+ Add deployment**.
 
-1. In the **Add deployment** page, add the following information.
+1. In the **Add deployment** page, add the following information. You'll see the custom *Line of business* metadata property that you defined at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -237,7 +241,7 @@ Here you associate one of your API versions with the environment you created in 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]
 > * Create an API center
-> * Define metadata properties in a schema
+> * Define metadata properties in the schema
 > * Register one or more APIs in your API center
 > * Add a version to an API
 > * Add information about API environments and deployments
