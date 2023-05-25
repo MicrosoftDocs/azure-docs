@@ -119,7 +119,7 @@ __Q: What will happen to the server 5.7 post Sep 2025__
 
 A: You refer to our [retired MySQL version support policy](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql) to learn what will happen after Azure Database for MySQL 5.7 end of support
 
-__Q: I have a Azure Database for MariaDB or Azure database for MySQL -Single server, how can I create the server in 5.7 post September 2024 for migration?__
+__Q: I have a Azure Database for MariaDB or Azure database for MySQL -Single server, how can I create the server in 5.7 post April 2024 for migratiing to Azure database for MySQL - flexible server?__
 
 A: If there's MariaDB\Single server in your subscription, this subscription is still permitted to create Azure Database for MySQL – Flexible Server v5.7 for the purpose of migration to Azure Database for MySQL – Flexible Server
 
