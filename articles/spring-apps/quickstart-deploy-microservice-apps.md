@@ -38,13 +38,19 @@ Diagram of Spring Pet Clinic apps architecture:
 
 ## 5 Validation
 
+### 5.1 Access application
+
 According to the content echoed by the deployment, open the URL exposed by the app `api-gateway`, for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`.
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-screenshot.png" alt-text="Screenshot of PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-screenshot.png":::
 
+### 5.2 Query application logs
+
 After browsing each function of the Pet Clinic, the Log Analytics workspace will collect logs of each application, and you can check the logging via your custom queries on it.
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png" alt-text="Screenshot of Log query for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/spring-apps-log-query.png":::
+
+### 5.2 Monitor application
 
 The Application Insights will monitor the application dependencies, and you can view the following application tracing map.
 

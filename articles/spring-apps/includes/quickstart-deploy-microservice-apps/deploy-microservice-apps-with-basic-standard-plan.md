@@ -53,16 +53,16 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
     - **Project Details**:
 
         - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select an existing resource group or create a new one.
+        - **Resource group**: Create a new one, such as: `rg-wingtiptoy`.
 
     - **Service Details**:
 
         - **Name**: Create the name for the Azure Spring Apps instance.
-        - **Plan**: Select **Standard** for the **Plan** option.
+        - **Plan**: Select **Basic** for the **Plan** option.
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/standard-plan-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/basic-plan-creation.png" alt-text="Screenshot of Azure portal showing basic plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/basic-plan-creation.png":::
 
 1. Navigate to the tab **Diagnostic settings** on the Azure Spring Apps **Create** page, select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
 
@@ -76,7 +76,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
-1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* as **URI**, enter *master* as **Label**, select **Validate**.
+1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* as **URI**, select **Validate**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of Azure portal showing config server for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
