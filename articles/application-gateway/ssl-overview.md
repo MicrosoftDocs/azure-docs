@@ -35,7 +35,7 @@ For the TLS connection to work, you need to ensure that the TLS/SSL certificate 
 - That the current date and time is within the "Valid from" and "Valid to" date range on the certificate.
 - That the certificate's "Common Name" (CN) matches the host header in the request. For example, if the client is making a request to `https://www.contoso.com/`, then the CN must be `www.contoso.com`.
 
-If you have errors with the backend certificate common name (CN), see our [troubleshooting guide](application-gateway-backend-health-troubleshooting.md#common-name-cn-doesnt-match).  
+If you have errors with the backend certificate common name (CN), see our [troubleshooting guide](./application-gateway-backend-health-troubleshooting.md#common-name-cn-doesnt-match).  
 
 ### Certificates supported for TLS termination
 
