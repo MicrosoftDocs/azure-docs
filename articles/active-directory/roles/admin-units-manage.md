@@ -87,7 +87,7 @@ $params = @{
 $adminUnitObj = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
-Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new administrative unit.
+Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` property to `$true`.
 
 ```powershell
 Select-MgProfile -Name beta
@@ -95,7 +95,7 @@ $params = @{
     DisplayName = "Contoso Executive Division"
     Description = "Contoso Executive Division administration"
     Visibility = "HiddenMembership"
-    IsMemberManagementRestricted = $True
+    IsMemberManagementRestricted = $true
 }
 $restrictedAU = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
