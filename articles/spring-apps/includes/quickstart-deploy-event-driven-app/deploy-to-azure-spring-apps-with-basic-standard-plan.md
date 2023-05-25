@@ -137,7 +137,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
     - **Service Details**:
 
         - **Name**: Create the name for the Azure Spring Apps instance.
-        - **Plan**: Select **Basic** for the **Pricing tier** option.
+        - **Plan**: Select **Basic** for the **Plan** option.
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
 
