@@ -216,6 +216,7 @@ The following tables summarize current availability:
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Switzerland           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Switzerland           | Local     | -        | -        | Public Preview | Public Preview\* |
 | Switzerland, Germany, Netherlands, United Kingdom, Australia, France, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
@@ -236,6 +237,7 @@ The following tables summarize current availability:
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Luxembourg           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Luxembourg           | Local     | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -293,6 +295,7 @@ The following tables summarize current availability:
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Netherlands           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Netherlands           | Local     | -        | -        | Public Preview | Public Preview\* |
 |  Netherlands, Germany, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
