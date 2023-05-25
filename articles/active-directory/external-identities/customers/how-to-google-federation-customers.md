@@ -42,12 +42,12 @@ To enable sign-in for customers with a Google account, you need to create an app
    1. Enter a suitable **Name** for your application, such as "Azure AD for customers."
    1. In **Valid OAuth redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
     - `https://login.microsoftonline.com`
-    - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`
-    - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp`
-    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oidc/accounts.google.com`
-    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oidc/accounts.google.com`
-    - `https://<tenant ID>.ciamlogin.com/<tenant ID>/federation/oauth2`
-    - `https://<tenant ID>.ciamlogin.com/<tenant name>.onmicrosoft.com/federation/oauth2`
+    - `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
+    - `https://login.microsoftonline.com/te/<tenant-name>.onmicrosoft.com/oauth2/authresp`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oidc/accounts.google.com`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/accounts.google.com`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
    > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
 2. Select **Create**.
