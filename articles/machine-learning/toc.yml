@@ -603,9 +603,18 @@
     items:
     - name: Managed Feature Store
       items:
-      - name: TBD
-        displayName:
-        href:
+      - name: What is managed feature store
+        href: concept-what-is-managed-feature-store.md
+      - name: Feature store entities
+      - href: concept-top-level-entities-in-managed-feature-store.md
+      - name: Develop and register a feature set
+        href: tutorial-get-started-with-feature-store.md
+      - name: Enable materialization and backfill feature data
+        href: tutorial-enable-materialization-backfill-data.md
+      - name: Experiment and train models using features
+        href: tutorial-experiment-train-models-using-features.md
+      - name: Enable recurrent materialization
+        href: enable-recurrent-materialization-run-batch-inference.md
 - name: Automated Machine Learning
   items:
     - name: Concepts
