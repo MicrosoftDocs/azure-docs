@@ -95,6 +95,7 @@ az group delete --name ${RESOURCE_GROUP}
 
 > [!div class="nextstepaction"]
 > [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
+> [Structured application log for Azure Spring Apps](./structured-app-log.md)
 
 For more information, see the following articles:
 
