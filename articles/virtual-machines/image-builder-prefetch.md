@@ -105,7 +105,7 @@ This is the end to end duration observed. Note, image generation duration varies
 
 ### Is OS image copied out of customer subscription for optimization? 
 
-Yes, the OS VHD is copied from customer subscription to Azure subscription for optimization in the same geographic location. Once optimization is finished or timed out, Azure internally deletes all copied OS VHDs. 
+Yes, the OS VHD is copied from customer subscription to Azure subscription for optimization in the same geographic location. Once optimization is finished or timed out, Azure internally deletes all copied OS VHDs.  
 
   
 
