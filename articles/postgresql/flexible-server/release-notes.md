@@ -18,6 +18,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: May 2023
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of support for [Azure Key Vault Managed HSM with Customer Managed Keys](./concepts-data-encryption.md). 
 
 ## Release: April 2023
 * Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
