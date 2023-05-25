@@ -93,7 +93,7 @@ In order to set the index process to include the detection of audio effects, sel
 
 ## Closed Caption
 
-When audio effects are retrieved in the closed caption files, they will be retrieved in square brackets the following structure:
+When audio effects are retrieved in the closed caption files, they are retrieved in square brackets the following structure:
 
 |Type| Example|
 |---|---|
@@ -103,7 +103,7 @@ When audio effects are retrieved in the closed caption files, they will be retri
 |TXT |[Gunshot or explosion]|
 |CSV |0.9047,00:00:00.000,00:00:03.671, [Gunshot or explosion]|
 
-Audio Effects in closed captions file will be retrieved with the following logic employed:
+Audio Effects in closed captions file is retrieved with the following logic employed:
 
 * `Silence` event type will not be added to the closed captions
 * Maximum duration to show an event I 5 seconds
@@ -117,7 +117,7 @@ Audio effects can be added to the closed captions files supported by Azure Video
 > :::image type="content" source="./media/audio-effects-detection/close-caption.jpg" alt-text="Audio Effects in CC":::
 
 > [!NOTE]
-> When using [update transcript](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript) from closed caption files or [update custom language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) from closed caption files, audio effects included in those files will be ignored.
+> When using [update transcript](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript) from closed caption files or [update custom language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) from closed caption files, audio effects included in those files are ignored.
 
 ## Limitations and assumptions
 
