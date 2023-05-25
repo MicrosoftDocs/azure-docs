@@ -171,7 +171,7 @@ The following screenshot shows part of an example enterprise workflow. This work
 
 You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that's described using JavaScript Object Notation (JSON). If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
 
-logic apps implement at-least-once message delivery semantic. Rarely it could deliver a message more than once, but no message will be lost. If your business cannot tolerate duplicates, you will need to implement idempotence.
+The Azure Logic Apps service implements and uses the "at-least-once" message delivery semantic. Rarely does the service deliver a message more than one time, but no messages are lost. If your business doesn't or can't handle duplicate messages, you need to implement idempotence, so that repeating the same exact operation doesn't change the result after the first execution.
 
 ## Pricing options
 
