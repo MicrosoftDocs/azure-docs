@@ -44,7 +44,7 @@ See [Azure Load Balancer and Virtual Machine Scale Sets](../load-balancer/load-b
 
 To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale sets network profile. This can be done either when creating the scale set or on an existing scale set.  
 
-### [Portal](#tab/portalappgw)
+### [Portal](#tab/portal1)
 
 1. Create an Application Gateway and backend pool in the same regions as your scale set, if you do not already have one
 1. Navigate to the Virtual Machine Scale Set in the Portal
@@ -54,7 +54,7 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 1. Select the target backend pool and click **Save**
 1. If your scale set Upgrade Policy is 'Manual', navigate to the **Settings** > **Instances** pane to select and upgrade each of your instances
 
-### [PowerShell](#tab/powershellappgw)
+### [PowerShell](#tab/powershell1)
 
 ```azurepowershell
     $appGW = Get-AzApplicationGateway -Name <appGWName> -ResourceGroup <AppGWResourceGroupName>
@@ -84,7 +84,8 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 
 ```
 
-### [ARM Template](#tag/armappgw)
+### [ARM template](#tag/arm1)
+
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
