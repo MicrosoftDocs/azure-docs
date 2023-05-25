@@ -70,27 +70,34 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 # [Microsoft Graph PowerShell](#tab/ms-powershell)
 
+Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main&view=graph-powershell-1.0#using-connect-mggraph) command to sign in to your tenant and consent to the required permissions.
+
+```powershell
+Connect-MgGraph -Scopes "AdministrativeUnit.ReadWrite.All"
+```
+
 Use the [New-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?branch=main) command to create a new administrative unit.
 
 ```powershell
 $params = @{
-	DisplayName = "Seattle District Technical Schools"
-	Description = "Seattle district technical schools administration"
-	Visibility = "HiddenMembership"
+    DisplayName = "Seattle District Technical Schools"
+    Description = "Seattle district technical schools administration"
+    Visibility = "HiddenMembership"
 }
-New-MgDirectoryAdministrativeUnit -BodyParameter $params
+$adminUnitObj = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
 Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new administrative unit.
 
 ```powershell
+Select-MgProfile -Name beta
 $params = @{
-	DisplayName = "Seattle District Technical Schools"
-	Description = "Seattle district technical schools administration"
-	Visibility = "HiddenMembership"
-  IsMemberManagementRestricted = $true
+    DisplayName = "Contoso Executive Division"
+    Description = "Contoso Executive Division administration"
+    Visibility = "HiddenMembership"
+    IsMemberManagementRestricted = $True
 }
-New-MgDirectoryAdministrativeUnit -BodyParameter $params
+$restrictedAU = New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -179,8 +186,8 @@ In Azure AD, you can delete an administrative unit that you no longer need as a 
 Use the [Remove-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdirectoryadministrativeunit?branch=main) command to delete an administrative unit.
 
 ```powershell
-$adminUnitObj = Get-MgDirectoryAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-MgDirectoryAdministrativeUnit -AdministrativeUnitId $adminUnitObj
+$adminUnitObj = Get-MgDirectoryAdministrativeUnit -Filter "DisplayName eq 'Seattle District Technical Schools'"
+Remove-MgDirectoryAdministrativeUnit -AdministrativeUnitId $adminUnitObj.Id
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
@@ -190,7 +197,7 @@ Remove-MgDirectoryAdministrativeUnit -AdministrativeUnitId $adminUnitObj
 Use the [Remove-AzureADMSAdministrativeUnit](/powershell/module/azuread/remove-azureadmsadministrativeunit?branch=main) command to delete an administrative unit.
 
 ```powershell
-$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "DisplayName eq 'Seattle District Technical Schools'"
 Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 ```
 
