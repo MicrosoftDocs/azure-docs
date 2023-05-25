@@ -27,7 +27,7 @@ The sentiment analysis feature provides sentiment labels (such as "negative", "n
 
 Opinion mining is a feature of sentiment analysis. Also known as aspect-based sentiment analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
-#### [prebuilt model](#tab/prebuilt)
+#### [Prebuilt model](#tab/prebuilt)
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
@@ -44,7 +44,7 @@ Custom sentiment analysis enables users to build custom AI models to classify te
 
 Creating a Custom sentiment analysis project typically involves several different steps. 
 
-:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
+:::image type="content" source="media/development-lifecycle.png" alt-text="Diagram of the development lifecycle" lightbox="media/development-lifecycle.png":::
 
 Follow these steps to get the most out of your model:
 
