@@ -136,7 +136,7 @@ valid_until = valid_from + relativedelta(months=+1,days=+20)
 
 try:
     updated_room = self.rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until)
-     print("\nUpdated room with validFrom: " + updated_room.valid_from + " and validUntil: " + updated_room.valid_until")
+     print("\nUpdated room with validFrom: " + updated_room.valid_from + " and validUntil: " + updated_room.valid_until)
 except HttpResponseError as ex:
     print(ex)
 ```
