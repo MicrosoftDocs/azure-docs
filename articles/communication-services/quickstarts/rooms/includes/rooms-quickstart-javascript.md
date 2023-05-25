@@ -155,28 +155,36 @@ Retrieve your list of rooms by using the `listRooms` method:
 
 ```javascript
 const roomsList = await roomsClient.listRooms();
+console.log("\nRetrieved list of rooms; printing first room:");
 for await (const currentRoom of roomsList) {
   // access room data here
+  console.log(currentRoom);
+  break;
 }
+
 ```
 
-## Add new participants
+## Add or update participants
 
 To add new participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client. This method will also update a participant if they already exist in the room.
 
 ```javascript
-// Add participants
-// request payload to add participants
-const addParticipantsList = [
+// Add and update participants
+// request payload to add and update participants
+const addOUpdateParticipantsList = [
+  {
+      id: user1.user,
+      role: "Presenter",
+  },
   {
     id: user2.user,
     role: "Consumer",
   }
 ]
 
-// add user2 to the room with the request payload
-await roomsClient.addParticipants(roomId, addParticipantsList);
-console.log("\nAdded participants to room");
+// add user2 to the room and update user1 to Presenter role
+await roomsClient.addOrUpdateParticipants(roomId, addOUpdateParticipantsList);
+console.log("\nAdded and updated participants in the room");
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -235,6 +243,15 @@ Retrieved room with id:  99445276259151407
 
 Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
 
+Retrieved list of rooms; printing first room:
+
+{
+  id: "99445276259151407",
+  createdAt: "2023-05-11T22:11:50.784Z",
+  validFrom: "2023-05-11T22:11:46.784Z",
+  validUntil: "2023-05-11T22:16:46.784Z"
+}
+
 Added participants to room
 
 Retrieved participants for room:
@@ -243,7 +260,7 @@ Retrieved participants for room:
     kind: 'communicationUser',
     communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901'
   },
-  role: 'Attendee'
+  role: 'Presenter'
 }
 {
   id: {
