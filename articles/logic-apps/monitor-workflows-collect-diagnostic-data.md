@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 05/25/2023
 # As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
@@ -35,7 +35,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 1. [Include custom properties in telemetry](#custom-tracking-properties).
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. [Add a diagnostic setting to enable data collection](#add-diagnostic-setting).
 
