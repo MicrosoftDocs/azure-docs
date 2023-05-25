@@ -19,4 +19,4 @@ ms.author: jboback
 
 5. After your container has been created, select it. Then click **Upload** button to select the `.txt` and `.json` files you downloaded earlier. 
 
-    :::image type="content" source="../../../media/custom/language-studio/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account."../../../media/custom/language-studio/file-upload-screen.png":::
+    :::image type="content" source="../../../media/custom/language-studio/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account." lightbox="../../../media/custom/language-studio/file-upload-screen.png":::
