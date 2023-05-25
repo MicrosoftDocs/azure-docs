@@ -7,7 +7,8 @@ ms.service: network-watcher
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.custom: template-concept, engagement-fy23, references_regions
+
 ---
 
 # Data residency for Azure Network Watcher
