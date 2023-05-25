@@ -71,7 +71,8 @@ az eventgrid event-subscription create --name contosoEventSubscription \
         "topicSpacesConfiguration": {
             "state": "Enabled",
             "routeTopicResourceId": "/subscriptions/{Subscription ID}/resourceGroups/{Resource Group ID}/providers/Microsoft.EventGrid/topics/{EG Custom Topic Name}"
-        }
+        },
+        "isZoneRedundant": true
     },
     "location": "{region name}"
 }
