@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-authenticate-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-authenticate-web-service",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/concept-data.md",
         "redirect_url": "/azure/machine-learning/concept-data",
         "redirect_document_id": false
