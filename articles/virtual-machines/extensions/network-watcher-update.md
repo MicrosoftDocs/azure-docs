@@ -6,20 +6,19 @@ author: halkazwini
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 05/25/2023
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-concept, engagement-fy23
 ---
 
 # Update the Network Watcher extension to the latest version
 
-## Overview
-
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
-This article assumes you have the Network Watcher extension installed in your VM.
+- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure virtual machine (VM) that has the Network Watcher extension installed.
 
 ## Latest version
 
@@ -27,22 +26,26 @@ The latest version of the Network Watcher extension is `1.4.2573.1`.
 
 ### Identify latest version
 
+Use this command to identify the latest version of the Network Watcher extension for your VM's operating system.
+
 # [Linux](#tab/linux)
 
-```azurecli 
-az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentLinux -o table 
-
+```azurecli-interactive 
+# List latest version of Network Watcher extension for Linux.
+az vm extension image list --name 'NetworkWatcherAgentLinux' --publisher 'Microsoft.Azure.NetworkWatcher' --latest --location 'eastus'
 ```
 
 # [Windows](#tab/windows)
 
-```azurecli
-az vm extension image list-versions --publisher Microsoft.Azure.NetworkWatcher --location westeurope --name NetworkWatcherAgentWindows -o table 
-
+```azurecli-interactive
+# List latest version of Network Watcher extension for Windows.
+az vm extension image list --name 'NetworkWatcherAgentWindows' --publisher 'Microsoft.Azure.NetworkWatcher' --latest --location 'eastus'
 ```
 
 ---
+
 ## Update your extension using a PowerShell script
+
 Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, see the next section. 
 
 ```powershell
