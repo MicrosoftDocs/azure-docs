@@ -128,7 +128,7 @@ The following operations are available on Rooms API request metrics:
 
 | Operation / Route             | Description                                                                                    |
 | ----------------------------- | ---------------------------------------------------------------------------------------------- |
-| CreateRooms                   | Creates a room. |
+| CreateRoom                    | Creates a room. |
 | DeleteRoom                    | Deletes a room. |
 | GetRoom                       | Gets a room by room id. |
 | PatchRoom                     | Updates a room by room id. |
