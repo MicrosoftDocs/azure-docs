@@ -71,7 +71,7 @@ except Exception as ex:
 
 # [Azure CLI](#tab/azurecli)
 
-In the CLI, you begin by logging into your Azure account. You may also need to set the subscription if your account is associated with multiple subscriptions. 
+In the CLI, you begin by logging into your Azure account. You may also need to [set the subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) if your account is associated with multiple subscriptions. 
 
 ```azurecli
 az login
@@ -145,7 +145,6 @@ If you don't explicitly specify a `validation_data` or `n_cross_validation` para
 |---|-----|
 |**Larger&nbsp;than&nbsp;20,000&nbsp;rows**| Train/validation data split is applied. The default is to take 10% of the initial training data set as the validation set. In turn, that validation set is used for metrics calculation.
 |**Smaller&nbsp;than&nbsp;or&nbsp;equal&nbsp;to&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is fewer than 1,000 rows**, 10 folds are used. <br> **If the rows are equal to or between 1,000 and 20,000**, then three folds are used.
-
 
 ## Compute to run experiment
 
@@ -246,7 +245,7 @@ Automated ML supports tabular data based tasks (classification, regression, fore
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there's no need for you to specify the algorithm. 
 
-The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
+The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `training` configuration of the AutoML job to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
 
@@ -324,7 +323,7 @@ The main difference between `r2_score` and `normalized_root_mean_squared_error` 
 
 If the rank, instead of the exact value is of interest, `spearman_correlation` can be a better choice as it measures the rank correlation between real values and predictions.
 
-However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a \$20k prediction error the same for a worker with a \$30k salary as a worker making \$20M, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only \$20k off from a \$20M salary is very close (a small 0.1\% relative difference), whereas \$20k off from \$30k isn't close (a large 67\% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
+However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a $\text{\$20k}$ prediction error the same for a worker with a $\text{\$30k}$ salary as a worker making $\text{\$20M}$, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only $\text{\$20k}$ off from a $\text{\$20M}$ salary is very close (a small 0.1% relative difference), whereas $\text{\$20k}$ off from $\text{\$30k}$ isn't close (a large 67% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -491,7 +490,7 @@ Each node in the cluster acts as an individual virtual machine (VM) that can acc
 
 To help manage child runs and when they can be performed, we recommend you create a dedicated cluster per experiment, and match the number of `max_concurrent_iterations` of your experiment to the number of nodes in the cluster. This way, you use all the nodes of the cluster at the same time with the number of concurrent child runs/iterations you want.
 
-Configure `max_concurrent_iterations` in the .set_limits() setter function. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.
+Configure `max_concurrent_iterations` in the `limits` configuration. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.
 In case of compute instance, `max_concurrent_trials` can be set to be the same as number of cores on the compute instance VM.
 
 ## Explore models and metrics

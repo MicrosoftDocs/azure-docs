@@ -840,8 +840,8 @@
         - name: Automated machine learning
           displayName: automl, auto ml
           items:
-            - name: Use automated ML for tabular data (Python)
-              displayName: SDK, automl
+            - name: Use automated ML for tabular data (Python, CLI)
+              displayName: SDK, CLI, Python, automl
               href: how-to-configure-auto-train.md
             - name: Use automated ML for tabular data (interface)
               href: how-to-use-automated-ml-for-ml-models.md
@@ -858,8 +858,8 @@
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
             # v1
-            - name: Use automated ML (Python, CLI)
-              displayName: SDK, CLI, Python, automl
+            - name: Use automated ML (Python)
+              displayName: SDK, automl
               href: ./v1/how-to-configure-auto-train-v1.md
             - name: Auto-train a regression (NYC Taxi data)
               displayName: automl, automated, auto ml,
