@@ -56,8 +56,6 @@ For more information about the information assets and capabilities in API Center
     
 ## Frequently asked questions
 
-### Q: How can I provide feedback about API Center?
-
 ### Q: Is API Center part of Azure API Management? 
 
 A: API Center is a separate Azure service offering and doesn’t require an Azure API Management service to function. You can register all APIs in API Center, whether managed in Azure API Management or API management solutions from other providers. You can also register APIs that are unmanaged.
