@@ -89,11 +89,11 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-azure-spring-apps-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-web-app/search-azure-spring-apps-service.png":::
 
 1. On the Azure Spring Apps page, select **Create**.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/azure-spring-apps-create.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/azure-spring-apps-create.png":::
 
 1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
 
@@ -109,7 +109,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
         - **Region**: Select the region for your service instance.
         - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/standard-plan-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/standard-plan-creation.png" alt-text="Screenshot of Azure portal showing standard plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-web-app/standard-plan-creation.png":::
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
 
@@ -223,6 +223,6 @@ Use AZD to package the app, provision the Azure resources required by the web ap
    ```
 
 > [!NOTE]
-> This may take a while to complete as it executes three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). You will see a progress indicator as it packages, provisions and deploys your application. See more details from [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
+> This may take a while to complete as it executes three commands: `azd package` (packages a deployable copy of your application), `azd provision` (provisions Azure resources), and `azd deploy` (deploys application code). You will see a progress indicator as it packages, provisions and deploys your application. See more details from [Azure-Samples/ASA-Samples-Web-Application](https://github.com/Azure-Samples/ASA-Samples-Web-Application).
 
 ---
