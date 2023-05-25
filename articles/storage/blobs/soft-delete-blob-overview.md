@@ -163,6 +163,16 @@ Blob soft delete is available for both premium and standard unmanaged disks, whi
 
 Data that is overwritten by a call to [Put Page](/rest/api/storageservices/put-page) isn't recoverable. An Azure virtual machine writes to an unmanaged disk using calls to [Put Page](/rest/api/storageservices/put-page), so using soft delete to undo writes to an unmanaged disk from an Azure VM isn't a supported scenario.
 
+
+< new addition to the doc >
+## Manual Blob recovery for accounts that soft delete has not been enabled. 
+We recommend self-recovery as the most effective process, and manual recovery (by the Azure Storage product team) only if self-recovery doesn't work.
+If self-recovery is not possible, the Azure Storage product team can attempt to recover the data. However, recovery attempts are possible only if the following two conditions are met. If the recovery target has been re-created with the same name since it was deleted, you'll need to provide a new folder that we can use to restore the recovered data. You'll be responsible for merging back the data to the original location.
+
+1. The file system, the folder, or file data was deleted in the last 3 days.
+2. Hierarchical namespace is enabled.
+**Note**: Because garbage collection can occur on our system at any time, we can't guarantee a successful recovery even if the preceding conditions are met. As part of our data privacy guarantee(https://www.microsoft.com/en-in/trust-center/privacy?rtc=1), we make sure that data deleted by customers is eventually overwritten.
+< END >
 ## Next steps
 
 - [Enable soft delete for blobs](./soft-delete-blob-enable.md)
