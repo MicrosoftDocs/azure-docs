@@ -2,7 +2,7 @@
 title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
 description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
-ms.date: 05/03/2023
+ms.date: 05/23/2023
 ---
 
 # Tutorial: Onboard and activate a virtual OT sensor
@@ -271,7 +271,7 @@ This procedure describes how to install the sensor software on your VM.
 
     For more information, see [Configure proxy settings on an OT sensor](connect-sensors.md).
 
-1. <a name=credentials></a>The installation process starts running and then shows the credentials screen.
+1. <a name="credentials"></a>The installation process starts running and then shows the credentials screen.
 
     Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are shown. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
