@@ -27,12 +27,12 @@ measures to free more disk space.
 >
 > Even in the RO state in-flight transactions may continue writing to the database 
 > thus decreasing further available storage. If available storage size continues 
-> to decrease after the node was set to read-only, at some point all existing sessions 
+> to decrease after the node was set to read-only, all existing sessions 
 > would be disconnected and uncommitted transactions would be rolled back.
 
 ## Ways to recover write-access
 
-To unblock writes on the node it should have more than 16 GiB of free storage on nodes with 256 GiB or greater and more than 7% of free storage on nodes with 128 GiB or smaller storage.
+If a node was set to RO state, you need to free some disk space to unblock writes on the node. Write access is re-enabled when node has more than 16 GiB of free storage on nodes with 256 GiB or greater and more than 7% of free storage on nodes with 128 GiB or smaller storage.
 
 ### On the coordinator node
 
