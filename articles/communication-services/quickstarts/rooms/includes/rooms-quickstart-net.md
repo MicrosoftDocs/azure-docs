@@ -86,7 +86,7 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 var connectionString = "<connection_string>";
 RoomsClient roomsClient = new RoomsClient(connectionString);
 
-// create identities for users
+// Create identities for users
 CommunicationIdentityClient identityClient = new CommunicationIdentityClient(connectionString);
 CommunicationUserIdentifier user1 = await identityClient.CreateUser();
 CommunicationUserIdentifier user2 = await identityClient.CreateUser();
@@ -99,7 +99,7 @@ Create a new `room` with default properties using the code snippet below:
 
 ```csharp
 
-//Create a room
+// Create a room
 List roomParticipants = new List<RoomParticipant>();
 roomParticipants.Add(new RoomParticipant(new CommunicationUserIdentifier(user1.Value.User.Id), RoleType.Presenter));
 
@@ -142,24 +142,26 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 ```csharp
 
-//Update room lifetime
+// Update room lifetime
 DateTimeOffset validFrom = DateTimeOffset.UtcNow;
 DateTimeOffset validUntil = DateTimeOffset.UtcNow.AddDays(10);
 CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, validFrom, validUntil, cancellationToken);
 Console.WriteLine("\nUpdated room with validFrom: " + updatedRoom.ValidFrom + " and validUntil: " + updatedRoom.ValidUntil);
 ```
 
-### List all valid rooms
+### List all active rooms
 
-To retrieve all valid rooms, use the `GetRoomsAsync` method exposed on the client.
+To retrieve all active rooms, use the `GetRoomsAsync` method exposed on the client.
 
 ```csharp
+
+// List all active rooms
 AsyncPageable<CommunicationRoom> allRooms = await roomsClient.GetRoomsAsync();
 await foreach (CommunicationRoom room in allRooms)
 {
     if (room is not null)
     {
-        Console.WriteLine("\nFirst room id in all valid rooms: " + room.Id);
+        Console.WriteLine("\nFirst room id in all active rooms: " + room.Id);
         break;
     }
 }
@@ -193,6 +195,7 @@ Participants that have been added to a `room` become eligible to join calls. Par
 Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```csharp
+
 // Get list of participants in room
 AsyncPageable<RoomParticipant> existingParticipants = await roomsClient.GetParticipantsAsync(roomId);
 Console.WriteLine("\nRetrieved participants from room: ");
@@ -200,6 +203,7 @@ await foreach (RoomParticipant participant in existingParticipants)
 {
     Console.WriteLine($"{participant.CommunicationIdentifier.ToString()},  {participant.Role.ToString()}");
 }
+
 ```
 
 ## Remove participants
@@ -207,12 +211,12 @@ await foreach (RoomParticipant participant in existingParticipants)
 To remove a participant from a `room` and revoke their access, use the `RemoveParticipantsAsync` method.
 
 ```csharp
+
 // Remove user from room
 List<CommunicationIdentifier> participants = new List<CommunicationIdentifier>();
 participants.Add(user2);
 
 Response removeParticipantsResponse = await roomsClient.RemoveParticipantsAsync(roomId, participants);
-await roomsClient.removeParticipants(roomId, removeParticipantsList);
 Console.WriteLine("\nRemoved participants from room");
 
 ```
@@ -249,7 +253,7 @@ Retrieved room with id: 99445276259151407
 
 Updated room with validFrom: 2023-05-11T22:11:46.784Z and validUntil: 2023-05-21T22:16:46.784Z
 
-First room id in all valid rooms: 99445276259151407
+First room id in all active rooms: 99445276259151407
 
 Added or updated participants to room
 
