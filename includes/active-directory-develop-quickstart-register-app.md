@@ -137,8 +137,8 @@ Client secrets are considered less secure than certificate credentials. Applicat
 
 For application security recommendations, see [Microsoft identity platform best practices and recommendations](../articles/active-directory/develop/identity-platform-integration-checklist.md#security).
 
-If you are using an Azure DevOps service connection that automatically creates a service principal, you need to update the client secret from the Azure DevOps portal site instead of directly updating the client secret. Please refer to this document on how to update the client secret from the Azure DevOps portal site.
-[Troubleshoot Azure Resource Manager service connections - Azure Pipelines | Microsoft Learn](/azure/devops/pipelines/release/azure-rm-endpoint?view=azure-devops#service-principals-token-expired)
+If you're using an Azure DevOps service connection that automatically creates a service principal, you need to update the client secret from the Azure DevOps portal site instead of directly updating the client secret. Refer to this document on how to update the client secret from the Azure DevOps portal site:
+[Troubleshoot Azure Resource Manager service connections](/azure/devops/pipelines/release/azure-rm-endpoint?view=azure-devops#service-principals-token-expired).
 
 ### Add a federated credential
 
