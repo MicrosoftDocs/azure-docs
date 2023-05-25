@@ -15,6 +15,8 @@ In addition to the core SDK, there are also plugins available for specific frame
 
 These plugins provide extra functionality and integration with the specific framework.
 
+*
+
 ## [React](#tab/react)
 
 ### React Application Insights JavaScript SDK plug-in
