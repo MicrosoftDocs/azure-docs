@@ -1,6 +1,6 @@
 ---
 title: How to deploy polyglot apps in Azure Spring Apps Enterprise
-description: Learn how to deploy polyglot apps in the Azure Spring Apps Enterprise.
+description: Learn how to deploy polyglot apps in the Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to deploy polyglot applications in Azure Spring Apps Enterprise to use Tanzu Build Service features with buildpacks. Polyglot applications are applications that are developed from multiple languages.
+This article shows you how to deploy polyglot applications to use Tanzu Build Service features with buildpacks in the Azure Spring Apps Enterprise plan.
 
 ## Prerequisites
 
@@ -45,17 +45,17 @@ These buildpacks support building with source code, Java artifacts, .NET Core, G
 
 All the builders configured in an Azure Spring Apps service instance are listed on the General info page when **Build Service** is selected in the navigation pane, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with list of configured builders." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Builders list highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
 
 Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see [Ubuntu Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html#ubuntu-stacks) in the VMware documentation.
 
 Using `Jammy OS Stack` is strongly recommended to create your builder because `Bioinic OS Stack` is in line for deprecation by VMware.
 
-:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-create.png" alt-text="Screenshot of Azure portal showing the Add Builder pane." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-create.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-create.png" alt-text="Screenshot of Azure portal showing the Add Builder page with the OS Stack and selected buildpack name highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-create.png":::
 
 You can also edit a custom builder when the builder isn't used in a deployment. You can update the buildpacks or the OS Stack, but the builder name is read only.
 
-:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-edit.png" alt-text="Screenshot of Azure portal showing the Build Service page with builders list and context menu showing the Edit Builder command." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-edit.png":::
+:::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-edit.png" alt-text="Screenshot of Azure portal showing the Build Service page with Edit builder highlighted from the menu displayed from the the ellipsis button." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-edit.png":::
 
 The builder is a resource that continuously contributes to your deployments. It provides the latest runtime images and latest buildpacks.
 
@@ -78,13 +78,13 @@ Use the following steps to show and edit the container registry:
 
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Container registry** in the navigation pane.
-1. Select **Edit** from the context menu on a container registry to view the configuration.
+1. For a container registry, select **Edit** from the menu displayed with the ellipsis (**...**) button to view its configuration.
 
    :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page." lightbox="media/how-to-enterprise-deploy-polyglot-apps/show-container-registry.png":::
 
 1. Review values on the **Edit container registry** page.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Edit container registry configuration." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Edit container registry pane open for the current container registry in the list." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -397,7 +397,7 @@ The following table lists the features supported in Azure Spring Apps:
 
 | Feature description                                                                        | Comment                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                                                                                                                                                                                                                                                                                                                |
 |--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Provides the Microsoft OpenJDK.                                                            | Configures the JVM version. The default JDK version is 11. Currently supported: JDK 8, 11, 17 17.                                                                                                                                                    | `BP_JVM_VERSION`                                                                                                      | `--build-env BP_JVM_VERSION=11.*`                                                                                                                                                                                                                                                                                                    |
+| Provides the Microsoft OpenJDK.                                                            | Configures the JVM version. The default JDK version is 11. Currently supported: JDK 8, 11 and 17.                                                                                                                                                    | `BP_JVM_VERSION`                                                                                                      | `--build-env BP_JVM_VERSION=11.*`                                                                                                                                                                                                                                                                                                    |
 |                                                                                            | Runtime env. Configures whether Java Native Memory Tracking (NMT) is enabled. The default value is *true*. Not supported in JDK 8.                                                                                                                         | `BPL_JAVA_NMT_ENABLED`                                                                                                | `--env BPL_JAVA_NMT_ENABLED=true`                                                                                                                                                                                                                                                                                                    |
 |                                                                                            | Configures the level of detail for Java Native Memory Tracking (NMT) output. The default value is *summary*. Set to *detail* for detailed NMT output.                                                                                                      | `BPL_JAVA_NMT_LEVEL`                                                                                                  | `--env BPL_JAVA_NMT_ENABLED=summary`                                                                                                                                                                                                                                                                                                 |
 | Add CA certificates to the system trust store at build and runtime.                        | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                                                                                                                                                                                                                                                                                                                  |

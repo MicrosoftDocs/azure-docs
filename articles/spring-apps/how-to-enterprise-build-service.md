@@ -1,6 +1,6 @@
 ---
 title: How to use Tanzu Build Service in Azure Spring Apps Enterprise
-description: Learn how to use Tanzu Build Service in Azure Spring Apps Enterprise
+description: Learn how to use Tanzu Build Service in Azure Spring Apps Enterprise plan.
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-plan1-build-2022
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use VMware Tanzu® Build Service™ with Azure Spring Apps Enterprise plan.
+This article shows you how to use VMware Tanzu® Build Service™ with the Azure Spring Apps Enterprise plan.
 
 VMware Tanzu Build Service automates container creation, management, and governance at enterprise scale. Tanzu Build Service uses the open-source [Cloud Native Buildpacks](https://buildpacks.io/) project to turn application source code into container images. It executes reproducible builds aligned with modern container standards and keeps images up to date.
 
@@ -59,11 +59,11 @@ If the quota of the agent pool is insufficient for the build task, the build req
 
 When you create a new Azure Spring Apps Enterprise service instance using the Azure portal, you can use the **VMware Tanzu settings** tab to configure the number of resources given to the build agent pool.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with VMware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing VMware Tanzu Settings on the Azure Spring Apps Create page with the Allocated Resources dropdown highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
 
 The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update **Resources allocated to Build Service** to set the configured agent pool size.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Resources allocated to Build Service dropdown menu highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
 ## Build Service on demand
 
@@ -98,17 +98,17 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
 1. Select **Next: VMware Tanzu settings**.
 1. In **VMware Tanzu settings**, select **Enable Build Service**. For **Container registry**, the default setting is **Use a managed Azure Container Registry to store built images**.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with Build Service settings highlighted and Enable Build Service selected." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal showing VMware Tanzu Settings for the Azure Spring Apps Create page with default Build Service setttings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
 
 1. Of you select **Use your own container registry to store built images (preview)** for **Container registry**, provide your container registry's server, username and password.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with Build Service settings highlighted and managed registry selected." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal showing VMware Tanzu Settings for the Azure Spring Apps Create page with use your own container registry highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
 
 1. If you disable **Enable Build Service**, the container registry options aren't provided but you can deploy applications with container images.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Enable Build Service option not selected." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/disable-build-service.png" alt-text="Screenshot of the Azure portal showing VMware Tanzu Settings for the Azure Spring Apps Create page with the Enable Build Service not selected." lightbox="media/how-to-enterprise-build-service/disable-build-service.png":::
 
-1. Select **Review and create** to finish completing the Azure Spring Apps instance.
+1. Select **Review and create** to finish completing the Azure Spring Apps Enterprise instance.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -129,7 +129,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
        --namespace Microsoft.SaaS 
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for Azure Spring Apps Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance.
+1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance.
 
    ```azurecli
    az term accept \
@@ -138,7 +138,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
        --publisher vmware-inc
    ```
 
-1. Select a location. The location must support Azure Spring Apps Enterprise plan. For more information, see [Azure Spring Apps FAQ](faq.md).
+1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see [Azure Spring Apps FAQ](faq.md).
 
 1. Use the following command to create a resource group:
 
