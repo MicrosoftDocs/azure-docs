@@ -64,7 +64,7 @@ To initiate an account failover from the Azure portal, follow these steps:
 
 ## [PowerShell](#tab/azure-powershell)
 
-To use PowerShell to initiate an account failover, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later. For more information about installing Azure PowerShell, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+To use PowerShell to initiate an account failover, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later. For more information about installing Azure PowerShell, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 To initiate an account failover from PowerShell, call the following command:
 

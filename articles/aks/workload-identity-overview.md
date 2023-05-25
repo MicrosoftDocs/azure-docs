@@ -2,8 +2,8 @@
 title: Use an Azure AD workload identities on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 05/01/2023
-
+ms.custom: build-2023
+ms.date: 05/23/2023
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
@@ -19,7 +19,6 @@ This article helps you understand this new authentication feature, and reviews t
 ## Dependencies
 
 - AKS supports Azure AD workload identities on version 1.22 and higher.
-
 - The Azure CLI version 2.47.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Azure Identity client libraries
@@ -27,18 +26,18 @@ This article helps you understand this new authentication feature, and reviews t
 In the Azure Identity client libraries, choose one of the following approaches:
 
 - Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`.
-- Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`. 
+- Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`.
 - Use `WorkloadIdentityCredential` directly.
 
 The following table provides the **minimum** package version required for each language's client library.
 
 | Language   | Library                                                                                      | Minimum Version | Example                                                                                           |
 |------------|----------------------------------------------------------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------|
-| .NET       | [Azure.Identity](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme)      | 1.9.0-beta.2    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
-| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)            | 1.3.0-beta.1    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)     |
-| Java       | [azure-identity](https://learn.microsoft.com/java/api/overview/azure/identity-readme)        | 1.9.0-beta.1    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)   |
-| JavaScript | [@azure/identity](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme) | 3.2.0-beta.1    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)   |
-| Python     | [azure-identity](https://learn.microsoft.com/python/api/overview/azure/identity-readme)      | 1.13.0b2        | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)      | 1.9.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
+| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)            | 1.3.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)     |
+| Java       | [azure-identity](/java/api/overview/azure/identity-readme)        | 1.9.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)   |
+| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme) | 3.2.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)   |
+| Python     | [azure-identity](/python/api/overview/azure/identity-readme)      | 1.13.0        | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
 
 ## Microsoft Authentication Library (MSAL)
 
@@ -56,6 +55,7 @@ The following client libraries are the **minimum** version required
 
 - You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
+- [Virtual nodes][aks-virtual-nodes] add on, based on the open source project [Virtual Kubelet][virtual-kubelet], is not supported.
 
 ## How it works
 
@@ -84,7 +84,7 @@ Azure AD workload identity supports the following mappings related to a service 
 
 - One-to-one where a service account references an Azure AD object.
 - Many-to-one where multiple service accounts references the same Azure AD object.
-- One-to-many where a service account references multiple Azure AD objects by changing the client ID annotation.
+- One-to-many where a service account references multiple Azure AD objects by changing the client ID annotation. For more information, see [How to federate multiple identities with a Kubernetes service account][multiple-identities].
 
 > [!NOTE]
 > If the service account annotations are updated, you need to restart the pod for the changes to take effect.
@@ -143,6 +143,9 @@ The following table summarizes our migration or deployment recommendations for w
 [custom-resource-definition]: https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/
 [service-account-token-volume-projection]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection
 [oidc-federation]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens
+[multiple-identities]: https://azure.github.io/azure-workload-identity/docs/faq.html#how-to-federate-multiple-identities-with-a-kubernetes-service-account
+[virtual-kubelet]: https://virtual-kubelet.io/docs/
+
 <!-- INTERNAL LINKS -->
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
 [azure-ad-workload-identity]: ../active-directory/develop/workload-identities-overview.md
@@ -155,3 +158,4 @@ The following table summarizes our migration or deployment recommendations for w
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [auto-rotation]: certificate-rotation.md#certificate-auto-rotation
+[aks-virtual-nodes]: virtual-nodes.md

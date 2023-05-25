@@ -11,6 +11,21 @@ ms.date: 4/24/2023
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## May 2023
+
+**Azure VMware Solution in Azure Gov**
+ 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+
+ 
+**New Azure VMware Solution Region: Qatar**
+
+We are excited to announce that the Azure VMware Solution has gone live in Qatar Central and is now available to customers. 
+
+With the introduction of AV36P in Qatar, customers will receive access to 36 cores, 2.6 GHz clock speed, 768GB of RAM, and 19.2TB of SSD storage.
+
+To learn more about available regions of Azure products, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
+
 ## April 2023
 
 **VMware HCX Run Commands**
@@ -166,4 +181,7 @@ Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://ww
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+
+
+
 

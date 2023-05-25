@@ -45,7 +45,7 @@ In addition to the prerequisites below, be sure to meet all [network requirement
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
-* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps)
+* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell)
 * The **Az.ConnectedKubernetes** PowerShell module, installed by running the following command:
 
     ```azurepowershell-interactive

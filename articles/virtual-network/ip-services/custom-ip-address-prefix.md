@@ -49,6 +49,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * A custom IPv4 prefix must be associated with a single Azure region.
 
+* The number of overall prefixes that can be brought to Azure is limited to 5 per region.
+
 * A custom IPv4 Prefix must be between /21 and /24; an global (parent) custom IPv6 prefix must be /48.
 
 * Custom IP prefixes do not currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
