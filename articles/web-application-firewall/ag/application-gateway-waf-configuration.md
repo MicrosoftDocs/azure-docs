@@ -513,4 +513,4 @@ So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it
 ## Next steps
 
 - After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-- [Learn more about Azure network security](../networking/security/index.yml)
+- [Learn more about Azure network security](../../networking/security/index.yml)

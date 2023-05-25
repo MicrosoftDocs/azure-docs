@@ -118,5 +118,5 @@ Monitoring for WAF at Front Door is integrated with Azure Monitor to track alert
 ## Next steps
 
 - [Learn about Web Application Firewall on Azure Application Gateway](../ag/ag-overview.md)
-- [Learn more about Azure network security](../networking/security/index.yml)
+- [Learn more about Azure network security](../../networking/security/index.yml)
 
