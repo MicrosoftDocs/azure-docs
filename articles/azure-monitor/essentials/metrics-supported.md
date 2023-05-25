@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 05/025/2023
+ms.date: 05/25/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
