@@ -27,10 +27,6 @@ The following tutorial explains how to migrate an existing application to connec
 
 ### Migrate the app code to use passwordless connections
 
-Next, update your code to use passwordless connections.
-
-## [.NET](#tab/dotnet)
-
 1. To use `DefaultAzureCredential` in a .NET application, install the `Azure.Identity` package:
 
    ```dotnetcli
@@ -51,20 +47,6 @@ Next, update your code to use passwordless connections.
         tokenCredential: new DefaultAzureCredential()
     );
    ```
-
-## [Java](#tab/java)
-
-Placeholder
-
-## [Node.js](#tab/nodejs)
-
-Placeholder
-
-## [Python](#tab/python)
-
-Placeholder
-
----
 
 ### Run the app locally
 
@@ -111,7 +93,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 
 Grant permissions to the managed identity by assigning it the custom role you created, just like you did with your local development user.
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [az cosmosdb show](/cli/azure/cosmosdb) show command. You can filter the output properties using the `--query` parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [az cosmosdb show](/cli/azure/cosmosdb) command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az cosmosdb show \
@@ -136,8 +118,6 @@ You need to configure your application code to look for the specific managed ide
 1. On the managed identity overview page, copy the client ID value to your clipboard.
 1. Update the `DefaultAzureCredential` object to specify this managed identity client ID:
 
-    ## [.NET](#tab/dotnet)
-    
     ```csharp
     // TODO: Update the <managed-identity-client-id> placeholder.
     var credential = new DefaultAzureCredential(
@@ -146,35 +126,6 @@ You need to configure your application code to look for the specific managed ide
             ManagedIdentityClientId = "<managed-identity-client-id>"
         });
     ```
-
-    ## [Java](#tab/java)
-    
-    ```java
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .managedIdentityClientId("<managed-identity-client-id>")
-        .build();
-    ```
-    
-    ## [Node.js](#tab/nodejs)
-    
-    ```nodejs
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    const credential = new DefaultAzureCredential({
-      managedIdentityClientId: "<managed-identity-client-id>"
-    });
-    ```
-    
-    ## [Python](#tab/python)
-    
-    ```python
-    # TODO: Update the <managed-identity-client-id> placeholder.
-    credential = DefaultAzureCredential(
-        managed_identity_client_id = "<managed-identity-client-id>"
-    )
-    ```
-
-    ---
 
 3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
 
