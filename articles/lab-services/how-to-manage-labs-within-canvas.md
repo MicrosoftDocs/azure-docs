@@ -27,9 +27,11 @@ For more information about adding lab plans to Canvas, see [Configure Canvas to 
 
 ## Prerequisites
 
-- An Azure Lab Services lab plan. If you don't have a lab plan yet, see For information, see [Set up a lab plan with Azure Lab Services](quick-create-resources.md).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
 - The Azure Lab Services Canvas app is enabled. Learn how to [configure Canvas for Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md).
-- To create and manage labs, your account should have the Lab Creator, or Lab Contributor role on the lab plan.
 
 ## Create a lab in Canvas
 
