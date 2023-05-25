@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a Windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
