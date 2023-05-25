@@ -1,6 +1,6 @@
 ---
 title: Azure API Center (preview) - Overview
-description: Introduction to key scenarios and capabilities of Azure API Center. API Center inventories an organization's APIs to promote API discovery and governance at scale.
+description: Introduction to key scenarios and capabilities of Azure API Center. API Center inventories an organization's APIs to promote API discovery, reuse, and governance at scale.
 author: dlepow
 editor: ''
  
@@ -8,7 +8,7 @@ ms.service: api-center
 ms.topic: overview
 ms.date: 05/24/2023
 ms.author: danlep
-ms.custom: 
+ms.custom: references_regions
 ---
 
 # What is Azure API Center (preview)?
