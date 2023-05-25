@@ -37,7 +37,7 @@ Only resources with a target created off of them are targetable for fault inject
 
 ## Capabilities
 
-A *capability* enables Chaos Studio to run a particular fault against a resource, such as shutting down a virtual machine. Capabilities are unique per target type. They represent the fault that they enable, for example, `CPUPressure-1.0`. [Visit the Chaos Studio fault library](chaos-studio-fault-library.md) to understand all available faults and their corresponding capability names and target types.
+A *capability* enables Chaos Studio to run a particular fault against a resource, such as shutting down a virtual machine. Capabilities are unique per target type. They represent the fault that they enable, for example, `CPUPressure-1.0`. To understand all available faults and their corresponding capability names and target types, see the [Chaos Studio fault library](chaos-studio-fault-library.md).
 
 A capability is an extension resource created as a child of a target. For example, if you're enabling the shutdown fault on a virtual machine with a service-direct target ID:
 
