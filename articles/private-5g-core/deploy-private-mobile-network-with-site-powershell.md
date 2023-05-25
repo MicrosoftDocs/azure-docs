@@ -34,15 +34,11 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 - [New-AzMobileNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetwork)
 - [New-AzMobileNetworkSite](/powershell/module/az.mobilenetwork/new-azmobilenetworksite)
-- [New-AzMobileNetworkPacketCoreControlPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcorecontrolplane)
-- [New-AzMobileNetworkPacketCoreDataPlane](/powershell/module/az.mobilenetwork/new-azmobilenetworkpacketcoredataplane)
-- [New-AzMobileNetworkDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkdatanetwork)
 - [New-AzMobileNetworkSimGroup](/powershell/module/az.mobilenetwork/new-azmobilenetworksimgroup)
 - [New-AzMobileNetworkSlice](/powershell/module/az.mobilenetwork/new-azmobilenetworkslice)
 - [New-AzMobileNetworkServiceResourceIdObject](/powershell/module/az.mobilenetwork/new-azmobilenetworkserviceresourceidobject)
 - [New-AzMobileNetworkSim](/powershell/module/az.mobilenetwork/new-azmobilenetworksim)
 - [New-AzMobileNetworkSimStaticIPPropertiesObject](/powershell/module/az.mobilenetwork/new-azmobilenetworksimstaticippropertiesobject)
-- [New-AzMobileNetworkAttachedDataNetwork](/powershell/module/az.mobilenetwork/new-azmobilenetworkattacheddatanetwork)
 
 ## Sign in to Azure
 
@@ -65,79 +61,6 @@ Use `New-AzMobileNetwork` to create a new **Mobile Network** resource. The examp
 
 ```powershell
 New-AzMobileNetwork -Name <MOBILENETWORK> -ResourceGroupName <RESOURCEGROUP> -Location eastus -PublicLandMobileNetworkIdentifierMcc 001 -PublicLandMobileNetworkIdentifierMnc 01
-```
-
-### Create a Site resource
-
-Use `New-AzMobileNetworkSite` to create a new **Site** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
-
-|Placeholder|Value|
-|-|-|
-| `<MOBILENETWORK>`   | Enter the name of the private mobile network you created.      |
-| `<SITE>`   | Enter the name for the site.      |
-| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
-| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
-
-```powershell
-New-AzMobileNetworkSite -MobileNetworkName <MOBILENETWORK> -Name <SITE> -ResourceGroupName <RESOURCEGROUP> -Location eastus
-```
-
-Create a variable containing the **Site** resource's ID.
-
-```powershell
-$siteResourceId = New-AzMobileNetworkSiteResourceIdObject -Id /subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/sites/<SITE>
-```
-
-### Create a Packet Core Control Plane resource
-
-Use `New-AzMobileNetworkPacketCoreControlPlane` to create a new **Packet Core Control Plane** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
-
-|Placeholder|Value|
-|-|-|
-| `<CONTROLPLANE>`   | Enter the name for the packet core control plane.      |
-| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
-| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
-
-```powershell
-$aseId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/<ASE>"
-$customLocationId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOMLOCATION>"
-New-AzMobileNetworkPacketCoreControlPlane -Name <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -LocalDiagnosticAccessAuthenticationType Password -Location eastus -PlatformType AKS-HCI -Site $siteResourceId -Sku G0 -ControlPlaneAccessInterfaceIpv4Address 10.232.44.56 -ControlPlaneAccessInterfaceName N2 -AzureStackEdgeDeviceId $aseId -CustomLocationId $customLocationId
-```
-
-### Create a Packet Core Data Plane resource
-
-Use `New-AzMobileNetworkPacketCoreDataPlane` to create a new **Packet Core Data Plane** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
-
-|Placeholder|Value|
-|-|-|
-| `<DATAPLANE>`   | Enter the name for the data plane.      |
-| `<CONTROLPLANE>`   | Enter the name of the packet core control plane.      |
-| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
-
-```powershell
-New-AzMobileNetworkPacketCoreDataPlane -Name <DATAPLANE> -PacketCoreControlPlaneName <CONTROLPLANE> -ResourceGroupName <RESOURCEGROUP> -Location eastus -UserPlaneAccessInterfaceName N3
-```
-
-### Create a Data Network
-
-Use `New-AzMobileNetworkDataNetwork` to create a new **Data Network** resource. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
-
-|Placeholder|Value|
-|-|-|
-| `<MOBILENETWORK>`   | Enter the name of the private mobile network.      |
-| `<DATANETWORK>`   | Enter the name for the data network.      |
-| `<RESOURCEGROUP>`   | Enter the name of the resource group. |
-| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
-
-```powershell
-New-AzMobileNetworkDataNetwork -MobileNetworkName <MOBILENETWORK> -Name
- <DATANETWORK> -ResourceGroupName <RESOURCEGROUP> -Location eastus
-```
-
-Create a variable for the **Data Network** resource's configuration.
-
-```powershell
-$dataNetworkConfiguration =  New-AzMobileNetworkDataNetworkConfigurationObject -AllowedService $ServiceResourceId -DataNetworkId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/dataNetworks/<DATANETWORK>" -SessionAmbrDownlink "1 Gbps" -SessionAmbrUplink "500 Mbps" -FiveQi 9 -AllocationAndRetentionPriorityLevel 9 -DefaultSessionType 'IPv4' -MaximumNumberOfBufferedPacket 200 -PreemptionCapability 'NotPreempt' -PreemptionVulnerability 'Preemptable'
 ```
 
 ### Create a SIM Group
@@ -242,19 +165,32 @@ $staticIp = New-AzMobileNetworkSimStaticIPPropertiesObject -StaticIPIpv4Address 
 New-AzMobileNetworkSim -GroupName <SIMGROUP> -Name <SIM> -ResourceGroupName <RESOURCEGROUP>  -InternationalMobileSubscriberIdentity 000000000000001 -AuthenticationKey 00112233445566778899AABBCCDDEEFF -DeviceType Mobile -IntegratedCircuitCardIdentifier 8900000000000000001 -OperatorKeyCode 00000000000000000000000000000001 -SimPolicyId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/simPolicies/<SIMPOLICY>" -StaticIPConfiguration $staticIp
 ```
 
-### Attach the Data Network
+### Create a Site and dependant resources resource
 
-Use `New-AzMobileNetworkAttachedDataNetwork` to attach the **Data Network** you created. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
+Use `New-AzMobileNetworkSite` to create a new **Site** resource,. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
 
 |Placeholder|Value|
 |-|-|
-| `<DATANETWORK>`   | Enter the name for the data network.      |
-| `<CONTROLPLANE>` | Enter the name of the packet core control plane.  |
-| `<DATAPLANE>`   | Enter the name of the packet core data plane.      |
 | `<RESOURCEGROUP>`   | Enter the name of the resource group. |
+| `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
+| `<ASE>` | Enter the name for the ASE device. |
+| `<MOBILENETWORK>`   | Enter the name of the private mobile network you created.      |
+| `<SITE>`   | Enter the name for the site.      |
+| `<CUSTOMLOCATION>` | Enter the name for the custom location. |
+| `<DATANETWORK>`   | Enter the name for the data network.      |
 
 ```powershell
- New-AzMobileNetworkAttachedDataNetwork -Name <DATANETWORK> -PacketCoreControlPlaneName <CONTROLPLANE> -PacketCoreDataPlaneName <DATAPLANE> -ResourceGroupName <RESOURCEGROUP> -DnsAddress "1.1.1.1" -Location eastus -UserPlaneDataInterfaceName N6 -UserEquipmentAddressPoolPrefix "192.168.1.0/24"
+$aseId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/<ASE>"
+
+$customLocationId = "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOMLOCATION>"
+
+New-AzMobileNetworkSite -Name <SITE> -ResourceGroup <RESOURCEGROUP> -Location eastus -PlatformType AKS-HCI -Sku G0 -ControlPlaneAccessInterfaceIpv4Address 10.232.44.56 -MobileNetwork <MOBILENETWORK> -ControlPlaneAccessInterfaceIpv4Subnet 10.232.44.0/24 -ControlPlaneAccessInterfaceIpv4Gateway 10.232.44.1 -ControlPlaneAccessInterfaceName N2 -LocalDiagnosticAccessAuthenticationType Password  -UserPlaneAccessInterfaceName N3 -UserPlaneAccessInterfaceIpv4Address 192.168.0.101 -UserPlaneAccessInterfaceIpv4Gateway 192.168.0.1 -UserPlaneAccessInterfaceIpv4Subnet 192.168.0.0/24  -DataNetworkName <DATANETWORK> -UserPlaneDataInterfaceIpv4Address 10.0.0.101 -UserPlaneDataInterfaceIpv4Subnet 10.0.0.0/8 -UserPlaneDataInterfaceIpv4Gateway 10.0.0.1 -UserEquipmentAddressPoolPrefix 192.168.1.0/24 -CoreNetworkTechnology 5GC -AzureStackEdgeDeviceId $aseId -UserPlaneDataInterfaceName N6 -DnsAddress 1.1.1.1 -CustomLocation $customLocationId
+```
+
+Create a variable containing the **Site** resource's ID.
+
+```powershell
+$siteResourceId = New-AzMobileNetworkSiteResourceIdObject -Id /subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/sites/<SITE>
 ```
 
 ## Clean up resources
