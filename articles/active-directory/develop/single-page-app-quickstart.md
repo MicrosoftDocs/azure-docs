@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users in single-page apps (SPA) with authorization code with Proof Key for Code Exchange (PKCE)"
-description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
+description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow with Proof Key for Code Exchange (PKCE).
 services: active-directory
 author: Dickson-Mwendia
 manager: CelesteDG
