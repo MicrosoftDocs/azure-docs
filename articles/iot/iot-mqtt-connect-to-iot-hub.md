@@ -6,23 +6,35 @@ author: kgremban
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 05/25/2023
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
 ---
 
 # Communicate with an IoT hub using the MQTT protocol
 
-IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
+This article describes how devices can use supported MQTT behaviors to communicate with Azure IoT Hub. IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
 
 * [MQTT v3.1.1](https://mqtt.org/) on TCP port 8883
 * MQTT v3.1.1 over WebSocket on TCP port 443.
 
-IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with IoT Hub.
-
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn't support nonsecure connections over TCP port 1883.
+
+## Compare MQTT support in IoT Hub and Event Grid
+
+IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs MQTT, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a pub-sub messaging model. It also enables you to route MQTT messages to Azure services or custom endpoints for further processing.
+
+The following table explains the differences in MQTT support between the two services:
+
+| IoT Hub | Event Grid |
+| ------- | ---------- |
+| Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
+| Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). Additional feature support is not planned. | MQTT v3.1.1 and v5 protocol support, with additional feature support and industry compliance planned. |
+| Static, pre-defined topics. | Custom hierarchical topics with wildcard support. |
+| No support for cloud-to-device broadcasts and device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
+| 256kb max message size. | 512kb max message size. |
 
 ## Connecting to IoT Hub
 
@@ -41,10 +53,10 @@ When a device is connected to an IoT hub, the device SDKs provide methods that e
 
 The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT or the MQTT over WebSockets protocol.
 
-| Language | MQTT protocol parameter | MQTT over WebSockets protocol parameter
+| Language | MQTT protocol parameter | MQTT over WebSockets protocol parameter |
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) | [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt.h) | [MQTT_WebSocket_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt_websockets.h) |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over WebSockets if MQTT fails. To specify MQTT over WebSockets only, use TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
