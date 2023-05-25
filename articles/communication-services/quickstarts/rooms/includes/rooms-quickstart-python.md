@@ -175,8 +175,8 @@ try:
 
     # Add new participant user3
     participants.append(RoomParticipant(self.user3, ParticipantRole.CONSUMER))
-    self.rooms_client.add_participants(room_id, participants)
-    print("\nAdded participants to room")
+    self.rooms_client.add_or_update_participants(room_id=room_id, participants=participants)
+    print("\Add or update participants in room")
 
 except Exception as ex:
     print('Error in adding or updating participants to room.', ex)
@@ -216,7 +216,7 @@ except HttpResponseError as ex:
 
 ```
 
-### Delete room
+## Delete room
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```python
@@ -254,7 +254,6 @@ Room Id: 99445276259151407
 Created date time: 2023-05-03T00:00:00+00:00
 Valid From: 2023-05-03T00:00:00+00:00
 Valid Until: 2023-06-23T00:00:00+00:00
-
 
 Add or update participants in room
 
