@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Regional availability of Azure Chaos Studio Preview
 
-This article describes the regional availability model for Azure Chaos Studio Preview, specifically the difference between a region where experiments can be deployed and one where resources can be targeted. It also provides an overview of Chaos Studio's high-availability model.
+This article describes the regional availability model for Azure Chaos Studio Preview. It explains the difference between a region where experiments can be deployed and one where resources can be targeted. It also provides an overview of the Chaos Studio high-availability model.
 
 Chaos Studio is a regional Azure service, which means that the service is deployed and run within an Azure region. Chaos Studio has two regional components: the region where an experiment is deployed and the region where a resource is targeted.
 
