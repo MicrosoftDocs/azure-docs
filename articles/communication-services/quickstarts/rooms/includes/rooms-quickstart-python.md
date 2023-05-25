@@ -169,7 +169,7 @@ To add new participants or update existing participants in a `room`, use the `ad
 ```python
 # Add or update participants in a room
 try:
-    # Update existing user2
+    # Update existing user2 from consumer to attendee
     participants = []
     participants.append(RoomParticipant(self.user2, ParticipantRole.ATTENDEE))
 
