@@ -7,7 +7,7 @@ ms.date: 05/24/2022
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps consumption plan or enterprise plan.
+For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps consumption plan.
 
 [!INCLUDE [deploy-to-azure-spring-apps-consumption-plan](includes/quickstart-deploy-web-app/deploy-consumption-plan.md)]
 
