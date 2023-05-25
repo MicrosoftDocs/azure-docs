@@ -78,17 +78,14 @@ Confidential VMs support the following VM sizes:
 ### OS support
 
 Confidential VMs support the following OS options:
-
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-
 - Windows Server 2019 Datacenter - x64 Gen 2
 - Windows Server 2019 Datacenter Server Core - x64 Gen 2
 - Windows Server 2022 Datacenter - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
 - Windows Server 2022 Datacenter Server Core - x64 Gen 2
-
 - Windows 11 Enterprise N, version 22H2 -x64 Gen 2
 - Windows 11 Pro, version 22H2 ZH-CN -x64 Gen 2
 - Windows 11 Pro, version 22H2 -x64 Gen 2
