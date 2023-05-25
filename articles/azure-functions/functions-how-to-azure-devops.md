@@ -30,13 +30,21 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
 * A function app with its code in a GitHub repository.  If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
     # [C\#](#tab/csharp)
+
     [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
+
     # [JavaScript](#tab/javascript)
+
     [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
+
     # [Python](#tab/python)
+
     [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
+
     # [PowerShell](#tab/powershell)
+
     [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
+
     ---
 
 ::: zone pivot="v1"
@@ -61,15 +69,15 @@ How you build your app in Azure Pipelines depends on your app's programming lang
 
 To use built-in build templates, when you create a new build pipeline, select **Use the classic editor** to create a pipeline by using designer templates.
 
-![Select the Azure Pipelines classic editor](media/functions-how-to-azure-devops/classic-editor.png)
+![Screenshot of the Azure Pipelines classic editor.](media/functions-how-to-azure-devops/classic-editor.png)
 
 After you configure the source of your code, search for Azure Functions build templates. Select the template that matches your app language.
 
-![Select an Azure Functions build template](media/functions-how-to-azure-devops/build-templates.png)
+![Screenshot of Azure Functions build template.](media/functions-how-to-azure-devops/build-templates.png)
 
 In some cases, build artifacts have a specific folder structure. You might need to select the **Prepend root folder name to archive paths** check box.
 
-![The option to prepend the root folder name](media/functions-how-to-azure-devops/prepend-root-folder.png)
+![Screenshot of option to prepend the root folder name.](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 ---
 
@@ -258,7 +266,7 @@ The snippet assumes that the build steps in your YAML file produce the zip archi
 
 You'll need to create a separate release pipeline to deploy to Azure Functions. When you create a new release pipeline, search for the Azure Functions release template.
 
-![Search for the Azure Functions release template](media/functions-how-to-azure-devops/release-template.png)
+![Screenshot of search for the Azure Functions release template.](media/functions-how-to-azure-devops/release-template.png)
 
 ---
 
@@ -385,15 +393,15 @@ How you build your app in Azure Pipelines depends on your app's programming lang
 
 To use built-in build templates, when you create a new build pipeline, select **Use the classic editor** to create a pipeline by using designer templates.
 
-![Select the Azure Pipelines classic editor](media/functions-how-to-azure-devops/classic-editor.png)
+![Screenshot of select the Azure Pipelines classic editor.](media/functions-how-to-azure-devops/classic-editor.png)
 
 After you configure the source of your code, search for Azure Functions build templates. Select the template that matches your app language.
 
-![Select an Azure Functions build template](media/functions-how-to-azure-devops/build-templates.png)
+![Screenshot of select an Azure Functions build template.](media/functions-how-to-azure-devops/build-templates.png)
 
 In some cases, build artifacts have a specific folder structure. You might need to select the **Prepend root folder name to archive paths** check box.
 
-![The option to prepend the root folder name](media/functions-how-to-azure-devops/prepend-root-folder.png)
+![Screenshot of the option to prepend the root folder name.](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 ---
 
@@ -583,7 +591,7 @@ The snippet assumes that the build steps in your YAML file produce the zip archi
 
 You'll need to create a separate release pipeline to deploy to Azure Functions. When you create a new release pipeline, search for the Azure Functions release template.
 
-![Search for the Azure Functions release template](media/functions-how-to-azure-devops/release-template.png)
+![Screenshot of search for the Azure Functions release template.](media/functions-how-to-azure-devops/release-template.png)
 
 ---
 
