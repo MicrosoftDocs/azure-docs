@@ -49,18 +49,18 @@ This self-serve feature is available in the Portal while creating and editing an
 
 If you're using an API Kind that only supports TLS 1.2, you'll notice in the Networking tab at the bottom the TLS protocol disabled.
 
-:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-create-account.png" alt-text="Screenshot of API Kind that only supports TLS 1.2":::
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-create-account.png" alt-text="Screenshot of API Kind that only supports TLS 1.2.":::
 
 
 
 If you're using an API Kind that accepts multiple TLS protocols, then you can navigate to the Networking tab and the Minimum Transport Layer Security Protocol option is available. You can change the selected protocol by just clicking on the dropdown and selecting the desired protocol.
 
-:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-select-account.png" alt-text="Screenshot of API Kind that accepts multiple TLS protocols":::
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-select-account.png" alt-text="Screenshot of API Kind that accepts multiple TLS protocols.":::
 
 
 After setting up your account, you can review in the Review + create tab, at the bottom inside the Networking section, that the selected TLS Protocol is set as you specified.
 
-:::image type="content" source="media/self-serve-minimum-tls-enforcement/summary.png" alt-text="Screenshot of selected TLS Protocol is set as you specified":::
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/summary.png" alt-text="Screenshot of selected TLS Protocol is set as you specified.":::
 
 
 ### Steps to set the Minimal TLS Protocol while editing an account
@@ -72,17 +72,17 @@ After setting up your account, you can review in the Review + create tab, at the
 3. You'll find the Minimum Transport Layer Security Protocol option. If you're using an API Kind that only supports TLS 1.2, you'll notice this option disabled. Otherwise, you'll be able to select the desired TLS Protocol by just clicking on it.
 
 
-  :::image type="content" source="media/self-serve-minimum-tls-enforcement/edit.png" alt-text="Screenshot of minimum transport layer security protocol option":::
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/edit.png" alt-text="Screenshot of minimum transport layer security protocol option.":::
 
  
 4. Click Save once you changed the TLS protocol.
 
-  :::image type="content" source="media/self-serve-minimum-tls-enforcement/save.png" alt-text="Screenshot of save after change":::
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/save.png" alt-text="Screenshot of save after change.":::
 
  
 5. Once it is saved, you'll receive a success notification. Still, this change can take up to 15 minutes to take effect after the configuration update is completed.
 
-  :::image type="content" source="media/self-serve-minimum-tls-enforcement/notification-success.png" alt-text="Screenshot of success notification":::
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/notification-success.png" alt-text="Screenshot of success notification.":::
 
  
 
