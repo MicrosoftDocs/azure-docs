@@ -18,11 +18,11 @@ In this article, we cover the Click Analytics plug-in, which automatically track
 
 ## Get started
 
-Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM.
+Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM and then optionally add a framework extension.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### Snippet setup
+### [Snippet setup](#tab/snippetsetup)
 
 Ignore this setup if you use the npm setup.
 
@@ -59,7 +59,7 @@ Ignore this setup if you use the npm setup.
 </script>
 ```
 
-### npm setup
+### [npm setup](#tab/npmsetup)
 
 Install the npm package:
 
@@ -92,6 +92,50 @@ const configObj = {
 const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
+
+---
+
+## Add a framework extension
+
+Add a framework extension, if needed.
+
+### [React](#tab/react)
+
+```javascript
+var browserHistory = createBrowserHistory({ basename: '' });
+var reactPlugin = new ReactPlugin();
+var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+};
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [reactPlugin, clickPluginInstance],
+        extensionConfig: {
+          [reactPlugin.identifier]: { history: browserHistory },
+          [clickPluginInstance.identifier]: clickPluginConfig
+        }
+    }
+});
+appInsights.loadAppInsights();
+```
+
+> [!NOTE] 
+> To add React configuration, see [React configuration](./javascript-framework-extensions.md?tabs=react#configuration). For more information on the React plug-in, see [React plug-in](./javascript-framework-extensions.md?tabs=react#react-application-insights-javascript-sdk-plug-in).
+### [React Native](#tab/reactnative)
+
+*<code here>*
+
+> [!NOTE] 
+> For more information on the React Native plug-in, see [React Native plug-in](./javascript-framework-extensions.md?tabs=reactnative#react-native-plugin-for-application-insights-javascript-sdk).
+### [Angular](#tab/angular)
+
+*<code here>*
+
+For more information on the Angular plug-in, see [Angular plug-in](./javascript-framework-extensions.md?tabs=angular#angular-plugin-for-application-insights-javascript-sdk).
+
+---
 
 ## Set the authenticated user context
 
