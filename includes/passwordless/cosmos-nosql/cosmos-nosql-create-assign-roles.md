@@ -19,9 +19,9 @@ Roles consist of a collection of permissions or actions that a user is allowed t
 1. Create a role using the `az role definition create` command. Pass in the Cosmos DB account name and resource group, followed by a body of JSON that defines the custom role. The following example creates a role named `PasswordlessReadWrite` with permissions to read and write items in Cosmos DB containers. The role is also scoped to the account level using `/`.
 
     ```azurecli
-    az cosmosdb sql role definition create 
-        --account-name <cosmosdb-account-name>
-        --resource-group  <resource-group-name>
+    az cosmosdb sql role definition create \
+        --account-name <cosmosdb-account-name> \
+        --resource-group  <resource-group-name> \
         --body '{
         "RoleName": "PasswordlessReadWrite",
         "Type": "CustomRole",
@@ -49,10 +49,10 @@ Roles consist of a collection of permissions or actions that a user is allowed t
 1. Assign the custom role you created to your user account using the `az cosmosdb sql role assignment create` command and the IDs you copied previously.
     
     ```azurecli
-    az cosmosdb sql role assignment create 
-        --account-name <cosmosdb-account-name>
-        --resource-group  <resource-group-name>
-        --scope "/" 
-        --principal-id <your-user-id>
+    az cosmosdb sql role assignment create \
+        --account-name <cosmosdb-account-name> \
+        --resource-group  <resource-group-name> \
+        --scope "/" \
+        --principal-id <your-user-id> \
         --role-definition-id <your-custom-role-id> 
     ```
