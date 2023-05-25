@@ -63,6 +63,8 @@ With your core settings in place, you can configure access controls and security
 
 ### Enable Conditional Access policies
 
+[How to configure target resources for Conditional Access](how-to-target-resource.md)
+
 ### Configure tenant restrictions
 
 ### Log streaming
