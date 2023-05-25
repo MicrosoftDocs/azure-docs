@@ -16,42 +16,42 @@ ms.collection: M365-identity-device-management
 
 # Introduction to multilateral federation solutions
 
-Research universities need to collaborate with one another. To accomplish collaboration, they require multilateral federation to enable authentication and access between universities globally. 
+Research universities need to collaborate with one another. To accomplish collaboration, they require multilateral federation to enable authentication and access between universities globally.
 
 ## Challenges with multilateral federation solutions
 
-Universities face many challenges. For example, one university might use one identity management system and a set of protocols while other universities use a  different set of technologies, depending on their requirements. In general, universities can:
+Universities face many challenges. For example, a university might use one identity management system and a set of protocols. Other universities might use a different set of technologies, depending on their requirements. In general, universities can:
 
-* Use different identity management systems
+* Use different identity management systems.
 
-* Use different protocols
+* Use different protocols.
 
-* Use customized solutions
+* Use customized solutions.
 
-* Require support for a long history of legacy functionality
+* Need support for a long history of legacy functionality.
 
-* Need to support solutions that are built in different IT generations
+* Need support for solutions that are built in different IT generations.
 
 Many universities are also adopting the Microsoft 365 suite of productivity and collaboration tools. These tools rely on Azure Active Directory (Azure AD) for identity management, which enables universities to configure:
 
-* Single sign-on (SSO) across multiple applications
+* Single sign-on across multiple applications.
 
-* Modern security controls, including passwordless authentication, MFA, adaptive conditional access, and Identity Protection
+* Modern security controls, including passwordless authentication, multifactor authentication, adaptive Conditional Access, and identity protection.
 
-* Enhanced reporting and monitoring
+* Enhanced reporting and monitoring.
 
-Because Azure AD doesn't natively support multilateral federation, this content describes three solutions for federating authentication and access between universities with typical research university architecture. In these scenarios, non-Microsoft products are mentioned for illustrative purposes only and represent the broader class of product. For example, Shibboleth is used as an example of a federation provider.
+Because Azure AD doesn't natively support multilateral federation, this content describes three solutions for federating authentication and access between universities with a typical research university architecture. These scenarios mention non-Microsoft products for illustrative purposes only and to represent the broader class of products. For example, this content uses Shibboleth as an example of a federation provider.
 
 ## Next steps
 
-See these other multilateral federation articles:
+See these other articles about multilateral federation:
 
-[Multilateral federation  baseline design](multilateral-federation-baseline.md)
+[Multilateral federation baseline design](multilateral-federation-baseline.md)
 
-[Multilateral federation solution one -  Azure AD with Cirrus Bridge](multilateral-federation-solution-one.md)
+[Multilateral federation Solution 1: Azure AD with Cirrus Bridge](multilateral-federation-solution-one.md)
 
-[Multilateral federation solution two - Azure AD to Shibboleth as SP Proxy](multilateral-federation-solution-two.md)
+[Multilateral federation Solution 2: Azure AD to Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
 
-[Multilateral federation solution three - Azure AD with ADFS and Shibboleth](multilateral-federation-solution-three.md)
+[Multilateral federation Solution 3: Azure AD with AD FS and Shibboleth](multilateral-federation-solution-three.md)
 
 [Multilateral federation decision tree](multilateral-federation-decision-tree.md)
