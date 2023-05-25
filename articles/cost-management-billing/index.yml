@@ -153,7 +153,7 @@ productDirectory:
         - url: scope-level/index.yml?toc=/azure/cost-management-billing/scope-level/toc.json
           text: Manage Azure Hybrid Benefit for SQL Server
     - title: Cost allocation
-      imageSrc: ./media/optimization.svg
+      imageSrc: ./media/cost-allocation.svg
       links:
         - url: costs/enable-tag-inheritance.md?toc=/azure/cost-management-billing/toc.json
           text: Enable tag inheritance
