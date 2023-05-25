@@ -2429,7 +2429,16 @@ groups:
     title: Azure CLI
   - id: method-bicep
     title: Bicep template
-# Owner: juliakm
+# Owner: juliakm, ggailey777
+- id: functions-task-versions
+  title: Select your version of the Pipelines task
+  prompt: Choose an option
+  pivots: 
+  - id: v1
+    title: AzureFunctionApp@1
+  - id: v2
+    title: AzureFunctionApp@2
+# Owner: juliakm, ggailey777
 - id: github-actions-deployment-options
   title: GitHub Actions deployment options
   prompt: Choose how to create the workflow configuration
