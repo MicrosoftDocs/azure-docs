@@ -1,25 +1,20 @@
 ---
 title: Migrate to Azure AD MFA and Azure AD user authentication
-description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA and Azure AD user authentication
-
+description: Guidance to move from MFA Server on-premises to Azure AD MFA and Azure AD user authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
-
+ms.date: 05/23/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
 ms.reviewer: michmcla
-
 ms.collection: M365-identity-device-management
 ---
 # Migrate to Azure AD MFA and Azure AD user authentication
 
-Multi-factor authentication (MFA) helps secure your infrastructure and assets from bad actors. 
-Microsoft's Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. 
-Customers who are using MFA Server should move to Azure AD Multi-Factor Authentication (Azure AD MFA). 
+Multi-factor authentication (MFA) helps secure your infrastructure and assets from bad actors. Microsoft Multi-Factor Authentication Server (MFA Server) is no longer offered for new deployments. Customers who are using MFA Server should move to Azure AD Multi-Factor Authentication (Azure AD MFA). 
 
 There are several options for migrating from MFA Server to Azure Active Directory (Azure AD):
 
@@ -66,7 +61,7 @@ Groups are used in three capacities for MFA migration.
 ### Configure Conditional Access policies
 
 If you're already using Conditional Access to determine when users are prompted for MFA, you won't need any changes to your policies. 
-As users are migrated to cloud authentication, they'll start using Azure AD MFA as defined by your existing Conditional Access policies. 
+As users are migrated to cloud authentication, they'll start using Azure AD MFA as defined by your Conditional Access policies. 
 They won't be redirected to AD FS and MFA Server anymore.
 
 If your federated domains have the **federatedIdpMfaBehavior** set to `enforceMfaByFederatedIdp` or **SupportsMfa** flag set to `$True` (the **federatedIdpMfaBehavior** overrides **SupportsMfa** when both are set), you're likely enforcing MFA on AD FS by using claims rules. 
@@ -98,20 +93,20 @@ Now that Azure AD MFA is an additional authentication method, you can assign gro
 >[!NOTE]
 >Claims rules require on-premises security group. 
 
-#### Back up existing rules 
+#### Back up rules 
 
-Before configuring new claims rules, back up your existing rules. 
-You'll need to restore claims rules as a part of your cleanup steps. 
+Before configuring new claims rules, back up your rules. 
+You'll need to restore claims rules as a part of your clean-up steps. 
 
 Depending on your configuration, you may also need to copy the existing rule and append the new rules being created for the migration.
 
-To view existing global rules, run:  
+To view global rules, run:  
 
 ```powershell
 Get-AdfsAdditionalAuthenticationRule
 ```
 
-To view existing relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
+To view relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
 ```powershell
 (Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
@@ -139,17 +134,17 @@ To find the group SID, run the following command and replace `GroupName` with yo
 Get-ADGroup GroupName
 ```
 
-![PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
+![Microsoft Graph PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
 
 #### Setting the claims rules to call Azure AD MFA
 
-The following PowerShell cmdlets invoke Azure AD MFA for users in the group when they aren't on the corporate network. 
-You must replace `"YourGroupSid"` with the SID found by running the preceding cmdlet.
+The following Microsoft Graph PowerShell cmdlets invoke Azure AD MFA for users in the group when they aren't on the corporate network. 
+Replace `"YourGroupSid"` with the SID found by running the preceding cmdlet.
 
 Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server#how-to-choose-additional-auth-providers-in-2019). 
 
 >[!IMPORTANT] 
->Backup your existing claims rules before proceeding.
+>Back up your claims rules before proceeding.
 
 ##### Set global claims rule 
 
@@ -209,8 +204,7 @@ Value=="YourGroupSid"]) => issue(Type =
 
 ### Configure Azure AD MFA as an authentication provider in AD FS
 
-In order to configure Azure AD MFA for AD FS, you must configure each AD FS server. 
-If multiple AD FS servers are in your farm, you can configure them remotely using Azure AD PowerShell.
+In order to configure Azure AD MFA for AD FS, you must configure each AD FS server. If multiple AD FS servers are in your farm, you can configure them remotely using Microsoft Graph PowerShell.
 
 For step-by-step directions on this process, see [Configure the AD FS servers](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
@@ -340,7 +334,7 @@ Possible considerations when decommissions the MFA Server include:
 
 ## Move application authentication to Azure Active Directory
 
-If you migrate all your application authentication along with your MFA and user authentication, you'll be able to remove significant portions of your on-premises infrastructure, reducing costs and risks. 
+If you migrate all your application authentication with your MFA and user authentication, you'll be able to remove significant portions of your on-premises infrastructure, reducing costs and risks. 
 If you move all application authentication, you can skip the [Prepare AD FS](#prepare-ad-fs) stage and simplify your MFA migration.
 
 The process for moving all application authentication is shown in the following diagram.
@@ -353,5 +347,5 @@ For more information about migrating applications to Azure, see [Resources for m
 ## Next steps
 
 - [Migrate from Microsoft MFA Server to Azure AD MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
-- [Migrate applications from Windows Active Directory to Azure Active Directory](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
+- [Migrate applications from Windows Active Directory to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
 - [Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)
