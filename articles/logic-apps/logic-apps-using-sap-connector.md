@@ -101,7 +101,7 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
   * Set up your SAP server and user account to allow using RFC.
 
-    For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDOC), review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089).
+    For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089).
 
   * Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
 
