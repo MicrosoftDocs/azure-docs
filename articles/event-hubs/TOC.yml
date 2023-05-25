@@ -53,7 +53,7 @@
           items:
           - name: Java
             href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Send and receive events using Data Generator
+        - name: Send events using Data Generator
           href: send-and-receive-events-using-data-generator.md
           displayName: No Code, Sample data
     - name: Capture events
