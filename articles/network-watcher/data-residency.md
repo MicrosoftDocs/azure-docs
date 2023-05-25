@@ -12,9 +12,9 @@ ms.custom: template-concept, engagement-fy23
 
 # Data residency for Azure Network Watcher
 
-Azure Network Watcher doesn't store customer data, except for the Connection Monitor
+Azure Network Watcher doesn't store customer data, except for the Connection monitor.
 
-## Connection Monitor data residency
+## Connection monitor data residency
 
 Connection monitor stores customer data. This data is automatically stored by Network Watcher in a single region. So Connection Monitor automatically satisfies in-region data residency requirements, including requirements specified on the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
