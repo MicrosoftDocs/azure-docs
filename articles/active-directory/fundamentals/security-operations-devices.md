@@ -88,7 +88,7 @@ Sign-in logs
 
     where ResourceDisplayName == "Device Registration Service"
 
-    where conditionalAccessStatus == "success"
+    where ConditionalAccessStatus == "success"
 
     where AuthenticationRequirement <> "multiFactorAuthentication"
 ~~~
@@ -115,7 +115,7 @@ SigninLogs
 
 | where DeviceDetail.isCompliant == false
 
-| where conditionalAccessStatus == "success"
+| where ConditionalAccessStatus == "success"
 ```
 
 **Sign-ins by unknown devices**

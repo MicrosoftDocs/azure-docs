@@ -73,7 +73,7 @@ The available helper classes are:
 
 ## Bulk import with the Jobs API
 
-The [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+The [Jobs API](/rest/api/digital-twins/dataplane/import-jobs) (currently in preview) is a data plane API that allows you to import a set of models, twins, and/or relationships in a single API call. Jobs API operations are also included with the [CLI commands](/cli/azure/dt/job) and [data plane SDKs](#data-plane-apis). Using the Jobs API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 ### Check permissions
 

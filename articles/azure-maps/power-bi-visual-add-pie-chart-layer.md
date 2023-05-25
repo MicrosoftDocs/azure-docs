@@ -2,8 +2,8 @@
 title: Add a pie chart layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn how to use the pie chart layer in an Azure Maps Power BI visual.
-author: eriklindeman
-ms.author: eriklind
+author: deniseatmicrosoft
+ms.author: limingchen 
 ms.date: 03/15/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -63,7 +63,7 @@ Pie Chart layer is an extension of the bubbles layer, so all settings are made i
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
+> [Add a bar chart layer](power-bi-visual-add-3d-column-layer.md)
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)

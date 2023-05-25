@@ -326,7 +326,7 @@ map.setCamera({
 });
 
 map.setStyle({
-    style: 'satellite_with_roads'
+    style: 'satellite_road_labels'
 });
 ```
 
@@ -1113,7 +1113,7 @@ In Azure Maps, load the GeoJSON data into a data source and connect the data sou
             map = new atlas.Map('myMap', {
                 center: [-160, 20],
                 zoom: 1,
-                style: 'satellite_with_roads',
+                style: 'satellite_road_labels',
 
                 //Add your Azure Maps key to the map SDK. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
                 authOptions: {

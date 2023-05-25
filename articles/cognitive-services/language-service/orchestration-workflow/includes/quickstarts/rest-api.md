@@ -13,15 +13,13 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Create a Language resource from Azure portal
 
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+
 
 
 ## Get your resource keys and endpoint
@@ -31,8 +29,7 @@ ms.author: aahi
 
     :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../../media/azure-portal-resource-credentials.png":::
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+
 
 ## Create an orchestration workflow project 
 
@@ -42,8 +39,7 @@ For this quickstart, complete the [CLU](../../../conversational-language-underst
 
 [!INCLUDE [Create project](../rest-api/create-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+
 
 ## Build schema
 
@@ -51,8 +47,7 @@ After completing the CLU quickstart, and creating an orchestration project, the 
 
 [!INCLUDE [Import project](../rest-api/import-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+
 
 
 ## Train your model
@@ -61,8 +56,7 @@ To train a model, you need to start a training job. The output of a successful t
 
 [!INCLUDE [train model](../rest-api/train-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
+
 
 ### Get Training Status
 
@@ -70,8 +64,7 @@ Training could take sometime between 10 and 30 minutes. You can use the followin
 
 [!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Get-training-status" target="_target">I ran into an issue</a>
+
 
 ## Deploy your model
 
@@ -81,15 +74,13 @@ Generally after training a model you would review its evaluation details. In thi
 
 [!INCLUDE [deploy model](../rest-api/deploy-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Submit-deployment-job" target="_target">I ran into an issue</a>
+
 
 ### Get deployment job status
 
 [!INCLUDE [get deployment status](../rest-api/get-deployment-status.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Get-deployment-job-status" target="_target">I ran into an issue</a>
+
 
 ## Query model 
 
@@ -99,8 +90,7 @@ Once deployment succeeds, you can begin querying your deployed model for predict
 
 [!INCLUDE [test model](../rest-api/query-model.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Query-model" target="_target">I ran into an issue</a>
+
 
 ## Clean up resources
 
@@ -108,6 +98,5 @@ When you don't need your project anymore, you can delete your project using the 
 
 [!INCLUDE [Delete project](../rest-api/delete-project.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
 

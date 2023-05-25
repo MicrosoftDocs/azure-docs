@@ -27,7 +27,7 @@ The Group Policy Object, which is used to onboard Azure Arc-enabled servers, req
     * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone.
     * Make a note of the Service Principal Secret; you'll need this value later.
 
-1. Download and unzip the folder **ArcEnabledServersGroupPolicy_v1.0.1** from [https://github.com/Azure/ArcEnabledServersGroupPolicy/releases/download/1.0.2/ArcEnabledServersGroupPolicy_v1.0.2.zip](https://github.com/Azure/ArcEnabledServersGroupPolicy/releases/download/1.0.2/ArcEnabledServersGroupPolicy_v1.0.2.zip). This folder contains the ArcGPO project structure with the scripts `EnableAzureArc.ps1`, `DeployGPO.ps1`, and `AzureArcDeployment.psm1`. These assets will be used for onboarding the machine to Azure Arc-enabled servers.
+1. Download and unzip the folder **ArcEnabledServersGroupPolicy_vX.X.X** from [https://github.com/Azure/ArcEnabledServersGroupPolicy/releases/latest/](https://github.com/Azure/ArcEnabledServersGroupPolicy/releases/latest/). This folder contains the ArcGPO project structure with the scripts `EnableAzureArc.ps1`, `DeployGPO.ps1`, and `AzureArcDeployment.psm1`. These assets will be used for onboarding the machine to Azure Arc-enabled servers.
 
 1. Download the latest version of the [Azure Connected Machine agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share.
 
