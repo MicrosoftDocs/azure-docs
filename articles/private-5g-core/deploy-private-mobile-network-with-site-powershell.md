@@ -74,7 +74,7 @@ Use `New-AzMobileNetworkSimGroup` to create a new **SIM Group**. The example com
 | `<SUB_ID>` | The ID of the Azure subscription in which the Azure resources are to be deployed. |
 
 ```powershell
-New-AzMobileNetworkSimGroup -Name <SIMGROUP> -ResourceGroupName <RESOURCEGROUP> -Location eastus -MobileNetworkId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/MOBILENETWORK8"
+New-AzMobileNetworkSimGroup -Name <SIMGROUP> -ResourceGroupName <RESOURCEGROUP> -Location eastus -MobileNetworkId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>"
 ```
 
 Confirm that you want to perform the action by typing <kbd>Y</kbd>.
