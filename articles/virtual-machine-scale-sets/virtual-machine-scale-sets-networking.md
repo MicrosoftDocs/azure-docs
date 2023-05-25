@@ -40,9 +40,51 @@ Azure Accelerated Networking improves network performance by enabling single roo
 ## Azure Virtual Machine Scale Sets with Azure Load Balancer
 See [Azure Load Balancer and Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) to learn more about how to configure your Standard Load Balancer with Virtual Machine Scale Sets based on your scenario.
 
-## Create a scale set that references an Application Gateway
-To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
+## Add a Virtual Machine Scale Set to an Application Gateway
 
+To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale sets network profile. This can be done either when creating the scale set or on an existing scale set.  
+
+### [Portal](#tab/portalappgw)
+
+1. Create an Application Gateway and backend pool in the same regions as your scale set, if you do not already have one
+1. Navigate to the Virtual Machine Scale Set in the Portal
+1. Under **Settings**, open the **Networking** pane
+1. In the Networking pane, select the **Load balancing** tab and click **Add Load Balancing**
+1. Select **Application Gateway** from the Load Balancing Options dropdown, and choose an existing Application Gateway
+1. Select the target backend pool and click **Save**
+1. If your scale set Upgrade Policy is 'Manual', navigate to the **Settings** > **Instances** pane to select and upgrade each of your instances
+
+### [PowerShell](#tab/powershellappgw)
+
+```azurepowershell
+    $appGW = Get-AzApplicationGateway -Name <appGWName> -ResourceGroup <AppGWResourceGroupName>
+    $backendPool = Get-AzApplicationGatewayBackendAddressPool -Name <backendAddressPoolName> -ApplicationGateway $appGW
+    $vmss = Get-AzVMSS -Name <VMSSName> -ResourceGroup <VMSSResourceGroupName>
+
+    $backendPoolMembership = New-Object System.Collections.Generic.List[Microsoft.Azure.Management.Compute.Models.SubResource]
+
+    # add existing backend pool membership to new pool membership of first NIC and ip config
+    If ($vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].ApplicationGatewayBackendAddressPools) {
+        $backendPoolMembership.AddRange($vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].ApplicationGatewayBackendAddressPools)
+    }
+
+    # add new backend pool to pool membership
+    $backendPoolMembership.Add($backendPool.id)
+
+    # set VMSS model to use to backend pool membership 
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].ApplicationGatewayBackendAddressPools = $backendPoolMembership
+
+    # update the VMSS model
+    $vmss | Update-AzVMSS
+
+    # update VMSS instances, if necessary
+    If ($vmss.UpgradePolicy.Mode -eq 'Manual') {
+        $vmss | Get-AzVmssVM | Foreach-Object { $_ | Update-AzVMSSInstance -InstanceId $_.instanceId}
+    }
+
+```
+
+### [ARM Template](#tag/armappgw)
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
