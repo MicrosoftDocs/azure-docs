@@ -23,6 +23,9 @@ ms.reviewer: mmcc
 The Application Insights JavaScript SDK is implemented with a runtime snippet for out-of-the-box web analytics.
 The JavaScript snippet can be added to your webpages manually or via the automatic snippet injection.
 
+> [!NOTE]
+> If you want to get started with both the Application Insights JavaScript SDK and the Click Analytics plug-in, see [Click Analytics](./javascript-feature-extensions.md).
+
 ### Enable Application Insights SDK for JavaScript automatically
 
 The automatic Snippet injection feature available in the Application Insights .NET core SDK and the Application Insights Node.js SDK (preview)

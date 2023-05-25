@@ -24,6 +24,9 @@ The npm setup installs the JavaScript SDK as a dependency to your project and en
 
 This option is only needed for developers who require more custom events and configuration.
 
+> [!NOTE]
+> If you want to get set up with both the Application Insights JavaScript SDK and the Click Analytics plug-in, see [Click Analytics](./javascript-feature-extensions.md).
+
 ### Getting started with npm
 
 Install via npm.
