@@ -243,10 +243,14 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 1. In the top bar, ensure that **GET** is selected from the dropdown menu. 
 1. For the request URL, enter the URL of the endpoint exposed by the web API, `https://localhost:{port}/weatherforecast`. 
 1. Select the **Authorization** tab to configure Postman to obtain a token from the Microsoft Identity platform that will grant access to the web API. 
-1. Enter the following values in the **Authorization** tab:
+1. From the **Type** dropdown, select **OAuth 2.0**. This displays **Configure New Token** form.
+1. Enter the following values in the **Configure New Token** tab:
 
     | Setting            | Value                                                                                                       |
     |--------------------|-------------------------------------------------------------------------------------------------------------|
+    | Token Name       | Provide any name for the token. For example, enter `Bearer` |
+    | Grant Type       | Select **Authorization Code** |
+    | Callback URL       | Enter `http://localhost`, which sets the Callback URL to the Redirect URI registered with Azure AD. <br/> DO NOT check the **Authorize using browser** checkbox. |
     | Auth URL           | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize` <br/> Replace `{tenantId}` with the **Directory (tenant) ID** |                                                                                   
     | Access Token URL   | `https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token` <br/> Replace `{tenantId}` with the **Directory (tenant) ID** |
     | Client ID          | The **Application (client) ID** value of your web app registration                                          |
