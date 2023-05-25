@@ -30,7 +30,7 @@ This article shows you how to:
 
 At the end of this article, you run two .NET console apps.
 
-* **SimulatedDevice**: a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), which connects to your IoT hub and receives cloud-to-device messages.
+* **MessageReceiveSample**: a sample app included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDevice**: sends a cloud-to-device message to the device app through IoT Hub and then receives its delivery acknowledgment.
 
@@ -43,7 +43,16 @@ You can find more information on cloud-to-device messages in [D2C and C2D Messag
 
 * Visual Studio
 
-* A complete working version of the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) article. This cloud-to-device article builds on the quickstart.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
+
+* A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* This tutorial uses sample code from the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp).
+
+  * Download or clone the SDK repository from GitHub to your development machine.
+  * Make sure that .NET Core 3.0.0 or greater is installed on your development machine. Check your version by running `dotnet --version` and [download .NET](https://dotnet.microsoft.com/download) if necessary.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
