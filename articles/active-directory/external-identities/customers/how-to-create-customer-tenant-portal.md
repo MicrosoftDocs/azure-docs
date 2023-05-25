@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 05/23/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -72,7 +72,6 @@ In this article, you learn how to:
     :::image type="content" source="media/how-to-create-customer-tenant-portal/add-subscription.png" alt-text="Screenshot that shows the subscription settings.":::
 
 1. Select **Next: Review + Create**. If the information that you entered is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
-1. The tenant creation may take a few minutes to complete. You can monitor the progress by checking the notification bell at the top right corner of the screen. Once the tenant is successfully created, you can navigate to it by selecting the link provided below.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-successfully-created.png" alt-text="Screenshot that shows the link to the new customer tenant.":::
 
@@ -84,8 +83,8 @@ If you're not sure which directory contains your customer tenant, you can find t
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/directories-subscription.png" alt-text="Screenshot of the Directories + subscriptions icon.":::
 
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. On the tenant's home page, select the **Overview** tab. You can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Basic information**.
+1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**. This step will bring you to the tenant's home page.
+1. Select the **Overview** tab at the top of the page. You can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Basic information**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-overview.png" alt-text="Screenshot of the tenant details.":::
 
