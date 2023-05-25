@@ -250,7 +250,7 @@ myResourceGroup   myPaymentHSM_HSMMgmtNic  eastus   ...
 
 If you view one of these network interfaces in the Azure port, you will see that the "Private IP allocation method" is "Dynamic":
 
-:::image type="content" source="../media/nic-dynamic.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of dynamic ." lightbox="../media/nic-dynamic.png":::
+:::image type="content" source="./media/nic-dynamic.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of dynamic ." lightbox="./media/nic-dynamic.png":::
 
 ---
 
@@ -346,7 +346,7 @@ myResourceGroup   myPaymentHSM_HSMMgmtNic  eastus   ...
 
 If you view one of these network interfaces in the Azure port, you will see that the "Private IP allocation method" is "Dynamic":
 
-:::image type="content" source="../media/nic-static.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of dynamic ." lightbox="../media/nic-static.png":::
+:::image type="content" source="./media/nic-static.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of dynamic ." lightbox="./media/nic-static.png":::
 
 ---
 
