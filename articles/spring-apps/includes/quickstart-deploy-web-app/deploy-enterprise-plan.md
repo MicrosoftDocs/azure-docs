@@ -137,7 +137,7 @@ Do you want to enable access for all IPs  (y/n): n
 
 ### Connect app instance to PostgreSQL instance
 
-After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../../service-connector/overview.md).
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../../../service-connector/overview.md).
 
 1. If you're using Service Connector for the first time, use the following command to register the Service Connector resource provider.
 
@@ -166,7 +166,7 @@ After the application instance and the PostgreSQL instance are created, the appl
        --connection ${CONNECTION}
    ```
 
-   The `--system-identity` parameter is required for the passwordless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../how-to-bind-postgres.md).
+   The `--system-identity` parameter is required for the passwordless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../how-to-bind-postgres.md).
 
 1. After the connection is created, use the following command to validate the connection:
 
