@@ -24,7 +24,7 @@ The Azure Spring Apps Enterprise plan is optimized for the needs of enterprise S
 
 Because the Enterprise plan provides feature parity with the Standard plan, it provides a rich set of features that include app lifecycle management, monitoring, and troubleshooting.
 
-The Enterprise plan provides the following managed [VMware Tanzu components](./VMware-Tanzu-components.md) that empower enterprises to ship faster:
+The Enterprise plan provides the following managed [VMware Tanzu components](./vmware-tanzu-components.md) that empower enterprises to ship faster:
 
 - Tanzu Build Service
 - Application Configuration Service for Tanzu
