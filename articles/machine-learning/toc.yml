@@ -70,7 +70,6 @@
           displayName: migration, v1, v2
           href: migrate-to-v2-managed-online-endpoints.md
 - name: Set up
-  expanded: true
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
@@ -192,93 +191,6 @@
       href: how-to-r-train-model.md
     - name: Deploy R model
       href: how-to-r-deploy-r-model.md
-- name: Concepts
-  items:
-    - name: What is v2?
-      href: concept-v2.md
-    - name: Work with Data
-      items:
-        - name: Data concepts in Azure Machine Learning
-          href: concept-data.md
-        - name: Sourcing human data responsibly
-          href: concept-sourcing-human-data.md
-        - name: Compliance
-          items:
-            - name: Export and delete data
-              displayName: GDPR
-              href: how-to-export-delete-data.md
-    - name: Deploy models
-      items:
-    - name: MLflow
-      items:
-        # v1
-        - name: MLflow
-          href: ./v1/concept-mlflow-v1.md
-        # end v1
-
-    - name: Foundation Models
-      items:
-        - name: Foundation Models in Model Catalog
-          href: concept-foundation-models.md
-    - name: Manage the ML lifecycle (MLOps)
-      items:
-    - name: Responsible AI
-      items:
-        - name: Responsible AI overview
-          displayName: responsible, ml
-          href: concept-responsible-ai.md
-        - name: Implement Responsible AI in Practice
-          items:
-            - name: Responsible AI dashboard
-              href: concept-responsible-ai-dashboard.md
-            - name: Responsible AI scorecard
-              href: concept-responsible-ai-scorecard.md
-            - name: Model interpretability
-              displayName: explainability, explanations, interpretability
-              href: how-to-machine-learning-interpretability.md
-            - name: Fairness in Machine Learning
-              displayName: fairness, bias, model performance, disparity metrics, unfairness
-              href: concept-fairness-ml.md
-            - name: Causal analysis
-              displayName: causal analysis, causal inference
-              href: concept-causal-inference.md
-            - name: Assess errors in ML models
-              displayName: error analysis, model error
-              href: concept-error-analysis.md
-            - name: Understand your datasets
-              displayName: exploratory data analysis, EDA, dataset explorer
-              href: concept-data-analysis.md
-            - name: Counterfactual analysis and what-if
-              href: concept-counterfactual-analysis.md
-    - name: Workspace & compute resources
-      items:
-        - name: Workspace
-          href: concept-workspace.md
-        - name: Environments
-          href: concept-environments.md
-        - name: Compute instance
-          displayName: resource, dsvm, Data Science Virtual Machine
-          href: concept-compute-instance.md
-        - name: Compute target
-          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-          href: concept-compute-target.md
-    - name: Security
-      items:
-        - name: Enterprise security overview
-          displayName: authorization authentication encryption aad azure active directory
-          href: concept-enterprise-security.md
-        - name: Secured workspace traffic flow
-          href: concept-secure-network-traffic-flow.md
-        - name: Security baseline
-          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
-        - name: Security controls by Azure Policy
-          href: ./security-controls-policy.md
-        - name: Data encryption
-          href: concept-data-encryption.md
-        - name: Customer-managed keys
-          href: concept-customer-managed-keys.md
-        - name: Vulnerability management
-          href: concept-vulnerability-management.md
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
@@ -1006,6 +918,93 @@
       href: how-to-r-train-model.md
     - name: Deploy R model
       href: how-to-r-deploy-r-model.md
+- name: Concepts
+  items:
+    - name: What is v2?
+      href: concept-v2.md
+    - name: Work with Data
+      items:
+        - name: Data concepts in Azure Machine Learning
+          href: concept-data.md
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
+        - name: Compliance
+          items:
+            - name: Export and delete data
+              displayName: GDPR
+              href: how-to-export-delete-data.md
+    - name: Deploy models
+      items:
+    - name: MLflow
+      items:
+        # v1
+        - name: MLflow
+          href: ./v1/concept-mlflow-v1.md
+        # end v1
+
+    - name: Foundation Models
+      items:
+        - name: Foundation Models in Model Catalog
+          href: concept-foundation-models.md
+    - name: Manage the ML lifecycle (MLOps)
+      items:
+    - name: Responsible AI
+      items:
+        - name: Responsible AI overview
+          displayName: responsible, ml
+          href: concept-responsible-ai.md
+        - name: Implement Responsible AI in Practice
+          items:
+            - name: Responsible AI dashboard
+              href: concept-responsible-ai-dashboard.md
+            - name: Responsible AI scorecard
+              href: concept-responsible-ai-scorecard.md
+            - name: Model interpretability
+              displayName: explainability, explanations, interpretability
+              href: how-to-machine-learning-interpretability.md
+            - name: Fairness in Machine Learning
+              displayName: fairness, bias, model performance, disparity metrics, unfairness
+              href: concept-fairness-ml.md
+            - name: Causal analysis
+              displayName: causal analysis, causal inference
+              href: concept-causal-inference.md
+            - name: Assess errors in ML models
+              displayName: error analysis, model error
+              href: concept-error-analysis.md
+            - name: Understand your datasets
+              displayName: exploratory data analysis, EDA, dataset explorer
+              href: concept-data-analysis.md
+            - name: Counterfactual analysis and what-if
+              href: concept-counterfactual-analysis.md
+    - name: Workspace & compute resources
+      items:
+        - name: Workspace
+          href: concept-workspace.md
+        - name: Environments
+          href: concept-environments.md
+        - name: Compute instance
+          displayName: resource, dsvm, Data Science Virtual Machine
+          href: concept-compute-instance.md
+        - name: Compute target
+          displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+          href: concept-compute-target.md
+    - name: Security
+      items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
+        - name: Data encryption
+          href: concept-data-encryption.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Understand resources and assets
