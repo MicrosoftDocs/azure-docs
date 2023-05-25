@@ -18,6 +18,10 @@ ms.collection: M365-identity-device-management
 
 # Create or delete administrative units
 
+> [!IMPORTANT]
+> Restricted management administrative units are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 Administrative units let you subdivide your organization into any unit that you want, and then assign specific administrators that can manage only the members of that unit. For example, you could use administrative units to delegate permissions to administrators of each school at a large university, so they could control access, manage users, and set policies only in the School of Engineering.
 
 This article describes how to create or delete administrative units to restrict the scope of role permissions in Azure Active Directory (Azure AD).
@@ -26,7 +30,8 @@ This article describes how to create or delete administrative units to restrict 
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
 - Azure AD Free licenses for administrative unit members
-- Privileged Role Administrator or Global Administrator
+- Privileged Role Administrator role
+- Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 - AzureAD module when using PowerShell
 - AzureADPreview module when using PowerShell and restricted management administrative units
 - Admin consent when using Graph explorer for Microsoft Graph API
@@ -63,24 +68,11 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 ### PowerShell
 
-Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azureadmsadministrativeunit) command to create a new administrative unit.
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+Use the [New-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?branch=main) command to create a new administrative unit.
 
 ```powershell
-$adminUnitObj = New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
-```
-
-Use the [New-AzureADMSAdministrativeUnit (preview)](/powershell/module/azuread/new-azureadmsadministrativeunit?view=azureadps-2.0-preview&preserve-view=true) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` parameter to `$true`.
-
-```powershell
-$restrictedAU = New-AzureADMSAdministrativeUnit -DisplayName "Contoso Executive Division" -IsMemberManagementRestricted $true
-```
-
-### Microsoft Graph PowerShell
-
-Use the [New-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit) command to create a new administrative unit.
-
-```powershell
-Import-Module Microsoft.Graph.Identity.DirectoryManagement
 $params = @{
 	DisplayName = "Seattle District Technical Schools"
 	Description = "Seattle district technical schools administration"
@@ -89,9 +81,39 @@ $params = @{
 New-MgDirectoryAdministrativeUnit -BodyParameter $params
 ```
 
+Use the [New-MgDirectoryAdministrativeUnit (beta)](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new administrative unit.
+
+```powershell
+$params = @{
+	DisplayName = "Seattle District Technical Schools"
+	Description = "Seattle district technical schools administration"
+	Visibility = "HiddenMembership"
+  IsMemberManagementRestricted = $true
+}
+New-MgDirectoryAdministrativeUnit -BodyParameter $params
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[!INCLUDE [Azure AD PowerShell migration](../includes/aad-powershell-migration-include.md)]
+
+Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azureadmsadministrativeunit?branch=main) command to create a new administrative unit.
+
+```powershell
+$adminUnitObj = New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+```
+
+Use the [New-AzureADMSAdministrativeUnit (preview)](/powershell/module/azuread/new-azureadmsadministrativeunit?view=azureadps-2.0-preview&preserve-view=true&branch=main) command to create a new restricted management administrative unit. Set the `IsMemberManagementRestricted` parameter to `$true`.
+
+```powershell
+$restrictedAU = New-AzureADMSAdministrativeUnit -DisplayName "Contoso Executive Division" -IsMemberManagementRestricted $true
+```
+
+---
+
 ### Microsoft Graph API
 
-Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits) API to create a new administrative unit.
+Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?branch=main) API to create a new administrative unit.
 
 Request
 
@@ -152,12 +174,27 @@ In Azure AD, you can delete an administrative unit that you no longer need as a 
 
 ### PowerShell
 
-Use the [Remove-AzureADMSAdministrativeUnit](/powershell/module/azuread/remove-azureadmsadministrativeunit) command to delete an administrative unit.
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+Use the [Remove-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdirectoryadministrativeunit?branch=main) command to delete an administrative unit.
+
+```powershell
+$adminUnitObj = Get-MgDirectoryAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-MgDirectoryAdministrativeUnit -AdministrativeUnitId $adminUnitObj
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[!INCLUDE [Azure AD PowerShell migration](../includes/aad-powershell-migration-include.md)]
+
+Use the [Remove-AzureADMSAdministrativeUnit](/powershell/module/azuread/remove-azureadmsadministrativeunit?branch=main) command to delete an administrative unit.
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
 Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 ```
+
+---
 
 ### Microsoft Graph API
 

@@ -24,7 +24,7 @@
     items:
     - name: Administrative units
       href: administrative-units.md
-    - name: Restricted management administrative units
+    - name: Restricted management
       href: admin-units-restricted-management.md
   - name: Best practices
     href: best-practices.md
