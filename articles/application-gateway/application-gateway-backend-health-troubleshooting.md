@@ -328,13 +328,15 @@ These images show the difference between the self-signed certificates.
 **Solution:** A Leaf certificate is signed by an Intermediate certificate, which is signed by a Root CA certificate. When using a certificate from Private Certificate Authority (CA), you must upload the corresponding Root CA certificate to the application gateway. Contact your private CA to get the appropriate Root CA certificate (.CER) and upload that CER file to the Backend setting of your application gateway. 
 
 
-### Trusted root certificate mismatch
+### Trusted root certificate mismatch (Root certificate is available on the backend server)
 
 **Message:** The root certificate of the server certificate used by the backend doesn't match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend.
 
 **Cause:** This error occurs when none of the Root certificates uploaded to your application gateway’s backend setting matches the Root certificate present on the backend server. 
 
-**Solution:** This applies to a backend server certificate issued by a Private Certificate Authority (CA) or is a self-signed one. Identify and upload the right Root CA certificate to the associated backend setting. To identify and download the root certificate, you can use any of these methods.
+**Solution:** This applies to a backend server certificate issued by a Private Certificate Authority (CA) or is a self-signed one. Identify and upload the right Root CA certificate to the associated backend setting. 
+
+**Tips:** To identify and download the root certificate, you can use any of these methods.
 
 * Using a browser: Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. 
 1.	Choose the root certificate in the chain and click on Export. By default, this will be a .CRT file. 
