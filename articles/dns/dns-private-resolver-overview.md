@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 03/02/2023
+ms.date: 05/05/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -54,20 +54,7 @@ Azure DNS Private Resolver provides the following benefits:
 
 ## Regional availability
 
-Azure DNS Private Resolver is available in the following regions:
-
-| Americas         | Europe           | Asia & Africa     |
-|------------------|------------------|-------------------|
-| East US          | West Europe      | East Asia         |
-| East US 2        | North Europe     | Southeast Asia    |
-| Central US       | UK South         | Japan East        |
-| South Central US | France Central   | Korea Central     |
-| North Central US | Sweden Central   | South Africa North|
-| West Central US  | Switzerland North| Australia East    |
-| West US 2        |                  | Central India     |
-| West US 3        |                  |                   |
-| Canada Central   |                  |                   |
-| Brazil South     |                  |                   |
+See [Azure Products by Region - Azure DNS](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dns&regions=all).
 
 ## Data residency
 

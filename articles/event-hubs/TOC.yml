@@ -10,6 +10,8 @@
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
+    - name: Compare messaging services
+      href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
   expanded: true
   items:
@@ -51,6 +53,9 @@
           items:
           - name: Java
             href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Send events using Data Generator
+          href: send-and-receive-events-using-data-generator.md
+          displayName: No Code, Sample data
     - name: Capture events
       items:
         - name: Use the Azure portal to enable Event Hubs Capture
@@ -65,6 +70,8 @@
           href: create-schema-registry.md  
         - name: Validate events using an Avro schema (.NET + AMQP)
           href: schema-registry-dotnet-send-receive-quickstart.md
+        - name: Validate events using an Avro schema (Java + Apache Kafka)
+          href: schema-registry-kafka-java-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
@@ -92,6 +99,8 @@
       items:
       - name: Capture event data in Event Hubs
         href: event-hubs-capture-overview.md
+      - name: Authentication modes for capture destination
+        href: event-hubs-capture-managed-identity.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
     - name: Log compaction
@@ -245,8 +254,6 @@
           items:
           - name: Using Avro schema 
             items: 
-            - name: Avro schema with Apache Kafka applications
-              href: schema-registry-kafka-java-send-receive-quickstart.md
             - name: Avro schema with Event Hubs SDK(AMQP)
               href: schema-registry-dotnet-send-receive-quickstart.md
           - name: Using JSON Schema  
@@ -262,7 +269,7 @@
         - name: Use the Spring Boot Starter for Apache Kafka
           href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
           maintainContext: true
-    - name: Integrate with Apache Kafka
+    - name: Use Kafka on Azure Event Hubs
       items:
         - name: Kafka developer guide for Event Hubs
           href: apache-kafka-developer-guide.md
@@ -276,16 +283,18 @@
             href: event-hubs-kafka-mirrormaker-2-tutorial.md
           - name: Using Apache Kafka Mirror Maker 1
             href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Connect Apache Spark to an event hub
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Connect Apache Flink to an event hub
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Integrate Apache Kafka Connect 
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Integrate Apache Kafka Connect with Debezium
-          href: event-hubs-kafka-connect-debezium.md
-        - name: Connect Akka Streams to an event hub
-          href: event-hubs-kafka-akka-streams-tutorial.md
+        - name: Kafka Connect with Event Hubs
+          items:
+          - name: Connect Apache Spark to an event hub
+            href: event-hubs-kafka-spark-tutorial.md
+          - name: Connect Apache Flink to an event hub
+            href: event-hubs-kafka-flink-tutorial.md
+          - name: Integrate Apache Kafka Connect 
+            href: event-hubs-kafka-connect-tutorial.md
+          - name: Integrate Apache Kafka Connect with Debezium
+            href: event-hubs-kafka-connect-debezium.md
+          - name: Connect Akka Streams to an event hub
+            href: event-hubs-kafka-akka-streams-tutorial.md
         - name: FAQ - Event Hubs for Kafka
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor

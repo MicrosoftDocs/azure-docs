@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message to multiple recipients
 
-We can define multiple recipients by adding more EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+We can define multiple recipients by adding more EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients. Optionally, we can also add a `ReplyTo` email address to receive any replies.
 
 ```csharp
 // Create the email content
@@ -48,6 +48,9 @@ var emailMessage = new EmailMessage(
     senderAddress: "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net" // The email address of the domain registered with the Communication Services resource
     emailRecipients,
     emailContent);
+
+// Add optional ReplyTo address which is where any replies to the email will go to.
+emailMessage.ReplyTo.Add(new EmailAddress("<replytoemailalias@emaildomain.com>"));
 
 try
 {

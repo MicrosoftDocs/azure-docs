@@ -17,7 +17,7 @@ The following table represents the various `docker run` parameters and their cor
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](../speech-container-howto.md#billing-arguments). |
 | `{API_KEY}` | The API key is required. For more information, see [billing arguments](../speech-container-howto.md#billing-arguments). |
 
-When you run the custom speech-to-text container, configure the port, memory, and CPU according to the custom speech-to-text container [requirements and recommendations](../speech-container-howto.md#container-requirements-and-recommendations).
+When you run the custom speech to text container, configure the port, memory, and CPU according to the custom speech to text container [requirements and recommendations](../speech-container-howto.md#container-requirements-and-recommendations).
 
 Here's an example `docker run` command with placeholder values. You must specify the `VOLUME_MOUNT`, `MODEL_ID`, `ENDPOINT_URI`, and `API_KEY` values:
 
@@ -33,9 +33,9 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs a custom speech-to-text container from the container image.
+* Runs a custom speech to text container from the container image.
 * Allocates 4 CPU cores and 8 GB of memory.
-* Loads the custom speech-to-text model from the volume input mount, for example, *C:\CustomSpeech*.
+* Loads the custom speech to text model from the volume input mount, for example, *C:\CustomSpeech*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).
 * If the custom model was previously downloaded, the `ModelId` is ignored.

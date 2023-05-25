@@ -58,7 +58,7 @@ has expired.
 - There's an allowlist of resources that Cloud Shell tokens can be provided for. When you try to use
   a token with a service that is not listed, you may see the following error message:
 
-  ```
+  ```output
   "error":{"code":"AudienceNotSupported","message":"Audience https://newservice.azure.com/
   isn't a supported MSI token audience...."}
   ```

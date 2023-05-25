@@ -5,7 +5,6 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 02/28/2023
 ms.topic: article
-uid: azure_monitor_logs_api_overview
 ---
 # Azure Monitor Log Analytics API overview
 

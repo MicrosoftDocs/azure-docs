@@ -38,7 +38,7 @@ If you want to use an existing storage account or Data Lake Storage as your clus
 
 On a deployed cluster, you can attach another Azure Storage accounts or access other Data Lake Storage. All your storage accounts must live in the same location as your cluster. A Data Lake Storage can be in a different location, though great distances may introduce some latency.
 
-Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), while Data Lake Storage is almost unlimited.
+Azure Storage has some [capacity limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits), while Data Lake Storage is almost unlimited.
 A cluster can access a combination of different storage accounts. Typical examples include:
 
 * When the amount of data is likely to exceed the storage capacity of a single blob storage
@@ -84,7 +84,7 @@ Sometimes errors can occur because of the parallel execution of multiple maps an
 
 ## View quota management for HDInsight
 
-View a granular level and categorization of the quota at a VM at family level. View the current quota and how much quota is remaining for a region at a VM family level. 
+View a granular level and categorization of the quota at a VM family level. View the current quota and how much quota is remaining for a region at a VM family level. 
 
 > [!NOTE]
 > This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow subsequently.

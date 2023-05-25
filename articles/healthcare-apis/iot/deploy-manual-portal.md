@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/27/2022
+ms.date: 04/28/2022
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,10 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-You may prefer to deploy the MedTech service using the Azure portal if you need to track every step of the provisioning process or if you want to customize or troubleshoot your deployment.
+You may prefer to deploy the MedTech service using the Azure portal if you:
+
+* Need to track every step of the provisioning process.
+* Want to customize or troubleshoot your deployment.
 
 In this quickstart, the MedTech service deployment using the Azure portal is divided into the following three sections:
 
@@ -187,7 +190,7 @@ Your screen should look something like this:
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service will not be able to read data from the event hub or write data to the FHIR service.
+There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub or write data to the FHIR service.
 
 These steps are:
 

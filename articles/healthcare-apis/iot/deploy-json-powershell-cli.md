@@ -1,12 +1,12 @@
 ---
 title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
+description: Learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 04/14/2023
+ms.date: 05/16/2023
 ms.author: jasteppe
 ---
 
@@ -17,7 +17,7 @@ ms.author: jasteppe
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
-In this quickstart, you'll learn how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
+In this quickstart, learn how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
 
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
@@ -26,17 +26,17 @@ In this quickstart, you'll learn how to use Azure PowerShell or the Azure CLI to
 
 To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
-- An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+* An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+* **Owner** or **Contributor and User Access Administrator** role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
-- The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+* The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- [Azure PowerShell](/powershell/azure/install-az-ps) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
+* [Azure PowerShell](/powershell/azure/install-azure-powershell) and/or the [Azure CLI](/cli/azure/install-azure-cli) installed locally.
 
 When you have these prerequisites, you're ready to deploy the ARM template.
 
-## Review the ARM template - Optional
+## Review the ARM template
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
@@ -88,15 +88,15 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    For example: `New-AzResourceGroupDeployment -ResourceGroupName ArmTestDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename abc123 -location southcentralus`
 
    > [!IMPORTANT]
-   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   > If you're going to allow access from multiple services to the event hub, it is highly recommended that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
    > Examples:
    >
-   > - Two MedTech services accessing the same device message event hub.
+   > * Two MedTech services accessing the same event hub.
    >
-   > - A MedTech service and a storage writer application accessing the same device message event hub.
+   > * A MedTech service and a storage writer application accessing the same event hub.
 
 ## Deploy the MedTech service with the Azure Resource Manager template and the Azure CLI
 
@@ -146,48 +146,48 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    For example: `az deployment group create --resource-group ArmTestDeployment --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=abc123 location=southcentralus`
 
    > [!IMPORTANT]
-   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   > If you're going to allow access from multiple services to the event hub, it is highly recommended that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
    > Examples:
    >
-   > - Two MedTech services accessing the same device message event hub.
+   > * Two MedTech services accessing the same event hub.
    >
-   > - A MedTech service and a storage writer application accessing the same device message event hub.
+   > * A MedTech service and a storage writer application accessing the same event hub.
 
 ## Review deployed resources and access permissions
 
 When deployment is completed, the following resources and access roles are created in the ARM template deployment:
 
-- Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
+* Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
 
-  - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
+  * Event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md).
+  * **Azure Event Hubs Data Sender** role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md).
 
-- A Health Data Services workspace.
+* Health Data Services workspace.
 
-- A Health Data Services FHIR service.
+* Health Data Services FHIR service.
 
-- A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+* Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
-  - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
+  * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
 > [!IMPORTANT]
 > In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Post-deployment mappings
 
-After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
+After you have successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
+ * To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
 
- - To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
+ * To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Clean up Azure PowerShell resources
 
@@ -219,6 +219,6 @@ In this quickstart, you learned how to use Azure PowerShell or Azure CLI to depl
 To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

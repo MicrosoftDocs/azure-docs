@@ -14,7 +14,7 @@ ms.author: v-baolianzou
 
 # Migration to neural voice
 
-We're retiring two features from [Text-to-Speech](index-text-to-speech.yml) capabilities as detailed below.
+We're retiring two features from [Text to speech](index-text-to-speech.yml) capabilities as detailed below.
 
 ## Custom voice (non-neural training)
 

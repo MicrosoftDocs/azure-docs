@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 04/19/2023
+ms.date: 05/04/2023
 ms.topic: conceptual
 ---
 
@@ -70,7 +70,7 @@ This parameter specifies a resource in Azure Resource Manager to delete from Azu
 > [!NOTE]
 > If you have deployed one or more Azure VM extensions to your Azure Arc-enabled server and you delete its registration in Azure, the extensions remain installed and may continue performing their functions. Any machine intended to be retired or no longer managed by Azure Arc-enabled servers should first have its [extensions removed](#step-1-remove-vm-extensions) before removing its registration from Azure.
 
-To disconnect using a service principal, run the command below. Be sure to specify a service principal that has the required roles for disconnecting servers; this will not be the same service principal that was used to onboard the server:
+To disconnect using a service principal, run the command below. Be sure to specify a service principal that has the required roles for disconnecting servers, i.e. the Azure Connected Machine Resource Administrator role. This will not be the same service principal that was used to onboard the server:
 
 `azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
@@ -333,6 +333,39 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
     ```
 
 Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file.
+
+### Facilitating auto-upgrade of the agent
+
+The Azure Connected Machine agent will be supporting an automatic upgrade feature to reduce the agent management overhead associated with Azure Arc-enabled servers. To facilitate this new functionality, a scheduler job is configured on the connected machine. This scheduler job is a scheduled task for Windows and a Cron job for Linux. This scheduler job will appear in the Azure Connected Machine Agent version 1.30 or higher.
+
+To view these scheduler jobs in Windows through PowerShell:
+
+```powershell
+schtasks /query /TN azcmagent
+```
+To view these scheduler jobs in Windows through Task Scheduler:
+
+:::image type="content" source="media/manage-agent/task-scheduler.png" alt-text="Screenshot of Task Scheduler":::
+
+To view these scheduler jobs in Linux:
+
+```
+cat /etc/cron.d/azcmagent_autoupgrade
+```
+
+To opt-out of any future automatic upgrades or the scheduler jobs, execute the following Azure CLI commands:
+
+For Windows:
+
+```powershell
+az rest --method patch --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.HybridCompute/machines/<machineName>?api-version=2022-12-27-preview --resource https://management.azure.com/ --headers Content-Type=application/json --body '{\"properties\": {\"agentUpgrade\": {\"enableAutomaticUpgrade\": false}}}'
+```
+
+For Linux:
+
+```bash
+az rest --method patch --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.HybridCompute/machines/<machineName>?api-version=2022-12-27-preview --resource https://management.azure.com/ --headers Content-Type=application/json --body '{"properties": {"agentUpgrade": {"enableAutomaticUpgrade": false}}}'
+```
 
 ## Renaming an Azure Arc-enabled server resource
 

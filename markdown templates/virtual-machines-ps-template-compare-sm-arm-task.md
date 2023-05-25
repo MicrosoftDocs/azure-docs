@@ -1,8 +1,8 @@
-<!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name and using lowercase only for the file name. See "file-names-and-locations.md" under your repo's "contributor-guide" folder.
+<!--save a copy of this file to your local repo. It's essential that you follow the naming conventions by starting with the service name and using lowercase only for the file name. See "file-names-and-locations.md" under your repo's "contributor-guide" folder.
 
 Info to help you use the template is enclosed in the Markdown comments using the caret, hyphen, and dash syntax. Delete these from your file.
 
-Text not wrapped in comment syntax is intended to be used as is or with updates enclosed in [  ]. Add the info and delete the bracket. 
+Text not wrapped in comment syntax is intended to be used as is or with updates enclosed in [  ]. Finally, add the info and delete the bracket. 
 
 Pay attention to spacing and indents. They affect formatting. 
 
@@ -11,10 +11,10 @@ Pay attention to spacing and indents. They affect formatting.
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" under your repo's "contributor-guide" folder. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
 # Use Azure PowerShell to [task]
-This article shows you how to [task] by using commands from the Azure and the Azure Resource Manager modules. This is intended to help you learn the new commands and migrate existing scripts to the new commands.
+This article shows you how to [task] by using Azure and Azure Resource Manager module commands. This is intended to help you learn the new commands and migrate existing scripts to the new commands.
 
 ## Prerequisite: Install a Recent Version of Azure PowerShell
-If you haven't done so already, install at least the [version number] version of Azure PowerShell on your local computer. Using an earlier version will have different Azure Resource Manager cmdlets described in this article. For details, see:
+If you still need to do so, install at least the [version number] version of Azure PowerShell on your local computer. Using an earlier version will have different Azure Resource Manager cmdlets described in this article. For details, see:
 
 * [How to install and configure Azure PowerShell](install-configure-powershell.md) for instructions on setting up Azure PowerShell.
 * [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md) for basics on using Resource Manager.
@@ -27,18 +27,18 @@ If you haven't done so already, install at least the [version number] version of
 ## Command Comparison
 This [table | section] shows the command syntax.
 
-<!--[optional image - to use an image in this article, add a folder with the same name as the article file name without extension inside the Media folder of the repo. Use only this folder to store the images. Don't attempt to use a common folder to share images you want to use in more than 1 file.]
+<!--[optional image - to use an image in this article, add a folder with the same name as the article file name without extension inside the Media folder of the repo. Use only this folder to store the images. Don't attempt to use a common folder to share images you want to use in more than one file.]
 Then, use the following syntax to add a reference to the image in your article:
 ![](./media/name-of-file-without-extension/image-name-no-spaces.png)
 -->
 
-<!--if a command string uses variables, define the variables first using the following construction. In some cases, the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from brief explanation or listing of all accepted values:--> 
+<!--if a command string uses variables, define the variables first using the following construction. Sometimes, the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from a brief explanation or listing of all accepted values:--> 
 
 These command examples use the following variables:
 
 $FriendlyName"\<Describe value>"
 
-<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table will render after it's in GitHub or published to Sandbox.-->
+<!-- If it makes more sense to present this in a table, use this. Otherwise, delete. The table will render after it's in GitHub or published to Sandbox.-->
 
 | Service Management | Resource Manager |
 | --- | --- |
@@ -54,14 +54,14 @@ $FriendlyName"\<Describe value>"
 Here's an example that uses [cmdlet names)] to [task]. It includes commands that:
 
 * [short verb, uses, has, is, etc.]
-* [next short verb] 
+* [following short verb] 
 
 <!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
 
 * [variable 1]
 * [variable 2]
 
-<!--This shows you how a recent example was presented as well as how it was formatted. Preceding each line with one tab or four spaces to format in a code block-->
+<!--This shows you how a recent example was presented and how it was formatted. Preceding each line with one tab or four spaces to format in a code block-->
 
     $family="Windows Server 2012 R2 Datacenter"
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1

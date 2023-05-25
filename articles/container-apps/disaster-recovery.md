@@ -69,9 +69,9 @@ When using these commands, replace the `<PLACEHOLDERS>` with your values.
 >[!NOTE]
 > The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az network vnet create \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <VNET_NAME> \
@@ -79,7 +79,7 @@ az network vnet create \
   --address-prefix 10.0.0.0/16
 ```
 
-```azurecli
+```azurecli-interactive
 az network vnet subnet create \
   --resource-group <RESOURCE_GROUP_NAME> \
   --vnet-name <VNET_NAME> \
@@ -90,7 +90,7 @@ az network vnet subnet create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 
-```azurepowershell
+```azurepowershell-interactive
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
     AddressPrefix = '10.0.0.0/21'
@@ -98,7 +98,7 @@ $SubnetArgs = @{
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
-```azurepowershell
+```azurepowershell-interactive
 $VnetArgs = @{
     Name = <VNetName>
     Location = <Location>
@@ -113,15 +113,15 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 Next, query for the infrastructure subnet ID.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```bash
+```azurecli-interactive
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
@@ -129,9 +129,9 @@ $InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -
 
 Finally, create the environment with the `--zone-redundant` parameter.  The location must be the same location used when creating the VNET.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az containerapp env create \
   --name <CONTAINER_APP_ENV_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
@@ -144,7 +144,7 @@ az containerapp env create \
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
-```azurepowershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = <ResourceGroupName>
@@ -159,7 +159,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = <EnvironmentName>
     ResourceGroupName = <ResourceGroupName>

@@ -56,6 +56,11 @@ You can create three data asset types:
 |**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |      You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder. |
 |**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`     | In V1 APIs, the Azure Machine Learning back-end stored the data materialization blueprint. This storage location meant that `TabularDataset` only worked if you had an Azure Machine Learning workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to AzureML* - for example, local, on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. Read [Working with tables in Azure Machine Learning](how-to-mltable.md) for more information. |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables. |
 
+> [!IMPORTANT]
+> If you are migrating your V1 datasets to V2 data assets. It's required that you rename the V2 data asset to a different name compared with the V1 dataset.
+> 
+
+
 ## Supported paths
 
 When you create an Azure Machine Learning data asset, you must specify a `path` parameter that points to the data asset location. Supported paths include:

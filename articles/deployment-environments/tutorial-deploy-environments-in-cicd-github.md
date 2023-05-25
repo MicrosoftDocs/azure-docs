@@ -726,7 +726,7 @@ In this section, you make some changes to the repository and test the CI/CD pipe
 
 1. Merge the PR.
 
-    Your changes are published into the production environment, and delete the branch and pull request environments.
+    Your changes are published into the production environment, and the branch and pull request environments are deleted.
 
 ## Clean up resources
 

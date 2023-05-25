@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/25/2023
+ms.date: 05/24/2023
 ms.author: juliako
 ---
 
@@ -18,11 +18,30 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Bug fixes
 * Deprecated functionality
 
+## May 2023
+
+### API breaking change
+
+We're introducing a change in behavior that may break your existing query logic. The change is in the **List** and **Search** APIs, find a detailed change between the current and the new behavior in a table that follows. You may need to update your code to utilize the [new APIs](https://api-portal.videoindexer.ai/).
+ 
+|API	|Current|New|The breaking change|
+|---|---|---|---|
+|List Videos|•	List all videos/projects according to 'IsBase' boolean parameter. If 'IsBase' is not defined, list both.<br/>•	Returns videos in all states (In progress/Proccessed/Failed).	|•	List Videos API will Return only videos (with paging) in all states.<br/>•	List Projects API will return only projects (with paging).|• List videos API was divided into two new API’s **List Videos** and **List Projects**<br/>•	The 'IsBase' parameter no longer has a meaning. |
+|Search Videos|•	Search all videos/projects according to 'IsBase' boolean parameter. If 'IsBase' is not defined, search both. <br/>•	Search videos in all states (In progress/Proccessed/Failed). |Search only processed videos.|•	Search Videos API will only search videos and not projects.<br/>•	The 'IsBase' parameter no longer has a meaning.<br/>•	Search Videos API will only search Processed videos (and not Failed/InProgress ones.)|
+
+### Support for HTTP/2
+
+Added support for HTTP/2 for our [Data Plane API](https://api-portal.videoindexer.ai/). [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) offers several benefits over HTTP/1.1, which continues to be supported for backwards compatibility. One of the main benefits of HTTP/2 is increased performance, better reliability and reduced system resource requirements over HTTP/1.1. With this change we now support HTTP/2 for both the Video Indexer [Portal](https://videoindexer.ai/) and our Data Plane API. We advise to update your code to take advantage of this change.
+
+### Topics insight improvements 
+
+We now support all five levels of IPTC ontology. 
+
 ## April 2023
 
 ### Resource Health support
 
-Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Azure Video Indexer resource. If needed, Azure Resource Health helps with diagnosing and solving problems. You can also set alerts to be notified whenever your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
+Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Azure Video Indexer resources. Azure Resource Health also helps with diagnosing and solving problems and you can set alerts to be notified whenever your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
 
 ### The animation character recognition model has been retired
 
@@ -699,7 +718,7 @@ Status code 409 will now be returned from [Re-Index Video](https://api-portal.vi
     Azure Video Indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal.
 * New languages supported for speech-to-text (STT)
 
-    Azure Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    Azure Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK regional language (en-GB), and English Australian regional language (en-AU).
 
     For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
 

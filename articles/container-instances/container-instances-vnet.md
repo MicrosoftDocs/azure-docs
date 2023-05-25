@@ -42,7 +42,7 @@ Once you've deployed your first container group with this method, you can deploy
 
 The following [az container create][az-container-create] command specifies settings for a new virtual network and subnet. Provide the name of a resource group that was created in a region where container group deployments in a virtual network are [available](container-instances-region-availability.md). This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
-```azurecli
+```azurecli-interactive
 az container create \
   --name appcontainer \
   --resource-group myResourceGroup \
@@ -71,7 +71,7 @@ The following example deploys a second container group to the same subnet create
 
 First, get the IP address of the first container group you deployed, the *appcontainer*:
 
-```azurecli
+```azurecli-interactive
 az container show --resource-group myResourceGroup \
   --name appcontainer \
   --query ipAddress.ip --output tsv
@@ -79,13 +79,13 @@ az container show --resource-group myResourceGroup \
 
 The output displays the IP address of the container group in the private subnet. For example:
 
-```console
+```output
 10.0.0.4
 ```
 
 Now, set `CONTAINER_GROUP_IP` to the IP you retrieved with the `az container show` command, and execute the following `az container create` command. This second container, *commchecker*, runs an Alpine Linux-based image and executes `wget` against the first container group's private subnet IP address.
 
-```azurecli
+```azurecli-interactive
 CONTAINER_GROUP_IP=<container-group-IP-address>
 
 az container create \
@@ -100,13 +100,13 @@ az container create \
 
 After this second container deployment has completed, pull its logs so you can see the output of the `wget` command it executed:
 
-```azurecli
+```azurecli-interactive
 az container logs --resource-group myResourceGroup --name commchecker
 ```
 
 If the second container communicated successfully with the first, output is similar to:
 
-```console
+```output
 Connecting to 10.0.0.4 (10.0.0.4:80)
 index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
@@ -161,14 +161,14 @@ type: Microsoft.ContainerInstance/containerGroups
 
 Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter:
 
-```azurecli
+```azurecli-interactive
 az container create --resource-group myResourceGroup \
   --file vnet-deploy-aci.yaml
 ```
 
 Once the deployment completes, run the [az container show][az-container-show] command to display its status. Sample output:
 
-```console
+```output
 Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
@@ -180,7 +180,7 @@ appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-hel
 
 When you're done working with the container instances you created, delete them with the following commands:
 
-```azurecli
+```azurecli-interactive
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
 az container delete --resource-group myResourceGroup --name appcontaineryaml -y
@@ -195,7 +195,7 @@ Before executing the script, set the `RES_GROUP` variable to the name of the res
 > [!WARNING]
 > This script deletes resources! It deletes the virtual network and all subnets it contains. Be sure that you no longer need *any* of the resources in the virtual network, including any subnets it contains, prior to running this script. Once deleted, **these resources are unrecoverable**.
 
-```azurecli
+```azurecli-interactive
 # Replace <my-resource-group> with the name of your resource group
 # Assumes one virtual network in resource group
 RES_GROUP=<my-resource-group>
