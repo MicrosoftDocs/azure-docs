@@ -151,7 +151,7 @@ When there is a major disaster event such as availability zone-level or regional
 
 This section summarizes considerations about the read replica feature. The following considerations do apply.
 
-- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
+- **Power operations**: You can perform power operations (start/stop) on replica but primary server should be stopped before stopping read replicas and primary server should be started before starting the replicas.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
 - [In-place major version upgrade](concepts-major-version-upgrade.md) in Azure Database for PostgreSQL requires removing any read replicas that are currently enabled on the server. Once the replicas have been deleted, the primary server can be upgraded to the desired major version. After the upgrade is complete, you can recreate the replicas to resume the replication process.
 
@@ -162,6 +162,9 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 ### Replica configuration
 
 During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
+
+### Resource move
+Moving replica(s) to another resource group or subscription, as well as the primary that has read replica(s) is not currently supported.
 
 ### Replication slot issues mitigation
 
