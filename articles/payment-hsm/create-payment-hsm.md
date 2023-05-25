@@ -5,15 +5,14 @@ services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.topic: quickstart
-ms.devlang: azurecli
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/12/2022
+ms.topic: tutorial
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.date: 05/25/2023
 ---
 
 # Tutorial: Create a payment HSM
 
-Azure Payment HSM Service is a "BareMetal" service delivered using Thales payShield 10K payment hardware security modules (HSM) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. This article describes how to create an Azure Payment HSM with the host and management port in same virtual network.  
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
 In this tutorial, you learn how to:
 
@@ -23,12 +22,18 @@ In this tutorial, you learn how to:
 > * Create a payment HSM
 > * Retrieve information about your payment HSM
 
+This tutorial describes how to create an Azure Payment HSM with the host and management port in same virtual network. You can instead:
+- [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
+- [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet-arm.md)
+- [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-arm.md)
+- [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
+
 > [!NOTE]
 > If you wish to reuse an existing VNet, verify that you have met all of the [Prerequisites](#prerequisites) and then read [How to reuse an existing virtual network](reuse-vnet.md).
 
 ## Prerequisites
 
-[!INCLUDE [Specialized Service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized Service](./includes/payment-hsm/specialized-service.md)]
 
 # [Azure CLI](#tab/azure-cli)
 

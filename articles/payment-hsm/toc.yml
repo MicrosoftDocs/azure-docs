@@ -5,6 +5,8 @@
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 
 - name: Tutorials
   expanded: true
@@ -15,6 +17,8 @@
       href: create-payment-hsm.md
     - name: With host and management ports different VNets
       href: create-different-vnet.md
+    - name: With host and management ports different VNets (ARM)
+      href: create-different-vnet-arm.md
     - name: With host and management port with IP addresses in different different VNets
       href: create-different-ip-addresses.md
   - name: 2. Access the payShield manager for your payment HSM
