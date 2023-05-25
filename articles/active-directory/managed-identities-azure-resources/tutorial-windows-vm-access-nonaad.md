@@ -6,7 +6,6 @@ documentationcenter: ''
 author: barclayn
 manager: amycolannino
 editor: daveba
-
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial

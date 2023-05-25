@@ -57,7 +57,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 * **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
-* **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Create a data source table in your SQL database
 1. Open SQL Server Management Studio. In **Server Explorer**, right-click the database, and choose **New Query**.

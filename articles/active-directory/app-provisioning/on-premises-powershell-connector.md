@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/08/2022
+ms.date: 05/11/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -167,7 +167,7 @@ The capabilities tab defines the behavior and functionality of the connector. Th
 |No Reference Values In First Export Pass|Unchecked|When checked, reference attributes are exported in a second export pass. |
 |Enable Object Rename|Unchecked|When checked, distinguished names can be modified. |
 |Delete-Add As Replace|Checked|Not supported. This will be ignored.|
-|Enable Export Password in First Pass|Checked|Not supported. This will be ignored.|
+|Enable Export Password in First Pass|Unchecked|Not supported. This will be ignored.|
 
 
 ### Global Parameters
@@ -182,10 +182,10 @@ The Global Parameters tab enables you to configure the Windows PowerShell script
 |Partition Script|\<Blank>|
 |Hierarchy Script|\<Blank>|
 |Begin Import Script|\<Blank>|
-|Import Script|Paste ImportData code as value|
+|Import Script|[Paste the import script as the value](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/Import%20Scripts.ps1)|
 |End Import Script|\<Blank>|
-|Begin Export Script|Paste Begin export code as value|
-|Export Script|Paste ExportData code as value|
+|Begin Export Script|\<Blank>|
+|Export Script|[Paste the import script as the value](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/Export%20Script.ps1)|
 |End Export Script|\<Blank>|
 |Begin Password Script|\<Blank>|
 |Password Extension Script|\<Blank>|
