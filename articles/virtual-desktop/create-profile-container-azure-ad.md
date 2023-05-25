@@ -44,7 +44,9 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
 1. Enable the Azure AD Kerberos functionality using one of the following methods.
 
     - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the session host: [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
-    - Configure this Group policy on the session host: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+    - Enable this Group policy on session hosts. The path will be one of the following, depending on the version of Windows you use on your session hosts:
+       - `Administrative Templates\System\Kerberos\Allow retrieving the cloud kerberos ticket during the logon`
+       - `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
     - Create the following registry value on the session host: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
 2. When you use Azure AD with a roaming profile solution like FSLogix, the credential keys in Credential Manager must belong to the profile that's currently loading. This will let you load your profile on many different VMs instead of being limited to just one. To enable this setting, create a new registry value by running the following command:

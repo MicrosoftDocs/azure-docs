@@ -1,5 +1,5 @@
 ---
-title: "Text processing with batch deployments"
+title: "Text processing with batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -13,11 +13,11 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Text processing with batch deployments
+# Deploy language models in batch endpoints
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used for processing tabular data that contain text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
+Batch Endpoints can be used to deploy expensive models, like language models, over text data. In this tutorial you'll learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
 ## About this sample
 
@@ -27,25 +27,13 @@ The model we are going to work with was built using the popular library transfor
 * It is trained for summarization of text in English.
 * We are going to use Torch as a backend.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the [`cli/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/cli/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using the Azure CLI or [`sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using our SDK for Python.
+[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
-# [Azure CLI](#tab/cli)
+The files for this example are in:
 
 ```azurecli
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch/deploy-models/huggingface-text-summarization
+cd endpoints/batch/deploy-models/huggingface-text-summarization
 ```
-
-# [Python](#tab/python)
-
-In a Jupyter notebook:
-
-```python
-!git clone https://github.com/Azure/azureml-examples --depth 1
-!cd azureml-examples/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization
-```
-
----
 
 ### Follow along in Jupyter Notebooks
 
@@ -53,43 +41,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
-
-### Connect to your workspace
-
-First, let's connect to Azure Machine Learning workspace where we're going to work on.
-
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az account set --subscription <subscription>
-az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-```
-
-# [Python](#tab/python)
-
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-
-1. Import the required libraries:
-
-```python
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
-from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
-from azure.identity import DefaultAzureCredential
-```
-
-2. Configure workspace details and get a handle to the workspace:
-
-```python
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
-
----
+[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
 ### Registering the model
 
@@ -173,7 +125,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
    # [Azure CLI](#tab/cli)
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_endpoint" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_endpoint" :::
 
    # [Python](#tab/python)
 
@@ -202,9 +154,9 @@ Let's create the deployment that will host the model:
    > [!TIP]
    > Although files are provided in mini-batches by the deployment, this scoring script processes one row at a time. This is a common pattern when dealing with expensive models (like transformers) as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions).
 
-1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimum` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yml` file.
+1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimum` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yaml` file.
 
-   __environment/conda.yml__
+   __environment/torch200-conda.yaml__
 
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/environment/torch200-conda.yaml" :::
    
@@ -225,14 +177,14 @@ Let's create the deployment that will host the model:
    ```python
    environment = Environment(
        name="torch200-transformers-gpu",
-       conda_file="environment/torch200-conda.yml",
+       conda_file="environment/torch200-conda.yaml",
        image="mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04:latest",
    )
    ```
    ---
    
    > [!IMPORTANT]
-   > The environment `torch200-transformers-gpu` we've created requires a CUDA 11.8 compatible hardware device to run Torch 2.0 and Ubuntu 20.04. If your GPU device doesn't support this version of CUDA, you can check the alternative `torch113-conda.yml` conda environment (also available on the repository), which runs Torch 1.3 over Ubuntu 18.04 with CUDA 10.1. However, acceleration using the `optimum` and `accelerate` libraries won't be supported on this configuration.
+   > The environment `torch200-transformers-gpu` we've created requires a CUDA 11.8 compatible hardware device to run Torch 2.0 and Ubuntu 20.04. If your GPU device doesn't support this version of CUDA, you can check the alternative `torch113-conda.yaml` conda environment (also available on the repository), which runs Torch 1.3 over Ubuntu 18.04 with CUDA 10.1. However, acceleration using the `optimum` and `accelerate` libraries won't be supported on this configuration.
    
 1. Each deployment runs on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). In this example, our model can benefit from GPU acceleration, which is why we will use a GPU cluster.
 
@@ -270,7 +222,7 @@ Let's create the deployment that will host the model:
   
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_deployment" :::
    
    # [Python](#tab/python)
    

@@ -88,14 +88,17 @@ To access virtual desktops and remote apps from your session hosts, your users n
 
 ### Session hosts
 
-You need to join session hosts that provide virtual desktops and remote apps to an AD DS domain, Azure AD DS domain, or the same Azure AD tenant as your users.
+You need to join session hosts that provide virtual desktops and remote apps to the same Azure AD tenant as your users, or an Active Directory domain (either AD DS or Azure AD DS).
 
-- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-azuread-join-plan.md).
-- If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
+To join session hosts to Azure AD or an Active Directory domain, you need the following permissions:
+
+- For Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/device-management-azure-portal.md#configure-device-settings). To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
+
+- For an Active Directory domain, you need a domain account that can join computers to your domain. For Azure AD DS, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ### Users
 
-Your users need accounts that are in Azure AD. If you're also using AD DS or Azure AD DS in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user account is synchronized. You'll need to keep the following things in mind based on which account you use:
+Your users need accounts that are in Azure AD. If you're also using AD DS or Azure AD DS in your deployment of Azure Virtual Desktop, these accounts will need to be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user accounts are synchronized. You'll need to keep the following things in mind based on which identity provider you use:
 
 - If you're using Azure AD with AD DS, you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to synchronize user identity data between AD DS and Azure AD.
 - If you're using Azure AD with Azure AD DS, user accounts are synchronized one way from Azure AD to Azure AD DS. This synchronization process is automatic.
@@ -107,14 +110,16 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 | Identity scenario | Session hosts | User accounts |
 |--|--|--|
 | Azure AD + AD DS | Joined to AD DS | In Azure AD and AD DS, synchronized |
-| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized|
+| Azure AD + AD DS | Joined to Azure AD | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD DS | In Azure AD and Azure AD DS, synchronized |
 | Azure AD + Azure AD DS + AD DS | Joined to Azure AD DS | In Azure AD and AD DS, synchronized |
 | Azure AD + Azure AD DS | Joined to Azure AD | In Azure AD and Azure AD DS, synchronized|
 | Azure AD only | Joined to Azure AD | In Azure AD |
 
-> [!NOTE]
-> If you're planning on using Azure AD only with [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial), you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md). In this scenario, user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You must create these accounts in AD DS and synchronize them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and synchronized to Azure AD DS. 
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Azure AD, you will need to [store profiles on Azure Files](create-profile-container-azure-ad.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). This means you must create these accounts in AD DS and synchronize them to Azure AD. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+
+- [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Azure Active Directory Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
+- [Set up FSLogix Profile Container with Azure Files and Azure Active Directory](create-profile-container-azure-ad.md).
 
 > [!IMPORTANT]
 > The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
@@ -131,8 +136,6 @@ You'll need to enter the following identity parameters when deploying session ho
 
 > [!IMPORTANT]
 > The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
-> 
-> When joining an Azure AD DS domain, the account you use must be part of the *AAD DC administrators* group.
 
 ## Operating systems and licenses
 
@@ -144,11 +147,13 @@ You have a choice of operating systems that you can use for session hosts to pro
 |<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li><li>[Windows Server 2012 R2](/lifecycle/products/windows-server-2012-r2)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!IMPORTANT]
-> - Azure Virtual Desktop doesn't support 32-bit operating systems or SKUs not listed in the previous table.
->
+> - The following items are not supported:
+>   - 32-bit operating systems or SKUs not listed in the previous table.
+>   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
+>   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
+>   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+> 
 > - Support for Windows 7 ended on January 10, 2023.
->
-> - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) are not supported.
 
 You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:
 
@@ -215,6 +220,10 @@ Consider the following when managing session hosts:
 
 - Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
 
+- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-azuread-join-plan.md).
+
+- If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
+
 - If you're using Azure AD-join with Windows Server for your session hosts, you can't enroll them in Intune as Windows Server is not supported with Intune. You'll need to use hybrid Azure AD-join and Group Policy from an Active Directory domain, or local Group Policy on each session host.
 
 ## Remote Desktop clients
@@ -239,4 +248,4 @@ To learn which URLs clients use to connect and that you must allow through firew
 Get started with Azure Virtual Desktop by creating a host pool. Head to the following tutorial to find out more.
 
 > [!div class="nextstepaction"]
-> [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)
+> [Create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md)

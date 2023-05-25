@@ -93,8 +93,8 @@ The following data categorizes each service by which kind of data it allows or r
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Speaker Recognizer](./speech-service/speaker-recognition-overview.md)||x||
-|[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
+|[Speech Text to speech (TTS)](speech-service/text-to-speech.md)|x|x||
+|[Speech Speech to text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Language service](./language-service/overview.md)|x|||
 |[Translator](./translator/translator-overview.md)|x|||

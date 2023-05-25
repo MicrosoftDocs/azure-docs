@@ -36,6 +36,13 @@ The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems
 
 The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
 
+## Current limitations
+
+Here are current limitations of the SAP CDC connector in Data Factory:
+
+- You can't reset or delete ODQ subscriptions in Data Factory (use transaction ODQMON in the connected SAP system for this purpose).
+- You can't use SAP hierarchies with the solution.
+
 ## Prerequisites
 
 To use this SAP CDC connector, refer to [Prerequisites and setup for the SAP CDC connector](sap-change-data-capture-prerequisites-configuration.md).
@@ -54,7 +61,9 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 
 ## Transform data with the SAP CDC connector
 
-SAP CDC datasets can be used as source in mapping data flow. The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. Mapping data flow takes care of this complexity by automatically evaluating technical attributes that are provided by the ODP framework (like ODQ_CHANGEMODE). Users can therefore concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
+The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. For example, technical attributes associated with each row (like ODQ_CHANGEMODE) have to be understood to apply the changes to the sink correctly. Also, an extract of change data from ODP can contain multiple changes to the same key (for example, the same sales order). It's therefore important to respect the order of changes, while at the same time optimizing performance by processing the changes in parallel.
+Moreover, managing a change data capture feed also requires keeping track of state, for example in order to provide built-in mechanisms for error recovery.
+Azure data factory mapping data flows take care of all such aspects. Therefore, SAP CDC connectivity is part of the mapping data flow experience. Thus, users can concentrate on the required transformation logic without having to bother with the technical details of data extraction.
 
 To get started, create a pipeline with a mapping data flow.
 
@@ -63,7 +72,8 @@ To get started, create a pipeline with a mapping data flow.
 Next, specify a staging linked service and staging folder in Azure Data Lake Gen2, which serves as an intermediate storage for data extracted from SAP.
 
  >[!NOTE]
-   >The staging linked service cannot use a self-hosted integration runtime.
+   > - The staging linked service cannot use a self-hosted integration runtime.
+   > - The staging folder should be considered an internal storage of the SAP CDC connector. For further optimizations of the SAP CDC runtime, implementation details, like the file format used for the staging data, might change. We therefore recommend not to use the staging folder for other purposes, e.g. as a source for other copy activities or mapping data flows.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
 
