@@ -129,7 +129,7 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/workspace-summary-pane-logic-apps-management.png" alt-text="Screenshot showing the Azure portal, the workspace summary pane with Logic Apps Management solution.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 For a Standard logic app, you can continue with [Add a diagnostic setting](#add-diagnostic-setting). No other prerequisite steps are necessary to enable Log Analytics, nor does the Logic Apps Management solution apply to Standard logic apps.
 
@@ -255,7 +255,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-action-details.png" alt-text="Screenshot showing all operations and details for a specific logic app workflow run.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Log Analytics workspace.
 
@@ -343,7 +343,7 @@ If you don't specify this custom tracking ID, Azure automatically generates this
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and Request trigger with custom tracking ID.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
 
