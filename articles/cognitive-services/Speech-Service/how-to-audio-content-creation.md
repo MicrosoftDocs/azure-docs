@@ -68,14 +68,14 @@ It takes a few moments to deploy your new Speech resource. After the deployment 
 
 The following diagram displays the process for fine-tuning the Text to speech outputs. 
 
-:::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Diagram of the sequence of steps for fine-tuning text-to-speech outputs.":::
+:::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Diagram of the sequence of steps for fine-tuning text to speech outputs.":::
 
 Each step in the preceding diagram is described here:
 
 1. Choose the Speech resource you want to work with.
 
 1. [Create an audio tuning file](#create-an-audio-tuning-file) by using plain text or SSML scripts. Enter or upload your content into Audio Content Creation.
-1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text-to-speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
+1. Choose the voice and the language for your script content. Audio Content Creation includes all of the [prebuilt text to speech voices](language-support.md?tabs=tts). You can use prebuilt neural voices or a custom neural voice.
 
    > [!NOTE]
    > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
@@ -86,7 +86,7 @@ Each step in the preceding diagram is described here:
 
    Improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). 
 
-   For more information about fine-tuning speech output, view the [How to convert Text to Speech using Microsoft Azure AI voices](https://youtu.be/ygApYuOOG6w) video.
+   For more information about fine-tuning speech output, view the [How to convert Text to speech using Microsoft Azure AI voices](https://youtu.be/ygApYuOOG6w) video.
 
 1. Save and [export your tuned audio](#export-tuned-audio). 
 

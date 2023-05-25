@@ -21,6 +21,72 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Sovereign Clouds](whats-new-archive.md).
 
+## April 2023
+
+### General Availability - Azure Active Directory Domain Services: Trusts for User Forests
+
+**Type:** New feature   
+**Service category:** Azure Active Directory Domain Services                          
+**Product capability:** Azure Active Directory Domain Services            
+
+You can now create trusts on both user and resource forests. On-premises Active Directory DS users can't authenticate to resources in the Azure Active Directory DS resource forest until you create an outbound trust to your on-premises Active Directory DS. An outbound trust requires network connectivity to your on-premises virtual network to which you have installed Azure AD Domain Service. On a user forest, trusts can be created for on-premises Active Directory forests that aren't synchronized to Azure Active Directory DS.
+
+For more information, see: [How trust relationships work for forests in Active Directory](/azure/active-directory-domain-services/concepts-forest-trust).
+
+---
+
+### General Availability - Azure AD SCIM Validator Tool
+
+**Type:** New feature   
+**Service category:** Provisioning                             
+**Product capability:** Developer Experience               
+
+Azure Active Directory SCIM validator will enable you to test your server for compatibility with the Azure Active Directory SCIM client. For more information, see: [Tutorial: Validate a SCIM endpoint](../app-provisioning/scim-validator-tutorial.md).
+
+---
+
+### General Availability - Enablement of combined security information registration for MFA and  self-service password reset (SSPR)
+
+**Type:** New feature   
+**Service category:** MFA                     
+**Product capability:** Identity Security & Protection            
+
+Last year we announced the combined registration user experience for MFA and  self-service password reset (SSPR) was rolling out as the default experience for all organizations. We're happy to announce that the combined security information registration experience is now fully rolled out. This change doesn't affect tenants located in the China region. For more information, see: [Combined security information registration for Azure Active Directory overview](../authentication/concept-registration-mfa-sspr-combined.md).
+
+---
+
+### General Availability - Devices settings Self-Help Capability for Pending Devices
+
+**Type:** New feature   
+**Service category:** Device Registration and Management                              
+**Product capability:** End User Experiences                 
+
+In the **All Devices** settings under the Registered column, you can now select any pending devices you have, and it opens a context pane to help troubleshoot why a device may be pending. You can also offer feedback on if the summarized information is helpful or not. For more information, see [Pending devices in Azure Active Directory](/troubleshoot/azure/active-directory/pending-devices).
+
+---
+
+### General availability - Consolidated App launcher (My Apps) settings and new preview settings
+
+**Type:** New feature   
+**Service category:** My Apps            
+**Product capability:** End User Experiences      
+
+We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Entra portals. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections option by selecting App launchers. In addition, we've added a new App launchers Settings option. This option has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings options also have controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature turns on for your organization. This enabled feature reflects in the My Apps portal, and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
+
+
+---
+
+### General Availability - RBAC: Delegated app registration management using custom roles
+
+**Type:** New feature   
+**Service category:** RBAC                          
+**Product capability:** Access Control               
+
+Custom roles give you fine-grained control over what access your admins have. This release of custom roles includes the ability to delegate management of app registrations and enterprise apps. For more information, see: [Overview of role-based access control in Azure Active Directory](../roles/custom-overview.md).
+
+---
+
+
 ## March 2023 
 
 ### General Availability - Provisioning Insights Workbook
@@ -98,7 +164,7 @@ For more information, see: [Protect user accounts from attacks with Azure Active
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality will allow those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
 
 ---
 
@@ -108,7 +174,7 @@ Filter and transform group names in token claims configuration using regular exp
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token. This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature will unblock those challenges. 
+Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token. This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature unblocks those challenges. 
 
 For more information, see: 
 - [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
@@ -134,7 +200,7 @@ Azure AD now supports claims transformations on multi-valued attributes and can 
 **Service category:** Access Reviews            
 **Product capability:** Identity Security & Protection       
 
-Post-authentication anomalous activity detection for workload identities. This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior will be assessed for anomalies based on an action and/or sequence of actions occurring for the account. Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting blade. A new detection type identified as Anomalous service principal activity will appear in filter options. For more information, see: [Securing workload identities](../identity-protection/concept-workload-identity-risk.md).
+Post-authentication anomalous activity detection for workload identities. This detection focuses specifically on detection of post authenticated anomalous behavior performed by a workload identity (service principal). Post-authentication behavior is assessed for anomalies based on an action and/or sequence of actions occurring for the account. Based on the scoring of anomalies identified, the offline detection may score the account as low, medium, or high risk. The risk allocation from the offline detection will be available within the Risky workload identities reporting blade. A new detection type identified as Anomalous service principal activity appears in filter options. For more information, see: [Securing workload identities](../identity-protection/concept-workload-identity-risk.md).
 
 ---
 
@@ -308,7 +374,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 
 
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service will pause, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
 
 For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
 
@@ -362,49 +428,6 @@ We highly encourage our customers to adopt these critical security features to r
 
 For more information, see: [How to use additional context in Microsoft Authenticator notifications - Authentication methods policy](../authentication/how-to-mfa-additional-context.md).
 
----
-
-
-## October 2022
-
-### General Availability - Azure AD certificate-based authentication
-
-**Type:** New feature  
-**Service category:** Other   
-**Product capability:** User Authentication   
- 
-
-Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI). For more information, see: [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md).
- 
----
-
-### General Availability - Audited BitLocker Recovery
-
-**Type:** New feature  
-**Service category:** Device Access Management    
-**Product capability:** Device Lifecycle Management   
- 
-
-BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
- 
----
-
-### General Availability - More device properties supported for Dynamic Device groups
-
-**Type:** Changed feature   
-**Service category:** Group Management   
-**Product capability:** Directory   
- 
-
-You can now create or update dynamic device groups using the following properties:
-
-- deviceManagementAppId
-- deviceTrustType
-- extensionAttribute1-15
-- profileType
-
-For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) 
- 
 ---
 
 ## Next steps

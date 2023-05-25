@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 05/25/2023
 # As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
@@ -35,7 +35,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 1. [Include custom properties in telemetry](#custom-tracking-properties).
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. [Add a diagnostic setting to enable data collection](#add-diagnostic-setting).
 
@@ -129,7 +129,7 @@ If you turned on Log Analytics when you created your logic app resource, skip th
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/workspace-summary-pane-logic-apps-management.png" alt-text="Screenshot showing the Azure portal, the workspace summary pane with Logic Apps Management solution.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 For a Standard logic app, you can continue with [Add a diagnostic setting](#add-diagnostic-setting). No other prerequisite steps are necessary to enable Log Analytics, nor does the Logic Apps Management solution apply to Standard logic apps.
 
@@ -166,7 +166,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
 
 1. To finish adding your diagnostic setting, select **Save**.
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -255,7 +255,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-action-details.png" alt-text="Screenshot showing all operations and details for a specific logic app workflow run.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Log Analytics workspace.
 
@@ -343,7 +343,7 @@ If you don't specify this custom tracking ID, Azure automatically generates this
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and Request trigger with custom tracking ID.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/custom-tracking-id.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and Request trigger with custom tracking ID.":::
 
@@ -357,7 +357,7 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and HTTP action with tracked properties.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
 
@@ -381,7 +381,7 @@ The following examples shows where custom properties appear in your Log Analytic
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/example-tracked-properties.png" alt-text="Screenshot showing example tracked properties for a specific Consumption  workflow.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 The custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column, for example:
 
