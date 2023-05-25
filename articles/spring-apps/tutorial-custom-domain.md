@@ -135,7 +135,7 @@ You need to grant Azure Spring Apps access to your key vault before you import c
 
 #### [Portal](#tab/Azure-portal)
 1. Go to your key vault instance.
-1. In the left navigation pane, select **Access policies**.
+1. In the navigation pane, select **Access policies**.
 1. On the upper menu, select **Create**.
 1. Fill in the info, and select **Add** button, then **Create** access police.
 
