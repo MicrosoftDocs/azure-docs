@@ -29,7 +29,7 @@ There are several built-in Azure Policy definitions to manage WAF resources. A b
 
 6. **Azure Web Application Firewall on Azure Application Gateway should have request body inspection enabled**: 
 
-7. **Azure Front Door should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on Azure Front Door Service, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs, metrics enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
+7. **Azure Front Door should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on the Azure Front Door classic Service, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs, metrics enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
 
 8. **Azure Front Door Standard or Premium (Plus WAF) should have resource logs enabled**: 
 
