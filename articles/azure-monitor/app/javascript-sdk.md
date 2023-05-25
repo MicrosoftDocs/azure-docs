@@ -23,7 +23,7 @@ ms.reviewer: mmcc
 Two methods are available to manually enable Application Insights via the Application Insights JavaScript SDK.
 
 > [!TIP] 
-> Good news! We're making it even easier to enable JavaScript. Check out where [auto-instrumentation is available](./codeless-overview.md)!
+> Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md)!
 
 ### [SDK Loader Script](#tab/sdkloaderscript)
 

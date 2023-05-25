@@ -43,9 +43,12 @@ Links are provided to more information for each supported scenario.
 > [!NOTE]
 > Auto-instrumentation was known as "codeless attach" before October 2021.
 
-### JavaScript Auto-Instrumentation
+## SDK Loader Script injection by configuration
 
 If you’re using the following supported SDKs, you can configure the SDK Loader Script to inject from the server-side SDK onto each page.
+
+> [!NOTE]
+> See the linked article for instructions on how to install the server-side SDK.
 
    | SDK   | More information
    |	:---	|	:---	|
