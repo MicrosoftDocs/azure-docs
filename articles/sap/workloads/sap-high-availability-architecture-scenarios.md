@@ -229,7 +229,6 @@ On Linux, the configuration of SAP ASCS/SCS instance clustering depends on the o
 Multi-SID is supported with WSFC, using file share and shared disk. For more information about multi-SID high-availability architecture on Windows, see:
 
 * File share: [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and file share][sap-ascs-ha-multi-sid-wsfc-file-share].
-
 * Shared disk: [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and shared disk][sap-ascs-ha-multi-sid-wsfc-shared-disk].
 
 > ![Linux logo.][Logo_Linux] Linux
@@ -237,7 +236,6 @@ Multi-SID is supported with WSFC, using file share and shared disk. For more inf
 Multi-SID clustering is supported on Linux Pacemaker clusters for SAP ASCS/ERS, limited to **five** SAP SIDs on the same cluster. For more information about multi-SID high-availability architecture on Linux, see:
 
 * SUSE Linux Enterprise Server (SLES): [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md).
-
 * Red Hat Linux Enterprise (RHEL): [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md).
 
 ### High-availability of DBMS instance

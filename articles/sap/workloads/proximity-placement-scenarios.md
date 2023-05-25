@@ -14,8 +14,6 @@ ms.author: juergent
 
 > [!IMPORTANT]
 > In November 2021 we made significant changes in the way how proximity placement groups should be used with SAP workload in zonal deployments.
->
-> In May 2023 we have introduced Flexible Virtual Machine Scale Sets with platformFaultDomainCount=1 (FD=1) that would distribute VMs across different fault domain on best effort basis. When deploying VMs across multiple zones, the scale set will also make its best effort to distribute the VMs across different fault domains within each zone.
 
 SAP applications based on the SAP NetWeaver or SAP S/4HANA architecture are sensitive to network latency between the SAP application tier and the SAP database tier. This sensitivity is the result of most of the business logic running in the application layer. Because the SAP application layer runs the business logic, it issues queries to the database tier at a high frequency, at a rate of thousands or tens of thousands per second. In most cases, the nature of these queries is simple. They can often be run on the database tier in 500 microseconds or less.
 
@@ -23,7 +21,7 @@ The time spent on the network to send such a query from the application tier to 
 
 In many Azure regions, the number of datacenters has grown. At the same time, customers, especially for high-end SAP systems, are using more special VM families like M- or Mv2 family, or in rare cases HANA Large Instances. These Azure virtual machine types aren't always available in each of the datacenters that collect into an Azure region. These facts can create opportunities to optimize network latency between the SAP application layer and the SAP DBMS layer.
 
-Azure provides different deployment framework options for SAP workloads, enabling you to enhance network latency. Detailed information about each option is thoroughly described in the following section:
+Azure provides different deployment options for SAP workloads, enabling you to optimize network latency. Detailed information about each option is thoroughly described in the following section:
 
 - [Proximity Placement Groups](#proximity-placement-groups)
 - [Virtual Machine Scale Set with Flexible Orchestration](#virtual-machine-scale-set-with-flexible-orchestration)
@@ -197,9 +195,11 @@ You can also use these commands for cases where you're getting allocation errors
 
 ## Virtual Machine Scale Set with Flexible orchestration
 
-With the limitations and pitfalls associated with utilizing proximity placement group for ensuring VMs availability across all Azure datacenters or under each network spine, it's advised to deploy SAP workload across availability zones using flexible scale set with FD=1. This deployment strategy ensures that VMs deployed in each zone aren't restricted to a single datacenter or network spine, and all SAP system components, such as databases, ASCS/ERS, and application tier are scoped at zonal level. With all SAP system components being scoped at the zonal level, the network latency between different components of a single SAP system must be sufficient to ensure satisfactory performance and throughput. The key benefit of this new deployment option with flexible scale set with FD=1 is that it provides greater flexibility in resizing VMs or switching to new VM types for all layers of SAP system. Also, the scale set would allocate VMs across multiple fault domains within a single zone, which is ideal for running multiple VMs of the application tier in each zone. For more information, see [virtual machine scale set for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md) document.
+To avoid the limitations associated with proximity placement group, it's advised to deploy SAP workload across availability zones using flexible scale set with FD=1. This deployment strategy ensures that VMs deployed in each zone aren't restricted to a single datacenter or network spine, and all SAP system components, such as databases, ASCS/ERS, and application tier are scoped within a zone. With all SAP system components being scoped at the zonal level, the network latency between different components of a single SAP system must be sufficient to ensure satisfactory performance and throughput. The key benefit of this new deployment option with flexible scale set with FD=1 is that it provides greater flexibility in resizing VMs or switching to new VM types for all layers of SAP system. Also, the scale set would allocate VMs across multiple fault domains within a single zone, which is ideal for running multiple VMs of the application tier in each zone. For more information, see [virtual machine scale set for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md) document.
 
 ![SAP workload deployment in flexible scale set](./media/sap-proximity-placement-scenarios/sap-deployment-flexible-scale-set.png)
+
+In a nonproduction or non-HA environment, it's possible to deploy all SAP system components, including the database, ASCS, and application tier, within a single zone using a flexible scale set with FD=1.
 
 ## Next steps
 
