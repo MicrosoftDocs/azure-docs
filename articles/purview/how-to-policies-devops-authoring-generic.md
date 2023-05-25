@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 05/11/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -118,26 +118,7 @@ SELECT * FROM [databaseName].schemaName.tableName
 This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
 >[!NOTE]
-> The roles below may be expanded in the future to include additional actions that become available as long as they are consistent with the spirit of the role.
-
-| **Microsoft Purview policy role definition** | **Data source specific actions**     |
-|-------------------------------------|--------------------------------------|
-|                                     |                                      |
-| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
-||Microsoft.Sql/Sqlservers/Databases/Connect |
-||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
-|||               
-| *SQL Security Auditor* |Microsoft.Sql/Sqlservers/Connect |
-||Microsoft.Sql/Sqlservers/Databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
-|||
-
->[!NOTE]
-> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023, to include the following SQL side specific actions.
+> The role definitions below may be expanded in the future to include additional actions that become available as long as they are consistent with the spirit of the role.
 
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
@@ -168,6 +149,13 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 ||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Drop |
 ||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Add |
 ||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Drop |
+|||
+| *SQL Security Auditor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
+||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
 
 ## Next steps

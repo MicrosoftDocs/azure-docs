@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/12/2023
 ---
 
 # Azure HDInsight release notes
@@ -55,7 +55,7 @@ For workload specific versions, see
 
 1. **Enhanced Autoscale for HDInsight**
 
-   Azure HDInsight ESP for Apache Kafka 2.4.1 has been in public preview since April 2022. After notable improvements in CVE fixes and stability, Azure HDInsight ESP Kafka 2.4.1 now becomes generally available and ready for production workloads, learn the detail about [more about the new feature and capabilities](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271) added and how to get started.
+   Azure HDInsight has made notable improvements stability and latency on Autoscale, The essential changes include improved feedback loop for scaling decisions, significant improvement on latency for scaling and support for recommissioning the decommissioned nodes, Learn [more](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271) about the enhancements, how to custom configure and migrate your cluster to enhanced autoscale. The enhanced Autoscale capability is available effective 17 May, 2023 across all supported regions.
     
 1. **Azure HDInsight ESP for Apache Kafka 2.4.1 is now Generally Available**.
 
@@ -65,9 +65,7 @@ For workload specific versions, see
 
     HDInsight currently allocates quota to customer subscriptions at a regional level. The cores allocated to customers are generic and not classified at a VM family level (For example, Dv2, Ev3, Eav4, etc.).
     
-    HDInsight introduced an improved view, which provides a detail and classification of quotas for family-level VMs, this feature allows customers to view current and remaining quotas for a region at the VM family level. With the enhanced view, customers have richer visibility, for planning quotas, and a better user experience.
-    
-    This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow later.
+    HDInsight introduced an improved view, which provides a detail and classification of quotas for family-level VMs, this feature allows customers to view current and remaining quotas for a region at the VM family level. With the enhanced view, customers have richer visibility, for planning quotas, and a better user experience. This feature is currently available on HDInsight 4.x and 5.x for East US EUAP region. Other regions to follow later.
 
     For more information, see [Cluster capacity planning in Azure HDInsight | Microsoft Learn](./hdinsight-capacity-planning.md#view-quota-management-for-hdinsight)
     
@@ -86,10 +84,12 @@ For workload specific versions, see
   * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs will need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this would be a mandatory check to avoid cluster creation failures.
 * Basic and Standard A-series VMs Retirement.
    * On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before 31 August 2024.
+* Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
 
-If you have any more questions or concerns, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
-Ask us more about HDInsight on [Azure HDInsight - Microsoft Q&A](https://learn.microsoft.com/answers/tags/168/azure-hdinsight)
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](https://learn.microsoft.com/answers/tags/168/azure-hdinsight)
 
 You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more  updates on [twitter](https://twitter.com/AzureHDInsight)
 
