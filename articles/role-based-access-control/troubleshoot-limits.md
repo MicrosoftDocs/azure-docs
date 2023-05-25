@@ -19,7 +19,7 @@ This article describes some common solutions when you exceed the limits in Azure
 
 - [Reader](./built-in-roles.md#reader) role to run Azure Resource Graph queries.
 - [User Access Administrator](./built-in-roles.md#user-access-administrator) or [Owner](./built-in-roles.md#owner) role to add role assignments, remove role assignments, or delete custom roles.
-- [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator), [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator) role to create groups.
+- [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) or [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) role to create groups.
 
 ## Symptom - No more role assignments can be created
 
@@ -48,7 +48,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
-1. Select **Set authorization scope** and set the authorization scope to **At, above and below**.
+1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources.
 
     :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
 
@@ -106,25 +106,13 @@ To reduce the number of role assignments in the subscription, add principals (us
 
 1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
-#### Solution 2 - Combine multiple built-in roles with a custom role
-
-To reduce the number of role assignments in the subscription, combine multiple built-in roles with a custom role and assigning the custom role instead.
-
-#### Solution 3 - Make role assignments eligible
-
-To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned.
-
-#### Solution 4 - Add an additional subscription
-
-Add an additional subscription.
-
-#### Solution 5 - Remove redundant role assignments
+#### Solution 2 - Remove redundant role assignments
 
 If you still need to reduce the number of role assignments in the subscription and other solutions don't work for you, remove redundant role assignments. Follow these steps to identify where redundant role assignments at a lower scope can potentially be removed since a role assignment at a higher scope already grants access.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
-1. Select **Set authorization scope** and set the authorization scope to **At, above and below**.
+1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources.
 
     :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
 
@@ -174,18 +162,30 @@ If you still need to reduce the number of role assignments in the subscription a
 
 1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
+#### Solution 3 - Combine multiple built-in roles with a custom role
+
+To reduce the number of role assignments in the subscription, combine multiple built-in roles with a custom role and assigning the custom role instead.
+
+#### Solution 4 - Make role assignments eligible
+
+To reduce the number of role assignments in the subscription and you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned.
+
+#### Solution 5 - Add an additional subscription
+
+Add an additional subscription.
+
 ## Symptom - No more role assignments can be created at management group scope
 
 You're unable to assign a role at management group scope.
 
-**Cause**
+#### Cause
 
 Azure supports up to **500** role assignments per management group. This limit is different than the role assignments limit per subscription.
 
 > [!NOTE]
 > The **500** role assignments limit per management group is fixed and cannot be increased.
 
-**Solution**
+#### Solution
 
 Try to reduce the number of role assignments in the management group. For possible options, see [Symptom - No more role assignments can be created](#symptom---no-more-role-assignments-can-be-created).
 
