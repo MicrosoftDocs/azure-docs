@@ -26,10 +26,7 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
         **3D column layer**
 
         Renders points as 3D columns on the map.
-        
-<<<<<<< HEAD
-        ![Bar chart layer on map](media/power-bi-visual/3d-column-layer-thumb.png)
-=======
+ 
         ![3D column layer on map](media/power-bi-visual/3d-column-layer-thumb.png)
     :::column-end:::
 :::row-end:::
@@ -48,7 +45,6 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
         Shows data "hot spots" on a map.
         
         ![Heat map layer on map](media/power-bi-visual/heat-map-sm.png)
->>>>>>> bf3c59d3bcd5453f7bfb12da5ca0537b3f987610
     :::column-end:::
 :::row-end:::
 
@@ -102,11 +98,7 @@ Change how your data is displayed on the map:
 > [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD
-> [Add a bar chart layer](power-bi-visual-add-3d-column-layer.md)
-=======
 > [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
->>>>>>> bf3c59d3bcd5453f7bfb12da5ca0537b3f987610
 
 Add more context to the map:
 

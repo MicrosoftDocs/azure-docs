@@ -46,6 +46,8 @@ items:
       displayName: ChatGPT, chatgpt
     - name: Completions
       href: ./how-to/completions.md
+    - name: Switching endpoints
+      href: ./how-to/switching-endpoints.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
