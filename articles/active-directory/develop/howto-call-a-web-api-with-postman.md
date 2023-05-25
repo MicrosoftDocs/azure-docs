@@ -222,7 +222,7 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
       dotnet run -launch-profile https`
       ```
 
-   ***
+     ---
 
 1. An output similar to the following will appear. Record the port number in the `https://localhost:{port}` URL.
 
