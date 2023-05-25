@@ -70,7 +70,7 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 # [Microsoft Graph PowerShell](#tab/ms-powershell)
 
-Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main&view=graph-powershell-1.0#using-connect-mggraph) command to sign in to your tenant and consent to the required permissions.
+Use the [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?branch=main#using-connect-mggraph) command to sign in to your tenant and consent to the required permissions.
 
 ```powershell
 Connect-MgGraph -Scopes "AdministrativeUnit.ReadWrite.All"
