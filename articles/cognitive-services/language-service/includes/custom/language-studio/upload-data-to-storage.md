@@ -15,8 +15,8 @@ ms.author: jboback
 
 4. In your storage account, select **Containers** from the left menu, located below **Data storage**. On the screen that appears, select **+ Container**. Give the container the name **example-data** and leave the default **Public access level**.
 
-    :::image type="content" source="../../../media/custom/quickstart/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../../media/custom/quickstart/storage-screen.png":::
+    :::image type="content" source="../../../media/custom/language-studio/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../../media/custom/language-studio/storage-screen.png":::
 
 5. After your container has been created, select it. Then click **Upload** button to select the `.txt` and `.json` files you downloaded earlier. 
 
-    :::image type="content" source="../../../media/custom/quickstart/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account."../../../media/custom/quickstart/file-upload-screen.png":::
+    :::image type="content" source="../../../media/custom/language-studio/file-upload-screen.png" alt-text="A screenshot showing the button for uploading files to the storage account." lightbox="../../../media/custom/language-studio/file-upload-screen.png":::

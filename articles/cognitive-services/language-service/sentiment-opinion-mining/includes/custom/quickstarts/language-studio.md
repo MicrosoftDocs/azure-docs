@@ -28,17 +28,28 @@ Before you can use Custom sentiment analysis, you'll need to create an Azure Lan
     
 
 
-<!--## Upload sample data to blob container
+## Upload sample data to blob container
 
-[!INCLUDE [Uploading sample data for custom tex classification](blob-storage-upload.md)]-->
-    
+After you have created an Azure storage account and connected it to your Language resource, you will need to upload the documents from the sample dataset to the root directory of your container. These documents will later be used to train your model.
 
+1. [Download the sample dataset for Custom sentiment analysis projects](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip).
+
+1. Open the .zip file, and extract the folder containing the documents. 
+
+    The provided sample dataset contains about 200 documents,  each of which is a summary for a movie. Each document belongs to one or more of the following classes: 
+    * "Mystery"
+    * "Drama"
+    * "Thriller"
+    * "Comedy"
+    * "Action"
+
+[!INCLUDE [Uploading sample data for Custom sentiment analysis](../../../../includes/custom/language-studio/upload-data-to-storage.md)]
 
 ## Create a Custom sentiment analysis project
 
 Once your resource and storage container are configured, create a new Custom sentiment analysis project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-<!--[!INCLUDE [Create a project using Language Studio](../../../../includes/custom/language-studio/create-project.md)]-->
+[!INCLUDE [Create a project using Language Studio](../../../../includes/custom/language-studio/create-project.md)]
     
 
 
@@ -46,7 +57,7 @@ Once your resource and storage container are configured, create a new Custom sen
 
 Typically after you create a project, you start labeling the documents you have in the container connected to your project. For this quickstart, you have imported a sample labeled dataset and initialized your project with the sample JSON labels file.
 
-<!--[!INCLUDE [Train a model using Language Studio](../language-studio/train-model.md)]-->
+[!INCLUDE [Train a model using Language Studio](../../../../includes/custom/language-studio/train-your-model.md)]
 
 
 
@@ -54,7 +65,7 @@ Typically after you create a project, you start labeling the documents you have 
 
 Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
-<!--[!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]-->
+[!INCLUDE [Deploy a model using Language Studio](../../../../includes/custom/language-studio/deployment.md)]
 
 
 

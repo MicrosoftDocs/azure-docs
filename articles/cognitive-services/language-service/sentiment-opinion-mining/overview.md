@@ -19,9 +19,6 @@ Sentiment analysis and opinion mining are features offered by [Azure Cognitive S
 
 Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
-* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
-
 ## Sentiment analysis 
 
 The sentiment analysis feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. 
@@ -30,11 +27,50 @@ The sentiment analysis feature provides sentiment labels (such as "negative", "n
 
 Opinion mining is a feature of sentiment analysis. Also known as aspect-based sentiment analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
+#### [Prebuilt model](#tab/prebuilt)
+
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 ## Get started with sentiment analysis
 
 [!INCLUDE [development options](./includes/development-options.md)]
+
+#### [Custom model](#tab/custom)
+
+Custom sentiment analysis enables users to build custom AI models to classify text into custom classes pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+
+
+## Project development lifecycle
+
+Creating a Custom sentiment analysis project typically involves several different steps. 
+
+:::image type="content" source="media/development-lifecycle.png" alt-text="Diagram of the development lifecycle" lightbox="media/development-lifecycle.png":::
+
+Follow these steps to get the most out of your model:
+
+1. **Define your schema**: Know your data and identify the sentiments you want, to avoid ambiguity.
+
+2. **Label your data**: The quality of data labeling is a key factor in determining model performance. Documents that belong to the same class should always have the same class, if you have a document that can fall into two classes use  **Multi label classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with single label classification projects.
+
+3. **Train the model**: Your model starts learning from your labeled data.
+
+4. **View the model's performance**: View the evaluation details for your model to determine how well it performs when introduced to new data.
+
+5. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
+
+6. **Classify text**: Use your custom model for Custom sentiment analysis tasks.
+
+## Reference documentation
+
+As you use Custom sentiment analysis, see the following reference documentation and samples for Azure Cognitive Service for Language:
+
+|Development option / language  |Reference documentation |Samples  |
+|---------|---------|---------|
+|REST APIs (Authoring)   | [REST API documentation](https://aka.ms/ct-authoring-swagger)        |         |
+|REST APIs (Runtime)    | [REST API documentation](https://aka.ms/ct-runtime-swagger)        |         |
+
+--- 
+
 
 ## Responsible AI 
 
