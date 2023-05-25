@@ -267,7 +267,7 @@ If the Azure Linux VM Sign-In application is missing from Conditional Access, ma
 
 1. Sign in to the Azure portal.
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
-1. Remove the filters to see all applications, and search for **VM**. If you don't see Azure Linux VM Sign-In as a result, the service principal is missing from the tenant.
+1. Remove the filters to see all applications, and search for **Virtual Machine**. If you don't see Microsoft Azure Linux Virtual Machine Sign-In as a result, the service principal is missing from the tenant.
 
 Another way to verify it is via Graph PowerShell:
 
@@ -275,7 +275,7 @@ Another way to verify it is via Graph PowerShell:
 1. Enter the command `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`.
 1. Sign in with a Global Administrator account.
 1. Consent to the prompt that asks for your permission.
-1. Enter the command `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Linux VM Sign-In"'`.
+1. Enter the command `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Microsoft Azure Linux Virtual Machine Sign-In"'`.
    
    If this command results in no output and returns you to the PowerShell prompt, you can create the service principal by using the following Graph PowerShell command: `New-MgServicePrincipal -AppId ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0`.
    

@@ -47,7 +47,7 @@ Use the following table to learn about changes including deprecations, retiremen
 
 |Functionality, feature, or service|Change|Change date |
 |---|---|---:|
-|[Azure AD Domain Services virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|
+|[Azure AD Domain Services virtual network deployments](../../active-directory-domain-services/overview.md)|Retirement|Mar 1, 2023|
 |[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|*Mar 31, 2023|
 
 \* The legacy license management API and PowerShell cmdlets will not work for **new tenants** created after Nov 1, 2022.
