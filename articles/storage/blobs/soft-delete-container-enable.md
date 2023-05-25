@@ -115,6 +115,19 @@ You can restore a soft-deleted container and its contents within the retention p
 1. Display the context menu for the container you wish to restore, and choose **Undelete** from the menu.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot showing how to restore a soft-deleted container in Azure portal":::
+    
+    
+<<<New Edition to the Doc >>>
+## Restore a deleted container with Soft Delete not enabled and with Microsoft Support team assistance  < Manual recovery >. 
+    If soft delete has not been enabled and your data has been deleted , You can raise a case with Microsoft Support team and we can assist you to recover the data on **best effort basis** if the following conditions are true:
+
+
+1. The container was deleted in the last 14 days.
+2. Storage account replication is configured as GRS, RA-GRS, or GZRS (we need the geo-replicated data for recovery).
+3. A new storage object with the same name hasn't been re-created since deletion.
+    
+Please Note:Because Garbage collection can occure on our system at any time , we cannot guarentee a successful recovery even if the preceding conditions are met .
+            As a part of our data privacy guarentee <https://www.microsoft.com/en-in/trust-center/privacy?rtc=1>, the data deleted by the customer is eventually overwritten .
 
 ## Next steps
 
