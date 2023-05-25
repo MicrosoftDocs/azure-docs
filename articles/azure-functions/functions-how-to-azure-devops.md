@@ -16,7 +16,9 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy to Azure
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-YAML pipelines aren't available for Azure DevOps 2019 and earlier.
+You'll use the AzureFunctionApp task to deploy to Azure Functions. There are now two versions of the AzureFunctionApp task ([AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1), [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2)). AzureFunctionApp@2 includes enhanced validation support that makes pipelines less likely to fail because of errors. 
+
+Choose your task version at the top of the article. YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
 ## Prerequisites
 
