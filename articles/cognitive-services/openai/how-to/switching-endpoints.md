@@ -38,6 +38,7 @@ openai.api_key = "sk-..."
 openai.organization = "..."
 
 
+
 ```
 
 </td>
@@ -99,7 +100,7 @@ openai.api_version = "2023-05-15"  # subject to change
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of the `engine` interchangeably with `deployment_id`.
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of [deployments](/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and uses the `deployment_id` keyword argument to describe which model deployment to use. Azure OpenAI also supports the use of `engine` interchangeably with `deployment_id`.
 
 For OpenAI `engine` still works in most instances, but it's deprecated and `model` is preferred.
 
