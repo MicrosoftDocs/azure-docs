@@ -253,9 +253,9 @@ System.out.println("Participant(s) removed");
 
 ```
 
-### List all existing rooms
+### List all active rooms
 
-Retrieve all existing `rooms` under your ACS resource.
+Retrieve all active `rooms` under your ACS resource.
 
 ```java
 try {
@@ -263,12 +263,13 @@ try {
     int count = 0;
     
     for (CommunicationRoom room : rooms) {
-        System.out.println("\nRoom ID: " + room.getRoomId());
+        System.out.println("\nFirst room ID in the list of rooms: " + room.getRoomId());
+        count++;
         
-            if (count >= 1) {
+        if (count >= 1) {
                 break;
-            }
-      }
+        }
+    }
 } catch (Exception ex) {
     System.out.println(ex);
 }
@@ -333,7 +334,7 @@ Participants:
 
 Participant(s) removed
 
-Room ID: 99445276259151407
+First room ID in the list of rooms: 99445276259151407
 
 Deleted the room with ID:  99445276259151407
 
