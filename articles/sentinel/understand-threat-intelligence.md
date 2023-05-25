@@ -56,7 +56,7 @@ For more information on MDTI data connector, see [Enable MDTI data connector](co
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Upload Indicators API** data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel. 
 
-:::image type="content" source="media/understand-threat-intelligence/threat-intel-upload-api.png" alt-text="Upload indicators API import path diagram.":::
+:::image type="content" source="media/understand-threat-intelligence/threat-intel-upload-api.png" alt-text="Diagram showing upload indicators API import path.":::
 
 This data connector utilizes a new API and offers the following improvements:
 - The threat indicator fields are based off of the STIX standardized format.
