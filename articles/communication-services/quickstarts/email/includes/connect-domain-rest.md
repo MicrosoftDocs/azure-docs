@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+author: yogeshmo
+manager: koagbakp
+services: azure-communication-services
+ms.author: yogeshmo
+ms.date: 05/24/2023
+ms.topic: include
+ms.service: azure-communication-services
+ms.custom: mode-other
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free/dotnet/).
