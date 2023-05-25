@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 04/28/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -37,7 +37,6 @@ Before you start the migration:
     If you're migrating Azure virtual machines (VMs) that include disks in classic storage accounts, be sure to familiarize yourself with the process of VM migration. For information about unsupported features and configurations, see [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations). For a list of errors that may occur in relation to classic disk artifacts, see [Common errors during Classic to Azure Resource Manager migration](../../virtual-machines/migration-classic-resource-manager-errors.md#list-of-errors).
 
 - Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
-- Evaluate any Azure role-based access control (Azure RBAC) roles that are configured on the classic storage account, and plan for after the migration is complete.
 
 There are four steps to the migration process, as shown in the following diagram:
 
@@ -51,7 +50,9 @@ There are four steps to the migration process, as shown in the following diagram
 1. **Check manually**. It's a good idea to make a manual check of the new storage account to make sure that the output is as you expect.
 1. **Commit or abort**. If you're satisfied that the migration has been successful, then you can commit the migration. Committing the migration permanently deletes the classic storage account.
 
-    If there are any problems with the migration, then you can abort the migration at this point. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
+    Before you commit the migration, we recommend that you update your client applications to use the [Azure Storage resource provider APIs](/rest/api/storagerp/). You can then test your updated code against the migrated storage account, while the classic account still exists.
+
+    If there are any problems with the migration, then you can abort the migration at this point rather than committing it. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
 
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation.
@@ -62,7 +63,7 @@ The Validation step is the first step in the migration process. The goal of this
 
 The Validation step analyzes the state of resources in the classic deployment model. It checks for failures and unsupported scenarios due to different configurations of the storage account in the classic deployment model.
 
-The Validation step doesn't check for VM disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they support VM disks. For more information, see the following articles:
+The Validation step doesn't check for VM disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they contain VM disks. For more information, see the following articles:
 
 - [Migrate classic storage accounts to Azure Resource Manager](classic-account-migrate.md)
 - [Migrate VMs to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
@@ -101,10 +102,14 @@ To revert your changes to the classic deployment model, you can choose to abort 
 
 ### Commit
 
-After you're satisfied that your classic storage account has been migrated successfully, you can commit the migration. Committing the migration deletes your classic storage account. Your data is now available only in the newly migrated account in the Resource Manager deployment model.
+Before you commit the migration, we recommend that you update your client applications to use the [Azure Storage resource provider APIs](/rest/api/storagerp/). You can then test your updated code against the migrated storage account, while the classic account still exists. If there are any problems, you can abort the commit.
 
-> [!NOTE]
-> Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html).
+After you're satisfied that your classic storage account has been migrated successfully and your client applications are working against the new account, you can commit the migration. Committing the migration deletes your classic storage account. Your data is now available only in the newly migrated account in the Resource Manager deployment model.
+
+> [!WARNING]
+> Committing the migration permanently deletes your classic storage account. Test the migrated storage account and any client applications thoroughly before you commit the migration.
+
+Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html).
 
 ## After the migration
 

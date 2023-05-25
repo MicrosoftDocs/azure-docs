@@ -142,6 +142,7 @@ This version includes bug fixes for stability improvements.
 **Supported until**: 12/2023
 
 - [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
+- [Configure Active Directory and NTP settings in the Azure portal](configure-sensor-settings-portal.md#active-directory)
 
 ## Versions 22.2.x
 

@@ -12,6 +12,7 @@ ms.date: 07/28/2022
 ms.author: jomondi
 ms.reviewer: sureshja
 zone_pivot_groups: enterprise-apps-all
+ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---

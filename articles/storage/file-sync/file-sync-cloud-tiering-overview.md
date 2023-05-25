@@ -62,8 +62,6 @@ If files recalled to the server aren't needed locally, then the unnecessary reca
 
 Enabling proactive recalling might also result in increased bandwidth usage on the server and could cause other relatively new content on the local server to be aggressively tiered due to the increase in files being recalled. In turn, tiering too soon might lead to more recalls if the files being tiered are considered hot by servers.
 
-:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
-
 For more information on proactive recall, see [Deploy Azure File Sync](file-sync-deployment-guide.md#optional-proactively-recall-new-and-changed-files-from-an-azure-file-share).
 
 ## Tiered vs. locally cached file behavior

@@ -91,6 +91,19 @@ The valid type expressions include:
     }
     ```
 
+  Decorators may be used on properties. `*` may be used to make all values require a constrant. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+
+    ```bicep
+    type obj = {
+      @description('The object ID')
+      id: int
+
+      @description('Additional properties')
+      @minLength(10)
+      *: string
+    }
+    ```
+
     **Recursion**
 
     Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
@@ -218,4 +231,4 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Next steps
 
-- For a list of the Bicep date types, see [Data types](./data-types.md).
+- For a list of the Bicep data types, see [Data types](./data-types.md).

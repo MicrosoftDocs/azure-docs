@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 04/10/2023
+ms.date: 04/25/2023
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
@@ -81,6 +81,7 @@ Person's Gender machine learning model has been trained using US Census data and
 #### Keywords
 - sex
 - gender
+- sexual
 - orientation
 
 -------------------------------------
@@ -90,6 +91,7 @@ Person's Age machine learning model detects age of an individual specified in va
 
 #### Keywords
 - age
+- ages
 
 #### Supported formats
 - {%y} y, {%m} m
@@ -6251,6 +6253,17 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
 #### Pattern
 
+- 000.00.000.00
+- 000.000.00.00
+- 00.000.000.00
+- 000.000.000.00
+- 000.000.000.000
+- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
+- 0000:0000:0000::00:00:000:0
+- 0a0a:a000:00a::
+- 0000:0000:0000:00::0
+- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
+
 #### Checksum
 
 No
@@ -6268,14 +6281,15 @@ No
 
 -------------------------------------
 
-### IP Address v4
+### Personal IP Address
 
 #### Format
 
-Complex pattern that accounts for formatted (periods) and unformatted (no periods) versions of the IPv4 addresses
+Complex pattern that accounts for formatted (periods) versions of the IPv4 addresses
 
 #### Pattern
 
+000.000.000.000
 
 #### Checksum
 
@@ -6294,31 +6308,6 @@ No
 
 -------------------------------------
 
-### IP Address v6
-
-#### Format
-
-Complex pattern that accounts for formatted IPv6 numbers (which include colons)
-
-#### Pattern
-
-
-#### Checksum
-
-No
-
-#### Keywords
-
-##### Keyword_ipaddress
-
-- IP (case sensitive)
-- ip address
-- ip addresses
-- internet protocol
-- IP-כתובת ה
-
-
--------------------------------------
 
 ### Ireland driver's license number
 

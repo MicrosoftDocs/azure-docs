@@ -42,7 +42,19 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 
 ## Troubleshooting
 
-To troubleshoot issues related to email delivery, you can get the status of the email delivery to capture delivery details.
+### Email Delivery
+
+To troubleshoot issues related to email delivery, you can [get status of the email delivery](./handle-email-events.md) to capture delivery details.
+
+> [!IMPORTANT]
+> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you will need to reference [how to handle email events](./handle-email-events.md).
+
+### Email Throttling
+
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](./send-email-advanced/throw-exception-when-tier-limit-reached.md).
+
+> [!NOTE]
+> This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
 
 ## Clean up Azure Communication Service resources
 

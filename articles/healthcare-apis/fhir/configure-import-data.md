@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: ruiyichen
+ms.author: chenrui 
 ---
 
 # Configure bulk-import settings

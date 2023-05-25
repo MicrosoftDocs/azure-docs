@@ -23,8 +23,8 @@ Data Factory pipelines provide 100+ data source connectors that provide scalable
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.*
-* **Azure Data Factory pipeline**. You can follow any of the tutorials and create a new data factory pipeline in case you do not already have one, or create one with one click in [Get started and try out your first data factory pipeline](quickstart-get-started.md). 
-* **Setup a Service Principal**. You will need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Airflow environment and the pipelines exist in the same data factory. You will need to get the Service Principal’s Client ID and Client Secret (API Key).
+* **Azure Data Factory pipeline**. You can follow any of the tutorials and create a new data factory pipeline in case you don't already have one, or create one with one select in [Get started and try out your first data factory pipeline](quickstart-get-started.md). 
+* **Setup a Service Principal**. You'll need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example – contributor role in the data factory where the existing pipelines exist), even if the Managed Airflow environment and the pipelines exist in the same data factory. You'll need to get the Service Principal’s Client ID and Client Secret (API Key).
 
 ## Steps
 
@@ -88,15 +88,14 @@ Data Factory pipelines provide 100+ data source connectors that provide scalable
        #   run_pipeline2 >> pipeline_run_sensor
     ```
 
-    You will have to create the connection using the Airflow UI (Admin -> Connections -> '+' -> Choose 'Connection type' as 'Azure Data Factory',  then fill in your **client_id**, **client_secret**, **tenant_id**, **subscription_id**, **resource_group_name**, **data_factory_name**, and **pipeline_name**.
+    You'll have to create the connection using the Airflow UI (Admin -> Connections -> '+' -> Choose 'Connection type' as 'Azure Data Factory',  then fill in your **client_id**, **client_secret**, **tenant_id**, **subscription_id**, **resource_group_name**, **data_factory_name**, and **pipeline_name**.
 
 1. Upload the **adf.py** file to your blob storage within a folder called **DAGS**.
-1. [Import the **DAGS** folder into your Managed Airflow environment](./how-does-managed-airflow-work.md#import-dags).  If you do not have one, [create a new one](./how-does-managed-airflow-work.md#create-a-managed-airflow-environment)
+1. [Import the **DAGS** folder into your Managed Airflow environment](./how-does-managed-airflow-work.md#import-dags).  If you don't have one, [create a new one](./how-does-managed-airflow-work.md#create-a-managed-airflow-environment)
 
    :::image type="content" source="media/tutorial-run-existing-pipeline-with-airflow/airflow-environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
 
 ## Next steps
 
-* [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
-* [Managed Airflow pricing](airflow-pricing.md)
-* [Changing password for Managed Airflow environments](password-change-airflow.md)
+- [Managed Airflow pricing](airflow-pricing.md)
+- [Changing password for Managed Airflow environments](password-change-airflow.md)

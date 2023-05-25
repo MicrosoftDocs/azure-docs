@@ -40,7 +40,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
 | [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | [App Development and DevOps](#app-development-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
-| [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
+| [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
 | [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time with this [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
@@ -150,6 +150,10 @@ Also see the following SAP resources:
 
 ### Azure Data Services
 
+Learn how to **choose** the [best SAP connector for data integration](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-choose-azure-connectors) and how to [tune performance including troubleshooting tips](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-data-extraction-performance-troubleshooting) on our cloud adoption framework for SAP. Get started by identifying your SAP data sources [here](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources).
+
+Integrate with Azure OpenAI Service from SAP ABAP via the [Microsoft SDK for AI](https://microsoft.github.io/aisdkforsapabap/).
+
 For more information about integration with Azure Data Services, see the following Microsoft and Azure resources:
 
 - [SAP knowledge center for Azure Data Factory and Synapse](../../data-factory/industry-sap-overview.md)
@@ -172,9 +176,14 @@ Also see the following SAP resources:
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
 - [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
-- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485)
 - [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
 - [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
+- [Revolutionize your SAP Security with Microsoft Sentinel's SOAR Capabilities](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionize-your-sap-security-with-microsoft-sentinel-s-soar/ba-p/3823857)
+
+Also see the following SAP resources:
+
+- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/)
+- [Deploy SAP user blocking based on suspicious activity on the SAP backend](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/)
 
 ### SAP BTP
 
@@ -215,6 +224,8 @@ You can use the following free developer accounts to explore integration scenari
 
 - [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1)
 - [Browse the out-of-the-box SAP applications available on Microsoft Power Platform](/power-automate/sap-integration/overview?source=recommendations#prebuilt-sap-integration-solution)
+- [Understand SAP data integration with Azure - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
+- [Identify your SAP data sources - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
 - [Explore joint reference architectures on the SAP Discovery Center](https://discovery-center.cloud.sap/search/Azure)
 - [Secure your SAP NetWeaver email needs with Exchange Online](./exchange-online-integration-sap-email-outbound.md)
 - [Migrate your legacy SAP middleware to Azure](./expose-sap-process-orchestration-on-azure.md)

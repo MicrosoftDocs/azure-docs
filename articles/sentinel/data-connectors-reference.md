@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 04/18/2023
+ms.date: 03/25/2023
 ms.author: cwatson
 ---
 
@@ -118,10 +118,8 @@ Data connectors are available as part of the following offerings:
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
-- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
-- [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
 - [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
@@ -187,6 +185,10 @@ Data connectors are available as part of the following offerings:
 ## Cybersixgill
 
 - [Cybersixgill Actionable Alerts (using Azure Function)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
+
+## Cynerio
+
+- [Cynerio Security Events](data-connectors/cynerio-security-events.md)
 
 ## Darktrace
 
@@ -352,7 +354,6 @@ Data connectors are available as part of the following offerings:
 - [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
-- [Azure Information Protection](data-connectors/azure-information-protection.md)
 - [Azure Key Vault](data-connectors/azure-key-vault.md)
 - [Azure Kubernetes Service (AKS)](data-connectors/azure-kubernetes-service-aks.md)
 - [Azure Logic Apps](data-connectors/azure-logic-apps.md)
@@ -383,10 +384,8 @@ Data connectors are available as part of the following offerings:
 - [Syslog](data-connectors/syslog.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
-- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
 - [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
-- [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 

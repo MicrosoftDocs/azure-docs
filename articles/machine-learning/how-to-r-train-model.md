@@ -3,6 +3,7 @@ title: Train R models
 titleSuffix: Azure Machine Learning
 description: 'Learn how to train your machine learning model with R for use in Azure Machine Learning.'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
@@ -153,7 +154,7 @@ Once you've submitted the job, you can check the status and results in studio:
 Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
 
 1. On the toolbar at the top, select **+ Register model**.
-1. Select **MLflow** for the **Model type**.
+1. Select **Unspecified type** for the **Model type**.
 1. Select the folder which contains the model.
 1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.

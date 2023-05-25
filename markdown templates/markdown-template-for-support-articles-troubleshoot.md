@@ -5,7 +5,7 @@ services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: ''
+editor: editor-alias
 tags: top-support-issue
 
 ms.service: required
@@ -28,9 +28,9 @@ ms.author: Your MSFT alias or your full email address;semicolon separates two or
 
 [Opening paragraph]
 
-* *Briefly describe the specific issue(s) that this article will help troubleshoot, and the common root cause(s).*
-* *The opening paragraph is a good place to use different keywords from those in the title, but make sure to not make it very wordy. The sentences should flow well and be easy to understand.*
-* *Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, ” Linux/OSS scenarios aren't covered in this article”.*
+* *Briefly describe the specific issue(s) this article will help troubleshoot and the common root cause(s).*
+* *The opening paragraph is an excellent place to use different keywords from those in the title, but make sure not to make it very wordy. The sentences should flow well and be easy to understand.*
+* *Exceptions (optional) - List the relevant scenarios not covered in this article. For example," Linux/OSS scenarios aren't covered in this article."*
 
 These {errors}|{Issues} occur because {a very general reason}.
 
@@ -42,9 +42,9 @@ These {errors}|{Issues} occur because {a very general reason}.
 * *Password validation failed.*
 * *Failed to authorize access to the specified subscription.*
 
-*These errors occur because you don’t have permission to access the data source.*
+*These errors occur because you don't have permission to access the data source.*
 
-*If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the bottom of this article):*
+*If it is an article on the billing topic, include the following note (the note below is slightly different from the one at the bottom of this article):*
 
 > [!NOTE]
 > If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
@@ -56,14 +56,14 @@ These {errors}|{Issues} occur because {a very general reason}.
 
 ## Troubleshooting guidance (optional)
 * *Use this section when the guidance applies across the board.*
-* *Don’t go into details. Keep it high level to serve as a guidance.*
+* * Don't go into details. Keep it high level to serve as a guide.*
 
-*Here is an example of a troubleshooting guidance.*
+*Here is an example of troubleshooting guidance.*
 
-*In general, as long as the error does not indicate "the requested VM size is not supported", you can always retry at a later time, as enough resource may have been freed up in the cluster to accommodate your request. If the problem is the requested VM size is not supported, try a different VM size; otherwise, the only option is to remove the pinning constraint.*
+*Generally, if the error does not indicate "the requested VM size is not supported," you can always retry later, as enough resources may have been freed up in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size; otherwise, the only option is to remove the pinning constraint.*
 
 ## Troubleshooting steps
-*List the solutions in the order of usability and simplicity, meaning the simplest, the most effective and useful solution should go first.*
+*List the solutions in the order of usability and simplicity, meaning the simplest, most effective, and most useful solution should go first.*
 
 *Select one of the versions that apply to your situation.*
 
@@ -72,9 +72,9 @@ These {errors}|{Issues} occur because {a very general reason}.
 | <p><h3>[Issue 1] \ |[Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>[Issue 2] \ |[Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
 ## Next steps
-*Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant/ important.*
+*Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to the next steps, include text to explain why the next steps are relevant/ important.*
 
-*If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the beginning of this article):*
+*If it is an article on the billing topic, include the following note (the note below is slightly different from the one at the beginning of this article):*
 
 > [!NOTE]
 > If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

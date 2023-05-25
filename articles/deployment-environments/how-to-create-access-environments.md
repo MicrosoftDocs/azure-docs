@@ -5,17 +5,14 @@ description: Learn how to create and access an environment in an Azure Deploymen
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, build-2023
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 04/25/2023
 ---
 
 # Create and access an environment by using the Azure CLI
 
-This article shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
 
 ## Prerequisites
 
@@ -24,6 +21,8 @@ This article shows you how to create and access an [environment](concept-environ
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an environment
+
+Creating an environment automatically creates the required resources and a resource group to store them. The resource group name follows the pattern {projectName}-{environmentName}. You can view the resource group in the Azure portal.
 
 Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
 

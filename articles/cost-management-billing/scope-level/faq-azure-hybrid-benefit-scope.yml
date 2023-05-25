@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: faq
-  ms.date: 04/20/2023
+  ms.date: 04/25/2023
   ms.author: banders
 title: Centrally managed Azure Hybrid Benefit FAQ
 summary: |
@@ -52,6 +52,18 @@ sections:
 
               - Assign fewer licenses, which might increase your Azure bill.
               - Engage within your organization to either free-up or acquire more licenses so that you can assign the right amount.
+      - question: What happens after I set the license assignment review date?
+        answer: |
+          After you assign licenses and set a review date, Microsoft later sends you email notifications to let you know that the license assignment will expire.
+
+          Email notifications are sent:
+
+          - 90 days before expiration
+          - 30 days before expiration
+          - 7 days before expiration
+
+          No notification is sent on the review date. The license assignment becomes inactive and no longer applies 90 days after expiration.
+
       - question: Can I use the new experience with self-installed SQL Server in Azure virtual machines?
         answer: |
           The new approach of centrally managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The experience includes a feature that informs you about current usage of Azure Hybrid Benefit. And, the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage ensures that you don't experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration may incur unexpected pay-as-you-go charges. 

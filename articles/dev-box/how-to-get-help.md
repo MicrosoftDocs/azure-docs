@@ -4,8 +4,8 @@ description: Learn how to choose the appropriate channel to get support for Micr
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
-ms.topic: how-to 
-ms.date: 04/20/2023
+ms.topic: troubleshooting 
+ms.date: 04/25/2023
 ms.custom: template-how-to-pattern
 ---
 

@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| DispalyName | user.displayname |
+	| DisplayName | user.displayname |
 
 
 	c. Copy the namespace value for these attributes: givenname, email and surname by using the following steps:

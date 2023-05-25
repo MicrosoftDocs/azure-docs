@@ -108,7 +108,11 @@ For any blobs with at least one blob index tag, the `x-ms-tag-count` is returned
 
 ## Finding data using blob index tags
 
-The indexing engine exposes your key-value attributes into a multi-dimensional index. After you set your index tags, they exist on the blob and can be retrieved immediately. It may take some time before the blob index updates. After the blob index updates, you can use the native query and discovery capabilities offered by Blob Storage.
+The indexing engine exposes your key-value attributes into a multi-dimensional index. After you set your index tags, they exist on the blob and can be retrieved immediately. 
+
+It might take some time before the blob index updates. This is true for both adding tags and editing existing ones. The amount of time required depends on the workload. For example, if a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation takes 30 minutes to complete at a rate of 15000 to 20000 transactions per second, then it can take up to 10 minutes to index all of those blobs. At a lower rate, the indexing delay can be under a second. The distribution of traffic also affects indexing delays. For example, if a client application sets tags on blobs in sequential order under the same container, the delay could be higher than it would be if tags are applied to blobs that aren't located together.
+
+After the blob index updates, you can use the native query and discovery capabilities offered by Blob Storage.
 
 The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation enables you to get a filtered set of blobs whose index tags match a given query expression. `Find Blobs by Tags` supports filtering across all containers within your storage account or you can scope the filtering to just a single container. Since all the index tag keys and values are strings, relational operators use a lexicographic sorting.
 

@@ -72,7 +72,7 @@ BlobUploadOptions options = new BlobUploadOptions
         InitialTransferSize = 8 * 1024 * 1024,
 
         // Set the maximum length of a transfer to 4 MiB
-        MaximumTransferSize = 4 * 1024 * 1024;
+        MaximumTransferSize = 4 * 1024 * 1024
     }
 };
 

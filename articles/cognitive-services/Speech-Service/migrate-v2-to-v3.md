@@ -15,10 +15,10 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v2.0 to v3.0 of the REST API
 
-Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
+Compared to v2, the v3 version of the Speech services REST API for speech to text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
 > [!IMPORTANT]
-> The Speech-to-text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech-to-text REST API v3.1. Complete the steps in this article and then see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide for additional requirements.
+> The Speech to text REST API v2.0 is deprecated and will be retired by February 29, 2024. Please migrate your applications to the Speech to text REST API v3.1. Complete the steps in this article and then see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide for additional requirements.
 
 ## Forward compatibility
 
@@ -70,7 +70,7 @@ General changes:
 
 ### Host name changes
 
-Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech-to-text REST API v3.0](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
+Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech to text REST API v3.0](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
 >[!IMPORTANT]
 >Change the hostname from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com` where region is the region of your speech subscription. Also remove `api/`from any path in your client code.
 
@@ -518,5 +518,5 @@ Accuracy tests have been renamed to evaluations because the new name describes b
 
 ## Next steps
 
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Speech-to-text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+* [Speech to text REST API](rest-speech-to-text.md)
+* [Speech to text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)

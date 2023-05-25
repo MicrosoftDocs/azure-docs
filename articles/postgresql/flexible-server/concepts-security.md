@@ -68,6 +68,8 @@ The **administrator role** should never be used by the application.
 In cloud-based PaaS environments access to a PostgreSQL superuser account is restricted to control plane operations only by cloud operators. Therefore, the **azure_pg_admin** account exists as a pseudo-superuser account. Your administrator role is a member of the **azure_pg_admin** role. 
 However, the server admin account is not part of the **azuresu** role, which has superuser privileges and is used to perform control pane operations. Since this service is a managed PaaS service, only Microsoft is part of the superuser role.
 
+> [!NOTE]
+> Number of superuser only permissions , such as creation of certain [implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html), are not available with Azure Database for PostgreSQL - Flexible Server, since azure_pg_admin role doesn't align to permissions of postgresql superuser role. 
 
 You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table which lists all the roles along with privileges such as create additional roles, create databases, replication etc. 
 

@@ -1,13 +1,13 @@
 ---
 title: Product updates for Azure Cosmos DB for PostgreSQL
 description: Release notes, new features and features in preview
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 05/22/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -22,6 +22,18 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
+### May  2023
+
+* General availability: [Pgvector extension](howto-use-pgvector.md) enabling vector storage is now fully supported on Azure Cosmos DB for Postgres.
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.20, 12.15, 13.11, 14.8, and 15.3) are now available in all supported regions.
+* General availability: [Citus 11.3](https://www.citusdata.com/updates/v11-3/) is now supported on PostgreSQL 13, 14, and 15.
+	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
+* General availability: PgBouncer version 1.19.0 is now supported for all [PostgreSQL versions](reference-versions.md#postgresql-versions) in all [supported regions](./resources-regions.md) 	
+* General availability: Clusters are now always provisioned with the latest Citus version supported for selected PostgreSQL version.
+	* See [this page](./reference-extensions.md#citus-extension) for the latest supported Citus versions.
+	* See [this page](./concepts-upgrade.md) for information on PostgreSQL and Citus version in-place upgrade.
+* General availability: PgBouncer 1.19.0 is now available in all supported regions.
+
 ### April  2023
 
 * General availability: [Representational State Transfer (REST) APIs](/rest/api/postgresqlhsc/) are now fully supported for all cluster management operations.
@@ -31,12 +43,13 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### March 2023
 
-* General availability: Cluster compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
+* General availability: Clusters compute [start / stop functionality](./concepts-compute-start-stop.md) is now supported across all configurations.
 	
 ### February 2023
 
 * General availability: 4 TiB, 8 TiB, and 16 TiB storage per node is now supported for [multi-node configurations](resources-compute.md#multi-node-cluster) in addition to previously supported 0.5 TiB, 1 TiB, and 2 TiB storage sizes.
 	* See cost details for your region in 'Multi-node' section of [the Azure Cosmos DB for PostgreSQL pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.19, 12.14, 13.10, 14.7, and 15.2) are now available in all supported regions.
 
 ### January 2023
 

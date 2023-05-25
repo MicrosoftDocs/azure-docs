@@ -79,7 +79,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Provide a function name**|Type `HttpExample`.|
     |**Select how you would like to open your project**|Choose `Open in current window`|
 
-    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions TypeScript developer guide](functions-reference-node.md). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript). 
 ::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]

@@ -1,6 +1,6 @@
 ---
 title: Structured text phonetic pronunciation data
-description: Use phonemes to customize pronunciation of words in Speech-to-Text.
+description: Use phonemes to customize pronunciation of words in Speech to text.
 author: ut-karsh
 ms.author: umaheshwari
 ms.service: cognitive-services

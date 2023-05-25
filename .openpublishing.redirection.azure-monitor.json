@@ -452,6 +452,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-rate-limiting.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-sms-behavior.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat-setup.md" ,
             "redirect_url": "/azure/azure-monitor/containers/container-insights-transition-hybrid",
             "redirect_document_id": false
@@ -6027,11 +6037,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-api-switch.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer",
             "redirect_document_id": false
@@ -6134,6 +6139,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/data-model-context.md",
             "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-management-packs.md",
+            "redirect_url": "/azure/azure-monitor/azure-monitor-operations-manager#migrate-management-pack-logic",
             "redirect_document_id": false
         },
         {
