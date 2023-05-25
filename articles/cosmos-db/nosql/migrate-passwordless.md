@@ -43,11 +43,9 @@ Next, update your code to use passwordless connections.
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `CosmosClient` to connect to Azure Cosmos DB. Update your code to match the following example. Replace the `COSMOS_ENDPOINT` placeholder with the value from your own Cosmos DB service.
+1. Identify the locations in your code that create a `CosmosClient` object to connect to Azure Cosmos DB. Update your code to match the following example.
 
    ```csharp
-   // TODO: Update the <COSMOS_ENDPOINT> placeholder.
-   // New instance of CosmosClient class
     using CosmosClient client = new(
         accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT"),
         tokenCredential: new DefaultAzureCredential()
@@ -191,4 +189,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
 * [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md))
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+* To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
