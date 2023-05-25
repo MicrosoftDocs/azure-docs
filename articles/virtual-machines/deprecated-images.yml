@@ -212,7 +212,7 @@ sections:
            
       - question: How can I check if a specific image is deprecated or scheduled for deprecation?
         answer: |
-          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP). 
+          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP) and via Azure CLI or Powershell.
           
 
           If the image is deprecated,  you'll get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
@@ -226,6 +226,39 @@ sections:
               "code": "ImageVersionDeprecated",
               "message": "VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated."
             }
-          }
+         
+          
+          
+          To check if an image is deprecated via Azure CLI or Powershell:
+          
+          
+          Azure CLI:
+          
+          ```azurecli
+          az vm image show --location eastus --urn MicrosoftWindowsServer:WindowsServer:2016-Datacenter:14393.4169.2101090332 --query [imageDeprecationStatus]
           ```
+          
+          Powershell:
+          
+          ```powershell
+          Get-AzVMImage -Location "eastus" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "14393.4169.2101090332" | Select-Object -ExpandProperty "ImageDeprecationStatus"
+          ```
+          
+          The response indicates that this image is deprecated: 
+          
+          ```
+          Get-AzVMImage: VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated.
+          ErrorCode: ImageVersionDeprecated
+          ErrorMessage: VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated.
+          ErrorTarget:
+          StatusCode: 404
+          ReasonPhrase: Not Found
+          
+          ```
+          
+          
+          
+          
+          
+          
           
