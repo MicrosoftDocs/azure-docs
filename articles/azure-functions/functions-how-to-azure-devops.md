@@ -26,13 +26,16 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
 * An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
 
-* A function app with its code in a GitHub repository.  
-    * [Create your first function in the Azure portal](functions-create-function-app-portal.md)
-    * [Code and test Azure Functions locally](functions-develop-local.md)    
-        * [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
-        * [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
-        * [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
-        * [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
+* A function app with its code in a GitHub repository.  If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
+    # [C\#](#tab/csharp)
+    [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
+    # [JavaScript](#tab/javascript)
+    [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
+    # [Python](#tab/python)
+    [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
+    # [PowerShell](#tab/powershell)
+    [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
+    ---
 
 ::: zone pivot="v1"
 
