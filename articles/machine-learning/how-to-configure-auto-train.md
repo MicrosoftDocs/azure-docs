@@ -243,7 +243,7 @@ Automated ML supports tabular data based tasks (classification, regression, fore
 
 ### Supported algorithms
 
-Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there's no need for you to specify the algorithm. 
+Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, you don't need to specify the algorithm. 
 
 The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `training` configuration of the AutoML job to further modify iterations with the available models to include or exclude. 
 
@@ -323,7 +323,7 @@ The main difference between `r2_score` and `normalized_root_mean_squared_error` 
 
 If the rank, instead of the exact value is of interest, `spearman_correlation` can be a better choice as it measures the rank correlation between real values and predictions.
 
-However, currently no primary metrics for regression addresses relative difference. All of `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` treat a $\text{\$20k}$ prediction error the same for a worker with a $\text{\$30k}$ salary as a worker making $\text{\$20M}$, if these two data points belongs to the same dataset for regression, or the same time series specified by the time series identifier. While in reality, predicting only $\text{\$20k}$ off from a $\text{\$20M}$ salary is very close (a small 0.1% relative difference), whereas $\text{\$20k}$ off from $\text{\$30k}$ isn't close (a large 67% relative difference). To address the issue of relative difference, one can train a model with available primary metrics, and then select the model with best `mean_absolute_percentage_error` or `root_mean_squared_log_error`.
+AutoML does not currently support any primary metrics that measure _relative_ difference between predictions and observations. The metrics `r2_score`, `normalized_mean_absolute_error`, and `normalized_root_mean_squared_error` are all measures of absolute difference. For example, if a prediction differs from an observation by 10 units, these metrics compute the same value if the observation is 20 units or 20,000 units. In contrast, a percentage difference, which is a relative measure, gives errors of 50% and 0.05%, respectively! To optimize for relative difference, you can run AutoML with a supported primary metric and then select the model with the best `mean_absolute_percentage_error` or `root_mean_squared_log_error`. Note that these metrics are undefined when any observation values are zero, so they may not always be good choices. 
 
 | Metric | Example use case(s) |
 | ------ | ------- |
