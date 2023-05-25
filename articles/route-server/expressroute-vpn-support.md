@@ -1,11 +1,11 @@
 ---
 title: Azure Route Server support for ExpressRoute and Azure VPN
-description: Learn about how Azure Route Server interacts with ExpressRoute and Azure VPN gateways.
+description: Learn about how Azure Route Server exchanges routes between network virtual appliances (NVA), Azure ExpressRoute gateways, and Azure VPN gateways.
 services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 05/25/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
 ---
@@ -20,13 +20,16 @@ Azure Route Server supports not only third-party network virtual appliances (NVA
 
 ## How does it work?
 
-When you deploy an Azure Route Server along with a virtual network gateway and an NVA in a virtual network, by default Azure Route Server doesn’t propagate the routes it receives from the NVA and virtual network gateway between each other. Once you enable **branch-to-branch** in Route Server, the virtual network gateway and the NVA will exchange their routes.
+When you deploy an Azure Route Server along with a virtual network gateway and an NVA in a virtual network, by default Azure Route Server doesn’t propagate the routes it receives from the NVA and virtual network gateway between each other. Once you enable **branch-to-branch** in Route Server, the virtual network gateway and the NVA exchange their routes.
 
 For example, in the following diagram:
 
-* The SDWAN appliance will receive from Azure Route Server the route from “On-premises 2”, which is connected to ExpressRoute, along with the virtual network route.
+* The SDWAN appliance receives from Azure Route Server the route of *On-premises 2*, which is connected to ExpressRoute circuit, along with the route of the virtual network.
 
-* The ExpressRoute gateway will receive the route from “On-premises 1”, which is connected to the SDWAN appliance, along with the virtual network route from Azure Route Server.
+* The ExpressRoute gateway receives from Azure Route Server the route of *On-premises 1*, which is connected to the SDWAN appliance, along with the route of the virtual network.
+
+> [!NOTE]
+> Equal-Cost-Multi-Path (ECMP) over ExpressRoute is enabled by default for Route Servers created after May 26, 2023.
 
 :::image type="content" source="./media/expressroute-vpn-support/expressroute-with-route-server.png" alt-text="Diagram showing ExpressRoute gateway and SDWAN NVA exchanging routes through Azure Route Server.":::
 
