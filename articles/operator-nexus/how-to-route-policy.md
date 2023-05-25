@@ -91,7 +91,8 @@ IP prefixes specify only the match conditions of route policies. They don't spec
 | action | Action to be taken for the prefix – Permit | Deny or  Permit |True |
 | sequenceNumber | Sequence in which the prefixes are processed. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored |  100 |True |
 | networkPrefix | Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. |  1.1.1.0/24 |True |
-| condition | Specified prefix list bounds- EqualTo |  GreaterThanOrEqualTo |  LesserThanOrEqualTo |  EqualTo | |
+| condition | Specified prefix list bounds- EqualTo \|  GreaterThanOrEqualTo \|  LesserThanOrEqualTo |  EqualTo | |
+
 | subnetMaskLength | SubnetMaskLength specifies the minimum networkPrefix length to be matched. Required when condition is specified.  |  32| |
 
 ### Create IP Prefix
