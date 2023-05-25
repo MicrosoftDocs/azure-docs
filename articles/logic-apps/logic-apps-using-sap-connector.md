@@ -350,7 +350,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 
 1. Get the IP addresses for the SAP Application, Message, and Gateway servers that you plan to use for connecting from your workflow. Network name resolution isn't available for SAP connections in an ISE.
 
-1. Get the port numbers for the SAP Application, Message, and Gateway services that you plan you'll use for connecting from your workflow. Service name resolution isn't available for SAP connections in an ISE.
+1. Get the port numbers for the SAP Application, Message, and Gateway services that you plan to use for connecting from your workflow. Service name resolution isn't available for SAP connections in an ISE.
 
 ---
 
@@ -378,7 +378,8 @@ The following list describes the prerequisites for the SAP client library that y
 
   * For Standard logic app workflows, you can use the 32-bit version for the SAP client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
 
-    1. In the [Azure portal](https://portal.azure.com), on your Standard logic app resource menu, under **Settings**, select **Configuration**.
+    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
+    1. On the logic app resource menu, under **Settings**, select **Configuration**.
     1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
     1. Make sure to install the matching version of the [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0](https://support.sap.com/en/product/connectors/msnet.html).
 
@@ -392,7 +393,7 @@ The following list describes the prerequisites for the SAP client library that y
 
 The following relationships exist between the SAP client library, the .NET Framework, the .NET runtime, and the data gateway:
 
-* The Microsoft SAP Adapter and the gateway host service use .NET Framework 4.7.2.
+* The Microsoft SAP Adapter and the gateway host service both use .NET Framework 4.7.2.
 
 * The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.8.
 
@@ -591,7 +592,7 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
       | Name | Value | Description |
       |------|-------|-------------|
-      | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificate, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. <br><br>- If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection. |
+      | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- The PSE must contain the private client certificate where the thumbprint matches the public client certificate that you provided in the previous step. <br><br>- Although the PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. <br><br>- If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. The PSE must contain the client private certificate for each and all the connections. You must set the client public certificate parameter to match the specific private certificate for each connection. |
       | **SAP_PSE_Password** | <*PSE-password*> | The password, also known as PIN, for your PSE |
 
 1. Now, either create or open the workflow you want to use in the designer. On your logic app resource menu, under **Workflows**, select **Workflows**.
