@@ -19,7 +19,7 @@ PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only
 
 When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling.
 
-> [!Note]
+> [!NOTE]
 > PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking. 
 
 ## Enabling and configuring PgBouncer
@@ -40,9 +40,24 @@ You can configure PgBouncer, settings with these parameters:
 
 For more details on the PgBouncer configurations, please see [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
-> [!Note] 
+> [!IMPORTANT]
 > Upgrading of PgBouncer is managed by Azure.
 
+## Benefits and Limitations of built-in PGBouncer feature
+
+By leveraging the benefits of built-in PgBouncer with Flexible Server, users can enjoy the convenience of simplified configuration, the reliability of a managed service, support for various connection types, and seamless high availability during failover scenarios. Using built-in PGBouncer feature provides for following benefits:
+ * As its sealessly integrated with Azure Database for PostgreSQL - Flexible Server service, there is no need for a separate installation or complex setup. It can be easily configured directly from the server parameters, ensuring a hassle-free experience. 
+ * As a managed service, users can enjoy the advantages of other Azure managed services. This includes automatic updates, eliminating the need for manual maintenance and ensuring that PgBouncer stays up-to-date with the latest features and security patches. 
+ * The built-in PgBouncer in Flexible Server provides support for both public and private connections. This allows users to establish secure connections over private networks or connect externally, depending on their specific requirements. 
+ * In the event of a failover, where a standby server is promoted to the primary role, PgBouncer seamlessly restarts on the newly promoted standby without any changes required to the application connection string. This ensures continuous availability and minimizes disruption to the application's connection pool. 
+
+ There are following limitations with using this feature today:
+ * PgBouncer is currently not supported with Burstable server compute tier. 
+ * Transaction and statement connection pooling modes cannot be used along with prepared statements.
+ * Only a subset of configuration parameters is available with built-in PGBouncer vs. standalone product. 
+ * Whenever the server is restarted , the PgBouncer is also restarted along with the server. Hence, existing connections must be re-established. 
+
+For those customers that are looking for simplified management, built-in high availability, easy connectivity with containerized applications and are interested in utilizing most popular configuration parameters with PGBouncer built-in PGBouncer feature is good choice. For customers looking for full control of all parameters and debugging experience another choice could be setting up PGBouncer on Azure VM as an alternative. 
 ## Monitoring PgBouncer
 
 ### PgBouncer Metrics
