@@ -333,6 +333,8 @@ items:
       - name: Query call logs
         href: concepts/analytics/query-call-logs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Rooms Insights
+        href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Chat
