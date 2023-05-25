@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 05/24/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Configure a Single-page application User Interface and Sign-In
+# Configure a single-page application user interface and sign-In
 
 When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
 
@@ -26,10 +26,9 @@ When authorization has been configured, the user interface can be created to all
 
 ## Create the *index.html* file
 
-The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button. 
+The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign-Out** button. 
 
-1. In the *public* folder, create a new file named *index.html*. This file contains the HTML for the main page of the application.
-1. Open *index.html* and add the following code snippet:
+1. In the *public* folder, open *index.html* and add the following code snippet:
 
    ```html
     <!DOCTYPE html>
@@ -103,8 +102,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the *signout.html* file
 
-1. In the *public* folder, create a new file named *signout.html*. This file contains the HTML for the sign-out page of the application.
-1. Open *signout.html* and add the following code snippet:
+1. In the *public* folder, open *signout.html* and add the following code snippet:
 
     ```html
     <!DOCTYPE html>
@@ -132,8 +130,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the *ui.js* file
 
-1. In the *public* folder, create a new file named *ui.js*. This file contains the JavaScript code for the UI of the application.
-1. Open *ui.js* and add the following code snippet:
+1. In the *public* folder, open *ui.js* and add the following code snippet:
 
     ```javascript
     // Select DOM elements to work with
@@ -173,8 +170,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the styles.css file
 
-1. In the *public* folder, create a new file named *styles.css*. This file contains the CSS code for the UI of the application.
-1. Open *styles.css* and add the following code snippet:
+1. In the *public* folder, open *styles.css* and add the following code snippet:
 
     ```css
     .navbarStyle {
@@ -219,3 +215,9 @@ Now that all the required code snippets have been added, the application can be 
 
 > [!div class="nextstepaction"]
 > [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
+
+## See also
+
+- [Customize the default branding](how-to-customize-branding-customers.md)
+- [Configure sign-in with Google](how-to-google-federation-customers.md)
+- [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-app.md)
