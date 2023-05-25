@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 05/07/2023
+ms.date: 05/025/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -73,19 +73,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |\Processor(_Total)\% Processor Time |Yes |Total Processor Time |Percent |Average |This metric indicates the percentage of elapsed time that the processor spends to execute a non-Idle thread. It is calculated by measuring the percentage of time that the processor spends executing the idle thread and then subtracting that value from 100%. (Each processor has an idle thread that consumes cycles when no other threads are ready to run). This counter is the primary indicator of processor activity, and displays the average percentage of busy time observed during the sample interval. It should be noted that the accounting calculation of whether the processor is idle is performed at an internal sampling interval of the system clock (10ms). On todays fast processors, % Processor Time can therefore underestimate the processor utilization as the processor may be spending a lot of time servicing threads between the system clock sampling interval. Workload based timer applications are one example  of applications  which are more likely to be measured inaccurately as timers are signaled just after the sample is taken. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance. |DataCenter, Tenant, Role, RoleInstance, ScaleUnit |
 |\Security System-Wide Statistics\Kerberos Authentications |Yes |Kerberos Authentications |CountPerSecond |Average |This metric indicates the number of times that clients use a ticket to authenticate to this computer per second. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance. |DataCenter, Tenant, Role, RoleInstance, ScaleUnit |
 |\Security System-Wide Statistics\NTLM Authentications |Yes |NTLM Authentications |CountPerSecond |Average |This metric indicates the number of NTLM authentications processed per second for the Active Directory on this domain contrller or for local accounts on this member server. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance. |DataCenter, Tenant, Role, RoleInstance, ScaleUnit |
-
-## microsoft.aadiam/azureADMetrics  
-<!-- Data source : naam-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|CACompliantDeviceSuccessCount |Yes |CACompliantDeviceSuccessCount |Count |Count |CA comliant device scuccess count for Azure AD |No Dimensions |
-|CAManagedDeviceSuccessCount |No |CAManagedDeviceSuccessCount |Count |Count |CA domain join device success count for Azure AD |No Dimensions |
-|MFAAttemptCount |No |MFAAttemptCount |Count |Count |MFA attempt count for Azure AD |No Dimensions |
-|MFAFailureCount |No |MFAFailureCount |Count |Count |MFA failure count for Azure AD |No Dimensions |
-|MFASuccessCount |No |MFASuccessCount |Count |Count |MFA success count for Azure AD |No Dimensions |
-|SamlFailureCount |Yes |SamlFailureCount |Count |Count |Saml token failure count for relying party scenario |No Dimensions |
-|SamlSuccessCount |Yes |SamlSuccessCount |Count |Count |Saml token scuccess count for relying party scenario |No Dimensions |
 
 ## Microsoft.AnalysisServices/servers  
 <!-- Data source : arm-->
