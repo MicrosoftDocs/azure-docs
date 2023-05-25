@@ -17,7 +17,7 @@ items:
       href: how-to-manage-branch-locations.md
     - name: Define quick access ranges
       href: how-to-define-quick-access-ranges.md
-    - name: MISSING DETAIL Install Windows client
+    - name: Install Windows client
       href: how-to-install-windows-client.md
 - name: How-to guides
   expanded: true
