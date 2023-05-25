@@ -2,6 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 03/16/2023
 ---
 
@@ -95,13 +96,14 @@ The following example shows the rules that are available for configuration.
         "use-parent-property": {
           "level": "warning"
         },
-        "use-protectedsettings-for-commandtoexecute-secrets": {
-          "level": "warning"
-        },
         "use-recent-api-versions": {
-          "level": "warning"
+          "level": "warning",
+          "maxAllowedAgeInDays": 730
         },
         "use-resource-id-functions": {
+          "level": "warning"
+        },
+        "use-resource-symbol-reference": {
           "level": "warning"
         },
         "use-stable-resource-identifiers": {

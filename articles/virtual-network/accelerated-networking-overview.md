@@ -1,15 +1,10 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-services: virtual-network
 author: asudbring
-manager: gedegrac
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 03/20/2023
+ms.date: 04/18/2023
 ms.author: allensu
 ---
 
@@ -19,7 +14,7 @@ This article explains Accelerated Networking and describes its benefits, constra
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking:
 
-![Screenshot that shows communication between Azure VMs with and without Accelerated Networking.](./media/create-vm-accelerated-networking/accelerated-networking.png)
+:::image type="content" source="./media/create-vm-accelerated-networking/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
 
 **Without Accelerated Networking**, all networking traffic in and out of the VM traverses the host and the virtual switch. The virtual switch provides all policy enforcement to network traffic. Policies include network security groups, access control lists, isolation, and other network virtualized services. To learn more about virtual switches, see [Hyper-V Virtual Switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch).
 
@@ -39,7 +34,7 @@ Accelerated Networking has the following benefits:
 
 - The benefits of Accelerated Networking apply only to the VM that enables it.
 
-- For best results, you should enable Accelerated Networking on at least two VMs in the same Azure virtual network. This feature has minimal impact on latency when you communicate across virtual networks or connect on-premises.
+- For best results, you should enable Accelerated Networking on at least two VMs in the same Azure virtual network. This feature has minimal effect on latency when you communicate across virtual networks or connect on-premises.
 
 - You can't enable Accelerated Networking on a running VM. You can enable Accelerated Networking on a supported VM only when the VM is stopped and deallocated.
 
@@ -98,6 +93,8 @@ The following Linux and FreeBSD distributions from the Azure Gallery support Acc
 
 If you use a custom image that supports Accelerated Networking, make sure you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Accelerated Networking also requires network configurations that exempt configuration of the virtual functions on the mlx4_en and mlx5_core drivers. Images with cloud-init version 19.4 or greater have networking correctly configured to support Accelerated Networking during provisioning.
 
+# [RHEL, CentOS](#tab/redhat) 
+
 The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
 ```bash
@@ -109,6 +106,24 @@ sudo cat /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF
 unmanaged-devices=driver:mlx4_core;driver:mlx5_core 
 EOF 
 ```
+
+# [openSUSE, SLES](#tab/suse)  
+
+The following example shows a sample configuration drop-in for `networkd` on openSUSE or SLES:
+
+```bash
+sudo mkdir -p /etc/systemd/network 
+sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
+# Ignore SR-IOV interface on Azure, since it's transparently bonded 
+# to the synthetic interface 
+[Match] 
+Driver=mlx4_en mlx5_en mlx4_core mlx5_core 
+[Link] 
+Unmanaged=yes 
+EOF 
+```
+
+# [Ubuntu, Debian](#tab/ubuntu) 
 
 The following example shows a sample configuration drop-in for `networkd` on Ubuntu, Debian, or Flatcar:
 
@@ -123,6 +138,11 @@ Driver=mlx4_en mlx5_en mlx4_core mlx5_core
 Unmanaged=yes 
 EOF 
 ```
+
+>[!NOTE]
+>It is strongly advised that custom images do not run competing network interface software (such as ifupdown and networkd) and do not run dhcpclient directly on multiple interfaces.
+
+--- 
 
 ## Next steps
 - [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)

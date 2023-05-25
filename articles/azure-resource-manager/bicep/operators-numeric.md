@@ -4,6 +4,7 @@ description: Describes Bicep numeric operators that calculate values.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 06/01/2021
 ---
 

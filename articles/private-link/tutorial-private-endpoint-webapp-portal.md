@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 06/22/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Connect to a web app using an Azure Private Endpoint

@@ -24,14 +24,16 @@ POST {{FHIR_URL}}/$reindex
 
 { 
 
-“resourceType”: “Parameters”,  
+"resourceType": "Parameters",  
 
-“parameter”: [] 
+"parameter": [] 
 
 }
  ```
 
-Leave the `"parameter": []` field blank (as shown) if you don't need to tweak the compute resources allocated to the reindex job. If the request is successful, you will receive a **201 Created** status code in addition to a `Parameters` resource in response:
+Leave the `"parameter": []` field blank (as shown) if you don't need to tweak the compute resources allocated to the reindex job.
+
+If the request is successful, you will receive a **201 Created** status code in addition to a `Parameters` resource in response
 
 ```json
 HTTP/1.1 201 Created 
@@ -83,6 +85,24 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
   ]
 }
 ```
+In case, there is a need to run reindex job against specific custom search parameter, use the following `POST` call with the JSON formatted `Parameters` resource in the request body:
+
+```json
+POST {{FHIR_URL}}/$reindex 
+
+{ 
+
+"resourceType": "Parameters",  
+
+"parameter": [
+      "name": "targetSearchParameterTypes",
+      "valueString": "{url of custom search parameter. In case of multiple custom search parameters, url list can be comma seperated.}"
+
+] 
+
+}
+ ```
+
 
 > [!NOTE]
 > To check the status of a reindex job or to cancel the job, you'll need the reindex ID. This is the `"id"` carried in the `"parameter"` value returned in the response. In the example above, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
@@ -213,7 +233,6 @@ POST {{FHIR_URL}}/$reindex
   ]
 }
 ```
-
 ## Next steps
 
 In this article, you've learned how to perform a reindex job in your FHIR service. To learn how to define custom search parameters, see 

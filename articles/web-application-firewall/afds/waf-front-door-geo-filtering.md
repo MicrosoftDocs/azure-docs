@@ -201,6 +201,7 @@ You can configure a geo-filtering policy for your Front Door by using [Azure Pow
 | VG | Virgin Islands, British|
 | VI | Virgin Islands, U.S.|
 | VN | Vietnam|
+| YE | Yemen|
 | ZA | South Africa|
 | ZM | Zambia|
 | ZW | Zimbabwe|

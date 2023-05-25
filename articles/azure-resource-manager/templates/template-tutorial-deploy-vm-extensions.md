@@ -1,10 +1,9 @@
 ---
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
-author: mumian
-ms.date: 03/26/2021
+ms.date: 05/22/2023
 ms.topic: tutorial
-ms.author: jgao
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates
@@ -79,10 +78,10 @@ Add a virtual machine extension resource to the existing template with the follo
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "apiVersion": "2021-04-01",
-  "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
+  "name": "[format('{0}/{1}', variables('vmName'), 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
+    "[format('Microsoft.Compute/virtualMachines/{0}',variables('vmName'))]"
   ],
   "properties": {
     "publisher": "Microsoft.Compute",

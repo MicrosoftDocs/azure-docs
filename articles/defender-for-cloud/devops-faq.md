@@ -2,7 +2,7 @@
 title: Defender for DevOps FAQ
 description: If you're having issues with Defender for DevOps perhaps, you can solve it with these frequently asked questions.
 ms.topic: reference
-ms.date: 02/23/2023
+ms.date: 04/18/2023
 ---
 
 # Defender for DevOps frequently asked questions (FAQ)
@@ -11,6 +11,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 
 ## FAQ
 
+- [Scan specific folders for secrets in ADO repos with CredScan](#scan-specific-folders-for-secrets-in-ado-repos-with-credscan)
 - [I'm getting an error while trying to connect](#im-getting-an-error-while-trying-to-connect)
 - [Why can't I find my repository](#why-cant-i-find-my-repository)
 - [Secret scan didn't run on my code](#secret-scan-didnt-run-on-my-code)
@@ -26,6 +27,33 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [I'm not able to configure Pull Request Annotations](#im-not-able-to-configure-pull-request-annotations)
 - [What programming languages are supported by Defender for DevOps?](#what-programming-languages-are-supported-by-defender-for-devops) 
 - [I'm getting an error that informs me that there's no CLI tool](#im-getting-an-error-that-informs-me-that-theres-no-cli-tool)
+- [Can I migrate the connector to a different region?](#can-i-migrate-the-connector-to-a-different-region)
+
+### Scan specific folders for secrets in ADO repos with CredScan
+If you want to scan specific folders in Azure DevOps repos with CredScan, you can use:
+env: 
+  credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+
+A full ADO YAML file for a pipeline that does CredScan scanning for secrets on a specific folder could look like this:
+```yml
+trigger:
+  branches:
+    include:
+      - main
+      - master
+ 
+pool:
+  vmImage: "windows-latest"
+ 
+steps:
+  - task: MicrosoftSecurityDevOps@1
+    displayName: "Microsoft Security DevOps"
+    inputs:
+      categories: 'secrets' 
+      break: false
+    env:
+      credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
+```      
 
 ### I'm getting an error while trying to connect
 
@@ -55,9 +83,9 @@ If you don’t see SARIF file in the expected path, you may have chosen a differ
 
 ### I don’t see the results for my ADO projects in Microsoft Defender for Cloud 
 
-Currently, OSS vulnerabilities, IaC scanning vulnerabilities, and Total code scanning vulnerabilities are only available for GitHub repositories. 
+Currently, OSS vulnerability findings are only available for GitHub repositories. 
 
-Azure DevOps repositories only have the total exposed secrets available and will show `N/A` for all other fields. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
+Azure DevOps repositories will have the total exposed secrets, IaC misconfigurations, and code security findings available. It will show `N/A` for OSS vulnerabilities. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
 ### Why is my Azure DevOps repository not refreshing to healthy? 
 
@@ -103,7 +131,7 @@ The ability to block developers from committing code with exposed secrets isn't 
 
 ### I'm not able to configure Pull Request Annotations
 
-Make sure you have write (owner/contributor) access to the subscription. 
+Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating an Azure Active Directory role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
 
 ### What programming languages are supported by Defender for DevOps?
 
@@ -128,6 +156,13 @@ This error occurs if you're missing the dependency of `dotnet6` in the pipeline'
  
 You can learn more about [Microsoft Security DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
 
+### Can I migrate the connector to a different region?
+
+For example, can I migrate the connector from the Central US region to the West Europe region?
+
+We don’t support automatic migration for the Defender for DevOps connectors from one region to another at this time.
+
+If you want to move a connector’s location, for example a GitHub or Azure DevOps connector, to be stored in a different region than the original one where the connector was created, the recommendation is to delete the existing connector and then to create another connector in the new region.
 
 ## Next steps
 

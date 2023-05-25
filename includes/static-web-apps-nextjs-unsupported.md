@@ -14,7 +14,7 @@ During the preview, the following features of Static Web Apps are unsupported fo
 - Deployment via the SWA CLI.
 - Static Web Apps provided Authentication and Authorization.
   - Instead, you can use the Next.js [Authentication](https://nextjs.org/docs/authentication) feature.
-- The `staticwebapps.config.json` file.
+- The `staticwebapp.config.json` file.
   - Features such as custom headers and routing can be controlled using the `next.config.js` file.
 - `skip_app_build` and `skip_api_build` can't be used.
 - Incremental static regeneration (ISR) does not support caching images and [on-demand revalidation](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#using-on-demand-revalidation)

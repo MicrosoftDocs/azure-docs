@@ -97,7 +97,7 @@ sections:
           * [Face](../face/overview.md)
           * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)
-          * [Speech Service API](../speech-service/speech-container-howto.md#billing)
+          * [Speech service](../speech-service/speech-container-overview.md#billing)
           * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#billing)
           * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#billing)
           * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#billing)

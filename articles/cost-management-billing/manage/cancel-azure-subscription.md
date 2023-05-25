@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 04/11/2023
 ms.author: banders
 ---
 
@@ -44,7 +44,7 @@ An account administrator without the service administrator or subscription owner
 
 ## Cancel a subscription in the Azure portal
 
-Depending on your environment, the cancel subscription experience allows you to cancel a subscription, turn off auto-renewal for an associated support plan, and stop all Azure subscription resources.
+Depending on your environment, the cancel subscription experience allows you to cancel a subscription, turn off autorenewal for an associated support plan, and stop all Azure subscription resources.
 
 If you have a support plan associated with the subscription, it's shown in the cancellation process. Otherwise, it isn't shown.
 
@@ -62,7 +62,7 @@ A subscription owner can navigate in the Azure portal to **Subscriptions** and t
     :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription.png" alt-text="Screenshot showing the subscription properties where you select Cancel subscription." lightbox="./media/cancel-azure-subscription/cancel-subscription.png" :::
 1. Select a reason for cancellation.
 1. If you have a support plan and no other subscriptions use it, select **Turn off auto-renew**. If other subscriptions use the support plan, clear the option.
-1. If you have any running resources associated with the subscription, you must select **Turn off resources**. Ensure that you've already backed up any data that you want to keep.
+1. If you have any running resources associated with the subscription, you must select **Turn off resources**. Ensure that you already backed up any data that you want to keep.
 1. Select **Cancel subscription**.  
     :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription-final.png" alt-text="Screenshot showing the Cancel subscription window options." lightbox="./media/cancel-azure-subscription/cancel-subscription-final.png" :::
 
@@ -77,11 +77,14 @@ After the subscription is canceled, a notification shows that the cancellation i
 
 After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends.
 
-After you cancel, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only. Here's an example of the cancellation window.
+After you cancel, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. Here's an example of the cancellation window.
 
 :::image type="content" source="./media/cancel-azure-subscription/cancel-window.png" alt-text="Screenshot showing the cancellation window." lightbox="./media/cancel-azure-subscription/cancel-window.png" :::
 
 After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it, or if you want to reactivate the subscription. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+>[!NOTE]
+> You must manually cancel your SaaS subscriptions before you cancel your Azure subscription. Only pay-as-you-go SaaS subscriptions are cancelled automatically by the Azure subscription cancellation process.
 
 ## Delete subscriptions
 
@@ -102,7 +105,7 @@ Depending on your subscription type, you may not be able to delete a subscriptio
       - If **Manual deletion date** doesn't display a green check mark, you must wait the required period before you can delete the subscription.  
 
 >[!NOTE]
-> - 90 days after you cancel a subscription, the subscription is automatically deleted.
+> - The subscription is automatically deleted 90 days after you cancel a subscription.
 > - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
 
 
@@ -121,7 +124,7 @@ You may not have the permissions required to cancel a subscription. See [Who can
 
 *I need to remove my account including all my personal information. I already canceled my active (Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
 
-* If you have an Azure Active Directory account via your organization, the Azure AD administrator could delete the account. After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
+* If you have an Azure Active Directory account via your organization, the Azure AD administrator could delete the account. After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
 
 * If you don't have an Azure AD account via your organization, you can cancel then delete your Azure subscriptions, and then remove your credit card from the account. While the action doesn't delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it's not being used for any other purpose.
 

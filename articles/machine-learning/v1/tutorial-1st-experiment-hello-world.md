@@ -19,7 +19,7 @@ ms.custom: UpdateFrequency5, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](tutorial-1st-experiment-hello-world.md)
-> * [v2](../tutorial-1st-experiment-hello-world.md)
+> * [v2](../tutorial-1st-experiment-hello-world.md?view=azureml-api-2&preserve-view=true)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -36,7 +36,8 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](../quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
+- Complete [Create resources you need to get started](../quickstart-create-resources.md) to create a workspace and compute instance to use in this tutorial series.
+- * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create). Name it 'cpu-cluster' to match the code in this tutorial.
 
 ## Create and run a Python script
 

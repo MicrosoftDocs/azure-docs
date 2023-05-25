@@ -51,7 +51,7 @@ Created repositories:
 Created AKS clusters in kalypso-rg resource group:
   - control-plane
   - drone (Flux based workload cluster)
-  - large (ArgoCD based workload cluster)
+  - large (Flux based workload cluster)
 ---------------------------------  
 ```
 
@@ -84,7 +84,7 @@ The script created the following Azure Kubernetes Service (AKS) clusters:
 
 - `control-plane` - This cluster is a management cluster that doesn't run any workloads. The `control-plane` cluster hosts [Kalypso Scheduler](https://github.com/microsoft/kalypso-scheduler) operator that transforms high level abstractions from the [Control Plane](https://github.com/microsoft/kalypso-control-plane) repository to the raw Kubernetes manifests in the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
 - `drone` - A sample workload cluster. This cluster has the [GitOps extension](conceptual-gitops-flux2.md) installed and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository. For this sample, the `drone` cluster can represent an Azure Arc-enabled cluster or an AKS cluster with the Flux/GitOps extension.
-- `large` - A sample workload cluster. This cluster has `ArgoCD` installed on it to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
+- `large` - A sample workload cluster. This cluster has the [GitOps extension](conceptual-gitops-flux2.md) installed and it uses `Flux` to reconcile manifests from the [Platform GitOps](https://github.com/microsoft/kalypso-gitops) repository.
 
 ### Explore Control Plane
 
@@ -96,7 +96,7 @@ The `main` branch:
 |------|-----------|
 |.github/workflows| Contains GitHub workflows that implement the promotional flow.|
 |.environments| Contains a list of environments with pointers to the branches with the environment configurations.|
-|templates| Contains manifest templates for various reconcilers (for example, Flux and ArgoCD) and a template for the workload namespace.| 
+|templates| Contains manifest templates for various reconcilers and a template for the workload namespace.| 
 |workloads| Contains a list of onboarded applications and services with pointers to the corresponding GitOps repositories.|  
 
 The `dev` and `stage` branches:
@@ -335,7 +335,7 @@ spec:
 ```
 
 > [!NOTE]
-> The `control plane` defines that the `drone` cluster type uses `Flux` to reconcile manifests from the application GitOps repositories. The `large` cluster type, on the other hand, reconciles manifests with `ArgoCD`. Therefore `reconciler.yaml` for the `performance-test` deployment target will look differently and contain `ArgoCD` resources.
+> The `control plane` defines that the `drone` cluster type uses `Flux` to reconcile manifests from the application GitOps repositories. Therefore `reconciler.yaml` file contains `GitRepository` and `Kustomization` resources.
 
 ### Promote application to Stage
 
@@ -458,9 +458,6 @@ Run the following command for the `large` cluster and open `localhost:8002` in y
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
-> [!NOTE]
-> It may take up to three minutes to reconcile the changes from the application GitOps repository on the `large` cluster. 
-
 The application instance on the `large` cluster shows the following greeting page:
 
  :::image type="content" source="media/workload-management/stage-greeting-page.png" alt-text="Screenshot showing the greeting page on stage.":::
@@ -502,26 +499,7 @@ In a few seconds, a new PR to the `stage` branch in the `Platform GitOps` reposi
 
 Approve the PR and merge it.
 
-The `large` cluster is handled by ArgoCD, which, by default, is configured to reconcile every three minutes. This cluster doesn't report its compliance state to Azure like the clusters such as `drone` that have the [GitOps extension](conceptual-gitops-flux2.md). However, you can still monitor the reconciliation state on the cluster with ArgoCD UI. 
-
-To access the ArgoCD UI on the `large` cluster, run the following command:
-
-```bash
-# Get ArgoCD username and password
-echo "ArgoCD username: admin, password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" --context large| base64 -d)"
-# output:
-# ArgoCD username: admin, password: eCllTELZdIZfApPL
-
-kubectl port-forward svc/argocd-server 8080:80 -n argocd --context large
-```
-
-Next, open `localhost:8080` in your browser and provide the username and password printed by the script. You'll see a web page similar to this one:
-
- :::image type="content" source="media/workload-management/argocd-ui.png" alt-text="Screenshot showing the Argo CD user interface web page." lightbox="media/workload-management/argocd-ui.png":::
-
-Select the `stage` tile to see more details on the reconciliation state from the `stage` branch to this cluster. You can select the `SYNC` buttons to force the reconciliation and speed up the process.
-
-Once the new configuration has arrived to the cluster, check the `uat-test` application instance at `localhost:8002` after 
+Once the new configuration has arrived to the `large` cluster, check the `uat-test` application instance at `localhost:8002` after 
 running the following commands:
 
 ```bash
@@ -552,7 +530,7 @@ metadata:
     region: west-us
     size: small
 spec:
-  reconciler: argocd
+  reconciler: arc-flux
   namespaceService: default
 EOF
 

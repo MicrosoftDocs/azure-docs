@@ -21,6 +21,9 @@ To enable nested virtualization on the template VM, you first connect to the VM 
 - [Enable nested virtualization by using a script](#enable-nested-virtualization-by-using-a-script).
 - [Enable nested virtualization by using Windows tools](#enable-nested-virtualization-by-using-windows-tools).
 
+> [!NOTE]
+> Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
+
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab. Nested virtualization will not work otherwise.
 

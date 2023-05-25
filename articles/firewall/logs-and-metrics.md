@@ -197,7 +197,7 @@ The following metrics are available for Azure Firewall:
 
      This metric does not measure end-to-end latency of a given network path. In other words, this latency health probe does not measure how much latency Azure Firewall adds.
 
-   - When the latency metric is functioning as expected, a value of 0 appears in the metrics dashboard.
+   - When the latency metric is not functioning as expected, a value of 0 appears in the metrics dashboard.
    - As a reference, the average expected latency for a firewall is approximately 1 m/s. This may vary depending on deployment size and environment.   
 
 ## Next steps

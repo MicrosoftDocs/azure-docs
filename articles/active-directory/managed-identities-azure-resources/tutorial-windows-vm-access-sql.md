@@ -111,7 +111,7 @@ using Microsoft.Data.SqlClient;
 try
 {
 //
-// Open a connection to the server using Active Direcotry Managed Identity authentication.
+// Open a connection to the server using Active Directory Managed Identity authentication.
 //
 string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>; Authentication=Active Directory Managed Identity; Encrypt=True";
 SqlConnection conn = new SqlConnection(connectionString);
@@ -124,7 +124,7 @@ conn.Open();
 Alternatively, a quick way to test the end-to-end setup without having to write and deploy an app on the VM is using PowerShell.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
-2. Enter in your **Username** and **Password** for which you added when you created the Windows VM.
+2. Enter in your **VM admin credential** which you added when you created the Windows VM.
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session.
 4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local managed identity's endpoint to get an access token for Azure SQL.
 

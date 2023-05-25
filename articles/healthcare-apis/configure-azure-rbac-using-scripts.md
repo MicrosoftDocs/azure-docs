@@ -4,6 +4,7 @@ description: This article describes how to grant permissions to users and client
 services: healthcare-apis
 author: mikaelweave
 ms.service: healthcare-apis
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: mikaelw

@@ -177,6 +177,8 @@ Some parsers requires you to update the list of sources that are relevant to the
 - Set the `SourceType` field to the parser specific value specified in the parser documentation. 
 - Set the `Source` field to the identifier of the source used in the events. You may need to query the original table, such as Syslog, to determine the correct value.
 
+If you system does not have the `Sources_by_SourceType` watchlist deployed, deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
+
 ## <a name="next-steps"></a>Next steps
 
 This article discusses managing the Advanced Security Information Model (ASIM) parsers.

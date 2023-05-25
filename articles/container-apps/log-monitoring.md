@@ -2,12 +2,12 @@
 title: Monitor logs in Azure Container Apps with Log Analytics
 description: Monitor your container app logs with Log Analytics
 services: container-apps
-author: cebundy
+author: lleonard-msft
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 08/30/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Monitor logs in Azure Container Apps with Log Analytics
@@ -42,7 +42,7 @@ The Container Apps service provides system log messages at the container app lev
 | Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
 | Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
-The system log data is accessible by querying the `ContainerAppSystemlogs_CL` table. The most used Container Apps specific columns in the table are:
+The system log data is accessible by querying the `ContainerAppSystemLogs_CL` table. The most used Container Apps specific columns in the table are:
 
 | Column  | Description |
 |---|---|

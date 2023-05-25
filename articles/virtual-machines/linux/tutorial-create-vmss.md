@@ -64,7 +64,7 @@ Use the Azure portal to create a Flexible scale set.
     :::image type="content" source="media/tutorial-create-vmss/flex-details.png" alt-text="Name and region.":::
 1. Leave **Availability zone** as blank for this example.
 1. For **Orchestration mode**, select **Flexible**.
-1. For **Image**, select *Ubuntu 18.04 LTS*.
+1. For **Image**, select `Ubuntu 18.04 LTS`.
 1. For **Size**, leave the default value or select a size like *Standard_E2s_V3*.
 1. In **Username** type *azureuser*.
 1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
@@ -150,7 +150,7 @@ Open port 80 on your scale set by adding an inbound rule to your network securit
 
 1. On the page for your scale set, select **Networking** from the left menu. The **Networking** page will open.
 1. Select **Add inbound port rule**. The **Add inbound security rule** page will open.
-1. Under **Service**, select *HTTP* and then select **Add** at the bottom of the page.
+1. Under **Service**, select **HTTP** and then select **Add** at the bottom of the page.
 
 ## Test your scale set
 

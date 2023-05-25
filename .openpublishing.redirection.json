@@ -1,375 +1,385 @@
 {
     "redirections": [
-    {
-      "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
-      "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/queues/storage-php-how-to-use-queues.md",
-      "redirect_url": "/previous-versions/azure/storage/queues/storage-php-how-to-use-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/tables/table-storage-design-encrypt-data.md",
-      "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
-      "redirect_document_id": false
-    },
-     {
-       "source_path": "articles/active-directory/external-identities/configure-saas-apps.md",
-       "redirect_url": "/azure/active-directory/saas-apps/dropboxforbusiness-tutorial",
-       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-public-endpoints-networking.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-public-endpoints-networking",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/ai-composition-overview.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/ai-composition-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/continuous-video-recording.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/continuous-video-recording",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/customer-managed-keys",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/manage-retention-policy.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/manage-retention-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/managed-identity.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/managed-identity",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/overview.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline-extension.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline-extension",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/player-widget.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/player-widget",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/policy-definitions-security.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/policy-definitions-security",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/quotas-limitations.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/quotas-limitations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/release-notes.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/release-notes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/sample-player-widget.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/sample-player-widget",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/sdk.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/spatial-analysis-operations.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/spatial-analysis-operations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/terminology.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/terminology",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/transition-from-video-analyzer.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/transition-from-video-analyzer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/video-recording.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/video-recording",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/visualize-ai-events-power-bi.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/visualize-ai-events-power-bi",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-devices.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/connect-devices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/use-remote-device-adapter.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/use-remote-device-adapter",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/camera-discovery.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/camera-discovery",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-device.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/direct-methods.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/direct-methods",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/enable-video-preview-images.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/enable-video-preview-images",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/production-readiness.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/production-readiness",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension.md",
-      "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension",
-      "redirect_document_id": false
-    },
+        {
+            "source_path": "articles/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-sku-comparison#limitations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/storage-php-how-to-use-queues.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-php-how-to-use-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/tables/table-storage-design-encrypt-data.md",
+            "redirect_url": "/previous-versions/azure/storage/tables/table-storage-design-encrypt-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/external-identities/configure-saas-apps.md",
+            "redirect_url": "/azure/active-directory/saas-apps/dropboxforbusiness-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-public-endpoints-networking.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-public-endpoints-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/ai-composition-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/ai-composition-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/continuous-video-recording.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/continuous-video-recording",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/customer-managed-keys",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/manage-retention-policy.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/manage-retention-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/managed-identity.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/overview.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline-extension.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline-extension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline-topologies-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/pipeline.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/pipeline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/player-widget.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/player-widget",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/policy-definitions-security.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/policy-definitions-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/quotas-limitations.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/quotas-limitations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/release-notes.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/sample-player-widget.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/sample-player-widget",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/sdk.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/spatial-analysis-operations.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/spatial-analysis-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/terminology.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/terminology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/transition-from-video-analyzer.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/transition-from-video-analyzer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/video-recording.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/video-recording",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/viewing-videos-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/visualize-ai-events-power-bi.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/visualize-ai-events-power-bi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/connect-cameras-to-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/connect-devices.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/connect-devices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/export-portion-of-video-as-mp4",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/get-started-livepipelines-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/cloud/use-remote-device-adapter.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/cloud/use-remote-device-adapter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grpc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/camera-discovery.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/camera-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-device.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-device",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/direct-methods.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/direct-methods",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/enable-video-preview-images.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/enable-video-preview-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/production-readiness.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/production-readiness",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension.md",
+            "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cloudfoundry/index.yml",
             "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
@@ -409,37 +419,37 @@
             "source_path": "articles/virtual-machines/h-series-retirement.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
             "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/develop/security-code-analysis-customize.md",
-      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/develop/security-code-analysis-faq.yml",
-      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-faq",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/develop/security-code-analysis-onboard.md",
-      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-onboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/develop/security-code-analysis-overview.md",
-      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/develop/security-code-analysis-releases.md",
-      "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-releases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/develop/yaml-configuration.md",
-      "redirect_url": "/previous-versions/azure/security/develop/yaml-configuration",
-      "redirect_document_id": false
-    },
+        },
+        {
+            "source_path": "articles/security/develop/security-code-analysis-customize.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/security-code-analysis-faq.yml",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/security-code-analysis-onboard.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-onboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/security-code-analysis-overview.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/security-code-analysis-releases.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-releases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/yaml-configuration.md",
+            "redirect_url": "/previous-versions/azure/security/develop/yaml-configuration",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/vmware-cloudsimple/access-cloudsimple-portal.md",
             "redirect_url": "/previous-versions/azure/vmware-cloudsimple/access-cloudsimple-portal",
@@ -804,7 +814,7 @@
             "source_path": "articles/vmware-cloudsimple/vsan-encryption.md",
             "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vsan-encryption",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path_from_root": "/articles/backup/backup-afs.md",
             "redirect_url": "/azure/backup/backup-azure-files",
@@ -819,7 +829,7 @@
             "source_path_from_root": "/articles/sentinel/iot-solution.md",
             "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/sentinel/iot-advanced-threat-monitoring.md",
             "redirect_url": "/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring",
@@ -831,24 +841,24 @@
             "redirect_document_id": false
         },
         {
-            "source_path":  "articles/sentinel/whats-new-archive.md",
-            "redirect_url":  "/azure/sentinel/whats-new",
-            "redirect_document_id":  false
+            "source_path": "articles/sentinel/whats-new-archive.md",
+            "redirect_url": "/azure/sentinel/whats-new",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/backup/sap-hana-db-manage.md",
-            "redirect_url":  "/azure/backup/sap-hana-database-manage",
-            "redirect_document_id":  false
+            "source_path": "articles/backup/sap-hana-db-manage.md",
+            "redirect_url": "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/backup/sap-hana-db-restore.md",
-            "redirect_url":  "/azure/backup/sap-hana-database-restore",
-            "redirect_document_id":  false
+            "source_path": "articles/backup/sap-hana-db-restore.md",
+            "redirect_url": "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/backup/sap-hana-db-about.md",
-            "redirect_url":  "/azure/backup/sap-hana-database-about",
-            "redirect_document_id":  false
+            "source_path": "articles/backup/sap-hana-db-about.md",
+            "redirect_url": "/azure/backup/sap-hana-database-about",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/pytorch-enterprise/pte-overview.md",
@@ -861,14 +871,14 @@
             "redirect_document_id": false
         },
         {
-            "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
-            "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
+            "redirect_url": "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/container-registry/container-registry-customer-managed-keys.md",
-            "redirect_url":  "/azure/container-registry/tutorial-customer-managed-keys",
-            "redirect_document_id":  false
+            "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
+            "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
@@ -881,39 +891,39 @@
             "redirect_document_id": false
         },
         {
-            "source_path":  "articles/site-recovery/failover-failback-overview-preview.md",
-            "redirect_url":  "/azure/site-recovery/failover-failback-overview-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/site-recovery/failover-failback-overview-preview.md",
+            "redirect_url": "/azure/site-recovery/failover-failback-overview-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/site-recovery/switch-replication-appliance-preview.md",
-            "redirect_url":  "/azure/site-recovery/switch-replication-appliance-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/site-recovery/switch-replication-appliance-preview.md",
+            "redirect_url": "/azure/site-recovery/switch-replication-appliance-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/site-recovery/upgrade-mobility-service-preview.md",
-            "redirect_url":  "/azure/site-recovery/upgrade-mobility-service-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/site-recovery/upgrade-mobility-service-preview.md",
+            "redirect_url": "/azure/site-recovery/upgrade-mobility-service-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
-            "redirect_url":  "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
+            "redirect_url": "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/site-recovery/vmware-azure-architecture-preview.md",
-            "redirect_url":  "/azure/site-recovery/vmware-azure-architecture-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/site-recovery/vmware-azure-architecture-preview.md",
+            "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/physical-server-azure-architecture-preview.md",
-            "redirect_url":  "/azure/physical-server-azure-architecture-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/physical-server-azure-architecture-preview.md",
+            "redirect_url": "/azure/physical-server-azure-architecture-modernized",
+            "redirect_document_id": false
         },
         {
-            "source_path":  "articles/vmware-azure-tutorial-failover-failback-preview.md",
-            "redirect_url":  "/azure/vmware-azure-tutorial-failover-failback-modernized",
-            "redirect_document_id":  false
+            "source_path": "articles/vmware-azure-tutorial-failover-failback-preview.md",
+            "redirect_url": "/azure/vmware-azure-tutorial-failover-failback-modernized",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
@@ -958,6 +968,11 @@
         {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/managed-aad.md",
+            "redirect_url": "/azure/aks/managed-azure-ad",
             "redirect_document_id": false
         },
         {
@@ -1584,6 +1599,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/frontdoor/front-door-application-security.md",
+            "redirect_url": "/azure/frontdoor/web-application-firewall",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/aks/aks-resource-health.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id": false
@@ -1937,7 +1958,7 @@
             "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
             "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
             "redirect_document_id": true
-    	 },
+        },
         {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
             "redirect_url": "/azure/active-directory-b2c",
@@ -5744,6 +5765,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/quotas/classic-deployment-model-quota-increase-requests.md",
+            "redirect_url": "/azure/quotas",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service-mobile-net-upgrading-from-mobile-services.md",
             "redirect_url": "/azure/app-service-mobile",
             "redirect_document_id": false
@@ -6471,6 +6497,11 @@
         {
             "source_path_from_root": "/articles/automation/automation-vm-inventory.md",
             "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/create-run-as-account.md",
+            "redirect_url": "/azure/automation/enable-managed-identity-for-automation",
             "redirect_document_id": false
         },
         {
@@ -7824,6 +7855,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-add-bar-chart-layer.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-add-3d-column-layer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
@@ -8102,7 +8143,7 @@
             "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
             "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
             "redirect_document_id": false
-          },
+    },
         {
             "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
             "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
@@ -12953,7 +12994,6 @@
             "redirect_url": "/azure/load-balancer/configure-inbound-nat-rules-vm-scale-set",
             "redirect_document_id": false
         },
-
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
@@ -13569,6 +13609,16 @@
             "redirect_url": "/azure/notification-hubs/ios-sdk-legacy",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/notification-hubs/availability-zones.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/cross-region-recovery.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-high-availability",
+            "redirect_document_id": false
+        },                
         {
             "source_path_from_root": "/articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
             "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
@@ -14856,8 +14906,8 @@
         },
         {
             "source_path_from_root": "/articles/security/security-storage-overview.md",
-            "redirect_url": "/azure/security/fundamentals/storage-overview",
-            "redirect_document_id": true
+            "redirect_url": "/azure/storage/blobs/security-recommendations",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security/azure-security-technical-capabilities.md",
@@ -17390,6 +17440,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network-manager/how-to-exclude-elements.md",
+            "redirect_url": "/azure/virtual-network-manager/how-to-define-network-group-membership-azure-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/virtual-network-test-latency.md",
             "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
             "redirect_document_id": false
@@ -18039,7 +18094,6 @@
             "redirect_url": "/powershell/azureps-cmdlets-docs",
             "redirect_document_id": false
         },
-
         {
             "source_path_from_root": "/articles/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md",
             "redirect_url": "/powershell/high-performance-computing/set-up-hybrid-hpcpack-cluster-paas",
@@ -21125,7 +21179,6 @@
             "redirect_url": "/azure/aks/cis-ubuntu",
             "redirect_document_id": false
         },
-
         {
             "source_path": "articles/service-fabric/upgrade-managed-disks.md",
             "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
@@ -22052,6 +22105,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-asp-webapp.md",
+            "redirect_url": "/azure/active-directory/develop/web-app-tutorial-01-register-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-react.md",
+            "redirect_url": "/azure/active-directory/develop/single-page-app-tutorial-01-register-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
             "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
             "redirect_document_id": false
@@ -22497,6 +22560,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/private-5g-core/monitor-private-5g-core-with-log-analytics.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/enable-log-analytics-for-private-5g-core.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/create-overview-dashboard.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/communications-gateway/rotate-secrets.md",
             "redirect_URL": "/azure/communications-gateway/whats-new",
             "redirect_document_id": false
@@ -22512,10 +22590,199 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/openshift/howto-configure-ovn-kubernetes.md",
+            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
             "redirect_url": "/azure/sentinel/understand-threat-intelligence",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
+            "redirect_url": "https://aka.ms/ai-content-principles",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
+          "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
+          "redirect_document_id": true
+        },
+        {
+          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
+          "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",
+            "redirect_url": "/azure/nat-gateway/faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/index.yml",
+            "redirect_url": "/azure/nat-gateway/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/manage-nat-gateway.md",
+            "redirect_url": "/azure/nat-gateway/manage-nat-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-availability-zones.md",
+            "redirect_url": "/azure/nat-gateway/nat-availability-zones",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-gateway-resource.md",
+            "redirect_url": "/azure/nat-gateway/nat-gateway-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-metrics.md",
+            "redirect_url": "/azure/nat-gateway/nat-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-overview.md",
+            "redirect_url": "/azure/nat-gateway/nat-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-bicep.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-bicep",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/region-move-nat-gateway.md",
+            "redirect_url": "/azure/nat-gateway/region-move-nat-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/resource-health.md",
+            "redirect_url": "/azure/nat-gateway/resource-health",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/troubleshoot-nat-and-azure-services.md",
+            "redirect_url": "/azure/nat-gateway/troubleshoot-nat-and-azure-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/troubleshoot-nat-connectivity.md",
+            "redirect_url": "/azure/nat-gateway/troubleshoot-nat-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/troubleshoot-nat.md",
+            "redirect_url": "/azure/nat-gateway/troubleshoot-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-hub-spoke-nat-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-hub-spoke-route-nat.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-hub-spoke-route-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-migrate-ilip-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-migrate-outbound-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-protect-nat-gateway-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
+            "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/use-mariner.md",
+            "redirect_url": "/azure/aks/use-azurelinux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-user-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-function-linux-custom-image.md",
+            "redirect_url": "/azure/azure-functions/functions-how-to-custom-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-meraki.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
         }
-       
     ]
 }

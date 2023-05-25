@@ -9,7 +9,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/27/2023
 ms.author: jricketts
-ms.reviewer: ramical
+ms.reviewer: merill
 ms.custom: it-pro
 
 ---
@@ -30,12 +30,25 @@ Use the following table to learn about changes including deprecations, retiremen
 |Functionality, feature, or service|Change|Change date |
 |---|---|---:|
 |Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|May 8, 2023|
-|Azure AD DS [virtual network deployments](../../active-directory-domain-services/migrate-from-classic-vnet.md)|Retirement|Mar 1, 2023|
+|[My Groups experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|May 2023|
+|[My Apps browser extension](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|May 2023|
+|[System-preferred authentication methods](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Sometime after GA|
+|[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Jun 30, 2023|
+|[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Deprecation|Jun 30, 2023|
+|[Azure AD PowerShell and MSOnline PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Deprecation|Jun 30, 2023|
+|[My Apps improvements](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jun 30, 2023|
+|[Terms of Use experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jul 2023|
+|[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Sep 30, 2024|
+|[Legacy MFA & SSPR policy](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Sep 30, 2024|
+|[‘Require approved client app’ Conditional Access Grant](https://aka.ms/RetireApprovedClientApp)|Retirement|Mar 31, 2026|
+
+
+## Past changes
+
+|Functionality, feature, or service|Change|Change date |
+|---|---|---:|
+|[Azure AD Domain Services virtual network deployments](../../active-directory-domain-services/overview.md)|Retirement|Mar 1, 2023|
 |[License management API, PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/migrate-your-apps-to-access-the-license-managements-apis-from/ba-p/2464366)|Retirement|*Mar 31, 2023|
-|[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Jun 30, 2023|
-|[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2023|
-|[Azure AD PowerShell and MSOnline PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Deprecation|Jun 30, 2023|
-|[Azure AD MFA Server](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454)|Retirement|Sep 30, 2024|
 
 \* The legacy license management API and PowerShell cmdlets will not work for **new tenants** created after Nov 1, 2022.
 
@@ -51,11 +64,9 @@ Use the definitions in this section help clarify the state, availability, and su
 
 |Category|Definition|Communication schedule|
 |---|---|---|
-|Deprecation|The state of a feature, functionality, or service no longer in active development. A deprecated feature might be retired and removed from future releases.|2 times per year: March and September|
-|Retirement|Signals retirement in a specified period. Customers can’t adopt the service or feature, and engineering investments are reduced. Later, the feature reaches end-of-life and is unavailable to any customer.|2 times per year: March and September|
+|Retirement|Signals retirement of a feature, capability, or product in a specified period. Customers can’t adopt the service or feature, and engineering investments are reduced. Later, the feature reaches end-of-life and is unavailable to any customer.|2 times per year: March and September|
 |Breaking change|A change that might break the customer or partner experience if action isn’t taken, or a change made, for continued operation.|4 times per year: March, June, September, and December|
-|Feature change|Change to an IDNA feature that requires no customer action, but is noticeable to them. Typically, these changes are in the user interface/user experperience (UI/UX).|4 times per year: March, June, September, and December|
-|Rebranding|A new name, term, symbol, design, concept or combination thereof for an established brand to develop a differentiated experience.|As scheduled or announced|
+|Feature change|Change to an existing Identity feature that requires no customer action, but is noticeable to them. Typically, these changes are in the user interface/user experperience (UI/UX).|4 times per year: March, June, September, and December|
 
 ### Terminology
 

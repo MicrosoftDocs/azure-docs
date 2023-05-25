@@ -68,6 +68,10 @@ You can constrain the memory and CPU usage of each app inside a workload profile
 
 When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added. Inversely, if the number of apps or replicas goes down, profile instances may be removed. You have control over the constraints on the minimum and maximum number of profile instances. Azure calculates [billing](billing.md#consumption-dedicated) largely based on the number of running profile instances.
 
+## Networking
+
+When using workload profiles in the Consumption + Dedicated plan structure, additional networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see [networking concepts](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

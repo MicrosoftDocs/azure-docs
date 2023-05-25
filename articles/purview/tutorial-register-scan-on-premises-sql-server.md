@@ -5,9 +5,9 @@ author: heniot
 ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+ms.topic: tutorial
 ms.date: 11/03/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Register and scan an on-premises SQL Server
@@ -34,7 +34,10 @@ In this tutorial, you'll learn how to:
 
 ## Sign in to the Microsoft Purview governance portal
 
-To interact with Microsoft Purview, you'll connect to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
+To interact with Microsoft Purview, you'll connect to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find the studio by:
+
+- Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+- Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
 :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
@@ -198,7 +201,10 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 ## Register SQL Server
 
-1. Navigate to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and select the [Microsoft Purview governance portal](#sign-in-to-the-microsoft-purview-governance-portal).
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it's not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 

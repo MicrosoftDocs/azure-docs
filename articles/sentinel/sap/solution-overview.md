@@ -81,7 +81,21 @@ The solution's data connector retrieves a wide variety of SAP Log Sources:
   – Brute force
   - Multiple logons from the same IP
   - Privileged user logons from unexpected networks
-  - SPNego Replay Attack 
+  - SPNego Replay Attack
+
+## Certification
+
+Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premise. 
+
+- The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4). 
+- Our certification includes S/4 and SAP Rise S/4 HANA® Cloud Private Edition running in any cloud and on-premises.  
+- We support hybrid deployments that can cover the entire customer estate. 
+
+See the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
+
+## Trademark attribution
+
+SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries/regions. 
   
 ## Next steps
 

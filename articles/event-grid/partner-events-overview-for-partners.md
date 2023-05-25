@@ -2,7 +2,7 @@
 title: Partner Events overview for system owners who desire to become partners
 description: Provides an overview of the concepts and general steps to become a partner. 
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 04/10/2023
 ---
 
 # Partner Events overview for partners - Azure Event Grid
@@ -109,7 +109,7 @@ You have two options:
 
 ## References
 
-  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/main/specification/eventgrid/resource-manager/Microsoft.EventGrid/stable/2022-06-15/EventGrid.json)
+  * [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/eventgrid/resource-manager/Microsoft.EventGrid)
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2022-06-15/Microsoft.EventGrid.json)
   * [REST APIs](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces)

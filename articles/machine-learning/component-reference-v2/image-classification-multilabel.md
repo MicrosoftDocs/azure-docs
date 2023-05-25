@@ -24,15 +24,13 @@ Multi-label image classification is a computer vision task where the goal is to 
 
 [Follow this link](/azure/machine-learning/reference-automl-images-cli-multilabel-classification) for a full list of configurable parameters of this component.
 
-[Follow this link](/machine-learning/reference-automl-images-cli-multilabel-classification) for a full list of configurable parameters of this component.
-
 This component creates a classification model. Because classification is a supervised learning method, you need a *labeled dataset* that includes a label column with a value for all rows.
 
 This model requires a training dataset. Validation and test datasets are optional. 
 
 Follow this link to get more information on [how to prepare your dataset.](../how-to-prepare-datasets-for-automl-images.md) The dataset will need a *labeled dataset* that includes a label column with a value for all rows.
 
-AutoML runs a number of trials (specified in `max_trials`) in parallel (`specified in max_concurrent_trial`) that try different algorithms and parameters for your model. The service iterates through ML algorithms paired with hyperparameter selections and each trial produces a model with a training score. You are able to choose the metric you want the model to optimize for. The better the score for the chosen metric the better the model is considered to "fit" your data. You are able to define an exit criteria (termination policy) for the experiment. The exit criteria will be model with a specific training score you want AutoML to find. It will stop once it hits the exit criteria defined. This component will then output the best model that has been generated at the end of the run for your dataset. Visit this link for more information on [exit criteria (termination policy)](/how-to-auto-train-image-models#early-termination-policies).
+AutoML runs a number of trials (specified in `max_trials`) in parallel (`specified in max_concurrent_trial`) that try different algorithms and parameters for your model. The service iterates through ML algorithms paired with hyperparameter selections and each trial produces a model with a training score. You are able to choose the metric you want the model to optimize for. The better the score for the chosen metric the better the model is considered to "fit" your data. You are able to define an exit criteria (termination policy) for the experiment. The exit criteria will be model with a specific training score you want AutoML to find. It will stop once it hits the exit criteria defined. This component will then output the best model that has been generated at the end of the run for your dataset. Visit this link for more information on [exit criteria (termination policy)](/azure/machine-learning/how-to-auto-train-image-models#early-termination-policies).
 
 1.  Add the **AutoML Image Classification Multi-label** component to your pipeline.
 

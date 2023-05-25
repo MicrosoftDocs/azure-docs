@@ -69,5 +69,4 @@ If you have a project in different regions, each region uses its own Azure Cogni
 When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is returned. You can change the [default response](../how-to/change-default-answer.md).
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Best practices](./best-practices.md)
+

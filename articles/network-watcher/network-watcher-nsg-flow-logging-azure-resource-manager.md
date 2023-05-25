@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/09/2022
 ms.author: halkazwini
-ms.custom: fasttrack-edit, engagement-fy23
+ms.custom: fasttrack-edit, engagement-fy23, devx-track-arm-template
 ---
 
 # Manage network security group flow logs using an Azure Resource Manager template

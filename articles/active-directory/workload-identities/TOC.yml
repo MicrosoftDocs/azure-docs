@@ -31,8 +31,6 @@
         href: workload-identity-federation-create-trust.md
       - name: Configure a managed identity to trust an external identity provider
         href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
-      - name: Access identity platform-protected resources from GCP
-        href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
   - name: Create an access review

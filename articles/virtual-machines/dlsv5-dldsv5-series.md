@@ -1,6 +1,6 @@
 ---
-title: 'Dlsv5 and Dldsv5 (preview)' #Required; page title is displayed in search results. 60 characters max.
-description: Specifications for the Dlsv5 and Dldsv5-series VMs. #Required; this appears in search as the short description
+title: Dlsv5 and Dldsv5
+description: Specifications for the Dlsv5 and Dldsv5-series VMs.
 author: iamwilliew 
 ms.author: wwilliams 
 ms.service: virtual-machines 
@@ -10,13 +10,9 @@ ms.date: 02/16/2023
 
 ---
 
-# Dlsv5 and Dldsv5-series (preview)
+# Dlsv5 and Dldsv5-series 
 
 The Dlsv5 and Dldsv5-series Virtual Machines runs on the Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration. This new processor features an all core turbo clock speed of 3.5 GHz with [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Dlsv5 and Dldsv5 VM series provides 2GiBs of RAM per vCPU and optimized for workloads that require less RAM per vCPU than standard VM sizes. Target workloads include web servers, gaming, video encoding, AI/ML, and batch processing.
-
-
-> [!NOTE]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Dlsv5-series
 Dlsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz. These virtual machines offer up to 96 vCPU and 192 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications.

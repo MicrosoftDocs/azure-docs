@@ -1,21 +1,24 @@
+---
 - name: Azure Operator Nexus documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Operator Nexus?
-    href: overview.md
+    - name: What is Azure Operator Nexus?
+      href: overview.md
 - name: Concepts
   items:
   - name: Resource Types
     href: concepts-resource-types.md
+  - name: Compute overview
+    href: concepts-compute.md
   - name: Observability
     href: concepts-observability.md
 - name: Quickstarts
   items:
-  - name: Before you start workload deployment
-    href: quickstarts-tenant-workload-prerequisites.md
-  - name: Tenant workload deployment
-    href: quickstarts-tenant-workload-deployment.md
+    - name: Before you start workload deployment
+      href: quickstarts-tenant-workload-prerequisites.md
+    - name: Tenant workload deployment
+      href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
   - name: Before you start Operator Nexus NFC and CM deployment
@@ -28,14 +31,18 @@
     href: howto-platform-prerequisites.md
   - name: Network Fabric
     href: howto-configure-network-fabric.md
+  - name: Network Fabric Route Policy
+    href: how-to-route-policy.md
   - name: Cluster
     href: howto-configure-cluster.md
   - name: BareMetal Functions
     href: howto-baremetal-functions.md
   - name: BareMetal Run-Read Execution
     href: howto-baremetal-run-read.md
-  - name: BareMetal Review Output Run-Read
-    href: howto-baremetal-review-read-output.md
+  - name: BareMetal BMM Access Setup
+    href: howto-baremetal-bmm-ssh.md
+  - name: BareMetal BMC Access Setup
+    href: howto-baremetal-bmc-ssh.md
   - name: Isolation Domain
     href: howto-configure-isolation-domain.md
   - name: AKS-Hybrid
@@ -44,18 +51,29 @@
     href: howto-monitor-aks-h-cluster.md
   - name: Monitor VMs for VNF
     href: howto-monitor-virtualized-network-functions-virtual-machines.md
+  - name: Cluster metrics configuration management
+    href: howto-cluster-metrics-configuration-management.md
   - name: Pre-certification 
     href: howto-precertification.md
+  - name: Tracking asynchronous operations
+    href: howto-track-async-operations-cli.md
+- name: Troubleshooting
+  items:
+    - name: Troubleshoot AKS-Hybrid
+      href: troubleshoot-aks-hybrid-cluster.md
+    - name: Troubleshoot Isolation Domain
+      href: troubleshoot-isolation-domain.md
 - name: Sample Deployment
   items:
-  - name: VNF Deployment
-    href: template-virtualized-network-function-deployment.md
-  - name: CNF Deployment
-    href: template-cloud-native-network-function-deployment.md 
+    - name: VNF Deployment
+      href: template-virtualized-network-function-deployment.md
+    - name: CNF Deployment
+      href: template-cloud-native-network-function-deployment.md
 - name: Reference
   items:
   - name: Instance to On-Premises WAN Connectivity
     href: reference-customer-edge-provider-edge-connectivity.md
-  - name: List of Metrics Collected
+  - name: List of metrics collected
     href: List-of-metrics-collected.md
-  
+  - name: Near-edge Compute
+    href: reference-near-edge-compute.md

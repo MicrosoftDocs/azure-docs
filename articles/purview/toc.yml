@@ -56,6 +56,8 @@ items:
         href: concept-best-practices-collections.md
       - name: Deployment best practices
         href: deployment-best-practices.md
+      - name: Governing domains best practices 
+        href: concept-best-practices-governing-domains.md
       - name: Glossary best practices
         href: concept-best-practices-glossary.md
       - name: Labeling best practices
@@ -122,6 +124,8 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
+  - name: Use the governance portal
+    href: use-microsoft-purview-governance-portal.md
   - name: Sources
     items:
     - name: Azure Multiple Source
@@ -154,6 +158,8 @@ items:
       href: register-scan-azure-sql-managed-instance.md
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
+    - name: Azure Machine Learning
+      href: register-scan-azure-machine-learning.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
     - name: Db2
@@ -186,6 +192,8 @@ items:
         href: register-scan-power-bi-tenant-cross-tenant.md
       - name: Troubleshoot Power BI scans
         href: register-scan-power-bi-tenant-troubleshoot.md
+      - name: Available Power BI metadata
+        href: available-metadata.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -223,7 +231,7 @@ items:
               href: manage-integration-runtimes.md
             - name: Self-hosted integration runtime auto-update and expiration
               href: self-hosted-integration-runtime-version.md
-            - name: Troubleshoot SHIR Self-hosted integration runtime
+            - name: Troubleshoot self-hosted integration runtime
               href: scanning-shir-troubleshooting.md
         - name: Scan
           items:
@@ -237,7 +245,7 @@ items:
             href: how-to-monitor-data-map-population.md
           - name: Troubleshoot scans & connections
             href: troubleshoot-connections.md
-          - name: Troubleshoot SHIR Self-hosted integration runtime
+          - name: Troubleshoot self-hosted integration runtime
             href: scanning-shir-troubleshooting.md
         - name: Classify
           items:
@@ -453,8 +461,6 @@ items:
   items:
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
-    - name: Available source metadata
-      href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Limits
@@ -475,8 +481,8 @@ items:
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-    - name: Troubleshooting access policies
-      href: troubleshoot-policy-distribution.md
+    - name: Troubleshooting policies for SQL
+      href: troubleshoot-policy-sql.md
     - name: Frequently asked questions (FAQ)
       href: ./frequently-asked-questions.yml
 - name: Resources

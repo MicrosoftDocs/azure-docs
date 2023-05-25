@@ -33,6 +33,8 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
+  - name: Network Watcher FAQ
+    href: frequently-asked-questions.yml
   - name: Connection monitor
     href: connection-monitor-overview.md
   - name: Connection monitor schema
@@ -49,6 +51,10 @@
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
     href: network-watcher-packet-capture-overview.md
+  - name: Effective security rules
+    href: network-watcher-security-group-view-overview.md
+  - name: NSG flow logs
+    href: network-watcher-nsg-flow-logging-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
@@ -61,10 +67,6 @@
       href: usage-scenarios-traffic-analytics.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
-  - name: NSG flow logs
-    href: network-watcher-nsg-flow-logging-overview.md
-  - name: Effective security rules
-    href: network-watcher-security-group-view-overview.md
   - name: RBAC permissions
     href: required-rbac-permissions.md
   - name: Security
@@ -73,9 +75,11 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
+  - name: Moving Network Watcher resources
+    href: resource-move.md
 - name: How-to guides
   items:
-  - name: Configure Network Watcher
+  - name: Manage Network Watcher
     href: network-watcher-create.md
   - name: Connection monitor using Azure Monitor agent
     items: 
@@ -89,10 +93,10 @@
     items:
     - name: Portal
       href: connection-monitor-create-using-portal.md
-    - name: ARMClient
-      href: connection-monitor-create-using-template.md
     - name: PowerShell
       href: connection-monitor-create-using-powershell.md
+    - name: ARMClient
+      href: connection-monitor-create-using-template.md
   - name: Migrate to connection monitor
     items:
     - name: From Network performance monitor
@@ -218,8 +222,6 @@
   - name: Monitor network performance
     href: /previous-versions/azure/azure-monitor/insights/network-performance-monitor
     maintainContext: true
-  - name: Move Network Watcher resources
-    href: resource-move.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -242,8 +244,6 @@
     href: /azure/templates/microsoft.network/networkWatchers/
 - name: Resources
   items:
-  - name: Network Watcher FAQ
-    href: frequently-asked-questions.yml
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
   - name: Pricing

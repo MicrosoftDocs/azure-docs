@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 03/28/2023
+ms.date: 05/08/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
@@ -63,6 +63,17 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
+
+
+### Overage claims error
+
+If you receive an overage claim, review the following factors in order:
+
+1. Are you using a service principal that is part of more than 200 Azure AD groups? If yes, then you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
+
+1. Have you configured outbound proxy environment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
+
+If neither of these apply, open a support request so we can look into the issue.
 
 ## Connecting Kubernetes clusters to Azure Arc
 
@@ -375,26 +386,26 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. This table shows the minimum memory and CPU resources that may be requested, along with the maximum limits for potential CPU and memory resource requirements.
 
-| Container Name | CPU limit | Memory limit |
+| Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |
-| fluxconfig-agent | 50 m | 150 Mi |
-| fluxconfig-controller | 100 m | 150 Mi |
-| fluent-bit | 20 m | 150 Mi |
-| helm-controller | 1000 m | 1 Gi |
-| source-controller | 1000 m | 1 Gi |
-| kustomize-controller | 1000 m | 1 i |
-| notification-controller | 1000 m | 1 Gi |
-| image-automation-controller | 1000 m | 1 Gi |
-| image-reflector-controller | 1000 m | 1 Gi |
+| fluxconfig-agent | 5 m | 30 Mi | 50 m | 150 Mi |
+| fluxconfig-controller | 5 m | 30 Mi | 100 m | 150 Mi |
+| fluent-bit | 5 m | 30 Mi | 20 m | 150 Mi |
+| helm-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| source-controller | 50 m | 64 Mi | 1000 m | 1 Gi |
+| kustomize-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| notification-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 
 If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown above or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
 
 ### Flux v1
 
 > [!NOTE]
-> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
 

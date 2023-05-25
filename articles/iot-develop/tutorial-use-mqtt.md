@@ -200,7 +200,7 @@ if (rc != MOSQ_ERR_SUCCESS)
 printf("Publish returned OK\r\n");
 ```
 
-To learn more, see [Sending device-to-cloud messages](../iot-hub/iot-hub-mqtt-support.md#sending-device-to-cloud-messages).
+To learn more, see [Sending device-to-cloud messages](../iot/iot-mqtt-connect-to-iot-hub.md#sending-device-to-cloud-messages).
 
 ## Receive a cloud-to-device message
 
@@ -253,7 +253,7 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-To learn more, see [Use MQTT to receive cloud-to-device messages](../iot-hub/iot-hub-mqtt-support.md#receiving-cloud-to-device-messages).
+To learn more, see [Use MQTT to receive cloud-to-device messages](../iot/iot-mqtt-connect-to-iot-hub.md#receiving-cloud-to-device-messages).
 
 ## Update a device twin
 
@@ -349,7 +349,7 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-To learn more, see [Use MQTT to update a device twin reported property](../iot-hub/iot-hub-mqtt-support.md#update-device-twins-reported-properties) and [Use MQTT to retrieve a device twin property](../iot-hub/iot-hub-mqtt-support.md#retrieving-a-device-twins-properties).
+To learn more, see [Use MQTT to update a device twin reported property](../iot/iot-mqtt-connect-to-iot-hub.md#update-device-twins-reported-properties) and [Use MQTT to retrieve a device twin property](../iot/iot-mqtt-connect-to-iot-hub.md#retrieving-a-device-twins-properties).
 
 ## Clean up resources
 
@@ -360,4 +360,4 @@ To learn more, see [Use MQTT to update a device twin reported property](../iot-h
 Now that you've learned how to use the Mosquitto MQTT library to communicate with IoT Hub, a suggested next step is to review:
 
 > [!div class="nextstepaction"]
-> [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md)
+> [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md)

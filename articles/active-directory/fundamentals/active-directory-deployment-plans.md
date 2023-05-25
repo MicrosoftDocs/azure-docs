@@ -96,9 +96,9 @@ The following list describes features and services for productivity gains in hyb
   * See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
   * See, [Plan an Azure Active Directory B2B collaboration deployment](../fundamentals/secure-external-access-resources.md)
 
-## Governance and reporting
+## Identity Governance and reporting
 
-Use the following list to learn about governance and reporting. Items in the list refer to Microsoft Entra. 
+Use the following list to learn about identity governance and reporting. Items in the list refer to Microsoft Entra.
 
 Learn more: [Secure access for a connected world—meet Microsoft Entra](https://www.microsoft.com/en-us/security/blog/?p=114039)
 
@@ -112,8 +112,6 @@ Learn more: [Secure access for a connected world—meet Microsoft Entra](https:/
   * See, [Plan a Microsoft Entra access reviews deployment](../governance/deploy-access-reviews.md)  
 * **Identity governance** - Meet your compliance and risk management objectives for access to critical applications. Learn how to enforce accurate access.
   * See, [Govern access for applications in your environment](../governance/identity-governance-applications-prepare.md)
-  
-Learn more: [Azure governance documentation](../../governance/index.yml)
 
 ## Best practices for a pilot
 

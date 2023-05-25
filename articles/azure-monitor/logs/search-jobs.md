@@ -12,9 +12,7 @@ ms.custom: references_regions
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
 > [!NOTE]
-> The search job feature is currently not supported for the following cases:
-> - Workspaces with [customer-managed keys](customer-managed-keys.md). 
-> - Workspaces in the China East 2 region.
+> The search job feature is currently not supported for workspaces with [customer-managed keys](customer-managed-keys.md). 
 
 ## When to use search jobs
 

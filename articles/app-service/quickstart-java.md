@@ -44,7 +44,7 @@ adobe-target-content: ./quickstart-java-uiex
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for PostgreSQL with Java](../postgresql/connect-java.md)
+> [Connect to Azure Database for PostgreSQL with Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Set up CI/CD](deploy-continuous-deployment.md)

@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 01/23/2023
-ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, i
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you use:"]
-> * [v1](v1/how-to-train-with-datasets.md)
+> * [v1](v1/how-to-train-with-datasets.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-read-write-data-v2.md)
 
 Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2 and the Azure Machine Learning CLI extension v2.
@@ -71,6 +71,9 @@ Create a job specification YAML file (`<file-name>.yml`). In the `inputs` sectio
 1. The `type`; whether the data is a specific file (`uri_file`), a folder location (`uri_folder`), or an `mltable`.
 1. The `path` of your data location; any of the paths outlined in the [Supported Paths](#supported-paths) section will work.
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster",` in this code.
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
@@ -102,6 +105,9 @@ Use the `Input` class to define:
 
 1. The `type`; whether the data is a specific file (`uri_file`), a folder location (`uri_folder`), or an `mltable`.
 1. The `path` of your data location; any of the paths outlined in the [Supported Paths](#supported-paths) section will work.
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -151,6 +157,9 @@ This section explains how to read V1 `FileDataset` and `TabularDataset` data ent
 
 Create a job specification YAML file (`<file-name>.yml`), with the type set to `mltable` and the mode set to `eval_mount`:
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
@@ -175,6 +184,9 @@ az ml job create -f <file-name>.yml
 # [Python SDK](#tab/python)
 
 In the `Input` object, specify the `type` as `AssetTypes.MLTABLE` and `mode` as `InputOutputModes.EVAL_MOUNT`:
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -217,6 +229,9 @@ returned_job.services["Studio"].endpoint
 
 Create a job specification YAML file (`<file-name>.yml`), with the type set to `mltable` and the mode set to `direct`:
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
@@ -241,6 +256,9 @@ az ml job create -f <file-name>.yml
 # [Python SDK](#tab/python)
 
 In the `Input` object, specify the `type` as `AssetTypes.MLTABLE`, and `mode` as `InputOutputModes.DIRECT`:
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -285,6 +303,9 @@ In your job, you can write data to your cloud-based storage with *outputs*. The 
 
 Create a job specification YAML file (`<file-name>.yml`), with the `outputs` section populated with the type and path where you'd like to write your data:
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster` in this file.
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/CommandJob.schema.json
 
@@ -317,6 +338,9 @@ az ml job create --file <file-name>.yml
 ```
 
 # [Python SDK](#tab/python)
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -367,6 +391,9 @@ If you work with Azure Machine Learning pipelines, you can read data into and mo
 ### Azure Machine Learning CLI v2
 This YAML file shows how to use the output data from one component as the input for another component of the pipeline, with the Azure Machine Learning CLI v2 extension:
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), change `default_compute: azureml:cpu-cluster` to `default_compute: azureml:serverless` in this file.
+
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/CLI/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
@@ -378,6 +405,9 @@ This example defines a pipeline that contains three nodes, and moves data betwee
 * `prepare_data_node` loads the image and labels from Fashion MNIST data set into `mnist_train.csv` and `mnist_test.csv`.
 * `train_node` trains a CNN model with Keras, using the `mnist_train.csv` training data.
 * `score_node` scores the model using `mnist_test.csv` test data.
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), change `default_compute=cpu_compute_target,` to `default_compute=azureml:serverless,` in this code.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 

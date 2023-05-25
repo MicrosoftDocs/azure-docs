@@ -1,5 +1,5 @@
 ---
-title: Using networks and countries in Azure Active Directory
+title: Using networks and countries/regions in Azure Active Directory
 description: Use GPS locations and public IPv4 and IPv6 networks in Conditional Access policy to make access decisions.
 
 services: active-directory
@@ -102,6 +102,17 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
+### Define locations
+
+1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Choose **New location**.
+1. Give your location a name.
+1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
+   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
+      * If you choose Countries/Regions, you can optionally choose to include unknown areas.
+1. Choose **Save**
+
 ## Location condition in policy
 
 When you configure the location condition, you can distinguish between:
@@ -170,7 +181,7 @@ The IP address used in policy evaluation is the public IPv4 or IPv6 address of t
 
 A policy that uses the location condition to block access is considered restrictive, and should be done with care after thorough testing. Some instances of using the location condition to block authentication may include:
 
-- Blocking countries where your organization never does business.
+- Blocking countries/regions where your organization never does business.
 - Blocking specific IP ranges like:
    - Known malicious IPs before a firewall policy can be changed.
    - For highly sensitive or privileged actions and cloud applications.

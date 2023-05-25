@@ -5,6 +5,10 @@
     - name: What is Azure Data Manager for Agriculture Preview?
       displayName: Overview
       href: Overview-azure-data-manager-for-agriculture.md
+    - name: What's new
+      items:
+        - name: Release notes
+          href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -20,18 +24,30 @@
       href: concepts-ingest-weather-data.md
     - name: Sensor data ingestion
       href: concepts-ingest-sensor-data.md
+    - name: Understanding throttling
+      href: concepts-understanding-throttling.md  
 - name: How-to guides
   items:
+    - name: Administration
+      items:
+          - name: Using events
+            href: how-to-use-events.md
+    - name: Monitoring
+      items:
+          - name: Set up audit logs
+            href: how-to-set-up-audit-logs.md
+    - name: Security
+      items:
+          - name: Set up private links
+            href: how-to-set-up-private-links.md
     - name: Use ISV solutions
       href: how-to-set-up-isv-solution.md
-    - name: Set-up sensors as a customer
+    - name: Set up sensors as a customer
       href: how-to-set-up-sensors-customer.md
-    - name: Set-up sensors as a partner
+    - name: Set up sensors as a partner
       href: how-to-set-up-sensors-partner.md
     - name: Use tissue sampling APIs
       href: how-to-use-nutrient-apis.md
-    - name: Set up Private Links
-      href: how-to-set-up-private-links.md
 - name: References
   items:
   - name: REST API
@@ -42,3 +58,5 @@
     items:
     - name: Region availability
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all
+    - name: Sample events
+      href: sample-events.md

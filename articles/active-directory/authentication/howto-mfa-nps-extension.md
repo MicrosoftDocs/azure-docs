@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 04/10/2023
 
 ms.author: justinha
 author: justinha
@@ -27,10 +27,13 @@ The NPS extension acts as an adapter between RADIUS and cloud-based Azure AD Mul
 When you use the NPS extension for Azure AD Multi-Factor Authentication, the authentication flow includes the following components:
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers.
-2. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
-3. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
+1. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
+1. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
    >[!NOTE]
-   >Users must have access to their default authentication method to complete the MFA requirement. They cannot choose an alternative method. Their default authentication method will be used even if it's been disabled in the tenant authentication methods and MFA policies.
+   >Although NPS doesn't support [number matching](how-to-mfa-number-match.md), the latest NPS extension does support time-based one-time password (TOTP) methods, such as the TOTP available in Microsoft Authenticator. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. 
+   >
+   >After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**.
+
 1. **Azure AD MFA** communicates with Azure Active Directory (Azure AD) to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
 
 The following diagram illustrates this high-level authentication request flow:
@@ -106,17 +109,25 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over TCP port 443:
 
-* `https:\//login.microsoftonline.com`
-* `https:\//credentials.azure.com`
+* `https://login.microsoftonline.com`
+* `https://login.microsoftonline.us (Azure Government)`
+* `https://login.chinacloudapi.cn (Azure China 21Vianet)`
+* `https://credentials.azure.com`
+* `https://strongauthenticationservice.auth.microsoft.com`
+* `https://strongauthenticationservice.auth.microsoft.us (Azure Government)`
+* `https://strongauthenticationservice.auth.microsoft.cn (Azure China 21Vianet)`
+* `https://adnotifications.windowsazure.com`
+* `https://adnotifications.windowsazure.us (Azure Government)`
+* `https://adnotifications.windowsazure.cn (Azure China 21Vianet)`
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script):
 
-* `https:\//login.microsoftonline.com`
-* `https:\//provisioningapi.microsoftonline.com`
-* `https:\//aadcdn.msauth.net`
-* `https:\//www.powershellgallery.com`
-* `https:\//go.microsoft.com`
-* `https:\//aadcdn.msftauthimages.net`
+* `https://login.microsoftonline.com`
+* `https://provisioningapi.microsoftonline.com`
+* `https://aadcdn.msauth.net`
+* `https://www.powershellgallery.com`
+* `https://go.microsoft.com`
+* `https://aadcdn.msftauthimages.net`
 
 ## Prepare your environment
 

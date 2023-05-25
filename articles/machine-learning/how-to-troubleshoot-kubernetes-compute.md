@@ -14,24 +14,11 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Troubleshoot Kubernetes Compute
 
-In this article, you'll learn how to troubleshoot common problems you may encounter with using [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) for training jobs and model deployments.
+In this article, you'll learn how to troubleshoot common workload (including training jobs and endpoints) errors on the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md). 
 
 ## Inference guide
 
-### How to check sslCertPemFile and sslKeyPemFile is correct?
-Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
-
-```bash
-openssl x509 -in cert.pem -noout -text
-openssl rsa -in key.pem -noout -check
-```
-
-Run the commands below to verify whether sslCertPemFile and sslKeyPemFile are matched:
-
-```bash
-openssl x509 -in cert.pem -noout -modulus | md5sum
-openssl rsa -in key.pem -noout -modulus | md5sum
-```
+The common Kubernetes endpoint errors on Kubernetes compute are categorized into two scopes: **compute scope** and **cluster scope**. The compute scope errors are related to the compute target, such as the compute target is not found, or the compute target is not accessible. The cluster scope errors are related to the underlying Kubernetes cluster, such as the cluster itself is not reachable, or the cluster is not found.
 
 ### Kubernetes compute errors
 
@@ -179,10 +166,27 @@ You can check the following items to troubleshoot the issue:
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
+### How to check sslCertPemFile and sslKeyPemFile is correct?
+Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
+
+```bash
+openssl x509 -in cert.pem -noout -text
+openssl rsa -in key.pem -noout -check
+```
+
+Run the commands below to verify whether sslCertPemFile and sslKeyPemFile are matched:
+
+```bash
+openssl x509 -in cert.pem -noout -modulus | md5sum
+openssl rsa -in key.pem -noout -modulus | md5sum
+```
+
 
 ## Training guide
 
-### Job retry
+When the training job is running, you can check the job status in the workspace portal. When you encounter some abnormal job status, such as the job retried multiple times, or the job has been stuck in initializing state, or even the job has eventually failed, you can follow the guide below to troubleshoot the issue.
+
+### Job retry debugging
 
 If the training job pod running in the cluster was terminated due to the node running to node OOM (out of memory), the job will be **automatically retried** to another available node.
 
@@ -205,9 +209,35 @@ The host name of the node which the job pod is running on will be indicated in t
 
 "ask-agentpool-17631869-vmss0000" represents the **node host name** running this job in your AKS cluster. Then you can access the cluster to check about the node status for further investigation.
 
-### UserError
 
-#### Azure Machine Learning Kubernetes job failed. E45004
+### Job pod get stuck in Init state
+
+If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because Azure Machine Learning extension doesn't support download mode for input data. 
+
+To resolve this issue, change to mount mode for your input data.
+
+
+### Common job failure errors
+
+Below is a list of common error types that you might encounter when using Kubernetes compute to create and execute a training job, which you can trouble shoot by following the guideline:
+
+* [Job failed. 137](#job-failed-137)
+* [Job failed. E45004](#job-failed-e45004)
+* [Job failed. 400](#job-failed-400)
+* [Give either an account key or SAS token](#give-either-an-account-key-or-sas-token)
+* [AzureBlob authorization failed](#azureblob-authorization-failed)
+
+#### Job failed. 137
+
+If the error message is:
+
+```bash
+Azure Machine Learning Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
+```
+
+Check your proxy setting and check whether 127.0.0.1 was added to proxy-skip-range when using `az connectedk8s connect` by following this [network configuring](how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).
+
+#### Job failed. E45004
 
 If the error message is:
 
@@ -217,25 +247,7 @@ Azure Machine Learning Kubernetes job failed. E45004:"Training feature is not en
 
 Please check whether you have `enableTraining=True` set when doing the Azure Machine Learning extension installation. More details could be found at [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
 
-#### Unable to mount data store workspaceblobstore. Give either an account key or SAS token
-
-If you need to access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, this issue should occur when the compute is not specified with a managed identity. This is because machine learning workspace default storage account without any credentials is not supported for training jobs. 
-
-To mitigate this issue, you can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it has been attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
-
-#### Unable to upload project files to working directory in AzureBlob because the authorization failed
-
-If the error message is:
-
-```bash
-Unable to upload project files to working directory in AzureBlob because the authorization failed. 
-```
-
-You can check the following items to troubleshoot the issue:
-*  Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
-*  Make sure the workspace has a system assigned managed identity.
-
-### Encountered an error when attempting to connect to the Azure Machine Learning token service
+### Job failed. 400
 
 If the error message is:
 
@@ -244,23 +256,33 @@ Azure Machine Learning Kubernetes job failed. 400:{"Msg":"Encountered an error w
 ```
 You can follow [Private Link troubleshooting section](#private-link-issue) to check your network settings.
 
-### ServiceError
+#### Give either an account key or SAS token
 
-#### Job pod get stuck in Init state
+If you need to access Azure Container Registry (ACR) for Docker image, and to access the Storage Account for training data, this issue should occur when the compute is not specified with a managed identity.
 
-If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because Azure Machine Learning extension doesn't support download mode for input data. 
+To access Azure Container Registry (ACR) from a Kubernetes compute cluster for Docker images, or access a storage account for training data, you need to attach the Kubernetes compute with a system-assigned or user-assigned managed identity enabled. 
 
-To resolve this issue, change to mount mode for your input data.
-
-#### Azure Machine Learning Kubernetes job failed
-
-If the error message is:
+In the above training scenario, this **computing identity** is necessary for Kubernetes compute to be used as a credential to communicate between the ARM resource bound to the workspace and the Kubernetes computing cluster. So without this identity, the training job will fail and report missing account key or sas token. Take accessing storage account for example, if you don't specify a managed identity to your Kubernetes compute, the job fails with the following error message:
 
 ```bash
-Azure Machine Learning Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
+Unable to mount data store workspaceblobstore. Give either an account key or SAS token
 ```
 
-Check your proxy setting and check whether 127.0.0.1 was added to proxy-skip-range when using `az connectedk8s connect` by following this [network configuring](how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).
+This is because machine learning workspace default storage account without any credentials is not accessible for training jobs in Kubernetes compute. 
+
+To mitigate this issue, you can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it has been attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
+
+#### AzureBlob authorization failed
+
+If you need to access the AzureBlob for data upload or download in your training jobs on Kubernetes compute, then the job fails with the following error message:
+
+```bash
+Unable to upload project files to working directory in AzureBlob because the authorization failed. 
+```
+
+This is because the authorization failed when the job tries to upload the project files to the AzureBlob. You can check the following items to troubleshoot the issue:
+*  Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
+*  Make sure the workspace has a system assigned managed identity.
 
 ## Private link issue
 
