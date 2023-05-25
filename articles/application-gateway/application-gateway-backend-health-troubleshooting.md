@@ -35,7 +35,7 @@ applications. This article describes the symptoms, cause, and resolution for eac
 
 If the backend health status is **Unhealthy**, the portal view will resemble the following screenshot:
 
-![Application Gateway backend health - Unhealthy](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
+[ ![Application Gateway backend health - Unhealthy](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png) ](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png#lightbox)
 
 Or if you're using an Azure PowerShell, CLI, or Azure REST API query, you'll get a response that resembles the following example:
 
@@ -273,7 +273,7 @@ Run this OpenSSL command by specifying the right certificate filename ` openssl 
 **Solution:** The solution depends on which part of the certificate chain has expired on the backend server.
 
 For V2 SKU,
-* Expired Leaf (aka Domain or Server) certificate – Renew the server certificate with certificate provider and install the new certificate on the backend server. Ensure that you have installed the complete certificate chain comprising of `Leaf (topmost) > Intermediate(s) > Root`. Based on the type of Certificate Authority (CA), you may take the following actions on your gateway.
+* Expired Leaf (also known as Domain or Server) certificate – Renew the server certificate with certificate provider and install the new certificate on the backend server. Ensure that you have installed the complete certificate chain comprising of `Leaf (topmost) > Intermediate(s) > Root`. Based on the type of Certificate Authority (CA), you may take the following actions on your gateway.
   * Publicly known CA: If the certificate issuer is a well-known CA, you need not take any action on the application gateway.
   * Private CA: If the leaf certificate is issued by a private CA, you need to check if the signing Root CA certificate has changed. In such cases, you must upload the new Root CA certificate (.CER) to the associated Backend setting of your gateway.
 
@@ -282,7 +282,7 @@ For V2 SKU,
   * When using a Private CA, if the Root CA certificate itself or the root of the renewed Intermediate certficate has changed, you must upload the new Root certificate to the application gateway’s Backend Setting.
 
 For V1 SKU,
-* Renew the expired Leaf (aka Domain or Server) certificate with your CA and upload the same leaf certificate (.CER) to the associated Backend setting of your application gateway. 
+* Renew the expired Leaf (also known as Domain or Server) certificate with your CA and upload the same leaf certificate (.CER) to the associated Backend setting of your application gateway. 
 
 ### The intermediate certificate was not found
 **Message:** The **Intermediate certificate is missing** from the certificate chain presented by the backend server. Ensure the certificate chain is complete and correctly ordered on the backend server.
@@ -300,7 +300,7 @@ These images show the difference between the self-signed certificates.
 ### The leaf or server certificate was not found
 **Message:** The **Leaf certificate is missing** from the certificate chain presented by the backend server. Ensure the chain is complete and correctly ordered on the backend server.
 
-**Cause:** The Leaf (aka Domain or Server) certificate is missing from the certificate chain on the backend server.
+**Cause:** The Leaf (also known as Domain or Server) certificate is missing from the certificate chain on the backend server.
 
 **Solution:** You can get the leaf certificate from your Certificate Authority (CA). Install this leaf certificate and all its signing certificates (Intermediate and Root CA certificates) on the backend server. This chain must start with the Leaf Certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. For reference, look at the certificate chain example under [Leaf must be topmost in chain](application-gateway-backend-health-troubleshooting.md#leaf-must-be-topmost-in-chain).
 
@@ -330,7 +330,7 @@ These images show the difference between the self-signed certificates.
 
 ### Trusted root certificate mismatch (Root certificate is available on the backend server)
 
-**Message:** The root certificate of the server certificate used by the backend doesn't match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend.
+**Message:** The root certificate of the server certificate used by the backend doesn't match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to allowlist the backend.
 
 **Cause:** This error occurs when none of the Root certificates uploaded to your application gateway’s backend setting matches the Root certificate present on the backend server. 
 
@@ -365,7 +365,7 @@ These images show the difference between the self-signed certificates.
 
 **Message:** The Leaf certificate is not the topmost certificate in the chain presented by the backend server. Ensure the certificate chain is correctly ordered on the backend server.
 
-**Cause:** The Leaf (aka Domain or Server) certificate is not installed in the correct order on the backend server.
+**Cause:** The Leaf (also known as Domain or Server) certificate is not installed in the correct order on the backend server.
 
 **Solution:** The certificate installation on the backend server must include an ordered list of certificates comprising the leaf certificate and all its signing certificates (Intermediate and Root CA certificates). This chain must start with the leaf certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. 
 
