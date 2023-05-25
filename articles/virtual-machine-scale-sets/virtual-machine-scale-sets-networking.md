@@ -98,6 +98,9 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 }]
 ```
 
+--- 
+<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
+
 >[!NOTE]
 > Note that the application gateway must be in the same virtual network as the scale set but must be in a different subnet from the scale set.
 
