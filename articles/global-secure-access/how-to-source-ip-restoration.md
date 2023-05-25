@@ -5,7 +5,7 @@ description: Learn how to enable source IP restoration to ensure source IP match
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,9 +14,9 @@ ms.reviewer: mamkumar
 ---
 # Source IP restoration
 
-With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't always match the actual source IP address. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP address. Customers that use IP-based location information as a control in Conditional Access typically can't use this with these traditional solutions. 
+With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't always match the actual source IP address. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP address. Customers that use IP-based location information as a control in Conditional Access typically can't use this information with these traditional solutions. 
 
-Microsoft’s existing solutions such as Conditional Access (CA) and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. With Global Secure Access and source IP restoration organizations can continue using IP location-based Conditional Access policies, including CAE strict location enforcement.
+Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. With Global Secure Access and source IP restoration organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
 
 Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 
@@ -55,3 +55,12 @@ To see source IP restoration in action, administrators can take the following st
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 
 <!--Add screenshot of Sign-in logs here-->
+
+<!--- To be added
+## FAQs
+## Known limitations
+## Next steps
+Tenant restrictions
+Source IP restoration
+Compliant network policy
+--->

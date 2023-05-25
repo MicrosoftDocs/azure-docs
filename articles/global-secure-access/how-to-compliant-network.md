@@ -5,7 +5,7 @@ description: Require known compliant network locations with Conditional Access.
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -78,7 +78,7 @@ The following example shows a Conditional Access policy that requires Exchange O
    1. Under **Include**, select **Any location**.
    1. Under **Exclude**, select **Selected locations**
       1. Select the **All Network Access locations of my tenant** location.
-   1. Click **Select**.
+   1. Select **Select**.
 1. Under **Access controls**: 
    1. **Grant**, select **Block Access**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
@@ -95,10 +95,6 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 :::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You cannot access this right now.":::
 
-## CAE ENFORCEMENT EXCHANGE SHAREPOINT AND GRAPH
-
-The PM will provide more detail here
-
 ## Troubleshooting
 
 Verify the new named location was automatically created using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
@@ -107,4 +103,11 @@ GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations
 
 :::image type="content" source="media/how-to-compliant-network/graph-explorer-expected-result-location-creation.png" alt-text="Screenshot showing Graph Explorer results of query":::
 
+<!--- To be added
+## FAQs
+## Known limitations
 ## Next steps
+Tenant restrictions
+Source IP restoration
+Compliant network policy
+--->

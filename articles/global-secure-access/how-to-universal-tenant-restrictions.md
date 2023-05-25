@@ -5,7 +5,7 @@ description: What are universal tenant restrictions
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 05/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and branch connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
-Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Azure AD integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. TRv2 and NaaS work hand in hand to prevent data exfiltration universally across all devices and networks.  
+Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Azure AD integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png" alt-text="Diagram showing how tenant restrictions v2 protects against malicious users." lightbox="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png":::
 
@@ -27,7 +27,7 @@ The following table explains the steps taken at each point in the previous diagr
 | **1** | Contoso configures a **tenant restrictions v2** policy in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy using Global Secure Access universal tenant restrictions. |
 | **2** | A user with a Contoso-managed device tries to sign in to an external app using an account from an unknown tenant. Global Secure Access universal tenant restrictions add an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID. |
 | **3** | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in Azure AD. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level. |
-| **4** | *Data plane protection:* The user again tries to access the external application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the device. However, Azure AD compares the claim in the token to the HTTP header added by the device. Because they don't match, Azure AD blocks the session so the user can't access the application. |
+| **4** | *Data plane protection:* The user again tries to access the external application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the device. The resource provider checks that the claim in the token and the header in the packet match. Any mismatch in the token and header triggers reauthentication. |
 
 Universal tenant restrictions help to prevent data exfiltration across browsers, devices, and networks in the following ways:
 
@@ -56,47 +56,45 @@ Once you have created the tenant restriction v2 policies, you must allow Global 
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/toggle-enable-tagging-to-enforce-tenant-restrictions.png" alt-text="Screenshot showing the toggle to enable tagging.":::
 
-## Testing an example scenario
+## Try Universal tenant restrictions with SharePoint Online.
 
-### Universal tenant restrictions with Exchange Online.
+This capability works the same for Exchange Online and Microsoft Graph in the following examples we explain how to see it in action in your own environment.
 
-#### Testing the authentication path:
+### Try the authentication path:
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
-1. Go to https://outlook.office365.com with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
+1. Go to SharePoint Online, [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
    1. For example, a Fabrikam guest in the Contoso tenant. 
-   1. The Fabrikam user should be able to access Outlook.
+   1. The Fabrikam user should be able to access SharePoint Online.
 1. Turn on universal tenant restrictions.
-1. As an end-user, with the Global Secure Access client running, go to Exchange Online with an external identity that hasn't been explicitly allow-listed. https://outlook.office365.com 
+1. As an end-user, with the Global Secure Access client running, go to SharePoint Online with an external identity that hasn't been explicitly allow-listed. 
    1. For example, a Fabrikam guest in the Contoso tenant. 
-   1. The Fabrikam user should be blocked from accessing Outlook with an error message saying: 
+   1. The Fabrikam user should be blocked from accessing SharePoint Online with an error message saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.**
 
-This test works the same for SharePoint Online.
-
-#### Testing the data path  
+### Try the data path  
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
-1. Go to https://outlook.office365.com with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
+1. Go to SharePoint Online, [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
    1. For example, a Fabrikam guest in the Contoso tenant. 
-   1. The Fabrikam user should be able to access Outlook.
-1. In the same browser with Outlook open, go to Developer Tools, or press F12 on the keyboard. Start capturing the network logs. You should see Status 200, when everything is working as expected. 
+   1. The Fabrikam user should be able to access SharePoint Online.
+1. In the same browser with SharePoint Online open, go to Developer Tools, or press F12 on the keyboard. Start capturing the network logs. You should see Status 200, when everything is working as expected. 
 1. Ensure the **Preserve log** option is checked before continuing.
 1. Keep the browser window open with the logs.  
 1. Turn on universal tenant restrictions.
-1. As the Fabrikam user, in the browser with Outlook open, within a few minutes, new logs appear. Also, the browser may refresh itself based on the request and responses happening in the back-end. If the browser doesn't automatically refresh after a couple of minutes, hit refresh on the browser with Outlook open. 
+1. As the Fabrikam user, in the browser with SharePoint Online open, within a few minutes, new logs appear. Also, the browser may refresh itself based on the request and responses happening in the back-end. If the browser doesn't automatically refresh after a couple of minutes, hit refresh on the browser with SharePoint Online open. 
    1. The Fabrikam user sees that their access is now blocked saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.** 
-1. In the logs, look for a **Status** of 440. This row shows universal tenant restrictions being applied to the traffic. 
+1. In the logs, look for a **Status** of 302. This row shows universal tenant restrictions being applied to the traffic. 
    1. In the same response, check the headers for the following information identifying that universal tenant restrictions were applied:
       1. `Restrict-Access-Confirm: 1`
       1. `x-ms-diagnostics: 2000020;reason="xms_trpid claim was not present but sec-tenant-restriction-access-policy header was in requres";error_category="insufficiant_claims"`
 
-When testing the data path for SharePoint Online the response in step 8 returns a **Status** 302.
-
-<!---Protecting against token theft
-
-Graph - if user tries to access same blocked things with graph they are blocked 
-
-Protects graph sharepoint and exchange
+<!--- To be added
+## FAQs
+## Known limitations
+## Next steps
+Tenant restrictions
+Source IP restoration
+Compliant network policy
 --->
