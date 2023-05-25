@@ -14,14 +14,6 @@ ms.date: 05/25/2023
 
 [!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a resource group
-> * Create a virtual network and subnet for your payment HSM
-> * Create a payment HSM
-> * Retrieve information about your payment HSM
-
 This tutorial describes how to create an Azure Payment HSM with the host and management port in same virtual network. You can instead:
 - [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
 - [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet-arm.md)
