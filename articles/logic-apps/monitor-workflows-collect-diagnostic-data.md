@@ -166,7 +166,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
 
 1. To finish adding your diagnostic setting, select **Save**.
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -357,7 +357,7 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/consumption/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Consumption workflow, and HTTP action with tracked properties.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 :::image type="content" source="media/monitor-workflows-collect-diagnostic-data/standard/tracked-properties.png" alt-text="Screenshot showing Azure portal, designer for Standard workflow, and HTTP action with tracked properties.":::
 
@@ -381,7 +381,7 @@ The following examples shows where custom properties appear in your Log Analytic
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/example-tracked-properties.png" alt-text="Screenshot showing example tracked properties for a specific Consumption  workflow.":::
 
-### [Standard (preview)](#tab/standard)
+### [Standard](#tab/standard)
 
 The custom tracking ID appears in the **ClientTrackingId** column and tracked properties appear in the **TrackedProperties** column, for example:
 
