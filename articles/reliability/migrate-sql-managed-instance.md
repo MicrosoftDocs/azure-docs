@@ -3,9 +3,8 @@ title: Migrate Azure SQL Managed Instance to availability zone support
 description: Learn how to migrate your Azure SQL Managed Instance to availability zone support.
 author: vladai78
 ms.service: sql-database
-ms.subservice: managed-instance
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.date: 05/25/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
@@ -35,7 +34,7 @@ This guide describes how to migrate SQL Managed Instances that use Business Crit
 
 ## Downtime requirements
 
-All scaling operations in Azure SQL are online operations and so require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=tru).
+All scaling operations in Azure SQL are online operations and require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=tru).
 
 ## How to enable the zone redundant configuration
 
@@ -45,22 +44,25 @@ You can configure the zone redundant option by using either Azure Portal or ARM 
 
 # [Azure Portal](#tab/portal)
 
-<!-- Need to update these steps - these are for create -->
 
-To update a current Business Critical managed instance to use zone redundant configuration:
+To update a current Business Critical managed instance to use a zone redundant configuration:
 
-1. Select Configure Managed Instance in the Create Azure SQL Managed Instance tab.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the Compute + Storage page select Yes to make the instance zone redundant.
+1. Go to the instance of SQL Managed Instance that you want to enable for zone redundancy.
 
-1. Select **Apply**.
+1. In the Create Azure SQL Managed Instance tab, select **Configure Managed Instance**.
 
-1. Choose one of the compatible redundancy options for backup storage:
+1. In the **Compute + Storage** page, select **Yes** to make the instance zone redundant.
+
+1. For **Backup storage redundancy**, choose one of the compatible redundancy options:
     
     - ZRS (Zone Redundant Storage)
     - GZRS (Geo Zone Redundant Storage)
 
     To learn more about backup storage redundancy options, see [Introducing Geo-Zone Redundant Storage (GZRS) for Azure SQL Managed Instance backups](https://techcommunity.microsoft.com/t5/azure-sql-blog/introducing-geo-zone-redundant-storage-gzrs-for-azure-sql/ba-p/3654947).
+
+1. Select **Apply**.
 
 # [ARM API](#tab/arm)
 

@@ -47,6 +47,9 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Container Instances](migrate-container-instances.md)|
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
+| [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
+
+
 
 ## Workload and general guidance
 | **Workloads**   | 
