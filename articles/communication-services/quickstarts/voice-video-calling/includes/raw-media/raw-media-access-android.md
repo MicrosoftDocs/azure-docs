@@ -157,7 +157,7 @@ buffer received events.
     rawIncomingAudioStream.addMixedAudioBufferReceivedListener(this::onMixedAudioBufferReceived);
 ```
 
-It is also important to remember to stop the audio stream in the current call `Call` instance:
+It's also important to remember to stop the audio stream in the current call `Call` instance:
 
 ```java
 

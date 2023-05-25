@@ -193,7 +193,7 @@ The audio buffer format should match the specified stream properties.
 ```
 
 
-It is also important to remember to stop the audio stream in the current call `Call` instance:
+It's also important to remember to stop the audio stream in the current call `Call` instance:
 
 ```swift
 
@@ -281,7 +281,7 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
 ---
 **NOTE**
 
-The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) default to a value of the preferred sample rate for the shared audio session and we cannot install tap in that node using a different sample rate. So we have to ensure that the `RawOutgoingStream`
+The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) defaults to a value of the preferred sample rate for the shared audio session. So we can't install tap in that node using a different value. So we have to ensure that the `RawOutgoingStream`
 properties sample rate matches the one we get from tap into microphone samples or convert the tap buffers to the format that 
 matches what is expected on the outgoing stream.
 
