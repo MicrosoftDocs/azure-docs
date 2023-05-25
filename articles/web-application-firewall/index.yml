@@ -90,3 +90,12 @@ landingContent:
             url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
           - text: Network-hardened web app
             url: /azure/architecture/example-scenario/security/hardened-web-app
+
+  # Card
+  - title: Secure your Azure cloud network
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Secure your cloud network using the Azure portal
+            url: secure-cloud-network.md
+

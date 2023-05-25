@@ -188,4 +188,5 @@ Custom rules let you create tailored rules to suit the exact needs of your appli
 
 ## Next steps
 
-After you learn about custom rules, [create your own custom rules](create-custom-waf-rules.md).
+- [Create your own custom rules](create-custom-waf-rules.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

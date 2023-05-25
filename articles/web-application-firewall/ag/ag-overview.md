@@ -263,3 +263,4 @@ To learn what's new with Azure Web Application Firewall, see [Azure updates](htt
 - Learn more about [WAF managed rules](application-gateway-crs-rulegroups-rules.md)
 - Learn more about [Custom Rules](custom-waf-rules-overview.md)
 - Learn about [Web Application Firewall on Azure Front Door](../afds/afds-overview.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
