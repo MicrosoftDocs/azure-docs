@@ -166,7 +166,7 @@ Learn how to [build queries with cloud security explorer](how-to-manage-cloud-se
 
 We're announcing the release of Vulnerability Assessment for Linux images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM. This release includes daily scanning of images. Findings used in the Security Explorer and attack paths rely on MDVM Vulnerability Assessment instead of the Qualys scanner.  
 
-The existing recommendation "Container registry images should have vulnerability findings resolved" is replaced by a new recommendation powered by MDVM:
+The existing recommendation `Container registry images should have vulnerability findings resolved` is replaced by a new recommendation powered by MDVM:
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
