@@ -459,7 +459,7 @@
           displayName: high availability
           href: ./v1/how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
-          href: ./v1/how-to-change-storage-access-key.md
+          href: how-to-change-storage-access-key.md
     # end v1
     - name: Create & manage workspaces
       items:

@@ -1868,7 +1868,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-change-storage-access-key.md",
         "redirect_url": "/azure/machine-learning/how-to-change-storage-access-key",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-text-classification-models.md",
