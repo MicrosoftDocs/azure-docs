@@ -18,14 +18,7 @@ ms.custom: it-pro
 # Add sign-in to a React single-page app (SPA)
 Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign in.
 
-In this tutorial:
-
-> [!div class="checklist"]
->
-> - Add components to the application
-> - Create a way of displaying the user's profile information
-> - Create a layout that displays the sign in and sign out experience
-> - Add the sign in and sign out experiences
+In this article you will add components to the application and create a layout that displays the sign in and sign out experience. You will also add sign in and sign out experiences.
 
 ## Prerequisites
 
