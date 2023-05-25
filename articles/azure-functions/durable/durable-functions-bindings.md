@@ -189,8 +189,8 @@ main = df.Orchestrator.create(orchestrator_function)
 ```powershell
 param($Context)
 
-$input = $Context.Input
-$input
+$InputData = $Context.Input
+$InputData
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
@@ -361,7 +361,7 @@ public static string SayHello([ActivityTrigger] string name)
 In the .NET-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
 
 ```csharp
-[FunctionName("SayHello")]
+[Function("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
@@ -666,6 +666,35 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
     instance_id = await client.start_new("HelloWorld", client_input=payload)
 ```
 ---
+
+::: zone-end 
+::: zone pivot="programming-language-powershell" 
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**run.ps1**
+```powershell
+param([string]$InputData, $TriggerMetadata)
+
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $InputData
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 

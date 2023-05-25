@@ -22,9 +22,12 @@ keywords:
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Python 3.7.1 or later version](https://www.python.org?azure-portal=true).
 - The following Python libraries: os.
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` (preview), or the `gpt-4` (preview)<sup>1</sup> models deployed. These models are currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-<sup>1</sup> **GPT-4 models are currently in preview.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+<sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
@@ -57,33 +60,36 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
 ```
 
 ```CMD
-setx OPENAI_API_BASE "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('OPENAI_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
 ```
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('OPENAI_API_BASE', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
 ```
 
 # [Bash](#tab/bash)
 
 ```Bash
-echo export OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ```Bash
-echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 ---
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
 ## Create a new Python application
 
@@ -96,9 +102,9 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
     import os
     import openai
     openai.api_type = "azure"
-    openai.api_base = os.getenv("OPENAI_API_BASE") 
-    openai.api_version = "2023-03-15-preview"
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    openai.api_version = "2023-05-15"
+    openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 
     response = openai.ChatCompletion.create(
         engine="gpt-35-turbo", # engine = "deployment_name".
@@ -113,6 +119,9 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
     print(response)
     print(response['choices'][0]['message']['content'])
     ```
+
+    > [!IMPORTANT]
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
 
 3. Run the application with the `python` command on your quickstart file:
 
@@ -146,6 +155,9 @@ echo export OPENAI_API_BASE="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environmen
 }
 Yes, most of the Azure Cognitive Services support customer managed keys. However, not all services support it. You can check the documentation of each service to confirm if customer managed keys are supported.
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Create-python-application)
 
 ### Understanding the message structure
 

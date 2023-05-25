@@ -22,6 +22,8 @@
             href: migrate/how-to-migrate-single-to-flexible-portal.md
           - name: Single to Flexible server migration tool - Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
+          - name: Common errors
+            href: migrate/common-errors-and-special-scenarios-fms.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -433,16 +435,18 @@
     items:
     - name: Create Server and Database
       items:
-      - name: Azure portal
-        href: flexible-server/quickstart-create-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/quickstart-create-server-cli.md
-      - name: Bicep
-        displayName: Resource Manager, ARM
-        href: flexible-server/quickstart-create-server-bicep.md
       - name: ARM template
         displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
+      - name: Azure portal
+        href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure SDK for Python
+        href: flexible-server/quickstart-create-server-python-sdk.md
+      - name: Bicep
+        displayName: Resource Manager, ARM
+        href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
         - name: Connect to a server in VNET
@@ -455,18 +459,6 @@
           href: flexible-server/connect-java.md
         - name: .NET
           href: flexible-server/connect-csharp.md
-  - name: Tutorials
-    items:
-    - name: Build with AKS
-      items:
-      - name: Deploy Python App on Kubernetes
-        href: flexible-server/tutorial-django-aks-database.md
-    - name: Build with App Services
-      items:
-      - name: Create a web app in a virtual network
-        href: flexible-server/tutorial-webapp-server-vnet.md
-      - name: Deploy a Django app on App Service
-        href: ../app-service/tutorial-python-postgresql-app.md
   - name: Concepts
     items:
     - name: Servers
@@ -534,10 +526,10 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
-        - name: Intelligent tuning
-          href: flexible-server/concepts-intelligent-tuning.md
         - name: Query Performance Insight
           href: flexible-server/concepts-query-performance-insight.md
+        - name: Intelligent tuning
+          href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       items:
         - name: Read replicas
@@ -554,6 +546,10 @@
           href: flexible-server/concepts-connectivity.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
+  - name: Integrations
+    items:
+    - name: Power BI
+      href: flexible-server/connect-with-power-bi-desktop.md
   - name: Troubleshooting
     items:  
     - name: Functional troubleshooting
@@ -586,6 +582,18 @@
       - name: Best practices for pg_dump and restore
         href: flexible-server/how-to-pgdump-restore.md
         displayName: Best practices for pg_dump and restore
+  - name: Tutorials
+    items:
+    - name: Build with AKS
+      items:
+      - name: Deploy Python App on Kubernetes
+        href: flexible-server/tutorial-django-aks-database.md
+    - name: Build with App Services
+      items:
+      - name: Create a web app in a virtual network
+        href: flexible-server/tutorial-webapp-server-vnet.md
+      - name: Deploy a Django app on App Service
+        href: ../app-service/tutorial-python-postgresql-app.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -602,7 +610,7 @@
         href: flexible-server/how-to-create-server-customer-managed-key-cli.md
       - name: Azure portal
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
-      - name: Azure API
+      - name: Azure REST API
         href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
     - name: Database deployment
       items:
@@ -699,6 +707,14 @@
         href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: flexible-server/how-to-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: flexible-server/howto-optimize-performance-pgvector.md
+          displayName: pgvector
 - name: Hyperscale (Citus)
   items:
   - name: Where is Hyperscale (Citus)?
@@ -771,6 +787,6 @@
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
   - name: Partners
-    href: partners-migration-postgresql.md
+    href: migrate/partners-migration-postgresql.md
   - name: Database Migration Guide
     href: /data-migration/

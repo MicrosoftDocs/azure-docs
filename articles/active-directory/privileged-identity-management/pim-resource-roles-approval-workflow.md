@@ -73,6 +73,5 @@ Here's some information about workflow notifications:
 
 ## Next steps
 
-- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
 - [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)

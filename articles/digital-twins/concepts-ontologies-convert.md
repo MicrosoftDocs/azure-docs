@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the process of converting industry-standard models into DTDL for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/05/2023
+ms.date: 04/21/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -60,9 +60,9 @@ You can use this sample to see the conversion patterns in context, and to have a
 
 ### OWL2DTDL converter 
 
-The [OWL2DTDL Converter](https://github.com/Azure/opendigitaltwins-tools/tree/master/OWL2DTDL) is a sample that translates an OWL ontology into a set of DTDL interface declarations, which can be used with the Azure Digital Twins service. It also works for ontology networks, made of one root ontology reusing other ontologies through `owl:imports` declarations.
+The [OWL2DTDL Converter](https://github.com/Azure/opendigitaltwins-tools/tree/master/OWL2DTDL) is a sample code base that translates an OWL ontology into a set of DTDL interface declarations, which can be used with the Azure Digital Twins service. It also works for ontology networks, made of one root ontology reusing other ontologies through `owl:imports` declarations. This converter was used to translate the [Real Estate Core Ontology](https://doc.realestatecore.io/3.1/full.html) to DTDL and can be used for any OWL-based ontology.
 
-This converter was used to translate the [Real Estate Core Ontology](https://doc.realestatecore.io/3.1/full.html) to DTDL and can be used for any OWL-based ontology.
+This sample code isn't a comprehensive solution that supports the entirety of the OWL spec, but it can give you ideas and starting code that you can use in developing your own ontology ingestion pipelines.
 
 ## Next steps 
 

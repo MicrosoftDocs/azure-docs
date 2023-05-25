@@ -12,6 +12,7 @@ ms.date: 09/07/2022
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Unexpected consent prompt when signing in to an application

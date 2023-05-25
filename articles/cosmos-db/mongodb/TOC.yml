@@ -198,14 +198,26 @@
               items:
                 - name: Continuous backup - Introduction
                   href: ../continuous-backup-restore-introduction.md
-                - name: Continuous backup - FAQ
-                  href: ../continuous-backup-restore-frequently-asked-questions.yml
-                - name: Continuous backup - Resource model
-                  href: ../continuous-backup-restore-resource-model.md
-                - name: Latest restorable timestamp
-                  href: ../latest-restore-timestamp-continuous-backup.md
-                - name: Auditing restore action with continuous backup
-                  href: ../audit-restore-continuous.md
+                - name: Restore
+                  items:
+                    - name: Restore into a new account
+                      items:
+                        - name: Continuous backup - Resource model
+                          href: ../continuous-backup-restore-resource-model.md
+                        - name: Continuous backup - FAQ
+                          href: ../continuous-backup-restore-frequently-asked-questions.yml
+                        - name: Latest restorable timestamp
+                          href: ../latest-restore-timestamp-continuous-backup.md
+                        - name: Auditing restore action with continuous backup
+                          href: ../audit-restore-continuous.md
+                    - name: Restore in the same account (preview)
+                      items:
+                        - name: Introduction
+                          href: ../restore-in-account-continuous-backup-introduction.md
+                        - name: Resource model
+                          href: ../restore-in-account-continuous-backup-resource-model.md
+                        - name: FAQ
+                          href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
             - name: Periodic backup
               items:
                 - name: Introduction
@@ -405,6 +417,8 @@
           items:
             - name: Options to migrate data into Azure Cosmos DB
               href: ../migration-choices.md
+            - name: Desktop data migration tool
+              href: ../how-to-migrate-desktop-tool.md
             - name: Estimate RU/s with capacity planner
               displayName: request units, RUs, RU, capacity
               href: estimate-ru-capacity-planner.md
@@ -415,6 +429,8 @@
                   href: ../free-tier.md
                 - name: Premigration guide
                   href: pre-migration-steps.md
+                - name: Programmatic Database Migration Assistant (legacy)
+                  href: programmatic-database-migration-assistant-legacy.md
                 - name: MongoDB native tools (offline)
                   href: tutorial-mongotools-cosmos-db.md
                 - name: Database Migration Service (online)
@@ -485,12 +501,16 @@
                   href: ../continuous-backup-restore-permissions.md
                 - name: Create account - Continuous backup
                   href: ../provision-account-continuous-backup.md
-                - name: Get the latest restorable timestamp
-                  href: ../get-latest-restore-timestamp.md
-                - name: Restore an account - Continuous backup
-                  href: ../restore-account-continuous-backup.md
                 - name: Migrate to continuous backup
                   href: ../migrate-continuous-backup.md
+                - name: Restore
+                  items:
+                    - name: Restore to a different account
+                      href: ../restore-account-continuous-backup.md
+                    - name: Restore in the same account (preview)
+                      href: ../how-to-restore-in-account-continuous-backup.md
+                    - name: Get the latest restorable timestamp
+                      href: ../get-latest-restore-timestamp.md
             - name: Periodic backup
               items:
                 - name: Update storage redundancy

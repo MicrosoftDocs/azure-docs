@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 10/20/2022
+ms.date: 05/03/2023
 ---
 
 # Use Java and JDBC with Azure Database for MySQL - Flexible Server
@@ -39,7 +39,7 @@ First, use the following command to set up some environment variables.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-```bash
+```azurecli-interactive
 export AZ_RESOURCE_GROUP=database-workshop
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
@@ -57,7 +57,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 ### [Password](#tab/password)
 
-```bash
+```azurecli-interactive
 export AZ_RESOURCE_GROUP=database-workshop
 export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
 export AZ_LOCATION=<YOUR_AZURE_REGION>
@@ -77,7 +77,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 Next, create a resource group:
 
-```azurecli
+```azurecli-interactive
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
@@ -97,13 +97,13 @@ The first thing you'll create is a managed MySQL server.
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 
-```bash
+```azurecli-interactive
 az login --scope https://graph.microsoft.com/.default
 ```
 
 Run the following command to create the server:
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
@@ -114,7 +114,7 @@ az mysql flexible-server create \
 
 Run the following command to create a user-assigned identity for assigning:
 
-```azurecli
+```azurecli-interactive
 az identity create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_USER_IDENTITY_NAME
@@ -125,7 +125,7 @@ az identity create \
 
 Run the following command to assign the identity to MySQL server for creating Azure AD admin:
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server identity assign \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_NAME \
@@ -134,7 +134,7 @@ az mysql flexible-server identity assign \
 
 Run the following command to set the Azure AD admin user:
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server ad-admin create \
     --resource-group $AZ_RESOURCE_GROUP \
     --server-name $AZ_DATABASE_NAME \
@@ -150,7 +150,7 @@ This command creates a small MySQL server and sets the Active Directory admin to
 
 #### [Password](#tab/password)
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
@@ -178,7 +178,7 @@ You can skip this step if you're using Bash because the `flexible-server create`
 If you're connecting to your MySQL server from Windows Subsystem for Linux (WSL) on a Windows computer, you'll need to add the WSL host ID to your firewall. Obtain the IP address of your host machine by running the following command in WSL:
 
 ```bash
-cat /etc/resolv.conf
+sudo cat /etc/resolv.conf
 ```
 
 Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
@@ -189,7 +189,7 @@ AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
 
 Then, use the following command to open the server's firewall to your WSL-based app:
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name $AZ_DATABASE_NAME \
@@ -203,7 +203,7 @@ az mysql flexible-server firewall-rule create \
 
 Create a new database called `demo` by using the following command:
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --database-name demo \
@@ -733,7 +733,7 @@ Congratulations! You've created a Java application that uses JDBC to store and r
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes

@@ -7,13 +7,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.reviewer: sgautam
-ms.author: banders 
+ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
 # Programmatically create Azure subscriptions for a Microsoft Partner Agreement with the latest APIs
 
-This article helps you programmatically create Azure subscriptions for a Microsoft Partner Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md). 
+This article helps you programmatically create Azure subscriptions for a Microsoft Partner Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md).
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
@@ -268,7 +268,7 @@ Use the `description` property to identify the reseller who is associated with t
 
 ## Create a subscription for a customer
 
-The following example creates a subscription named *Dev Team subscription*  for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. You use the copied billing scope from previous step: `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+The following example creates a subscription named *Dev Team subscription*  for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. You use the copied billing scope from previous step: `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### [REST](#tab/rest)
 
@@ -282,9 +282,9 @@ PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampl
 {
   "properties":
     {
-	    "billingScope": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-	    "DisplayName": "Dev Team subscription",
-	    "Workload": "Production"
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "DisplayName": "Dev Team subscription",
+        "Workload": "Production"
     }
 }
 ```
@@ -324,15 +324,15 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 }
 ```
 
-An in-progress status is returned as an `Accepted` state under `provisioningState`. 
+An in-progress status is returned as an `Accepted` state under `provisioningState`.
 
 Pass the optional *resellerId* copied from the second step in the request body of the API.
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
-Run the following New-AzSubscriptionAlias command, using the billing scope `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
+Run the following New-AzSubscriptionAlias command, using the billing scope `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`.
 
 ```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
@@ -358,7 +358,7 @@ Pass the optional *resellerId* copied from the second step in the `New-AzSubscri
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the following [az account alias create](/cli/azure/account/alias#az-account-alias-create) command. 
+Run the following [az account alias create](/cli/azure/account/alias#az-account-alias-create) command.
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -408,7 +408,7 @@ The following ARM template creates a subscription. For `billingScope`, provide t
     },
     "resources": [
         {
-            "scope": "/", 
+            "scope": "/",
             "name": "[parameters('subscriptionAliasName')]",
             "type": "Microsoft.Subscription/aliases",
             "apiVersion": "2021-10-01",

@@ -20,12 +20,16 @@
   items:
     - name: Govern access to applications
       items:
+      - name: Connected applications
+        href: apps.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
       - name: Governing a nonprovisionable application's users - PowerShell
         href: identity-governance-applications-not-provisioned-users.md
+      - name: Manage access to SAP applications
+        href: sap.md
     - name: Entitlement Management
       items:
       - name: Manage access to resources

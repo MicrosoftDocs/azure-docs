@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/6/2023
+ms.date: 05/03/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -16,9 +16,13 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
 
+## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
+
+Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
+
 ## Is an Active Directory connection required for SMB access? 
 
-Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](./azure-netapp-files-create-volumes-smb.md) for details. 
+Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection. See [Create an SMB volume](./azure-netapp-files-create-volumes-smb.md) for details. 
 
 ## How many Active Directory connections are supported?
 
@@ -89,6 +93,8 @@ Yes.
 Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protocols/ms-smb2/14f9d050-27b2-49df-b009-54e08e8bf7b5). This response is for the client’s request that comes in the form of a [`CHANGE_NOTIFY` request](/openspecs/windows_protocols/ms-smb2/598f395a-e7a2-4cc8-afb3-ccb30dd2df7c).  
 
 Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
+
+Azure NetApp Files also supports [breaking file locks](troubleshoot-file-locks.md).
 
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 

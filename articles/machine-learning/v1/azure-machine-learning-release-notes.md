@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/13/2022
+ms.date: 05/20/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,43 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## 2023-05-20
+
+### Azure Machine Learning SDK for Python v1.51.0
+  + **azureml-automl-core**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+    + Disallow using non-tabular datasets to customers for Classification (multi-class and multi-label) scenarios
+  + **azureml-automl-dnn-nlp**
+    + Disallow using non-tabular datasets to customers for Classification (multi-class and multi-label) scenarios
+  + **azureml-contrib-automl-pipeline-steps**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **azureml-fsspec**
+    + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.29.*
+  + **azureml-pipeline-core**
+    + Fix `pipeline_version` not taking effect when calling `pipeline_endpoint.submit()`.
+  + **azureml-train-automl-client**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **azureml-train-automl-runtime**
+    + AutoML forecasting task now supports rolling forecast and partial support for quantile forecasts for hierarchical time series (HTS).
+  + **mltable**
+    + Additional encoding variants like `utf-8` are now supported when loading MLTable files.
+    + Replaces all user caused errors in MLTable & FSSpec with a custom UserErrorException imported from azureml-dataprep.
+
+## 2023-04-10
+
+### Azure Machine Learning SDK for Python v1.50.0
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Added support for forecasting at given quantiles for TCN models.
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.26.0
+  + **azureml-train-automl-runtime**
+    + Fix MLTable handling for model test scenario
+  + **azureml-training-tabular**
+    + Added quantiles as parameter in the forecast_quantile method.
 
 
 ## 2023-03-01
@@ -37,7 +74,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.49.0
   + **Breaking changes**  
-    + Starting with v1.49.0 and above, the following AutoML algorithms will not be supported.
+    + Starting with v1.49.0 and above, the following AutoML algorithms won't be supported.
         + Regression: FastLinearRegressor, OnlineGradientDescentRegressor
         + Classification: AveragedPerceptronClassifier.
     +  Use v1.48.0 or below to continue using these algorithms.
@@ -47,7 +84,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
       + **azureml-contrib-automl-dnn-forecasting**
         + Nonscalar metrics for TCNForecaster will now reflect values from the last epoch.
         + Forecast horizon visuals for train-set and test-set are now available while running the TCN training experiment.
-        + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than two times consecutively with a message "Invalid Model, TCN training did not converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
+        + Runs will not fail anymore because of "Failed to calculate TCN metrics" error. The warning message that says "Forecast Metric calculation resulted in error, reporting back worst scores" will still be logged. Instead we raise exception when we face inf/nan validation loss for more than two times consecutively with a message "Invalid Model, TCN training didn't converge.". The customers need be aware of the fact that loaded models may return nan/inf values as predictions while inferencing after this change.
       + **azureml-core**
         + Azure Machine Learning workspace creation makes use of Log Analytics Based Application Insights in preparation for deprecation of Classic Application Insights. Users wishing to use Classic Application Insights resources can still specify their own to bring when creating an Azure Machine Learning workspace.
       + **azureml-interpret**
@@ -83,7 +120,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
       + Added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
     + **azureml-train-automl-runtime**
       + Added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
-      + Fixed bug where generated code does not do train/test splits correctly.
+      + Fixed bug where generated code doesn't do train/test splits correctly.
       + Fixed a bug that was causing forecasting generated code training jobs to fail.
 
 ## 2022-10-25
@@ -104,7 +141,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-automl-dnn-nlp**
     + Customers will no longer be allowed to specify a line in CoNLL, which only comprises with a token. The line must always either be an empty newline or one with exactly one token followed by exactly one space followed by exactly one label.
   + **azureml-contrib-automl-dnn-forecasting**
-    + There is a corner case where samples are reduced to 1 after the cross validation split but sample_size still points to the count before the split and hence batch_size ends up being more than sample count in some cases. In this fix we initialize sample_size after the split
+    + There's a corner case where samples are reduced to 1 after the cross validation split but sample_size still points to the count before the split and hence batch_size ends up being more than sample count in some cases. In this fix we initialize sample_size after the split
   + **azureml-core**
     + Added deprecation warning when inference customers use CLI/SDK v1 model deployment APIs to deploy models and also when Python version is 3.6 and less.
     + The following values of `AZUREML_LOG_DEPRECATION_WARNING_ENABLED` change the behavior as follows:
@@ -210,7 +247,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Now OutputDatasetConfig is supported as the input of the MM/HTS pipeline builder. The mappings are: 1) OutputTabularDatasetConfig -> treated as unpartitioned tabular dataset. 2) OutputFileDatasetConfig -> treated as filed dataset.
   + **azureml-train-automl-runtime**
     + Added data validation that requires the number of minority class samples in the dataset to be at least as much as the number of CV folds requested.    
-    + Automatic cross-validation parameter configuration is now available for AutoML forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and AutoML will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
+    + Automatic cross-validation parameter configuration is now available for AutoML forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and AutoML will provide those configurations base on your data. However, currently this feature isn't supported when TCN is enabled.
     + Forecasting Parameters in Many Models and Hierarchical Time Series can now be passed via object rather than using individual parameters in dictionary.
     + Enabled forecasting model endpoints with quantiles support to be consumed in Power BI.
     + Updated AutoML scipy dependency upper bound to 1.5.3 from 1.5.2
@@ -232,7 +269,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-interpret**
     + updated azureml-interpret package to interpret-community 0.25.0
   + **azureml-pipeline-core**
-    + Do not print run detail anymore if `pipeline_run.wait_for_completion` with `show_output=False`
+    + Don't print run detail anymore if `pipeline_run.wait_for_completion` with `show_output=False`
   + **azureml-train-automl-runtime**
     + Fixes a bug that would cause code generation to fail when the azureml-contrib-automl-dnn-forecasting package is present in the training environment.
     + Fix error when using a test dataset without a label column with AutoML Model Testing.
@@ -423,7 +460,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
   + **azureml-core**
     + Added support to set stream column type, mount and download stream columns in tabular dataset.
-    + New optional fields added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allow attaching KubernetesCompute with either SystemAssigned or UserAssigned identity. New identity fields will be included when calling print(compute_target) or compute_target.serialize(): identity_type, identity_id, principal_id, and tenant_id/client_id.
+    + New optional fields added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allow attaching KubernetesCompute with either SystemAssigned or UserAssigned identity. New identity fields are included when calling print(compute_target) or compute_target.serialize(): identity_type, identity_id, principal_id, and tenant_id/client_id.
   + **azureml-dataprep**
     + Added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
   + **azureml-defaults**
@@ -482,7 +519,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     + Fixed a bug where to_dask_dataframe would fail because of a race condition.
     + Dataset from_files now supports skipping of data extensions for large input data
   + **azureml-defaults**
-    + We are removing the dependency azureml-model-management-sdk==1.0.1b6.post1 from azureml-defaults.
+    + We're removing the dependency azureml-model-management-sdk==1.0.1b6.post1 from azureml-defaults.
   + **azureml-interpret**
     + updated azureml-interpret to interpret-community 0.19.*
   + **azureml-pipeline-core**
@@ -619,7 +656,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 + **Bug fixes and improvements**
   + **azureml-core**
     + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
-    + Fixed a bug where docker settings in Environment object on ScriptRunConfig are not respected.
+    + Fixed a bug where docker settings in Environment object on ScriptRunConfig aren't respected.
     + Allow partitioning a dataset when copying it to a destination.
     + Added a custom mode to the OutputDatasetConfig to enable passing created Datasets in pipelines through a link function. These support enhancements made to enable Tabular Partitioning for PRS.
     + Added a new KubernetesCompute compute type to azureml-core.
@@ -642,7 +679,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.26.0
 + **Bug fixes and improvements**
   + **azureml-automl-core**
-    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models will not be recommended when target         lags or target rolling window size are set.
+    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models won't be recommended when target         lags or target rolling window size are set.
     +  Changed console output when submitting an AutoML run to show a portal link to the run.
   + **azureml-core**
     + Added HDFS mode in documentation.
@@ -743,8 +780,8 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
   + **azureml-core**
     + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
-    + Previously, it was possibly for users to create provisioning configurations for ComputeTarget's that did not satisfy the password strength requirements for the `admin_user_password` field (that is, that they must contain at least 3 of the following: One lowercase letter, one uppercase letter, one digit, and one special character from the following set: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?``). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. 
-    + Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It is no longer possible to do this. Now, `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
+    + Previously, it was possibly for users to create provisioning configurations for ComputeTarget's that didn't satisfy the password strength requirements for the `admin_user_password` field (that is, that they must contain at least 3 of the following: One lowercase letter, one uppercase letter, one digit, and one special character from the following set: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?``). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. 
+    + Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It's no longer possible to do this. Now, `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be displayed.
     + With setting show_output to True when wait for the completion of model deployment, the progress of deployment operation will be displayed.
     + Allow customer specified Azure Machine Learning auth config directory through environment variable: AZUREML_AUTH_CONFIG_DIR
@@ -799,7 +836,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. This has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raises a `ComputeTargetException`.
     +  Fixes bug in wait_for_completion in AmlCompute, which caused the function to return control flow before the operation was actually complete
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
-    + Show error message 'Environment name expected str, {} found' when provided environment name is not a string.
+    + Show error message 'Environment name expected str, {} found' when provided environment name isn't a string.
   + **azureml-train-automl-client**
     + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being canceled.
 
@@ -811,7 +848,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-automl-core**
     + Fixed bug where an extra pip dependency was added to the conda yml file for vision models.
   + **azureml-automl-runtime**
-    + Fixed a bug where classical forecasting models (for example, AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
+    + Fixed a bug where classical forecasting models (for example, AutoArima) could receive training data wherein rows with imputed target values weren't present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation didn't mark all imputed rows correctly and so wouldn't always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
   + **azureml-core**
     + Adding support for Token Authentication by audience.
     + Add `process_count` to [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) to support multi-process multi-node PyTorch jobs.
@@ -875,7 +912,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-train-core**
     + Fix to remove another registration on datastore for resume run feature
   + **azureml-widgets**
-    + Customers should not see changes to existing run data visualization using the widget, and now will have support if they optionally use conditional hyperparameters.
+    + Customers shouldn't see changes to existing run data visualization using the widget, and now will have support if they optionally use conditional hyperparameters.
     + The user run widget now includes a detailed explanation for why a run is in the queued state.
 
 
@@ -884,9 +921,9 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.20.0
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+    + framework_version added in OptimizationConfig. It's used when model is registered with framework MULTI.
   + **azureml-contrib-optimization**
-    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+    + framework_version added in OptimizationConfig. It's used when model is registered with framework MULTI.
   + **azureml-pipeline-steps**
     + Introducing CommandStep, which would take command to process. Command can include executables, shell commands, scripts, etc.
   + **azureml-core**
@@ -1002,7 +1039,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Pin the package: pyjwt to avoid pulling in breaking in versions upcoming releases.
     + Creating an experiment returns the active or last archived experiment with that same given name if such experiment exists or a new experiment.
     + Calling get_experiment by name returns the active or last archived experiment with that given name.
-    + Users cannot rename an experiment while reactivating it.
+    + Users can't rename an experiment while reactivating it.
     + Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (for example, ScriptRunConfig). 
     + Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
@@ -1054,7 +1091,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-explain-model**
     + The azureml-explain-model package is officially deprecated
   + **azureml-mlflow**
-    + Resolved a bug in mlflow.projects.run against azureml backend where Finalizing state was not handled properly.
+    + Resolved a bug in mlflow.projects.run against azureml backend where Finalizing state wasn't handled properly.
   + **azureml-pipeline-core**
     + Add support to create, list and get pipeline schedule based one pipeline endpoint.
     +  Improved the documentation of PipelineData.as_dataset with an invalid usage example - Using PipelineData.as_dataset improperly will now result in a ValueException being thrown
@@ -1115,7 +1152,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Support Triton No Code Deploy
     + outputs directories specified in Run.start_logging() will now be tracked when using run in interactive scenarios. The tracked files are visible on ML Studio upon calling Run.complete()
     + File encoding can be now specified during dataset creation with `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_json_lines_files` by passing the `encoding` argument. The supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' and 'windows1252'.
-    + Bug fix when environment object is not passed to ScriptRunConfig constructor.
+    + Bug fix when environment object isn't passed to ScriptRunConfig constructor.
     + Updated Run.cancel() to allow cancel of a local run from another machine.
   + **azureml-dataprep**
     +  Fixed dataset mount timeout issues.
@@ -1141,7 +1178,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
 ### Azure Machine Learning SDK for Python v1.14.0
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + Grid Profiling removed from the SDK and is not longer supported.
+    + Grid Profiling removed from the SDK and isn't longer supported.
   + **azureml-accel-models**
     + azureml-accel-models package now supports TensorFlow 2.x
   + **azureml-automl-core**
@@ -1149,7 +1186,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-automl-runtime**
     + Fixed a bug where AutoArima iterations would fail with a PredictionException and the message: "Silent failure occurred during prediction."
   + **azureml-cli-common**
-    + Grid Profiling removed from the SDK and is not longer supported.
+    + Grid Profiling removed from the SDK and isn't longer supported.
   + **azureml-contrib-server**
     + Update description of the package for pypi overview page.
   + **azureml-core**
@@ -1199,7 +1236,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-automl-runtime**
     + Set horovod for text DNN to always use fp16 compression.
     + This release supports models greater than 4 Gb.
-    + Fixed issue where AutoML fails with ImportError: cannot import name `RollingOriginValidator`.
+    + Fixed issue where AutoML fails with ImportError: can't import name `RollingOriginValidator`.
     + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
   + **azureml-contrib-automl-dnn-forecasting**
     + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
@@ -1261,7 +1298,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Improved calculation of forecast quantiles when lookback features are disabled.
     + Fixed bool sparse matrix handling when computing explanations after AutoML.
   + **azureml-core**
-    + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
+    + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It's currently only showing explanation for `Queued` status.
     + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
     + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies) at once.
     + Enable registering credential-less ADLS Gen2 datastore.
@@ -1308,7 +1345,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Environment.get_image_details() return object type changed. `DockerImageDetails` class replaced `dict`, image details are available from the new class properties. Changes are backward compatible.
     + Fix bug for Environment.from_pip_requirements() to preserve dependencies structure
     + Fixed a bug where log_list would fail if an int and double were included in the same list.
-    + While enabling private link on an existing workspace, please note that if there are compute targets associated with the workspace, those targets will not work if they are not behind the same virtual network as the workspace private endpoint.
+    + While enabling private link on an existing workspace, please note that if there are compute targets associated with the workspace, those targets won't work if they are not behind the same virtual network as the workspace private endpoint.
     + Made `as_named_input` optional when using datasets in experiments and added `as_mount` and `as_download` to `FileDataset`. The input name will automatically generate if `as_mount` or `as_download` is called.
   + **azureml-automl-core**
     + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
@@ -1331,7 +1368,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
     + AutoML Forecasting now supports rolling evaluation, which applies to the use case that the length of a test or validation set is longer than the input horizon, and known y_pred value is used as forecasting context.
   + **azureml-core**
-    + Warning messages will be printed if no files were downloaded from the datastore in a run.
+    + Warning messages are printed if no files were downloaded from the datastore in a run.
     + Added documentation for `skip_validation` to the `Datastore.register_azure_sql_database method`.
     + Users are required to upgrade to sdk v1.10.0 or above to create an auto approved private endpoint. This includes the Notebook resource that is usable behind the VNet.
     + Expose NotebookInfo in the response of get workspace.
@@ -1369,7 +1406,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Improved error handling around specific models during `get_output`
     + Fixed call to fitted_model.fit(X, y) for classification with y transformer
     + Enabled customized forward fill imputer for forecasting tasks
-    + A new ForecastingParameters class will be used instead of forecasting parameters in a dict format
+    + A new ForecastingParameters class is used instead of forecasting parameters in a dict format
     + Improved target lag autodetection
     + Added limited availability of multi-noded, multi-gpu distributed featurization with BERT
   + **azureml-automl-runtime**
@@ -1807,7 +1844,7 @@ Access the following web-based authoring tools from the studio:
     + Accept string compute names to be passed to ParallelRunConfig
   + **azureml-core**
     +  Added Environment.clone(new_name) API to create a copy of Environment object
-    +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property
+    +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content is read into base_dockerfile environment property
     + Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
     + Added user_managed flag in RSection that indicates whether the environment is managed by user or by Azure Machine Learning.
     + Dataset: Fixed dataset download failure if data path containing unicode characters.
@@ -2181,7 +2218,7 @@ Access the following web-based authoring tools from the studio:
     + Moved Machine learning and training code in AzureML-AutoML-Core to a new package AzureML-AutoML-Runtime.
   + **azureml-contrib-dataset**
     + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
-    + When calling `keep_columns` or `drop_columns` that results in a time series, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+    + When calling `keep_columns` or `drop_columns` that results in a time series, label, or image column being dropped, the corresponding capabilities are dropped for the dataset as well.
     + Fixed an issue with pytorch loader for the object detection task.
   + **azureml-contrib-interpret**
     + Removed explanation dashboard widget from azureml-contrib-interpret, changed package to reference the new one in interpret_community
@@ -2190,7 +2227,7 @@ Access the following web-based authoring tools from the studio:
     + Improve performance of `workspace.datasets`.
     + Added the ability to register Azure SQL Database Datastore using username and password authentication
     + Fix for loading RunConfigurations from relative paths.
-    + When calling `keep_columns` or `drop_columns` that results in a time series column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+    + When calling `keep_columns` or `drop_columns` that results in a time series column being dropped, the corresponding capabilities are dropped for the dataset as well.
   + **azureml-interpret**
     + updated version of interpret-community to 0.2.0
   + **azureml-pipeline-steps**
@@ -2217,7 +2254,7 @@ Access the following web-based authoring tools from the studio:
     + **azureml-contrib-dataset**
       + After importing azureml-contrib-dataset, you can call `Dataset.Labeled.from_json_lines` instead of `._Labeled` to create a labeled dataset.
       + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
-      + When calling `keep_columns` or `drop_columns` that results in a time series, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+      + When calling `keep_columns` or `drop_columns` that results in a time series, label, or image column being dropped, the corresponding capabilities are dropped for the dataset as well.
       + Fixed issues with PyTorch loader when calling `dataset.to_torchvision()`.
 
 + **Bug fixes and improvements**
@@ -2240,7 +2277,7 @@ Access the following web-based authoring tools from the studio:
     + Added Load Balancer Type to MLC for AKS types.
     + Added append_prefix bool parameter to download_files in run.py and download_artifacts_from_prefix in artifacts_client. This flag is used to selectively flatten the origin filepath so only the file or folder name is added to the output_directory
     + Fix deserialization issue for `run_config.yml` with dataset usage.
-    + When calling `keep_columns` or `drop_columns` that results in a time series column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+    + When calling `keep_columns` or `drop_columns` that results in a time series column being dropped, the corresponding capabilities are dropped for the dataset as well.
   + **azureml-interpret**
     + Updated interpret-community version to 0.1.0.3
   + **azureml-train-automl**
@@ -2303,7 +2340,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
 
 + **New features**
   + Added dataset monitors through the [**azureml-datadrift**](/python/api/azureml-datadrift) package, allowing for monitoring time series datasets for data drift or other statistical changes over time. Alerts and events can be triggered if drift is detected or other conditions on the data are met. See [our documentation](how-to-monitor-datasets.md) for details.
-  + Announcing two new editions (also referred to as a SKU interchangeably) in Azure Machine Learning. With this release, you can now create either a Basic or Enterprise Azure Machine Learning workspace. All existing workspaces will be defaulted to the Basic edition, and you can go to the Azure portal or to the studio to upgrade the workspace anytime. You can create either a Basic or Enterprise workspace from the Azure portal. Read [our documentation](./how-to-manage-workspace.md) to learn more. From the SDK, the edition of your workspace can be determined using the "sku" property of your workspace object.
+  + Announcing two new editions (also referred to as a SKU interchangeably) in Azure Machine Learning. With this release, you can now create either a Basic or Enterprise Azure Machine Learning workspace. All existing workspaces are defaulted to the Basic edition, and you can go to the Azure portal or to the studio to upgrade the workspace anytime. You can create either a Basic or Enterprise workspace from the Azure portal. Read [our documentation](./how-to-manage-workspace.md) to learn more. From the SDK, the edition of your workspace can be determined using the "sku" property of your workspace object.
   + We have also made enhancements to Azure Machine Learning Compute - you can now view metrics for your clusters (like total nodes, running nodes, total core quota) in Azure Monitor, besides viewing Diagnostic logs for debugging. In addition, you can also view currently running or queued runs on your cluster and details such as the IPs of the various nodes on your cluster. You can view these either in the portal or by using corresponding functions in the SDK or CLI.
 
   + **Preview features**
@@ -2342,7 +2379,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Models can be registered with two new frameworks, Onnx and TensorFlow. - Model registration accepts sample input data, sample output data and resource configuration for the model.
   + **azureml-automl-core**
     + Training an iteration would run in a child process only when runtime constraints are being set.
-    + Added a guardrail for forecasting tasks, to check whether a specified max_horizon causes a memory issue on the given machine or not. If it will, a guardrail message will be displayed.
+    + Added a guardrail for forecasting tasks, to check whether a specified max_horizon causes a memory issue on the given machine or not. If it will, a guardrail message is displayed.
     + Added support for complex frequencies like two years and one month. -Added comprehensible error message if frequency cannot be determined.
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
     + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in `AutoMLStep`.
@@ -2374,7 +2411,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + [**azureml-datadrift**](/python/api/azureml-datadrift)
     + Moved from `azureml-contrib-datadrift` into `azureml-datadrift`
     + Added support for monitoring time series datasets for drift and other statistical measures
-    + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) class. The `create()` method will be deprecated.
+    + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) class. The `create()` method is deprecated.
     + Adjustments to the visualizations in Python and UI in the Azure Machine Learning studio.
     + Support weekly and monthly monitor scheduling, in addition to daily for dataset monitors.
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors.
@@ -2854,7 +2891,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 + **New features**
   + You can now request to execute specific inspectors (for example, histogram, scatter plot, etc.) on specific columns.
-  + Added a parallelize argument to `append_columns`. If True, data will be loaded into memory but execution will run in parallel; if False, execution is streaming but single-threaded.
+  + Added a parallelize argument to `append_columns`. If True, data is loaded into memory but execution will run in parallel; if False, execution is streaming but single-threaded.
 
 ## 2019-07-23
 
@@ -2878,7 +2915,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Forecasting now allows different frequencies in train and test sets if they can be aligned. For example,  "quarterly starting in January" and at "quarterly starting in October" can be aligned.
     + The property "parameters" was added to the TimeSeriesTransformer.
     + Remove old exception classes.
-    + In forecasting tasks, the `target_lags` parameter now accepts a single integer value or a list of integers. If the integer was provided, only one lag will be created. If a list is provided, the unique values of lags will be taken. target_lags=[1, 2, 2, 4] will create lags of one, two and four periods.
+    + In forecasting tasks, the `target_lags` parameter now accepts a single integer value or a list of integers. If the integer was provided, only one lag is created. If a list is provided, the unique values of lags will be taken. target_lags=[1, 2, 2, 4] will create lags of one, two and four periods.
     + Fix the bug about losing columns types after the transformation (bug linked);
     + In `model.forecast(X, y_query)`, allow y_query to be an object type containing None(s) at the begin (#459519).
     + Add expected values to `automl` output
@@ -2906,7 +2943,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Add support for token authentication in AKS webservices.
     + Add `get_token()` method to `Webservice` objects.
     + Added CLI support to manage machine learning datasets.
-    + `Datastore.register_azure_blob_container` now optionally takes a `blob_cache_timeout` value (in seconds) which configures blobfuse's mount parameters to enable cache expiration for this datastore. The default is no timeout, such as when a blob is read, it stays in the local cache until the job is finished. Most jobs  prefer this setting, but some jobs need to read more data from a large dataset than will fit on their nodes. For these jobs, tuning this parameter helps them succeed. Take care when tuning this parameter: setting the value too low can result in poor performance, as the data used in an epoch may expire before being used again. All reads will be done from blob storage/network rather than the local cache, which negatively impacts training times.
+    + `Datastore.register_azure_blob_container` now optionally takes a `blob_cache_timeout` value (in seconds) which configures blobfuse's mount parameters to enable cache expiration for this datastore. The default is no timeout, such as when a blob is read, it stays in the local cache until the job is finished. Most jobs  prefer this setting, but some jobs need to read more data from a large dataset than will fit on their nodes. For these jobs, tuning this parameter helps them succeed. Take care when tuning this parameter: setting the value too low can result in poor performance, as the data used in an epoch may expire before being used again. All reads are done from blob storage/network rather than the local cache, which negatively impacts training times.
     + Model description can now properly be updated after registration
     + Model and Image deletion now provides more information about upstream objects that depend on them, which causes the delete to fail
     + Improve resource utilization of remote runs using azureml.mlflow.

@@ -1,23 +1,23 @@
 ---
-title: Enable Caching for ACR with authentication - Azure portal
-description: Learn how to enable Caching for ACR with authentication using Azure portal.
+title: Enable Cache ACR with authentication - Azure portal
+description: Learn how to enable Cache ACR with authentication using Azure portal.
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Caching for ACR (Preview) with authentication - Azure portal
+# Enable Cache ACR (Preview) with authentication - Azure portal
 
-This article is part four of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Caching for ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Caching for ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md) , you learn how to enable Caching for ACR feature by using the Azure CLI.
+This article is part four of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Cache ACR, its features, benefits, and preview limitations. In [part two](tutorial-enable-registry-cache.md), you learn how to enable Cache ACR feature by using the Azure portal. In [part three](tutorial-enable-registry-cache-cli.md) , you learn how to enable Cache ACR feature by using the Azure CLI.
 
-This article walks you through the steps of enabling Caching for ACR with authentication by using the Azure portal. You have to use the Credential set to make an authenticated pull or to access a private repository.
+This article walks you through the steps of enabling Cache ACR with authentication by using the Azure portal. You have to use the Credential set to make an authenticated pull or to access a private repository.
 
 ## Prerequisites
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 
-## Configure Caching for ACR (preview) with authentication - Azure portal
+## Configure Cache ACR (preview) with authentication - Azure portal
 
 Follow the steps to create cache rule in the [Azure portal](https://portal.azure.com). 
 
@@ -43,7 +43,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 5. Enter the **Rule name**.
 
-6. Select **Source** Registry from the dropdown menu. Currently, Caching for ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
+6. Select **Source** Registry from the dropdown menu. Currently, Cache ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
 
 7. Enter the **Repository Path** to the artifacts you want to cache.
 
@@ -71,7 +71,13 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
     --secret-permissions get
     ```
 
-14. Pull the image from your cache using the Docker command `docker pull myregistry.azurecr.io/hello-world`
+14. Pull the image from your cache using the Docker command by the registry login server name, repository name, and its desired tag.
+
+    - For example, to pull the image from the repository `hello-world` with its desired tag `latest` for a given registry login server `myregistry.azurecr.io`.
+
+    ```azurecli-interactive
+     docker pull myregistry.azurecr.io/hello-world:latest
+    ```
 
 ### Create new credentials
 
@@ -88,7 +94,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
 
 1. Enter **Name** for the new credentials for your source registry.
 
-1. Select a **Source Authentication**. Caching for ACR currently supports **Select from Key Vault** and **Enter secret URI's**.
+1. Select a **Source Authentication**. Cache ACR currently supports **Select from Key Vault** and **Enter secret URI's**.
 
 1. For the  **Select from Key Vault** option, Learn more about [creating credentials using key vault][create-and-store-keyvault-credentials]. 
 
@@ -96,7 +102,7 @@ Before configuring a Credential Set, you require to create and store secrets in 
 
 ## Next steps
 
-* Advance to the [next article](tutorial-enable-registry-cache-cli.md) to enable the Caching for ACR (preview) using Azure CLI.
+* Advance to the [next article](tutorial-enable-registry-cache-cli.md) to enable the Cache ACR (preview) using Azure CLI.
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault

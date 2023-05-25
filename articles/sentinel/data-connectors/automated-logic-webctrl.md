@@ -37,7 +37,7 @@ Event
 
 1. Install and onboard the Microsoft agent for Windows.
 
-Learn about [agent setup](https://learn.microsoft.com/services-hub/health/mma-setup) and [windows events onboarding](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-windows-events). 
+Learn about [agent setup](/services-hub/health/mma-setup) and [windows events onboarding](/azure/azure-monitor/agents/data-sources-windows-events). 
 
  You can skip this step if you have already installed the Microsoft agent for Windows
 

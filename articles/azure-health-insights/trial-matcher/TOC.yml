@@ -37,8 +37,14 @@ items:
   items:
      - name: REST API
        href: /rest/api/cognitiveservices/healthinsights/trial-matcher
-     - name: .NET SDK
-       href: /dotnet/api/overview/azure/health.insights.clinicalmatching-readme
+     - name: SDKs
+       items:
+         - name: .NET
+           href: /dotnet/api/overview/azure/health.insights.clinicalmatching-readme
+         - name: Java
+           href: /java/api/overview/azure/health-insights-clinicalmatching-readme
+         - name: Python
+           href: /python/api/overview/azure/healthinsights-clinicalmatching-readme
 - name: Resources
   items:
      - name: Enterprise readiness

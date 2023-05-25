@@ -55,6 +55,8 @@
         href: azure-ad-joined-session-hosts.md
       - name: Virtual machine sizing guidance
         href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      - name: Custom image templates
+        href: custom-image-templates.md
       - name: Windows 10 Enterprise multi-session FAQ
         href: windows-10-multisession-faq.yml
       - name: Fair Share technologies
@@ -105,7 +107,7 @@
           href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.yml
-      - name: Supported features for Teams
+      - name: Microsoft Teams supported features
         href: teams-supported-features.md
     - name: Data locations
       href: data-locations.md
@@ -200,26 +202,28 @@
           href: publish-apps.md
         - name: MSIX app attach
           items:
+          - name: Create an MSIX image
+            href: msix-app-attach-create-msix-image.md
+          - name: Set up a file share
+            href: app-attach-file-share.md
+          - name: Use Azure NetApp Files and MSIX app attach
+            href: create-netapp-files.md
           - name: Set up MSIX app attach with the Azure portal
             href: app-attach-azure-portal.md
           - name: Set up MSIX app attach with PowerShell
             href: app-attach-powershell.md
           - name: Test and troubleshoot MSIX packages
             href: app-attach.md
-          - name: Prepare an MSIX image
-            href: app-attach-image-prep.md
-          - name: Set up a file share
-            href: app-attach-file-share.md
-          - name: Set up the MSIXMGR tool
-            href: app-attach-msixmgr.md
           - name: MSIXMGR tool parameters
             href: msixmgr-tool-syntax-description.md 
         - name: Use Microsoft Teams
           href: teams-on-avd.md
         - name: Set up Windows Sandbox
           href: sandbox.md
-      - name: Customize session host image
+      - name: Customize session host images
         items:
+        - name: Create custom images with Custom image templates
+          href: create-custom-image-templates.md
         - name: Set up golden image in Azure
           href: set-up-golden-image.md
         - name: Set up a master VHD image
@@ -254,14 +258,10 @@
           href: create-host-pools-user-profile.md
         - name: Use Azure NetApp Files
           href: create-fslogix-profile-container.md
-        - name: Use Azure NetApp Files and MSIX app attach
-          href: create-netapp-files.md
         - name: Use Azure Files and Active Directory
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD
           href: create-profile-container-azure-ad.md
-        - name: Install Office with FSLogix app containers
-          href: fslogix-office-app-rule-editor.md
       - name: Language packages
         items:
         - name: Windows 10 multi-session images
@@ -288,7 +288,7 @@
         href: customize-rdp-properties.md
       - name: Configure load-balancing method
         href: configure-host-pool-load-balancing.md
-      - name: Set personal desktop assignment type
+      - name: Configure personal desktop assignment
         href: configure-host-pool-personal-desktop-assignment-type.md
       - name: Configure a validation environment
         href: configure-validation-environment.md
@@ -318,6 +318,12 @@
             href: set-up-scaling-script.md
       - name: Drain session hosts
         href: drain-mode.md
+      - name: Manage with Intune
+        items:
+        - name: Manage single-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        - name: Manage multi-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop-multi-session?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Deploy updates with Configuration Manager
         href: configure-automatic-updates.md
       - name: Start VM on Connect
@@ -450,8 +456,10 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
-  - name: Teams on Azure Virtual Desktop
+  - name: Microsoft Teams
     href: troubleshoot-teams.md
+  - name: Custom image templates
+    href: troubleshoot-custom-image-templates.md
 - name: Reference
   items:
   - name: Azure CLI

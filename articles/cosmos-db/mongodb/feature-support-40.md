@@ -400,7 +400,7 @@ We recommend enabling Server Side Retry and avoiding wildcard indexes to ensure 
 | `Text Index` | No |
 | `2dsphere` | Yes |
 | `2d Index` | No |
-| `Hashed Index` | Yes |
+| `Hashed Index` | No |
 
 ### Index properties
 

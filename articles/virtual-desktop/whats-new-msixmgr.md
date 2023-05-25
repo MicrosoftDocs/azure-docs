@@ -22,4 +22,7 @@ In this release, we've made the following changes:
 
 ## Next steps
 
-- Learn how to [use the MSIXMGR tool](app-attach-msixmgr.md).
+To learn more about the MSIXMGR tool, check out these articles:
+
+- [Using the MSIXMGR tool](app-attach-msixmgr.md).
+- [MSIXMGR tool parameters](msixmgr-tool-syntax-description.md)

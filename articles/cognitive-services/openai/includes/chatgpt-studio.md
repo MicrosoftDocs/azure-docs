@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use ChatGPT (Preview) via the Azure OpenAI Studio'
+title: 'Quickstart: Use ChatGPT via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 services: cognitive-services
@@ -17,23 +17,26 @@ keywords:
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` (preview), or the `gpt-4` (preview)<sup>1</sup> models deployed. These models are currently available in East US and South Central US. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-<sup>1</sup> **GPT-4 models are currently in preview.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+<sup>1</sup> **GPT-4 models are currently only available by request.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Go to Azure OpenAI Studio
 
 Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page, select **ChatGPT playground (Preview)**
+From the Azure OpenAI Studio landing page, select **Chat playground**.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with ChatGPT playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground.png" alt-text="Screenshot of the Azure OpenAI Studio landing page with Chat playground highlighted." lightbox="../media/quickstarts/chatgpt-playground.png":::
 
 ## Playground
 
-Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio ChatGPT playground. From this page, you can quickly iterate and experiment with the capabilities.
+Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the ChatGPT playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
+:::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the Chat playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
 ### Assistant setup
 
@@ -43,7 +46,7 @@ You can use the **Assistant setup** dropdown to select a few pre-loaded **System
 
 **Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](/azure/cognitive-services/openai/overview#in-context-learning).
 
-At any time while using the ChatGPT playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
+At any time while using the Chat playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
 ### Chat session
 
@@ -87,7 +90,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://docs-test-001.openai.azure.com/"
-openai.api_version = "2023-03-15-preview"
+openai.api_version = "2023-05-15"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
@@ -101,6 +104,9 @@ response = openai.ChatCompletion.create(
   stop=None)
 ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+
 ### Understanding the prompt structure
 
 If you examine the sample from **View code** you'll notice some unique tokens that weren't part of a typical GPT completion call. ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
@@ -111,7 +117,7 @@ The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introducti
 
 ## Clean up resources
 
-Once you're done testing out the ChatGPT playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

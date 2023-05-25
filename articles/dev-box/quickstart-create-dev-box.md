@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 

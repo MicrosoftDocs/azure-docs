@@ -8,7 +8,6 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/14/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)

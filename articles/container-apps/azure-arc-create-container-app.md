@@ -112,12 +112,12 @@ If there's an error when running a query, try again in 10-15 minutes. There may 
 ```kusto
 let StartTime = ago(72h);
 let EndTime = now();
-ContainerAppsConsoleLogs_CL
+ContainerAppConsoleLogs_CL
 | where TimeGenerated between (StartTime .. EndTime)
-| where AppName_s =~ "my-container-app"
+| where ContainerAppName_s =~ "my-container-app"
 ```
 
-The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppsConsoleLogs_CL`.
+The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppConsoleLogs_CL`.
 
 * **Log_s** contains application logs for a given Container Apps extension
 * **AppName_s** contains the Container App app name. In addition to logs you write via your application code, the *Log_s* column also contains logs on container startup and shutdown.

@@ -36,9 +36,9 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
  
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Create resources to get started](quickstart-create-resources.md) article to create one.
 
-* An Azure Key Vault. If you used the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create your workspace, a key vault was created for you. You can also create a separate key vault instance using the information in the [Quickstart: Create a key vault](../key-vault/general/quick-create-portal.md) article.
+* An Azure Key Vault. If you used the [Create resources to get started](quickstart-create-resources.md) article to create your workspace, a key vault was created for you. You can also create a separate key vault instance using the information in the [Quickstart: Create a key vault](../key-vault/general/quick-create-portal.md) article.
 
     > [!TIP]
     > You do not have to use same key vault as the workspace.

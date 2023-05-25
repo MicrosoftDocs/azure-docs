@@ -16,14 +16,14 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
 This article explains how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Apps. Blue-green deployment is an Azure DevOps continuous delivery pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment.
 
 ## Prerequisites
 
-- Azure Spring Apps instance on a Standard pricing tier
-- [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+- An existing Azure Spring Apps instance on the Standard plan.
+- [Azure CLI](/cli/azure/install-azure-cli).
 
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, make a change in a public-facing portion of the application to differentiate your staging deployment from the production deployment.
 
@@ -34,7 +34,7 @@ To set up blue-green deployment in Azure Spring Apps, follow the instructions in
 
 ## Install the Azure CLI extension
 
-Install the Azure Spring Apps extension for the Azure CLI by using the following command:
+Install the [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI by using the following command:
 
 ```azurecli
 az extension add --name spring
@@ -163,12 +163,12 @@ Use the following steps to view deployed apps.
    :::image type="content" source="media/how-to-staging-environment/running-staging-app.png" lightbox="media/how-to-staging-environment/running-staging-app.png" alt-text="Screenshot that shows the URL of the staging app.":::
 
 >[!TIP]
-> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green`. Use this format to access your endpoint.
+> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/demo/green`. Use this format to access your endpoint.
 
 >[!NOTE]
-> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app gateway in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...`.
+> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app demo in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/demo/green/somepath/...`.
 
-If you visit your public-facing app gateway at this point, you should see the old page without your new change.
+If you visit your public-facing app demo at this point, you should see the old page without your new change.
 
 ## Set the green deployment as the production environment
 
@@ -193,9 +193,9 @@ If you're not satisfied with your change, you can modify your application code, 
 az spring app deploy \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
-    --name gateway \
+    --name demo \
     --deployment green \
-    --jar-path gateway.jar
+    --artifact-path demo.jar
 ```
 
 ## Delete the staging deployment
@@ -209,7 +209,7 @@ az spring app deployment delete \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
     --name <staging-deployment-name> \
-    --app gateway
+    --app demo
 ```
 
 ## Next steps

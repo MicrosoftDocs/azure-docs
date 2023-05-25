@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -213,7 +213,7 @@ You're now ready to test the React scoped access to the API. In this step, run b
 
     ```console
     npm install && npm update
-    node index.js
+    npm start
     ```
 
     The console window displays the port number where the application is hosted:

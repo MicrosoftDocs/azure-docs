@@ -136,6 +136,4 @@ Typically, the log event immediately above the approval event is an event for "A
 
 ## Next steps
 
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)
-- [Approve or deny requests for Azure resource roles in Privileged Identity Management](pim-resource-roles-approval-workflow.md)
 - [View audit history for Azure AD roles in Privileged Identity Management](pim-how-to-use-audit-log.md)
