@@ -220,15 +220,10 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
 }
 ```
 
-### Sample response body with no errors
-```json
-{
-    "errors":[]
-}
-```
-
 ### Sample response body with validation error
-For example, if you send an array with four indicators, and the first three are good but the fourth doesn't have an `id` (a required field), then an HTTP status code 200 response is generated along with the following body:
+If all indicators are validated successfully, an HTTP 200 status is returned with an empty response body. 
+
+If validation fails for one or more indicators, the response body is returned with more information. For example, if you send an array with four indicators, and the first three are good but the fourth doesn't have an `id` (a required field), then an HTTP status code 200 response is generated along with the following body:
 
 ```json
 {
