@@ -172,7 +172,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 * __Update an existing workspace__:
 
     > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
 
     The following example updates an existing workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
@@ -558,7 +558,6 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     > This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
 
     ```yml
-    type: workspace
     name: myworkspace
     managed_network:
       isolation_mode: allow_internet_outbound
