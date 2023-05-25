@@ -92,7 +92,7 @@ If you are using MQTT v5, this setting will provide the maximum limit for the Se
 
 The default value for this namespace property is 1 hour and can be extended up to 8 hours.
 
-:::image type="content" source="media/mqtt-support/mqtt-maximum-session-expiry-configuration.png" alt-text="Screenshot of maximum session expiry property configuration for a namespace" border="false":::
+:::image type="content" source="media/mqtt-support/mqtt-maximum-session-expiry-configuration.png" alt-text="Screenshot of maximum session expiry property configuration for a namespace." border="false":::
 
 ### User properties 
 Event Grid supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
