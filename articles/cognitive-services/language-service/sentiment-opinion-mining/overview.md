@@ -19,8 +19,7 @@ Sentiment analysis and opinion mining are features offered by [Azure Cognitive S
 
 Both sentiment analysis and opinion mining work with a variety of [written languages](./language-support.md).
 
-* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
+#### [prebuilt model](#tab/prebuilt)
 
 ## Sentiment analysis 
 
@@ -35,6 +34,48 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 ## Get started with sentiment analysis
 
 [!INCLUDE [development options](./includes/development-options.md)]
+
+#### [Custom model](#tab/custom)
+
+Custom sentiment analysis enables users to build custom AI models to classify text into custom classes pre-defined by the user. By creating a Custom sentiment analysis project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+
+
+## Project development lifecycle
+
+Creating a Custom sentiment analysis project typically involves several different steps. 
+
+:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
+
+Follow these steps to get the most out of your model:
+
+1. **Define your schema**: Know your data and identify the [classes](glossary.md#class) you want differentiate between, to avoid ambiguity.
+
+2. **Label your data**: The quality of data labeling is a key factor in determining model performance. Documents that belong to the same class should always have the same class, if you have a document that can fall into two classes use  **Multi label classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with single label classification projects.
+
+3. **Train the model**: Your model starts learning from your labeled data.
+
+4. **View the model's performance**: View the evaluation details for your model to determine how well it performs when introduced to new data.
+
+5. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
+
+6. **Classify text**: Use your custom model for Custom sentiment analysis tasks.
+
+## Reference documentation and code samples
+
+As you use Custom sentiment analysis, see the following reference documentation and samples for Azure Cognitive Service for Language:
+
+|Development option / language  |Reference documentation |Samples  |
+|---------|---------|---------|
+|REST APIs (Authoring)   | [REST API documentation](https://aka.ms/ct-authoring-swagger)        |         |
+|REST APIs (Runtime)    | [REST API documentation](https://aka.ms/ct-runtime-swagger)        |         |
+|C#  (Runtime)   | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples - Single label classification](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample9_SingleLabelClassify.md) [C# samples - Multi label classification](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample10_MultiLabelClassify.md)       |
+| Java   (Runtime)  | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples - Single label classification](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/SingleLabelClassifyDocument.java) [Java Samples - Multi label classification](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/MultiLabelClassifyDocument.java) |
+|JavaScript (Runtime)     | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples - Single label classification](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js) [JavaScript samples - Multi label classification](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js) |
+|Python (Runtime)| [Python documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)        | [Python samples - Single label classification](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_label_classify.py) [Python samples - Multi label classification](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_multi_label_classify.py) |
+
+
+--- 
+
 
 ## Responsible AI 
 
