@@ -957,6 +957,8 @@ items:
         href: app/separate-resources.md
     - name: Help and support
       items:
+      - name: Create an Azure support ticket
+        href: https://azure.microsoft.com/support/create-ticket
       - name: Application Insights FAQ
         href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
