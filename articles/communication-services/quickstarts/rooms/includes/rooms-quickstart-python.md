@@ -69,7 +69,7 @@ if __name__ == '__main__':
     rooms = RoomsQuickstart()
 ```
 
-### Initialize a room client
+## Initialize a room client
 
 Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
@@ -125,7 +125,7 @@ except HttpResponseError as ex:
     print(ex)
 ```
 
-### Update the lifetime of a room
+## Update the lifetime of a room
 
 The lifetime of a `room` can be modified by issuing an update request for the `valid_from` and `valid_until` parameters. A room can be valid for a maximum of six months.
 
@@ -141,7 +141,7 @@ except HttpResponseError as ex:
     print(ex)
 ```
 
-### List all active rooms
+## List all active rooms
 
 To retrieve all active rooms created under your resource, use the `list_rooms` method exposed on the client.
 
@@ -162,7 +162,7 @@ except HttpResponseError as ex:
     print(ex)
 ```
 
-### Add or update participants
+## Add or update participants
 
 To add new participants or update existing participants in a `room`, use the `add_or_update_participants` method exposed on the client.
 
@@ -184,7 +184,7 @@ except Exception as ex:
 
 Participants that have been added to a `room` become eligible to join calls.
 
-### List participants in a room
+## List participants in a room
 
 Retrieve the list of participants for an existing `room` by referencing the `room_id`:
 
