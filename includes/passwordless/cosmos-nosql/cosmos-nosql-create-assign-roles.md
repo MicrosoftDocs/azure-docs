@@ -38,7 +38,7 @@ Roles consist of a collection of permissions or actions that a user is allowed t
 
 1. When the command completes, copy the ID value from the `name` field and paste it somewhere for later use.
 
-1. Assign the role you created to the user account or service principal that will connect to Cosmos DB. During local development, this will generally be your own account that is logged into Visual Studio or the Azure CLI. Retrieve the details of your account using the `az ad user` command.
+1. Assign the role you created to the user account or service principal that will connect to Cosmos DB. During local development, this will generally be your own account that's logged into a development tool like Visual Studio or the Azure CLI. Retrieve the details of your account using the `az ad user` command.
     
     ```azurecli
     az ad user show --id "<your-email-address>"
