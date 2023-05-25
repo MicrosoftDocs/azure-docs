@@ -160,13 +160,9 @@ foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)
 
 ## Microsoft Graph API
 
-Use the [List members](/graph/api/administrativeunit-list-members) API to list users or groups for an administrative unit.
-
-Use the [List members (Beta)](/graph/api/administrativeunit-list-members?view=graph-rest-beta&preserve-view=true) API to list devices for an administrative unit.
-
 ### List the administrative units for a user
 
-Use the [List memberOf](/graph/api/user-list-memberof) API to list the administrative units a user is a direct member of.
+Use the user [List memberOf](/graph/api/user-list-memberof) API to list the administrative units a user is a direct member of.
 
 ```http
 GET https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -174,7 +170,7 @@ GET https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.
 
 ### List the administrative units for a group
 
-Use the [List memberOf](/graph/api/user-list-memberof) API to list the administrative units a group is a direct member of.
+Use the group [List memberOf](/graph/api/group-list-memberof) API to list the administrative units a group is a direct member of.
 
 ```http
 GET https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -182,27 +178,23 @@ GET https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Grap
 
 ### List the administrative units for a device
 
+Use the [List device memberships](/graph/api/device-list-memberof) API to list the administrative units a device is a direct member of.
+
 ```http
-GET https://graph.microsoft.com/beta/devices/{device-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
+GET https://graph.microsoft.com/v1.0/devices/{device-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
-### List the groups for an administrative unit
+### List the users, groups, or devices for an administrative unit
 
-Use the [List members](/graph/api/administrativeunit-list-members) API to list the users or groups for an administrative unit.
+Use the [List members](/graph/api/administrativeunit-list-members) API to list the users, groups, or devices for an administrative unit. For member type, specify `microsoft.graph.user`, `microsoft.graph.group`, or `microsoft.graph.device`.
 
 ```http
 GET https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
 ```
 
-### List the devices for an administrative unit
-
-```http
-GET https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.device
-```
-
 ### List whether a single user is in a restricted management administrative unit
 
-Use the [Get a user](/graph/api/user-get) API to determine whether a user is in a restricted management administrative unit. Look at the value of the `isManagementRestricted` property. If the property is `true`, it is in a restricted management administrative unit. If the property is `false`, empty, or null, it is not in a restricted management administrative unit.
+Use the [Get a user (beta)](/graph/api/user-get?view=graph-rest-beta&preserve-view=true) API to determine whether a user is in a restricted management administrative unit. Look at the value of the `isManagementRestricted` property. If the property is `true`, it is in a restricted management administrative unit. If the property is `false`, empty, or null, it is not in a restricted management administrative unit.
 
 ```http
 GET https://graph.microsoft.com/beta/users/{user-id}
