@@ -113,4 +113,4 @@ Yes, the OS VHD is copied from customer subscription to Azure subscription for o
 
   
 
-Learn more about [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).
+Learn more about [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md). 
