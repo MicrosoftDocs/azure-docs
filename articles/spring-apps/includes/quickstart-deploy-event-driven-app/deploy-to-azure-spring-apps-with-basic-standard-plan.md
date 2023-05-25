@@ -101,7 +101,7 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png" alt-text="Screenshot of Azure portal showing Key Vault creation for basic tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png":::
 
-1. Navigate to the tab **Access configuration** on the key vault **Create** page, select **Vault access policy** for **Permission model**.
+1. Navigate to the tab **Access configuration** on the key vault **Create** page, select `Vault access policy` for **Permission model**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-access-configuration.png" alt-text="Screenshot of Azure portal showing Key Vault creation for Access configuration tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-access-configuration.png":::
 
@@ -266,7 +266,7 @@ Use AZD to provision the Azure resources required by the event-driven applicatio
 1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure and also deploy the application code to those newly provisioned resources.
 
    ```bash
-   azd up
+   azd provision
    ```
 
    Command interaction description:
@@ -282,8 +282,8 @@ Use AZD to provision the Azure resources required by the event-driven applicatio
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
    ```
 
-> [!NOTE]
-> This may take a while to complete. You will see a progress indicator as it provisions Azure resources. See more details from [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
+   > [!NOTE]
+   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources. See more details from [Azure-Samples/ASA-Samples-Event-Driven-Application](https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application).
 
 ## 3 Deployment
 
@@ -294,11 +294,6 @@ Use AZD to package the app, provision the Azure resources required by the event-
    ```bash
    azd up
    ```
-
-   Command interaction description:
-
-    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
 
    The console outputs messages similar to the following:
 
