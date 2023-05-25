@@ -147,6 +147,7 @@ You need to grant Azure Spring Apps access to your key vault before you import c
    > If you don't find the "Azure Spring Apps Domain-Management", search for "Azure Spring Cloud Domain-Management".
 
    :::image type="content" source="./media/custom-dns-tutorial/import-certificate-b.png" alt-text="Screenshot of the Azure portal showing the Add Access Policy page for a key vault with Get and List selected from Secret permissions and from Certificate permissions." lightbox="./media/custom-dns-tutorial/import-certificate-b.png":::
+
    :::image type="content" source="./media/custom-dns-tutorial/import-certificate-c.png" alt-text="Screenshot of the Azure portal showing the Create Access Policy page for a key vault with Azure Spring Apps Domain-management selected from the Select a principal dropdown." lightbox="./media/custom-dns-tutorial/import-certificate-c.png":::
 
 #### [CLI](#tab/Azure-CLI)
