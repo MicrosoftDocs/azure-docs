@@ -33,7 +33,7 @@ This tutorial describes how to create an Azure Payment HSM with the host and man
 
 ## Prerequisites
 
-[!INCLUDE [Specialized Service](./includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized Service](./includes/specialized-service.md)]
 
 # [Azure CLI](#tab/azure-cli)
 

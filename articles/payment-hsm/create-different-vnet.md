@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Payment HSM with host and management port in different VNets using ARM template
-description: Create an Azure Payment HSM with host and management port in different VNets using ARM template
+title: Create an Azure Payment HSM with host and management port in different VNets using CLI or PowerShell
+description: Create an Azure Payment HSM with host and management port in different VNets using CLI or PowerShell
 services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
@@ -24,7 +24,7 @@ This tutorial describes how to create a payment HSM with the host and management
 
 ## Prerequisites
 
-[!INCLUDE [Specialized service](./includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -258,7 +258,7 @@ myResourceGroup   myPaymentHSM_HSMMgmtNic  eastus   ...
 
 If you view one of these network interfaces in the Azure port, you will see that the "Private IP allocation method" is "Dynamic":
 
-:::image type="content" source="./media/nic-dynamic.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of dynamic ." lightbox="./media/nic-dynamic.png":::
+:::image type="content" source="./media/nic-dynamic.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of 'dynamic'." lightbox="./media/nic-dynamic.png":::
 
 ---
 
@@ -348,7 +348,7 @@ myResourceGroup   myPaymentHSM_HSMMgmtNic  eastus   ...
 
 If you view one of these network interfaces in the Azure port, you will see that the "Private IP allocation method" is "Dynamic":
 
-:::image type="content" source="./media/nic-static.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of dynamic ." lightbox="./media/nic-static.png":::
+:::image type="content" source="./media/nic-static.png" alt-text="Azure portal screenshow showing a network interface with a private IP allocation method of 'static'." lightbox="./media/nic-static.png":::
 
 ---
 
