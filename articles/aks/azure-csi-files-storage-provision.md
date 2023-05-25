@@ -20,9 +20,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-- An Azure [storage account][azure-storage-account].
-
-- The Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need an Azure [storage account][azure-storage-account].
+* Make sure you have Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* When choosing between standard and premium file shares, it's important you understand the provisioning model and requirements of the expected usage pattern you plan to run on Azure Files. For more information, see [Choosing an Azure Files performance tier based on usage patterns][azure-files-usage].
 
 ## Dynamically provision a volume
 
@@ -506,3 +506,4 @@ For associated best practices, see [Best practices for storage and backups in AK
 [storage-tiers]: ../storage/files/storage-files-planning.md#storage-tiers
 [access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
+[azure-files-usage]: ../storage/files/understand-performance.md#choosing-a-performance-tier-based-on-usage-patterns

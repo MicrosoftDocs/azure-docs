@@ -59,6 +59,8 @@
   items:
     - name: Troubleshoot AKS-Hybrid
       href: troubleshoot-aks-hybrid-cluster.md
+    - name: Troubleshoot Isolation Domain
+      href: troubleshoot-isolation-domain.md
 - name: Sample Deployment
   items:
     - name: VNF Deployment
