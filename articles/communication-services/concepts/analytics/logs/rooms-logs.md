@@ -47,21 +47,26 @@ Communication Services offers the following types of logs that you can enable:
 
 | Property | Description |
 | -------- | ---------------|
-| `Correlation ID` | Room id for correlated events. Can be used to identify correlated events between multiple tables. |
+| `Correlation ID` | The ID of the room, which is a distinguished identifier for an existing room. |
 | `Level` | The severity level of the event. |
-| `Operation Name` | The operation associated with log record. |
-| `Operation Version` | The `api-version` associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| `Operation Name` | The operation associated with log record. e.g., CreateRoom, PatchRoom, GetRoom, ListRooms, DeleteRoom, GetParticipants, AddParticipants, UpdateParticipants, or RemoveParticipants. |
+| `Operation Version` | The API-version associated with the operation or version of the operation (if there is no API version). |
 | `ResultType` | The status of the operation. |
 | `ResultSignature` | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
-| `RoomLifeSpan` | Life span of the Room.based on Valid From and Valid To date time of the Room. |
-| `RoomJoinPolicy` | The join policy of the Room. |
+| `RoomLifeSpan` | The Room lifespan in minutes. |
+| `RoomParticipantsCount` | The count of participants in a room. |
+| `RoomParticipantsConsumer` | The participants count with consumer role. |
+| `RoomParticipantsAttendee` | The participants count with attendee role. |
+| `RoomParticipantsPresenter` | The participants count with presenter role. |
+| `RoomJoinPolicy` | [Deprecated in version 2023-03-31-preview, all rooms are InviteOnly by default] The policy of a room indicating invite only or CommunicationServiceUsers. |
+| `AddedRoomParticipantsCount` | The count of participants added to a room. |
+| `UpsertedRoomParticipantsCount` | The count of participants upserted in a room. |
+| `RemovedRoomParticipantsCount` | The count of participants removed in a room. |
 | `TenantId` | The tenant id of the resource. |
 | `TimeGenerated` | The timestamp (UTC) of when the log was generated. |
-| `Type` | The type of the log. |
-| `_ResourceId` | The resource id of the resource. |
 
 
-#### Example Rooms log
+#### Example CreateRoom log
 
 ```json
     [
@@ -73,13 +78,43 @@ Communication Services offers the following types of logs that you can enable:
       "ResultType": "Succeeded",
       "ResultSignature": 201,
       "RoomLifespan": 61,
+      "RoomParticipantsCount": 3,
+      "RoomParticipantsConsumer": 1,
+      "RoomParticipantsAttendee": 1,
+      "RoomParticipantsPresenter": 1,
       "RoomJoinPolicy": "InviteOnly",
+      "AddedRoomParticipantsCount": 0,
+      "UpsertedRoomParticipantsCount": 0,
+      "RemovedRoomParticipantsCount": 0,
       "TenantId": "f606d782-d5dd-47e9-a299-815b9be0ea25",
       "TimeGenerated [UTC]": "5/25/2023, 4:32:49.469 AM",
-      "Type": "ACSRoomsIncomingOperations",
-      "_ResourceId": "/subscriptions/ed463725-1c38-43fc-bd8b-cac509b41e96/resourcegroups/acs-rooms-e2e-prod/providers/microsoft.communication/communicationservices/rooms-e2e-prod"
       }
     ]
 ```
 
+#### Example GetRoom log
+
+```json
+    [
+      {
+      "CorrelationId": "99466387192310000",
+      "Level": "Informational",
+      "OperationName": "GetRoom",
+      "OperationVersion": "2022-02-01",
+      "ResultType": "Succeeded",
+      "ResultSignature": "200",
+      "RoomLifespan": 61,
+      "RoomParticipantsCount": 5,
+      "RoomParticipantsConsumer": 1,
+      "RoomParticipantsAttendee": 2,
+      "RoomParticipantsPresenter": 2,
+      "RoomJoinPolicy": "CommunicationServiceUsers",
+      "AddedRoomParticipantsCount": 0,
+      "UpsertedRoomParticipantsCount": 0,
+      "RemovedRoomParticipantsCount": 0,
+      "TenantId": "f606d782-d5dd-47e9-a299-815b9be0ea25",
+      "TimeGenerated": "2022-08-19T17:07:30.2400300Z",
+      },
+    ]
+```
  (see also [FAQ](../../../../azure-monitor/faq.yml)). 
