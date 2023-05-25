@@ -116,7 +116,7 @@ To prevent unwanted charges on a subscription, you can go to **Resources** menu 
 
 :::image type="content" source="./media/cancel-azure-subscription/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/cancel-azure-subscription/delete-resources.png" :::
 
-If you have a support plan, you might continue to get charged for it. To delete support a plan, navigate to **Cost Management + Billing** and and select **Recurring charges**. Select the support plan and turn off auto-renewal.
+If you have a support plan, you might continue to get charged for it. To delete a support a plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
 
 :::image type="content" source="./media/cancel-azure-subscription/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/cancel-azure-subscription/change-renewal-settings.png" :::
 
