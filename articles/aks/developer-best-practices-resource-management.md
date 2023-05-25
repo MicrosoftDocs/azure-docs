@@ -25,13 +25,13 @@ This article covers the following topics:
 >
 > Set pod requests and limits on all pods in your YAML manifests. If the AKS cluster uses *resource quotas* and you don't define these values, your deployment may be rejected.
 
-Use pod requests and limits to manage compute resources within an AKS cluster. Pod requests and limits inform the Kubernetes scheduler which compute resources to assign to a pod.
+Use pod requests and limits to manage compute resources within an AKS cluster. Pod requests and limits inform the Kubernetes scheduler of the compute resources to assign to a pod.
 
 ### Pod CPU/Memory requests
 
 *Pod requests* define a set amount of CPU and memory the pod needs regularly.
 
-In your pod specifications, it's important you define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler can't consider the resources your applications requires to assist in scheduling decisions.
+In your pod specifications, it's important you define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler can't consider the resources your applications requires to help with scheduling decisions.
 
 Monitor the performance of your application to adjust pod requests. If you underestimate pod requests, your application may receive degraded performance due to over-scheduling a node. If requests are overestimated, your application may have increased scheduling difficulty.
 
@@ -47,7 +47,7 @@ Monitor the performance of your application at different times during the day or
 
 > [!IMPORTANT]
 >
-> In your pod specifications, define these requests and limits based on the above information. Failing to include these values prevents the Kubernetes scheduler from accounting for resources your applications require to assist in scheduling decisions.
+> In your pod specifications, define these requests and limits based on the above information. Failing to include these values prevents the Kubernetes scheduler from accounting for resources your applications requires to help with scheduling decisions.
 
 If the scheduler places a pod on a node with insufficient resources, application performance is degraded. Cluster administrators **must set *resource quotas*** on a namespace that requires you to set resource requests and limits. For more information, see [resource quotas on AKS clusters][resource-quotas].
 
@@ -55,9 +55,9 @@ When you define a CPU request or limit, the value is measured in CPU units.
 
 * *1.0* CPU equates to one underlying virtual CPU core on the node.
   * The same measurement is used for GPUs.
-* You can define fractions measured in millicores. For example, *100m* is *0.1* of an underlying vCPU core.
+* You can define fractions measured in millicores. For example, *100 m* is *0.1* of an underlying vCPU core.
 
-In the following basic example for a single NGINX pod, the pod requests *100m* of CPU time and *128Mi* of memory. The resource limits for the pod are set to *250m* CPU and *256Mi* memory.
+In the following basic example for a single NGINX pod, the pod requests *100 m* of CPU time and *128Mi* of memory. The resource limits for the pod are set to *250 m* CPU and *256Mi* memory.
 
 ```yaml
 kind: Pod
@@ -90,7 +90,7 @@ With Bridge to Kubernetes, you can develop, debug, and test applications directl
 Using integrated development and test process with Bridge to Kubernetes reduces the need for local test environments like [minikube][minikube]. Instead, you develop and test against an AKS cluster, even in secured and isolated clusters.
 
 > [!NOTE]
-> Bridge to Kubernetes is intended for use with applications that run on Linux pods and nodes.
+> Bridge to Kubernetes is intended for use with applications running on Linux pods and nodes.
 
 ## Use the Visual Studio Code (VS Code) extension for Kubernetes
 
