@@ -377,7 +377,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 The _trigger restore requests_ triggered the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
-Use the *GET* command to track the _JobId_ present in the [trigger restore response](#example-response-to-trigger-restore-request) above.
+Use the *GET* command to track the _JobId_ present in the [trigger restore response](#response-to-trigger-restore-requests) above.
 
 ```http
  GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/c4bd49a1-0645-4eec-b207-feb818962852?api-version=2021-01-01
