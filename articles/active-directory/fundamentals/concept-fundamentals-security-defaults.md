@@ -49,7 +49,7 @@ To enable security defaults in your directory:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
-1. Set **Security defaults** to **Enabled **.
+1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
@@ -117,6 +117,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 Organizations use various Azure services managed through the Azure Resource Manager API, including:
 
 - Azure portal 
+- Microsoft Entra Admin Center
 - Azure PowerShell 
 - Azure CLI
 

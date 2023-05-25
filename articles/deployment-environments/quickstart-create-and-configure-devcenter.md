@@ -1,23 +1,20 @@
 ---
 title: Create and configure a dev center
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure a dev center in Deployment Environments. You'll create a dev center, attach an identity, attach a catalog, and create environment types.
+description: Learn how to configure a dev center in Deployment Environments. You create a dev center, attach an identity, attach a catalog, and create environment types.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.date: 04/25/2023
 ---
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments
 
-This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview.
+This quickstart shows you how to create and configure a dev center in Azure Deployment Environments.
 
 An enterprise development infrastructure team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -58,14 +55,15 @@ To create and configure a Dev center in Azure Deployment Environments by using t
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
 ## Create a Key Vault
-You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. 
+You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). In this quickstart, you use an RBAC Key Vault.
+
 If you don't have an existing key vault, use the following steps to create one:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.	In the Search box, enter *Key Vault*.
 1.	From the results list, select **Key Vault**.
 1.	On the Key Vault page, select **Create**.
-1.	On the Create key vault page, provide the following information:
+1.	On the Create key vault tab, provide the following information:
 
     |Name      |Value      |
     |----------|-----------|
@@ -76,10 +74,12 @@ If you don't have an existing key vault, use the following steps to create one:
     
     Leave the other options at their defaults.
 
-1.	Select **Create**.
+1. On the Access configuration tab, select **Azure role-based access control**, and then select **Review + create**.
+
+1. On the Review + create tab, select **Create**.
 
 ## Create a personal access token
-Using an authentication token like a GitHub personal access token (PAT) enables you to share your repository securely.  
+Using an authentication token like a GitHub PAT enables you to share your repository securely.  GitHub offers classic PATs, and fine-grained PATs. Fine-grained and classic PATs work with Azure Deployment Environments, but fine-grained tokens give you more granular control over the repositories to which you're allowing access.
 
 > [!TIP] 
 > If you are attaching an Azure DevOps repository, use these steps: [Create a personal access token in Azure DevOps](how-to-configure-catalog.md#create-a-personal-access-token-in-azure-devops).
@@ -87,20 +87,28 @@ Using an authentication token like a GitHub personal access token (PAT) enables 
 1.	In a new browser tab, sign into your [GitHub](https://github.com) account.
 1.	On your profile menu, select **Settings**.
 1.	On your account page, on the left menu, select **< >Developer Settings**.
-1.	On the Developer settings page, select **Tokens (classic)**.
+1.	On the Developer settings page, select **Fine-grained tokens**.
     
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/github-pat.png" alt-text="Screenshot that shows the GitHub Tokens (classic) option.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/github-fine-grained-pat.png" alt-text="Screenshot that shows the GitHub Fine-grained tokens option.":::
+     
+1. On the Fine-grained personal access tokens page, select **Generate new token**
+   :::image type="content" source="media/quickstart-create-and-configure-devcenter/generate-github-fine-grained-token.png" alt-text="Screenshot showing the GitHub Fine-grained personal access tokens page with Generate new token highlighted.":::
+
+1. On the New fine-grained personal access token page, provide the following information:
+
+    |Name      |Value      |
+    |----------|-----------|
+    |**Token name**|Enter a descriptive name for the token.|
+    |**Expiration**|Select the token expiration period in days.|
+    |**Description**|Enter a description for the token.|
+    |**Repository access**|Select **Public Repositories (read-only)**.|
     
-    Fine-grained and classic tokens work with Azure Deployment Environments. Fine-grained tokens give you more granular control over the repos to which you're allowing access.
+    Leave the other options at their defaults.
 
-1. On the New personal access token (classic) page:
-    - In the **Note** box, add a note describing the token’s intended use.
-    - In **Select scopes**, select repo.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/generate-git-hub-token.png" alt-text="Screenshot that shows the GitHub Tokens (classic) configuration page.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/github-public-repo-permissions.png" alt-text="Screenshot showing the GitHub New fine-grained personal access token page.":::
 
 1. Select **Generate token**.
-1. On the Personal access tokens (classic) page, copy the new token.
+1. On the Fine-grained personal access tokens page, copy the new token.
  
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/copy-new-token.png" alt-text="Screenshot that shows the new GitHub token with the copy button highlighted.":::
 
@@ -128,7 +136,7 @@ After you create a dev center, attach an [identity](concept-environments-key-con
 
 In this quickstart, you configure a system-assigned managed identity for your dev center. 
 
-## Attach a system-assigned managed identity
+### Attach a system-assigned managed identity
 
 To attach a system-assigned managed identity to your dev center:
 
@@ -141,19 +149,25 @@ To attach a system-assigned managed identity to your dev center:
 1.	In the **Enable system assigned managed identity** dialog, select **Yes**.
 
 ### Assign the system-assigned managed identity access to the key vault secret
-Make sure that the identity has access to the key vault secret that contains the personal access token to access your repository. Key Vaults support two methods of access; Azure role-based access control or Vault access policy. In this quickstart, you use a vault access policy.
+Make sure that the identity has access to the key vault secret that contains the personal access token to access your repository. Key Vaults support two methods of access; Azure role-based access control (RBAC) or Vault access policy. In this quickstart, you use an RBAC key vault.
 
-Configure a vault access policy:
-1.	In the Azure portal, go to the key vault that contains the secret with the personal access token.
-2.	In the left menu, select **Access policies**, and then select **Create**.
-3.	In Create an access policy, enter or select the following information:
-    - On the Permissions tab, under **Secret permissions**, select **Get**, and then select **Next**.
-    - On the Principal tab, select the identity that's attached to the dev center, and then select **Next**.
-    - Select **Review + create**, and then select **Create**.
+Configure vault access:
+1. In the Azure portal, go to the key vault that contains the secret with the personal access token.
 
+1. In the left menu, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment**.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **Key Vault Secrets User**. |
+    | **Assign access to** | Select **Managed identity**. |
+    | **Members** | Select the dev center managed identity that you created in [Attach a system-assigned managed identity](#attach-a-system-assigned-managed-identity). |
 
 ## Add a catalog to the dev center
-Azure Deployment Environments Preview supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
+Azure Deployment Environments supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
 
 In this quickstart, you attach a GitHub repository that contains samples created and maintained by the Azure Deployment Environments team.
 

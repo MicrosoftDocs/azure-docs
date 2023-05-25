@@ -448,7 +448,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> No - Incremental |
+> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> **Yes** - Incremental |
 > | sshpublickeys | No | No | No |
 > | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
@@ -456,7 +456,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 
 
 > [!IMPORTANT]
-> See [Cloud Services (extended support) deployment move guidance](./move-limitations/classic-model-move-limitations.md). Cloud Services (extended support) deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> See [Cloud Services (extended support) deployment move guidance](./move-limitations/cloud-services-extended-support.md). Cloud Services (extended support) deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |

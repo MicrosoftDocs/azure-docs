@@ -10,34 +10,34 @@ ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022
 
 # Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
 
-In this quickstart, you will get familiar with using the [Dapr cluster extension][dapr-overview] in an AKS or Arc-enabled Kubernetes cluster. You will be deploying a hello world example, consisting of a Python application that generates messages and a Node application that consumes and persists them.
+In this quickstart, you get familiar with using the [Dapr cluster extension][dapr-overview] in an AKS or Arc-enabled Kubernetes cluster. You are deploying a hello world example, consisting of a Python application that generates messages and a Node application that consumes and persists them.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
-* An AKS or Arc-enabled Kubernetes cluster with the [Dapr cluster extension][dapr-overview] enabled
+* An AKS or Arc-enabled Kubernetes cluster with the [Dapr cluster extension][dapr-overview] enabled.
 
 ## Clone the repository
 
-To obtain the files you'll be using to deploy the sample application, clone the [Quickstarts repository][hello-world-gh] and change to the `hello-kubernetes` directory:
+To obtain the files you are using to deploy the sample application, clone the [Quickstarts repository][hello-world-gh] and change to the `hello-kubernetes` directory:
 
 ```bash
 git clone https://github.com/dapr/quickstarts.git
-cd quickstarts/hello-kubernetes
+cd quickstarts/tutorials/hello-kubernetes/
 ```
 
 ## Create and configure a state store
 
-Dapr can use a number of different state stores (Redis, Azure Cosmos DB, DynamoDB, Cassandra, etc.) to persist and retrieve state. For this example, we will use Redis.
+Dapr can use many different state stores such as, Redis, Azure Cosmos DB, DynamoDB, and Cassandra to persist and retrieve state. For this example, we use Redis.
 
 ### Create a Redis store
 
-1. Open the [Azure portal][azure-portal-cache] to start the Azure Redis Cache creation flow.
-2. Fill out the necessary information
-3. Click “Create” to kickoff deployment of your Redis instance.
-4. Take note of the hostname of your Redis instance, which you can retrieve from the “Overview” in Azure. It should look like `xxxxxx.redis.cache.windows.net:6380`.
-5. Once your instance is created, you’ll need to grab your access key. Navigate to “Access Keys” under “Settings” and create a Kubernetes secret to store your Redis password:
+1. Open the [Azure portal][azure-portal-cache] to start the Azure Cache for Redis creation flow.
+2. Fill out the necessary information.
+3. Click **Create** to kickoff deployment of your Redis instance.
+4. Take note of the hostname of your Redis instance, which you can retrieve from the **Overview** section in Azure. The hostname might be similar to the following example: `xxxxxx.redis.cache.windows.net:6380`.
+5. Once your instance is created, you’ll need to grab your access key. Navigate to **Access keys** under **Settings** and create a Kubernetes secret to store your Redis password:
 
 ```bash
 kubectl create secret generic redis --from-literal=redis-password=<your-redis-password>
@@ -45,7 +45,7 @@ kubectl create secret generic redis --from-literal=redis-password=<your-redis-pa
 
 ### Configure the Dapr components
 
-Once your store is created, you will need to add the keys to the redis.yaml file in the deploy directory of the Hello World repository. Replace the `redisHost` value with your own Redis master address, and the `redisPassword` with your own Secret. You can learn more [here][dapr-component-secrets].
+Once your store is created, you'll need to add the keys to the redis.yaml file in the deploy directory of the Hello World repository. Replace the `redisHost` value with your own Redis master address, and the `redisPassword` with your own Secret. You can learn more [here][dapr-component-secrets].
 
 You will also need to add the following two lines below `redisPassword` to enable connection over TLS:
 
@@ -86,7 +86,7 @@ kubectl apply -f ./deploy/node.yaml
 > kubectl rollout status deploy/nodeapp
 > ```
 
-This will deploy the Node.js app to Kubernetes. The Dapr control plane will automatically inject the Dapr sidecar to the Pod. If you take a look at the `node.yaml` file, you will see how Dapr is enabled for that deployment:
+This deploys the Node.js app to Kubernetes. The Dapr control plane will automatically inject the Dapr sidecar to the Pod. If you take a look at the `node.yaml` file, you see how Dapr is enabled for that deployment:
 
 * `dapr.io/enabled: true` - this tells the Dapr control plane to inject a sidecar to this deployment.
 
@@ -131,7 +131,7 @@ You should see output similar to the following:
 ```
 
 > [!TIP]
-> This is a good time to get acquainted with the Dapr dashboard- a convenient interface to check status, information and logs of applications running on Dapr. The following command will make it available on `http://localhost:8080/`:
+> This is a good time to get acquainted with the Dapr dashboard, a convenient interface to check status, information, and logs of applications running on Dapr. To access the dashboard at `http://localhost:8080/`, run the following command:
 > ```bash
 > kubectl port-forward svc/dapr-dashboard -n dapr-system 8080:8080
 > ```
@@ -140,7 +140,7 @@ You should see output similar to the following:
 
 Take a quick look at the Python app. Navigate to the Python app directory in the `hello-kubernetes` quickstart and open `app.py`.
 
-This is a basic Python app that posts JSON messages to `localhost:3500`, which is the default listening port for Dapr. You can invoke the Node.js application's `neworder` endpoint by posting to `v1.0/invoke/nodeapp/method/neworder`. The message contains some data with an `orderId` that increments once per second:
+This example is a basic Python app that posts JSON messages to `localhost:3500`, which is the default listening port for Dapr. You can invoke the Node.js application's `neworder` endpoint by posting to `v1.0/invoke/nodeapp/method/neworder`. The message contains some data with an `orderId` that increments once per second:
 
 ```python
 n = 0
@@ -163,7 +163,7 @@ kubectl apply -f ./deploy/python.yaml
 ```
 
 > [!NOTE]
-> As with above, the following command will wait for the deployment to complete:
+> As with the previous command, the following command will wait for the deployment to complete:
 > ```bash
 > kubectl rollout status deploy/pythonapp
 > ```
@@ -234,6 +234,6 @@ After successfully deploying this sample application:
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 
 <!-- EXTERNAL -->
-[hello-world-gh]: https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes
+[hello-world-gh]: https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes
 [azure-portal-cache]: https://portal.azure.com/#create/Microsoft.Cache
 [dapr-component-secrets]: https://docs.dapr.io/operations/components/component-secrets/

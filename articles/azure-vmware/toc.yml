@@ -1,3 +1,4 @@
+items:
 - name: Azure VMware Solution
   href: index.yml
 - name: Overview
@@ -6,7 +7,7 @@
     href: introduction.md
   - name: What's new
     href: azure-vmware-solution-platform-updates.md
-  - name: Known Issues
+  - name: Known issues
     href: azure-vmware-solution-known-issues.md
 - name: Get started
   items:
@@ -66,7 +67,7 @@
       href: concepts-security-recommendations.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
-  - name: Storage 
+  - name: Storage
     href: concepts-storage.md
 - name: How-to guides
   items:
@@ -85,7 +86,7 @@
     - name: Configure customer-managed key encryption at rest
       href: configure-customer-managed-keys.md
     - name: Manage and protect VMs on Azure NetApp Files
-      items: 
+      items:
       - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
         href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
@@ -142,7 +143,7 @@
       href: configure-dns-azure-vmware-solution.md
     - name: Configure VMware HCX network extension
       href: configure-hcx-network-extension.md
-    - name: VMware HCX Mobility Optimized Networking (MON) guidance 
+    - name: VMware HCX Mobility Optimized Networking (MON) guidance
       href: vmware-hcx-mon-guidance.md
     - name: Configure NSX-T Data Center network components
       href: configure-nsx-network-components-azure-portal.md
@@ -150,8 +151,12 @@
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-  - name: Configure storage policies
-    href: configure-storage-policy.md
+  - name: Configure storage
+    items:
+    - name: Configure storage policies
+      href: configure-storage-policy.md
+    - name: Configure vSAN
+      href: configure-vsan.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
@@ -179,7 +184,7 @@
   - name: Deploy vSAN stretched clusters (Preview)
     href: deploy-vsan-stretched-clusters.md
   - name: Migrate Microsoft SQL Server workloads
-    items:  
+    items:
     - name: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
       href: migrate-sql-server-standalone-cluster.md
     - name: Migrate SQL Server failover cluster to Azure VMware Solution
@@ -234,7 +239,7 @@
       href: enable-vmware-cds-with-azure.md
     - name: Upgrade VMware HCX on Azure VMware Solution
       href: upgrade-hcx-azure-vmware-solutions.md
-    - name: Use VMware HCX Run Commands 
+    - name: Use VMware HCX Run Commands
       href: use-hcx-run-commands.md
 - name: Resources
   items:
@@ -272,7 +277,7 @@
       href: https://info.microsoft.com/www-extend-to-the-cloud-with-azure-vmware-solution-on-demand-registration.html
     - name: Run your VMware workloads natively on Azure with Azure VMware Solution | Azure Friday
       href: https://youtu.be/Zcmbj0KHkaY
-    - name: Azure VMware Solution Technical Overview Series | VMware  
+    - name: Azure VMware Solution Technical Overview Series | VMware
       href: https://www.youtube.com/playlist?list=PLNOz1mVhDkG5tfbUDrOkTouVHfXu6jTiS
     - name: Azure VMware Solution Deployment Deep Dive Series | VMware
       href: https://www.youtube.com/playlist?list=PLNOz1mVhDkG4MUkHCxTg6OCB4DBbLp8Zg
@@ -280,7 +285,7 @@
     href: https://aka.ms/avsregions
   - name: Pricing
     items:
-      - name: Azure VMware Solution pricing        
+      - name: Azure VMware Solution pricing
         href: https://azure.microsoft.com/pricing/details/azure-vmware/
       - name: Azure pricing calculator
         href: https://azure.microsoft.com/pricing/calculator/

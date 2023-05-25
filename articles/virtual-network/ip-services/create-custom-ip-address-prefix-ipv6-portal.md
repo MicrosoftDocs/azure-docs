@@ -25,7 +25,7 @@ The steps in this article detail the process to:
 ## Differences between using BYOIPv4 and BYOIPv6
 
 > [!IMPORTANT]
-> Onboarded custom IPv6 address prefixes are have several unique attributes which make them different than custom IPv4 address prefixes.
+> Onboarded custom IPv6 address prefixes have several unique attributes which make them different than custom IPv4 address prefixes.
 
 * Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Global ranges must be /48 in size, while regional ranges must always be /64 size.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/8/2022
+ms.date: 04/20/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
 ms.custom: aaddev, devx-track-python
@@ -137,26 +137,16 @@ In the same way, the sign-out URI would be set to `https://localhost:44321/signo
 
 # [ASP.NET](#tab/aspnet)
 
-In ASP.NET, the application is configured through the [Web.config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) file, lines 12 to 15.
+In ASP.NET, the application is configured through the [appsettings.json](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) file, lines 12 to 15.
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  For more information on how to configure your ASP.NET application, visit
-  https://go.microsoft.com/fwlink/?LinkId=301880
-  -->
-<configuration>
-  <appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:ClientId" value="[Enter your client ID, as obtained from the app registration portal]" />
-    <add key="ida:ClientSecret" value="[Enter your client secret, as obtained from the app registration portal]" />
-    <add key="ida:AADInstance" value="https://login.microsoftonline.com/{0}{1}" />
-    <add key="ida:RedirectUri" value="https://localhost:44326/" />
-    <add key="vs:EnableBrowserLink" value="false" />
-  </appSettings>
+```json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "TenantId": "[Enter the tenantId here]",
+    "ClientId": "[Enter the Client Id here]",
+  }
+}
 ```
 
 In the Azure portal, the reply URIs that you register on the **Authentication** page for your application need to match these URLs. That is, they should be `https://localhost:44326/`.
@@ -193,15 +183,12 @@ For simplicity in this article, the client secret is stored in the configuration
 
 The configuration parameters are set in *.env* as environment variables:
 
-```bash
-CLIENT_ID=<client id>
-CLIENT_SECRET=<client secret>
-TENANT_ID=<tenant id>
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/.env.sample" highlight="4,5,10":::
+
 
 Those environment variables are referenced in *app_config.py*:
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,9":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,10":::
 
 The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
 
@@ -232,7 +219,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 
 1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it's present.
 
-2. Update the code in `ConfigureServices` so that it uses the `AddMicrosoftIdentityWebAppAuthentication` and `AddMicrosoftIdentityUI` methods.
+2. Update the code in `ConfigureServices` so that it uses the `AddMicrosoftIdentityWebApp` and `AddMicrosoftIdentityUI` methods.
 
    ```c#
    public class Startup
@@ -241,7 +228,8 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd");
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApp(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -269,16 +257,15 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
    ```
 
 In that code:
-- The `AddMicrosoftIdentityWebAppAuthentication` extension method is defined in **Microsoft.Identity.Web**, which;
-  - Adds the authentication service.
+- The `AddMicrosoftIdentityWebApp` extension method is defined in **Microsoft.Identity.Web**, which;
   - Configures options to read the configuration file (here from the "AzureAD" section)
   - Configures the OpenID Connect options so that the authority is the Microsoft identity platform.
   - Validates the issuer of the token.
   - Ensures that the claims corresponding to name are mapped from the `preferred_username` claim in the ID token.
 
-- In addition to the configuration object, you can specify the name of the configuration section when calling `AddMicrosoftIdentityWebAppAuthentication`. By default, it's `AzureAd`.
+- In addition to the configuration object, you can specify the name of the configuration section when calling `AddMicrosoftIdentityWebApp`. By default, it's `AzureAd`.
 
-- `AddMicrosoftIdentityWebAppAuthentication` has other parameters for advanced scenarios. For example, tracing OpenID Connect middleware events can help you troubleshoot your web application if authentication doesn't work. Setting the optional parameter `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` to `true` will show you how information is processed by the set of ASP.NET Core middleware as it progresses from the HTTP response to the identity of the user in `HttpContext.User`.
+- `AddMicrosoftIdentityWebApp` has other parameters for advanced scenarios. For example, tracing OpenID Connect middleware events can help you troubleshoot your web application if authentication doesn't work. Setting the optional parameter `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` to `true` will show you how information is processed by the set of ASP.NET Core middleware as it progresses from the HTTP response to the identity of the user in `HttpContext.User`.
 
 - The `AddMicrosoftIdentityUI` extension method is defined in **Microsoft.Identity.Web.UI**. It provides a default controller to handle sign-in and sign-out.
 
@@ -286,27 +273,18 @@ For more information about how Microsoft.Identity.Web enables you to create web 
 
 # [ASP.NET](#tab/aspnet)
 
-The code related to authentication in an ASP.NET web app and web APIs is located in the [App_Start/Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) file.
+The code related to authentication in an ASP.NET web app and web APIs is located in the [App_Start/Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/App_Start/Startup.Auth.cs) file.
 
-```csharp
+```c#
  public void ConfigureAuth(IAppBuilder app)
  {
   app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
   app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
-  app.UseOpenIdConnectAuthentication(
-    new OpenIdConnectAuthenticationOptions
-    {
-     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
-     // `Scope` describes the initial permissions that your app will need.
-     //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
-     ClientId = clientId,
-     Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-     RedirectUri = redirectUri,
-     Scope = "openid profile",
-     PostLogoutRedirectUri = redirectUri,
-    });
+  OwinTokenAcquirerFactory factory = TokenAcquirerFactory.GetDefaultInstance<OwinTokenAcquirerFactory>();
+  factory.Build();
+  app.AddMicrosoftIdentityWebApi(factory);
  }
 ```
 

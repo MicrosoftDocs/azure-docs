@@ -856,7 +856,7 @@ const response = yield context.df.callHttp(
 
 :::zone pivot="programming-language-typescript"
 
-## Leverage New Types
+## Leverage new types
 
 The `durable-functions` package now exposes new types that weren't previously exported! This allows you to more strongly type your functions and provide stronger type safety for your orchestrations, entities, and activities! This also improves intellisense for authoring these functions.
 
