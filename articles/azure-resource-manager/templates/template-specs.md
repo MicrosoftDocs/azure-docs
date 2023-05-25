@@ -171,7 +171,7 @@ You can also create template specs by using ARM templates. The following templat
               "location": "[resourceGroup().location]",
               "kind": "StorageV2",
               "sku": {
-                "name": "[[parameters('storageAccountType')]"
+                "name": "[parameters('storageAccountType')]"
               }
             }
           ]

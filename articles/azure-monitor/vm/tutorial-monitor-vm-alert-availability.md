@@ -18,6 +18,11 @@ In this article, you learn how to:
 > * Create an alert rule using the VM availability metric to notify you if the virtual machine is unavailable.
 > * Create an action group to be proactively notified when an alert is created.
 
+ 
+
+> [!NOTE]
+> You can now create an availability alert rule using the VM Availability metrics with [recommended alerts](tutorial-monitor-vm-alert-recommended.md).
+
 ## Prerequisites
 To complete the steps in this article you need the following: 
 
@@ -106,5 +111,6 @@ Now that you have alerting in place when the VM goes down, enable VM insights to
 
 > [!div class="nextstepaction"]
 > [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
+
 
 

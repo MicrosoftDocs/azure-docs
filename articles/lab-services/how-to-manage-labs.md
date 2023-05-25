@@ -15,8 +15,11 @@ This article describes how to create and delete labs. It also shows you how to v
 
 ## Prerequisites
 
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
 - One or more labs. To create a lab, see [Tutorial: Create a lab](tutorial-setup-lab.md).
-- Permission to edit the lab.  To give educators permission to add and create labs, see [Add a user to the Lab Creator role](quick-create-resources.md#add-a-user-to-the-lab-creator-role).  For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
 
 ## View all labs
 
