@@ -31,17 +31,17 @@ There are several built-in Azure Policy definitions to manage WAF resources. A b
 
 7. **Azure Front Door should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on the Azure Front Door classic Service, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs, metrics enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
 
-8. **Azure Front Door Standard or Premium (Plus WAF) should have resource logs enabled**: 
+8. **Azure Front Door Standard or Premium (Plus WAF) should have resource logs enabled**: Mandates the enabling of Resource logs and Metrics on the Azure Front Door standard and premium Services, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when a Front Door service does not have resource logs, metrics enabled and notifies the user that the service does not comply. Disabled turns off the policy assignment.
 
-8. **Azure Application Gateway should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on all Application Gateways, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when an Application Gateway does not have resource logs, metrics enabled and notifies the user that the Application Gateway does not comply. Disabled turns off the policy assignment.
+9. **Azure Application Gateway should have Resource logs enabled**: Mandates the enabling of Resource logs and Metrics on all Application Gateways, including WAF. The policy definition has two effects: AuditIfNotExists and Disable. AuditIfNotExists tracks when an Application Gateway does not have resource logs, metrics enabled and notifies the user that the Application Gateway does not comply. Disabled turns off the policy assignment.
 
-9. **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: 
+10. **Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link**: 
 
-10. **Enable Rate Limit rule to protect against DDoS attacks on Azure Front Door WAF**: 
+11. **Enable Rate Limit rule to protect against DDoS attacks on Azure Front Door WAF**: 
 
-11. **Web Application Firewall (WAF) should enable all firewall rules for Application Gateway**: 
+12. **Web Application Firewall (WAF) should enable all firewall rules for Application Gateway**: 
 
-12. **Migrate WAF from WAF Config to WAF Policy on Application Gateway**: 
+13. **Migrate WAF from WAF Config to WAF Policy on Application Gateway**: 
 
 ## Launch an Azure Policy
 
