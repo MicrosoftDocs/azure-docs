@@ -112,7 +112,7 @@ To remediate the existing resources, follow these steps:
 
 ### Using PowerShell
 
-1. Use the following JSON snippet to create a JSON file with the name ModifyVMIdentities.json.
+1. Use the following JSON snippet to create a JSON file with the name _ModifyVMIdentities.json_.
 
     ```json 
     {
