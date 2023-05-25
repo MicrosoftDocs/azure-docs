@@ -41,7 +41,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). In the storage account, the "Allow storage account key access" option must be enabled for compute instance creation to be successful.
 
 * The [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
@@ -506,7 +506,28 @@ You can create compute instance with managed identity from Azure Machine Learnin
 1.  Select **System-assigned** or **User-assigned** under **Identity type**.
 1.  If you selected **User-assigned**, select subscription and name of the identity.
 
-You can use V2 CLI to create compute instance with assign system-assigned managed identity:
+You can use SDK V2 to create a compute instance with assign system-assigned managed identity:
+
+```python
+from azure.ai.ml import MLClient
+from azure.identity import ManagedIdentityCredential
+client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
+credential = ManagedIdentityCredential(client_id=client_id)
+ml_client = MLClient(credential, sub_id, rg_name, ws_name)
+data = ml_client.data.get(name=data_name, version="1")
+```
+
+You can also use SDK V1:
+
+```python
+from azureml.core.authentication import MsiAuthentication
+from azureml.core import Workspace
+client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
+auth = MsiAuthentication(identity_config={"client_id": client_id})
+workspace = Workspace.get("chrjia-eastus", auth=auth, subscription_id="381b38e9-9840-4719-a5a0-61d9585e1e91", resource_group="chrjia-rg", location="East US")
+```
+
+You can use V2 CLI to create a compute instance with assign system-assigned managed identity:
 
 ```azurecli
 az ml compute create --name myinstance --identity-type SystemAssigned --type ComputeInstance --resource-group my-resource-group --workspace-name my-workspace

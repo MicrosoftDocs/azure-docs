@@ -203,5 +203,4 @@ The Excel file will get updated in your OneDrive account. It will look like the 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Call NER using the REST API or client library](../quickstart.md)
+

@@ -5,6 +5,7 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 02/25/2023
 ---
@@ -12,7 +13,7 @@ ms.date: 02/25/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-PostgreSQL provides the ability to extend the functionality of your database by using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function like built-in features. For more information on PostgreSQL extensions, see [Package related objects into an extension](https://www.postgresql.org/docs/current/static/extend-extensions.html).
+PostgreSQL extend the functionality of your database by using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function like built-in features. For more information on PostgreSQL extensions, see [Package related objects into an extension](https://www.postgresql.org/docs/current/static/extend-extensions.html).
 
 ## Use PostgreSQL extensions
 
@@ -32,7 +33,7 @@ Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as 
 
 ## Extensions supported by Azure Cosmos DB for PostgreSQL
 
-The following tables list the standard PostgreSQL extensions that are currently supported by Azure Cosmos DB for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
+The following tables list the standard PostgreSQL extensions that are supported on Azure Cosmos DB for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
 
 The versions of each extension installed in a cluster sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
 
@@ -41,7 +42,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.8 | 11.1.5 | 11.2.0 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.12 | 10.2.9 | 11.3.0 | 11.3.0 | 11.3.0 |
 
 ### Data types extensions
 
@@ -130,6 +131,11 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath querying and XSLT. | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 
+### Pgvector extension
+> [!div class="mx-tableFixed"]
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
+> |---|---|---|---|---|
+> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.4.0 | 0.4.0 | 0.4.0 | 0.4.0 | 0.4.0 |
 
 ### PostGIS extensions
 
@@ -147,7 +153,7 @@ The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgs
 
 The setting `pg_stat_statements.track` controls what statements are counted by the extension. It defaults to `top`, which means that all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`.
 
-There's a tradeoff between the query execution information pg_stat_statements provides and the effect on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
+There's a tradeoff between the query execution information pg_stat_statements provides and the effect on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether it's the case for you or not.
 
 ## dblink and postgres_fdw
 

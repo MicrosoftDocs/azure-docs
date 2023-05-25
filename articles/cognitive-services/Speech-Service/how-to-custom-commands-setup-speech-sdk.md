@@ -122,7 +122,7 @@ Add the code-behind source so that the application works as expected. The code-b
 - A simple implementation to ensure microphone access, wired to a button handler
 - Basic UI helpers to present messages and errors in the application
 - A landing point for the initialization code path that will be populated later
-- A helper to play back text-to-speech (without streaming support)
+- A helper to play back text to speech (without streaming support)
 - An empty button handler to start listening that will be populated later
 
 Add the code-behind source as follows:
@@ -359,7 +359,7 @@ Add the code-behind source as follows:
    // once audio capture is completed
    connector.Recognized += (sender, recognitionEventArgs) =>
    {
-       NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
+       NotifyUser($"Final speech to text result: '{recognitionEventArgs.Result.Text}'");
    };
 
    // SessionStarted will notify when audio begins flowing to the service for a turn

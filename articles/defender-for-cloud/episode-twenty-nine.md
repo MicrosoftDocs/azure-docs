@@ -36,4 +36,4 @@ ms.date: 04/27/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [New Custom Recommendations for AWS and GCP in Defender for Cloud](episode-thirty.md)
