@@ -38,7 +38,6 @@ openai.api_key = "sk-..."
 openai.organization = "..."
 
 
-
 ```
 
 </td>
@@ -71,6 +70,7 @@ import openai
 
 openai.api_key = "sk-..."
 openai.organization = "..."
+
 
 
 
