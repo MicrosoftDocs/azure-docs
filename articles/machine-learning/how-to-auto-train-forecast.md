@@ -9,7 +9,7 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022, build-2023
 ms.date: 01/27/2023
 show_latex: true
 ---
@@ -85,6 +85,7 @@ Learn more about how AutoML applies cross validation to [prevent over fitting](c
 AutoML uses Azure Machine Learning Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
+
 
 ## Configure experiment
 
@@ -555,4 +556,3 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md).
 * Learn about [how AutoML builds forecasting models](./concept-automl-forecasting-methods.md).
 * Learn how to [configure AutoML for various forecasting scenarios](./how-to-automl-forecasting-faq.md#what-modeling-configuration-should-i-use).
-

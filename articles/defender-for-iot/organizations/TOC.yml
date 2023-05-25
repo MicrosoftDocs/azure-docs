@@ -366,7 +366,7 @@
         href: appliance-catalog/index.yml
         displayName: appliance catalog
       - name: Hardware support policy
-        href: /legal/defender-for-iot/hardware-support-policy?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2fTOC.json
+        href: /legal/defender-for-iot/hardware-support-policy?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
       - name: Corporate environments
         items:
         - name: HPE ProLiant DL360
@@ -466,7 +466,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-defender/
+    href: https://azure.microsoft.com/pricing/details/iot-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Release notes archive

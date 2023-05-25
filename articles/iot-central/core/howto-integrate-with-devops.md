@@ -42,7 +42,7 @@ You need the following prerequisites to complete the steps in this guide:
 - A GitHub account [GitHub](https://github.com/).
 - An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](/azure/devops/organizations/accounts/create-organization).
 - PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](/powershell/scripting/install/installing-powershell).
-- Azure Az PowerShell module installed in your PowerShell 7 environment. To learn more, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+- Azure Az PowerShell module installed in your PowerShell 7 environment. To learn more, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 - Visual Studio Code or other tool to edit PowerShell and JSON files.[Get Visual Studio Code](https://code.visualstudio.com/Download).
 - Git client. Download the latest version from [Git - Downloads (git-scm.com)](https://git-scm.com/downloads).
 

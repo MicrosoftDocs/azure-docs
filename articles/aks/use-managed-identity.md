@@ -4,6 +4,7 @@ description: Learn how to use a system-assigned or user-assigned managed identit
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 05/24/2023
+
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -33,7 +34,7 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS-managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers. | Contributor role for Node resource group | Supported
+| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS-managed public IPs, Cluster Autoscaler, Azure Disk, File, Blob CSI drivers. | Contributor role for Node resource group | Supported
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR). | N/A (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required. | N/A | No
 | Add-on | AzureCNI network monitoring | No identity required. | N/A | No

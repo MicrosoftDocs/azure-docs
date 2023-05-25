@@ -125,7 +125,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/src'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     # [Angular](#tab/angular)
@@ -142,7 +142,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist/angular-basic'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     # [Blazor](#tab/blazor)
@@ -158,8 +158,8 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/Client'
-                    OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/wwwroot'
-                    API_TOKEN: $deployment_token​
+                    OUTPUT_LOCATION: 'wwwroot'
+                    API_TOKEN: $deployment_token
     ```
 
     # [React](#tab/react)
@@ -176,7 +176,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/build'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     # [Vue](#tab/vue)
@@ -193,7 +193,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     ---

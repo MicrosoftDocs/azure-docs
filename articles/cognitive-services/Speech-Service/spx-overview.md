@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech CLI?
 
-The Speech CLI is a command-line tool for using Speech service without having to write any code. The Speech CLI requires minimal setup. You can easily use it to experiment with key features of Speech service and see how it works with your use cases. Within minutes, you can run simple test workflows, such as batch speech-recognition from a directory of files or text-to-speech on a collection of strings from a file. Beyond simple workflows, the Speech CLI is production-ready, and you can scale it up to run larger processes by using automated `.bat` or shell scripts.
+The Speech CLI is a command-line tool for using Speech service without having to write any code. The Speech CLI requires minimal setup. You can easily use it to experiment with key features of Speech service and see how it works with your use cases. Within minutes, you can run simple test workflows, such as batch speech-recognition from a directory of files or text to speech on a collection of strings from a file. Beyond simple workflows, the Speech CLI is production-ready, and you can scale it up to run larger processes by using automated `.bat` or shell scripts.
 
 Most features in the Speech SDK are available in the Speech CLI, and some advanced features and customizations are simplified in the Speech CLI. As you're deciding when to use the Speech CLI or the Speech SDK, consider the following guidance.
 
@@ -39,7 +39,7 @@ Use the Speech SDK when:
 
 ## Get started
 
-To get started with the Speech CLI, see the [quickstart](spx-basics.md). This article shows you how to run some basic commands. It also gives you slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After you've read the basics article, you should understand the syntax well enough to start writing some custom commands or automate simple Speech service operations.
+To get started with the Speech CLI, see the [quickstart](spx-basics.md). This article shows you how to run some basic commands. It also gives you slightly more advanced commands for running batch operations for speech to text and text to speech. After you've read the basics article, you should understand the syntax well enough to start writing some custom commands or automate simple Speech service operations.
 
 ## Next steps
 

@@ -1,9 +1,11 @@
 ---
 title: Design your Azure Private Link setup
-description: This article shows how to design your Azure Private Link setup.
+description: This article shows how to design your Azure Private Link setup
+ms.author: guywild
+author: guywi-ms
 ms.reviewer: noakuper
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 05/07/2023
 ---
 
 # Design your Azure Private Link setup
@@ -175,6 +177,10 @@ We've identified the following products and experiences query workspaces through
 > * The **Workspace Summary (deprecated)** pane in the portal (that shows the solutions dashboard)
 > * VM Insights
 > * Container Insights
+
+## Managed Prometheus considerations
+* Private Link ingestion settings are made using AMPLS and settings on the Data Collection Endpoints (DCEs) that reference the Azure Monitor workspace used to store your Prometheus metrics.
+* Private Link query settings are made directly on the Azure Monitor workspace used to store your Prometheus metrics and aren't handled via AMPLS.
 
 ## Requirements
 
