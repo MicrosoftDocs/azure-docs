@@ -186,10 +186,9 @@ A redirection file is required to handle the response from the sign-in page. The
 
 ## Creating the authPopup.js file
 
-The application uses *authPopup.js* to handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in and the application needs to get an access token for a different resource. 
+The application uses *authPopup.js* to handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in and the application needs to get an access token for a different resource.
 
-1. In the *public* folder, create a new file and name it *authPopup.js*.
-1. Open *authPopup.js* and add the following code snippet:
+1. In the *public* folder, open *authPopup.js* and add the following code snippet:
 
     ```javascript
     // Create the main myMSALObj instance
