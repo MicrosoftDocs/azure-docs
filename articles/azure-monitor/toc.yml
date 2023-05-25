@@ -1125,8 +1125,8 @@ items:
     displayName: Network Insights, Network
     href: ../network-watcher/network-insights-topology.md
   - name: Troubleshooting
-      displayName: Network Insights, Network
-      href: ../network-watcher/network-insights-troubleshooting.md    
+    displayName: Network Insights, Network
+    href: ../network-watcher/network-insights-troubleshooting.md    
 - name: Visualize
   items:
   - name: Workbooks
