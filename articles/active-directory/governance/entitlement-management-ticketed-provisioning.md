@@ -238,7 +238,7 @@ When an end user requests access to an access package, the request is sent to th
 
 The IT Support team works on the ticket create above to do necessary provisions and  close the ServiceNow ticket. When the ticket is closed, ServiceNow triggers a call to resume the Entitlement Management workflow. Once the request is completed, the requestor receives a notification from ELM that the request has been fulfilled. This streamlined workflow ensures that access requests are fulfilled efficiently, and users are notified promptly.
 
-:::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-myaccess-request-history.png" alt-text="Screenshot of My Access request history.":::
+:::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-myaccess-request-history.png" alt-text="Screenshot of My Access request history." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-myaccess-request-history.png":::
 
 > [!NOTE]
 > The end user will see "assignment failed" in the MyAccess portal if the ticket is not closed within 14 days.
