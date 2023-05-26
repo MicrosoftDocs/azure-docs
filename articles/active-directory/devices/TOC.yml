@@ -62,9 +62,9 @@
     href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
     href: device-management-azure-portal.md
-  - name: Troubleshooting Windows devices
+  - name: Troubleshoot Windows devices
     href: troubleshoot-device-windows-joined.md
-  - name: Troubleshooting primary refresh tokens on Windows devices
+  - name: Troubleshoot primary refresh tokens on Windows devices
     displayName: PRT
     href: troubleshoot-primary-refresh-token.md
   - name: Manage stale devices
@@ -89,7 +89,7 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Enterprise state roaming Windows settings
       href: enterprise-state-roaming-windows-settings-reference.md
-  - name: Troubleshooting SSO on Apple devices
+  - name: Troubleshoot SSO on Apple devices
     href: troubleshoot-mac-sso-extension-plugin.md
 - name: Reference
   items:
