@@ -141,7 +141,7 @@ az spring app create \
     --name ${APP_NAME} \
     --cpu 1 \
     --memory 2 \
-    --min-replicas 2 \
+    --min-replicas 1 \
     --max-replicas 2 \
     --runtime-version Java_17 \
     --assign-endpoint true
