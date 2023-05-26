@@ -176,9 +176,14 @@ Also see the following SAP resources:
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
 - [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
-- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485)
 - [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
 - [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
+- [Revolutionize your SAP Security with Microsoft Sentinel's SOAR Capabilities](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionize-your-sap-security-with-microsoft-sentinel-s-soar/ba-p/3823857)
+
+Also see the following SAP resources:
+
+- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/)
+- [Deploy SAP user blocking based on suspicious activity on the SAP backend](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/)
 
 ### SAP BTP
 

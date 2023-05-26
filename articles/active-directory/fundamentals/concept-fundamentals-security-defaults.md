@@ -117,6 +117,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 Organizations use various Azure services managed through the Azure Resource Manager API, including:
 
 - Azure portal 
+- Microsoft Entra Admin Center
 - Azure PowerShell 
 - Azure CLI
 
