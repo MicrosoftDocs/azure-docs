@@ -93,15 +93,15 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/cognitiveservices/azureopenaistable/deployments/fine-tunes
+      href: /rest/api/cognitiveservices/azureopenaistable/fine-tunes
     - name: REST API (Resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: .NET 
       href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview
     - name: Java
-      href: /java/api/com.azure.ai.openai?view=azure-java-preview
+      href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
     - name: JavaScript
-      href: /javascript/api/@azure/openai/?view=azure-node-preview
+      href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
 - name: Resources
   items: 
     - name: Support and help options
