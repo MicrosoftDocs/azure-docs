@@ -79,7 +79,7 @@
     href: resource-move.md
 - name: How-to guides
   items:
-  - name: Configure Network Watcher
+  - name: Manage Network Watcher
     href: network-watcher-create.md
   - name: Connection monitor using Azure Monitor agent
     items: 

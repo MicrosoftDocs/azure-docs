@@ -439,7 +439,7 @@
         - name: Customize tokens and claims
           items:
             - name: Configure optional claims
-              href: active-directory-optional-claims.md
+              href: optional-claims.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
             - name: Customize JWT claims
