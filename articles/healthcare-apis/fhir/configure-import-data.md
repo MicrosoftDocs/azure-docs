@@ -15,9 +15,9 @@ The FHIR service supports $import operation that allows you to import data into 
 
 The three steps below are used in configuring import settings in the FHIR service:
 
-Step 1: Enable managed identity for the FHIR service.
-Step 2: Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
-Step 3: Set the import configuration in the FHIR service.
+* Step 1: Enable managed identity for the FHIR service.
+* Step 2: Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
+* Step 3: Set the import configuration in the FHIR service.
 
 ## Step 1: Enable managed identity on the FHIR service
 
@@ -81,14 +81,14 @@ This option permits two different configurations depending on whether or not the
 
 Go to your ADLS Gen2 account in the Azure portal and select the **Networking** blade. Select **Enabled from selected virtual networks and IP addresses** under the **Firewalls and virtual networks** tab.
 
-  :::image type="content" source="media/export-data/storage-networking-1.png" alt-text="Screenshot of Azure Storage Networking Settings." lightbox="media/export-data/storage-networking-1.png":::
+[![Screenshot of Azure Storage Networking Settings.](media/export-data/storage-networking-1.png)](media/export-data/storage-networking-1.png#lightbox)
   
 Select **Microsoft.HealthcareApis/workspaces** from the **Resource type** dropdown list and then select your workspace from the **Instance name** dropdown list.
 
 Under the **Exceptions** section, select the box **Allow Azure services on the trusted services list to access this storage account**. Make sure to click **Save** to retain the settings. 
 
-:::image type="content" source="media/export-data/exceptions.png" alt-text="Allow trusted Microsoft services to access this storage account.":::
-
+[![Allow trusted Microsoft services to access this storage account.](media/export-data/exceptions.png)](media/export-data/exceptions.png#lightbox)
+  
 Next, run the following PowerShell command to install the `Az.Storage` PowerShell module in your local environment. This will allow you to configure your Azure storage account(s) using PowerShell.
 
 ```PowerShell
@@ -113,8 +113,8 @@ Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $sto
 
 After running this command, in the **Firewall** section under **Resource instances** you will see **2 selected** in the **Instance name** dropdown list. These are the names of the workspace instance and FHIR service instance that you just registered as Microsoft Trusted Resources.
 
-  :::image type="content" source="media/export-data/storage-networking-2.png" alt-text="Screenshot of Azure Storage Networking Settings with resource type and instance names." lightbox="media/export-data/storage-networking-2.png":::
-
+[![Screenshot of Azure Storage Networking Settings with resource type and instance names.](media/export-data/storage-networking-2.png)](media/export-data/storage-networking-2.png#lightbox)
+  
 You're now ready to securely import FHIR data from the storage account. Note that the storage account is on selected networks and isn't publicly accessible. To securely access the files, you can enable [private endpoints](../../storage/common/storage-private-endpoints.md) for the storage account.
 
 ### Option 2: Allowing specific IP addresses to access the Azure storage account
@@ -159,21 +159,13 @@ The configuration process for IP addresses in the same region is just like above
 > It is possible that a private IP address within the range of 10.0.2.0/24 may be used, but there is no guarantee that the `$import` operation will succeed in such a case. You can retry if the `$import` request fails, but until an IP address within the range of 100.64.0.0/10 is used, the request will not succeed. This network behavior for IP address ranges is by design. The alternative is to configure the storage account in a different region.
 
 
-
 ## Next steps
 
-In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+In this article, you've learned the FHIR service supports $import operation and learned on the steps used in configuring import settings. For more information on using $import in the FHIR service, see
 
 >[!div class="nextstepaction"]
 >[Use $import](import-data.md)
 
->[!div class="nextstepaction"]
->[Converting your data to FHIR](convert-data.md)
 
->[!div class="nextstepaction"]
->[Configure export settings and set up a storage account](configure-export-data.md)
-
->[!div class="nextstepaction"]
->[Copy data from FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
