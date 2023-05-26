@@ -25,6 +25,9 @@ keywords:
 
 <sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](TODO:replace_with_final_link)
+
 ## Set up
 
 ### Install the client library
@@ -85,6 +88,9 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](TODO:replace_with_final_link)
+
 ## Create a sample application
 
 Open a command prompt where you want the new project, and create a new file named ChatCompletion.js. Copy the following code into the ChatCompletion.js file.
@@ -136,6 +142,9 @@ node.exe ChatCompletion.js
   content: 'Yes, most Azure Cognitive Services support customer managed keys. It is always best to check the specific service documentation to confirm this.'
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](TODO:replace_with_final_link)
 
 ## Clean up resources
 

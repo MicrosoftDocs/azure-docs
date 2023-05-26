@@ -23,6 +23,9 @@ keywords:
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 - An Azure OpenAI Service resource with the text-davinci-003 model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](TODO:replace_with_final_link)
+
 ## Set up
 
 ### Install the client library
@@ -83,6 +86,9 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](TODO:replace_with_final_link)
+
 ## Create a sample application
 
 Open a command prompt where you want the new project, and create a new file named Completion.js. Copy the following code into the ChatCompletion.js file.
@@ -127,6 +133,9 @@ node.exe Completion.js
 
 Microsoft was founded on April 4, 1975.
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](TODO:replace_with_final_link)
 
 ## Clean up resources
 
