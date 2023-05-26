@@ -28,5 +28,5 @@ The following list presents the set of features which are currently available in
 |                   | Get Carrier registered name                                         | ✔️   | ❌    | ❌    | ❌      |
 |                   | Get associated Mobile Network Code, if available(two or three decimal digits used to identify network operator within a country) | ✔️   | ❌    | ❌    | ❌      |
 |                   | Get associated Mobile Country Code, if available(three decimal digits used to identify the country of a mobile operator) | ✔️   | ❌    | ❌    | ❌      |
-| Phone Number      | All number types in US&Canada and in E164 format                                      | ✔️   | ❌    | ❌    | ❌      |
+| Phone Number      | All number types in E164 format                                      | ✔️   | ❌    | ❌    | ❌      |
 
