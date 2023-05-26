@@ -209,13 +209,9 @@ Now that all the required code snippets have been added, the application can be 
 1. A window appears asking which account to sign out of.
 1. Upon successful sign out, a final window appears advising you to close all browser windows.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
-
 ## See also
 
+- [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
 - [Customize the default branding](how-to-customize-branding-customers.md)
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
 - [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-app.md)
