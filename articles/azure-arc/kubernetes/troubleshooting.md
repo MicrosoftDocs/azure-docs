@@ -64,6 +64,11 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
 
+### Resource Provisioning Failed 
+If you receive this error, it indicates that there was an error due to which the resource could not be provisioned successfully. Please check the status of the Azure Arc enabled Kubernetes service at the following dashboard: [Azure status](https://azure.status.microsoft/en-us/status). If the status is healthy and you continue to face issues while onboarding, please raise a support ticket. If the status is unhealthy, please wait until the status becomes healthy and try onboarding again after deleting the existing connected cluster Azure resource.
+
+### Service Timeout 
+If you receive this error, it indicates that the service timed out while provisioning the certificates. Please check the status of the Azure Arc enabled Kubernetes service at the following dashboard: [Azure status](https://azure.status.microsoft/en-us/status). If the status is healthy and you continue to face issues while onboarding, please raise a support ticket. If the status is unhealthy, please wait until the status becomes healthy and try onboarding again after deleting the existing connected cluster Azure resource.
 
 ### Overage claims error
 
