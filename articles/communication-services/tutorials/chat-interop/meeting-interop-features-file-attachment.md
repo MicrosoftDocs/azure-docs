@@ -13,11 +13,11 @@ ms.custom: mode-other
 
 # Tutorial: Enable file attachment support in your Chat app
 
-## Add file attachment support
 The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive file attachment sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript. 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+## Add file attachment support
 
 The Chat SDK for JavaScript provides `previewUrl` and `url` for each file attachment. Specifically, `url` provides a direct download URL to the file. While `previewUrl` provides a link to a webpage on SharePoint where the user can see the content of the file, edit the file and download the file if permission allows. 
 
