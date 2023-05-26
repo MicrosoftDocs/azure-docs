@@ -13,7 +13,7 @@ As a cloud provider, Microsoft Azure works closely with the Kubernetes community
 
 Previously, cloud provider integration with Kubernetes was "in-tree", where any changes to cloud specific features would follow the standard Kubernetes release cycle. When issues were fixed or enhancements were rolled out, they would need to be within the Kubernetes community's release cycle.
 
-The Kubernetes community is now adopting an *out-of-tree* model, where the cloud providers controls their releases independently of the core Kubernetes release schedule through the [cloud-provider-azure][cloud-provider-azure] component. As part of this cloud-provider-azure component, we are also introducing a cloud-node-manager component, which is a component of the Kubernetes node lifecycle controller. This component is deployed by a DaemonSet in the *kube-system* namespace.
+The Kubernetes community is now adopting an *out-of-tree* model, where the cloud providers control their releases independently of the core Kubernetes release schedule through the [cloud-provider-azure][cloud-provider-azure] component. As part of this cloud-provider-azure component, we are also introducing a cloud-node-manager component, which is a component of the Kubernetes node lifecycle controller. This component is deployed by a DaemonSet in the *kube-system* namespace.
 
 The Cloud Storage Interface (CSI) drivers are included by default in Kubernetes version 1.21 and higher.
 
