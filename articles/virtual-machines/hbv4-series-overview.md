@@ -34,21 +34,21 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 The following diagram shows the topology of the server. We reserve these 16 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) in each NUMA domain, with the remaining cores for the HBv4-series VM (green).
 
-![Topology of the HBv4-series server](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
+![Topology of the HBv4-series server](./media/hpc/architecture/hbv4/hbv4-topology-server.png)
 
 The CCD boundary is different from a NUMA boundary. On HBv4, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv4 VM sizes expose 4 uniform NUMA domains that appear to an OS and application as shown below, each with different number of cores depending on the specific [HBv4 VM size](hbv4-series.md).
 
-![Topology of the HBv4-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
+![Topology of the HBv4-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.jpg)
 
 Each HBv4 VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 9V33X, as follows:
 
 | HBv4-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB176rs_v4               | 4            | 44                     | Dual-socket EPYC 9V33X           |
-Standard_HB176r-144s_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
-Standard_HB120r-64s_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
-Standard_HB120r-32s_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
-Standard_HB120r-16s_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
+Standard_HB176-144rs_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
+Standard_HB120-64rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
+Standard_HB120-32rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
+Standard_HB120-16rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
@@ -64,31 +64,31 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <details>
 <summary>Click to view lstopo output for Standard_HB176rs_v4</summary>
 
-![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176rs-lstopo.png)
+![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
 
-![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv4-144rs-lstopo.png)
+![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv4-144-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
 
-![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96rs-lstopo.png)
+![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
 
-![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48rs-lstopo.png)
+![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
 
-![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24rs-lstopo.png)
+![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
 </details>
 
 ## InfiniBand networking
@@ -123,8 +123,8 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | MPI Support                    | HPC-X (2.13 or higher), Intel MPI (2021.7.0 or higher), OpenMPI (4.1.3 or higher), MVAPICH2 (2.3.7 or higher), MPICH (4.1 or higher)  |
 | Additional Frameworks          | UCX, libfabric, PGAS, or other InfiniBand based runtimes                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks), Azure NetApp Files, Azure Files, Azure HPC Cache, Azure Managed Lustre File System             |
-| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 18.04+            |
-| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 18.04+    |
+| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 20.04+            |
+| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 20.04+    |
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
@@ -133,7 +133,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 > Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN and the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16).
+> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN along with the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16).
 
 ## Next steps
 
