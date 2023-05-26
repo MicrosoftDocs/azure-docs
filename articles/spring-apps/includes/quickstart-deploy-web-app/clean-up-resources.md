@@ -15,19 +15,11 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 #### [Azure portal](#tab/Azure-portal)
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
 
-2. In the search box, search for *Resource groups*, and then select **Resource groups** in the results.
+1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as the example, **myresourcegroup**.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/search-resource-groups.png" alt-text="Screenshot of Azure portal showing Resource groups in search results, with Resource groups highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-web-app/search-resource-groups.png":::
-
-3. In the filter box, filter for your resource group name, and then select the resource group name.
-
-4. On the **Resource group Overview** page, select **Delete resource group**.
-
-5. On the **Delete a resource group** page, enter the resource group name for **Enter resource group name to confirm deletion**, select **Delete**, and continue to select **Delete** when prompt `Delete confirmation`.
-
-   :::image type="content" source="../../media/quickstart-deploy-web-app/delete-resource-group.png" alt-text="Screenshot of Azure portal showing resource group deletion highlighted." lightbox="../../media/quickstart-deploy-web-app/delete-resource-group.png":::
+1. On your resource group page, select **Delete**. Enter the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select Delete.
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
