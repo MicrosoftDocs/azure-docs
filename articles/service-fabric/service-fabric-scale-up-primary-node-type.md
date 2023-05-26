@@ -236,7 +236,7 @@ OS SKU
 
 ### If you are changing OS SKU in a Linux Cluster
 
-In Windows cluster, the value for property vmImage is ‘Windows’ while value of same property for Linux cluster is name of the OS image used. For e.g. - Ubuntu20_04(use the latest vm image name). To know more about latest RedHat images, kindly refer- [Latest Red Hat Images](../virtual-machines/workloads/redhat/redhat-imagelist)
+In Windows cluster, the value for property vmImage is ‘Windows’ while value of same property for Linux cluster is name of the OS image used. For e.g. - Ubuntu20_04(use the latest vm image name).
 
 So, if you are changing the VM image (OS SKU) in a Linux cluster, then update the vmImage setting on the Service Fabric cluster resource as well.
 
