@@ -22,13 +22,13 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 - You need to [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages Defender for Cloud to surface multiple recommendations regarding VM health.
 
 - Assign Azure policies initiatives to your subscription. These policy initiatives  need to be assigned  only once per subscription. This will  automatically install all required extensions on all supported VMs.
-   - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs
+   - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs.
 
-   - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
-- Make sure that the firewall policies are allowing access to *.attest.azure.net
+   - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines.
+- Make sure that the firewall policies are allowing access to *.attest.azure.net.
 
    > [!NOTE]
-   >  If you are using a Linux image and anticipate the VM may have kernel drivers either unsigned or not signed by the Linux distro vendor, then you may want to consider turning off secure boot. In Portal, in the ‘Create a virtual machine’ page for ‘Security type’ parameter with ‘Trusted Launch Virtual Machines’ selected, click on ‘Configure security features’ and uncheck the ‘Enable secure boot’ checkbox. In CLI, PowerShell, or SDK, set secure boot parameter to false.
+   >  If you are using a Linux image and anticipate the VM may have kernel drivers either unsigned or not signed by the Linux distro vendor, then you may want to consider turning off secure boot. In the Azure portal, in the ‘Create a virtual machine’ page for ‘Security type’ parameter with ‘Trusted Launch Virtual Machines’ selected, click on ‘Configure security features’ and uncheck the ‘Enable secure boot’ checkbox. In CLI, PowerShell, or SDK, set secure boot parameter to false.
 
 ## Deploy a trusted launch VM
 
@@ -543,7 +543,7 @@ New-AzVM `
 
 ## Verify or update your settings
 
-For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
+For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the Azure portal. The **Properties** tab will show the status of Trusted Launch features:
 
 :::image type="content" source="./media/trusted-launch/security-type-enabled.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
