@@ -112,7 +112,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
 | Memory                           | 688 GB (RAM per core depends on VM size)         | 
 | Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
-| Infiniband                       | 400 Gb/s Mellanox ConnectX-7 NDR InfiniBand | 
+| InfiniBand                       | 400 Gb/s Mellanox ConnectX-7 NDR InfiniBand | 
 | Network                          | 80 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
 
 ## Software specifications 
