@@ -47,7 +47,7 @@ NAME                                         READY   UP-TO-DATE   AVAILABLE   AG
 deployment.apps/cluster-metadata-operator    1/1     1            1           3d19h
 deployment.apps/clusterconnect-agent         1/1     1            1           3d19h
 deployment.apps/clusteridentityoperator      1/1     1            1           3d19h
-deployment.apps/config-agent                 1/1     1            1          3d19h
+deployment.apps/config-agent                 1/1     1            1           3d19h
 deployment.apps/controller-manager           1/1     1            1           3d19h
 deployment.apps/extension-events-collector   1/1     1            1           3d19h
 deployment.apps/extension-manager            1/1     1            1           3d19h
@@ -60,7 +60,7 @@ deployment.apps/resource-sync-agent          1/1     1            1           3d
 
 NAME                                              READY   STATUS    RESTARTS        AGE
 pod/cluster-metadata-operator-74747b975-9phtz     2/2     Running   0               3d19h
-pod/clusterconnect-agent-cf4c7849c-88fmf          3/3     Running   0   3d19h
+pod/clusterconnect-agent-cf4c7849c-88fmf          3/3     Running   0               3d19h
 pod/clusteridentityoperator-79bdfd945f-pt2rv      2/2     Running   0               3d19h
 pod/config-agent-67bcb94b7c-d67t8                 1/2     Running   0               3d19h
 pod/controller-manager-559dd48b64-v6rmk           2/2     Running   0               3d19h
