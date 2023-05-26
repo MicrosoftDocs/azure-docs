@@ -92,7 +92,7 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ## Reimage a BMM
 
-You can restore the runtime version image on a BMM by executing `reimage` command. This command **reinstalls** the runtime bundle on the OS partition, however it doesn't impact the tenant workload files on this BMM.
+You can restore the runtime version on a BMM by executing `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't impact the tenant workload files on this BMM.
 As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, prior to executing the `reimage` command.
 
