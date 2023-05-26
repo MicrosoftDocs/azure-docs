@@ -3,7 +3,7 @@ title: Geocoding in Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you'll learn about geocoding in Azure Maps Power BI visual.
 author: deniseatmicrosoft
-ms.author: limingchen 
+ms.author: limingchen
 ms.date: 03/16/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -47,7 +47,7 @@ To ensure fields are correctly geocoded, you can set the Data Category on the da
 Learn more about the Azure Maps Power BI visual:
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Maps Power BI visual (Preview)](power-bi-visual-get-started.md)
+> [Get started with Azure Maps Power BI visual](power-bi-visual-get-started.md)
 
 > [!div class="nextstepaction"]
 > [Understanding layers in the Azure Maps Power BI visual](power-bi-visual-understanding-layers.md)

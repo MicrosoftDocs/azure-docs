@@ -367,8 +367,8 @@ The following table indicates the features supported for each language.
 | Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Application Configuration Service for VMware Tanzu®             | ✔️   |       |      |          |    |          |
-| VMware Tanzu® Service Registry                                  | ✔️   |       |      |          |    |          |
+| Application Configuration Service for VMware Tanzu®             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| VMware Tanzu® Service Registry                                  | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
 | Virtual network                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
