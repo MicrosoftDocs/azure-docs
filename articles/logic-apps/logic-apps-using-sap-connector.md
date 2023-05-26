@@ -171,11 +171,11 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 
 The SAP system requires network connectivity from the host of the SAP .NET Connector (NCo) library:
 
-* For logic app workflows in multi-tenant Azure Logic Apps, the on-premises data gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
+* For Consumption logic app workflows in multi-tenant Azure Logic Apps, the on-premises data gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
 
-* For logic app workflows in an ISE, the ISE virtual network hosts the SAP .NET Connector (NCo) library.
+* For Standard logic app workflows in single-tenant Azure Logic Apps, the logic app resource hosts the SAP .NET Connector (NCo) library. So, the logic app resource itself must enable virtual network integration, and that virtual network must have network connectivity to the SAP system.
 
-* For logic app workflows in single-tenant Azure Logic Apps, the logic app resource hosts the SAP .NET Connector (NCo) library. So, the logic app resource itself must enable virtual network integration, and that virtual network must have network connectivity to the SAP system.
+* For Consumption logic app workflows in an ISE, the ISE virtual network hosts the SAP .NET Connector (NCo) library.
 
 The SAP system-required network connectivity includes the following servers and services:
 
@@ -208,7 +208,7 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### SAP NCo client library prerequisites
 
-The following list describes the prerequisites for the SAP NCo client library that you're using with the SAP connector:
+To use the SAP connector, you'll need the SAP NCo client library named [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The following list describes the prerequisites for the SAP NCo client library that you're using with the SAP connector:
 
 * Version:
 
@@ -226,12 +226,21 @@ The following list describes the prerequisites for the SAP NCo client library th
 
     * After you upgrade the SAP server environment, you get the following exception message: **"The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details"**.
 
-  * For Standard logic app workflows, you can use the 32-bit version for the SAP NCo client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
+  * For Standard logic app workflows, you can use the 32-bit or 64-bit version for the SAP NCo client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
 
     1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
+
     1. On the logic app resource menu, under **Settings**, select **Configuration**.
+
     1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
+
     1. Make sure to install the matching version of the [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0](https://support.sap.com/en/product/connectors/msnet.html).
+
+    1. To use the SAP connector, you need the following files from the SAP NCo client library and have them ready to upload to your logic app resource.
+
+       - **libicudecnumber.dll**
+       - **sapnco.dll**
+       - **sapnco_utils.exe**
 
 * From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
@@ -239,9 +248,9 @@ The following list describes the prerequisites for the SAP NCo client library th
 
     Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
 
-  * For a Consumption workflow in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
+  * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow, either in the Azure portal or locally in Visual Studio Code, respectively
 
-  * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to location where you're building your workflow, either in the Azure portal or locally in Visual Studio Code.
+  * For a Consumption workflow in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
 
 The following relationships exist between the SAP NCo client library, the .NET Framework, the .NET runtime, and the data gateway:
 
@@ -256,6 +265,8 @@ The following relationships exist between the SAP NCo client library, the .NET F
 ### SNC prerequisites
 
 ### [Consumption](#tab/consumption)
+
+<a name="snc-prerequisites-consumption"></a>
 
 For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings.
 
@@ -281,7 +292,67 @@ For more information about enabling SNC, review [Enable Secure Network Communica
 
 ### [Standard](#tab/standard)
 
+<a name="snc-prerequisites-standard"></a>
+
 The SAP built-in connector supports only SNC X.509 authentication, not single sign-on (SSO) authentication. Make sure that you install the SNC and common crypto library assemblies as part of your [single-tenant prerequisites](#single-tenant-prerequisites) and [network connectivity prerequisites](#network-prerequisites). For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
+
+For SNC from SAP, you'll need to download the following files and have them ready to upload to your logic app resource. You can find these files in the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). For more information, see [Download **CommonCryptoLib.sar**](#download-common-crypto).
+
+- **sapcrypto.dll**
+- **sapgenpse.exe**
+- **slcryptokernal.dll**
+
+> [!NOTE]
+>
+> If you use a different SNC implementation, these library files might have different names. 
+> In any case, **sapgenpse.exe** is required to use SNC with the SAP built-in connector.
+
+<a name="download-common-crypto"></a>
+
+#### Download CommonCryptoLib.sar
+
+To get the required assemblies and other files for SNC from SAP, you can find these files in the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). You can use any currently supported **CommonCryptoLib** library implementation, based on compatible versions specific to your SAP environment. However, Microsoft recommends that you use the latest version for the **CommonCryptoLib** library available from SAP, assuming that version is compatible with your SAP environment.
+
+To download the current **CommonCryptoLib** package, follow these steps:
+
+1. Sign in to the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter).
+
+1. On the **Download Software** page, select the **Installation & Upgrades** tab, expand **By Alphabetical Index (A-Z)**, and select **C** > **SAP Cryptographic Software** > **Downloads** tab > **SapCryptoLib** > **Downloads** tab > **CommonCryptoLib 8** > **Downloads** tab.
+
+1. From the **Items Available to Download** list, select **Windows on x64 Bit** or **Windows on x32 Bit (IA32)**, whichever matches Standard logic app platform configuration.
+
+   Microsoft recommends the 64-bit version.
+
+1. From the list, select the highest level patch.
+
+   The current patch number varies based on the selected Windows version.
+
+1. If you don't have the [`SAPCAR` utility](https://help.sap.com/docs/Convergent_Charging/d1d04c0d65964a9b91589ae7afc1bd45/467291d0dc104d19bba073a0380dc6b4.html) to extract the .sar file, follow these steps:
+
+   1. In the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter), on the **Download Software** page, select the **Support Packages & Patches** tab, expand **By Alphabetical Index (A-Z)**, and select **S** > **SAPCAR** > **Downloads** tab.
+
+   1. From the **Items Available to Download** list, select your operating system, and the **sapcar.exe** file for the **SAPCAR** utility.
+
+   > [!TIP]
+   >
+   > If you're unfamiliar with the **SAPCAR** utility, review the following SAP blog post, 
+   > [Easily extract SAR files](https://blogs.sap.com/2004/11/18/easily-extract-sar-files/).
+
+   The following batch file is an improved version that extracts archives to a subdirectory with the same name:
+
+   ```text
+   @echo off
+   cd %~dp1
+   mkdir %~n1
+   sapcar.exe -xvf %~nx1 -R %~n1
+   pause
+   ```
+
+1. Include all the extracted .dll and .exe files, which the following list shows for the current SAP **CommonCryptoLib** package:
+
+   - **sapcrypto.dll**
+   - **sapgenpse.exe**
+   - **slcryptokernal.dll**
 
 ### [ISE](#tab/ise)
 
@@ -410,61 +481,17 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
 
 For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
 
-#### Required assemblies and other files
+1. To use the SAP connector, you need to download the following files and have them read to upload to your Standard logic app resource. For more information, see [SAP NCo client library prerequisites](#sap-client-library-prerequisites):
 
-To use the SAP built-in connector, you'll need to download the following files and have them ready to upload to your logic app resource. To get these files, see how to [download and install the latest SAP NCo client library](#sap-client-library-prerequisites).
+   - **libicudecnumber.dll**
+   - **sapnco.dll**
+   - **sapnco_utils.exe**
 
-- **libicudecnumber.dll**
-- **sapnco.dll**
-- **sapnco_utils.exe**
+1. To SNC from SAP, you need to download the following files and have them ready to upload to your logic app resource. For more information, see [SNC prerequisites](#snc-prerequisites-standard):
 
-For SNC from SAP, you'll need download the following files and have them ready to upload to your logic app resource. To get these files, you can find them in the **CommonCryptoLib** software component available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). You can use any currently supported **CommonCryptoLib** library implementation, based on compatible versions specific to your SAP environment. However, Microsoft recommends that you use the latest version for the **CommonCryptoLib** library available from SAP, assuming that version is compatible with your SAP environment.
-
-
-- **sapcrypto.dll**
-- **sapgenpse.exe**
-- **slcryptokernal.dll**
-
- by following the steps below:
-
-
-
-To download the current **CommonCryptoLib**, follow these steps:
-
-1. Sign in to the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter).
-1. Select the **Installation & Upgrades** > **by Alphabetical Index (A-Z)
-•	C
-•	SAP Cryptographic Software
-•	SAPCRYPTOLIB
-•	COMMONCRYPTOLIB 8
-•	Select the Windows 32 Bit (IA32) or Windows 64 Bit (x64) matching your workflow application platform configuration. We recommend 64 bit.
-•	Pick the highest patch level from the list (current number will vary).
-
-
-An improved version of the batch that extract archives to a sub-directory of the same name is:
-
-```
-@echo off
-cd %~dp1
-mkdir %~n1
-sapcar.exe -xvf %~nx1 -R %~n1
-pause
-```
-
-Include all the extracted .dll and .exe files. For the current version of SAP common crypto lib, that list is:
-
-•	sapcrypto.dll
-•	sapgenpse.exe
-•	slcryptokernel.dll
-
-If you are using a different implementation of SNC, the library files may be named differently. In any case, sapgenpse.exe is required for use of SNC with built-in SAP connector.
-
-
-> [!NOTE]
->
-> If you don't already have the `SAPCAR` command to extract the SAR file content, in the SAP for Me, Software Download Center, find the `SAPCAR` keyword, which appears under **Downloads** as a Software Component.
-If you're unfamiliar with the `SAPCAR` command, consider following the SAP blog post at Easily extract SAR files
-
+   - **sapcrypto.dll**
+   - **sapgenpse.exe**
+   - **slcryptokernal.dll**
 
 #### Upload assemblies to Azure portal
 
