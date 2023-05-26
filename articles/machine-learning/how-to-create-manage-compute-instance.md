@@ -166,8 +166,9 @@ A compute instance is considered inactive if the below conditions are met:
 * No active Azure Machine Learning runs or experiments
 * No SSH connections
 * No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+* No custom applications are running on the compute
 
-Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
+A compute instance will not be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock will be reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock will be reset to 0.
 
