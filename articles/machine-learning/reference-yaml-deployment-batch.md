@@ -30,8 +30,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the deployment. | | |
 | `tags` | object | Dictionary of tags for the deployment. | | |
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
-| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment-preview). Introduced since version 1.7. | `model`, `pipeline` | `model` |
-| `settings` | object | Configuration of the deployment. See specific YAML reference for model and pipeline component for allowed values. Introduced since version 1.7. | | |
+| `type` | string | **Required.** Type of the bath deployment. Use `model` for [model deployments](concept-endpoints-batch.md#model-deployments) and `pipeline` for [pipeline component deployments](concept-endpoints-batch.md#pipeline-component-deployment-preview). **New in version 1.7**. | `model`, `pipeline` | `model` |
+| `settings` | object | Configuration of the deployment. See specific YAML reference for model and pipeline component for allowed values. **New in version 1.7**. | | |
 
 > [!TIP]
 > The key `type` has been introduced in version 1.7 of the CLI extension and above. To fully support backward compatibility, this property defaults to `model`. However, if not explicitly indicated, the key `settings` is not enforced and all the properties for the model deployment settings should be indicated in to root of the YAML specification.
@@ -49,7 +49,7 @@ When `type: model`, the following syntax is enforced:
 | `environment` | string or object | The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> This property is not required if your model is in MLflow format. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `compute` | string | **Required.** Name of the compute target to execute the batch scoring jobs on. This value should be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | | |
 | `resources.instance_count` | integer | The number of nodes to use for each batch scoring job. | | `1` |
-| `settings` | object | Specific configuration of the model deployment. | | |
+| `settings` | object | Specific configuration of the model deployment. **Changed in version 1.7**. | | |
 | `settings.max_concurrency_per_instance` | integer | The maximum number of parallel `scoring_script` runs per instance. | | `1` |
 | `settings.error_threshold` | integer | The number of file failures that should be ignored. If the error count for the entire input goes above this value, the batch scoring job is terminated. `error_threshold` is for the entire input and not for individual mini batches. If omitted, any number of file failures is allowed without terminating the job.  | | `-1` |
 | `settings.logging_level` | string | The log verbosity level. | `warning`, `info`, `debug` | `info` |
@@ -67,8 +67,8 @@ When `type: pipeline`, the following syntax is enforced:
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `component` | string or object | **Required.** The pipeline component used for the deployment. This value can be either a reference to an existing versioned pipeline component in the workspace or in a registry, or an inline pipeline specification. <br><br> To reference an existing component, use the `azureml:<component-name>:<version>` syntax. <br><br> To define a pipeline component inline, follow the [Pipeline component schema](reference-yaml-component-pipeline.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the component separately and reference it here. | | |
-| `settings` | object | Default settings for the pipeline job. See [Attributes of the settings key](reference-yaml-job-pipeline.md#attributes-of-the-settings-key) for the set of configurable properties. | | |
+| `component` | string or object | **Required.** The pipeline component used for the deployment. **New in version 1.7**. This value can be either a reference to an existing versioned pipeline component in the workspace or in a registry, or an inline pipeline specification. <br><br> To reference an existing component, use the `azureml:<component-name>:<version>` syntax. <br><br> To define a pipeline component inline, follow the [Pipeline component schema](reference-yaml-component-pipeline.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the component separately and reference it here. | | |
+| `settings` | object | Default settings for the pipeline job. **New in version 1.7**. See [Attributes of the settings key](reference-yaml-job-pipeline.md#attributes-of-the-settings-key) for the set of configurable properties. | | |
 
 ## Remarks
 
@@ -114,7 +114,7 @@ error_threshold: -1
 logging_level: info
 ```
 
-## YAML: Pipeline component deployment
+## YAML: Pipeline component deployment (preview)
 
 A simple pipeline component deployment:
 
