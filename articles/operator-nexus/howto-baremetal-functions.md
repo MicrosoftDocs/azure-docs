@@ -24,8 +24,11 @@ This article describes how to perform lifecycle management operations on Bare Me
 
 1. Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
-1. Ensure that the target bare metal machine (server) must have its `poweredState` set to `On` and have its `readyState` set to `True`
-1. Get the Resource group name that you created for `Cluster` resource
+1. Get the name of the resource group for the BMM
+1. Get the name of the bare metal machine  that requires a lifecycle management operation
+1. Ensure that the target bare metal machine `poweredState` set to `On` and `readyState` set to `True`
+    1. This prerequisite is not applicable for the `start` command
+
 
 ## Power off the BMM
 
