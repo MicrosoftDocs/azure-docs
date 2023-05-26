@@ -87,11 +87,19 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 ### [CLI](#tab/cli1)
 
 ```azurecli
-    $appGWName=<appGwName>
-    $appGWResourceGroup=<appGWRGName> 
-    $backendPoolName=<backendPoolName>
-    $backendPoolId=$(az network application-gateway address-pool show --gateway-name $appGWName -g $appGWResourceGroup -n $backendPoolName --query id -otsv)
- 
+    appGWName=<appGwName>
+    appGWResourceGroup=<appGWRGName> 
+    backendPoolName=<backendPoolName>
+    backendPoolId=$(az network application-gateway address-pool show --gateway-name $appGWName -g $appGWResourceGroup -n $backendPoolName --query id -otsv)
+    
+    vmssName=<vmssName>
+    vmssResourceGroup=<vmssRGName>
+
+    # add app gw backend pool to first nic's first ip config
+    az vmss update -n $vmssName -g $vmssResourceGroup --add "virtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].ipConfigurations[0].applicationGatewayBackendAddressPools" "id=$backendPoolId"
+
+    # update instances
+    az vmss update-instances --instance-ids * --name $vmssName --resource-group $vmssResourceGroup
 ```
 
 ### [ARM template](#tab/arm1)
