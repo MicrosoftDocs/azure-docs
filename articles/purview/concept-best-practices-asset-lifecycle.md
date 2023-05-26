@@ -6,7 +6,7 @@ ms.author: jubairpatel
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 05/26/2023
 ---
 
 # Business processes for managing data effectively
@@ -124,7 +124,7 @@ Asset Metadata may need to be deleted manually for many reasons:
 
 
 > [!Note]
-> Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](catalog-asset-details.md#deleting-assets)
+> Before deleting assets, please refer to the how-to guide to review considerations: [How to delete assets](catalog-asset-details.md#delete-asset)
 
 :::image type="content" source="media/concept-best-practices/assets-deleting-asset-metadata.png" alt-text="Business Process 4 - Deleting Assets in Microsoft Purview"lightbox="media/concept-best-practices/assets-deleting-asset-metadata.png" border="true":::
 
@@ -135,7 +135,7 @@ Asset Metadata may need to be deleted manually for many reasons:
 | 1 & 2 | Manual steps |  
 | 3 | [Data catalog lineage user guide](catalog-lineage-user-guide.md)
 | 4 | Manual step
-| 5 | [How to view, edit and delete assets](catalog-asset-details.md#deleting-assets) 
+| 5 | [How to view, edit and delete assets](catalog-asset-details.md#delete-asset) 
 | 6 | [Scanning best practices](concept-best-practices-scanning.md)
 
 > [!Note] 
