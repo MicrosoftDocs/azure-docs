@@ -73,7 +73,7 @@ For PowerShell 7.1 runbooks, provide array input parameters in below format:
 
 To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/powershell-runbook-managed-identity.md).
 
-A graphical runbook uses these these major runbook activities:
+A graphical runbook uses these major runbook activities:
 
 * Configuration of the Azure Run As account to authenticate with Azure. 
 * Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
