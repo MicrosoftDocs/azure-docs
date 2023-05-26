@@ -47,10 +47,10 @@ Azure Database for MySQL automatically performs minor version upgrades to the Az
 
 The table below provides the retirement details for MySQL major versions. The dates follow the [MySQL versioning policy](https://www.mysql.com/support/eol-notice.html).
 
-| Version | What's New | Azure support start date | Retirement date |
-| --- | --- | --- | --- |
-| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 | October 2023
-| [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | December 11, 2019 | April 2026
+| Version | What's New | Azure support start date | Azure support end date | Community Retirement date
+| --- | --- | --- | --- | --- | 
+| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 |September 2025 |October 2023|
+| [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | December 11, 2019 | NA |April 2026|
 
 ## What will happen to Azure Database for MySQL service after MySQL community version is retired in October 2023?
 
@@ -66,15 +66,15 @@ Before we end our support of Azure Database for MySQL 5.7, there are several imp
 
 __Azure MySQL 5.7 Deprecation Timelines__
 
-|Timelines|	Azure MySQL 5.7 Flexible end at	|Azure MySQL 5.7 Single end at|Community MySQL 5.7 Retired at| 
-|---|---|---|---|
-|Creation of new servers using the Azure portal.| 	Jan 2024|	Already ended as part of [Single Server deprecation](single-server/whats-happening-to-mysql-single-server.md)| October 2023|
-|Creation of new servers using the Command Line Interface (CLI). |	April 2024| 	September 2024| October 2023|
-|Creation of replica servers for existing servers. |	September 2025|	September 2024| October 2023|
-|Creation of servers using restore workflow for the existing servers| September 2025|September 2024|October 2023|
-|Creation of new servers for migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server.|	NA|	September 2024|October 2023|
-|Creation of new servers for migrating from Azure Database for MariaDB to Azure Database for MySQL - Flexible Server.|	September 2025|	NA|October 2023|
-|Extended support for Azure Database for MySQL v5.7|	September 2025|	September 2024|October 2023|
+|Timelines|	Azure MySQL 5.7 Flexible end at	|Azure MySQL 5.7 Single end at|
+|---|---|---|
+|Creation of new servers using the Azure portal.| 	Jan 2024|	Already ended as part of [Single Server deprecation](single-server/whats-happening-to-mysql-single-server.md)|
+|Creation of new servers using the Command Line Interface (CLI). |	April 2024| 	September 2024| 
+|Creation of replica servers for existing servers. |	September 2025|	September 2024|
+|Creation of servers using restore workflow for the existing servers| September 2025|September 2024|
+|Creation of new servers for migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server.|	NA|	September 2024|
+|Creation of new servers for migrating from Azure Database for MariaDB to Azure Database for MySQL - Flexible Server.|	September 2025|	NA|
+|Extended support for Azure Database for MySQL v5.7|	September 2025|	September 2024|
 
 To summarize, creating Azure Database for MySQL v5.7 - Flexible Server will conclude in __April 2024__. However, it's important to note that certain scenarios such as replica creation, point in time recovery, and migration from Azure Database for MySQL - Single Server or Azure Database for MariaDB to Azure Database for MySQL - Flexible Server, will allow you to create MySQL version 5.7 until the end of the extended support period.
 
