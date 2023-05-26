@@ -24,9 +24,6 @@ The sample service invocation project includes:
 
 :::image type="content" source="media/microservices-dapr-azd/service-invocation-quickstart.png" alt-text="Diagram of the Dapr service invocation services.":::
 
-> [!NOTE]
-> This tutorial uses [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview), which is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
-
 ## Prerequisites
 
 - Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)

@@ -511,6 +511,8 @@ items:
         href: release-notes-map-control.md
       - name: Indoor module
         href: release-notes-indoor-module.md
+      - name: Spatial IO module
+        href: release-notes-spatial-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
