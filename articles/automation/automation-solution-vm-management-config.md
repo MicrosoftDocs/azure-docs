@@ -158,7 +158,7 @@ The feature allows you to add VMs to be targeted or excluded.
 
 There are two ways to ensure that a VM is included when the feature runs:
 
-* Each of the parent runbooksof the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
+* Each of the parent runbooks of the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
 
 * To select multiple VMs, set `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` with the resource group names that contain the VMs you want to start or stop. You can also set the variables to a value of `*` to have the feature run against all resource groups in the subscription.
 
