@@ -1,5 +1,5 @@
 ---
-title: End of call survey logs (Preview)
+title: End of call survey logs 
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for End of Call Survey.
 author: Mkhribech
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# End of call survey (preview)
+# End of call survey 
 
 > 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
