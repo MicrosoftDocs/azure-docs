@@ -51,7 +51,7 @@ Use machine learning pipelines from Machine Learning to stitch together all the 
 
 A machine learning pipeline can contain steps from data preparation to feature extraction to hyperparameter tuning to model evaluation. For more information, see [Machine learning pipelines](concept-ml-pipelines.md).
 
-If you use the [designer](concept-designer-v2.md) to create your machine learning pipelines, you can at any time select the **...** icon in the upper-right corner of the designer page. Then select **Clone**. When you clone your pipeline, you iterate your pipeline design without losing your old versions.
+If you use the [designer](concept-designer.md) to create your machine learning pipelines, you can at any time select the **...** icon in the upper-right corner of the designer page. Then select **Clone**. When you clone your pipeline, you iterate your pipeline design without losing your old versions.
 
 ## Create reusable software environments
 

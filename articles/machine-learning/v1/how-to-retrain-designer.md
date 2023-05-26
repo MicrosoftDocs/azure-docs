@@ -31,13 +31,13 @@ In this article, you learn how to:
 * An Azure Machine Learning workspace
 * Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md)
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 This article also assumes that you have some knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) component instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](../algorithm-module-reference/import-data.md) component instead of the sample dataset to show you how to train models using your own data.
 
 ![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data component](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -117,4 +117,4 @@ In this article, you learned how to create a parameterized training pipeline end
 
 For a complete walkthrough of how you can deploy a model to make predictions, see the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
 
-For how to publish and submit a job to pipeline endpoint using the SDK v1, see [this article](v1/how-to-deploy-pipelines.md).
+For how to publish and submit a job to pipeline endpoint using the SDK v1, see [this article](how-to-deploy-pipelines.md).

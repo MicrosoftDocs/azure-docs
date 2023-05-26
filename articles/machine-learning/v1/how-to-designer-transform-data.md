@@ -17,7 +17,7 @@ ms.custom: designer
 
 In this article, you'll learn how to transform and save datasets in the Azure Machine Learning designer, to prepare your own data for machine learning.
 
-You'll use the sample [Adult Census Income Binary Classification](./samples-designer.md) dataset to prepare two datasets: one dataset that includes adult census information from only the United States, and another dataset that includes census information from non-US adults.
+You'll use the sample [Adult Census Income Binary Classification](samples-designer.md) dataset to prepare two datasets: one dataset that includes adult census information from only the United States, and another dataset that includes census information from non-US adults.
 
 In this article, you'll learn how to:
 
@@ -27,7 +27,7 @@ In this article, you'll learn how to:
 
 This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you'll learn how to use the transformed datasets to train multiple models, with pipeline parameters.
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Transform a dataset
 
@@ -53,7 +53,7 @@ Use these steps to import the sample dataset:
 
 ### Split the data
 
-In this section, you'll use the [Split Data component](algorithm-module-reference/split-data.md) to identify and split rows that contain "United-States" in the "native-country" column.
+In this section, you'll use the [Split Data component](../algorithm-module-reference/split-data.md) to identify and split rows that contain "United-States" in the "native-country" column.
 
 1. To the left of the canvas, in the component palette, expand the **Data Transformation** section, and find the **Split Data** component.
 
@@ -103,7 +103,7 @@ Now that you set up your pipeline to split the data, you must specify where to p
     **File format**: csv
 
     > [!NOTE]
-    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. See [Connect to Azure storage services](v1/how-to-connect-data-ui.md#create-datastores) for datastore setup instructions.
+    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. See [Connect to Azure storage services](how-to-connect-data-ui.md#create-datastores) for datastore setup instructions.
 
     You can create a datastore if you don't have one now. For example purposes, this article will save the datasets to the default blob storage account associated with the workspace. It will save the datasets into the `azureml` container, in a new folder named `data`.
 
@@ -161,7 +161,7 @@ After the pipeline finishes running, you can navigate to your Azure portal blob 
 
 To continue with part two of this [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) how-to, skip this section.
 
-[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

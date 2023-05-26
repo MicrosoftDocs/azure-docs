@@ -102,7 +102,7 @@ The Azure training lifecycle consists of:
 
 The designer lets you train models using a drag and drop interface in your web browser.
 
-+ [What is the designer?](concept-designer-v2.md)
++ [What is the designer?](concept-designer.md)
 + [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 
 ## Azure CLI

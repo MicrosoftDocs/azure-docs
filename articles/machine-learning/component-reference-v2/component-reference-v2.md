@@ -19,7 +19,7 @@ ms.date: 01/17/2023
 > * [v1](../component-reference/component-reference.md)
 > * [v2 (current version)](./component-reference-v2.md)
 
-Azure Machine Learning designer components (Designer) allow users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer](../concept-designer-v2.md).
+Azure Machine Learning designer components (Designer) allow users to create machine learning projects using a drag and drop interface. Follow this link to reach the Designer studio. Follow this link to [learn more about Designer](concept-designer.md).
 
 
 This reference content provides background on each of the custom components (v2) available in Azure Machine Learning designer.
