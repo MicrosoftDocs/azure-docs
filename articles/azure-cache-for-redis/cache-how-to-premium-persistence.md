@@ -97,7 +97,7 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
     The first backup starts once the backup frequency interval elapses.
   
    > [!NOTE]
-   > When RDB files are backed up to storage, they are stored in the form of page blobs. If you are using storage account with HNS Enabled, persistence will tend to fail as page blobs aren't supported in Storage accounts with HNS enabled (ADLS Gen2) 
+   > When RDB files are backed up to storage, they are stored in the form of page blobs. If you're using a storage account with HNS enabled, persistence will tend to fail because page blobs aren't supported in storage accounts with HNS enabled (ADLS Gen2). 
   
 9. To enable AOF persistence, select **AOF** and configure the settings.
 
