@@ -37,8 +37,6 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 | [Storage optimized](sizes-storage.md) | Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
 | [GPU](sizes-gpu.md) &#42; | NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCasT4_v3-series, NCadsA10 v4-series, NVadsA10 v5-series | NCv2-series, NCv3-series, NDasrA100_v4-series, NDm_A100_v4-series, ND-series
 
-To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](generation-2.md) and Trusted Launch VMs.
-
 > [!NOTE]
 > - Installation of the **CUDA & GRID drivers** does not require any additional steps for Secure Boot enabled Windows VMs
 > - Install the **CUDA driver** on Ubuntu VMs enabled with secure boot using [these steps](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).

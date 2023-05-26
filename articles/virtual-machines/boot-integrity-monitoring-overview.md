@@ -18,7 +18,7 @@ To help Trusted Launch better prevent malicious rootkit attacks on virtual machi
 
 An Active Azure Subscription + Trusted Launch Virtual Machine
 
-### Enable integrity monitoring
+## Enable integrity monitoring
 
 # [Azure portal](#tab/portal)
 
@@ -110,9 +110,23 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 # [CLI](#tab/cli)
 
-TBD
+If Secure Boot and vTPM are ON, boot integrity will be ON.
+
+1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the TL virtual machines. Configuration of the virtual machines are customizable by virtual machine owner (az vm create).
+
+1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both Secure Boot and vTPM are on (az vm update).
+
+See [Deploy a VM with trusted launch enabled (CLI)](trusted-launch-portal.md#deploy-a-trusted-launch-vm&tabs=cli) for more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension.
 
 # [PowerShell](#tab/powershell)
+
+If Secure Boot and vTPM are ON, boot integrity will be ON.
+
+1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the the virtual machines. Configuration of the virtual machines are customizable by virtual machine owner.
+
+1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both SecureBoot and vTPM are on(Set-AzVmUefi).
+
+See [Deploy a VM with trusted launch enabled (Powershell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm&tabs=powershell) for more information on creation or updating a virtual machines to include the boot integrity monitoring through the guest attestation extension.
 
 ---
 
