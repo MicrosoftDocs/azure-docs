@@ -24,23 +24,19 @@ Testing your Stream Analytics query locally against live stream input is a cruci
 
    ![Add input from the Inputs folder](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   OR press **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
+   OR press **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**. Then choose the query script for processing the input stream. 
 
    ![Add Stream Analytics input in Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
-2. Choose an input source type from the drop-down list.
+2. Choose a live input source type from the drop-down list.
 
-   ![Select IoT hub as the input option](./media/quick-create-visual-studio-code/iot-hub.png)
+   ![Configure Event Hub input](./media/quick-create-visual-studio-code/choose-event-hub-input.png)
 
-3. If you added the input from the command palette, choose the Stream Analytics query script that will use the input. It should be automatically populated with the file path to **myASAproj.asaql**.
-
-   ![Select a Stream Analytics script in Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
-
-4. Choose **Select from your Azure Subscriptions** from the drop-down menu.
+3. Choose **Select from your Azure Subscriptions** from the drop-down menu.
 
     ![Select from subscriptions](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
-5. Configure the newly generated JSON file. You can use the CodeLens feature to help you enter a string, select from a drop-down list, or change the text directly in the file. The following screenshot shows **Select from your Subscriptions** as an example.
+5. You will see a new JSON file created under the Input folder. Open the j CodeLens feature to help you enter a string, select from a drop-down list, or change the text directly in the file. The following screenshot shows **Select from your Subscriptions** as an example.
 
    ![Configure input in Visual Studio Code](./media/quick-create-visual-studio-code/configure-input.png)
 
@@ -52,7 +48,7 @@ To make sure that the input data is coming, select **Preview data** in your live
 
 ## Run queries locally
 
-Return to your query editor, and select **Run locally**. Then select **Use Live Input** from the drop-down list.
+Open your query file, select **Run locally** or the **Play** button on the menu bar to open the **Run locally** tab. You can choose the play mode 
 
 ![Select "Run locally" in the query editor](./media/vscode-local-run/run-locally.png)
 

@@ -41,3 +41,4 @@ azure-streamanalytics-cicd build --v2 --project <projectFullPath> [--outputPath 
 
     az deployment group create --name demodeployment --resource-group {resource-group-name} --template-file .\DeployV2\{project-name}.JobTemplate.bicep --parameters .\DeployV2\bicep-demo.JobTemplate.bicep.parameters.json
 ```
+
