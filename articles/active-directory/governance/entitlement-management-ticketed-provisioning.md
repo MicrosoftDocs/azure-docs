@@ -42,7 +42,7 @@ To add a Logic App workflow to an existing catalog, you use an ARM template for 
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Figaelmprodportalhosting.blob.core.windows.net%2Farm-deployment-template%2FLogicAppServiceNowIntegration.json ).
 
-:::image type="content" source="media/entitlement-management-servicenow-integration/logic-app-arm-template.png" alt-text="Screenshot of Logic App ARM template.":::
+:::image type="content" source="media/entitlement-management-servicenow-integration/logic-app-arm-template.png" alt-text="Screenshot of Logic App ARM template." lightbox="media/entitlement-management-servicenow-integration/logic-app-arm-template.png":::
 
 Provide the Azure subscription, resource group details, along with the Logic App name and the Catalog ID to associate the Logic App with and select purchase. For more information on how to create a new catalog, please follow the steps in this document: [Create and manage a catalog of resources in entitlement management](entitlement-management-catalog-create.md).
 
@@ -56,13 +56,13 @@ Provide the Azure subscription, resource group details, along with the Logic App
 1. In the header navigation bar, select **Add a Custom Extension**.
 
 1. In the **Basics** tab, enter the name of the custom extension and a description of the workflow. These fields show up in the **Custom Extensions** tab of the Catalog.
-    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png" alt-text="Screenshot of creating a custom extension for entitlement management.":::
+    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png" alt-text="Screenshot of creating a custom extension for entitlement management." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-create-custom-extension.png":::
 1. Select the **Extension Type** as “**Request workflow**” to correspond with the policy stage of the access package requested being created.
-    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png" alt-text="Screenshot of entitlement management custom extension behavior actions tab.":::
+    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png" alt-text="Screenshot of entitlement management custom extension behavior actions tab." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png":::
 1. Select **Launch and wait** in the **Extension Configuration** which will pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. For more information on this process, see:  [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
 
 1. In the **Details** tab, choose No in the "*Create new logic App*" field as the Logic App has already been created in the previous steps. However, you need to provide the Azure subscription and resource group details, along with the Logic App name.
-    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-details.png" alt-text="Screenshot of the entitlement management  custom extension details tab.":::
+    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-details.png" alt-text="Screenshot of the entitlement management  custom extension details tab." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-details.png":::
 1. In **Review and Create**, review the summary of your custom extension and make sure the details for your Logic App call-out are correct. Then select **Create**.
 
 1. This custom extension to the linked Logic App now appears in your Custom Extensions tab under Catalogs. You're able to call on this in access package policies.
@@ -91,7 +91,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 1. In the menu below Custom Extension, select the custom extension (Logic App) you created in the above steps to add to this access package. The action you select executes when the event selected in the *when* field occurs.
 
 1. Select **Update** to add it to an existing access package's policy.
-    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-access-package-extension.png" alt-text="Screenshot of custom extension details for an access package.":::
+    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-access-package-extension.png" alt-text="Screenshot of custom extension details for an access package." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-access-package-extension.png":::
 
 > [!NOTE]
 > Select **New access package** if you want to create a new access package. For more information about how to create an access package, see: [Create a new access package in entitlement management](entitlement-management-access-package-create.md). For more information about how to edit an existing access package, see: [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
@@ -155,7 +155,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
     1. Provide a name for the application, and select Client Credentials in the Default Grant type.
     1. Enter the Client Name, ID, Client Secret, Authorization URL, Token URL that were generated when you registered the Azure Active Directory application in the Azure portal.
     1. Submit the application.
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png" alt-text="Screenshot of the application registry within ServiceNow.":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png" alt-text="Screenshot of the application registry within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-application-registry.png":::
 1. Create a System Web Service REST API message by following these steps: 
     1. Go to the REST API Messages section under System Web Services.
     1. Select the "New" button to create a new REST API message.
@@ -179,10 +179,10 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
                     }
         ```
     1. Select "*Submit*" to save the changes.
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png" alt-text="Screenshot of resume call selection within ServiceNow.":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png" alt-text="Screenshot of resume call selection within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png":::
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-call.png" alt-text="Screenshot of the http request within ServiceNow.":::
 1. Modify the request table schema: To modify the request table schema, make changes to the three tables shown in the following image:
-    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-table-schema.png" alt-text="Screenshot of the request table schema within ServiceNow.":::
+    :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-table-schema.png" alt-text="Screenshot of the request table schema within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-table-schema.png":::
     Add the three column label and type as string:
     - AccessPackageAssignmentRequestId
     - AccessPackageAssignmentStage
@@ -191,7 +191,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
     1. Sign in to ServiceNow and go to Flow Designer.
     1. Select the “*New*” button and create a new action. 
     1. Add an action to invoke the System Web Service REST API message that was created in the previous step.
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer.png" alt-text="Screenshot of flow designer script to resume entitlement management process within ServiceNow.":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer.png" alt-text="Screenshot of flow designer script to resume entitlement management process within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer.png":::
         Script for the action: (Update the script with the Column labels created in previous step):
         ``` 
         (function execute(inputs, outputs) {
@@ -217,22 +217,22 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
 1. To create triggers within ServiceNow, you'd follow these steps:
     1. Select "*Add Trigger*" and then select "*updated*" trigger and run the trigger for every update.
     1. Add a filter condition by updating the condition as shown in the following image:
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-call-elm-assignment.png" alt-text="Screenshot of ServiceNow call elm resume API":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-call-elm-assignment.png" alt-text="Screenshot of ServiceNow call elm resume API" lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-call-elm-assignment.png":::
     1. Select done.
     1. Select add an action
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-trigger.png" alt-text="Screenshot of flow diagram trigger.":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-trigger.png" alt-text="Screenshot of flow diagram trigger." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-trigger.png":::
     1. Select the Action and then select the action created in the previous step.
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-actions.png" alt-text="Screenshot of flow designer actions selection.":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-actions.png" alt-text="Screenshot of flow designer actions selection." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-actions.png":::
     1. Drag and drop the newly created columns from the request record to the appropriate action parameters.
     1. Select “Done”, “Save” and then “Activate”. 
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-save.png" alt-text="Screenshot of save and activate within flow designer.":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-save.png" alt-text="Screenshot of save and activate within flow designer." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-flow-designer-save.png":::
 
 
 ## Requesting access to an access package as an end-user
 
 When an end user requests access to an access package, the request is sent to the appropriate approver. Once the approver grants approval, Entitlement Management calls the Logic App. The Logic app then calls ServiceNow to create a new request/ticket and Entitlement Management awaits a callback from ServiceNow.
 
-:::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-request-access-package.png" alt-text="Screenshot of requesting an access package.":::
+:::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-request-access-package.png" alt-text="Screenshot of requesting an access package." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-request-access-package.png":::
 
 ## Receiving access to the requested access package as an end-user 
 
