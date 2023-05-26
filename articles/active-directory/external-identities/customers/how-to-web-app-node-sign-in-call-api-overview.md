@@ -65,7 +65,7 @@ The web API completes the following events:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 
 If you want to run a sample Node.js web application that calls a sample web API to get a feel of how things work, complete the steps in [Sign in users and call an API in sample Node.js web application](how-to-web-app-node-sample-sign-in-call-api.md).
