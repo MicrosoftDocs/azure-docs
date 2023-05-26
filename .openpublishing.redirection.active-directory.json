@@ -6581,6 +6581,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/scripts/powershell-export-apps-with-expriring-secrets.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/manage-apps/scripts/powershell-export-apps-with-expiring-secrets",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-config-add-app-problem-problem-adding-gallery-app.md",
       "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-adding-apps",
       "redirect_document_id": false
