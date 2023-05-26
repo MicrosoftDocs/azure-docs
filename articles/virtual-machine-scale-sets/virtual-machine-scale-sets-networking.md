@@ -42,7 +42,7 @@ See [Azure Load Balancer and Virtual Machine Scale Sets](../load-balancer/load-b
 
 ## Add a Virtual Machine Scale Set to an Application Gateway
 
-To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale sets network profile. This can be done either when creating the scale set (see ARM Template below) or on an existing scale set.  
+To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale set's network profile. This can be done either when creating the scale set (see ARM Template below) or on an existing scale set.  
 
 ### [Portal](#tab/portal1)
 
@@ -86,20 +86,20 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 
 ### [CLI](#tab/cli1)
 
-```azurecli
-    appGWName=<appGwName>
-    appGWResourceGroup=<appGWRGName> 
-    backendPoolName=<backendPoolName>
-    backendPoolId=$(az network application-gateway address-pool show --gateway-name $appGWName -g $appGWResourceGroup -n $backendPoolName --query id -otsv)
-    
-    vmssName=<vmssName>
-    vmssResourceGroup=<vmssRGName>
+```azurecli-interactive
+appGWName=<appGwName>
+appGWResourceGroup=<appGWRGName> 
+backendPoolName=<backendPoolName>
+backendPoolId=$(az network application-gateway address-pool show --gateway-name $appGWName -g $appGWResourceGroup -n $backendPoolName --query id -otsv)
 
-    # add app gw backend pool to first nic's first ip config
-    az vmss update -n $vmssName -g $vmssResourceGroup --add "virtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].ipConfigurations[0].applicationGatewayBackendAddressPools" "id=$backendPoolId"
+vmssName=<vmssName>
+vmssResourceGroup=<vmssRGName>
 
-    # update instances
-    az vmss update-instances --instance-ids * --name $vmssName --resource-group $vmssResourceGroup
+# add app gw backend pool to first nic's first ip config
+az vmss update -n $vmssName -g $vmssResourceGroup --add "virtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].ipConfigurations[0].applicationGatewayBackendAddressPools" "id=$backendPoolId"
+
+# update instances
+az vmss update-instances --instance-ids * --name $vmssName --resource-group $vmssResourceGroup
 ```
 
 ### [ARM template](#tab/arm1)
