@@ -16,11 +16,11 @@ We update documentation for Azure Virtual Desktop on a regular basis. In this ar
 In May 2023, we published the following changes:
 
 - New articles for the custom images templates preview:
-  - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md).
+  - [Custom image templates](custom-image-templates.md).
   - [Use Custom image templates to create custom images](create-custom-image-templates.md).
   - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
 - Added how to steps for the Azure portal to configure automatic or direct assignment type in [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md).
-- Rewrote the article to [Create an MSIX image for Azure Virtual Desktop](msix-app-attach-create-msix-image.md).
+- Rewrote the article to [Create an MSIX image](msix-app-attach-create-msix-image.md).
 
 ## April 2023
 
