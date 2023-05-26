@@ -13,14 +13,14 @@ As a cloud provider, Microsoft Azure works closely with the Kubernetes community
 
 Previously, cloud provider integration with Kubernetes was "in-tree", where any changes to cloud specific features would follow the standard Kubernetes release cycle. When issues were fixed or enhancements were rolled out, they would need to be within the Kubernetes community's release cycle.
 
-The Kubernetes community is now adopting an *out-of-tree* model, where the cloud providers will control their releases independently of the core Kubernetes release schedule through the [cloud-provider-azure][cloud-provider-azure] component. As part of this cloud-provider-azure component, we are also introducing a cloud-node-manager component, which is a component of the Kubernetes node lifecycle controller. This component is deployed by a DaemonSet in the *kube-system* namespace.
+The Kubernetes community is now adopting an *out-of-tree* model, where the cloud providers controls their releases independently of the core Kubernetes release schedule through the [cloud-provider-azure][cloud-provider-azure] component. As part of this cloud-provider-azure component, we are also introducing a cloud-node-manager component, which is a component of the Kubernetes node lifecycle controller. This component is deployed by a DaemonSet in the *kube-system* namespace.
 
 The Cloud Storage Interface (CSI) drivers are included by default in Kubernetes version 1.21 and higher.
 
 > [!NOTE]
 > When you enable the Cloud Controller Manager (preview) on your AKS cluster, it also enables the out of tree CSI drivers.
 
-The Cloud Controller Manager (preview) is the default controller from Kubernetes 1.22, supported by AKS. If your cluster is running a version earlier than 1.22, follow instructions below.
+The Cloud Controller Manager (preview) is the default controller from Kubernetes 1.22, supported by AKS. If your cluster is running a version earlier than 1.22, perform the following steps.
 
 ## Prerequisites
 
@@ -91,9 +91,9 @@ kubectl get po -n kube-system | grep cloud-node-manager
 
 ## Next steps
 
-- For more information on CSI drivers, and the default behavior for Kubernetes versions above 1.21, please see our [documentation][csi-docs].
+- For more information on CSI drivers, and the default behavior for Kubernetes versions higher than 1.21, review [documentation][csi-docs].
 
-- You can find more information about the Kubernetes community direction regarding Out of Tree providers on the [community blog post][community-blog].
+- You can find more information about the Kubernetes community direction regarding out of tree providers on the [community blog post][community-blog].
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register
