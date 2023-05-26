@@ -1,6 +1,6 @@
 ---
 title: Enable or disable Azure Network Watcher
-description: Learn how to enable or disable Azure Network Watcher in your region by creating a Network Watcher instance using the Azure portal, Azure PowerShell, the Azure CLI or REST API.
+description: Learn how to enable or disable Azure Network Watcher in your region by creating a Network Watcher instance using the Azure portal, PowerShell, the Azure CLI or REST API.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
