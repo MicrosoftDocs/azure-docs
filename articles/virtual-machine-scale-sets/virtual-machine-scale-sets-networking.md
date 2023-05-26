@@ -46,7 +46,7 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
 
 ### [Portal](#tab/portal1)
 
-1. Create an Application Gateway and backend pool in the same regions as your scale set, if you do not already have one
+1. Create an Application Gateway and backend pool in the same region as your scale set, if you do not already have one
 1. Navigate to the Virtual Machine Scale Set in the Portal
 1. Under **Settings**, open the **Networking** pane
 1. In the Networking pane, select the **Load balancing** tab and click **Add Load Balancing**
