@@ -125,7 +125,7 @@ Grant Azure Front Door permission to access the certificates in your Azure Key V
 
 1. In **Certificate permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
-1. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and select **Microsoft.AzureFrontDoor-Cdn**. Select **Next**.
+1. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and select **Microsoft.Azure.Cdn**. Select **Next**.
 
 1. In **Application**, select **Next**.
 
