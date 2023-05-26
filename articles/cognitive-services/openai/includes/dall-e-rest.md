@@ -39,7 +39,7 @@ Go to your resource in the Azure portal and select the **Keys and endpoint** pag
 
 Create a new Python file called **quickstart.py**. Then open it up in your preferred code editor or IDE.
 
-1. Replace the contents of **quickstart.py** with the following code. Enter your endpoint URL and key in the appropriate fields. Replace `YOUR_IMAGE_PROMPT` with your own custom prompt.
+1. Replace the contents of **quickstart.py** with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `"prompt"` to your own custom prompt.
 
     ```python
     import requests
@@ -47,22 +47,24 @@ Create a new Python file called **quickstart.py**. Then open it up in your prefe
     import os
     api_base = 'YOUR_API_ENDPOINT_URL'
     api_key = 'YOUR_OPENAI_KEY'
-    api_version = '2022-08-03-preview'
-    url = "{}dalle/text-to-image?api-version={}".format(api_base, api_version)
+    api_version = '2023-06-01-preview'
+    url = f"{api_base}openai/images/generations:submit?api-version={api_version}"
     headers= { "api-key": api_key, "Content-Type": "application/json" }
     body = {
-        "caption": "YOUR_IMAGE_PROMPT",
-        "resolution": "1024x1024"
+        #"prompt": "USER_PROMPT_GOES_HERE",
+        "prompt": "A painting of a dog",
+        "resolution": "1024x1024",
+        "n": 1
     }
     submission = requests.post(url, headers=headers, json=body)
-    operation_location = submission.headers['Operation-Location']
-    retry_after = submission.headers['Retry-after']
+
+    operation_location = submission.headers['operation-location']
     status = ""
-    while (status != "Succeeded"):
-        time.sleep(int(retry_after))
+    while (status != "succeeded"):
+        time.sleep(1)
         response = requests.get(operation_location, headers=headers)
         status = response.json()['status']
-    image_url = response.json()['result']['contentUrl']
+    image_url = response.json()['result']['data'][0]['url']
     ```
 
     > [!IMPORTANT]
