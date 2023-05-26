@@ -16,7 +16,7 @@
 |**principals / id** | The ID of the security principal. <br> For example: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
 |**principals / type** | The type of security principal. <br> For example: `ServicePrincipal`. |
 |**properties / metricResponseType** | The response from the metrics transaction. <br> For examples, see the ResponseType metrics dimension for your storage service: <br> [blobs](../articles/storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) <br> [files](../articles/storage/files/storage-files-monitoring-reference.md#metrics-dimensions) <br> [queues](../articles/storage/queues/monitor-queue-storage-reference.md#metrics-dimensions) <br> [tables](../articles/storage/tables/monitor-table-storage-reference.md#metrics-dimensions) |
-|**properties / objectKey** | The path to the object being modified. <br> For example: `samplestorageaccount/container1/blob.png`. |
+|**properties / objectKey** | The path to the object being accessed. <br> For example: `samplestorageaccount/container1/blob.png`. |
 |**requester / appID** | The Open Authorization (OAuth) application ID that is used as the requester. <br> For example: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
 |**requester / audience** | The OAuth audience of the request. <br> For example: `https://storage.azure.com`. |
 |**requester / objectId** | The OAuth object ID of the requester. In case of Kerberos authentication, represents the object identifier of Kerberos authenticated user. <br> For example: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
