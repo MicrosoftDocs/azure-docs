@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/13/2022
+ms.date: 05/10/2023
 ms.author: rolyon
 ---
 
@@ -32,14 +32,11 @@ Permissions are grouped together into a *role definition*. It's typically just c
 
 ![Role definition for a role assignment](./media/shared/rbac-role-definition.png)
 
-The following lists four fundamental built-in roles. The first three apply to all resource types.
+Roles are organized into job function roles and privileged administrator roles.
 
-- [Owner](built-in-roles.md#owner) - Has full access to all resources including the right to delegate access to others.
-- [Contributor](built-in-roles.md#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
-- [Reader](built-in-roles.md#reader) - Can view existing Azure resources.
-- [User Access Administrator](built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
+### Job function roles
 
-The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines.
+Job function roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. To select the appropriate job function role, use these steps:
 
 1. Begin with the comprehensive article, [Azure built-in roles](built-in-roles.md). The table at the top of the article is an index into the details later in the article.
 
@@ -50,6 +47,18 @@ The rest of the built-in roles allow management of specific Azure resources. For
     For example, if a security principal needs to read blobs in an Azure storage account, but doesn't need write access, then choose [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) rather than [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) (and definitely not the administrator-level [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role). You can always update the role assignments later as needed.
 
 1. If you don't find a suitable role, you can create a [custom role](custom-roles.md).
+
+### Privileged administrator roles
+
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. The following roles are considered privileged and apply to all resource types.
+
+| Role | Description |
+| --- | --- |
+| [Owner](built-in-roles.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. |
+| [Contributor](built-in-roles.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
+| [User Access Administrator](built-in-roles.md#user-access-administrator) | Lets you manage user access to Azure resources. |
+
+It's a best practice to grant users the least privilege to get their work done. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
 
 ## Step 3: Identify the needed scope
 

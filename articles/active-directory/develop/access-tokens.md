@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: davidmu
-ms.custom: aaddev, identityplatformtop40, fasttrack-edit, curation-claims
+ms.custom: aaddev, curation-claims
 ---
 
 # Microsoft identity platform access tokens
@@ -114,6 +114,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 | `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive. | |
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. | |
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. | |
+| `xms_cc` | JSON array of strings | Indicates whether the client application that acquired the token is capable of handling claims challenges. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The resource server that the token is issued for controls the presence of the claim in it. For example, a service application. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). Resource servers should check this claim in access tokens received from client applications. If this claim is present, resource servers can respond back with a claims challenge. The claims challenge requests more claims in a new access token to authorize access to a protected resource. |
 
 #### Groups overage claim
 
@@ -266,8 +267,7 @@ The server possibly revokes refresh tokens due to a change in credentials, or du
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User revokes their refresh tokens by using [PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
-| Admin revokes all refresh tokens for a user by using [PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
+| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 #### Non-password-based

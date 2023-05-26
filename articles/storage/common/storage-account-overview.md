@@ -57,10 +57,10 @@ A storage account provides a unique namespace in Azure for your data. Every obje
 
 There are two types of service endpoints available for a storage account:
 
-- [Standard endpoints](#standard-endpoints) (recommended). You can create up to 250 storage accounts per region with standard endpoints in a given subscription.
+- [Standard endpoints](#standard-endpoints) (recommended). By default, you can create up to 250 storage accounts per region with standard endpoints in a given subscription. With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
 - [Azure DNS zone endpoints](#azure-dns-zone-endpoints-preview) (preview). You can create up to 5000 storage accounts per region with Azure DNS zone endpoints in a given subscription.
 
-Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per subscription.
+Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per region per subscription. With a quota increase, you can crate up to 5500 storage accounts per region per subscription.
 
 > [!IMPORTANT]
 > Azure DNS zone endpoints are currently in PREVIEW.
@@ -91,18 +91,18 @@ When your account is created with standard endpoints, you can easily construct t
 
 When you create an Azure Storage account with  Azure DNS zone endpoints (preview), Azure Storage dynamically selects an Azure DNS zone and assigns it to the storage account when it is created. The new storage account's endpoints are created in the dynamically selected Azure DNS zone. For more information about Azure DNS zones, see [DNS zones](../../dns/dns-zones-records.md#dns-zones).
 
-An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z99`.
+An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z50`.
 
-The following table lists the format for Azure DNS Zone endpoints for each of the Azure Storage services, where the zone is `z5`.
+The following table lists the format for Azure DNS Zone endpoints for each of the Azure Storage services:
 
 | Storage service | Endpoint |
 |--|--|
-| Blob Storage | `https://<storage-account>.z[00-99].blob.storage.azure.net` |
-| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.storage.azure.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.storage.azure.net` |
-| Azure Files | `https://<storage-account>.z[00-99].file.storage.azure.net` |
-| Queue Storage | `https://<storage-account>.z[00-99].queue.storage.azure.net` |
-| Table Storage | `https://<storage-account>.z[00-99].table.storage.azure.net` |
+| Blob Storage | `https://<storage-account>.z[00-50].blob.storage.azure.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z[00-50].web.storage.azure.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
+| Azure Files | `https://<storage-account>.z[00-50].file.storage.azure.net` |
+| Queue Storage | `https://<storage-account>.z[00-50].queue.storage.azure.net` |
+| Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
 
 > [!IMPORTANT]
 > You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
@@ -173,3 +173,5 @@ The following table describes the legacy storage account types. These account ty
 - [Create a storage account](storage-account-create.md)
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+
+

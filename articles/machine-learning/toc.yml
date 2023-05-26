@@ -63,6 +63,9 @@
         - name: "Online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-deploy-endpoints.md
+        - name: "Pipeline endpoints"
+          displayName: migration, v1, v2, publish pipelines
+          href: migrate-to-v2-deploy-pipelines.md
         - name: "Upgrade from ACI web services to managed online endpoints"
           displayName: migration, v1, v2
           href: migrate-to-v2-managed-online-endpoints.md
@@ -114,6 +117,16 @@
               href: tutorial-designer-automobile-price-deploy.md
         - name: Use Visual Studio Code
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Develop and operationalize features
+      items:
+        - name: Develop and register a feature set with managed feature store (preview)
+          href: tutorial-get-started-with-feature-store.md
+        - name: Enable materialization and backfill feature data (preview)
+          href: tutorial-enable-materialization-backfill-data.md
+        - name: Experiment and train models using features (preview)
+          href: tutorial-experiment-train-models-using-features.md
+        - name: Enable recurrent materialization and run batch inference (preview)
+          href: tutorial-enable-recurrent-materialization-run-batch-inference.md
     # v1
     - name: Python get started (Day 1)
       items:
@@ -166,7 +179,7 @@
         - name: Studio network data access
           href: ./v1/concept-network-data-access.md
         # end v1
-        - name: Apache Spark in Azure Machine Learning (preview)
+        - name: Apache Spark in Azure Machine Learning
           href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
@@ -177,6 +190,12 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
+    - name: Managed feature store
+      items:
+        - name: What is a managed feature store?
+          href: concept-what-is-managed-feature-store.md
+        - name: Top-level entities in managed feature store
+          href: concept-top-level-entities-in-managed-feature-store.md
     - name: Train models
       items:
         - name: Model training
@@ -235,14 +254,26 @@
               href: algorithm-cheat-sheet.md
             - name: How to select algorithms
               href: how-to-select-algorithms.md
-    - name: Deploy models
+    - name: Deploy to production
       items:
-        - name: Endpoints
+        - name: Endpoints for inference
           href: concept-endpoints.md
+        - name: Endpoints
+          items:
+            - name: Online endpoints
+              href: concept-endpoints-online.md
+            - name: Batch endpoints
+              href: concept-endpoints-batch.md
         - name: Model portability (ONNX)
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
+    - name: Monitor models
+      items:
+        - name: Model data collection
+          href: concept-data-collection.md
+        - name: Model monitoring
+          href: concept-model-monitoring.md
     - name: MLflow
       items:
         - name: MLflow and Azure Machine Learning
@@ -254,6 +285,10 @@
         - name: MLflow models
           displayName: tracking models, mlflow, custom, flavors
           href: concept-mlflow-models.md
+    - name: Model Catalog
+      items:
+        - name: Foundation Models in Model Catalog
+          href: concept-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: MLOps capabilities
@@ -362,52 +397,61 @@
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
-        - name: Secure workspace resources
-          displayName: vnet, workspace, container instance, container registry
-          href: how-to-secure-workspace-vnet.md
-        - name: Secure training environment
-          displayName: vnet, No public IP
-          href: how-to-secure-training-vnet.md
-        - name: Secure inference environment
-          displayName: vnet, Managed Endpoint, AKS
-          href: how-to-secure-inferencing-vnet.md
-        # v1 stuff
-        - name: Secure workspace resources
-          displayName: vnet, workspace, container instance, container registry
-          href: ./v1/how-to-secure-workspace-vnet.md
-        - name: Secure training environment
-          displayName: vnet, No public IP
-          href: ./v1/how-to-secure-training-vnet.md
-        - name: Secure inference environment
-          displayName: vnet, Managed Endpoint, AKS
-          href: ./v1/how-to-secure-inferencing-vnet.md
-        # end v1
-        - name: Use studio in a virtual network
-          displayName: vnet
-          href: how-to-enable-studio-virtual-network.md
-        - name: Use private endpoint
-          displayName: private endpoint
-          href: how-to-configure-private-link.md
-        # v1
-        - name: Use private endpoint
-          displayName: private endpoint
-          href: ./v1/how-to-configure-private-link.md
-        - name: Configure secure web services (v1)
-          displayName: ssl, tls
-          href: ./v1/how-to-secure-web-service.md
-        # end v1
-        - name: Use custom DNS
-          href: how-to-custom-dns.md
-        - name: Configure required network traffic
-          displayName: firewall, user-defined route, udr
-          href: how-to-access-azureml-behind-firewall.md
-        - name: Data exfiltration prevention
-          displayName: loss
-          href: how-to-prevent-data-loss-exfiltration.md
-        - name: Configure network isolation with v2
-          href: how-to-configure-network-isolation-with-v2.md
-        - name: Securely attach Azure Databricks
-          href: how-to-securely-attach-databricks.md
+        - name: Use managed virtual network
+          displayName: vnet, workspace, network isolation
+          href: how-to-managed-network.md
+        - name: Troubleshoot managed virtual network
+          href: how-to-troubleshoot-managed-network.md
+        - name: Use Azure Virtual Network
+          items:
+          - name: Secure workspace resources
+            displayName: vnet, workspace, network isolation, container registry
+            href: how-to-secure-workspace-vnet.md
+          - name: Secure machine learning registry
+            href: how-to-registry-network-isolation.md
+          - name: Secure training environment
+            displayName: vnet, No public IP
+            href: how-to-secure-training-vnet.md
+          - name: Secure inference environment
+            displayName: vnet, Managed Endpoint, AKS
+            href: how-to-secure-inferencing-vnet.md
+          # v1 stuff
+          - name: Secure workspace resources
+            displayName: vnet, workspace, container instance, container registry
+            href: ./v1/how-to-secure-workspace-vnet.md
+          - name: Secure training environment
+            displayName: vnet, No public IP
+            href: ./v1/how-to-secure-training-vnet.md
+          - name: Secure inference environment
+            displayName: vnet, Managed Endpoint, AKS
+            href: ./v1/how-to-secure-inferencing-vnet.md
+          # end v1
+          - name: Use studio in a virtual network
+            displayName: vnet
+            href: how-to-enable-studio-virtual-network.md
+          - name: Use private endpoint
+            displayName: private endpoint
+            href: how-to-configure-private-link.md
+          # v1
+          - name: Use private endpoint
+            displayName: private endpoint
+            href: ./v1/how-to-configure-private-link.md
+          - name: Configure secure web services (v1)
+            displayName: ssl, tls
+            href: ./v1/how-to-secure-web-service.md
+          # end v1
+          - name: Use custom DNS
+            href: how-to-custom-dns.md
+          - name: Configure required network traffic
+            displayName: firewall, user-defined route, udr
+            href: how-to-access-azureml-behind-firewall.md
+          - name: Data exfiltration prevention
+            displayName: loss
+            href: how-to-prevent-data-loss-exfiltration.md
+          - name: Configure network isolation with v2
+            href: how-to-configure-network-isolation-with-v2.md
+          - name: Securely attach Azure Databricks
+            href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
@@ -469,6 +513,9 @@
           displayName: compute target, low priority, managed identity
           href: ./v1/how-to-create-attach-compute-cluster.md
         # end v1
+        - name: Serverless compute
+          displayName: compute target, low priority, managed identity
+          href: how-to-use-serverless-compute.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
@@ -576,12 +623,15 @@
         - name: Azure Container for PyTorch
           displayName: acpt
           href: how-to-azure-container-for-pytorch-environment.md
-        - name: Set up VS Code extension
+        - name: Launch VS Code remote
+          displayName: Visual Studio Code, VSCode, debug, bugs
+          href: how-to-launch-vs-code-remote.md
+        - name: Work in VS Code remote
+          displayName: Visual Studio Code, VSCode, debug, bugs
+          href: how-to-work-in-vs-code-remote.md
+        - name: Set up VS Code (Desktop)
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
-        - name: Connect to compute instance VS Code
-          displayName: Visual Studio Code, VSCode, debug, bugs
-          href: how-to-set-up-vs-code-remote.md
         - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
@@ -640,7 +690,7 @@
               href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
-        - name: Prepare data with Apache Spark (preview)
+        - name: Prepare data with Apache Spark
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
@@ -650,6 +700,8 @@
             - name: Interactive Data Wrangling with Apache Spark
               displayName: Interactive Data Wrangling with Apache Spark
               href: interactive-data-wrangling-with-apache-spark-azure-ml.md
+            - name: Apache Spark - environment configuration
+              href: apache-spark-environment-configuration.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
@@ -697,6 +749,12 @@
               displayName: designer, data, import, dataset, datastore
               href: ./v1/how-to-designer-import-data.md
         # end v1
+    - name: Managed feature store
+      items:
+        - name: Manage access to managed feature store
+          href: how-to-setup-access-control-feature-store.md
+        - name: Troubleshoot managed feature store errors
+          href: troubleshooting-managed-feature-store.md
     - name: Train models
       items:
         - name: Train a model (SDK, CLI, REST)
@@ -756,18 +814,23 @@
             # end v1
         - name: Track & monitor training
           items:
-            - name: Monitor training jobs
-              displayName: cancel, fail, status, child run
-              href: how-to-track-monitor-analyze-runs.md
-            - name: Log metrics, parameters and files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
-            - name: Log MLflow models
-              href: how-to-log-mlflow-models.md
-            - name: Query & compare experiments and runs
+            - name: Log metrics and models with MLflow
+              items:
+                - name: Log metrics, parameters and files
+                  displayName: troubleshoot, log, files, tracing, metrics
+                  href: how-to-log-view-metrics.md
+                - name: Log MLflow models
+                  href: how-to-log-mlflow-models.md
+                - name: Migrate from SDK v1 logging to MLflow
+                  href: reference-migrate-sdk-v1-mlflow-tracking.md
+            - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Migrate from SDK v1 logging to MLflow
-              href: reference-migrate-sdk-v1-mlflow-tracking.md
+            - name: Organize & manage jobs (preview)
+              href: how-to-track-monitor-organize-jobs.md
+            - name: Visualize training results (preview)
+              href: how-to-visualize-jobs.md
+            - name: Monitor training jobs
+              href: how-to-track-monitor-analyze-runs.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items:
@@ -864,7 +927,7 @@
           displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
           href: ./v1/how-to-machine-learning-interpretability-automl.md
         # end v1  
-    - name: Deploy models
+    - name: Deploy to production
       items:
         - name: Online endpoints (real-time)
           items:
@@ -912,16 +975,34 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items:
-            - name: Batch scoring with batch endpoints
-              href: how-to-use-batch-endpoint.md
-            - name: Create jobs and input data for batch endpoints
+            - name: Work with batch endpoints and deployments
+              href: how-to-use-batch-endpoints.md
+            - name: Create jobs and input data to batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
-            - name: Author scoring scripts for batch scoring
-              href: how-to-batch-scoring-script.md
-            - name: Customize outputs in batch jobs
-              href: how-to-deploy-model-custom-output.md
-            - name: Troubleshoot batch endpoints
-              href: how-to-troubleshoot-batch-endpoints.md
+            - name: Deploy models
+              items:
+                - name: Deploy models for scoring in batch endpoints
+                  href: how-to-use-batch-model-deployments.md
+                - name: Deploy MLflow models in batch deployments
+                  href: how-to-mlflow-batch.md
+                - name: Author scoring scripts
+                  href: how-to-batch-scoring-script.md
+                - name: Customize outputs in model's batch jobs
+                  href: how-to-deploy-model-custom-output.md
+                - name: Image processing with batch model deployments
+                  href: how-to-image-processing-batch.md
+                - name: Deploy language models with batch model deployments
+                  href: how-to-nlp-processing-batch.md
+            - name: Deploy pipeline components (Preview)
+              items:
+                - name: Deploy pipelines with batch endpoints
+                  href: how-to-use-batch-pipeline-deployments.md
+                - name: Operationalize a training pipeline on batch endpoints
+                  href: how-to-use-batch-training-pipeline.md
+                - name: Operationalize a scoring pipeline on batch endpoints
+                  href: how-to-use-batch-scoring-pipeline.md
+                - name: Create batch endpoints from pipeline jobs
+                  href: how-to-use-batch-pipeline-from-job.md
             - name: Security
               items:
                 - name: Authorization on batch endpoints
@@ -932,22 +1013,12 @@
               items:
                 - name: Use low priority VMs in batch deployments
                   href: how-to-use-low-priority-batch.md
-            - name: Scenarios
-              items:
-                - name: Use MLflow models in batch deployments
-                  href: how-to-mlflow-batch.md
-                - name: Image processing with batch deployments
-                  href: how-to-image-processing-batch.md
-                - name: Text processing with batch deployments
-                  href: how-to-nlp-processing-batch.md
             - name: Integrations
               items:
                 - name: Run batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
                 - name: Run batch endpoints from Event Grid events in storage
                   href: how-to-use-event-grid-batch.md
-                - name: Use REST to deploy a model as batch endpoints
-                  href: how-to-deploy-batch-with-rest.md
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
@@ -1016,6 +1087,14 @@
           displayName: docker file download
           href: ./v1/how-to-deploy-package-models.md
         # end v1
+    - name: Monitor models
+      items: 
+        - name: Collect inferencing data from production
+          displayName: model data collection, data drift, data quality, model quality
+          href: how-to-collect-production-data.md
+        - name: Perform continuous monitoring
+          displayName: model monitoring, data drift, data quality, model quality
+          href: how-to-monitor-model-performance.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
@@ -1066,6 +1145,12 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
+    - name: Work with Foundation Models in Model Catalog
+      items:
+        - name: Open Source Models curated by AzureML 
+          href: how-to-use-foundation-models.md
+        - name: Hugging Face Hub community partner models
+          href: how-to-deploy-models-from-huggingface.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Set up MLOps with Azure DevOps
@@ -1162,9 +1247,19 @@
             - name: Responsible AI insights (UI)
               displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
               href: how-to-responsible-ai-insights-ui.md
+            - name: Responsible AI vision insights
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-vision-insights.md
+            - name: Responsible AI text insights 
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-text-insights.md
         - name: Using the Responsible AI dashboard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
+        - name: Using the Responsible AI image dashboard
+          href: how-to-responsible-ai-image-dashboard.md
+        - name: Using the Responsible AI text dashboard
+          href: how-to-responsible-ai-text-dashboard.md
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
@@ -1231,7 +1326,7 @@
       href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
-    - name: CLI (v2)
+    - name: CLI (v2) commands
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: /cli/azure/ml/
     - name: CLI (v2) YAML schemas
@@ -1251,7 +1346,13 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md
+          items: 
+            - name: Job
+              href: reference-yaml-schedule.md
+            - name: Data Import
+              href: reference-yaml-schedule-data-import.md
+            - name: Monitor
+              href: reference-yaml-monitor.md
         - name: Pipeline component
           href: reference-yaml-component-pipeline.md
         - name: Compute
@@ -1300,6 +1401,18 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
+        - name: Feature store
+          items:
+            - name: Feature store
+              href: reference-yaml-feature-store.md
+            - name: Feature set
+              href: reference-yaml-feature-set.md
+            - name: Feature entity
+              href: reference-yaml-feature-entity.md
+            - name: Feature retrieval spec
+              href: reference-yaml-feature-retrieval-spec.md
+            - name: Feature set spec
+              href: reference-yaml-featureset-spec.md
         - name: Endpoint
           items:
             - name: Online (real-time)
@@ -1318,6 +1431,12 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+            - name: Pipeline 
+              href: reference-yaml-component-pipeline.md
+        - name: Registry
+          items:
+            - name: Registry
+              href: reference-yaml-registry.md
     - name: Azure PowerShell
       href: /powershell/module/az.machinelearningservices/
     - name: Service limits
@@ -1344,6 +1463,10 @@
     - name: Azure Container for PyTorch 
       href: resource-azure-container-for-pytorch.md
       displayName: acpt
+    - name: CLI (v2) Spark component YAML schema
+      href: reference-yaml-component-spark.md
+    - name: CLI (v2) Spark job YAML schema
+      href: reference-yaml-job-spark.md
     - name: Azure CLI
       href: /cli/azure/ml
     # v1

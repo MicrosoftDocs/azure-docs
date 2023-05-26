@@ -18,7 +18,7 @@ ms.author: yulili
 
 Before you can do anything, you need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
 
-## Text-to-speech to speaker
+## Text to speech to speaker
 
 Use the following code sample to run speech synthesis to your default audio output device. Replace the variables `subscription` and `region` with your speech key and location/region. Running the script will speak your input text to the default speaker.
 
@@ -139,7 +139,7 @@ go run quickstart
 
 For detailed information about the classes, see the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechConfig) and [`SpeechSynthesizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) reference docs.
 
-## Text-to-speech to in-memory stream
+## Text to speech to in-memory stream
 
 You can use the resulting audio data as an in-memory stream rather than directly writing to a file. With in-memory stream, you can build custom behavior, including:
 
@@ -280,7 +280,7 @@ For detailed information about the classes, see the [`SpeechConfig`](https://pkg
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
+The text to speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
 
@@ -309,7 +309,7 @@ The voice that speaks is determined in order of priority as follows:
 
 ## Use SSML to customize speech characteristics
 
-You can use Speech Synthesis Markup Language (SSML) to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use Speech Synthesis Markup Language (SSML) to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text to speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
@@ -330,9 +330,9 @@ Next, you need to change the speech synthesis request to reference your XML file
 
 ## Subscribe to synthesizer events
 
-You might want more insights about the text-to-speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
+You might want more insights about the text to speech processing and results. For example, you might want to know when the synthesizer starts and stops, or you might want to know about other events encountered during synthesis. 
 
-While using the [SpeechSynthesizer](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) for text-to-speech, you can subscribe to the events in this table:
+While using the [SpeechSynthesizer](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesizer) for text to speech, you can subscribe to the events in this table:
 
 [!INCLUDE [Event types](events.md)]
 
@@ -483,7 +483,7 @@ func main() {
 }
 ```
 
-You can find more text-to-speech samples at [GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/).
+You can find more text to speech samples at [GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/).
 
 ## Run and use a container
 

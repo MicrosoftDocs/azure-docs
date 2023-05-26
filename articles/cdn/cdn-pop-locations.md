@@ -39,13 +39,13 @@ This article lists current metros containing point-of-presence (POP) locations, 
 
 | Region | Verizon | Akamai |
 |--|--|--|
-| North America | Guadalajara, Mexico<br />Mexico City, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA <br /> Ashburn, VA, USA <br /> Phoenix, AZ, USA | Canada<br />Mexico<br />USA |
+| North America | Guadalajara, Mexico<br />Mexico City, Mexico<br />Monterrey, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Minneapolis, MN, USA<br />Pittsburgh, PA, USA<br />Seattle, WA, USA<br />Ashburn, VA, USA <br />Houston, TX, USA <br />Phoenix, AZ, USA | Canada<br />Mexico<br />USA |
 | South America | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />São Paulo, Brazil<br />Valparaíso, Chile<br />Bogota, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brazil<br />Chile<br />Colombia<br />Ecuador<br />Peru<br />Uruguay |
 | Europe | Vienna, Austria<br />Copenhagen, Denmark<br />Helsinki, Finland<br />Marseille, France<br />Paris, France<br />Frankfurt, Germany<br />Milan, Italy<br />Riga, Latvia<br />Amsterdam, Netherlands<br />Warsaw, Poland<br />Madrid, Spain<br />Stockholm, Sweden<br />London, UK <br /> Manchester, UK | Austria<br />Bulgaria<br />Denmark<br />Finland<br />France<br />Germany<br />Greece<br />Ireland<br />Italy<br />Netherlands<br />Norway<br />Poland<br />Russia<br />Spain<br />Sweden<br />Switzerland<br />United Kingdom |
 | Africa | Johannesburg, South Africa <br/> Nairobi, Kenya | South Africa |
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong SAR<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong SAR<br />Indonesia<br />Israel<br />Japan<br />Macao<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Türkiye<br />Vietnam |
+| Asia | Hong Kong SAR<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong SAR<br />Indonesia<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Türkiye<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 ## Next steps

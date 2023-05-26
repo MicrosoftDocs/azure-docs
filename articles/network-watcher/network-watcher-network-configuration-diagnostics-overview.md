@@ -16,9 +16,6 @@ ms.custom: template-concept, engagement-fy23
 
 The NSG diagnostics is an Azure Network Watcher tool that helps you understand which network traffic is allowed or denied in your Azure virtual network along with detailed information for debugging. NSG diagnostics can help you verify that your network security group rules are set up properly. 
 
-> [!NOTE]
-> To use NSG diagnostics, Network Watcher must be enabled in your subscription. For more information, see [Network Watcher is automatically enabled](./network-watcher-create.md#network-watcher-is-automatically-enabled).
-
 ## Background
 
 - Your resources in Azure are connected via [virtual networks (VNets)](../virtual-network/virtual-networks-overview.md) and subnets. The security of these virtual networks and subnets can be managed using [network security groups](../virtual-network/network-security-groups-overview.md).

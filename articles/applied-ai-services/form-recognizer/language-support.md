@@ -137,7 +137,7 @@ The following table lists the supported languages for print text by the most rec
 
 ### Print text in preview (API version 2023-02-28-preview)
 
-Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
+Use the parameter `api-version=2023-02-28-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
