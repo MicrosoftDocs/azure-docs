@@ -219,11 +219,11 @@ Open your browser and navigate to `http://localhost:8080/`. Enter the meeting UR
 
 Now let's send some file attachments from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a sent message with three file attachments.":::
+:::image type="content" source="./media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a sent message with three file attachments.":::
 
 Then you should see the new message being rendered along with file attachments:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown a received incoming message with three file attachments.":::
+:::image type="content" source="./media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown a received incoming message with three file attachments.":::
 
 
 ## Handle image attachments
@@ -324,12 +324,12 @@ That's it! Now we have added image attachment support as well. Now let's run the
 
 Now let's send some image attachments from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a send box with an image attachment uploaded.":::
+:::image type="content" source="./media/meeting-interop-features-file-attachment-3.png" alt-text="A screenshot of Teams client shown a send box with an image attachment uploaded.":::
 
 Upon sending the image attachment, you notice that it becomes an inline image on the Teams client side:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client shown a message with the image attachment sent to the other participant.":::
+:::image type="content" source="./media/meeting-interop-features-file-attachment-4.png" alt-text="A screenshot of Teams client shown a message with the image attachment sent to the other participant.":::
 
 Let's go back to our sample app, the same image should be rendered as well:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app shown an incoming message with one inline image rendered.":::
+:::image type="content" source="./media/meeting-interop-features-file-attachment-5.png" alt-text="A screenshot of sample app shown an incoming message with one inline image rendered.":::
