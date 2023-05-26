@@ -43,7 +43,7 @@ To use the SAP connector operations, you have to first authenticate your connect
 
 * The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/viewer/e73bba71770e4c0ca5fb2a3c17e8e229/7.31.25/en-US/e656f466e99a11d1a5b00000e835363f.html).
 
-You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
+You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, review the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
 ## Connector technical reference
 
@@ -204,163 +204,11 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 > ports are open on firewalls and network security groups. Otherwise, you get errors such as **partner not reached** 
 > from the **NI (network interface)** component and error text such as **WSAECONNREFUSED: Connection refused**.
 
-### Azure Logic Apps environment prerequisites
+<a name="sap-client-library-prerequisites"></a>
 
-### [Consumption](#tab/consumption)
+### SAP NCo client library prerequisites
 
-<a name="multi-tenant-prerequisites"></a>
-
-For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](logic-apps-gateway-connection.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
-
-1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](logic-apps-gateway-install.md).
-
-   The data gateway helps you securely access on-premises data and resources. Make sure to use a supported version of the gateway. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
-
-1. In the Azure portal, [create an Azure gateway resource](logic-apps-gateway-connection.md#create-azure-gateway-resource) for your on-premises data gateway installation.
-
-1. On the same local computer as your on-premises data gateway installation, [download and install the latest SAP client library](#sap-client-library-prerequisites).
-
-1. For the host computer with your on-premises data gateway installation, configure the network host names and service names resolution.
-
-   * To use the host names or service names for connections from Azure Logic Apps, you have to set up name resolution for each SAP Application, Message, and Gateway server along with their services:
-
-     * In the **%windir%\System32\drivers\etc\hosts** file or in the DNS server that's available to the host computer for your on-premises data gateway installation, set up the network host name resolution.
-
-     * In the **%windir%\System32\drivers\etc\services** file, set up the service name resolution.
-
-   * If you don't intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
-
-   * If you don't have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
-
-     ```text
-     10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
-     10.0.1.9           sapserver.contoso.com       # SAP single-instance system host IP by fully qualified DNS name
-     ```
-
-     The following list shows a sample set of entries for the services files:
-
-     ```text
-     sapdp00            3200/tcp              # SAP system instance 00 dialog (application) service port
-     sapgw00            3300/tcp              # SAP system instance 00 gateway service port
-     sapmsDV6           3601/tcp              # SAP system ID DV6 message service port
-     ```
-
-### [Standard](#tab/standard)
-
-<a name="single-tenant-prerequisites"></a>
-
-For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
-
-#### Upload assemblies to Azure portal
-
-1. [Download the latest SAP client library](#sap-client-library-prerequisites).
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
-
-1. On the logic app menu, under **Workflows**, select **Assemblies**.
-
-1. On the **Assemblies** page toolbar, select **Add**.
-
-1. After the **Add Assembly** pane opens, for **Assembly Type**, select **Client/SDK Assembly (.NET Framework)**.
-
-1. Under **Upload Files**, add all the following [required SAP private assembly files](#sap-client-library-prerequisites). When you're ready, select **Upload Files**.
-
-   * **libicudecnumber.dll**
-   * **sapcrypto.dll**
-   * **sapgenpse.exe**
-   * **sapnco.dll**
-   * **sapnco_utils.exe**
-   * **slcryptokernal.dll**
-
-   If the assembly file is 4 MB or smaller, you can either browse and select or drag and drop the file. For files larger than 4 MB, follow these steps instead:
-
-   1. On the logic app menu, under **Development Tools**, select **Advanced Tools**.
-
-   1. On the **Advanced Tools** page, select **Go**.
-
-   1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
-
-   1. Open the following folders: **site** > **wwwroot**
-
-   1. On the folder structure toolbar, select the plus (**+**) sign, and then select **New folder**.
-
-   1. Create the following folder and subfolders: **lib** > **builtinOperationSdks** > **net472**
-
-   1. In the **net472** folder, upload the assembly files larger than 4 MB.
-
-#### SAP trigger requirements
-
-The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
-
-### [ISE](#tab/ise)
-
-<a name="ise-prerequisites"></a>
-
-For a Consumption workflow in an ISE, the ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
-
-> [!IMPORTANT]
->
-> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
-> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
-> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
-> Logic Apps and provide the same capabilities plus more.
->
-> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
-> before this date are supported through August 31, 2024. For more information, see the following resources:
->
-> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
-> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
-> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
-> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
-
-1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).
-
-1. On your local computer, [download and install the latest SAP client library](#sap-client-library-prerequisites). You should have the following assembly (.dll) files:
-
-   * **libicudecnumber.dll**
-   * **rscp4n.dll**
-   * **sapnco.dll**
-   * **sapnco_utils.dll**
-
-1. From the root folder, create a .zip file that includes these assembly files. Upload the package to your blob container in Azure Storage.
-
-   > [!NOTE]
-   >
-   > Don't use a subfolder inside the .zip file. Only assemblies in the archive's root folder 
-   > are deployed with the SAP connector in your ISE.
-   >
-   > If you use SNC, also include the SNC assemblies and binaries in the same .zip file at the root. 
-   > For more information, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
-
-1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file.
-
-1. Copy the URL for the container location. Make sure to include the Shared Access Signature (SAS) token, so the SAS token is authorized. Otherwise, deployment for the SAP ISE connector fails.
-
-1. In your ISE, install and deploy the SAP connector. For more information, review [Add ISE connectors](add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
-
-   1. In the [Azure portal](https://portal.azure.com), find and open your ISE.
-
-   1. On the ISE menu, select **Managed connectors** &gt; **Add**. From the connectors list, find and select **SAP**.
-
-   1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL for the .zip file that has the SAP assemblies. Again, make sure to include the SAS token.
-
-   1. Select **Create** to finish creating your ISE connector.
-
-1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they're connected. Review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
-
-1. Get the IP addresses for the SAP Application, Message, and Gateway servers that you plan to use for connecting from your workflow. Network name resolution isn't available for SAP connections in an ISE.
-
-1. Get the port numbers for the SAP Application, Message, and Gateway services that you plan to use for connecting from your workflow. Service name resolution isn't available for SAP connections in an ISE.
-
----
-
-<a name="#sap-client-library-prerequisites"></a>
-
-### SAP client library prerequisites
-
-The following list describes the prerequisites for the SAP client library that you're using with the SAP connector:
+The following list describes the prerequisites for the SAP NCo client library that you're using with the SAP connector:
 
 * Version:
 
@@ -378,14 +226,14 @@ The following list describes the prerequisites for the SAP client library that y
 
     * After you upgrade the SAP server environment, you get the following exception message: **"The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details"**.
 
-  * For Standard logic app workflows, you can use the 32-bit version for the SAP client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
+  * For Standard logic app workflows, you can use the 32-bit version for the SAP NCo client library, but make sure that you install the version that matches the configuration in your Standard logic app resource. To check this version, follow these steps:
 
     1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
     1. On the logic app resource menu, under **Settings**, select **Configuration**.
     1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
     1. Make sure to install the matching version of the [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0](https://support.sap.com/en/product/connectors/msnet.html).
 
-* From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
+* From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
   * For a Consumption workflow that runs in multi-tenant Azure Logic Apps and uses your on-premises data gateway, copy the assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**.
 
@@ -395,7 +243,7 @@ The following list describes the prerequisites for the SAP client library that y
 
   * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to location where you're building your workflow, either in the Azure portal or locally in Visual Studio Code.
 
-The following relationships exist between the SAP client library, the .NET Framework, the .NET runtime, and the data gateway:
+The following relationships exist between the SAP NCo client library, the .NET Framework, the .NET runtime, and the data gateway:
 
 * The Microsoft SAP Adapter and the gateway host service both use .NET Framework 4.7.2.
 
@@ -501,7 +349,7 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
 1. For each workflow that uses the ISE-native SAP connector, [create a new SAP connection that enables SNC](#enable-secure-network-communications).
 
-##### Certificate rotation
+#### Certificate rotation
 
 1. For all connections that use SAP ISE X.509 in your ISE, update the base64-encoded binary PSE.
 
@@ -515,32 +363,216 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
 ---
 
-### Convert a binary PSE file into base64-encoded format
+### Azure Logic Apps environment prerequisites
 
-1. Use a PowerShell script, for example:
+### [Consumption](#tab/consumption)
 
-   ```powershell
-   Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
-   $base64String = [convert]::ToBase64String((Get-Content -path $psePath -Encoding byte))
-   if ($base64OutputPath -eq $null)
-   {
-       Write-Output $base64String
-   }
-   else
-   {
-       Set-Content -Path $base64OutputPath -Value $base64String
-       Write-Output "Output written to $base64OutputPath"
-   } 
-   ```
+<a name="multi-tenant-prerequisites"></a>
 
-1. Save the script as a **pseConvert.ps1** file, and then invoke the script, for example:
+For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](logic-apps-gateway-connection.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
 
-   ```output
-   .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
-   Output written to connectionInput.txt 
-   ```
+1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](logic-apps-gateway-install.md).
 
-   If you don't provide the output path parameter, the script's output to the console contains line breaks. Remove the line breaks in the base 64-encoded string for the connection input parameter.
+   The data gateway helps you securely access on-premises data and resources. Make sure to use a supported version of the gateway. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
+
+1. In the Azure portal, [create an Azure gateway resource](logic-apps-gateway-connection.md#create-azure-gateway-resource) for your on-premises data gateway installation.
+
+1. On the same local computer as your on-premises data gateway installation, [download and install the latest SAP NCo client library](#sap-client-library-prerequisites).
+
+1. For the host computer with your on-premises data gateway installation, configure the network host names and service names resolution.
+
+   * To use the host names or service names for connections from Azure Logic Apps, you have to set up name resolution for each SAP Application, Message, and Gateway server along with their services:
+
+     * In the **%windir%\System32\drivers\etc\hosts** file or in the DNS server that's available to the host computer for your on-premises data gateway installation, set up the network host name resolution.
+
+     * In the **%windir%\System32\drivers\etc\services** file, set up the service name resolution.
+
+   * If you don't intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
+
+   * If you don't have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
+
+     ```text
+     10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
+     10.0.1.9           sapserver.contoso.com       # SAP single-instance system host IP by fully qualified DNS name
+     ```
+
+     The following list shows a sample set of entries for the services files:
+
+     ```text
+     sapdp00            3200/tcp              # SAP system instance 00 dialog (application) service port
+     sapgw00            3300/tcp              # SAP system instance 00 gateway service port
+     sapmsDV6           3601/tcp              # SAP system ID DV6 message service port
+     ```
+
+### [Standard](#tab/standard)
+
+<a name="single-tenant-prerequisites"></a>
+
+For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
+
+#### Required assemblies and other files
+
+To use the SAP built-in connector, you'll need to download the following files and have them ready to upload to your logic app resource. To get these files, see how to [download and install the latest SAP NCo client library](#sap-client-library-prerequisites).
+
+- **libicudecnumber.dll**
+- **sapnco.dll**
+- **sapnco_utils.exe**
+
+For SNC from SAP, you'll need download the following files and have them ready to upload to your logic app resource. To get these files, you can find them in the **CommonCryptoLib** software component available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). You can use any currently supported **CommonCryptoLib** library implementation, based on compatible versions specific to your SAP environment. However, Microsoft recommends that you use the latest version for the **CommonCryptoLib** library available from SAP, assuming that version is compatible with your SAP environment.
+
+
+- **sapcrypto.dll**
+- **sapgenpse.exe**
+- **slcryptokernal.dll**
+
+ by following the steps below:
+
+
+
+To download the current **CommonCryptoLib**, follow these steps:
+
+1. Sign in to the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter).
+1. Select the **Installation & Upgrades** > **by Alphabetical Index (A-Z)
+•	C
+•	SAP Cryptographic Software
+•	SAPCRYPTOLIB
+•	COMMONCRYPTOLIB 8
+•	Select the Windows 32 Bit (IA32) or Windows 64 Bit (x64) matching your workflow application platform configuration. We recommend 64 bit.
+•	Pick the highest patch level from the list (current number will vary).
+
+
+An improved version of the batch that extract archives to a sub-directory of the same name is:
+
+```
+@echo off
+cd %~dp1
+mkdir %~n1
+sapcar.exe -xvf %~nx1 -R %~n1
+pause
+```
+
+Include all the extracted .dll and .exe files. For the current version of SAP common crypto lib, that list is:
+
+•	sapcrypto.dll
+•	sapgenpse.exe
+•	slcryptokernel.dll
+
+If you are using a different implementation of SNC, the library files may be named differently. In any case, sapgenpse.exe is required for use of SNC with built-in SAP connector.
+
+
+> [!NOTE]
+>
+> If you don't already have the `SAPCAR` command to extract the SAR file content, in the SAP for Me, Software Download Center, find the `SAPCAR` keyword, which appears under **Downloads** as a Software Component.
+If you're unfamiliar with the `SAPCAR` command, consider following the SAP blog post at Easily extract SAR files
+
+
+#### Upload assemblies to Azure portal
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app menu, under **Workflows**, select **Assemblies**.
+
+1. On the **Assemblies** page toolbar, select **Add**.
+
+1. After the **Add Assembly** pane opens, for **Assembly Type**, select **Client/SDK Assembly (.NET Framework)**.
+
+1. Under **Upload Files**, add the previously described required files that you downloaded:
+
+   **SAP NCo**
+   - **libicudecnumber.dll**
+   - **sapnco.dll**
+   - **sapnco_utils.exe**
+
+   **CommonCryptoLib**
+   - **sapcrypto.dll**
+   - **sapgenpse.exe**
+   - **slcryptokernal.dll**
+
+1. When you're ready, select **Upload Files**.
+
+   If the assembly file is 4 MB or smaller, you can either browse and select or drag and drop the file. For files larger than 4 MB, follow these steps instead:
+
+   1. On the logic app menu, under **Development Tools**, select **Advanced Tools**.
+
+   1. On the **Advanced Tools** page, select **Go**.
+
+   1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
+
+   1. Open the following folders: **site** > **wwwroot**
+
+   1. On the folder structure toolbar, select the plus (**+**) sign, and then select **New folder**.
+
+   1. Create the following folder and subfolders: **lib** > **builtinOperationSdks** > **net472**
+
+   1. In the **net472** folder, upload the assembly files larger than 4 MB.
+
+#### SAP trigger requirements
+
+The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+
+### [ISE](#tab/ise)
+
+<a name="ise-prerequisites"></a>
+
+For a Consumption workflow in an ISE, the ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
+
+> [!IMPORTANT]
+>
+> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
+> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
+> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
+> Logic Apps and provide the same capabilities plus more.
+>
+> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
+> before this date are supported through August 31, 2024. For more information, see the following resources:
+>
+> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
+> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
+> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
+> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
+
+1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).
+
+1. On your local computer, [download and install the latest SAP NCo client library](#sap-client-library-prerequisites). You should have the following assembly (.dll) files:
+
+   * **libicudecnumber.dll**
+   * **rscp4n.dll**
+   * **sapnco.dll**
+   * **sapnco_utils.dll**
+
+1. From the root folder, create a .zip file that includes these assembly files. Upload the package to your blob container in Azure Storage.
+
+   > [!NOTE]
+   >
+   > Don't use a subfolder inside the .zip file. Only assemblies in the archive's root folder 
+   > are deployed with the SAP connector in your ISE.
+   >
+   > If you use SNC, also include the SNC assemblies and binaries in the same .zip file at the root. 
+   > For more information, review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
+
+1. In either the Azure portal or Azure Storage Explorer, browse to the container location where you uploaded the .zip file.
+
+1. Copy the URL for the container location. Make sure to include the Shared Access Signature (SAS) token, so the SAS token is authorized. Otherwise, deployment for the SAP ISE connector fails.
+
+1. In your ISE, install and deploy the SAP connector. For more information, review [Add ISE connectors](add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
+
+   1. In the [Azure portal](https://portal.azure.com), find and open your ISE.
+
+   1. On the ISE menu, select **Managed connectors** &gt; **Add**. From the connectors list, find and select **SAP**.
+
+   1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL for the .zip file that has the SAP assemblies. Again, make sure to include the SAS token.
+
+   1. Select **Create** to finish creating your ISE connector.
+
+1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they're connected. Review the [SNC prerequisites for ISE](#snc-prerequisites-ise).
+
+1. Get the IP addresses for the SAP Application, Message, and Gateway servers that you plan to use for connecting from your workflow. Network name resolution isn't available for SAP connections in an ISE.
+
+1. Get the port numbers for the SAP Application, Message, and Gateway services that you plan to use for connecting from your workflow. Service name resolution isn't available for SAP connections in an ISE.
+
+---
 
 <a name="enable-secure-network-communications"></a>
 
@@ -656,6 +688,33 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
    If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message. To troubleshoot connection parameter issues, you can use an on-premises data gateway and the gateway's local logs.
 
 ---
+
+### Convert a binary PSE file into base64-encoded format
+
+1. Use a PowerShell script, for example:
+
+   ```powershell
+   Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
+   $base64String = [convert]::ToBase64String((Get-Content -path $psePath -Encoding byte))
+   if ($base64OutputPath -eq $null)
+   {
+       Write-Output $base64String
+   }
+   else
+   {
+       Set-Content -Path $base64OutputPath -Value $base64String
+       Write-Output "Output written to $base64OutputPath"
+   } 
+   ```
+
+1. Save the script as a **pseConvert.ps1** file, and then invoke the script, for example:
+
+   ```output
+   .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
+   Output written to connectionInput.txt 
+   ```
+
+   If you don't provide the output path parameter, the script's output to the console contains line breaks. Remove the line breaks in the base 64-encoded string for the connection input parameter.
 
 <a name="test-sending-idocs-from-sap"></a>
 
@@ -932,7 +991,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 1. Return to your workflow's **Overview** pane. Under **Run History**, find any new runs for your workflow.
 
 1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
-1. 
+
 ### [ISE](#tab/ise)
 
 See the steps for [SAP logging for Consumption logic apps in multi-tenant workflows](?tabs=multi-tenant#test-workflow-logging).
@@ -941,13 +1000,13 @@ See the steps for [SAP logging for Consumption logic apps in multi-tenant workfl
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
-With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP client library and traces from the Microsoft SAP Adapter to [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
+With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
 
 * Metrics and traces based on SAP NCo metrics and monitors.
 
 * Traces from Microsoft SAP Adapter.
 
-### Metrics and traces from SAP client library
+### Metrics and traces from SAP NCo client library
 
 *Metrics* are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
 
