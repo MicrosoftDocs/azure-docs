@@ -134,7 +134,7 @@ For more information on creation or updating a virtual machine to include the bo
 
 The Microsoft Azure Attestation extensions won't properly work when customers set up a network security group or proxy. An error that looks similar to (Microsoft.Azure.Security.WindowsAttestation.GuestAttestation provisioning failed.)
 
-:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot of an error screen that results from a failed GA Extension":::
+:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot of an error screen that results from a failed GA Extension.":::
 
 ### Solutions
 
@@ -145,9 +145,9 @@ To unblock traffic using an NSG with service tags, set allow rules for Microsoft
 1. Navigate to the **virtual machine** that you want to allow outbound traffic.
 1. Under "Networking" in the left-hand sidebar, select the **networking settings** tab.
 1. Then select **create port rule**, and **Add outbound port rule**.  
-    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="Screenshot of the add outbound port rule selection":::
+    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="Screenshot of the add outbound port rule selection.":::
 1. To allow Microsoft Azure Attestation, make the destination a **service tag**. This allows for the range of IP addresses to update and automatically set allow rules for Microsoft Azure Attestation. The destination service tag is **AzureAttestation** and action is set to **Allow**.
-    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot showing how to make the destination a service tag":::
+    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot showing how to make the destination a service tag.":::
 
 > [!NOTE]
 > Users can configure their source type, service, destination port ranges, protocol, priority, and name.
