@@ -100,7 +100,7 @@ You'll need to handle such cases at client side to make it transparent to your e
 For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery. If you have high availability requirements, please consider using client-server pattern, or sending a copy of messages to the server as well.
 
 Clients connected to one Web PubSub service are not yet able to communicate with clients connected to another Web PubSub service using client-client pattern. So when using client-client pattern, the general principles are:
-1. All the app server instances return the same Web PubSub endpoint to the client **negotiate** calls. You could have a source-of-truth storing, checking the health status, and managing these endpoints.
+1. All the app server instances return the same Web PubSub endpoint to the client **negotiate** calls. One way is to have a source-of-truth storing, checking the health status, and managing these endpoints, and returning one healthy endpoint in your primary regions.
 2. Make sure there is no active client connected to other endpoints. [Close All Connections](/rest/api/webpubsub/dataplane/web-pub-sub/close-all-connections) could be used to close all the connected clients.
 
 ## How to test a failover
