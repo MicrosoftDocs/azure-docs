@@ -1,31 +1,63 @@
 ---
-title: Asset details page in the Microsoft Purview Data Catalog
-description: View relevant information and take action on assets in the data catalog
+title: Asset management in the Microsoft Purview Data Catalog
+description: View relevant information and take action on assets in the Microsoft Purview Data Catalog.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 05/26/2023
 ---
-# Asset details page in the Microsoft Purview Data Catalog
+# Asset management in the Microsoft Purview Data Catalog
 
-This article discusses how assets are displayed in the Microsoft Purview Data Catalog, and all the features and details available to them. It describes how you can view relevant information or take  action on assets in your catalog.
+This article discusses how assets are displayed in the Microsoft Purview Data Catalog, and all the features and details available to them. It describes how you can view relevant information or take action on assets in your catalog.
 
 ## Prerequisites
 
 - Set up your data sources and scan the assets into your catalog.
 - *Or* Use the Microsoft Purview Atlas APIs to ingest assets into the catalog.
 
-## Open an asset details page
+## Discover assets
 
 You can discover your assets in the Microsoft Purview Data Catalog by either:
 - [Browsing the data catalog](how-to-browse-catalog.md)
 - [Searching the data catalog](how-to-search-catalog.md)
 
-Once you find the asset you're looking for, you can view all of the asset information or take action on them as described in following sections.
+Once you've discovered an asset, select it to view the asset details page, which contains all the asset details, and more actions you can take.
 
-## Asset details tabs explained
+## Editing assets
+
+To edit an asset, other than adding a rating, you will need the [data curator](catalog-permissions.md) role on the collection where the asset is housed.
+
+To edit assets you can either:
+
+- Select multiple assets in the catalog to [bulk edit assets](how-to-bulk-edit-assets.md)
+- Select a single asset and select the **Edit** button at the top of the [asset details page](#asset-details-page)
+
+#### Scan behavior after editing assets
+
+ Microsoft Purview works to reflect the truth of the source system whenever possible. For example, if you edit a column and later it's deleted from the source table. A scan will remove the column metadata from the asset in Microsoft Purview.
+
+Both column-level and asset-level updates such as adding a description, glossary term or classification don't impact scan updates. Scans will update new columns and classifications regardless if these changes are made.
+
+If you update the **name** or **data type** of a column, subsequent scans **won't** update the asset schema. New columns and classifications **won't** be detected.
+
+## Delete asset
+
+If you're a data curator on the collection containing an asset, you can delete an asset by selecting the delete icon under the name of the asset.
+
+> [!IMPORTANT]
+> You cannot delete an asset that has child assets.
+> 
+> Currently, Microsoft Purview doesn't support cascaded deletes. For example, if you attempt to delete a storage account asset in your catalog the containers, folders and files within them will still exist in the data map and the the storage account asset will still exist in relation to them.
+
+Any asset you delete using the delete button is permanently deleted in Microsoft Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Microsoft Purview Data Catalog.
+
+If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset won't get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan. For example, say you manually delete a SQL table from the Microsoft Purview Data Map. Later, a data engineer adds a new column to the source table. When Microsoft Purview scans the database, the table will be reingested into the data map and be discoverable in the data catalog.
+
+## Asset details page
+
+At the top of the asset details page there are several tabs:
 
 :::image type="content" source="media/catalog-asset-details/asset-tabs.png" alt-text="Asset details tabs":::
 
@@ -99,24 +131,6 @@ Below are a list of actions you can take from an asset details page. Actions ava
 
 :::image type="content" source="media/catalog-asset-details/asset-details-actions.png" alt-text="Screenshot that shows actions available on the asset details page.":::
 
-### Editing assets
-
-If you're a data curator on the collection containing an asset, you can edit an asset by selecting the edit icon on the top-left corner of the asset.
-
-At the asset level you can edit or add a description, classification, or glossary term by staying on the overview tab of the edit screen.
-
-You can navigate to the schema tab on the edit screen to update column name, data type, column level classification, terms, or asset description.
-
-You can navigate to the contact tab of the edit screen to update owners and experts on the asset. You can search by full name, email or alias of the person within your Azure active directory.
-
-#### Scan behavior after editing assets
-
- Microsoft Purview works to reflect the truth of the source system whenever possible. For example, if you edit a column and later it's deleted from the source table. A scan will remove the column metadata from the asset in Microsoft Purview.
-
-Both column-level and asset-level updates such as adding a description, glossary term or classification don't impact scan updates. Scans will update new columns and classifications regardless if these changes are made.
-
-If you update the **name** or **data type** of a column, subsequent scans **won't** update the asset schema. New columns and classifications **won't** be detected.
-
 ### Request access to data
 
 If a [self-service data access workflow](how-to-workflow-self-service-data-access-hybrid.md) has been created, you can request access to a desired asset directly from the asset details page! To learn more about Microsoft Purview's data policy applications, see [how to enable data use management](how-to-enable-data-use-management.md).
@@ -137,19 +151,6 @@ Microsoft Purview makes it easy to work with useful data you find the data catal
 - Oracle DB
 - SQL Server
 - Teradata
-
-### Deleting assets
-
-If you're a data curator on the collection containing an asset, you can delete an asset by selecting the delete icon under the name of the asset.
-
-> [!IMPORTANT]
-> You cannot delete an asset that has child assets.
-> 
-> Currently, Microsoft Purview doesn't support cascaded deletes. For example, if you attempt to delete a storage account asset in your catalog the containers, folders and files within them will still exist in the data map and the the storage account asset will still exist in relation to them.
-
-Any asset you delete using the delete button is permanently deleted in Microsoft Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Microsoft Purview catalog.
-
-If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset won't get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan. For example, say you manually delete a SQL table from the Microsoft Purview Data Map. Later, a data engineer adds a new column to the source table. When Microsoft Purview scans the database, the table will be reingested into the data map and be discoverable in the data catalog.
 
 ## Ratings
 
@@ -176,7 +177,7 @@ These ratings can be seen by all users with read access, and rating can be [adde
 1. Choose a star rating, add a comment, and select **Submit**.
     :::image type="content" source="media/catalog-asset-details/rate-asset.png" alt-text="Screenshot of a rating, showing five start selected and a comment about the quality of the data.":::
 
-## Edit or delete your rating
+### Edit or delete your rating
 
 1. Select the ratings button in the asset's header.
 1. Select the **Open ratings** button.
@@ -215,7 +216,14 @@ If you have [data curator](catalog-permissions.md) permissions Microsoft Purview
     :::image type="content" source="media/catalog-asset-details/remove-tag.png" alt-text="Screenshot that shows the remove tag button highlighted next to an existing page.":::
 1. Confirm the removal of the tag.
 
+## Duplicate assets
+
+If you notice duplicate assets in your Microsoft Purview Data Catalog, review the [asset normalization](concept-asset-normalization.md) documentation. Microsoft Purview normalizes assets to prevent duplication, but not all possible scenarios are covered.
+
+Compare the fully qualified asset names for duplicate assets, and update ingestion points to resolve capitalization or character differences. Then, [delete the duplicated asset](#delete-asset) in your catalog.
+
 ## Next steps
 
 - [Browse the Microsoft Purview Data Catalog](how-to-browse-catalog.md)
 - [Search the Microsoft Purview Data Catalog](how-to-search-catalog.md)
+- [Asset normalization](concept-asset-normalization.md)
