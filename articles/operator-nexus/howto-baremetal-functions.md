@@ -5,7 +5,7 @@ author: harish6724
 ms.author: harishrao
 ms.service: azure-operator-nexus 
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 05/26/2023
 ms.custom: template-how-to
 ---
 
@@ -15,9 +15,10 @@ This article describes how to perform lifecycle management operations on Bare Me
 
 - Power off the BMM
 - Start the BMM
+- Restart the BMM
 - Make the BMM unschedulable or schedulable
-- Reinstall the BMM image
-- Replace BMM
+- Reimage the BMM 
+- Replace the BMM
 
 ## Prerequisites
 
@@ -31,8 +32,9 @@ This article describes how to perform lifecycle management operations on Bare Me
 This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
-  az networkcloud baremetalmachine power-off --name "bareMetalMachineName"  \
-        --resource-group "resourceGroupName"
+  az networkcloud baremetalmachine power-off \
+    --name "bareMetalMachineName"  \
+    --resource-group "resourceGroupName"
 ```
 
 ## Start the BMM
@@ -40,7 +42,18 @@ This command will `power-off` the specified `bareMetalMachineName`.
 This command will `start` the specified `bareMetalMachineName`.
 
 ```azurecli
- az networkcloud baremetalmachine start --name "bareMetalMachineName" \
+ az networkcloud baremetalmachine start \
+   --name "bareMetalMachineName" \
+   --resource-group "resourceGroupName"
+```
+
+## Restart the BMM
+
+This command will `restart` the specified `bareMetalMachineName`.
+
+```azurecli
+ az networkcloud baremetalmachine restart \
+    --name "bareMetalMachineName" \
     --resource-group "resourceGroupName"
 ```
 
@@ -74,14 +87,15 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
     --resource-group "resourceGroupName"
 ```
 
-## Reimage a BMM (reinstall a BMM image)
+## Reimage a BMM
 
-An existing BMM image is **reinstalled** using the `reimage` command. This command doesn't install a new image.
-Make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
+You can restore the runtime version image on a BMM by executing `reimage` command. This command **reinstalls** the runtime bundle on the OS partition, however it does not impact the tenant workload files on this BMM.
+As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, prior to executing the `reimage` command.
 
 ```azurecli
-az networkcloud baremetalmachine reimage –-name "bareMetalMachineName"  \
+az networkcloud baremetalmachine reimage \
+  –-name "bareMetalMachineName"  \
   --resource-group "resourceGroupName"
 ```
 
@@ -89,11 +103,15 @@ The reimage command restarts the BMM and uncordons it. The re-imaged BMM will ha
 
 ## Replace BMM
 
-Use `Replace BMM` command whenever a BareMetal machine has encountered hardware issues requiring a complete or partial hardware replacement. After replace the MAC address of Baremetal Host will change, however the IDrac IP address and hostname will remain the same.
+Use `Replace BMM` command when a server has encountered hardware issues requiring a complete or partial hardware replacement. After replacement of components such as motherboard or NIC replacement, the MAC address of BMM will change, however the IDrac IP address and hostname will remain the same.
 
 ```azurecli
-az networkcloud baremetalmachine replace --name "bareMetalMachineName" \
-    --bmc-credentials password="{password}" username="bmcuser" --bmc-mac-address "00:00:4f:00:57:ad" \
-    --boot-mac-address "00:00:4e:00:58:af" --machine-name "name" --serial-number "BM1219XXX" \
-    --resource-group "resourceGroupName" 
+az networkcloud baremetalmachine replace \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --bmc-credentials password="{password}" username="{user}" \
+  --bmc-mac-address "00:00:4f:00:57:ad" \
+  --boot-mac-address "00:00:4e:00:58:af" \
+  --machine-name "name" \
+  --serial-number "BM1219XXX"
 ```
