@@ -118,7 +118,7 @@ additionalContent:
           - url: ../databox-online/azure-stack-edge-overview.md
             text: Locally process data before transfer to Azure (Azure Stack Edge)
           - url: ../databox-online/index.yml
-            text: See more >
+            text: All Data Box Online documentation >
         # Card
         - title: Caching for high-performance computing (HPC) workloads
           links:
