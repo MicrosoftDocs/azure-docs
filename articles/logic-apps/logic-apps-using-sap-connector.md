@@ -253,6 +253,8 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 
 #### Upload assemblies to Azure portal
 
+1. [Download the latest SAP client library](#sap-client-library-prerequisites).
+
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app menu, under **Workflows**, select **Assemblies**.
@@ -390,6 +392,8 @@ The following list describes the prerequisites for the SAP client library that y
     Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
 
   * For a Consumption workflow in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
+
+  * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to location where you're building your workflow, either in the Azure portal or locally in Visual Studio Code.
 
 The following relationships exist between the SAP client library, the .NET Framework, the .NET runtime, and the data gateway:
 

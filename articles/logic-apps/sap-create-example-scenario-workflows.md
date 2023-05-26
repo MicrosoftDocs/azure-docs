@@ -105,11 +105,20 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
+> [!NOTE]
+>
+> The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a SOAP-based, 
+> webhook trigger like the SAP managed trigger. So, the trigger doesn't include options to specify 
+> a polling schedule. The trigger is called only when a message arrives, so no polling is necessary. 
+>
+> To send a response following the SAP built-in trigger, make sure to add the 
+> [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server.-(preview)) 
+> to your workflow, rather than use the **Response** action, which applies only to workflows that start with the **Request** 
+> trigger named **When a HTTP request is received** and follow the Request-Response pattern.
+
 1. In Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
 
 1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
-
-   The preview SAP built-in trigger, **Register SAP RFC server for trigger**, is an Azure Functions-based trigger, not a polling trigger, and doesn't include options to specify a polling schedule. The trigger is called only when a message arrives, so no polling is necessary.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
@@ -157,15 +166,23 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-messages-sap).
 
-1. To immediately reply to your SAP server with the SAP request status, [add a Response action to your workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
+1. To immediately reply to your SAP server with the SAP request status, add the following response action, based on whether you use an SAP managed trigger or SAP built-in trigger:
 
-   As a best practice, add this Response action immediately after the trigger to free up the communication channel with your SAP server. In the Response action, use one of the following status codes (`statusCode`):
+   - SAP managed trigger: For this trigger, [add a Response action to your workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
 
-   | Status code | Description |
-   |-------------|-------------|
-   | **202 Accepted** | The request was accepted for processing, but processing isn't complete yet. |
-   | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
-   | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
+     In the Response action, use one of the following status codes (`statusCode`):
+
+     | Status code | Description |
+     |-------------|-------------|
+     | **202 Accepted** | The request was accepted for processing, but processing isn't complete yet. |
+     | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
+     | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
+
+   - SAP built-in trigger: For this trigger, add the [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server.-(preview)) to your workflow.
+
+   > [!NOTE]
+   >
+   > As a best practice, add the response action immediately after the trigger to free up the communication channel with your SAP server.
 
 1. Get the root namespace from the XML IDoc that your workflow receives from SAP.
 
@@ -238,67 +255,6 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 If you use the SAP managed connector or ISE-versioned SAP connector, under the trigger in your workflow, set up a way to explicitly filter out any unwanted actions from your SAP server, based on the root node namespace in the received XML payload. You can provide a list (array) with a single or multiple SAP actions. By default, this array is empty, which means that your workflow receives all the messages from your SAP server without filtering. When you set up the array filter, the trigger receives messages only from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong. Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to test sending IDocs to Azure Logic Apps from SAP](logic-apps-using-sap-connector.md#test-sending-idocs-from-sap).
 
-If you can't send IDoc packets from SAP to your trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
-
-### The RequestContext on the IReplyChannel was closed without a reply being sent
-
-This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
-
-To acknowledge that your workflow received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a **200 OK** status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
-
-To reject the IDoc instead, respond with any HTTP status code other than **200 OK**. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
-
-If you're receiving this error message and experience systemic failures calling Azure Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, review [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
-
-If you're receiving this error message and experience intermittent failures calling Azure Logic Apps, you might need to increase your retry count or also retry interval.
-
-1. Check the SAP settings in your on-premises data gateway service configuration file named **Microsoft.PowerBI.EnterpriseGateway.exe.config**.
-
-   1. Under the `configuration` root node, add a `configSections` element, if none exist.
-
-   1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
-
-      > [!IMPORTANT]
-      >
-      > Don't change the attributes in existing `section` elements, if such elements already exist.
-
-      Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:
-
-      ```xml
-      <configSections>
-        <section name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"/>
-      </configSections>
-      ```
-
-   1. Under the `configuration` root node, add an `SapAdapterSection` element, if none exists.
-
-   1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exist: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
-
-      > [!IMPORTANT]
-      > Change the attributes for the `Broker` element, even if the element already exists.
-
-      The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
-
-      ```xml
-      <SapAdapterSection>
-        <Broker WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2" />
-      </SapAdapterSection>
-      ```
-
-      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
-
-   > [!NOTE]
-   > For more information about the configuration file,
-   > review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
-
-1. Save your changes. Restart your on-premises data gateway.
-
-### The segment or group definition E2EDK36001 was not found in the IDoc meta
-
-This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments aren't released by SAP. As a result, the segment type metadata required for conversion is missing.
-
-To have these segments released by SAP, contact the ABAP engineer for your SAP system.
-
 ## Set up asynchronous request-reply pattern for triggers
 
 The SAP managed connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Azure Logic Apps triggers. You can use this pattern to create successful requests that would otherwise fail with the default synchronous request-reply pattern.
@@ -332,7 +288,7 @@ To create a logic app workflow that sends an IDoc to an SAP server and returns a
 
 1. [Create a logic app workflow that's triggered by an HTTP request.](#add-request-trigger)
 1. [Add an SAP action to your workflow for sending an IDoc to SAP.](#add-sap-action-send-idoc)
-1. [Add a Response action to your workflow.](#add-response-action)
+1. [Add a response action to your workflow.](#add-response-action)
 1. [Create a remote function call (RFC) request-response pattern, if you're using an RFC to receive replies from SAP ABAP.](#create-rfc-request-response-pattern)
 1. [Test your workflow.](#test-workflow)
 
@@ -380,7 +336,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### Add an SAP action to send an IDoc
 
-Next, create an action to send your IDoc to SAP when the workflow's Request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Next, create an action to send your IDoc to SAP when the workflow's request trigger fires. Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -634,9 +590,9 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 <a name="add-response-action"></a>
 
-### Add a Response action
+### Add a response action
 
-Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, add the [Request built-in action named **Response**](../connectors/connectors-native-reqres.md#add-response) to your workflow and include the output from the SAP action.
+Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, follow these steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -657,6 +613,12 @@ Now, set up your workflow to return the results from your SAP server to the orig
 1. In the workflow designer, under the SAP action, select the plus sign (**+**) > **Add an action**.
 
 1. In the designer, [follow these general steps to find and add the Request built-in action named **Response**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+   > [!NOTE]
+   >
+   > If you use the SAP built-in trigger, which is an Azure Functions-based trigger, not a webhook trigger, add the 
+   > [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server.-(preview)) 
+   > to your workflow and include the output from the SAP action.
 
 1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list appears.
 
@@ -1009,6 +971,76 @@ You might get a similar error when SAP Application server or Message server name
 10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
 10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
 ```
+
+<a name="errors-sending-idoc-packets"></a>
+
+## Errors sending IDoc packets from SAP to your trigger
+
+If you can't send IDoc packets from SAP to your trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
+
+### The segment or group definition E2EDK36001 was not found in the IDoc meta
+
+This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments aren't released by SAP. As a result, the segment type metadata required for conversion is missing.
+
+To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+
+### The RequestContext on the IReplyChannel was closed without a reply being sent
+
+For SAP managed connector and ISE-versioned SAP connector, this error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
+
+> [!NOTE]
+>
+> The SAP managed trigger and ISE-versioned SAP triggers are webhooks that use the SOAP-based SAP adapter. However, the SAP built-in trigger is an Azure Functions-based trigger that doesn't use a SOAP SAP adapter and doesn't get this error message.
+
+- To acknowledge that your workflow received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a **200 OK** status code. Leave the body empty and don't change or add to the headers. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+
+- To reject the IDoc instead, respond with any HTTP status code other than **200 OK**. The SAP Adapter then returns an exception back to SAP on your behalf. You should only reject the IDoc to signal transport errors back to SAP, such as a misrouted IDoc that your application can't process. You shouldn't reject an IDoc for application-level errors, such as issues with the data contained in the IDoc. If you delay transport acceptance for application-level validation, you might experience negative performance due to blocking your connection from transporting other IDocs.
+
+- If you receive this error message and experience systemic failures calling Azure Logic Apps, check that you've configured the network settings for your on-premises data gateway service for your specific environment. For example, if your network environment requires the use of a proxy to call Azure endpoints, you need to configure your on-premises data gateway service to use your proxy. For more information, review [Proxy Configuration](/dotnet/framework/network-programming/proxy-configuration).
+
+- If you receive this error message and experience intermittent failures calling Azure Logic Apps, you might need to increase your retry count or also retry interval by following these steps:
+
+  1. Check the SAP settings in your on-premises data gateway service configuration file named **Microsoft.PowerBI.EnterpriseGateway.exe.config**.
+
+     1. Under the `configuration` root node, add a `configSections` element, if none exist.
+
+     1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
+
+        > [!IMPORTANT]
+        >
+        > Don't change the attributes in existing `section` elements, if such elements already exist.
+
+        Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:
+
+        ```xml
+        <configSections>
+          <section name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"/>
+        </configSections>
+        ```
+
+     1. Under the `configuration` root node, add an `SapAdapterSection` element, if none exists.
+
+     1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exist: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
+
+        > [!IMPORTANT]
+        > Change the attributes for the `Broker` element, even if the element already exists.
+
+        The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
+
+        ```xml
+        <SapAdapterSection>
+          <Broker WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2" />
+        </SapAdapterSection>
+        ```
+
+        The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
+
+     > [!NOTE]
+     > For more information about the configuration file, review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
+
+  1. Save your changes.
+
+  1. If you're using the on-premises data gateway, restart your gateway.
 
 ## Next steps
 
