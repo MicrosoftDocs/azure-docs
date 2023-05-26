@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 05/26/2023
 ms.author: godonnell
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -77,12 +77,24 @@ For details about restoring a user within the first 30 days after deletion, or f
 ## Export consumer users
 
 1. In your Azure AD B2C directory, search for **Azure Active Directory**. 
-2. Select **Users**, and then select **Bulk Operations** and **Download Users**.
-3. Select **Start**, and then select **File is ready! Click here to download**.
+1. Select **Users**, and then select **Bulk Operations** and **Download Users**.
+1. Select **Start**, and then select **File is ready! Click here to download**.
  
-
 When downloading users via Bulk Operations option, the CSV file will bring users with their UPN attribute with the format *objectID@B2CDomain*. This is by design since that's the way the UPN information is stored in the B2C tenant.
 
+## Revoke user session
+
+Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using Microsoft Graph PowerShell or [Microsoft Graph API](/graph/api/user-revokesigninsessions). If you choose to use Microsoft Graph PowerShell, use the following steps: 
+
+1. If you haven't done so, install [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation#installation) module.
+1. In your Windows PowerShell, run the following command, then respond to the prompts. This command allows you to sign in with the required scopes. You need to sign in with your Azure AD B2C admin account to consent to the required scopes:
+    ```powershell
+    Connect-MgGraph  -Scopes "User.ReadWrite.All"
+    ```
+1. After you successfully sign in, run the following command in your Windows PowerShell. Replace `$userId` with the consumer user's *objectId* or *UPN*. 
+    ```powershell
+    Revoke-MgUserSign -UserId $userId
+    ```
 
 ## Next steps
 
