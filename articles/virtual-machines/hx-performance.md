@@ -22,12 +22,12 @@ Performance expectations using common HPC microbenchmarks are as follows:
 |-------------------------------------------------|-------------------------------------------------------------------|
 | STREAM Triad                                    | 750-780GB/s                                                       |
 | High-Performance Linpack (HPL)                  | Up to 7.6 TF (Rpeak, FP64) for 144-core VM size                   |
-| RDMA latency & bandwidth                        | < 2 microseconds (1 byte), 400 GB/s (one-way)                     |
+| RDMA latency & bandwidth                        | < 2 microseconds (1 byte), 400 Gb/s (one-way)                     |
 | FIO on local NVMe SSDs (RAID0)                  | 12 GB/s reads, 7 GB/s writes; 186k IOPS reads, 201k IOPS writes |
 
-## Stream memory test 
+## Memory bandwidth test
 
-The stream memory test can be run using the scripts in this GitHub repository. 
+The STREAM memory test can be run using the scripts in this GitHub repository. 
 ```bash
 git clone https://github.com/Azure/woc-benchmarking 
 cd woc-benchmarking/apps/hpc/stream/ 
@@ -35,9 +35,9 @@ sh build_stream.sh
 sh stream_run_script.sh $PWD “hbrs_v4” 
 ```
  
-## The HPL test 
+## Compute performance test 
 
-The high performance linpack(HPL) benchmark can be run using the script in this GitHub repository. 
+The HPL benchmark can be run using the script in this GitHub repository. 
 ```bash
 git clone https://github.com/Azure/woc-benchmarking 
 cd woc-benchmarking/apps/hpc/hpl 
@@ -69,6 +69,8 @@ The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftes
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
+[!NOTE]
+NUMA node affinity for InfiniBand NIC is NUMA0.
 
 ## Next steps
 - Learn about [scaling MPI applications](./workloads/hpc/compiling-scaling-applications.md).
