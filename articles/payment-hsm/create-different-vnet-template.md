@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Payment HSM with host and management port with IP addresses in different virtual networks using ARM template	
-description: Create an Azure Payment HSM with host and management port with IP addresses in different virtual networks using ARM template	
+title: Create an Azure Payment HSM with host and management port in different VNets using ARM template
+description: Create an Azure Payment HSM with host and management port in different VNets using ARM template
 services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 05/25/2023
 ---
 
-# Create a payment HSM with host and management port with IP addresses in different virtual networks using ARM template
+# Create a payment HSM with host and management port in different virtual networks using ARM template
 
 [!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
-This tutorial describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM with host and management port with IP addresses in different virtual networks. You can instead:
-
+This tutorial describes how to create a payment HSM with static host and management subnets in same virtual network, using an ARM template.  You can instead:
 - [Create a payment HSM with the host and management port in the same virtual network using Azure CLI or PowerShell](create-payment-hsm.md)
 - [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
 - [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet.md)
-- [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
+
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -57,10 +56,16 @@ The template used in this quickstart is azuredeploy.json:
   "contentVersion": "1.0.0.0",
   "parameters": {
     "resourceName": {
-      "type": "string",
+      "type": "String",
       "metadata": {
         "description": "Azure Payment HSM resource name"
       }
+    },
+    "host1PrivateIPAddress": {
+      "type": "string"
+    },
+    "host2PrivateIPAddress": {
+      "type": "string"
     },
     "stampId": {
       "type": "string",
@@ -89,7 +94,7 @@ The template used in this quickstart is azuredeploy.json:
       }
     },
     "hsmSubnetName": {
-      "type": "string",
+      "type": "String",
       "metadata": {
         "description": "Host port subnet name"
       }
@@ -99,9 +104,6 @@ The template used in this quickstart is azuredeploy.json:
       "metadata": {
         "description": "Host port subnet prefix"
       }
-    },
-    "hostPrivateIpAddress": {
-      "type": "string"
     },
     "managementVnetName": {
       "type": "string",
@@ -116,7 +118,7 @@ The template used in this quickstart is azuredeploy.json:
       }
     },
     "managementHsmSubnetName": {
-      "type": "string",
+      "type": "String",
       "metadata": {
         "description": "Management port subnet name"
       }
@@ -126,9 +128,6 @@ The template used in this quickstart is azuredeploy.json:
       "metadata": {
         "description": "Management port subnet prefix"
       }
-    },
-    "managementPrivateIpAddress": {
-      "type": "string"
     }
   },
   "variables": {},
@@ -148,21 +147,21 @@ The template used in this quickstart is azuredeploy.json:
       "properties": {
         "networkProfile": {
           "subnet": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('hsmSubnetName'))]"
+              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('hsmSubnetName'))]"
           },
-          "NetworkInterfaces": [{
-              "privateIpaddress": "[parameters('hostPrivateIpAddress')]"
-            }
+          "NetworkInterfaces": [
+              {
+                "privateIpAddress": "[parameters('host1PrivateIPAddress')]"
+              },
+              {
+                "privateIpAddress": "[parameters('host2PrivateIPAddress')]"
+              }
           ]
-        },
+        },  
         "managementNetworkProfile": {
           "subnet": {
             "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('managementVnetName'), parameters('managementHsmSubnetName'))]"
-          },
-          "NetworkInterfaces": [{
-              "privateIpaddress": "[parameters('managementPrivateIpAddress')]"
-            }
-          ]
+          }
         },
         "stampId": "[parameters('stampId')]"
       }
@@ -301,7 +300,7 @@ The corresponding azuredeploy.parameters.json file is:
   "contentVersion": "1.0.0.0",
   "parameters": {
     "resourceName": {
-      "value": "myhsm1"
+      "value": "myPHSM"
     },
     "stampId": {
       "value": "stamp1"
@@ -310,34 +309,34 @@ The corresponding azuredeploy.parameters.json file is:
       "value": "payShield10K_LMK1_CPS60"
     },
     "vnetName": {
-      "value": "hsmHostVnet"
+      "value": "myVNet"
     },
     "vnetAddressPrefix": {
       "value": "10.0.0.0/16"
     },
     "hsmSubnetName": {
-      "value": "hostSubnet"
+      "value": "mySubnet"
     },
     "hsmSubnetPrefix": {
       "value": "10.0.0.0/24"
-    },    
-    "hostPrivateIpAddress": {
+    },
+    "host1PrivateIPAddress": {
       "value": "10.0.0.5"
     },
+    "host2PrivateIPAddress": {
+      "value": "10.0.0.6"
+    },
     "managementVnetName": {
-      "value": "hsmMgmtVNet"
+      "value": "MGMTVNet"
     },
     "managementVnetAddressPrefix": {
       "value": "10.1.0.0/16"
     },
     "managementHsmSubnetName": {
-      "value": "mgmtSubnet"
+      "value": "MGMTSubnet"
     },
     "managementHsmSubnetPrefix": {
       "value": "10.1.0.0/24"
-    },    
-    "managementPrivateIpAddress": {
-      "value": "10.1.0.6"
     }
   }
 }
@@ -371,12 +370,10 @@ When prompted, supply the following values for the parameters:
 - **vnetAddressPrefix**: 10.0.0.0/16
 - **hsmSubnetName**: mySubnet
 - **hsmSubnetPrefix**: 10.0.0.0/24
-- **hostPrivateIpAddress**: 10.0.0.5
 - **managementVnetName**: MGMTVNet
 - **managementVnetAddressPrefix**: 10.1.0.0/16
 - **managementHsmSubnetName**: MGMTSubnet
 - **managementHsmSubnetPrefix**: 10.1.0.0/24
-- **managementPrivateIpAddress**: 10.1.0.6
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -404,19 +401,17 @@ $stampId = "stamp1"
 $hostVnetName = "myVNet" 
 $hostVnetAddressPrefix = "10.0.0.0/16" 
 $hostSubnetName = "mySubnet" 
-$hostSubnetPrefix = "10.0.0.0/24"
-$hostPrivateIpAddress = "10.0.0.5" 
+$hostSubnetPrefix = "10.0.0.0/24" 
 $mgmtVnetName = "MGMTVNet" 
 $mgmtVnetAddressPrefix = "10.1.0.0/16" 
 $mgmtSubnetName = "MGMTSubnet" 
-$mgmtSubnetPrefix = "10.1.0.0/24"
-$mgmtPrivateIpAddress = "10.1.0.6"  
+$mgmtSubnetPrefix = "10.1.0.0/24" 
 ```
 
 Finally, use the Azure PowerShell [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet to deploy your ARM template.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $templateParametersPath -resourceName $resourceName -skuName $skuName -stampId $stampId -vnetName $hostVnetName -vnetAddressPrefix $hostVnetAddressPrefix -hsmSubnetName $hostSubnetName -hsmSubnetPrefix $hostSubnetPrefix -hostPrivateIpAddress $hostPrivateIpAddress -managementVnetName $mgmtVnetName -managementVnetAddressPrefix $mgmtVnetAddressPrefix -managementHsmSubnetName $mgmtSubnetName -managementHsmSubnetPrefix $mgmtSubnetPrefix -managementPrivateIpAddress $mgmtPrivateIpAddress
+New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $templateParametersPath -resourceName $resourceName -skuName $skuName -stampId $stampId -vnetName $hostVnetName -vnetAddressPrefix $hostVnetAddressPrefix -hsmSubnetName $hostSubnetName -hsmSubnetPrefix $hostSubnetPrefix -managementVnetName $mgmtVnetName -managementVnetAddressPrefix $mgmtVnetAddressPrefix -managementHsmSubnetName $mgmtSubnetName  -managementHsmSubnetPrefix $mgmtSubnetPrefix
 ```
 
 ---
