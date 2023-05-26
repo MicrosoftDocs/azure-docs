@@ -396,7 +396,7 @@
     items:
     - name: Manage users via Azure portal
       href: manage-users-portal.md
-      displayName: create users, add users, delete users
+      displayName: create users, add users, delete users, revoke sessions
     - name: Migrate users
       href: user-migration.md
       displayName: bulk import

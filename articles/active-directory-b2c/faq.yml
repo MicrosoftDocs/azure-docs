@@ -299,6 +299,6 @@ sections:
           See [File support requests for Azure Active Directory B2C](find-help-open-support-ticket.md).
 
       - question: |
-          In Azure AD B2C, I revoke all sessions of a user by using the Azure portals **Revoke sessions** button, but it doesn't work?
+          In Azure AD B2C, I revoke all sessions of a user by using the Azure portals Revoke sessions button, but it doesn't work?
         answer: |
           Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using [Microsoft Graph PowerShell](manage-users-portal.md#revoke-a-consumer-users-session) or [Microsoft Graph API](/graph/api/user-revokesigninsessions).
