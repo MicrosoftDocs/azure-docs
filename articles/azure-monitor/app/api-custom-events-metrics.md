@@ -428,7 +428,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call `
 
 * **ASP.NET**: [Write code to catch exceptions](./asp-net-exceptions.md).
 * **Java EE**: [Exceptions are caught automatically](./opentelemetry-enable.md?tabs=java).
-* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
+* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the SDK Loader Script that you insert in your webpages:
 
 ```javascript
 ({
