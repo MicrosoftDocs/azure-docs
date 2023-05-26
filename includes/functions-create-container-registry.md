@@ -73,32 +73,32 @@ You should be all set.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder: 
  
-    ::: zone-end  
-    ::: zone pivot="programming-language-csharp"  
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
     ```console
     func init --worker-runtime dotnet-isolated --docker
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript"  
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
     ```console
     func init --worker-runtime node --language javascript --docker
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-powershell"  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
     ```console
     func init --worker-runtime powershell --docker
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
+::: zone-end  
+::: zone pivot="programming-language-python"  
     ```console
     func init --worker-runtime python --docker
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
     ```console
     func init --worker-runtime node --language typescript --docker
     ```
-    ::: zone-end
+::: zone-end
 ::: zone pivot="programming-language-java"  
 1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
 
@@ -137,13 +137,12 @@ You should be all set.
     Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
   ::: zone-end
 
-    <!---
-    :: zone pivot="programming-language-other"  
+<!---
+::: zone pivot="programming-language-other"  
     ```console
     func init --worker-runtime custom --docker
     ```
-    ::: zone-end                                                                                                                                                                                                    
-    -->
+::: zone-end -->                                                                                                                                                                                               
     The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
@@ -159,7 +158,7 @@ You should be all set.
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
     ```
-    ::: zone-end
+::: zone-end
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 2. Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
@@ -250,28 +249,28 @@ You should be all set.
       "enableForwardingHttpRequest": true
     }
     ```
-    ::: zone-end
+::: zone-end
     -->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 3. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
     
-    ::: zone-end
-    ::: zone pivot="programming-language-csharp"  
+::: zone-end
+::: zone pivot="programming-language-csharp"  
     ```console
     func start  
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
     ```console
     func start  
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
     ```console
     npm install
     npm start
     ```
-    ::: zone-end  
+::: zone-end  
 ::: zone pivot="programming-language-java"  
 1. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 
@@ -279,16 +278,15 @@ You should be all set.
     mvn clean package  
     mvn azure-functions:run
     ```
-    ::: zone-end
+::: zone-end
 
-    <!---
-    ::: zone pivot="programming-language-other"
+<!---
+::: zone pivot="programming-language-other"
     ```console
     R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
     func start
     ```
-    ::: zone-end
-    -->
+::: zone-end  -->
 ::: zone pivot="programming-language-csharp"  
 4. After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
 ::: zone-end  
@@ -347,7 +345,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
 
-After verifying the function app in the container, press **Ctrl**+**C** to stop the docker.
+After verifying the function app in the container, press **Ctrl**+**C** (**Command**+**C** on MacOS) to stop execution.
 
 ## Publish the container image to a registry 
 
