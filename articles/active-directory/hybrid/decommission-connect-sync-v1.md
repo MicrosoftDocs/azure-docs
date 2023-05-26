@@ -29,7 +29,7 @@ If you are still using Azure AD Connect V1 you must take action immediately.
 >Azure AD Connect V1 will stop working on October 1st 2023.  You need to migrate to cloud sync or connect sync V2.
 
 ##  Migrate to cloud sync
-Before moving to Azure AD Connect V2, you should see if cloud sync is right for you instead.  Cloud sync uses a light-weight provisioning agent and is fully configurable through the portal. To choose the best sync tool for your situation, use the [Wizard to evaluate sync options.](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
+Before moving to Azure AD Connect V2, you should see if cloud sync is right for you instead.  Cloud sync uses a light-weight provisioning agent and is fully configurable through the portal. To choose the best sync tool for your situation, use the [Wizard to evaluate sync options.](https://aka.ms/EvaluateSyncOptions)
 
 Based on your environment and needs, you may qualify for moving to cloud sync.  For a comparison of cloud sync and connect sync, see [Comparison between cloud sync and connect sync](cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync). To learn more, read [What is cloud sync?](cloud-sync/what-is-cloud-sync.md) and [What is the provisioning agent?](cloud-sync/what-is-provisioning-agent.md)
 
