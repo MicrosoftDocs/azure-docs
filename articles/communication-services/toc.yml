@@ -223,6 +223,14 @@ items:
         items:             
           - name: Overview
             href: tutorials/virtual-visits/extend-teams/overview.md
+          - name: Scheduling
+            href: tutorials/virtual-visits/extend-teams/schedule.md
+          - name: Before and after appointment
+            href: tutorials/virtual-visits/extend-teams/before-and-after-appointment.md
+          - name: Precall
+            href: tutorials/virtual-visits/extend-teams/precall.md
+          - name: Call
+            href: tutorials/virtual-visits/extend-teams/call.md  
     - name: Call management
       items:
       - name: Manage calls
@@ -250,7 +258,9 @@ items:
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
       - name: Enable Closed captions for Teams Interoperability
-        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
+      - name: Get local capabilities
+        href: how-tos/calling-sdk/capabilities.md
     - name: Call recording
       items:
       - name: Record a call
@@ -631,6 +641,8 @@ items:
         href: concepts/analytics/call-logs-azure-monitor.md
       - name: Recording logs
         href: concepts/analytics/recording-logs.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Rooms logs
         href: concepts/analytics/logs/rooms-logs.md
       - name: Metrics overview
