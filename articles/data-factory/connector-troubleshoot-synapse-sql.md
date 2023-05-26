@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 10/18/2022
+ms.date: 05/19/2023
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
@@ -47,6 +47,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     | If the error message contains the string "PdwManagedToNativeInteropException", it's usually caused by a mismatch between the source and sink column sizes. | Check the size of both the source and sink columns. For further help, contact Azure SQL support. |
     | If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data. | To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md). |
     | If the error message contains "Execution Timeout Expired", it's usually caused by query timeout. | Configure **Query timeout** in the source and **Write batch timeout** in the sink to increase timeout. |
+    | If the error message contains `Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.` when you copy data from hybrid into an on-premises SQL Server table, it's caused by the current SQL account doesn't have sufficient permissions to execute requests issued by .NET SqlBulkCopy.WriteToServer or your table or database does not exist. | Switch to a more privileged SQL account or check if your table or database exists. |
 
 ## Error code: SqlUnauthorizedAccess
 
@@ -255,14 +256,6 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Resolution**: Upgrade the Azure SQL Database performance tier to fix the issue.
 
-## SQL table can't be found
-
-- **Symptoms**: You copy data from hybrid into an on-premises SQL Server table and receive the following error：`Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.`
-
-- **Cause**: The current SQL account doesn't have sufficient permissions to execute requests issued by .NET SqlBulkCopy.WriteToServer.
-
-- **Resolution**: Switch to a more privileged SQL account.
-
 ## Error message: String or binary data is truncated
 
 - **Symptoms**: An error occurs when you copy data into an on-premises Azure SQL Server table.
@@ -309,7 +302,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
