@@ -103,7 +103,7 @@ chatClient.on("chatMessageReceived", (e) => {
 });
 
 async function renderReceivedMessage(event) {
-    messages += '<div class="container lighter">' + event.message + '</div>';
+    messages += `<div class="container lighter"> ${event.message} </div>`;
     messagesContainer.innerHTML = messages;
 
     // get list of attachments and calls renderFileAttachments to construct a file attachment card
@@ -219,11 +219,11 @@ Open your browser and navigate to `http://localhost:8080/`. Enter the meeting UR
 
 Now let's send some file attachments from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-1.png" alt-text="A screenshot of Teams client shown a sent message with three file attachments.":::
 
 Then you should see the new message being rendered along with file attachments:
 
-:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown an incoming message with three file attachments named document.txt, proposal.docx and plan 2023.pdf":::
+:::image type="content" source="../../media/meeting-interop-features-file-attachment-2.png" alt-text="A screenshot of sample app shown a received incoming message with three file attachments.":::
 
 
 ## Handle image attachments
@@ -265,10 +265,9 @@ async function renderReceivedMessage(event) {
 }
 
 function renderImageAttachments(attachment) {
-    return '<img alt="image" src="" itemscope=\"png\" id="' + attachment.id + '" style="max-width: 100px">'
+    return `<img alt="image" src="" itemscope="png" id="${attachment.id}" style="max-width: 100px">`
 }
 ```
-
 
 Now let's borrow `fetchPreviewImages()` from the [tutorial](../meeting-interop-features-inline-image.md) and we should be able to use it as is without any changes:
 
