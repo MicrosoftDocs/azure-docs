@@ -45,7 +45,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 
 ### Update the peer information associated with this subscription
 
-Update the peer information associated with this subscription using [New-AzPeerAsn](/powershell/module/az.peering/new-azpeerasn):
+Update the peer information associated with this subscription using New-AzPeerAsn:
 
 ```powershell
 $contactDetails = New-AzPeerAsnContactDetail -Role Noc -Email "noc@contoso.com" -Phone "+1 (555) 555-5555"
@@ -63,7 +63,7 @@ In place of **{subscriptionId}** in the output, actual subscription ID is displa
 
 ## View status of a PeerASN
 
-Check for ASN Validation state using [Get-AzPeerAsn](/powershell/module/az.peering/get-azpeerasn):
+Check for ASN Validation state using Get-AzPeerAsn:
 
 ```powershell
 Get-AzPeerAsn
@@ -84,7 +84,7 @@ Type            : Microsoft.Peering/peerAsns
 > Wait for the ValidationState to turn "Approved" before submitting a peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
-You may modify NOC contact information anytime using [Set-AzPeerAsn](/powershell/module/az.peering/set-azpeerasn):
+You may modify NOC contact information anytime using Set-AzPeerAsn:
 
 ```powershell
 Set-AzPeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
