@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Cosmos DB data source for a resolver
 
-The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request, read request, delete request, or write request and optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management.  
+The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a Cosmos DB data source. Configure a query request, read request, delete request, or write request and an optional response. The schema must be imported to API Management.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -20,6 +20,7 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
 
 ```xml 
 <cosmosdb-data-source> 
+
     <connection-info>
         <!-- Required information that specifies connection to Cosmos DB container--> 
         <connection-string use-managed-identity="true | false" client-id= "Client ID of a user-assigned managed identity"> 
@@ -29,8 +30,9 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
         <container-name>"Name of container in Cosmos DB database"</container-name>     
     </connection-info>
     
+    <!-- Configure a single query-request, read-request, delete-request, or write-request element -->
     <query-request enable-low-precision-order-by="true | false"> 
-    <!-- Settings for SQL query request -->
+    <!-- Settings to query using a SQL statement and optional parameters -->
         <sql-statement> 
             "SQL statement for query request" 
         </sql-statement> 
@@ -40,7 +42,7 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
                 "Value of query parameter"
             </parameter> 
         </query-parameters> 
-        <partition-key data-type="data type of partition key" template="liquid" > 
+        <partition-key data-type="string | number | bool | none | null" template="liquid" > 
             "Container partition key" 
         </partition-key> 
         <paging> 
@@ -54,62 +56,47 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
 </query-request>
 
 <read-request> 
-    <!-- Settings to read data by item ID and partition key --> 
+    <!-- Settings to read data by item ID and optional partition key --> 
     <id template="liquid" >
         "Item ID in container"
     </id> 
-    <partition-key data-type="data type of partition key" template="liquid" > 
+    <partition-key data-type="string | number | bool | none | null" template="liquid" > 
         "Container partition key" 
     </partition-key>  
 </read-request> 
 
 <delete-request consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
-<!-- Settings to delete item by ID and partition key --> 
+<!-- Settings to delete item by ID and optional partition key --> 
     <etag type="entity tag type" template="liquid" > 
         "System-generated entity tag" 
     </etag> 
     <id template="liquid">
         "Item ID in container"
     </id> 
-    <partition-key data-type="data type of partition key" template="liquid"> 
+    <partition-key data-type="string | number | bool | none | null" template="liquid"> 
         "Container partition key" 
     </partition-key> 
 </delete-request> 
 
-
-<!-- Attributes optional -->
-<!-- type attribute can be either insert, replace, upsert. Default to upsert-->
-
-<!-- consistency-level attribute is optional can be strong, session, eventual, bounded-staleness, consistent-prefix--> 
-
 <write-request type="insert | replace | upsert" consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" enable-content-response-on-write="true | false" indexing-directive="default" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
+<!-- Settings to write to Cosmos DB container -->
     
     <!-- Required when type= "replace" --> 
-    <id template="liquid" >{{body.arguments.id}}</id> 
-    <!-- Optional Element --> 
-    <!-- type attribute is optional, defaults to match, and can be either match or no-match--> 
-    
-    <etag type="match" template="liquid" > 
-        {{body.arguments.etag}} 
+     <id template="liquid">
+        "Item ID in container"
+    </id>       
+    <etag type="match | no-match" template="liquid" > 
+        "System-generated entity tag" 
     </etag> 
-    <!-- Optional, if not provided, request payload will map arguments into a json--> 
-
-    <set-body template="liquid" > 
-        { "id": "{{body.arguments.id}}", "category": "{{body.arguments.category}}", "type": "{{body.arguments.type}}", "difficulty": "{{body.arguments.difficulty}}", "question": "{{body.arguments.question}}", "correct_answer": "{{body.arguments.correct_answer}}" } 
-    </set-body> 
-    <!-- Optional Element,if element is not provided, defaults to none --> 
-    <!-- data-type optional attribute, defaults to string, other options would be number/bool/none/null--> 
-
-    <partition-key data-type="string" template="liquid" > 
-        {{body.arguments.category}} 
+    <set-body template="liquid" >...set-body policy configuration...</set-body>
+    <partition-key data-type="string | number | bool | none | null" template="liquid"> 
+        "Container partition key"
     </partition-key> 
 </write-request>
 
 <response> 
-    <!-- Optional, if returned json contains field names matching GraphQ Field, and set-body is not present, fields will be auto mapped --> 
-    <set-body template="liquid" > 
-        { "id": "{{body.id}}", "category": "{{body.category}}", "type": "{{body.type}}", "difficulty": "{{body.difficulty}}", "question": "{{body.question}}", "correct_answer": "{{body.correct_answer}}" } 
-    </set-body> 
+    <set-body...set-body policy configuration...</set-body> 
+    <publish-event>... publish-event policy configuration...</publish-event>
 </response>
 
 </cosmosdb-data-source> 
@@ -124,23 +111,22 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
 | [query-request](#query-request-attributes)    |   Specifies settings for a [query request](..cosmos-db/nosql/how-to-dotnet-query-items.md) to Cosmos DB container.    |  No      |
 | [read-request](#read-request-attributes)    |  Specifies settings for a [read request](../cosmos-db/nosql/how-to-dotnet-read-item.md) to Cosmos DB container.    |    No   |
 | [delete-request](#delete-request-attributes)    |  Specifies settings for a delete request to Cosmos DB container.    |   No     |
-| [write-request](#write-request-attributes) | Specifies ettings for write request to Cosmos DB container.  |  No |
+| [write-request](#write-request-attributes) | Specifies settings for write request to Cosmos DB container.  |  No |
 | [response](#response-elements)  |  Optionally specifies child policies to configure the resolver's response.  |    No |
 
 
 ### connection-info elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account.   | Yes    |
+| [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include an account key.   | Yes    |
 | database-name | String. Name of Cosmos DB database. | Yes  |
 | container-name | String. Name of container in Cosmos DB database. | Yes  |
-
 
 #### connection-string attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use a managed identity assigned to the API Management instance for connection to the Cosmos DB account. TODO TO SPECIFY MORE ABOUT THE IDENTITY. | No  | `false`   |
+| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. TODO TO SPECIFY MORE ABOUT THE IDENTITY. | No  | `false`   |
 | client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must have a TODO role assignment or equivalent permissions to perform the configured request on the Cosmos DB container.  | No | N/A |
 
 ### query-request attributes
@@ -200,51 +186,50 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
 | post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your CosmosDB container. | No | N/A |
 
 ### delete-request elements
+
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item to delete in the container.      |  Yes          |
 | [partition-key](#partition-key-attributes)    |  A partition key for the location of the item in the container.     |      No      |    
-| [etag](#etag-attribute) | Entity tag for the item in the container, used for optimistic concurrency control. If this value differs from the current `etag` of the item in the Cosmos DB container, the delete request fails.     |   No  |
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for optimistic concurrency control.     |   No  |
 
 #### write-request attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| type | String. TODO  | No  | N/A   |
+| type | The type of write request: `insert`, `replace`, or `upsert`. | No  | `upsert`   |
 | consistency-level | String. Sets the CosmosDB [consistency level](../cosmos-db/consistency-levels.md) of the write request.  | No  | N/A   |
 | enable-content-response-on-write | String. TODO  | No  | N/A   |
-| indexing-directive | String. TODO  | No  | N/A   |
+| indexing-directive | The [indexing policy](../cosmos-db/index-policy.md) that determines how the container's items should be indexed.  | No  | `default`   |
 | pre-trigger | String. Identifier of a [pre-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-pre-triggers) function that is registered in your CosmosDB container. | No | N/A |
 | post-trigger | String. Identifier of a [post-trigger](../cosmos-db/nosql/how-to-use-stored-procedures-triggers-udfs.md#how-to-run-post-triggers) function that is registered in your CosmosDB container. | No | N/A |
 
 ### write-request elements
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [partition-key](#partition-key-attributes)   |  A partition key for the write request. | No |
-| [etag](#etag-attribute) | TODO     |   No  |
-| [set-body](set-body-policy.md)  |  Sets the body in the write request. | No  |
+|   id    |   Identifier of the item in the container.      |  Yes when `type` is `replace`.       |
+| [etag](#etag-attribute) | Entity tag for the item in the container, used for optimistic concurrency control.      |   No  |
+| [set-body](set-body-policy.md)  |  Sets the body in the write request. If not provided, the request payload will map arguments into JSON format.| No  |
 
 ### response elements
+
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| [set-body](set-body-policy.md)  |  Sets the body in the resolver's response. | No  |
-| [publish-event](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in the GraphQL API schema. | No |
-
-
+| [set-body](set-body-policy.md)  |  Sets the body in the resolver's response. If not provided and the returned JSON contains field names matching fields in the GraphQL schema, the fields are automatically mapped. | No  |
+| [publish-event](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in the GraphQL API schema.   | No |
 
 #### partition-key attributes
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-|  data-type  | The data type of the partition key. Valid values include including `string`, `number`, `bool`, `none`, and `null`, other options would be number/bool/none/null  | No    | `string`    |
+|  data-type  | The data type of the partition key: `string`, `number`, `bool`, `none`, or `null`.  | No    | `string`    |
 | template    |  Used to set the templating mode for the partition key. Currently the only supported value is:<br /><br />- `liquid` - the partition key will use the liquid templating engine   |  No   |  N/A |
-
 
 #### etag attribute
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-|  type   | String.  TODO          |   No        |    N/A   |
+|  type   | String. One of the following values:<br /><br />- `match` - the `etag` value must match the system-generated entity tag for the item<br /><br /> - `no-match` - the `etag` value isn't required to match the system-generated entity tag for the item        |   No        |    `match`   |
 
 ## Usage
 
@@ -253,13 +238,15 @@ The `cosmosdb-data-source` resolver policy configures a Cosmos DB query request,
 
 ### Usage notes
 
-* This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription. 
+* This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription.  
+
+
 
 ## Examples
 
 ### Cosmos DB query request 
 
-TODO
+The following example resolves a GraphQL query using a SQL query to a Cosmos DB container.
 
 ```xml
 <cosmosdb-data-source>
@@ -279,14 +266,14 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 ### Cosmos DB read request
 
-TODO
+The following example resolves a GraphQL query using a point read request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The `id` and `partition-key` used for the read request are passed as query parameters and accessed using the `Context.GraphQL.arguments` context variable.
 
 ```xml
 <cosmosdb-data-source>
     <connection-info>
-        <connectionstring>
+        <connectionstring use-managed-identity="true">
             AccountEndpoint=https://contoso-cosmosdb.
-documents.azure.com:443/;AccountKey=CONTOSOKEY;
+documents.azure.com:443/;
         </connection-string>
         <database-name>myDatabase</database-name>
         <container-name>myContainer</container-name>
@@ -296,7 +283,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
             @(context.GraphQL.Arguments["id"].ToString()
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["id"].ToString()
+            @(context.GraphQL.Arguments["key"].ToString()
         </partition-key>
     </read-request>
 </cosmosdb-data-source>
@@ -304,7 +291,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 ### Cosomos DB delete request
 
-TODO
+The following example resolves a GraphQL mutation by a delete request to a Cosmos DB container. The `id` and `partition-key` used for the read request are passed as query parameters and accessed using the `Context.GraphQL.arguments` context variable.
 
 ```xml
 <cosmosdb-data-source>
@@ -321,7 +308,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
             @(context.GraphQL.Arguments["id"].ToString())
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["id"].ToString())
+            @(context.GraphQL.Arguments["key"].ToString())
         </partition-key>
     </delete-request>
 </cosmosdb-data-source>
@@ -329,21 +316,21 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
 
 ### Cosmos DB write request
 
-TODO
+The following example resolves a GraphQL mutation by an upsert request to a Cosmos DB container. The connection to the Cosmos DB account uses the API Management instance's system-assigned managed identity. The `partition-key` used for the write request is passed as a query parameter and accessed using the `Context.GraphQL.arguments` context variable. The upsert request has a pre-trigger operation named "validateInput". The request body is mapped using a Liquid template.
 
 ```xml
 <cosmosdb-data-source>
     <connection-info>
-        <connectionstring>
+        <connectionstring use-managed-identity="true">
             AccountEndpoint=https://contoso-cosmosdb.
-documents.azure.com:443/;AccountKey=CONTOSOKEY;
+documents.azure.com:443/;
         </connection-string>
         <database-name>myDatabase</database-name>
         <container-name>myContainer</container-name>
     </connection-info>
-    <write-request>
+    <write-request type="upsert" pre-trigger="validateInput">
         <partition-key>
-            @(context.GraphQL.Arguments["id"].ToString())
+            @(context.GraphQL.Arguments["key"].ToString())
         </partition-key>
         <set-body template="liquid">
             {"id" : "{{body.arguments.id}}" ,
