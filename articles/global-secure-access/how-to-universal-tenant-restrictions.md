@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 Universal tenant restrictions enhance the functionality of [tenant restriction v2](https://aka.ms/tenant-restrictions-enforcement) using Global Secure Access to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and branch connectivity. Administrators no longer have to manage proxy server configurations or complex network configurations.
 
-Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Azure AD integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
+Universal Tenant Restrictions does this enforcement using Global Secure Access based policy signaling for both the authentication and data plane endpoints. Tenant restrictions v2 enables enterprises to prevent data exfiltration by malicious users using external tenant identities for Microsoft Entra ID integrated applications like Microsoft Graph, SharePoint Online, and Exchange Online. These technologies work together to prevent data exfiltration universally across all devices and networks.
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png" alt-text="Diagram showing how tenant restrictions v2 protects against malicious users." lightbox="media/how-to-universal-tenant-restrictions/tenant-restrictions-v-2-universal-tenant-restrictions-flow.png":::
 
@@ -25,9 +25,10 @@ The following table explains the steps taken at each point in the previous diagr
 | Step | Description |
 | --- | --- |
 | **1** | Contoso configures a **tenant restrictions v2** policy in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy using Global Secure Access universal tenant restrictions. |
-| **2** | A user with a Contoso-managed device tries to sign in to an external app using an account from an unknown tenant. Global Secure Access universal tenant restrictions add an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID. |
-| **3** | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in Azure AD. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level. |
-| **4** | *Data plane protection:* The user again tries to access the external application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the device. The resource provider checks that the claim in the token and the header in the packet match. Any mismatch in the token and header triggers reauthentication. |
+| **2** | A user with a Contoso-managed device tries to access a Microsoft Entra ID integrated app with an unsanctioned external identity. |
+| **3** | When the traffic reaches Microsoft's Security Service Edge, an HTTP header is added to the request. The header contains Contoso's tenant ID and the tenant restrictions policy ID. |
+| **4** | *Authentication plane protection:* Microsoft Entra ID uses the header in the authentication request to look up the tenant restrictions policy.  Contoso's policy blocks unsanctioned external accounts from accessing external tenants. |
+| **5** | *Data plane protection:* If the user again tries to access an external unsanctioned application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the device, they're blocked. The resource provider checks that the claim in the token and the header in the packet match. Any mismatch in the token and header triggers reauthentication and blocks access. |
 
 Universal tenant restrictions help to prevent data exfiltration across browsers, devices, and networks in the following ways:
 
@@ -35,14 +36,15 @@ Universal tenant restrictions help to prevent data exfiltration across browsers,
     - Cloud ID of the device tenant
     - Tenant ID of the device tenant
     - Tenant restrictions v2 policy ID of the device tenant
-- It enables Azure AD, Microsoft Accounts, and Microsoft 365 applications to interpret this special HTTP header enabling lookup and enforcement of the associated tenant restrictions v2 policy. This lookup enables consistent policy application. 
-- Works with all Azure AD integrated third-party apps at the auth plane during sign in.
+- It enables Microsoft Entra ID, Microsoft Accounts, and Microsoft 365 applications to interpret this special HTTP header enabling lookup and enforcement of the associated tenant restrictions v2 policy. This lookup enables consistent policy application. 
+- Works with all Microsoft Entra ID integrated third-party apps at the auth plane during sign in.
+- Works with Exchange, SharePoint, and Microsoft Graph for data plane protection.
 
 ## Configure tenant restrictions v2 policy 
 
 Before an organization can use universal tenant restrictions, they must configure both the default tenant restrictions and tenant restrictions for any specific partners.
 
-For more information to configure these policies, see the article [Set up tenant restrictions V2 (Preview)](https://review.learn.microsoft.com/en-us/azure/active-directory/external-identities/tenant-restrictions-v2?branch=pr-en-us-204786#step-1-configure-default-tenant-restrictions-v2).
+For more information to configure these policies, see the article [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md).
 
 :::image type="content" source="media/how-to-universal-tenant-restrictions/sample-tenant-restrictions-policy-blocking-access.png" alt-text="Screenshot showing a sample tenant restriction policy in the portal." lightbox="media/how-to-universal-tenant-restrictions/sample-tenant-restrictions-policy-blocking-access.png":::
 
@@ -50,7 +52,7 @@ For more information to configure these policies, see the article [Set up tenant
 
 Once you have created the tenant restriction v2 policies, you must allow Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md) and [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
-1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
+1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
 1. Browse to **NEED THE ACTUAL PATH** > **Security** > **Tenant Restrictions**.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 
@@ -71,6 +73,8 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
    1. For example, a Fabrikam guest in the Contoso tenant. 
    1. The Fabrikam user should be blocked from accessing SharePoint Online with an error message saying: 
       1. **Access is blocked, The Contoso IT department has restricted which organizations can be accessed. Contact the Contoso IT department to gain access.**
+
+<!--Add screenshot of error when blocked-->
 
 ### Try the data path  
 
