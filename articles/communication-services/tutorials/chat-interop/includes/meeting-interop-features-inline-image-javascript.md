@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Enable Inline Image Support
+title: Tutorial - Enable Inline Image Support
 author: jopeng
 ms.author: jopeng
 ms.date: 03/27/2023
