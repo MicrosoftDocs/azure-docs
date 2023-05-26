@@ -258,7 +258,9 @@ items:
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
       - name: Enable Closed captions for Teams Interoperability
-        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
+      - name: Get local capabilities
+        href: how-tos/calling-sdk/capabilities.md
     - name: Call recording
       items:
       - name: Record a call
@@ -637,6 +639,8 @@ items:
         href: concepts/analytics/call-logs-azure-monitor.md
       - name: Recording logs
         href: concepts/analytics/recording-logs.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: UI Library
