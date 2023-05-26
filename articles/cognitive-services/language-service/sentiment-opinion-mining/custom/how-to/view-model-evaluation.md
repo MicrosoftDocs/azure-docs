@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-classification
 ---
 
-# View your text classification model's evaluation and details
+# View your Custom sentiment analysis model's evaluation and details
 
 After your model has finished training, you can view the model performance and see the predicted classes for the documents in the test set. 
 
@@ -52,7 +52,7 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ### [REST APIs](#tab/REST-APIs)
 
-[!INCLUDE [Load export model](../../includes/rest-api/load-export-model.md)]
+[!INCLUDE [Load export model](../../includes/custom/rest-api/load-export-model.md)]
 
 ---
 
