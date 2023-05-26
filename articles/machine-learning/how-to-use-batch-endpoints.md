@@ -202,7 +202,7 @@ Batch endpoints can handle multiple deployments under the same endpoint, allowin
 
 You can add, remove, and update deployments without affecting the endpoint itself.
 
-:::image type="content" source="./media/concept-endpoints/batch-endpoint-mlops.gif" alt-text="Diagram discribing how multiple deployments can be used under the same endpoint.":::
+:::image type="content" source="./media/concept-endpoints/batch-endpoint-mlops.gif" alt-text="Diagram describing how multiple deployments can be used under the same endpoint.":::
 
 ### Add non-default deployments
 
