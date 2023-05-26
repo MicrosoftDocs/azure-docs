@@ -82,7 +82,7 @@ For details about restoring a user within the first 30 days after deletion, or f
  
 When downloading users via Bulk Operations option, the CSV file will bring users with their UPN attribute with the format *objectID@B2CDomain*. This is by design since that's the way the UPN information is stored in the B2C tenant.
 
-## Revoke user session
+## Revoke a consumer user's session
 
 Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using Microsoft Graph PowerShell or [Microsoft Graph API](/graph/api/user-revokesigninsessions). If you choose to use Microsoft Graph PowerShell, use the following steps: 
 
