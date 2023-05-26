@@ -14,11 +14,14 @@ ms.custom: it-pro
 
 ---
 
-# Planning for customer identity and access management
+# Planning for customer identity and access management (preview)
 
 Azure Active Directory (Azure AD) for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
 
 This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
+
+> [!IMPORTANT]
+> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Adding secure sign-in to your app and setting up a customer identity and access management involves four main steps:
 

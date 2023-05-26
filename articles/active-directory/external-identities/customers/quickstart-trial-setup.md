@@ -14,7 +14,7 @@ ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or IT admin, I want to set up the customer tenant free trial.
 ---
-# Quickstart: Get started with Azure AD for customers (Preview)
+# Quickstart: Get started with Azure AD for customers (preview)
 
 Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, Azure AD for customers can serve as the identity provider and access management service for your customers. 
 

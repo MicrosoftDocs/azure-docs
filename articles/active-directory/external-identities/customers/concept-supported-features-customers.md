@@ -14,13 +14,16 @@ ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about features supported in a CIAM tenant. 
 ---
-# Supported features in Azure Active Directory for customers
+# Supported features in Azure Active Directory for customers (preview)
 
 Azure Active Directory (Azure AD) for customers is designed for businesses that want to make applications available to their customers, using the Microsoft Entra platform for identity and access. With the introduction of this feature, Microsoft Entra now offers two different types of tenants that you can create and manage:
 
 - A **workforce tenant** contains your employees and the apps and resources that are internal to your organization. If you've worked with Azure AD, this is the type of tenant you're already familiar with. You might already have an existing workforce tenant for your organization.
 
 - A **customer tenant** represents your customer-facing app, resources, and directory of customer accounts. A customer tenant is distinct and separate from your workforce tenant.
+
+> [!IMPORTANT]
+> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Compare workforce and customer tenant capabilities
 

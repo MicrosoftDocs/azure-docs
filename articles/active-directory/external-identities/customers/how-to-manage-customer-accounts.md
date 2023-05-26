@@ -13,7 +13,7 @@ ms.author: mimart
 ms.custom: it-pro
 
 ---
-# Add and manage customer accounts
+# Add and manage customer accounts (preview)
 
 There might be scenarios in which you want to manually create customer accounts in your Azure Active Directory customer tenant. Although customer accounts are most commonly created when users sign up to use one of your applications, you can create them programmatically and by using the Microsoft Entra admin center. This article focuses on the Microsoft Entra admin center method of user creation and deletion.
 
@@ -24,6 +24,9 @@ To add or delete users, your account must be assigned the *User administrator* o
 - If you haven't already created your own Azure AD customer tenant, create one now.
 - Understand user accounts in Azure AD for customers.
 - Understand user roles to control resource access.
+
+> [!IMPORTANT]
+> Azure AD for customers is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create a customer account
 
