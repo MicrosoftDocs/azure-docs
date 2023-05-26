@@ -65,7 +65,7 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Create a new AKS cluster with Cloud Controller Manager with version <1.22
+## Create a new AKS cluster with Cloud Controller Manager
 
 To create a cluster using the Cloud Controller Manager, run the following command. Include the parameter `EnableCloudControllerManager=True` as a customer header to the Azure API using the Azure CLI.
 
@@ -73,7 +73,7 @@ To create a cluster using the Cloud Controller Manager, run the following comman
 az aks create -n aks -g myResourceGroup --aks-custom-headers EnableCloudControllerManager=True
 ```
 
-## Upgrade an AKS cluster to Cloud Controller Manager on an existing cluster with version <1.22
+## Upgrade an AKS cluster to Cloud Controller Manager on an existing cluster
 
 To upgrade a cluster to use the Cloud Controller Manager, run the following command. Include the parameter `EnableCloudControllerManager=True` as a customer header to the Azure API using the Azure CLI.
 
