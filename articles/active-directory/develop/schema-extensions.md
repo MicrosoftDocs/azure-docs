@@ -43,7 +43,7 @@ Multi-tenant applications can then register directory extension attributes for t
 
 If an application needs to send claims with data from an extension attribute that's registered on a different application, a [claims mapping policy](active-directory-claims-mapping.md) must be used to map the extension attribute to the claim. 
 
-A common pattern for managing directory extension attributes is to register an application specifically for all the directory extensions that you need. When using this type of application, all the extensions have the same appID in their name.
+A common pattern for managing directory extension attributes is to register an application specifically for all the directory extensions that you need. When you use this type of application, all the extensions have the same appID in their name.
 
 For example, the following code shows a claims-mapping policy to emit a single claim from a directory extension attribute in an OAuth/OIDC token:
 
