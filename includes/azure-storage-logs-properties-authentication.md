@@ -15,7 +15,7 @@
 |**authorization / reason** | The reason for the authorization result of the request. <br> For example: `Policy`, `NoApplicablePolicy`, or `MissingAttributes` |
 |**authorization / result** | The authorization result of the request. <br> For example: `Granted` or `Denied` |
 |**authorization / roleAssignmentId** | The role assignment ID. <br> For example: `4e2521b7-13be-4363-aeda-111111111111`.|
-|**authorization / roleDefinitionId** | The role definition ID. <br> For example: `ba92f5b4-2d11-453d-a403-111111111111"`.|
+|**authorization / roleDefinitionId** | The role definition ID. <br> For example: `ba92f5b4-2d11-453d-a403-111111111111`.|
 |**authorization / type** | The source of the authorization result for the request. <br> For example: `RBAC` or `ABAC` |
 |**principals / id** | The ID of the security principal. <br> For example: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
 |**principals / type** | The type of security principal. <br> For example: `ServicePrincipal`. |
