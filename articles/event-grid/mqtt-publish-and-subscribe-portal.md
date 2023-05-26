@@ -95,7 +95,7 @@ If you don't already have a certificate, you can create a sample certificate usi
 1. Go to Topic spaces page under MQTT section.
 2. On the Topic spaces page, select **+ Topic space** on the toolbar.
 3. Provide a name for the topic space.  
-4. Select + Add topic template to add the topic template contosotopics/topic1.
+4. Select **+ Add topic template** to add the topic template contosotopics/topic1.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space.png" alt-text="Screenshot of topic space configuration.":::
 5. Select **Create** to create the topic space.
@@ -105,9 +105,9 @@ If you don't already have a certificate, you can create a sample certificate usi
 1. Go to Permission bindings page under MQTT section.
 2. On the Permission bindings page, select **+ Permission binding** on the toolbar.
 3. Configure the permission binding as follows:
-    1. Provide a name for the permission binding 
+    1. Provide a name for the permission binding.
     2. Select the client group name as $all.  
-    3. Select the Topic space name as Topicspace1.  
+    3. For Topic space name, select the topic space you created in the previous step.  
     4. Grant Publisher permission to the client group on the topic space.
 
         :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-1.png" alt-text="Screenshot showing creation of first permission binding.":::

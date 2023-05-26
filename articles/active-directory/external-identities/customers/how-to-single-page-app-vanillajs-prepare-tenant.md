@@ -21,7 +21,7 @@ This how-to guide demonstrates how to prepare your Azure Active Directory (Azure
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 - If you have already registered a SPA in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare a vanilla JavaScript single-page app for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
 
