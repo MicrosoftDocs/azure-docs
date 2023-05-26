@@ -10,7 +10,6 @@ ms.author: henikaraa
 ms.date: 05/02/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: phone numbers
 ---
 
 # Number Lookup overview
