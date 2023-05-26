@@ -14,7 +14,7 @@ ms.reviewer: mamkumar
 ---
 # Source IP restoration
 
-With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't always match the actual source IP address. In place of the end-users’ source IP, the resource endpoints typically see the cloud proxy as the source IP address. Customers that use IP-based location information as a control in Conditional Access typically can't use this information with these traditional solutions. 
+With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't match the actual source IP address. In place of the end-users’ source IP, the resource endpoints see the cloud proxy as the source IP address. Customers with these cloud proxy solutions  can't use this source IP information. 
 
 Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Office apps rely on source IP information. With Global Secure Access and source IP restoration organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
 
@@ -22,7 +22,7 @@ Source IP restoration allows services to see the real source IP address, these s
 
 ## Prerequisites
 
-* A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* A working Microsoft Entra ID tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * Conditional Access Administrator or Security Administrator
@@ -32,11 +32,11 @@ Source IP restoration allows services to see the real source IP address, these s
 
 To enable the required setting to allow source IP restoration, an administrator must take the following steps.
 
-1. Sign in to the **Azure portal** as a Global Secure Access Administrator.
+1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
 1. Browse to **NEED THE PATH** > **Security** > **Adaptive Access**.
 1. Select the toggle to **Enable Network Access signaling in Conditional Access**.
 
-This functionality allows services like Microsoft Graph, Azure AD, SharePoint Online, and Exchange Online to see the actual source IP address.
+This functionality allows services like Microsoft Graph, Microsoft Entra ID, SharePoint Online, and Exchange Online to see the actual source IP address.
 
 :::image type="content" source="media/how-to-source-ip-restoration/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::
 
@@ -47,7 +47,7 @@ This functionality allows services like Microsoft Graph, Azure AD, SharePoint On
 
 To see source IP restoration in action, administrators can take the following steps.
 
-1. Sign in to the **Azure portal** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
+1. Sign in to the **Microsoft Entra admin center** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Azure Active Directory** > **Users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
    1. If source IP restoration is disabled, you won't see their actual IP address.

@@ -9,14 +9,14 @@ ms.date: 04/25/2023
 ms.service: network-access
 ms.custom: 
 ---
-
 # Manage branch locations
 
 Learn how to create a branch office location for Global Secure Access.
 
-## Prerequisites 
+## Prerequisites
+
 - **Microsoft Entra Internet Access Premium license** for your Microsoft Entra Identity tenant
-- **Microsoft Entra Network Access Administrator** role in Microsoft Entra ID
+- **Global Secure Access Administrator** role in Microsoft Entra ID
 - The **Microsoft Graph** module must be installed to use PowerShell
 - Administrator consent is required when using Microsoft Graph Explorer for the Microsoft Graph API
 
@@ -26,6 +26,9 @@ Global Secure Access provides branch connectivity so you can connect a branch of
 There are multiple ways to connect a branch location to Global Secure Access. In a nutshell, you're creating an Internet Protocol Security (IPSec) tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed with the core router at the branch location so installation of a client isn't required on individual devices.
 
 ### Create a branch location using the Microsoft Entra admin center
+
+1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
+1. Browse to Devices > Branches
 
 1. Navigate to the Microsoft Entra admin center at `https://entra.microsoft.com` and login with administrator credentials.
 1. In the left hand navigation, choose **Global Secure Access**.
