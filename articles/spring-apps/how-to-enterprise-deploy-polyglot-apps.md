@@ -359,7 +359,7 @@ The following table indicates the features supported for each language.
 | App lifecycle management                                        | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Assign endpoint                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Azure Monitor                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Out of box APM integration                                      | ✔️   |       |      |          |    |          |
+| Out of box APM integration                                      | ✔️   |        |      |           |    |          |
 | Blue/green deployment                                           | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Custom domain                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Scaling - auto scaling                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
@@ -367,14 +367,14 @@ The following table indicates the features supported for each language.
 | Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Application Configuration Service for VMware Tanzu®             | ✔️   |       |      |          |    |          |
-| VMware Tanzu® Service Registry                                  | ✔️   |       |      |          |    |          |
+| Application Configuration Service for VMware Tanzu®             | ✔️   |        |      |           |    |          |
+| VMware Tanzu® Service Registry                                  | ✔️   |        |      |           |    |          |
 | Virtual network                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   |       |      |          |    |          |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   |        |      |           |    |          |
 | Bring your own storage                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
-| Integrate service binding with Resource Connector               | ✔️   |       |      |          |    |          |
+| Integrate service binding with Resource Connector               | ✔️   |        |      |           |    |          |
 | Availability Zone                                               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | App Lifecycle events                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Reduced app size - 0.5 vCPU and 512 MB                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
