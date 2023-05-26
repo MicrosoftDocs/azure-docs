@@ -61,6 +61,14 @@ az eventgrid event-subscription create --name contosoEventSubscription \
 --event-delivery-schema cloudeventschemav1_0
 ```
 
+> [!NOTE]
+> **Routing Event Grid topic considerations:**
+> The Event Grid topic that is used for routing has to fulfill following requirements:
+> - It needs to be set to use the Cloud Event Schema v1.0.
+> - It needs to be in the same region as the namespace.
+> - You need to assign "EventGrid Data Sender" role to yourself on the Event Grid Topic.
+
+
 ## Configure routing in the Event Grid Namespace
 - Save the Namespace object in namespace.json file in resources folder.
 
@@ -71,7 +79,8 @@ az eventgrid event-subscription create --name contosoEventSubscription \
         "topicSpacesConfiguration": {
             "state": "Enabled",
             "routeTopicResourceId": "/subscriptions/{Subscription ID}/resourceGroups/{Resource Group ID}/providers/Microsoft.EventGrid/topics/{EG Custom Topic Name}"
-        }
+        },
+        "isZoneRedundant": true
     },
     "location": "{region name}"
 }

@@ -362,7 +362,7 @@ items:
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
-      href: power-bi-visual-add-bar-chart-layer.md
+      href: power-bi-visual-add-3d-column-layer.md
     - name: Add a heat map layer
       href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
@@ -511,6 +511,8 @@ items:
         href: release-notes-map-control.md
       - name: Indoor module
         href: release-notes-indoor-module.md
+      - name: Spatial IO module
+        href: release-notes-spatial-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI

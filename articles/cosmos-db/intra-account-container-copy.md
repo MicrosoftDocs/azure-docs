@@ -28,6 +28,14 @@ You may need to copy data within your Azure Cosmos DB account if you want to ach
 
 Intra-account container copy jobs can be [created and managed using CLI commands](how-to-container-copy.md).
 
+## Get started
+
+### NoSQL and Cassandra API
+To get started with intra-account offline container copy for NoSQL and Cassandra API accounts, register for **"Intra-account offline container copy (Cassandra & NoSQL)"** preview feature flag from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
+
+### API for MongoDB
+To get started with intra-account offline container copy for Azure Cosmos DB for MongoDB accounts, register for **"Intra-account offline container copy (MongoDB)"** preview feature flag from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all API for MongoDB accounts in the subscription.
+
 ## How to do container copy?
 
 1. Create the target Azure Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
