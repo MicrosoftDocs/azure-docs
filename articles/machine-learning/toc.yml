@@ -285,9 +285,9 @@
         - name: MLflow models
           displayName: tracking models, mlflow, custom, flavors
           href: concept-mlflow-models.md
-    - name: Foundation Models
+    - name: Model Catalog
       items:
-        - name: Foundation Models
+        - name: Foundation Models in Model Catalog
           href: concept-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
@@ -1145,9 +1145,9 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-    - name: Work with Foundation Models
+    - name: Work with Foundation Models in Model Catalog
       items:
-        - name: How to use Foundation Models
+        - name: Open Source Models curated by AzureML 
           href: how-to-use-foundation-models.md
         - name: Hugging Face Hub community partner models
           href: how-to-deploy-models-from-huggingface.md
@@ -1349,6 +1349,8 @@
           items: 
             - name: Job
               href: reference-yaml-schedule.md
+            - name: Data Import
+              href: reference-yaml-schedule-data-import.md
             - name: Monitor
               href: reference-yaml-monitor.md
         - name: Pipeline component

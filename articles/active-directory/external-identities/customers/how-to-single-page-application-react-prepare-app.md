@@ -1,39 +1,27 @@
 ---
-title: Prepare a React Single Page App (SPA) for authentication
-description: Learn how to prepare a React single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
+title: Prepare a React single-page app (SPA) for authentication
+description: Learn how to prepare a React single-page app (SPA) for authentication with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
-author: godonnell
+author: garrodonnell
 manager: celestedg
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: godonnell
-ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React 
+#Customer intent: As a dev, devops, or IT admin, I want to learn how to enable authentication in my own React single-page app
 ---
-# Prepare a React Single-page application for authentication
-
-After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a React Single-page application using npm and create files needed for authentication and authorization.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create a new React project
-> * Configure the settings for the application
-> * Install identity and bootstrap packages
-> * Add authentication code to the application
+# Prepare a React single-page app (SPA) for authentication
+After registration is complete, you can create a React project using an integrated development environment (IDE). This guide demonstrates how to create a React single-page app using npm and create files needed for authentication and authorization.
 
 ## Prerequisites
-* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA)](./how-to-single-page-application-react-prepare-tenant.md))
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React single-page app (SPA)](./how-to-single-page-application-react-prepare-tenant.md))
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Create a new React project
-
-Use the following tabs to create a React project within the IDE.
+Use the following tabs to create a React project within Visual Studio Code.
 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
@@ -46,7 +34,6 @@ Use the following tabs to create a React project within the IDE.
     ```
 
 ## Install identity and bootstrap packages
-
 Identity related **npm** packages must be installed in the project to enable user  authentication. For project styling, **Bootstrap** will be used.
 
 1. In the **Terminal** bar, select the **+** icon to create a new terminal. A separate terminal window will open with the previous node terminal continuing to run in the background.
@@ -58,7 +45,6 @@ Identity related **npm** packages must be installed in the project to enable use
     ```
 
 ## Creating the authentication configuration file
-
 1. In the *src* folder, create a new file called *authConfig.js*.
 1. Open *authConfig.js* and add the following code snippet:
 
@@ -135,7 +121,6 @@ Identity related **npm** packages must be installed in the project to enable use
 
 
 ## Modify index.js to include the authentication provider
-
 All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/@azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/@azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
 
 1. In the *src* folder, open *index.js* and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
@@ -146,4 +131,4 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add Sign-in and Sign-out functionality to your app.](./how-to-single-page-application-react-sign-in-out.md)
+> [Add sign-in and sign-out functionality to your app.](./how-to-single-page-application-react-sign-in-out.md)
