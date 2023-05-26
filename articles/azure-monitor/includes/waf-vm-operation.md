@@ -11,10 +11,9 @@ ms.date: 03/30/2023
 > [!div class="checklist"]
 > - Migrate from legacy agents to Azure Monitor agent.
 > - Use Azure Arc to monitor your hybrid VMs.
-> - Target alert rules for VM hosts at subscription or resource group.
 > - Use Azure Policy to deploy agents and assign data collection rules.
 > - Establish a strategy for structure of data collection rules.
-> - Create alert rules for client workloads.
+> - Consider migrating SCOM client management packs to Azure Monitor.
 > - Migrate your SCOM environment to SCOM MI.
 
 
