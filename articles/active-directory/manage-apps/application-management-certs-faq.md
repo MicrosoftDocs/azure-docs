@@ -31,7 +31,7 @@ You can find the steps [here](manage-certificates-for-federated-single-sign-on.m
 By default, Azure AD configures a certificate to expire after three years when it is created automatically during SAML single sign-on configuration. Because you can't change the date of a certificate after you save it, you need to create a new certificate. For steps on how to do so, please refer [Customize the expiration date for your federation certificate and roll it over to a new certificate](manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate).
 
 > [!NOTE]
->  Recommended way to create SAML applications are through Azure AD Application Gallery, which will automatically create 3 years valid X509 certificate for you. 
+> The recommended way to create SAML applications is through the Azure AD Application Gallery, which will automatically create a three-year valid X509 certificate for you. 
 
 ## How can I automate the certificates expiration notifications?
 
