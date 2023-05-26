@@ -1,9 +1,9 @@
 ---
-title: Telemetry, property, and command payloads in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
+title: Device message payloads in Azure IoT Central
+description: Device templates specify the telemetry, properties, and commands a device uses. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/08/2022
+ms.date: 05/24/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -33,6 +33,9 @@ Each example shows a snippet from the device model that defines the type and exa
 > IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the device model. You can export data that doesn't match a definition, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
 The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+
+> [!TIP]
+> To troubleshoot device payload issues, see [Unmodeled data issues](troubleshoot-connection.md#unmodeled-data-issues) or use the **Raw data** view of the device in your IoT Central application.
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
@@ -74,10 +77,83 @@ To learn more about message properties, see [System Properties of device-to-clou
 
 ### Telemetry in components
 
-If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md). This tutorial shows how to use different programming languages to send telemetry from a component.
 
 > [!IMPORTANT]
 > To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from your components in IoT Edge modules displays as *_unmodeleddata*.
+
+### Telemetry in inherited interfaces
+
+If the telemetry is defined in an inherited interface, your device sends the telemetry as if it is defined in the root interface. Given the following device model:
+
+```json
+[
+    {
+        "@id": "dtmi:contoso:device;1",
+        "@type": "Interface",
+        "contents": [
+            {
+                "@type": [
+                    "Property",
+                    "Cloud",
+                    "StringValue"
+                ],
+                "displayName": {
+                    "en": "Device Name"
+                },
+                "name": "DeviceName",
+                "schema": "string"
+            }
+        ],
+        "displayName": {
+            "en": "Contoso Device"
+        },
+        "extends": [
+            "dtmi:contoso:sensor;1"
+        ],
+        "@context": [
+            "dtmi:iotcentral:context;2",
+            "dtmi:dtdl:context;2"
+        ]
+    },
+    {
+        "@context": [
+            "dtmi:iotcentral:context;2",
+            "dtmi:dtdl:context;2"
+        ],
+        "@id": "dtmi:contoso:sensor;1",
+        "@type": [
+            "Interface",
+            "NamedInterface"
+        ],
+        "contents": [
+            {
+                "@type": [
+                    "Telemetry",
+                    "NumberValue"
+                ],
+                "displayName": {
+                    "en": "Meter Voltage"
+                },
+                "name": "MeterVoltage",
+                "schema": "double"
+            }
+        ],
+        "displayName": {
+            "en": "Contoso Sensor"
+        },
+        "name": "ContosoSensor"
+    }
+]
+```
+
+The device sends meter voltage telemetry using the following payload. The device doesn't include the interface name in the payload:
+
+```json
+{
+    "MeterVoltage": 5.07
+}
+```
 
 ### Primitive types
 
