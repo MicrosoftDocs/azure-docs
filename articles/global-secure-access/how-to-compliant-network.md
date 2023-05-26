@@ -16,7 +16,7 @@ ms.reviewer: mamkumar
 
 Using Conditional Access along with Global Secure Access customers can prevent malicious access to Microsoft apps, third-party SaaS apps, and private line-of-business (LoB) apps using multiple conditions to provide defense-in-depth. These conditions may include device compliance, location, and more to provide protection against user identity or token theft. Global Secure Access introduces the concept of a compliant network within Conditional Access and continuous access evaluation. This compliant network check ensures users connect from a verified network connectivity model for their specific tenant and are compliant with security policies enforced by administrators. 
 
-Using the Global Secure Access client installed on devices or configured branch office locations allows administrators to secure resource behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
+The Global Secure Access client installed on devices or configured branch office locations allows administrators to secure resources behind a compliant network with advanced Conditional Access controls. This compliant network makes it easier for administrators to manage and maintain, without having to maintain a list of all of an organization's locations IP addresses. Administrators don't need to hairpin traffic through their organization's VPN egress points to ensure security.
 
 This compliant network check is specific to each tenant. 
 
@@ -48,10 +48,9 @@ Some Outlook traffic may use the QUIC protocol. Global Secure Access doesn’t y
 To enable the required setting to allow the compliant network check, an administrator must take the following steps.
 
 1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
-1. Browse to **NEED THE ACTUAL PATH** > **Security**> **Adaptive Access**.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
-   1. Confirm you have a location **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
+1. Browse to **Microsoft Entra ID Conditional Access** > **Named locations**.
+   1. Confirm you have a location called **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
 
 :::image type="content" source="media/how-to-compliant-network/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::
 

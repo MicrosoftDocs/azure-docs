@@ -13,7 +13,7 @@ items:
       href: how-to-get-started-with-global-secure-access.md
     - name: Learn about traffic forwarding
       href: concept-traffic-forwarding.md
-    - name: Manage branch office location
+    - name: Manage branch office locations
       href: how-to-manage-branch-locations.md
     - name: Define quick access ranges
       href: how-to-define-quick-access-ranges.md
@@ -61,12 +61,14 @@ items:
     items:
       - name: Global Secure Access logs and monitoring
         href: concept-global-secure-access-logs-monitoring.md
-      - name: Access audit logs
+      - name: Audit logs
         href: how-to-access-audit-logs.md
       - name: Network traffic dashboard
         href: concept-traffic-dashboard.md
       - name: Enriched Office 365 logs
         href: how-to-view-enriched-logs.md
+      - name: Traffic logs
+        href: how-to-view-traffic-logs.md
 - name: Concepts
   expanded: true
   items:
