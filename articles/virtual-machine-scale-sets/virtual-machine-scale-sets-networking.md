@@ -42,7 +42,7 @@ See [Azure Load Balancer and Virtual Machine Scale Sets](../load-balancer/load-b
 
 ## Add a Virtual Machine Scale Set to an Application Gateway
 
-To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale sets network profile. This can be done either when creating the scale set or on an existing scale set.  
+To add a scale set to the backend pool of an Application Gateway, reference the Application Gateway backend pool in your scale sets network profile. This can be done either when creating the scale set (see ARM Template below) or on an existing scale set.  
 
 ### [Portal](#tab/portal1)
 
@@ -82,6 +82,16 @@ To add a scale set to the backend pool of an Application Gateway, reference the 
         $vmss | Get-AzVmssVM | Foreach-Object { $_ | Update-AzVMSSInstance -InstanceId $_.instanceId}
     }
 
+```
+
+### [CLI](#tab/cli1)
+
+```azurecli
+    $appGWName=<appGwName>
+    $appGWResourceGroup=<appGWRGName> 
+    $backendPoolName=<backendPoolName>
+    $backendPoolId=$(az network application-gateway address-pool show --gateway-name $appGWName -g $appGWResourceGroup -n $backendPoolName --query id -otsv)
+ 
 ```
 
 ### [ARM template](#tab/arm1)
