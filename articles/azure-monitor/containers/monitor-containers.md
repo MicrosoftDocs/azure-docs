@@ -27,6 +27,17 @@ This article describes how to use Azure Monitor to monitor the health and perfor
 | Container Insights | [Container Insights](container-insights-overview.md) is a feature in Azure Monitor that monitors the health and performance of managed Kubernetes clusters hosted on AKS and provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. |
 | Azure Arc-enabled Kubernetes | [Azure Arc-enabled Kubernetes](container-insights-enable-arc-enabled-clusters.md) allows you to attach Kubernetes clusters running anywhere so that you can manage and configure them in Azure. |
 
+## Data
+
+| Data type | Sources | Collection method |
+|:---|:---|:---|
+| Metrics | Platform metrics | Automatically collected for AKS, not available for hybrid. |
+|         | Prometheus metrics | Managed Prometheus for AKS.<br>Arc and Managed Prometheus for hybrid. |
+| Logs    | Activity logs | |
+|         | stderr/stdout | ContainerLogv2 in Container insights. |
+|         | Control plane logs | Diagnostic setting |
+|         | Cluster inventory | Container insights |
+|         | Application | Application insights |
 
 ## Monitor layers of AKS with Container Insights
 
@@ -82,14 +93,18 @@ If you're unsure which resource logs to initially enable, use the following reco
 
 | Category | Enable? | Destination |
 |:---|:---|:---|
-| cluster-autoscaler      | Enable if autoscale is enabled | Log Analytics workspace |
-| guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
 | kube-apiserver          | Enable | Log Analytics workspace |
 | kube-audit              | Enable | Azure storage. This keeps costs to a minimum yet retains the audit logs if they're required by an auditor. |
 | kube-audit-admin        | Enable | Log Analytics workspace |
 | kube-controller-manager | Enable | Log Analytics workspace |
 | kube-scheduler          | Disable | |
-| AllMetrics              | Enable | Log Analytics workspace |
+| cluster-autoscaler      | Enable if autoscale is enabled | Log Analytics workspace |
+| cloud-controller-manager| | |
+| guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
+| csi-azuredisk-controller | | |
+| csi-azurefile-controller | | |
+| csi-snapshot-controller  | | |
+| AllMetrics              | Disable since metrics are collected in Managed Prometheus | Log Analytics workspace |
 
 The recommendations are based on the most common customer requirements. You can enable other categories later if you need to.
 
