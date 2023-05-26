@@ -161,9 +161,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.Automation
 
 > [!IMPORTANT]
-> Runbooks must exist in the same resource group as the Automation Account.
->
-> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+> Runbooks must exist in the same resource group as the Automation Account. 
+> The movement of System assigned managed identity, and User-assigned managed identity takes place with the Automation account. For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |

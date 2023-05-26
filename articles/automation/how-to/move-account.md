@@ -16,8 +16,7 @@ The Automation account is one of the resources that you can move. In this articl
 1. Disable your features.
 2. Unlink your workspace.
 3. Move the Automation account.
-4. Delete and re-create the Run As accounts.
-5. Re-enable your features.
+4. Re-enable your features.
 
 ## Remove features
 
@@ -103,7 +102,7 @@ You can now move your Automation account and its runbooks.
 
 ## Enable features
 
-After you re-create the Run As accounts, you must re-enable the features that you removed before the move:
+You must re-enable the features that you removed before the move:
 
 1. To turn on Change Tracking and Inventory, select **Change Tracking and Inventory** in your Automation account. Choose the Log Analytics workspace that you moved over, and select **Enable**.
 
@@ -111,13 +110,11 @@ After you re-create the Run As accounts, you must re-enable the features that yo
 
     ![Screenshot of Re-enabling features in your moved Automation account](../media/move-account/reenable-solutions.png)
 
-3. Machines that are enabled with your features are visible when you've connected the existing Log Analytics workspace. To turn on the Start/Stop VMs during off-hours feature, you must re-enable it. Under **Related Resources**, select **Start/Stop VMs** > **Learn more about and enable the solution** > **Create** to start the deployment.
+3. Machines that are enabled with your features are visible when you've connected the existing Log Analytics workspace.
 
 4. On the Add Solution page, choose your Log Analytics workspace and Automation account.
 
     ![Screenshot of Add Solution menu](../media/move-account/add-solution-vm.png)
-
-5. Configure the feature as described in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).
 
 ## Verify the move
 
