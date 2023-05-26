@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-schema-extensions.md",
+      "redirect_url": "/azure/active-directory/develop/schema-extensions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-optional-claims.md",
       "redirect_url": "/azure/active-directory/develop/optional-claims",
       "redirect_document_id": false
