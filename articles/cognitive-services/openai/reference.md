@@ -243,7 +243,7 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 Generate a batch of images from a text caption. Image generation is currently only available with `api-version=2023-06-01-preview`.
 
 ```http
-POST https://{your-resource-name}.openai.azure.com/openai/dalle/images/generations:submit?api-version={api-version}
+POST https://{your-resource-name}.openai.azure.com/openai/images/generations:submit?api-version={api-version}
 ```
 
 **Path parameters**
@@ -260,7 +260,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/dalle/images/generatio
 #### Example request
 
 ```console
-curl -X POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/dalle/images/generations:process-async?api-version=2023-06-01-preview \
+curl -X POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/images/generations:submit?api-version=2023-06-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{
@@ -287,7 +287,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
 
 ```http
-GET https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version={api-version}
+GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
 ```
 
 
@@ -305,7 +305,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images
 #### Example request
 
 ```console
-curl -X GET "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-06-01-preview"
+curl -X GET "https://aoairesource.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
@@ -316,15 +316,17 @@ The operation returns a `200` status code and an `OperationResponse` JSON object
 
 ```json
 {
-    "id": "6b22b459-485c-4730-893d-598ede809f2e",
-    "result":
-    {
-        "caption": "An avocado chair.",
-        "contentUrl": "<URL_TO_IMAGE>",
-        "contentUrlExpiresAt": "2022-08-14T19:28:43Z",
-        "createdDateTime": "2022-08-12T17:48:11Z"
-    },
-    "status": "Succeeded"
+  "created": 1685064331,
+  "expires": 1685150737,
+  "id": "4b755937-3173-4b49-bf3f-da6702a3971a",
+  "result": {
+    "data": [
+      {
+        "url": "<URL_TO_IMAGE>"
+      }
+    ]
+  },
+  "status": "succeeded"
 }
 ```
 
@@ -333,7 +335,7 @@ The operation returns a `200` status code and an `OperationResponse` JSON object
 You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 
 ```http
-DELETE https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version={api-version}
+DELETE https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
 ```
 
 **Path parameters**
@@ -350,7 +352,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/dalle/operations/ima
 #### Example request
 
 ```console
-curl -X DELETE "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-06-01-preview"
+curl -X DELETE "https://aoairesource.openai.azure.com/openai/operations/images/{operation-id}?api-version=2023-06-01-preview"
 -H "Content-Type: application/json"
 -H "Api-Key: {api key}"
 ```
