@@ -207,6 +207,12 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
+or
+
+```console
+npm start
+```
+
 ## File attachment demo
 
 Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID.
