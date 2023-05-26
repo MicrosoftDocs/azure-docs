@@ -118,6 +118,10 @@ The following table lists the properties for Azure Storage resource logs when th
                 "type": "RBAC"
             }
         ],
+        "properties": {
+            "metricResponseType": "Success",
+            "objectKey": "/samplestorageaccount/samplecontainer/sampleblob.png"
+           },
         "requester": {
             "appId": "691458b9-1327-4635-9f55-bbbbbbbbbbbb",
             "audience": "https://storage.azure.com/",
