@@ -28,6 +28,7 @@ Limitations:
 
 * A policy fragment can't include a policy section identifier (`<inbound>`, `<outbound>`, etc.) or the `<base/>` element.
 * Currently, a policy fragment can't nest another policy fragment. 
+* A policy fragment's size is subject to [API Management limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#api-management-limits)
 
 ## Prerequisites
 
