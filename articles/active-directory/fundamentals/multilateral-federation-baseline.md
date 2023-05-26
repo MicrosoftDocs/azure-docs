@@ -22,7 +22,7 @@ Microsoft often speaks with research universities that operate in hybrid environ
 
 Applications drive much of the need for different authentication protocols and different identity management (IdM) mechanisms.
 
-In research university environments, research apps often drive IdM requirements. A university might use a federation provider, such as Shibboleth, as a primary identity provider (IdP). If this is the case, Azure Active Directory (Azure AD) is often configured to federate with Shibboleth. If Microsoft 365 apps are also in use, Azure AD enables you to configure integration.
+In research university environments, research apps often drive IdM requirements. A university might use a federation provider, such as Shibboleth, as a primary identity provider (IdP). If so, Azure Active Directory (Azure AD) is often configured to federate with Shibboleth. If Microsoft 365 apps are also in use, Azure AD enables you to configure integration.
 
 Applications used in research universities operate in various parts of the overall IT footprint:
 
@@ -36,7 +36,7 @@ Applications used in research universities operate in various parts of the overa
 
 * Microsoft 365 applications are integrated with Azure AD.
 
-* Windows Server Active Directory might be in use and synchronized to Azure AD.
+* Windows Server Active Directory might be in use and synchronized with Azure AD.
 
 * Lightweight Directory Access Protocol (LDAP) is in use at many universities that might have an external LDAP directory or identity registry. These registries are often used to house confidential attributes, role hierarchy information, and even certain types of users, such as applicants.
 
@@ -46,9 +46,9 @@ Applications used in research universities operate in various parts of the overa
 
 Baseline architectures often evolve over time, introducing complexity and rigidness to the design and the ability to update. Some of the challenges with using the baseline architecture include:
 
-* **Hard to react to new requirements**: Having a complex environment makes it hard to quickly adapt and keep up with the most recent regulations and requirements. For example, if you have apps in lots of locations, and these apps are connected in different ways with different IdMs, you run into the problem of where to locate multifactor authentication (MFA) services and how to enforce MFA.
+* **Hard to react to new requirements**: Having a complex environment makes it hard to quickly adapt and keep up with the most recent regulations and requirements. For example, if you have apps in lots of locations, and these apps are connected in different ways with different IdMs, you have to decide where to locate multifactor authentication (MFA) services and how to enforce MFA.
 
-  Higher education also experiences fragmented service ownership. The people responsible for key services such as enterprise resource planning (ERP), learning management systems (LMSs), division, and department solutions might resist efforts to change or modify the systems that they operate.
+  Higher education also experiences fragmented service ownership. The people responsible for key services such as enterprise resource planning, learning management systems, division, and department solutions might resist efforts to change or modify the systems that they operate.
 
 * **Can't take advantage of all Microsoft 365 capabilities for all apps** (for example, Intune, Conditional Access, passwordless): Many universities want to move toward the cloud and use their existing investments in Azure AD. However, with a different federation provider as their primary IdP, universities can't take advantage of all the Microsoft 365 capabilities for the rest of their apps.
 
@@ -58,11 +58,11 @@ We present three solutions to solve these challenges, while also addressing the 
 
 * Ability to participate in multilateral federations such as InCommon and eduGAIN
 
-* Ability to support all types of apps (even those that require legacy protocols)
+* Ability to support all types of apps (even apps that require legacy protocols)
 
 * Ability to support external directories and attribute stores
 
-We present the three solutions in order, from most preferred to least preferred. Each satisfies requirements but introduces tradeoff decisions expected in a complex architecture. Based on your requirements and starting point, select the one that best suits your environment. We also provide a decision tree to aid in this decision.
+We present the three solutions in order, from most preferred to least preferred. Each satisfies requirements but introduces tradeoff decisions that are expected in a complex architecture. Based on your requirements and starting point, select the one that best suits your environment. We also provide a decision tree to aid in this decision.
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Solution 1: Azure AD with Cirrus Bridge
 
-Solution 1 uses Azure Active Directory (Azure AD) as the primary identity provider (IdP) for all applications. A managed service provides multilateral federation. In this example, Cirrus Bridge is the managed service used for integration of Central Authentication Service (CAS) and multilateral federation apps.
+Solution 1 uses Azure Active Directory (Azure AD) as the primary identity provider (IdP) for all applications. A managed service provides multilateral federation. In this example, Cirrus Bridge is the managed service for integration of Central Authentication Service (CAS) and multilateral federation apps.
 
 [![Diagram that shows Azure AD integration with various application environments using Cirrus to provide a CAS bridge and a SAML bridge.](media/multilateral-federation-solution-one/azure-ad-cirrus-bridge.png)](media/multilateral-federation-solution-one/cirrus-bridge.png#lightbox)
 
@@ -28,7 +28,7 @@ If you're also using an on-premises Active Directory instance, you can [configur
 
 When you implement Azure AD with Cirrus Bridge, you can take advantage of more capabilities in Azure AD:
 
-* **Custom claims provider support**: With the [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md), you can use an external attribute store (like an external LDAP Directory) to add claims into tokens for individual apps. The custom claims provider uses a custom extension that calls an external REST API to fetch claims from external systems.
+* **Custom claims provider support**: With the [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md), you can use an external attribute store (like an external LDAP directory) to add claims into tokens for individual apps. The custom claims provider uses a custom extension that calls an external REST API to fetch claims from external systems.
 
 * **Custom security attributes**: You can add custom attributes to objects in the directory and control who can read them. [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) enable you to store more of your attributes directly in Azure AD.
 
@@ -62,8 +62,8 @@ Here are some of the advantages of implementing Azure AD with Cirrus Bridge:
 
   * Azure AD join enables you to use Windows Autopilot, Azure AD Multi-Factor Authentication, and passwordless features. Azure AD join supports achieving a Zero Trust posture.
 
-> [!NOTE]
-> Switching to Azure AD Multi-Factor Authentication might help you save significant costs over other solutions that you have in place.
+    > [!NOTE]
+    > Switching to Azure AD Multi-Factor Authentication might help you save significant costs over other solutions that you have in place.
 
 ## Considerations and trade-offs
 
@@ -86,7 +86,7 @@ The following resources help with your migration to this solution architecture.
 | [Resources for migrating applications to Azure Active Directory](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure AD |
 | [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md)| Overview of the Azure AD custom claims provider |
 | [Custom security attributes](../fundamentals/custom-security-attributes-manage.md) | Steps for managing access to custom security attributes |
-| [Azure AD SSO integration with Cirrus Bridge](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md) | Tutorial to integrate Cirrus Bridge with Azure AD |
+| [Azure AD single sign-on integration with Cirrus Bridge](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md) | Tutorial to integrate Cirrus Bridge with Azure AD |
 | [Cirrus Bridge overview](https://blog.cirrusidentity.com/documentation/azure-bridge-setup-rev-6.0) | Cirrus Identity documentation for configuring Cirrus Bridge with Azure AD |
 | [Azure AD Multi-Factor Authentication deployment considerations](../authentication/howto-mfa-getstarted.md) | Guidance for configuring Azure AD Multi-Factor Authentication  |
 

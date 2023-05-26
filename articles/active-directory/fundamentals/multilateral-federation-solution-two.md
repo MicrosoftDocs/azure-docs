@@ -20,7 +20,7 @@ In Solution 2, Azure Active Directory (Azure AD) acts as the primary identity pr
 
 [![Diagram that shows Shibboleth used as a SAML proxy provider.](media/multilateral-federation-solution-two/azure-ad-shibboleth-as-sp-proxy.png)](media/multilateral-federation-solution-two/azure-ad-shibboleth-as-sp-proxy.png#lightbox)
 
-Because Azure AD is the primary IdP, all student and faculty apps are integrated with Azure AD. All Microsoft 365 apps are also integrated with Azure AD. If Azure Active Directory Domain Services (Azure AD DS) is in use, it also is synchronized with Azure AD.
+Because Azure AD is the primary IdP, all student and faculty apps are integrated with Azure AD. All Microsoft 365 apps are also integrated with Azure AD. If Azure Active Directory Domain Services is in use, it also is synchronized with Azure AD.
 
 The SAML proxy feature of Shibboleth integrates with Azure AD. In Azure AD, Shibboleth appears as a non-gallery enterprise application. Universities can get single sign-on (SSO) for their CAS apps and can participate in the InCommon environment. Additionally, Shibboleth provides integration for Lightweight Directory Access Protocol (LDAP) directory services.
 

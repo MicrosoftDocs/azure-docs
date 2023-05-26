@@ -22,7 +22,7 @@ In Solution 3, the federation provider is the primary identity provider (IdP). I
 
 In this scenario, Shibboleth is the primary IdP. Participation in multilateral federations (for example, with InCommon) is done through Shibboleth, which natively supports this integration. On-premises CAS apps and the LDAP directory are also integrated with Shibboleth.
 
-Student apps, faculty apps, and Microsoft 365 apps are integrated with Azure Active Directory (Azure AD). Any on-premises instance of Active Directory is synced with Azure AD. Active Directory Federation Services (AD FS) provides integration with third-party multi-factor authentication (MFA). AD FS performs protocol translation and enables certain Azure AD features, such as Azure AD join for device management, Windows Autopilot, and passwordless features.
+Student apps, faculty apps, and Microsoft 365 apps are integrated with Azure Active Directory (Azure AD). Any on-premises instance of Active Directory is synced with Azure AD. Active Directory Federation Services (AD FS) provides integration with third-party multifactor authentication (MFA). AD FS performs protocol translation and enables certain Azure AD features, such as Azure AD join for device management, Windows Autopilot, and passwordless features.
 
 ## Advantages
 
@@ -32,7 +32,7 @@ Here are some of the advantages of using this solution:
 
 * **Ease of execution**: The solution is simple to implement in the short term for institutions that already use Shibboleth as their primary IdP. You need to migrate student and faculty apps to Azure AD and add an AD FS instance.
 
-* **Minimal disruption**: The solution allows third-party multifactor authentication (MFA). You can keep existing MFA solutions, such as Duo, in place until you're ready for an update.
+* **Minimal disruption**: The solution allows third-party MFA. You can keep existing MFA solutions, such as Duo, in place until you're ready for an update.
 
 ## Considerations and trade-offs
 
@@ -42,7 +42,7 @@ Here are some of the trade-offs of using this solution:
 
 * **Suboptimal authentication experience**: For multilateral federation and CAS apps, there's no cloud-based authentication mechanism and there might be multiple redirects.
 
-* **No Azure AD Multi-Factor Authentication support**: This solution doesn't enable Azure AD Multi-Factor Authentication support for multilateral federation or CAS apps. You might miss out on potential cost savings.
+* **No Azure AD Multi-Factor Authentication support**: This solution doesn't enable Azure AD Multi-Factor Authentication support for multilateral federation or CAS apps. You might miss potential cost savings.
 
 * **No granular Conditional Access support**: The lack of granular Conditional Access support limits your ability to make granular decisions.
 
