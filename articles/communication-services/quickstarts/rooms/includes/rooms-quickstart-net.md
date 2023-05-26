@@ -270,4 +270,4 @@ Deleted room with id: 99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services re [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).
