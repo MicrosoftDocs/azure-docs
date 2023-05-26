@@ -127,7 +127,7 @@ After registering your application, you must add a client secret by following th
 1. Select Add.
 
 > [!NOTE]
-> To find more detailed information on registering an application, see: [Quickstart: Register an app in the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app):
+> To find more detailed information on registering an application, see: [Quickstart: Register an app in the Microsoft identity platform](../develop/quickstart-register-app.md):
 
 To authorize the created application to call the [MS Graph resume API](/graph/api/accesspackageassignmentrequest-resume) you'd do the following steps:
 
