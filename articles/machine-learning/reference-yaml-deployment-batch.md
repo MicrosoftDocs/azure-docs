@@ -68,7 +68,7 @@ When `type: pipeline`, the following syntax is enforced:
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `component` | string or object | **Required.** The pipeline component used for the deployment. This value can be either a reference to an existing versioned pipeline component in the workspace or in a registry, or an inline pipeline specification. <br><br> To reference an existing component, use the `azureml:<component-name>:<version>` syntax. <br><br> To define a pipeline component inline, follow the [Pipeline component schema](reference-yaml-component-pipeline.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the component separately and reference it here. | | |
-| `settings` | object | Default settings for the pipeline job. See [Attributes of the settings key](reference-yaml-job-pipeline#attributes-of-the-settings-key) for the set of configurable properties. | | |
+| `settings` | object | Default settings for the pipeline job. See [Attributes of the settings key](reference-yaml-job-pipeline.md#attributes-of-the-settings-key) for the set of configurable properties. | | |
 
 ## Remarks
 
