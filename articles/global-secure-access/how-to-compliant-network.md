@@ -35,7 +35,7 @@ The compliant network is different than [IPv4, IPv6, or country locations](/azur
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-manage-branch-locations.md).
 
-* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to enable the M365 profile](how-to-enable-m365-profile.md).
+* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 traffic forwarding profile](how-to-enable-m365-profile.md).
 
 ### Known limitations
 
