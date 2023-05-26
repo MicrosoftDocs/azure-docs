@@ -32,7 +32,7 @@ In this article, you do the following tasks:
 - [Visual Studio Code](https://code.visualstudio.com/download) with the MAUI workload installed:
   - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
   - [Instructions for macOS](/dotnet/maui/get-started/installation?tabs=vsmac)
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register .NET MAUI desktop application
 
