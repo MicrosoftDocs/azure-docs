@@ -64,6 +64,8 @@
     href: device-management-azure-portal.md
   - name: Troubleshooting Windows devices
     href: troubleshoot-device-windows-joined.md
+  - name: Troubleshooting primary refresh tokens
+    href: troubleshoot-primary-refresh-token.md
   - name: Manage stale devices
     href: manage-stale-devices.md
   - name: Azure Linux VMs and Azure AD
