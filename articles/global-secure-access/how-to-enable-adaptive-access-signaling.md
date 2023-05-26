@@ -17,7 +17,7 @@ ms.reviewer: mamkumar
 To enable the required setting to allow for source IP restoration and compliant network checks, an administrator must take the following steps.
 
 1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
-1. Browse to **Global Secure Access** > **Global settings** > **Session managment** > **Adaptive Access**.
+1. Browse to **Global Secure Access** > **Global settings** > **Session management** > **Adaptive Access**.
 1. Select the toggle to **Enable Network Access signaling in Conditional Access**.
 
 This functionality allows services like Microsoft Graph, Microsoft Entra ID, SharePoint Online, and Exchange Online to see the actual source IP address.
