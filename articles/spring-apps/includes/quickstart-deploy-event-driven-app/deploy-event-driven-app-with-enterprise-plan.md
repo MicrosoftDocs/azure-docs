@@ -134,7 +134,7 @@ Now both the Service Bus and the app in Azure Spring Apps have been created, but
    az spring app update \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --env SERVICE_BUS_CONNECTION_STRING=${SERVICE_BUS_CONNECTION_STRING} \
+       --env SERVICE-BUS-CONNECTION-STRING=${SERVICE_BUS_CONNECTION_STRING} \
        spring.cloud.azure.keyvault.secret.property-source-enabled=false
    ```
 
