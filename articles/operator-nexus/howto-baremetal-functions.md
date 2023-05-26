@@ -61,7 +61,7 @@ This command will `restart` the specified `bareMetalMachineName`.
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On the execution of the `cordon` command,
-Operator Nexus workloads are not scheduled on the BMM when cordon is set; any attempt to create a workload on a `cordoned`
+Operator Nexus workloads aren't scheduled on the BMM when cordon is set; any attempt to create a workload on a `cordoned`
 BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `False` value.
 On executing the `cordon` command, with the value `True` for the `evacuate`
@@ -89,7 +89,7 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ## Reimage a BMM
 
-You can restore the runtime version image on a BMM by executing `reimage` command. This command **reinstalls** the runtime bundle on the OS partition, however it does not impact the tenant workload files on this BMM.
+You can restore the runtime version image on a BMM by executing `reimage` command. This command **reinstalls** the runtime bundle on the OS partition, however it doesn't impact the tenant workload files on this BMM.
 As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, prior to executing the `reimage` command.
 
@@ -98,8 +98,6 @@ az networkcloud baremetalmachine reimage \
   –-name "bareMetalMachineName"  \
   --resource-group "resourceGroupName"
 ```
-
-The reimage command restarts the BMM and uncordons it. The re-imaged BMM will have an IP address.You can start deploying workloads on the reimaged BMM.
 
 ## Replace BMM
 
