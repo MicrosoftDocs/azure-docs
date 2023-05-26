@@ -12,7 +12,7 @@ ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: common
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create an account SAS with .NET

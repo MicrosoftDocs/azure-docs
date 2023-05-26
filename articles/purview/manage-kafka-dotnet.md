@@ -8,7 +8,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: csharp
 ms.date: 12/13/2022
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-dotnet
 ---
 
 # Use Event Hubs and .NET to send and receive Atlas Kafka topics messages

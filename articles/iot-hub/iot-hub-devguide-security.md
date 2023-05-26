@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 04/15/2021
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
+ms.custom: amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", "Role: Operations", devx-track-csharp
 ---
 
 # Control access to IoT Hub

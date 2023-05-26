@@ -5,7 +5,7 @@ description: Learn about the latest updates to Azure Machine Learning Python SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: UpdateFrequency5, event-tier1-build-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist

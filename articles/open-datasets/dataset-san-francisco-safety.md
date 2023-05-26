@@ -2,6 +2,7 @@
 title: San Francisco Safety Data
 description: Learn how to use the San Francisco Safety dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
 ---

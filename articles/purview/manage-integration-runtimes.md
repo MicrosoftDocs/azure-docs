@@ -5,6 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 05/08/2023
 ---

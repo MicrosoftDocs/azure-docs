@@ -7,25 +7,11 @@ ms.date: 10/26/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: [mqtt, device-developer]
+ms.custom: mqtt, device-developer, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-twenty-six
 
 #- id: programming-languages-set-twenty-six
-## Owner: dobett
-#  title: Programming languages
-#  prompt: Choose a programming language
-#  pivots:
-#  - id: programming-language-ansi-c
-#    title: C
-#  - id: programming-language-csharp
-#    title: C#
-#  - id: programming-language-java
-#    title: Java
-#  - id: programming-language-javascript
-#    title: JavaScript
-#  - id: programming-language-python
 #    title: Python
-
 #Customer intent: As a device developer, I want to try out using device code that uses one of the the Azure IoT device SDKs. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
 ---
 

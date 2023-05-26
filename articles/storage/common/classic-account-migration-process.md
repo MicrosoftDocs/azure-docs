@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 04/28/2023
 ms.author: tamram
 ms.subservice: common
+ms.custom: devx-track-arm-template
 ---
 
 # Understand storage account migration from the classic deployment model to Azure Resource Manager

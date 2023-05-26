@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/17/2023
-ms.custom: "mqtt, devx-track-csharp"
+ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
 # Get started with device twins (.NET)

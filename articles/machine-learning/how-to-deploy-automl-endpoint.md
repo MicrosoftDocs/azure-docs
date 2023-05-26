@@ -10,7 +10,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022, devx-track-python
 ms.devlang: azurecli
 ---
 

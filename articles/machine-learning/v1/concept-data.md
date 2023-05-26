@@ -10,7 +10,7 @@ ms.reviewer: ssalgado
 author: ssalgadodev
 ms.author: xunwan
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 

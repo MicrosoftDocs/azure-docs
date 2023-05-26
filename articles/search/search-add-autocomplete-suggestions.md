@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/12/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Add autocomplete and suggestions to client apps using Azure Cognitive Search

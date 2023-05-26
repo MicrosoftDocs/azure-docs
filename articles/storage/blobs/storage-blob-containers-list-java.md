@@ -11,7 +11,7 @@ ms.date: 11/16/2022
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # List blob containers with Java

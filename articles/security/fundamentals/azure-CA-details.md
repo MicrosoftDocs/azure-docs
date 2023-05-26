@@ -4,6 +4,7 @@ description: Certificate Authority details for Azure services that utilize x509 
 services: security
 ms.service: security
 ms.subservice: security-fundamentals
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 04/21/2023
 ms.author: sarahlipsey

@@ -10,7 +10,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Upload a blob with .NET

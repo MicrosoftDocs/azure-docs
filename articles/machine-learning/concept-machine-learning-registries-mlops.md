@@ -10,7 +10,7 @@ author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 9/9/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, ignite-2022, build-2023
+ms.custom: ignite-2022, build-2023
 ---
 
 # Machine Learning registries for MLOps

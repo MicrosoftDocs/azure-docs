@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.date: 02/13/2023
 ms.topic: troubleshooting
-ms.custom: devx-track-python, mldata, references_regions, sdkv2
+ms.custom: mldata, references_regions, sdkv2
 ---
 
 # Troubleshoot data access errors

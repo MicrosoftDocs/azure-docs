@@ -4,6 +4,7 @@ description: This tutorial describes how to use DICOMweb Standard APIs with Pyth
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022
 ms.author: mmitrik

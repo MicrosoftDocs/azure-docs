@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lgayhardt
-ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022, build-2023
+ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022, build-2023, devx-track-python
 ms.date: 11/04/2022
 ---
 

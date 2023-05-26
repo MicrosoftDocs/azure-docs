@@ -10,7 +10,7 @@ author: dem108
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: UpdateFrequency5, deploy, docker, prebuilt, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, docker, prebuilt, sdkv1, event-tier1-build-2022, devx-track-python
 ---
 
 # Python package extensibility for prebuilt Docker images (preview)

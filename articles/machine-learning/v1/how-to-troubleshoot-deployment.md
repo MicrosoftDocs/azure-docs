@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 

@@ -10,7 +10,7 @@ author: fkriti
 ms.reviewer: larryfr
 ms.date: 05/23/2023
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022, build-2023
+ms.custom: ignite-2022, build-2023
 ---
 
 # Manage Azure Machine Learning registries

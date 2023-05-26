@@ -4,8 +4,7 @@ description: In-depth explanation of how to create and locate anchors using coar
 author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial

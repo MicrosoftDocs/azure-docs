@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022, devx-track-python
 ---
 
 # Manage Azure Machine Learning workspaces with the Python SDK (v1)

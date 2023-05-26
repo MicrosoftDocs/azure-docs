@@ -8,7 +8,7 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-extended-java
 ---
 
 # Deploy a Java application with Open Liberty/WebSphere Liberty on an ARO cluster

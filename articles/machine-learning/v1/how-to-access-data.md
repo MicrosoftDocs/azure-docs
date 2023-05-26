@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 05/11/2022
-ms.custom: UpdateFrequency5, contperf-fy21q1, devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
 

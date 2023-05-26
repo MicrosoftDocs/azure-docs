@@ -4,7 +4,7 @@ description: Describes how to use Service Bus to optimize performance when excha
 ms.topic: article
 ms.date: 09/28/2022
 ms.devlang: csharp
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging

@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/08/2017
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create an IoT hub using the resource provider REST API (.NET)

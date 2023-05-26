@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial 
 ms.date: 04/12/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-arm-template
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 

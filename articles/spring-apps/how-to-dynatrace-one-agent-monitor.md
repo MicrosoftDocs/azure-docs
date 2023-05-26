@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/07/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
 ms.devlang: azurecli
 ---
 

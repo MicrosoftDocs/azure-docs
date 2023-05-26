@@ -7,7 +7,7 @@ ms.author: jesusbar
 ms.service: iot-dps
 ms.topic: concept-article
 ms.date: 02/07/2022
-ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp, devx-track-azurecli]
+ms.custom: "Role: Cloud Development", "Role: Azure IoT Hub Device Provisioning Service (DPS)", "Role: Operations", devx-track-csharp, devx-track-azurecli
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) by using Azure Active Directory (preview)

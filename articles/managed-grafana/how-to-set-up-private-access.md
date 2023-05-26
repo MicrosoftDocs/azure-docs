@@ -6,7 +6,7 @@ ms.author: mcleans
 ms.service: managed-grafana
 ms.topic: how-to 
 ms.date: 02/16/2023
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ---
 
 # Set up private access (preview)

@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: java
-ms.custom: mvc, devx-track-java
+ms.custom: mvc, devx-track-java, devx-track-extended-java
 ROBOTS: NOINDEX
 ---
 

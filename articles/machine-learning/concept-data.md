@@ -10,7 +10,7 @@ ms.reviewer: franksolomon
 author: samuel100
 ms.author: samkemp
 ms.date: 01/23/2023
-ms.custom: devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need secure access to my data in my Azure storage solutions, and I need to use that data to accomplish my machine learning tasks.
 ---
 

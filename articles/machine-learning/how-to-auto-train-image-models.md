@@ -8,7 +8,7 @@ ms.author: swatig
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-python
 ms.topic: how-to
 ms.date: 07/13/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model architecture, hyperparameters, and training and deployment environments.

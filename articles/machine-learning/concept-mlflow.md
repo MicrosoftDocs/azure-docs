@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 08/15/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # MLflow and Azure Machine Learning

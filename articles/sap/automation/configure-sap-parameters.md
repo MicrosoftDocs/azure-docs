@@ -8,6 +8,7 @@ ms.date: 03/17/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-ansible
 ---
 
 # Configure SAP Installation parameters 
@@ -254,4 +255,3 @@ configuration_settings = {
 
 > [!div class="nextstepaction"]
 > [Deploy SAP System](deploy-system.md)
-

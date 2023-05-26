@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: UpdateFrequency5, how-to, devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, how-to, sdkv1, event-tier1-build-2022
 ---
 
 # MLflow and Azure Machine Learning (v1)
