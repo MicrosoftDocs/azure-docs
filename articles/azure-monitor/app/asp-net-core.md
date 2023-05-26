@@ -197,7 +197,7 @@ HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md).
+The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) SDK Loader Script injection by configuration.
 
 1. In `_ViewImports.cshtml`, add injection:
 
@@ -220,9 +220,9 @@ As an alternative to using `FullScript`, `ScriptBody` is available starting in A
 </script>
 ```
 
-The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. Add the JavaScript snippet to `_Layout.cshtml` in an application template to enable client-side monitoring.
+The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript SDK Loader Script must appear in the `<head>` section of each page of your application that you want to monitor. Add the JavaScript SDK Loader Script to `_Layout.cshtml` in an application template to enable client-side monitoring.
 
-If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md) by adding the JavaScript snippet to an equivalent file that controls the `<head>` of all pages within your app. Alternatively, you can add the snippet to multiple pages, but we don't recommend it.
+If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md) by adding the JavaScript SDK Loader Script to an equivalent file that controls the `<head>` of all pages within your app. Alternatively, you can add the SDK Loader Script to multiple pages, but we don't recommend it.
 
 > [!NOTE]
 > JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the connection string, you're required to remove auto-injection as described and manually add the [JavaScript SDK](./javascript.md#add-the-javascript-sdk).

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-optional-claims.md",
+      "redirect_url": "/azure/active-directory/develop/optional-claims",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-jwt-claims-customization.md",
       "redirect_url": "/azure/active-directory/develop/jwt-claims-customization",
       "redirect_document_id": false
