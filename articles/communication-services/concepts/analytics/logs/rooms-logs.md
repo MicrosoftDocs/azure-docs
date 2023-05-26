@@ -33,7 +33,7 @@ The following are instructions for configuring your Azure Monitor resource to st
 
 ## **Overview**
 
-Rooms operational logs are records of events and activities that provide insights into your Rooms API requests. They captured details about the performance and functionality of the Rooms primitive, including details about the status of request whether rooms were successfully created, updated, deleted or failed.
+Rooms operational logs are records of events and activities that provide insights into your Rooms API requests. They captured details about the performance and functionality of the Rooms primitive, including the status of each rooms request as well as additional properties.
 Rooms operational logs contain information that help identify trends and patterns of Rooms usage.
 
 ## Log categories
@@ -54,11 +54,6 @@ Communication Services offers the following types of logs that you can enable:
 | `ResultType` | The status of the operation. |
 | `ResultSignature` | The sub status of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
 | `RoomLifeSpan` | The Room lifespan in minutes. |
-| `RoomParticipantsCount` | The count of participants in a room. |
-| `RoomParticipantsConsumer` | The participants count with consumer role. |
-| `RoomParticipantsAttendee` | The participants count with attendee role. |
-| `RoomParticipantsPresenter` | The participants count with presenter role. |
-| `RoomJoinPolicy` | [Deprecated in version 2023-03-31-preview, all rooms are InviteOnly by default] The policy of a room indicating invite only or CommunicationServiceUsers. |
 | `AddedRoomParticipantsCount` | The count of participants added to a room. |
 | `UpsertedRoomParticipantsCount` | The count of participants upserted in a room. |
 | `RemovedRoomParticipantsCount` | The count of participants removed in a room. |
@@ -73,18 +68,11 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "99466898241024408",
       "Level": "Informational",
       "OperationName": "CreateRoom",
-      "OperationVersion": "2022-02-01",
+      "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": 201,
       "RoomLifespan": 61,
-      "RoomParticipantsCount": 3,
-      "RoomParticipantsConsumer": 1,
-      "RoomParticipantsAttendee": 1,
-      "RoomParticipantsPresenter": 1,
-      "RoomJoinPolicy": "InviteOnly",
-      "AddedRoomParticipantsCount": 0,
-      "UpsertedRoomParticipantsCount": 0,
-      "RemovedRoomParticipantsCount": 0,
+      "AddedRoomParticipantsCount": 4,
       "TimeGenerated [UTC]": "5/25/2023, 4:32:49.469 AM",
       }
     ]
@@ -98,43 +86,27 @@ Communication Services offers the following types of logs that you can enable:
       "CorrelationId": "99466387192310000",
       "Level": "Informational",
       "OperationName": "GetRoom",
-      "OperationVersion": "2022-02-01",
+      "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
       "RoomLifespan": 61,
-      "RoomParticipantsCount": 5,
-      "RoomParticipantsConsumer": 1,
-      "RoomParticipantsAttendee": 2,
-      "RoomParticipantsPresenter": 2,
-      "RoomJoinPolicy": "CommunicationServiceUsers",
-      "AddedRoomParticipantsCount": 0,
-      "UpsertedRoomParticipantsCount": 0,
-      "RemovedRoomParticipantsCount": 0,
       "TimeGenerated": "2022-08-19T17:07:30.2400300Z",
       },
     ]
 ```
 
-#### Example PatchRoom log
+#### Example UpdateRoom log
 
 ```json
     [
       {
       "CorrelationId": "99466387192310000",
       "Level": "Informational",
-      "OperationName": "PatchRoom",
-      "OperationVersion": "2022-02-01",
+      "OperationName": "UpdateRoom",
+      "OperationVersion": "2022-03-31-preview",
       "ResultType": "Succeeded",
       "ResultSignature": "200",
       "RoomLifespan": 121,
-      "RoomParticipantsCount": 6,
-      "RoomParticipantsConsumer": 1,
-      "RoomParticipantsAttendee": 3,
-      "RoomParticipantsPresenter": 2,
-      "RoomJoinPolicy": ""
-      "AddedRoomParticipantsCount": 0,
-      "UpsertedRoomParticipantsCount": 0,
-      "RemovedRoomParticipantsCount": 0,
       "TimeGenerated": "2022-08-19T17:07:30.3543160Z",
       },
     ]
@@ -152,11 +124,6 @@ Communication Services offers the following types of logs that you can enable:
       "ResultType": "Succeeded",
       "ResultSignature": "204",
       "RoomLifespan": 121,
-      "RoomParticipantsCount": 4,
-      "RoomParticipantsConsumer": 1,
-      "RoomParticipantsAttendee": 1,
-      "RoomParticipantsPresenter": 2,
-      "RoomJoinPolicy": ""
       "TimeGenerated": "2022-08-19T17:07:30.5393800Z",
       },
     ]
