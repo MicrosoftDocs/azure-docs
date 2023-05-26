@@ -162,11 +162,7 @@ job = ml_client.batch_endpoints.invoke(
 Batch endpoints support reading files or folders from different locations. To learn more about the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 > [!TIP]
-> Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
-
-> [!IMPORTANT]
-> __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
-
+> **Using the REST API:** Batch endpoints provide an open and durable API to invoke the endpoints and create jobs. See [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest) to learn how to use it.
 
 ## Accessing outputs from batch jobs
 
