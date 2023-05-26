@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Create a chaos experiment that uses an agent-based fault with the Azure portal
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio Preview. Run this experiment to help you defend against an application from becoming resource starved.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio Preview. Running this experiment can help you defend against an application from becoming resource starved.
 
 You can use these same steps to set up and run an experiment for any agent-based fault. An *agent-based* fault requires setup and installation of the chaos agent. A service-direct fault runs directly against an Azure resource without any need for instrumentation.
 
@@ -24,7 +24,7 @@ You can use these same steps to set up and run an experiment for any agent-based
 
 ## Enable Chaos Studio on your virtual machine
 
-Chaos Studio can't inject faults against a VM unless that VM was onboarded to Chaos Studio first. To onboard a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent. 
+Chaos Studio can't inject faults against a VM unless that VM was onboarded to Chaos Studio first. To onboard a VM to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Then you install the chaos agent.
 
 Virtual machines have two target types. One target type enables service-direct faults (where no agent is required). Another target type enables agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your VM as a [VM extension](../virtual-machines/extensions/overview.md). You use it to inject faults in the guest operating system.
 
@@ -71,7 +71,7 @@ You've now successfully brought on board your Linux VM to Chaos Studio. In the *
 ## Create an experiment
 With your VM now on board, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially. The experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. Select the **Experiments** tab in the Chaos Studio navigation. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**.
+1. Select the **Experiments** tab in Chaos Studio. In this view, you can see and manage all your chaos experiments. Select **Add an experiment**.
 
    ![Screenshot that shows the Experiments view in the Azure portal.](images/tutorial-agent-based-add.png)
 1. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a name. Select **Next: Experiment designer**.
@@ -80,12 +80,12 @@ With your VM now on board, you can create your experiment. A chaos experiment de
 1. You're now in the Chaos Studio experiment designer. You can build your experiment by adding steps, branches, and faults. Give a friendly name to your **Step** and **Branch**. Then select **Add fault**.
 
    ![Screenshot that shows the experiment designer.](images/tutorial-agent-based-add-designer.png)
-1. Select **CPU Pressure** from the dropdown. Fill in **Duration** with the number of minutes to apply pressure. Fill in **pressureLevel** with the amount of CPU pressure to apply. Leave **virtualMachineScaleSetInstances** blank. Select **Next: Target resources**.
+1. Select **CPU Pressure** from the dropdown list. Fill in **Duration** with the number of minutes to apply pressure. Fill in **pressureLevel** with the amount of CPU pressure to apply. Leave **virtualMachineScaleSetInstances** blank. Select **Next: Target resources**.
 
-   ![Screenshot that shows Fault properties.](images/tutorial-agent-based-add-fault.png)
-1. Select your VM, and select **Next**.
+   ![Screenshot that shows fault properties.](images/tutorial-agent-based-add-fault.png)
+1. Select your VM and select **Next**.
 
-   ![Screenshot that shows Add a target.](images/tutorial-agent-based-add-targets.png)
+   ![Screenshot that shows adding a target.](images/tutorial-agent-based-add-targets.png)
 1. Verify that your experiment looks correct. Then select **Review + create** > **Create**.
 
    ![Screenshot that shows reviewing and creating the experiment.](images/tutorial-agent-based-add-review.png)
@@ -95,20 +95,20 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 
 1. Go to your VM and select **Access control (IAM)**.
 
-   ![Screenshot that shows the Virtual machine overview page.](images/tutorial-agent-based-access-resource.png)
+   ![Screenshot that shows the virtual machine Overview page.](images/tutorial-agent-based-access-resource.png)
 1. Select **Add** > **Add role assignment**.
 
    ![Screenshot that shows Access control overview.](images/tutorial-agent-based-access-iam.png)
 1. Search for **Reader** and select the role. Select **Next**.
 
-   ![Screenshot that shows Assigning Virtual Machine Contributor role.](images/tutorial-agent-based-access-role.png)
+   ![Screenshot that shows assigning the virtual machine Contributor role.](images/tutorial-agent-based-access-role.png)
 1. Choose **Select members** and search for your experiment name. Select your experiment and choose **Select**. If there are multiple experiments in the same tenant with the same name, your experiment name is truncated with random characters added.
 
    ![Screenshot that shows adding the experiment to a role.](images/tutorial-agent-based-access-experiment.png)
 1. Select **Review + assign** > **Review + assign**.
 
 ## Run your experiment
-You're now ready to run your experiment. To see the impact, we recommend that you open [an Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics.md) with your VM's CPU pressure in a separate browser tab.
+You're now ready to run your experiment. To see the impact, we recommend that you open an [Azure Monitor metrics chart](../azure-monitor/essentials/tutorial-metrics.md) with your VM's CPU pressure in a separate browser tab.
 
 1. In the **Experiments** view, select your experiment. Select **Start** > **OK**.
 
