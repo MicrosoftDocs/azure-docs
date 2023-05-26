@@ -48,8 +48,8 @@ You can delete the Azure resource group, which includes all the resources in the
 
    Command interaction description:
 
-    - **Total resources to delete: <resources-total>, are you sure you want to continue?**: Enter *y*.
-    - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter *y*. Enter *n* if you want to reuse the Key Vault.
+    - **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
+    - **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Enter `y`. Enter `n` if you want to reuse the Key Vault.
 
    The console outputs messages similar to the following:
 
