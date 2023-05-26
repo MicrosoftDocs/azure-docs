@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Enable Inline Image Support
+title: Tutorial - Enable File Attachment Support
 author: jopeng
 ms.author: jopeng
-ms.date: 03/27/2023
+ms.date: 05/26/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
+In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for JavaScript.
 
-## Sample Code
+## Sample code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
 ## Prerequisites 
@@ -207,7 +207,7 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-## File Attachment Demo
+## File attachment demo
 
 Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID.
 
@@ -315,7 +315,7 @@ async function init() {
 That's it! Now we have added image attachment support as well. Now let's run the code and see it in action!
 
 
-## Image Attachment Demo
+## Image attachment demo
 
 Now let's send some image attachments from Teams client like this:
 
