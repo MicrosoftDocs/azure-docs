@@ -83,9 +83,9 @@ Access is limited to customers that meet the following requirements:
     * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
     
 
-## Container Image and Licence Updates
+## Container image and license updates
 
-[!INCLUDE [License update information](includes/cognitive-services-containers-license-update.md)]
+[!INCLUDE [License update information](../../../includes/cognitive-services-containers-license-update.md)]
 
 ## Usage records
 

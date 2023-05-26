@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: faq
-  ms.date: 01/11/2022
+  ms.date: 05/26/2023
   ms.author: aahi
 title: FAQ for Azure Cognitive Services containers
 summary: |
@@ -44,7 +44,7 @@ sections:
         answer: |
           Customers can choose when to update the containers that they've deployed. Containers will be marked with standard [Docker tags](https://docs.docker.com/engine/reference/commandline/tag/) such as `latest` to indicate the most recent version. We encourage customers to pull the latest versions of containers as they're released. For details on how to get notified when an image is updated, see [Azure Container Registry webhooks](../../container-registry/container-registry-webhook.md).
           
-           [!INCLUDE [Container license update](includes/cognitive-services-containers-license-update.md)]
+           [!INCLUDE [Container license update](../../../includes/cognitive-services-containers-license-update.md)]
       - question: What versions will be supported?
         answer: |
           The current and last major version of the container will be supported. However, we encourage customers to stay current to get the latest technology.
