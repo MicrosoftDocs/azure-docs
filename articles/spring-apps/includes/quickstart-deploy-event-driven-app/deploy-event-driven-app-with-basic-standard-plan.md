@@ -14,136 +14,50 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2 Prepare Spring Project
-
-### [Azure portal](#tab/Azure-portal)
-
-Use the following steps to prepare the sample locally.
-
-1. The sample project is ready on GitHub. Clone sample project by using the following command:
-
-   ```bash
-   git clone https://github.com/Azure-Samples/ASA-Samples-Event-Driven-Application.git
-   ```
-
-1. Build the sample project by using the following commands:
-
-   ```bash
-   cd ASA-Samples-Event-Driven-Application
-   ./mvnw clean package -DskipTests
-   ```
+[!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
 
 ## 3 Provision
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
-### 3.1 Provision an instance of Service Bus
+### 3.1 Sign in to the Azure portal
 
-1. In the search box, search for *Service Bus*, and then select **Service Bus** in the results.
+Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-service-bus-service.png" alt-text="Screenshot of Azure portal showing Service Bus in search results, with Service Bus highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-service-bus-service.png":::
+### 3.2 Provision an instance of Service Bus
 
-1. On the Service Bus page, select **Create**.
+[!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-create.png" alt-text="Screenshot of Azure portal showing Service Bus page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-create.png":::
+### 3.3 Provision an instance of Key Vaults
 
-1. Fill out the **Basics** form on the Service Bus **Create** page using the following guidelines:
+[!INCLUDE [provision-key-vault](../../includes/quickstart-deploy-event-driven-app/provision-key-vault.md)]
 
-    - **Project Details**:
+### 3.4 Provision an instance of Azure Spring Apps
 
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Create a new one, such as: `rg-wingtiptoy`.
+1. Select Create a resource (+) in the upper-left corner of the portal.
 
-    - **Instance Details**:
+1. Select **Compute** > **Azure Spring Apps**.
 
-        - **Namespace Name**: Create the namespace name for the Service Bus instance.
-        - **Location**: Select the location for your service instance.
-        - **Pricing tier**: Select `Basic` tier.
+   :::image type="content" source="../../media/quickstart-deploy-web-app/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of Azure portal showing Service Bus creation" lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
+1. Fill out the **Basics** form with the following information:
 
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Service Bus instance.
+   :::image type="content" source="../../media/quickstart-deploy-web-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
 
-1. Select **Go to resource** to go to the **Service Bus Namespace** page.
+   | Setting        |Suggested Value|Description|
+----------------|      ---|---|---|
+   | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
+   | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
+   | Name           |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
+   | Plan           |*Basic*|Pricing Tier determines the resource and cost associated with your instance.|
+   | Region         |The region closest to your users| The location that is closest to your users.|
+   | Zone Redundant |Unchecked|Wether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
 
-1. Select **Shared access policies** in the left navigational menu, select **RootManageSharedAccessKey**.
+1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
-1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String**, which is used to set up connections from the Spring app.
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-1. Select **Queues** in the left navigational menu, select **Queue**.
-
-1. On the **Create Queue** page, enter `lower-case` as **Name**, select **Create**.
-
-1. Repeat the previous step, enter `upper-case` as **Name**, select **Create**.
-
-### 3.2 Provision an instance of Key Vaults
-
-1. In the search box, search for *Key vaults*, and then select **Key vaults** in the results.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-key-vaults.png" alt-text="Screenshot of Azure portal showing Key vaults in search results, with Key vaults highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-key-vaults.png":::
-
-1. On the Key vaults page, select **Create**.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-create.png" alt-text="Screenshot of Azure portal showing Key Vault page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-create.png":::
-
-1. Fill out the **Basics** form on the Service Bus **Create** page using the following guidelines:
-
-    - **Project Details**:
-
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select the resource group you just created.
-
-    - **Instance Details**:
-
-        - **Key vault name**: Create the name for the Key Vault instance.
-        - **Region**: Select the region for your service instance.
-        - **Pricing tier**: Select `Standard` tier.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png" alt-text="Screenshot of Azure portal showing Key Vault creation for basic tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png":::
-
-1. Navigate to the tab **Access configuration** on the key vault **Create** page, select `Vault access policy` for **Permission model**.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-access-configuration.png" alt-text="Screenshot of Azure portal showing Key Vault creation for Access configuration tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-access-configuration.png":::
-
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Key Vault instance.
-
-1. Select **Go to resource** to go to the **Key Vault Overview** page.
-
-1. Copy **Vault URI** and save it for later use.
-
-1. Select **Secrets** in the left navigational menu, select **Generate/Import**.
-
-1. On the **Create a secret** page, enter `SERVICE-BUS-CONNECTION-STRING` for **Name**, paste the connection string of Service Bus for **Secret value**, then select **Create**.
-
-### 3.3 Provision an instance of Azure Spring Apps
-
-1. Sign in to the Azure portal at https://portal.azure.com.
-
-1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-event-driven-app/search-azure-spring-apps-service.png":::
-
-1. On the Azure Spring Apps page, select **Create**.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/azure-spring-apps-create.png":::
-
-1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
-
-    - **Project Details**:
-
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Select the resource group you just created.
-
-    - **Service Details**:
-
-        - **Name**: Create the name for the Azure Spring Apps instance.
-        - **Plan**: Select **Basic** for the **Plan** option.
-        - **Region**: Select the region for your service instance.
-        - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-plan-creation.png" alt-text="Screenshot of Azure portal showing basic plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/basic-plan-creation.png":::
-
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
+   :::image type="content" source="../../media/quickstart-deploy-web-app/3-asa-notifications.png" alt-text="The Notifications pane":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
@@ -159,7 +73,9 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 
 1. On the **Configuration** page, select **Environment variables** tab page, enter `AZURE_KEY_VAULT_ENDPOINT` for **Key**, enter the Key Vault URI for **Value**., then select **Save**
 
-### 3.4 Config Key Vault access policy
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-event-driven-app/app-config-env.png":::
+
+### 3.5 Config Key Vault access policy
 
 1. Go to the Azure Spring Apps instance overview page.
 
