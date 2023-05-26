@@ -27,6 +27,9 @@ Find the DCEs associated with your Azure Monitor workspace.
 The page displays all of the DCEs that are associated with the Azure Monitor workspace and that enable data ingestion into the workspace. Select the DCE you want to configure with Private Link and then follow the steps to [create an Azure Monitor private link scope](../logs/private-link-configure.md) to complete the process.
 
 > [!NOTE]
+> Private Link functionality for Managed Prometheus and the Azure Monitor workspace is currently _unavailable_ in the following regions: Australia Southeast, Canada Central, East Asia, Norway East, South Africa North, UAE North, or West Central US. We expect this functionality to become available by early June 2023. All other regions where Managed Prometheus and the Azure Monitor workspace are available have full support for Private Link. 
+
+> [!NOTE]
 > Please refer to [use private endpoints for queries](azure-monitor-workspace-private-endpoint.md) for details on how to configure private link for querying data from your Azure Monitor workspace.
 
 ## Private link ingestion from a private AKS cluster
