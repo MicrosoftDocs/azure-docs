@@ -24,32 +24,30 @@ This compliant network check is specific to each tenant.
    - For example: Contoso can protect their services like Exchange Online and SharePoint Online behind their compliant network check to ensure only Contoso users can access these resources. 
    - If another organization like Fabrikam was using a compliant network check, they wouldn't pass Contoso's compliant network check. 
 
-The compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Azure AD. No administrator upkeep is required.
+The compliant network is different than [IPv4, IPv6, or country locations](/azure/active-directory/conditional-access/location-condition) you may configure in Microsoft Entra ID. No administrator upkeep is required.
 
 ## Prerequisites
 
-* A working Azure AD tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
+* A working Microsoft Entra ID tenant with the appropriate license. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
    * Global Secure Access Administrator role
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access client installed](how-to-install-windows-client.md) and running or a [branch office configured](how-to-manage-branch-locations.md).
+* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to enable the Microsoft 365 profile](how-to-enable-m365-profile.md).
 
-* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to enable the M365 profile](how-to-enable-m365-profile.md).
-
+<!--- Remove to this to general page
 ### Known limitations
 
 The preview doesn't support IPv6 traffic. IPv6 must be turned off for this preview.
 
 Some Outlook traffic may use the QUIC protocol. Global Secure Access doesn’t yet support the QUIC protocol.
+--->
 
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow the compliant network check, an administrator must take the following steps.
 
 1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
-1. Browse to **Global Secure Access (preview)** > **Global settings**> **Session management**.
-1. Select the **Adaptive Access** tab.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 1. Browse to **Microsoft Entra ID Conditional Access** > **Named locations**.
    1. Confirm you have a location called **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
@@ -65,7 +63,7 @@ The following example shows a Conditional Access policy that requires Exchange O
 
 :::image type="content" source="media/how-to-compliant-network/all-network-access-locations.png" alt-text="Screenshot showing a Conditional Access policy highlighting the All Network Access locations of my tenant location." lightbox="media/how-to-compliant-network/all-network-access-locations.png":::
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Sign in to the **Microsoft Entra admin center** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -90,10 +88,11 @@ After administrators confirm the policy settings using [report-only mode](../act
 ## Try your compliant network policy
 
 1. On an end-user device with the [NaaS client installed and running](how-to-install-windows-client.md)
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should allow access to resources.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), you have access to resources.
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), this should block access to resources with an error message that says **You cannot access this right now**.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), you're blocked from accessing resources with an error message that says **You cannot access this right now**.
 
+<!---Add lightbox with more details-->
 :::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You cannot access this right now.":::
 
 ## Troubleshooting
