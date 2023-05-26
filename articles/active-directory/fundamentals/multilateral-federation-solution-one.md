@@ -69,7 +69,7 @@ Here are some of the advantages of implementing Azure AD with Cirrus Bridge:
 
 Here are some of the trade-offs of using this solution:
 
-* **Limited ability to customize your authentication experience**: This scenario provides a managed solution. It might not offer you the flexibility or granularity to build a custom solution by using federation provider products.
+* **Limited ability to customize the authentication experience**: This scenario provides a managed solution. It might not offer you the flexibility or granularity to build a custom solution by using federation provider products.
 
 * **Limited third-party MFA integration**: The number of integrations available to third-party MFA solutions might be limited.
 
@@ -85,20 +85,20 @@ The following resources help with your migration to this solution architecture.
 | - | - |
 | [Resources for migrating applications to Azure Active Directory](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure AD |
 | [Azure AD custom claims provider](../develop/custom-claims-provider-overview.md)| Overview of the Azure AD custom claims provider |
-| [Custom security attributes documentation](../fundamentals/custom-security-attributes-manage.md) | Steps for managing access to custom security attributes |
+| [Custom security attributes](../fundamentals/custom-security-attributes-manage.md) | Steps for managing access to custom security attributes |
 | [Azure AD SSO integration with Cirrus Bridge](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md) | Tutorial to integrate Cirrus Bridge with Azure AD |
 | [Cirrus Bridge overview](https://blog.cirrusidentity.com/documentation/azure-bridge-setup-rev-6.0) | Cirrus Identity documentation for configuring Cirrus Bridge with Azure AD |
 | [Azure AD Multi-Factor Authentication deployment considerations](../authentication/howto-mfa-getstarted.md) | Guidance for configuring Azure AD Multi-Factor Authentication  |
 
 ## Next steps
 
-See these other multilateral federation articles:
+See these related articles about multilateral federation:
 
 [Multilateral federation introduction](multilateral-federation-introduction.md)
 
 [Multilateral federation baseline design](multilateral-federation-baseline.md)
 
-[Multilateral federation Solution 2: Azure AD to Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
+[Multilateral federation Solution 2: Azure AD with Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
 
 [Multilateral federation Solution 3: Azure AD with AD FS and Shibboleth](multilateral-federation-solution-three.md)
 

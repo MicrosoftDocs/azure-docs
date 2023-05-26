@@ -72,7 +72,7 @@ See these related articles about multilateral federation:
 
 [Multilateral federation Solution 1: Azure AD with Cirrus Bridge](multilateral-federation-solution-one.md)
 
-[Multilateral federation Solution 2: Azure AD to Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
+[Multilateral federation Solution 2: Azure AD with Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
 
 [Multilateral federation Solution 3: Azure AD with AD FS and Shibboleth](multilateral-federation-solution-three.md)
 
