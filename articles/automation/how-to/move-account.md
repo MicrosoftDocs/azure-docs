@@ -3,7 +3,7 @@ title: Move your Azure Automation account to another subscription
 description: This article tells how to move your Automation account to another subscription.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/07/2021
+ms.date: 05/26/2023
 ms.topic: conceptual 
 ---
 
@@ -89,6 +89,9 @@ Now you can unlink your workspace:
 
 ## Move your Automation account
 
+> [!NOTE]
+> The movement of System assigned managed identity, and User-assigned managed identity takes place with the Automation account.
+
 You can now move your Automation account and its runbooks. 
 
 1. In the Azure portal, browse to the resource group of your Automation account. Select **Move** > **Move to another subscription**.
@@ -97,24 +100,6 @@ You can now move your Automation account and its runbooks.
 
 2. Select the resources in your resource group that you want to move. Ensure that you include your Automation account, runbooks, and Log Analytics workspace resources.
 
-## Re-create Run As accounts
-
-[Run As accounts](../automation-security-overview.md#run-as-accounts) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account. To re-create the Run As accounts:
-
-1. Go to your Automation account in the new subscription, and select **Run as accounts** under **Account Settings**. You'll see that the Run As accounts show as incomplete now.
-
-    ![Screenshot of Run As accounts, showing incomplete](../media/move-account/run-as-accounts.png)
-
-2. Delete the Run As accounts, one at a time, by selecting **Delete** on the **Properties** page. 
-
-    > [!NOTE]
-    > If you don't have permissions to create or view the Run As accounts, you see the following message: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` For more information, see [Permissions required to configure Run As accounts](../automation-security-overview.md#permissions).
-
-3. After you've deleted the Run As accounts, select **Create** under **Azure Run As account**. 
-
-4. On the Add Azure Run As account page, select **Create** to create the Run As account and service principal. 
-
-5. Repeat the steps above with the Azure Classic Run As account.
 
 ## Enable features
 
