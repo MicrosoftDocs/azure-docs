@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/18/2022
 ms.author: jianleishen
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 

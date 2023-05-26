@@ -4,6 +4,7 @@ description: Learn how to enable the Top flows and Flow trace logs in Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/12/2023
 ms.author: victorh 

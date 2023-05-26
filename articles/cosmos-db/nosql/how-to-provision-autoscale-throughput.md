@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/01/2022
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB - API for NoSQL

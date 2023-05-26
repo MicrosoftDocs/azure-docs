@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 ---
 
 # QuickStart: Add 1:1 video calling to your app

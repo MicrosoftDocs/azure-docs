@@ -9,7 +9,7 @@ ms.date: 02/16/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: csharp, java, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Manage consistency levels in Azure Cosmos DB

@@ -12,7 +12,7 @@ ms.date: 04/12/2021
 ms.author: travisw
 zone_pivot_groups: programming-languages-set-thirteen
 ms.devlang: cpp, csharp, java
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp, devx-track-extended-java
 ---
 
 # How to monitor and control service connections with the Speech SDK

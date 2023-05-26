@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js, cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video, ignite-2022
 ---
 # Manage indexing in Azure Cosmos DB for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

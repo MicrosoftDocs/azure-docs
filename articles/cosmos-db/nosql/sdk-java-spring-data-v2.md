@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Spring Data Azure Cosmos DB v2 for API for NoSQL (legacy): Release notes and resources

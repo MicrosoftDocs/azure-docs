@@ -7,8 +7,7 @@ ms.service: ddos-protection
 ms.topic: quickstart 
 ms.date: 04/04/2023
 ms.workload: infrastructure-services
-ms.custom: template-quickstart 
-# Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
+ms.custom: template-quickstart, devx-track-azurecli
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using Azure CLI

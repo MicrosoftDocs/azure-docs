@@ -4,7 +4,7 @@ description: Querying spatial data with Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: sidandrews

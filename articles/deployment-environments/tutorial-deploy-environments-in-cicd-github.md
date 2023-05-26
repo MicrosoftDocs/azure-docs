@@ -4,6 +4,7 @@ description: Learn how to integrate Azure Deployment Environments into your CI/C
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/13/2023
 ---

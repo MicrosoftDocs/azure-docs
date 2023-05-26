@@ -4,7 +4,7 @@ description: Create, delete, and modify Azure Batch account resources with the B
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.devlang: csharp
-ms.custom: "seodec18, has-adal-ref, devx-track-csharp"
+ms.custom: seodec18, has-adal-ref, devx-track-csharp, devx-track-dotnet
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
 

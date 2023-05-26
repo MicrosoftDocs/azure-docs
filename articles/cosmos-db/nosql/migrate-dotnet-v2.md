@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.devlang: csharp
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v2

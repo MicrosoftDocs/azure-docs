@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/14/2023
 ms.author: esarroyo
 ms.reviewer: mjbrown
-ms.custom: cosmos-db-video
+ms.custom: cosmos-db-video, devx-track-dotnet
 ---
 
 # Best practices for Azure Cosmos DB .NET SDK

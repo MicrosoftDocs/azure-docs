@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/12/2022
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-dotnet
 ---
 # Programmatically monitor an Azure Data Factory
 

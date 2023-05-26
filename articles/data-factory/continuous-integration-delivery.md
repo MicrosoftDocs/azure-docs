@@ -8,7 +8,7 @@ ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/16/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Continuous integration and delivery in Azure Data Factory

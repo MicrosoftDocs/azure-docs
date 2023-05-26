@@ -8,7 +8,7 @@ ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/28/2022
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Use custom parameters with the Resource Manager template

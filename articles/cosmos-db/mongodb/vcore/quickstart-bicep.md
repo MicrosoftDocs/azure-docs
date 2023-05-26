@@ -10,6 +10,12 @@ author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: nayakshweta
 ms.date: 03/07/2023
+
+ms.custom: devx-track-bicep
+
+ms.custom: devx-track-bicep
+
+ms.custom: devx-track-bicep
 ---
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using a Bicep template

@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: golang
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-go
 ms.topic: quickstart
 ms.date: 3/4/2021
 ms.author: sidandrews

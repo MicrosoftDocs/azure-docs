@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 zone_pivot_groups: programming-languages-set-ten
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 ms.devlang: azurecli
 ---
 

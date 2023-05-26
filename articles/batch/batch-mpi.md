@@ -4,6 +4,7 @@ description: Learn how to execute Message Passing Interface (MPI) applications u
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Batch

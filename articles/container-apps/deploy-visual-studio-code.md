@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 09/01/2022
-ms.custom: vscode-azure-extension-update-completed
+ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet
 ---
 
 # Quickstart: Deploy to Azure Container Apps using Visual Studio Code

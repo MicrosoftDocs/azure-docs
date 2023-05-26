@@ -5,7 +5,7 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-extended-java, devx-track-python
 ms.topic: conceptual
 ms.date: 10/28/2021
 ms.author: marhamil

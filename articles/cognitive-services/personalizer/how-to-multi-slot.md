@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 05/24/2021
 zone_pivot_groups: programming-languages-set-six
 ms.devlang: csharp, javascript, python
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Get started with multi-slot for Azure Personalizer

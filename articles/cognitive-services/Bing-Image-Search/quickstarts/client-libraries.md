@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 01/05/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api, devx-track-extended-java
 ---
 # Quickstart: Use the Bing Image Search client library
 

@@ -4,7 +4,7 @@ description: Build your container app from a local or GitHub source repository a
 services: container-apps
 author: lanceleonard
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
 ms.topic: quickstart
 ms.date: 03/29/2023
 ms.author: v-laleonard

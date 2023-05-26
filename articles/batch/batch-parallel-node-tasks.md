@@ -3,7 +3,7 @@ title: Run tasks concurrently to maximize usage of Batch compute nodes
 description: Learn how to increase efficiency and lower costs by using fewer compute nodes and parallelism in an Azure Batch pool.
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: "H1Hack27Feb2017, devx-track-csharp"
+ms.custom: H1Hack27Feb2017, devx-track-csharp, devx-track-dotnet
 ms.devlang: csharp
 ---
 # Run tasks concurrently to maximize usage of Batch compute nodes

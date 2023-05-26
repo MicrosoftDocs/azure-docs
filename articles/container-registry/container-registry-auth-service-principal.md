@@ -2,6 +2,7 @@
 title: Authenticate with service principal
 description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022

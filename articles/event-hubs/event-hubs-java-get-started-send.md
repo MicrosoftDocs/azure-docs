@@ -4,7 +4,7 @@ description: This article provides a walkthrough of creating a Java application 
 ms.topic: quickstart
 ms.date: 02/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs

@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: quickstart
 ms.date: 09/16/2022
 ms.author: eur
@@ -61,4 +62,3 @@ keywords: speech translation
 
 > [!div class="nextstepaction"]
 > [Learn more about speech translation](how-to-translate-speech.md)
-

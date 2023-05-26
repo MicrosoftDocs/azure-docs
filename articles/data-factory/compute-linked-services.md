@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/25/2022
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: synapse
 ---
 
 # Compute environments supported by Azure Data Factory and Synapse pipelines

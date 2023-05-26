@@ -4,6 +4,7 @@ description: Learn how to develop Cognitive Services applications securely by us
 author: aahill
 ms.author: aahi
 ms.service: cognitive-services
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 09/13/2022
 zone_pivot_groups: programming-languages-set-twenty-eight

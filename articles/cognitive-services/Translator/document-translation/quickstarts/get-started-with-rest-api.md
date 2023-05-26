@@ -11,7 +11,7 @@ ms.date: 03/22/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: mode-other, build-2023
+ms.custom: mode-other, build-2023, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-translator
 ---
 

@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 06/15/2022
-ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey
+ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet
 ---
 
 # Query items in Azure Cosmos DB for NoSQL using .NET

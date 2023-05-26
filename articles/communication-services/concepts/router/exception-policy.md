@@ -10,6 +10,7 @@ ms.author: danielgerlag
 ms.date: 01/28/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 
@@ -151,4 +152,3 @@ await client.upsertExceptionPolicy({
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [exception_triggered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobexceptiontriggered
-
