@@ -4,18 +4,29 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 05/05/2023
+ms.date: 05/26/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop on a regular basis. In this article we highlight articles for new features and where there have been important updates to existing articles.
 
+## May 2023
+
+In May 2023, we published the following changes:
+
+- New articles for the custom images templates preview:
+  - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md).
+  - [Use Custom image templates to create custom images](create-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+- Added how to steps for the Azure portal to configure automatic or direct assignment type in [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md).
+- Rewrote the article to [Create an MSIX image for Azure Virtual Desktop](msix-app-attach-create-msix-image.md).
+
 ## April 2023
 
 In April 2023, we published the following changes:
 
-- New articles for the Azure Virtual Desktop Store app public preview:
+- New articles for the Azure Virtual Desktop Store app preview:
   - [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md).
   - [Use features of the Azure Virtual Desktop Store app for Windows](users/client-features-windows-azure-virtual-desktop-app.md).
   - [What's new in the Azure Virtual Desktop Store app for Windows](whats-new-client-windows-azure-virtual-desktop-app.md).
@@ -27,7 +38,7 @@ In April 2023, we published the following changes:
 
 In March 2023, we published the following changes:
 
-- A new article for the public preview of [Uniform Resource Identifier (URI) schemes with the Remote Desktop client](uri-scheme.md).
+- A new article for the preview of [Uniform Resource Identifier (URI) schemes with the Remote Desktop client](uri-scheme.md).
 - An update showing you how to [Give session hosts in a personal host pool a friendly name](configure-host-pool-personal-desktop-assignment-type.md#give-session-hosts-in-a-personal-host-pool-a-friendly-name).
 
 ## February 2023
@@ -46,7 +57,7 @@ In February 2023, we published the following changes:
 
 In January 2023, we published the following change:
 
-- A new article for the public preview of [Watermarking](watermarking.md).
+- A new article for the preview of [Watermarking](watermarking.md).
 
 ## Next steps
 
