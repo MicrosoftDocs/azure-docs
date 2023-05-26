@@ -180,7 +180,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
         ```
     1. Select "*Submit*" to save the changes.
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png" alt-text="Screenshot of resume call selection within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png"::: 
-        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-call.png" alt-text="Screenshot of the http request within ServiceNow." lightbox"media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-call.png":::
+        :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-call.png" alt-text="Screenshot of the http request within ServiceNow.":::
 1. Modify the request table schema: To modify the request table schema, make changes to the three tables shown in the following image:
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-table-schema.png" alt-text="Screenshot of the request table schema within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-request-table-schema.png":::
     Add the three column label and type as string:
