@@ -74,7 +74,7 @@ The following image shows the squash options as they appear in the Azure portal.
 
 ## Step 5: Install the AZNFS Mount Helper package
 
-The ASNFS Mount Helper package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which monitors changes to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. To learn more, see [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
+The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which monitors changes to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. To learn more, see [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
 
 1. Determine whether the AZNFS Mount Helper package is installed on your client.
 
