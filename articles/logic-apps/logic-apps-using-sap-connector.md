@@ -239,8 +239,9 @@ To use the SAP connector, you'll need the SAP NCo client library named [SAP Conn
     1. To use the SAP connector, you need the following files from the SAP NCo client library and have them ready to upload to your logic app resource.
 
        - **libicudecnumber.dll**
+       - **rscp4n.dll**
        - **sapnco.dll**
-       - **sapnco_utils.exe**
+       - **sapnco_utils.dll**
 
 * From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
@@ -248,7 +249,7 @@ To use the SAP connector, you'll need the SAP NCo client library named [SAP Conn
 
     Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
 
-  * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow, either in the Azure portal or locally in Visual Studio Code, respectively
+  * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow, either in the Azure portal or locally in Visual Studio Code, respectively.
 
   * For a Consumption workflow in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
 
@@ -319,7 +320,7 @@ To download the current **CommonCryptoLib** package, follow these steps:
 
 1. On the **Download Software** page, select the **Installation & Upgrades** tab, expand **By Alphabetical Index (A-Z)**, and select **C** > **SAP Cryptographic Software** > **Downloads** tab > **SapCryptoLib** > **Downloads** tab > **CommonCryptoLib 8** > **Downloads** tab.
 
-1. From the **Items Available to Download** list, select **Windows on x64 Bit** or **Windows on x32 Bit (IA32)**, whichever matches Standard logic app platform configuration.
+1. From the **Items Available to Download** list, select **Windows on x64 64Bit** or **Windows Server on IA32 x32 Bit**, whichever matches Standard logic app platform configuration.
 
    Microsoft recommends the 64-bit version.
 
@@ -484,8 +485,9 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 1. To use the SAP connector, you need to download the following files and have them read to upload to your Standard logic app resource. For more information, see [SAP NCo client library prerequisites](#sap-client-library-prerequisites):
 
    - **libicudecnumber.dll**
+   - **rscp4n.dll**
    - **sapnco.dll**
-   - **sapnco_utils.exe**
+   - **sapnco_utils.dll**
 
 1. To SNC from SAP, you need to download the following files and have them ready to upload to your logic app resource. For more information, see [SNC prerequisites](#snc-prerequisites-standard):
 
@@ -507,8 +509,9 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 
    **SAP NCo**
    - **libicudecnumber.dll**
+   - **rscp4n.dll**
    - **sapnco.dll**
-   - **sapnco_utils.exe**
+   - **sapnco_utils.dll**
 
    **CommonCryptoLib**
    - **sapcrypto.dll**
