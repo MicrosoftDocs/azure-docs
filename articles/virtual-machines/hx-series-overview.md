@@ -17,7 +17,7 @@ author: padmalathas
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-An [HX-series](hx-series.md) server features 2 * 96-core EPYC 9004-series CPUs for a total of 192 physical "Zen4" cores with AMD 3D-V Cache. Simultaneous Multithreading (SMT) is disabled on HX. These 192 cores are divided into 24 sections (12 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HX servers also run the following AMD BIOS settings: 
+An [HX-series](hx-series.md) server features 2 * 96-core EPYC 9V33X CPUs for a total of 192 physical "Zen4" cores with AMD 3D-V Cache. Simultaneous Multithreading (SMT) is disabled on HX. These 192 cores are divided into 24 sections (12 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HX servers also run the following AMD BIOS settings: 
 
 ```bash
 Nodes per Socket (NPS) = 2
@@ -34,11 +34,11 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 The following diagram shows the topology of the server. We reserve these 16 hypervisor host cores (yellow) symmetrically across both CPU sockets, taking the first 2 cores from specific Core Complex Dies (CCDs) in each NUMA domain, with the remaining cores for the HX-series VM (green).
 
-![Topology of the HX-series server](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
+![Topology of the HX-series server](./media/hpc/architecture/hbv4/hbv4-topology-server.png)
 
 The CCD boundary is different from a NUMA boundary. On HX, a group of six (6) consecutive CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HX VM sizes expose 4 uniform NUMA domains that will appear to an OS and application as shown below, each with different number of cores depending on the specific [HX VM size](hx-series.md).
 
-![Topology of the HX-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.png)
+![Topology of the HX-series VM](./media/hpc/architecture/hbv4/hbv4-topology-vm.jpg)
 
 Each HX VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 9004-series, as follows:
 
@@ -107,7 +107,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Hardware specifications          | HX-series VMs              |
 |----------------------------------|----------------------------------|
 | Cores                            | 176, 144, 96, 48, or 24 (SMT disabled)           | 
-| CPU                              | AMD EPYC 9004-series                   | 
+| CPU                              | AMD EPYC 9V33X                   | 
 | CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
 | Memory                           | 1.4 TB (RAM per core depends on VM size)         | 
 | Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
@@ -122,8 +122,8 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | MPI Support                    | HPC-X (2.13 or higher), Intel MPI (2021.7.0 or higher), OpenMPI (4.1.3 or higher), MVAPICH2 (2.3.7 or higher), MPICH (4.1 or higher)  |
 | Additional Frameworks          | UCX, libfabric, PGAS, or other InfiniBand based runtimes                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks), Azure NetApp Files, Azure Files, Azure HPC Cache, Azure Managed Lustre File System             |
-| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 18.04+            |
-| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 18.04+    |
+| Supported and Validated OS     | AlmaLinux 8.6, Ubuntu 20.04+            |
+| Recommended OS for Performance | AlmaLinux HPC 8.6, Ubuntu-HPC 20.04+    |
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
@@ -132,7 +132,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 > Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN and the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16). 
+> Recommended image URN: almalinux:almalinux-hpc:8_6-hpc-gen2:latest, for scaling tests please use the recommended URN along with the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16). 
 
 ## Next steps
 
