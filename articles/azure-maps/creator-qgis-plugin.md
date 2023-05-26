@@ -25,7 +25,6 @@ The [Azure Maps QGIS Plugin] is developed by Azure Maps to visualize and edit Cr
 * An [Azure Maps account]
 * A [subscription key]
 
-
 ## Get started
 
 This section provides information on how to install QGIS and the [Azure Maps QGIS Plugin], then how to fetch and view a dataset.
@@ -52,7 +51,7 @@ You can then view all the datasets you have in your account by selecting the Lis
 
 Once the datasetId field has been filled, select Get Features to load the dataset into QGIS.
 
-# Viewing dataset
+### Viewing dataset
 
 Once the dataset has been loaded, you can view the different feature classes it contains in the [layer panel]. The ordering of the layers determines how features will be shown on the map; layers at a higher order in the list will be displayed on top.
 
@@ -91,63 +90,67 @@ Dataset additions involve adding features to a layer.
 
 ### Dataset edits
 
-Dataset edits involve editing feature geometries.
+Dataset edits involve editing feature geometries and properties.
 
-    a.  To edit a feature geometry
+#### Edit a feature geometry
 
-        i.  Select the desired layer in the [layer panel] containing the feature you want to edit
+    1. Select the desired layer in the [layer panel] containing the feature you want to edit
 
-        ii. Toggle editing mode on in the [Digitizing Toolbar].
+    1. Toggle editing mode on in the [Digitizing Toolbar].
 
-        iii. Select the [Vertex tool] from the [Digitizing Toolbar].
+    1. Select the [Vertex tool] from the [Digitizing Toolbar].
 
-        iv. Hover over the feature you want to edit, QGIS should show the feature vertices. Drag a vertical to edit the shape.
+    1. Hover over the feature you want to edit, QGIS should show the feature vertices. Drag a vertical to edit the shape.
 
-        v.  Once you are done with your changes, select the save button in the [Digitizing Toolbar].
+    1. Once you are done with your changes, select the save button in the [Digitizing Toolbar].
 
-    b.  To edit a feature property There are two ways to edit the feature property:
-        Using Attribute table
+#### Edit a feature property
 
-        i.  Open the [attribute table](#attribute-table) for the layer containing the feature you want to edit.
+There are two ways to edit the feature property:
 
-        ii. Toggle the edit more on. The attribute table also contains an edit button.
+1. Using Attribute table
 
-        iii. Edit the property of the desired feature.
+    1. Open the [attribute table](#attribute-table) for the layer containing the feature you want to edit.
 
-        iv. Click the save button in the [Digitizing Toolbar] to save changes. The attribute table should also have a save button.
+    1. Toggle the edit more on. The attribute table also contains an edit button.
 
-> Selecting the Feature
+    1. Edit the property of the desired feature.
 
-i.  Select the desired feature in the [selection toolbar]
+    1. Click the save button in the [Digitizing Toolbar] to save changes. The attribute table should also have a save button.
 
-ii. Select the edit attribute tool from the [Digitizing Toolbar].
+1. Selecting the Feature
 
-    i.  Edit the property of the desired feature.
+    1. Select the desired feature in the [Selection toolbar]
 
-    ii. Once you are done with your changes, select the save button in the [Digitizing Toolbar].
+    1. Select the edit attribute tool from the [Digitizing Toolbar].
+
+        1. Edit the property of the desired feature.
+
+        1. Once you are done with your changes, select the save button in the [Digitizing Toolbar].
 
 ### Dataset deletions
 
-    a.  Select the desired feature in the [selection toolbar] you want to delete.
+1. Select the desired feature in the [Selection toolbar] you want to delete.
 
-    b.  Select the delete feature option from the [Digitizing
-        Toolbar](#digitizing-toolbar).
+1. Select the delete feature option from the [Digitizing Toolbar].
 
-    c.  Click the save button in the [Digitizing Toolbar] to save changes.
+1. Select the save button in the [Digitizing Toolbar] to save changes.
 
 ## Advanced editing features
 
-To learn more about advance editing features, such as Moving, Scaling, Copying and Rotating Features, visit [16.3. Editing --- QGIS Documentation.](https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing)
+To learn more about advance editing features, such as moving, scaling, copying and rotating features, see [Advanced digitizing] in the QGIS Documentation.
 
 ## Logs
 
 Azure Maps QGIS Plugin also allows you access to logs, for the requests made to Azure Maps. You can set the location of log file in [Azure Maps Plugin Dialog box](#azure-maps-plugin-dialog-box). By default, log files are stored in the folder containing your downloaded plugin.
 
+![A screenshot of the Azure Maps QGIS Plugin dialog box with the logs section highlighted.](./media/creator-indoor-maps/qgis/plugin-dialog-logs.png)
+
 You can view your log files in two ways:
 
 1. **QGIS**. You can view the Logs in QGIS by activating the [Logs Message Panel](#logs-message-panel). You will then see:
 
-   ![A screenshot of a computer Description automatically generated with low confidence](./media/creator-indoor-maps/qgis/logs-message-panel.png)
+   ![A screenshot of the Logs Message Panel.](./media/creator-indoor-maps/qgis/logs-message-panel.png)
 
 1. You can also view the logs where they are stored. (when you set the
     location in Azure Maps Plugin Dialog box).
@@ -190,9 +193,8 @@ The Azure Maps Plugin Dialog Box can be accessed by selecting the Azure Maps ico
 
 The plugin has two tabs:
 
-- Creator Tab: This is where you would input the information to load the dataset into QGIS.
-
-- About Tab: This tab contains links to the Azure Maps documentation, the plugin documentation and feedback.
+* Creator Tab: This is where you would input the information to load the dataset into QGIS.
+* About Tab: This tab contains links to the Azure Maps documentation, the plugin documentation and feedback.
 
 ### QGIS Terms
 
@@ -256,7 +258,7 @@ The most common tools are:
 
     1. On the right side, you can see all information about the feature, including its properties.
 
-    1. You can then select the desired layer from the layer panel and select the feature using Select the desired feature in the [selection toolbar]
+    1. You can then select the desired layer from the layer panel and select the feature using Select the desired feature in the [Selection toolbar]
 
 #### Attribute Table
 
@@ -265,12 +267,15 @@ The attribute table shows each feature and their properties in a tabular form. I
 ## Additional information
 
 * If you have suggestions for new features, enter them in the Azure Maps section of [Microsoft Azure | Share your Ideas].
-* If you have question related to Azure Maps, see [Stack Overflow]. Be sure and tag your search and questions with [azure-maps].
+* If you have question related to Azure Maps, see [Stack Overflow]. Be sure and tag your search and questions with [Azure Maps].
 
 ## Next steps
 
+TBD: What are the next steps?
+
 [Creator]: creator-indoor-maps.md
 [Azure Maps]: about-azure-maps.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [QGIS]: https://qgis.org/en/site/
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
@@ -284,7 +289,8 @@ The attribute table shows each feature and their properties in a tabular form. I
 [layer panel]: #layer-panel
 [layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
 [Digitizing Toolbar]: #digitizing-toolbar
-[selection toolbar]: #selection-toolbar
+[Selection toolbar]: #selection-toolbar
+[Advanced digitizing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing
 [Identify feature tool]: #attributes-toolbar
 [Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/QGISPlugin
 [Adding Features]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#adding-features

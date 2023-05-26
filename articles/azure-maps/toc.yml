@@ -151,6 +151,8 @@ items:
       href: drawing-package-guide.md
     - name: Create dataset using GeoJson package
       href: how-to-dataset-geojson.md
+    - name: Edit indoor maps using the QGIS plugin
+      href: creator-qgis-plugin.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -362,7 +364,7 @@ items:
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
-      href: power-bi-visual-add-3d-column-layer.md
+      href: power-bi-visual-add-bar-chart-layer.md
     - name: Add a heat map layer
       href: power-bi-visual-add-heat-map-layer.md
     - name: Add a reference layer
