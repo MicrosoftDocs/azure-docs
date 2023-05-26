@@ -126,7 +126,7 @@ This `optionalClaims` object causes the ID token returned to the client to inclu
 
 You can configure optional claims for your application through the Azure portal or application manifest.
 
-1. Go to the [Azure portal](portal.azure.com). 
+1. Go to the [Azure portal](https://portal.azure.com). 
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
 1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
@@ -211,7 +211,7 @@ This section covers the configuration options under optional claims for changing
 
 Complete the following steps to configure groups optional claims using the Azure portal:
 
-1. Sign in to the [Azure portal](portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
@@ -226,7 +226,7 @@ Complete the following steps to configure groups optional claims using the Azure
 
 Complete the following steps to configure groups optional claims through the application manifest:
 
-1. Sign in to the [Azure portal](portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Select the application you want to configure optional claims for in the list.
@@ -368,7 +368,7 @@ In the following example, the Azure portal and manifest are used to add optional
 
 Configure claims in the Azure portal:
 
-1. Sign in to the [Azure portal](portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
@@ -381,7 +381,7 @@ Configure claims in the Azure portal:
 
 Configure claims in the manifest:
 
-1. Sign in to the [Azure portal](portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. After you've authenticated, choose your tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Find the application you want to configure optional claims for in the list and select it.
