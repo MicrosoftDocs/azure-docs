@@ -80,19 +80,20 @@ Create a new Python file called **quickstart.py**. Then open it up in your prefe
 
 ## Output
 
-The output from a successful image generation API call looks like this. The `"contentUrl"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
+The output from a successful image generation API call looks like this. The `"url"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
 
 ```json
 {
-    "id": "6b22b459-485c-4730-893d-598ede809f2e",
-    "result":
-    {
-        "caption": "An avocado chair.",
-        "contentUrl": "<URL_TO_IMAGE>",
-        "contentUrlExpiresAt": "2022-08-14T19:28:43Z",
-        "createdDateTime": "2022-08-12T17:48:11Z"
-    },
-    "status": "Succeeded"
+   "created": 1589478378,
+   "expires": 1589478399,
+   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
+   "lastActionDateTime": 1589478378,
+   "data": [
+       {
+           "url": "<URL_TO_IMAGE>"
+       }
+   ],
+   "status": "succeeded"
 }
 ```
 
