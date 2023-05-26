@@ -76,7 +76,7 @@ The `az ml batch-deployment` commands can be used for managing Azure Machine Lea
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch). Some of them are referenced bellow:
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch). Some of them are referenced below:
 
 ## YAML: MLflow model deployment
 
