@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.custom: aaddev, curation-claims
 ---
 
-## Access token claims reference
+# Access token claims reference
 
 Access tokens are [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). JWTs contain the following pieces:
 
