@@ -26,7 +26,7 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
         **3D column layer**
 
         Renders points as 3D columns on the map.
- 
+
         ![3D column layer on map](media/power-bi-visual/3d-column-layer-thumb.png)
     :::column-end:::
 :::row-end:::
