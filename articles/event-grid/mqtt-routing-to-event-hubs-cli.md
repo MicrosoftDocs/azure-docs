@@ -21,8 +21,8 @@ In this article, you perform the following tasks:
 ## Prerequisites
 - Complete the [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-cli.md) Quickstart.  In this tutorial, you can update the same namespace to enable routing.
 - This tutorial uses Event Hubs, Event Grid Custom Topics, and Event Subscriptions.  You can find more information here:
-- Create an event hub that is used as an event handler for events sent to the custom topic - [Quickstart - Create an event hub using Azure CLI - Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/event-hubs-quickstart-cli).
-- Process events sent to the event hub using Stream Analytics, which writes output to any destination that ASA supports - [Process data from Event Hubs Azure using Stream Analytics - Azure Event Hubs](https://learn.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics).
+- Create an event hub that is used as an event handler for events sent to the custom topic - [Quickstart - Create an event hub using Azure CLI - Azure Event Hubs](/azure/event-hubs/event-hubs-quickstart-cli).
+- Process events sent to the event hub using Stream Analytics, which writes output to any destination that ASA supports - [Process data from Event Hubs Azure using Stream Analytics - Azure Event Hubs](/azure/event-hubs/process-data-azure-stream-analytics).
 
 
 > [!IMPORTANT]
