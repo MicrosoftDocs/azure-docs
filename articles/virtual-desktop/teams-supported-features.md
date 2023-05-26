@@ -14,7 +14,7 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 
 ## Supported features
 
-The following table lists whether the Windows Desktop client or macOS client supports specific features for Teams on Azure Virtual Desktop.
+The following table lists whether the Windows Desktop client, Azure Virtual Desktop Store app or macOS client supports specific features for Teams on Azure Virtual Desktop. Other clients are not supported.
 
 |Feature|Windows Desktop client and Azure Virtual Desktop app|macOS client|
 |---|---|---|
