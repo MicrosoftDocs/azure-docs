@@ -639,6 +639,8 @@ items:
         href: concepts/analytics/call-logs-azure-monitor.md
       - name: Recording logs
         href: concepts/analytics/recording-logs.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: UI Library
