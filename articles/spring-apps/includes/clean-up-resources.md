@@ -30,7 +30,7 @@ echo "Press [ENTER] to continue ..."
 
 ::: zone pivot="sc-standard"
 
-#### [Azure portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
 You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
 
@@ -38,7 +38,7 @@ You can delete the Azure resource group, which includes all the resources in the
 
 1. On your resource group page, select **Delete**. Enter the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select Delete.
 
-#### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 1. Run the following command to delete all the Azure resources used in this sample application.
 
