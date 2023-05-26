@@ -219,23 +219,20 @@ For more information, see [Connection string configuration](./java-standalone-co
 
 # [JavaScript](#tab/js)
 
-JavaScript doesn't support the use of environment variables.
+JavaScript doesn't support the use of environment variables. You have two options:
 
-Using the SDK Loader Script:
+- To use the SDK Loader Script, see [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+- Manual setup:
+   ```javascript
+   import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
-See the [SDK Loader Script](./javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
-
-Manual setup:
-```javascript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web'
-
-const appInsights = new ApplicationInsights({ config: {
-  connectionString: 'InstrumentationKey=00000000-0000-0000-0000-000000000000;'
-  /* ...Other Configuration Options... */
-} });
-appInsights.loadAppInsights();
-appInsights.trackPageView();
-```
+   const appInsights = new ApplicationInsights({ config: {
+     connectionString: 'InstrumentationKey=00000000-0000-0000-0000-000000000000;'
+     /* ...Other Configuration Options... */
+   } });
+   appInsights.loadAppInsights();
+   appInsights.trackPageView();
+   ```
 
 # [Node.js](#tab/nodejs)
 
