@@ -1,7 +1,7 @@
 ---
 title: How to label your data for Custom sentiment analysis - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn about how to label your data for use with the custom text classification.
+description: Learn about how to label your data for use with the custom Sentiment analysis.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Label text data for training your model 
+# Label text data for training your model for Custom sentiment analysis
 
 Before training your model you need to label your documents with the classes you want to categorize them into. Data labeling  is a crucial step in development lifecycle; in this step you can create the classes you want to categorize your data into and label your documents with these classes. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md) it into your project but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md).
 

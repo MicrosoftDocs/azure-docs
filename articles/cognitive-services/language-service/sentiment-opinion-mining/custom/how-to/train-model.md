@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1
 
 # How to train a Custom sentiment analysis model
 
-Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to improve your model.
+Training is the process where the model learns from your [labeled data](label-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to improve your model.
 
 To train a model, start a training job. Only successfully completed jobs create a usable model. Training jobs expire after seven days. After this period, you won't be able to retrieve the job details. If your training job completed successfully and a model was created, it won't be affected by the job expiration. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
@@ -29,7 +29,7 @@ Before you train your model, you need:
 
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
-<!--* [Labeled data](tag-data.md)-->
+* [Labeled data](label-data.md)
 
 See the [project development lifecycle](../../overview.md#project-development-lifecycle) for more information.
 
