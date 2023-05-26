@@ -12,7 +12,12 @@ ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, eng
 
 # Manage Azure Network Watcher
 
-Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. Network Watcher is enabled through the creation of a Network Watcher resource. This resource allows you to utilize Network Watcher capabilities.
+Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
+
+Network Watcher is enabled in an Azure region through the creation of a Network Watcher instance in that region. This instance allows you to utilize Network Watcher capabilities in that particular region.
+
+> [!NOTE]
+> By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region. Automatically enabling Network Watcher doesn't affect your resources or associated charge.
 
 ## Prerequisites
 
@@ -44,12 +49,11 @@ Network Watcher is a regional service that enables you to monitor and diagnose c
 
 ---
 
-## <a name="enable"></a>Enable Network Watcher for your region
+## Enable Network Watcher for your region
 
-You can enable Network Watcher for a region by creating a Network Watcher instance in that region. You can create a Network Watcher instance using the [Azure portal](?tabs=portal#enable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#enable-network-watcher-for-your-region), [REST API](/rest/api/network-watcher/network-watchers/create-or-update), or Azure Resource Manager (ARM) template.
+If you choose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually enable Network Watcher in each region where you want o use its Network Watcher capabilities. To enable Network Watcher in a region, create a Network Watcher instance in that region using the [Azure portal](?tabs=portal#enable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#enable-network-watcher-for-your-region), [REST API](/rest/api/network-watcher/network-watchers/create-or-update), or an Azure Resource Manager (ARM) template.
 
-> [!NOTE]
-> Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. Automatically enabling Network Watcher doesn't affect your resources or associated charge.
+
 
 # [**Portal**](#tab/portal)
 
@@ -108,7 +112,7 @@ If you wish to customize the name of the Network Watcher instance, you can use [
 
 ---
 
-## <a name="disable"></a>Disable Network Watcher for your region
+## Disable Network Watcher for your region
 
 You can disable Network Watcher for a region by deleting the Network Watcher instance in that region. You can delete a Network Watcher instance using the [Azure portal](?tabs=portal#disable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#disable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#disable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/delete).
 
@@ -147,7 +151,7 @@ az network watcher configure --locations 'eastus' --enabled 'false'
 
 ---
 
-## <a name="optout"></a>Opt out of Network Watcher automatic enablement
+## Opt out of Network Watcher automatic enablement
 
 You can opt out of Network Watcher automatic enablement using Azure PowerShell or Azure CLI.
 
