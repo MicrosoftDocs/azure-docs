@@ -201,7 +201,7 @@
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
           href: auto-upgrade-cluster.md
-        - name: Automatically upgrade AKS cluster node operating system images (preview)
+        - name: Automatically upgrade AKS cluster node operating system images
           href: auto-upgrade-node-image.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
@@ -221,9 +221,9 @@
           href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
-        - name: Use planned maintenance to schedule and control upgrades (preview)
+        - name: Use planned maintenance to schedule and control upgrades
           href: planned-maintenance.md
-        - name: Planned Maintenance for AKS weekly releases (preview)
+        - name: Planned Maintenance for AKS weekly releases
           href: aks-planned-maintenance-weekly-releases.md
         - name: Cloud Controller Manager
           href: out-of-tree.md
@@ -231,7 +231,7 @@
           href: upgrade-cluster.md
         - name: Free and Standard pricing tiers for AKS
           href: free-standard-pricing-tiers.md
-        - name: Use Draft (preview)
+        - name: Use Draft
           href: draft.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
@@ -247,7 +247,7 @@
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
-        - name: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+        - name: Enable access to AKS clusters using Trusted Access
           href: trusted-access-feature.md
         - name: Connect to cluster nodes
           href: node-access.md
@@ -317,7 +317,7 @@
               href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
-            - name: Remove vulnerable images with ImageCleaner (preview)
+            - name: Remove vulnerable images with ImageCleaner
               href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
@@ -345,7 +345,7 @@
               href: manage-azure-rbac.md
             - name: Use Kubernetes RBAC with Azure AD integration
               href: azure-ad-rbac.md
-            - name: Use custom certificate authorities (preview)
+            - name: Use custom certificate authorities
               href: custom-certificate-authority.md
             - name: Rotate certificates
               href: certificate-rotation.md
@@ -378,13 +378,13 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity (preview)
+            - name: Use Azure AD pod identity
               href: use-azure-ad-pod-identity.md
-            - name: Use Pod Sandboxing (preview)
+            - name: Use Pod Sandboxing
               href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
-            - name: Use pod security policies (preview)
+            - name: Use pod security policies
               href: use-pod-security-policies.md
             - name: Use Pod Security Admission
               href: use-psa.md
@@ -398,10 +398,10 @@
                   href: csi-secrets-store-nginx-tls.md
     - name: Configure private clusters
       items:
-      - name: Create a private cluster
-        href: private-clusters.md
-      - name: Access a private cluster remotely
-        href: command-invoke.md
+        - name: Create a private cluster
+          href: private-clusters.md
+        - name: Access a private cluster remotely
+          href: command-invoke.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
@@ -446,12 +446,12 @@
               href: http-proxy.md
         - name: Ingress
           items:
-            - name: Use Web Application Routing add-on (preview)
+            - name: Use Web Application Routing add-on
               href: web-app-routing.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
-            - name: Use Istio gateway with Istio Service Mesh add-on (preview)
+            - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
@@ -612,6 +612,8 @@
       items:
         - name: About Open Service Mesh
           href: open-service-mesh-about.md
+        - name: Migration Guidance to Istio AKS add-on
+          href: open-service-mesh-istio-migration-guidance.md
         - name: Use the Azure CLI
           href: open-service-mesh-deploy-addon-az-cli.md
         - name: Use Bicep template
@@ -636,7 +638,7 @@
           href: istio-upgrade.md
     - name: Track releases and region availability
       href: release-tracker.md
-    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
+    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on
       items:
         - name: About Kubernetes Event-driven Autoscaler (KEDA)
           href: keda-about.md
@@ -666,7 +668,7 @@
           maintainContext: true
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
-        - name: Configure automated deployments (preview)
+        - name: Configure automated deployments
           href: automated-deployments.md
         - name: CI/CD with Azure Pipelines
           href: ../aks/devops-pipeline.md
