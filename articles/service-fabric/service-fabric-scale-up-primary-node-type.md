@@ -234,6 +234,26 @@ OS SKU
 }
 ```
 
+### If you are changing OS SKU in a Linux Cluster
+
+In Windows cluster, the value for property vmImage is ‘Windows’ while value of same property for Linux cluster is name of the OS image used. For e.g. - Ubuntu20_04(use the latest vm image name). To know more about latest RedHat images, kindly refer- https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/redhat/redhat-images
+
+So, if you are changing the VM image (OS SKU) in a Linux cluster, then update the vmImage setting on the Service Fabric cluster resource as well.
+
+```json
+#Update the property vmImage with the required OS name in your ARM template
+{
+    "vmImage": "[parameter(newVmImageName]”
+}
+```
+Note: Example of newVmImageName: Ubuntu20_04
+
+You can also update the cluster resource by using below PowerShell command:
+```powershell
+# Update cluster vmImage to target OS. This registers the SF runtime package type that is supplied for upgrades.
+Update-AzServiceFabricVmImage -ResourceGroupName $resourceGroup -ClusterName $clusterName -VmImage Ubuntu20_04
+```
+
 Also, ensure you include any additional extensions that are required for your workload.
 
 #### Add a new primary node type to the cluster
