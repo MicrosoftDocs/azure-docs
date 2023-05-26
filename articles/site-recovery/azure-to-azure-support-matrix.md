@@ -178,13 +178,13 @@ Debian 7 | [9.52](https://support.microsoft.com/topic/update-rollup-65-for-azure
 Debian 7 | [9.51](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | No new Debian 7 kernels supported in this release. |
 Debian 7 | [9.50](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | No new Debian 7 kernels supported in this release. |
 |||
-Debian 8 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| No new Debian 7 kernels supported in this release. |
+Debian 8 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| No new Debian 8 kernels supported in this release. |
 Debian 8 | [9.53](https://support.microsoft.com/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5)| No new Debian 8 kernels supported in this release. |
 Debian 8 | [9.52](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | No new Debian 8 kernels supported in this release. |
 Debian 8 | [9.51](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | No new Debian 8 kernels supported in this release. |
 Debian 8 | [9.50](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | No new Debian 8 kernels supported in this release. |
 |||
-Debian 9.1 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| No new Debian 7 kernels supported in this release. |
+Debian 9.1 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.53](https://support.microsoft.com/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5)| No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.52](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.51](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | No new Debian 9.1 kernels supported in this release. |
