@@ -104,14 +104,18 @@ The following table lists the properties for Azure Storage resource logs when th
         "authorization": [
             {
                 "action": "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                "denyAssignmentId": "821ddce4-021d-4d04-8a41-gggggggggggg",
                 "principals": [
                     {
                         "id": "fde5ba15-4355-4223-b811-cccccccccccc",
                         "type": "User"
                     }
                 ],
+                "reason": "Policy",
+                "result": "Granted",
                 "roleAssignmentId": "ecf75cb8-491c-4a25-ad6e-aaaaaaaaaaaa",
-                "roleDefinitionId": "b7e6dc6d-f1e8-4753-8033-ffffffffffff"
+                "roleDefinitionId": "b7e6dc6d-f1e8-4753-8033-ffffffffffff",
+                "type": "RBAC"
             }
         ],
         "requester": {
