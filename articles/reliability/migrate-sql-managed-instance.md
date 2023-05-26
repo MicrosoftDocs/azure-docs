@@ -15,9 +15,9 @@ ms.custom: references_regions, subject-reliability
 >[!IMPORTANT]
 >Zone redundancy for SQL Managed Instance is currently in Preview. To learn which regions support SQL Instance zone redundancy, see [Services support by region](availability-zones-service-support.md).
 
-SQL Managed Instances offers a zone redundant configuration that uses [Azure availability zones](availability-zones-overview.md#availability-zones) to replicate your instances across multiple physical locations within an Azure region. With zone redundancy enabled, your Business Critical managed instances become resilient to a much larger set of failures, such as catastrophic datacenter outages, without any changes to application logic. For more information on the availability model for SQL Database, see [Business Critical service tier zone redundant availability section in the Azure SQL documentation](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#premium-and-business-critical-service-tier-zone-redundant-availability). 
+SQL Managed Instance offers a zone redundant configuration that uses [Azure availability zones](availability-zones-overview.md#availability-zones) to replicate your instances across multiple physical locations within an Azure region. With zone redundancy enabled, your Business Critical managed instances become resilient to a larger set of failures, such as catastrophic datacenter outages, without any changes to application logic. For more information on the availability model for SQL Database, see [Business Critical service tier zone redundant availability section in the Azure SQL documentation](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#premium-and-business-critical-service-tier-zone-redundant-availability). 
 
-This guide describes how to migrate SQL Managed Instances that use Business Critical service tier from non-availability zone support to availability zone support. Once the zone redundant option is enabled, Azure SQL Managed Instance will automatically reconfigure the instance. 
+This guide describes how to migrate SQL Managed Instances that use Business Critical service tier from non-availability zone support to availability zone support. Once the zone redundant option is enabled, Azure SQL Managed Instance automatically reconfigures the instance. 
 
 
 ## Prerequisites
@@ -38,11 +38,11 @@ All scaling operations in Azure SQL are online operations and require minimal to
 
 ## How to enable the zone redundant configuration
 
-You can configure the zone redundant option by using either Azure Portal or ARM API. Support for CLI and PowerShell will be coming in the next several months.
+You can configure the zone redundant option by using either Azure portal or ARM API.
 
 **To enable the zone redundant option:**
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 
 To update a current Business Critical managed instance to use a zone redundant configuration:
@@ -68,9 +68,9 @@ To update a current Business Critical managed instance to use a zone redundant c
 
 Use the following REST API commands to enable zone redundant configuration with the boolean `zoneRedundant` parameter.
 
-- [Managed Instances - Create Or Update - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/create-or-update?tabs=HTTP)
-- [Managed Instances - Update - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/update?tabs=HTTP)
-- [Managed Instances - Get - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/get?tabs=HTTP)
+- [Azure SQL Managed Instances - Create Or Update - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/create-or-update?tabs=HTTP)
+- [Azure SQL Managed Instances - Update - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/update?tabs=HTTP)
+- [Azure SQL Managed Instances - Get - REST API (Azure SQL Database)](/rest/api/sql/2021-02-01-preview/managed-instances/get?tabs=HTTP)
  
 ---
 
