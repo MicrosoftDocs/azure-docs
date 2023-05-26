@@ -71,9 +71,9 @@ You should be all set.
 
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder: 
+ 
     ::: zone-end  
-
     ::: zone pivot="programming-language-csharp"  
     ```console
     func init --worker-runtime dotnet-isolated --docker
@@ -135,7 +135,8 @@ You should be all set.
 1. Type `Y` or press Enter to confirm.
 
     Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
-    ::: zone-end
+  ::: zone-end
+
     <!---
     :: zone pivot="programming-language-other"  
     ```console
@@ -253,6 +254,7 @@ You should be all set.
     -->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 3. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+    
     ::: zone-end
     ::: zone pivot="programming-language-csharp"  
     ```console
@@ -271,7 +273,7 @@ You should be all set.
     ```
     ::: zone-end  
 ::: zone pivot="programming-language-java"  
-5. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+1. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 
     ```console
     mvn clean package  
@@ -287,7 +289,6 @@ You should be all set.
     ```
     ::: zone-end
     -->
-
 ::: zone pivot="programming-language-csharp"  
 4. After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
 ::: zone-end  
