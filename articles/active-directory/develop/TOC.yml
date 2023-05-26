@@ -581,6 +581,12 @@
           href: ./howto-restore-app.md
 - name: Reference
   items:
+    - name: Token claims reference
+      items:
+        - name: Access token
+          href: access-token-claims-reference.md            
+        - name: SAML token
+          href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference
       displayName: SDK, library, msal, auth
       items:
@@ -830,8 +836,6 @@
               href: single-sign-on-saml-protocol.md
             - name: Sign out (SAML)
               href: single-sign-out-saml-protocol.md
-            - name: SAML tokens
-              href: reference-saml-tokens.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
     - name: App registration reference
