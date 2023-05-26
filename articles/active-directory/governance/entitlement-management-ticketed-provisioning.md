@@ -100,7 +100,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 
 ## Register an application with secrets in Azure portal
 
-With Azure you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
+With Azure, you're able to use [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to store application secrets such as passwords. To register an application with secrets within the Azure portal, follow these steps:
 
 1. Sign in to the Azure portal.
 
