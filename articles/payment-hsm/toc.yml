@@ -17,9 +17,9 @@
       href: create-payment-hsm.md
     - name: Host and management ports in different VNets
       href: create-different-vnet.md
-    - name: Host and management ports in different VNets (ARM)
-      href: create-different-vnet-arm.md
-    - name: Host and management port with IP addresses in different different VNets
+    - name: Host and management ports in different VNets (template)
+      href: create-different-vnet-template.md
+    - name: Host and management port with IP addresses in different VNets
       href: create-different-ip-addresses.md
   - name: 2. Access the payShield manager for your payment HSM
     href: access-payshield-manager.md

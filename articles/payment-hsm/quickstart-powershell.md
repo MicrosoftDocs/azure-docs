@@ -44,7 +44,7 @@ You can continue with this quick start if the "RegistrationState" of both comman
     Set-AzContext -Subscription "<subscription-id>"
     ```
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]\
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
 - You must install the Az.DedicatedHsm PowerShell module:
 
