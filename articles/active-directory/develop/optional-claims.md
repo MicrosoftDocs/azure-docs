@@ -117,7 +117,7 @@ Some optional claims can be configured to change the way the claim is returned. 
 }
 ```
 
-This OptionalClaims object causes the ID token returned to the client to include a `upn` claim with the other home tenant and resource tenant information. The `upn` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication).
+This `optionalClaims` object causes the ID token returned to the client to include a `upn` claim with the other home tenant and resource tenant information. The `upn` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication).
 
 ## Configure optional claims
 
@@ -126,27 +126,19 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 You can configure optional claims for your application through the Azure portal or application manifest.
 
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. 
+1. Go to the [Azure portal](portal.azure.com). 
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
 1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
-
-The following image shows how to configure optional claims in the Azure portal:
-
-:::image type="content" source="./media/optional-claims/token-configuration.png" alt-text="Screeenshot that shows where to configure optional claims in the Azure portal.":::
-
 1. Under **Manage**, select **Token configuration**.
    - The UI option **Token configuration** blade isn't available for apps registered in an Azure AD B2C tenant, which can be configured by modifying the application manifest. For more information, see  [Add claims and customize user input using custom policies in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
+Configure claims using the manifest:
 
 1. Select **Add optional claim**.
 1. Select the token type you want to configure.
 1. Select the optional claims to add.
 1. Select **Add**.
-
-The following image shows how to configure optional claims through the application manifest:
-
-:::image type="content" source="./media/optional-claims/app-manifest.png" alt-text="Screeenshot that shows how to configure optional claims using the app manifest.":::
-
 1. Under **Manage**, select **Manifest**. A web-based manifest editor opens, allowing you to edit the manifest. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
 
     The following application manifest entry adds the `auth_time`, `ipaddr`, and `upn` optional claims to ID, access, and SAML tokens.
@@ -181,18 +173,15 @@ The following image shows how to configure optional claims through the applicati
 
 1. When finished, select **Save**. Now the specified optional claims are included in the tokens for your application.
 
-### OptionalClaims type
-
-Declares the optional claims requested by an application. An application can configure optional claims that are returned in ID tokens, access tokens, and SAML 2 tokens. The application can configure a different set of optional claims to be returned in each token type. The OptionalClaims property of the application entity is an OptionalClaims object.
+The `oprionalClaims` object declares the optional claims requested by an application. An application can configure optional claims that are returned in ID tokens, access tokens, and SAML 2 tokens. The application can configure a different set of optional claims to be returned in each token type.
 
 | Name | Type | Description |
 |------|------|-------------|
-| `idToken` | Collection (OptionalClaim) | The optional claims returned in the JWT ID token. |
-| `accessToken` | Collection (OptionalClaim) | The optional claims returned in the JWT access token. |
-| `saml2Token` | Collection (OptionalClaim) | The optional claims returned in the SAML token. |
+| `idToken` | Collection | The optional claims returned in the JWT ID token. |
+| `accessToken` | Collection | The optional claims returned in the JWT access token. |
+| `saml2Token` | Collection | The optional claims returned in the SAML token. |
 
-Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](/graph/api/resources/optionalclaims) type is a collection of OptionalClaim.
-If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
+If supported by a specific claim, you can also modify the behavior of the optional claim using the `additionalProperties` field.
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -222,7 +211,7 @@ This section covers the configuration options under optional claims for changing
 
 Complete the following steps to configure groups optional claims using the Azure portal:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](portal.azure.com).
 1. After you've authenticated, choose your tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
@@ -237,7 +226,7 @@ Complete the following steps to configure groups optional claims using the Azure
 
 Complete the following steps to configure groups optional claims through the application manifest:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](portal.azure.com).
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Select the application you want to configure optional claims for in the list.
@@ -257,7 +246,7 @@ Complete the following steps to configure groups optional claims through the app
     "groupMembershipClaims": "SecurityGroup"
     ```
 
-   By default group object IDs are emitted in the group claim value. To modify the claim value to contain on premises group attributes, or to change the claim type to role, use `OptionalClaims` configuration as follows:
+   By default group object IDs are emitted in the group claim value. To modify the claim value to contain on premises group attributes, or to change the claim type to role, use the `optionalClaims` configuration as follows:
 
 1. Set group name configuration optional claims.
 
@@ -271,7 +260,7 @@ Complete the following steps to configure groups optional claims through the app
 
    The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens.
 
-   For each relevant token type, modify the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
+   For each relevant token type, modify the groups claim to use the `optionalClaims` section in the manifest. The `optionalClaims` schema is as follows:
 
     ```json
     {
@@ -295,13 +284,9 @@ Complete the following steps to configure groups optional claims through the app
 
    If `emit_as_roles` is used, any application roles configured that the user is assigned aren't in the role claim.
 
-The following examples show configuration for group claims:
+The following examples show the manifest configuration for group claims:
 
 Emit groups as group names in OAuth access tokens in `dnsDomainName\sAMAccountName` format.
-
-:::image type="content" source="./media/optional-claims/groups-example-1.png" alt-text="Screeenshot that shows how to configure group claims.":::
-
-Application manifest entry:
 
 ```json
 "optionalClaims": {
@@ -317,10 +302,6 @@ Application manifest entry:
 ```
 
 Emit group names to be returned in `netbiosDomain\sAMAccountName` format as the roles claim in SAML and OIDC ID tokens.
-
-:::image type="content" source="./media/optional-claims/groups-example-2.png" alt-text="Screeenshot that shows the optional claims in the manifest.":::
-
-Application manifest entry:
 
 ```json
 "optionalClaims": {
@@ -346,8 +327,6 @@ Application manifest entry:
 ```
 
 Emit group names in the format of `sam_account_name` for on-premises synced groups and `cloud_display` name for cloud groups in SAML and OIDC ID tokens for the groups assigned to the application.
-    
-Application manifest entry:
 
 ```json
 "groupMembershipClaims": "ApplicationGroup",
@@ -389,7 +368,7 @@ In the following example, the Azure portal and manifest are used to add optional
 
 Configure claims in the Azure portal:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](portal.azure.com).
 1. After you've authenticated, choose your tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
@@ -400,16 +379,14 @@ Configure claims in the Azure portal:
 1. From the Token Configuration overview screen, select the pencil icon next to **upn**, select the **Externally authenticated** toggle, and then select **Save**.
 1. Select **Add optional claim**, select the **SAML** token type, select **extn.skypeID** from the list of claims (only applicable if you've created an Azure AD user object called skypeID), and then select **Add**.
 
-    :::image type="content" source="./media/optional-claims/token-config-example.png" alt-text="Screeenshot that shows optional claims for SAML tokens.":::
-
 Configure claims in the manifest:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](portal.azure.com).
 1. After you've authenticated, choose your tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Find the application you want to configure optional claims for in the list and select it.
 1. Under **Manage**, select **Manifest** to open the inline manifest editor.
-1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](./reference-app-manifest.md), and automatically formats the manifest once saved. New elements are added to the `OptionalClaims` property.
+1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](./reference-app-manifest.md), and automatically formats the manifest once saved. New elements are added to the `optionalClaims` property.
 
     ```json
     "optionalClaims": {
