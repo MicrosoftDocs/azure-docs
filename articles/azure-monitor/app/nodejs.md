@@ -213,7 +213,7 @@ To track context across asynchronous calls, some changes are required in third-p
 
 Currently, nine packages are instrumented: `bunyan`,`console`,`mongodb`,`mongodb-core`,`mysql`,`redis`,`winston`,`pg`, and `pg-pool`. For information about exactly which version of these packages are patched, see the [diagnostic-channel-publishers' README](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md).
 
-The `bunyan`, `winston`, and `console` patches generate Application Insights trace events based on whether `setAutoCollectConsole` is enabled. The rest generate Application Insights dependency events based on whether `setAutoCollectDependencies` is enabled.
+The `bunyan`, `winston`, and `console` patches generate Application Insights trace events based on whether `setAutoCollectConsole` is enabled. The rest generates Application Insights dependency events based on whether `setAutoCollectDependencies` is enabled.
 
 ### Live metrics
 
