@@ -27,7 +27,7 @@ To reuse the Service Bus instance creation steps in other articles, a separate m
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of Azure portal showing Service Bus creation" lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
 
    | Setting        |Suggested Value|Description|
---------------------|---------------|-----------|
+   |----------------|-----------------|----------|
    | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
    | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
    | Namespace name |*my-srvbus*|A unique name that identifies your Service Bus service.|
@@ -38,7 +38,7 @@ To reuse the Service Bus instance creation steps in other articles, a separate m
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png" alt-text="The Notifications pane":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png" alt-text="The Notifications pane for Service Bus Creation":::
 
 1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Service Bus instance.
 

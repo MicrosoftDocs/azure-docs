@@ -23,10 +23,10 @@ To reuse the Key Vault instance creation steps in other articles, a separate mar
 
 1. Fill out the **Basics** form with the following information:
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation.png" alt-text="Screenshot of Azure portal showing Service Bus creation" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation.png" alt-text="Screenshot of Azure portal showing Key Vault creation" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation.png":::
 
    | Setting        |Suggested Value|Description|
---------------------|---------------|-----------|
+   |----------------|-----------------|----------|
    | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
    | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
    | Key vault name |*mykeyvault*|A unique name that identifies your Key Vault service. |
