@@ -23,7 +23,6 @@ Before you begin, you must have the following requirements in place:
 
 + Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 ::: zone-end  
-<!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 + Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 :::zone-end  
@@ -41,13 +40,7 @@ Before you begin, you must have the following requirements in place:
 + Install a version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
 
 + Install [Apache Maven](https://maven.apache.org) version 3.0 or above.
-
 ::: zone-end
-<!---removing the other pivot until we camn get ACA tested with custom handlers
-::: zone pivot="programming-language-other"
-+ Install the development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
-::: zone-end
--->
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or a later version.
 
 If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -69,7 +62,6 @@ You should be all set.
 
 ## Create and test the local functions project
 
-<!---add back programming-language-other-->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder: 
 ::: zone-end  
@@ -138,13 +130,6 @@ You should be all set.
 
     Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
     ::: zone-end
-
-    <!---
-    ::: zone pivot="programming-language-other"  
-    ```console
-    func init --worker-runtime custom --docker
-    ```
-    ::: zone-end --> 
                                      
     The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
@@ -162,7 +147,6 @@ You should be all set.
     func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
     ```
 ::: zone-end
-<!---add back programming-language-other-->
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 2. Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
@@ -170,90 +154,6 @@ You should be all set.
     func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
     ```
 ::: zone-end  
-<!---
-::: zone pivot="programming-language-other"
-3. In a text editor, create a file in the project folder named *handler.R*. Add the following code as its content:
-
-    ```r
-    library(httpuv)
-    
-    PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
-    PORT <- strtoi(PORTEnv , base = 0L)
-    
-    http_not_found <- list(
-      status=404,
-      body='404 Not Found'
-    )
-    
-    http_method_not_allowed <- list(
-      status=405,
-      body='405 Method Not Allowed'
-    )
-    
-    hello_handler <- list(
-      GET = function (request) {
-        list(body=paste(
-          "Hello,",
-          if(substr(request$QUERY_STRING,1,6)=="?name=") 
-            substr(request$QUERY_STRING,7,40) else "World",
-          sep=" "))
-      }
-    )
-    
-    routes <- list(
-      '/api/HttpExample' = hello_handler
-    )
-    
-    router <- function (routes, request) {
-      if (!request$PATH_INFO %in% names(routes)) {
-        return(http_not_found)
-      }
-      path_handler <- routes[[request$PATH_INFO]]
-    
-      if (!request$REQUEST_METHOD %in% names(path_handler)) {
-        return(http_method_not_allowed)
-      }
-      method_handler <- path_handler[[request$REQUEST_METHOD]]
-    
-      return(method_handler(request))
-    }
-    
-    app <- list(
-      call = function (request) {
-        response <- router(routes, request)
-        if (!'status' %in% names(response)) {
-          response$status <- 200
-        }
-        if (!'headers' %in% names(response)) {
-          response$headers <- list()
-        }
-        if (!'Content-Type' %in% names(response$headers)) {
-          response$headers[['Content-Type']] <- 'text/plain'
-        }
-    
-        return(response)
-      }
-    )
-    
-    cat(paste0("Server listening on :", PORT, "...\n"))
-    runServer("0.0.0.0", PORT, app)
-    ```
-    
-    In *host.json*, modify the `customHandler` section to configure the custom handler's startup command.
-    
-    ```json
-    "customHandler": {
-      "description": {
-          "defaultExecutablePath": "Rscript",
-          "arguments": [
-          "handler.R"
-        ]
-      },
-      "enableForwardingHttpRequest": true
-    }
-    ```
-::: zone-end
-    -->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 3. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 ::: zone-end
@@ -282,15 +182,7 @@ You should be all set.
     mvn clean package  
     mvn azure-functions:run
     ```
-    ::: zone-end
-
-<!---
-::: zone pivot="programming-language-other"
-    ```console
-    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
-    func start
-    ```
-::: zone-end  -->
+::: zone-end
 ::: zone pivot="programming-language-csharp"  
 4. After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
 ::: zone-end  
@@ -309,25 +201,6 @@ Press **Ctrl**+**C** (**Command**+**C** on MacOs) to stop the host.
 1. Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The correct base image is chosen for you based on your functions language and runtime version. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 ::: zone-end
 
-<!---
-::: zone pivot="programming-language-other"
-Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
-
-Modify the *Dockerfile* to install R. Replace the contents of the *Dockerfile* with the following code:
-
-```dockerfile
-FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice 
-ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-
-RUN apt update && \
-    apt install -y r-base && \
-    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
-
-COPY . /home/site/wwwroot
-```
-::: zone-end
--->
 1. In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, provide a name as `azurefunctionsimage`, and tag as `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
     ```console
@@ -346,7 +219,6 @@ COPY . /home/site/wwwroot
 4. After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample`, which must display the same greeting message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end
 
-<!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 4. After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
