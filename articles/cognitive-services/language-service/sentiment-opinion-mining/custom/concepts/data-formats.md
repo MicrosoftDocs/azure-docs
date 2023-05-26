@@ -64,8 +64,7 @@ Your Labels file should be in the `json` format below. This will enable you to [
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
-|projectName|`{PROJECT-NAME}`|Project name|myproject|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../../language-support.md#multi-lingual-option-custom-sentiment-analysis-only)Project name|myproject|
 | storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and the classes labeled for this document. | [] |
@@ -74,5 +73,5 @@ Your Labels file should be in the `json` format below. This will enable you to [
 
 ## Next steps
 
-* You can import your labeled data into your project directly. See [How to create a project](../how-to/create-project.md#import-a-custom-text-classification-project) to learn more about importing projects.
+* You can import your labeled data into your project directly. See [How to create a project](../how-to/create-project.md#import-a-custom-sentiment-analysis-project) to learn more about importing projects.
 * See the [how-to article](../how-to/label-data.md) more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  
