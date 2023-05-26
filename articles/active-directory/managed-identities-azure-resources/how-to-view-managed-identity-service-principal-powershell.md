@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 02/15/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # View the service principal of a managed identity using PowerShell

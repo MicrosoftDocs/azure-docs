@@ -2,7 +2,7 @@
 title: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (preview)
 description: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (preview)
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.date: 04/09/2023
 ms.author: shasb
 ---

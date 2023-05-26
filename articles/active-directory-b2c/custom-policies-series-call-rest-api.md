@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
+ms.custom: b2c-docs-improvements, devx-track-js
 ms.date: 03/16/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh

@@ -4,7 +4,7 @@ description: "Learn how to create a C# function from the command line, then publ
 ms.date: 11/08/2022
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -178,4 +178,3 @@ Copy the complete **Invoke URL** shown in the output of the publish command into
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)
-

@@ -5,6 +5,7 @@ author: henrymbuguakiarie
 ms.author: henrymbugua
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 02/09/2023
 ms.reviewer: janicericketts

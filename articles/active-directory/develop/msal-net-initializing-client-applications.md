@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 12/19/2022
 ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev, engagement-fy23"
+ms.custom: devx-track-csharp, aaddev, engagement-fy23, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
 ---
 

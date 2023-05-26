@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/09/2023
-ms.custom: "engagement-fy23"
+ms.custom: engagement-fy23, devx-track-dotnet
 ms.reviewer: janicericketts
 #Customer intent: As a developer, I want to add authentication to a Blazor app.
 ---

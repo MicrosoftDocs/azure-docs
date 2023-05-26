@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 02/25/2023
 ms.reviewer: lualderm
 --- 

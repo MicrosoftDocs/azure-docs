@@ -4,7 +4,7 @@ description: This article shows you how to configure Azure Monitor Application I
 ms.topic: conceptual
 ms.date: 05/20/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 

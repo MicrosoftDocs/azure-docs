@@ -6,6 +6,7 @@ ms.author: eriklind
 ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-js
 ---
 
 # Web SDK supported browsers

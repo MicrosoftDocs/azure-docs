@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 11/25/2022
 ms.author: dmwendia
 ms.reviewer: jmprieur, saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref, engagement-fy23"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, engagement-fy23, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn why and how to migrate from ADAL.NET and MSAL.NET or Microsoft.Identity.Web libraries.
 ---
 

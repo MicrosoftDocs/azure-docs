@@ -2,7 +2,7 @@
 title: 'Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Resource Manager templates)'
 description: Tutorial on how sending data to a Log Analytics workspace in Azure Monitor using the Logs ingestion API. Supporting components configured using Resource Manager templates.
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom:
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2023

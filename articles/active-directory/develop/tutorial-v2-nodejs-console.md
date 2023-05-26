@@ -7,6 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 12/12/2021
 ms.author: cwerner

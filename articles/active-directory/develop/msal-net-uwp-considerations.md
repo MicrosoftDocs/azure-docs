@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 03/03/2021
 ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: devx-track-csharp, aaddev, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about considerations for using Universal Windows Platform and MSAL.NET so that I can decide if this platform meets my application development needs.
 ---
 

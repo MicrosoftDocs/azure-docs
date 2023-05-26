@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: lianwei
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Azure Functions development and configuration with Azure SignalR Service

@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Monitor and review logs for on-premises Azure AD Password Protection environments
 

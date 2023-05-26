@@ -7,8 +7,7 @@ ms.topic: article
 ms.date: 06/28/2022
 ms.author: msangapu
 ms.devlang: csharp
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-dotnet
 ---
 # .NET migration cases for Azure App Service
 

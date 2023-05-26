@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 03/22/2022
 ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: devx-track-csharp, aaddev, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL.NET so I can decide if this platform meets my application development needs and requirements.
 ---
 

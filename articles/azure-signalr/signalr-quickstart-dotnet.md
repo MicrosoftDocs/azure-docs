@@ -5,7 +5,7 @@ author: vicancy
 ms.service: signalr
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.date: 09/28/2020
 ms.author: lianwei
 ---

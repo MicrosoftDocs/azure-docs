@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Azure AD PowerShell cmdlets for reporting
 

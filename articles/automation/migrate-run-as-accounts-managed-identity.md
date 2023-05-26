@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/14/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Migrate from an existing Run As account to Managed identities
@@ -240,4 +240,3 @@ For more information, see the sample runbook name **AzureAutomationTutorialWithI
 - To learn more about user-assigned managed identities, see [Using a user-assigned managed identity for an Azure Automation account]( add-user-assigned-identity.md).
 
 - For information about Azure Automation account security, see [Azure Automation account authentication overview](automation-security-overview.md).
-

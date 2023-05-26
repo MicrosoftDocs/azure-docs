@@ -2,6 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/22/2023
 ms.author: azfuncdf
 zone_pivot_groups: programming-languages-set-functions-lang-workers

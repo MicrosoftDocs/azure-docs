@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 07/18/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
 ---
 

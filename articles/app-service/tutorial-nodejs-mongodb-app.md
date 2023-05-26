@@ -6,7 +6,7 @@ ms.date: 09/06/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: javascript
-ms.custom: [scenarios:getting-started, languages:javascript, devx-track-js, devx-track-azurecli, devdivchpfy22, ignite-2022]
+ms.custom: "scenarios:getting-started", "languages:javascript", devx-track-js, devdivchpfy22, ignite-2022
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure

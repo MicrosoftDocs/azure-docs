@@ -4,8 +4,7 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 ms.author: msangapu
 ms.topic: article
 ms.date: 04/05/2023
-ms.custom: "UpdateFrequency3, devx-track-azurepowershell"
-
+ms.custom: UpdateFrequency3
 ---
 
 # Inbound and outbound IP addresses in Azure App Service

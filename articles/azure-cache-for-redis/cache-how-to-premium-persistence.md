@@ -5,10 +5,9 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023
-
-
 ---
 # Configure data persistence for an Azure Cache for Redis instance
 

@@ -4,7 +4,7 @@ description: How to authenticate requests and use the Azure Monitor REST API to 
 author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/30/2023
-ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.custom: has-adal-ref
 ms.reviewer: edbaynash
 ---
 

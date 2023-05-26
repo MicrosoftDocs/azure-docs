@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/10/2023
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Runbook authoring through VS Code in Azure Automation
@@ -76,4 +76,3 @@ Currently, the following features aren't supported:
 ## Next steps
 
 - For Runbook management operations and to test runbook and jobs, see [Use Azure Automation extension for Visual Studio Code](../automation/how-to/runbook-authoring-extension-for-vscode.md)
-

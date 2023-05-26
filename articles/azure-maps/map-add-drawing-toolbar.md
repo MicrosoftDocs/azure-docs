@@ -7,8 +7,7 @@ ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Add a drawing tools toolbar to a map

@@ -5,7 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/26/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Management of Azure Automation data

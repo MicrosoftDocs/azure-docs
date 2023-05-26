@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 10/21/2022
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-dotnet
 ---
 
 # Logging in MSAL.NET

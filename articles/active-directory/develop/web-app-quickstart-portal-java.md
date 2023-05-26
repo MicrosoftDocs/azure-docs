@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 08/16/2022
 ROBOTS: NOINDEX
 ms.author: dmwendia
-ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api, devx-track-extended-java
 ---
 # Quickstart: Add sign-in with Microsoft to a Java web app
 

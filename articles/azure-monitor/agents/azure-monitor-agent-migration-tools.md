@@ -6,10 +6,8 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
 ms.date: 1/18/2023 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
-# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.    
-
+ms.custom:
+# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
 ---
 
 # Tools for migrating from Log Analytics Agent to Azure Monitor Agent 

@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 10/06/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Add a heat map layer to a map

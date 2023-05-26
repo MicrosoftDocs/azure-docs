@@ -4,8 +4,7 @@ description: Use job-level preparation tasks to minimize data transfer to Azure 
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.devlang: csharp
-ms.custom: "seodec18, devx-track-csharp"
-
+ms.custom: seodec18, devx-track-csharp, devx-track-dotnet
 ---
 # Job preparation and release tasks on Batch compute nodes
 

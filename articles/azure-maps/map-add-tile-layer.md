@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: codepen
 ---
 
 # Add a tile layer to a map

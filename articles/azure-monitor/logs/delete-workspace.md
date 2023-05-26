@@ -6,8 +6,7 @@ author: bwren
 ms.author: bwren
 ms.reviewer: yossi-y
 ms.date: 03/22/2022
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 
 # Delete and recover an Azure Log Analytics workspace

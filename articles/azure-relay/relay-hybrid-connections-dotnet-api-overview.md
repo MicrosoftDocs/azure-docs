@@ -2,7 +2,7 @@
 title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
 description: This article summarizes some of the key an overview of Azure Relay Hybrid Connections .NET Standard API.
 ms.topic: article
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 06/21/2022
 ---
 

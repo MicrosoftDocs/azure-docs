@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Migrate a web app from Google Maps
