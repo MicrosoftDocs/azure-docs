@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Boot integrity monitoring (guest attestation) overview
 
-To help Trusted Launch better prevent malicious rootkit attacks on virtual machines, guest attestation through Microsoft Azure Attestation (MAA) endpoint is used to monitor the boot sequence integrity. This attestation is critical to provide validity of a platform’s states. If your [Azure Trusted Virtual Machines](trusted-launch.md) has Secure Boot and vTPM enabled and attestation extensions installed, Microsoft Defender for Cloud will verify that the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, see the [trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
+To help Trusted Launch better prevent malicious rootkit attacks on virtual machines, guest attestation through Microsoft Azure Attestation (MAA) endpoint is used to monitor the boot sequence integrity. This attestation is critical to provide validity of a platform’s states. If your [Azure Trusted Virtual Machines](trusted-launch.md) has Secure Boot and vTPM enabled and attestation extensions installed, Microsoft Defender for Cloud verifies that the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, see the [trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
 
 ## Prerequisites
 
@@ -112,11 +112,11 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the TL virtual machines. Configuration of the virtual machines are customizable by virtual machine owner (az vm create).
+1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the TL virtual machines. Configuration of the virtual machines is customizable by virtual machine owner (az vm create).
 
 1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both Secure Boot and vTPM are on (az vm update).
 
-See [Deploy a VM with trusted launch enabled (CLI)](trusted-launch-portal.md#deploy-a-trusted-launch-vm) for more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension.
+For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (CLI)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
 
 # [PowerShell](#tab/powershell)
 
@@ -126,7 +126,7 @@ If Secure Boot and vTPM are ON, boot integrity will be ON.
 
 1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both SecureBoot and vTPM are on(Set-AzVmUefi).
 
-See [Deploy a VM with trusted launch enabled (Powershell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm) for more information on creation or updating a virtual machines to include the boot integrity monitoring through the guest attestation extension.
+For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (Powershell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
 
 ---
 
