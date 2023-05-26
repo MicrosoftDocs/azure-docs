@@ -82,7 +82,7 @@ The example below uses UI to register components, and the [component source file
 
 1. Set the default compute target of the pipeline. 
 
-    Select the **Gear icon** ![Screenshot of the gear icon that is in the UI.](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top right of the canvas to open the **Settings** pane. Select the default compute target for your pipeline.
+    Select the **Gear icon** ![Screenshot of the gear icon that is in the UI.](./v1/media/tutorial-designer-automobile-price-train-score/gear-icon.png) at the top right of the canvas to open the **Settings** pane. Select the default compute target for your pipeline.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/set-default-compute.png" alt-text="Screenshot showing setting default compute for the pipeline." lightbox ="./media/how-to-create-component-pipelines-ui/set-default-compute.png":::
 

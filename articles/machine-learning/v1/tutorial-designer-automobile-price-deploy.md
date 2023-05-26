@@ -40,7 +40,7 @@ In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md)
 
 Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
 
 ## Create a real-time inference pipeline
 
@@ -200,11 +200,11 @@ You can update the online endpoint with new model trained in the designer. On th
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
 In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer see the following links:
 
 + [Designer samples](samples-designer.md): Learn how to use the designer to solve other types of problems.
-+ [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).
++ [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md).

@@ -29,21 +29,17 @@ Azure Machine Learning designer is a drag-and-drop interface used to train and d
 >This article applies to classic prebuilt components and not compatible with CLI v2 and SDK v2.
 
  - To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md). 
- - To learn about the components available in the designer, see the [Algorithm and component reference](./algorithm-module-reference/module-reference.md).
+ - To learn about the components available in the designer, see the [Algorithm and component reference](../algorithm-module-reference/module-reference.md).
 
-![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
+![Azure Machine Learning designer example](../media/concept-designer/designer-drag-and-drop.gif)
 
 The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
 
 + [Pipelines](#pipeline)
 + [Data](#data)
 + [Compute resources](#compute)
-:::moniker range="azureml-api-2"
 + [Registered models](concept-model-management-and-deployment.md#register-and-track-machine-learning-models)
-:::moniker-end
-:::moniker range="azureml-api-1"
-+ [Registered models](v1/concept-azure-machine-learning-architecture.md#models)
-:::moniker-end
++ [Registered models](concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
 
@@ -60,7 +56,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 + [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
-![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
+![Workflow diagram for training, batch inference, and real-time inference in the designer](../media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 

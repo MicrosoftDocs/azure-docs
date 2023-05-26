@@ -45,7 +45,7 @@ The suggestions offered in this algorithm cheat sheet are approximate rules-of-t
 
 Every machine learning algorithm has its own style or inductive bias. For a specific problem, several algorithms may be appropriate, and one algorithm may be a better fit than others. But it's not always possible to know beforehand, which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. 
 
-To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and component reference](component-reference/component-reference.md).
+To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and component reference](../component-reference/component-reference.md).
 
 ## Kinds of machine learning
 
@@ -67,8 +67,8 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 * See more information on [How to select algorithms](how-to-select-algorithms.md)
 
-* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-machine-learning.md).
+* [Learn about studio in Azure Machine Learning and the Azure portal](../overview-what-is-azure-machine-learning.md).
 
 * [Tutorial: Build a prediction model in Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 
-* [Learn about deep learning vs. machine learning](concept-deep-learning-vs-machine-learning.md).
+* [Learn about deep learning vs. machine learning](../concept-deep-learning-vs-machine-learning.md).
