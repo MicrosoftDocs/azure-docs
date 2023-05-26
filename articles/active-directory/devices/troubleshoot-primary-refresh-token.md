@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 5/24/2023
+ms.date: 5/30/2023
 
 ms.author: v-dele
 author: DennisLee-DennisLee
@@ -18,9 +18,9 @@ ms.reviewer: azureidcic, gudlapreethi
 
 This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate onto a Microsoft Azure Active Directory (Azure AD)-joined Windows device by using your Azure AD credentials.
 
-On devices that are joined to Microsoft Azure Active Directory (Azure AD) or joined to Hybrid Azure AD, the main artifact of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Azure AD credentials on an Azure AD-joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
+On devices that are joined to Microsoft Azure Active Directory (Azure AD) or joined to hybrid Azure AD, the main artifact of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Azure AD credentials on an Azure AD-joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
 
-Once every four hours, as part of lock and unlock or signing in again to Windows, a background network authentication is tried to refresh the PRT. If there are problems in refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Azure AD resources. It also causes sign-in prompts to be shown.
+Once every four hours, as part of locking and unlocking the device or signing in again to Windows, a background network authentication is tried to refresh the PRT. If there are problems in refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Azure AD resources. It also causes sign-in prompts to be shown.
 
 If you suspect that there's a PRT problem, first collect Azure AD logs and follow the steps outlined in the troubleshooting checklist. We recommend that you collect Azure AD logs for any Azure AD client issue first, ideally within a repro session. Complete this process before you contact the PG or file an ICM.
 
@@ -94,7 +94,7 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
    > In the Azure AD Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You need to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
 
 1. In the console tree, select the **Analytic** node to view Azure AD-related analytic events.
-1. In the list of analytic events, search for Event ID 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that are logged timewise between Event ID 1006 and Event ID 1007 are logged as part of the PRT acquisition flow. The following table shows an example event listing.
+1. In the list of analytic events, search for Event ID 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that occurred between when Event ID 1006 and Event ID 1007 occurred are logged as part of the PRT acquisition flow. The following table shows an example event listing.
 
    | Level           | Date and Time            | Source  | Event ID | Task Category                  |
    |-----------------|--------------------------|---------|----------|--------------------------------|
@@ -153,7 +153,7 @@ The device received a `400 Bad Request` HTTP error response from one of the foll
 
 Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 contains the URL that's being accessed.
+In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
 
 To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
@@ -165,7 +165,7 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 
 ##### Causes
 
-- The device received a `400 Bad Request` HTTP error response from one of the following sources:
+- The device received a `4xx` HTTP error response from one of the following sources:
 
   - The Azure AD authentication service
   - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
@@ -207,10 +207,10 @@ The user realm discovery failed, because the Azure AD authentication service can
 
 The UPN for the user isn't in the expected format. The UPN value varies according to the device type, as shown in the following table.
 
-| Device type             | UPN value                                                             |
-|-------------------------|-----------------------------------------------------------------------|
-| Azure AD-joined devices | The text that's entered when the user signs in                        |
-| Hybrid-joined devices   | The UPN that the domain controller returns during the sign-in process |
+| Device join type               | UPN value                                                             |
+|--------------------------------|-----------------------------------------------------------------------|
+| Azure AD-joined devices        | The text that's entered when the user signs in                        |
+| Hybrid Azure AD-joined devices | The UPN that the domain controller returns during the sign-in process |
 
 ##### Solutions
 
@@ -218,13 +218,13 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 
   To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 
-- For Hybrid-joined devices, make sure that you configured the domain controller to return the UPN in the correct format. To display the configured UPN in the domain controller, run the following command:
+- For hybrid Azure AD-joined devices, make sure that you configured the domain controller to return the UPN in the correct format. To display the configured UPN in the domain controller, run the following [whoami](/windows-server/administration/windows-commands/whoami) command:
 
   ```cmd
   whoami /upn
   ```
 
-  If Active Directory is configured with the correct UPN, collect [Time Travel Traces]() for the Local Security Authority Subsystem Service (`lsass.exe`).
+  If Active Directory is configured with the correct UPN, [collect time travel traces](#time-travel-traces) for the Local Security Authority Subsystem Service (*lsass.exe*).
 
 - If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
@@ -238,7 +238,7 @@ The user security identifier (SID) is missing in the ID token that the Azure AD 
 
 ##### Solution
 
-Make sure that the network proxy isn't interfering with and modifying the server response.
+Make sure that the network proxy doesn't interfere with or modify the server response.
 </details>
 
 <details>
@@ -250,7 +250,7 @@ You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is 
 
 ##### Solutions
 
-- Make sure that the network proxy isn't interfering with and modifying the server response.
+- Make sure that the network proxy doesn't interfere with or modify the server response.
 
 - Get the server error code and error description from Event ID 1088 in the Azure AD operational logs. Then, go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
@@ -262,13 +262,27 @@ You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is 
 
 ##### Cause
 
-The Metadata Exchange endpoint (MEX) endpoint is configured incorrectly. The MEX response doesn't contain any password URLs.
+The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response doesn't contain any password URLs.
 
 ##### Solutions
 
-- Make sure that the network proxy isn't interfering with and modifying the server response.
+- Make sure that the network proxy doesn't interfere with or modify the server response.
 
 - Fix the MEX configuration to return valid URLs in response.
+</details>
+
+<details>
+<summary>AAD_CLOUDAP_E_HTTP_CERTIFICATE_URI_IS_EMPTY (-1073445748&nbsp;/&nbsp;0xc004848c)</summary>
+
+##### Cause
+
+The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response doesn't contain any certificate endpoint URLs.
+
+##### Solutions
+
+- Make sure that the network proxy doesn't interfere with or modify the server response.
+
+- Fix the MEX configuration in the identity provider to return valid certificate URLs in response.
 </details>
 
 #### Common XML error codes (codes that begin with "0xc00c")
@@ -291,6 +305,8 @@ The XML response from the [WS-Trust protocol][WS-Trust] endpoint (which is requi
 
 #### Common server error codes ("AADSTS" prefix)
 
+You can find the full list and description of server error codes in [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md).
+
 <details>
 <summary>AADSTS50155: Device authentication failed</summary>
 
@@ -306,7 +322,7 @@ Re-register the device based on the device join type. For instructions, see [I d
 </details>
 
 <details>
-<summary>AADSTS50034: The user account &lt;Account&gt; does not exist in the &lt;tenant id&gt; directory</summary>
+<summary>AADSTS50034: The user account &lt;Account&gt; does not exist in the &lt;tenant&nbsp;id&gt; directory</summary>
 
 ##### Cause
 
@@ -330,7 +346,7 @@ Azure AD can't find the user account in the tenant.
 - The password hasn't been synchronized to Azure AD because of the following scenario:
 
   - The tenant has enabled [password hash synchronization](../hybrid/connect/whatis-phs.md).
-  - The device is Hybrid-joined.
+  - The device is a hybrid Azure AD-joined device.
   - The user just changed the password.
 
 ##### Solution
@@ -340,6 +356,8 @@ To acquire a fresh PRT that has the new credentials, wait for the Azure AD synch
 
 #### Common network error codes ("ERROR_WINHTTP_" prefix)
 
+You can find the full list and description of network error codes in [Error messages (Winhttp.h)](/windows/win32/winhttp/error-messages).
+
 <details>
 <summary>ERROR_WINHTTP_TIMEOUT (12002),<br/>
 ERROR_WINHTTP_NAME_NOT_RESOLVED (12007),<br/>
@@ -348,14 +366,40 @@ ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
 
 ##### Causes
 
-
+Common general network-related issues.
 
 ##### Solutions
+
+- Get the URL that's being accessed. You can find the URL in Event ID 1084 of the Azure AD operational log or Event ID 1022 of the Azure AD analytic log.
+
+  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+
+- If the on-premises environment requires an outbound proxy, make sure that the computer account of the device can discover and silently authenticate to the outbound proxy.
+
+- Collect network traces by taking the following steps:
+
+  > [!IMPORTANT]  
+  > Don't use Fiddler during this procedure.
+
+  1. Run the following [netsh trace start](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj129382(v=ws.11)#start) command:
+
+     ```cmd
+     netsh trace start scenario=InternetClient_dbg capture=yes persistent=yes
+     ```
+
+  1. Lock the device.
+  1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task complete.
+  1. Unlock the device.
+  1. Run the following [netsh trace stop](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj129382(v=ws.11)#stop) command:
+
+     ```cmd
+     netsh trace stop
+     ```
 
 
 </details>
 
-### Step 4: Collect the logs
+### Step 4: Collect the logs and traces
 
 #### Regular logs
 
@@ -368,7 +412,9 @@ ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
    ```
 
 1. Switch the Windows user account to go to your problem user's session.
-1. Lock and unlock the device. For Hybrid-joined devices, wait 60 seconds to let the PRT acquisition task complete.
+1. Lock the device.
+1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task complete.
+1. Unlock the device.
 1. Switch the Windows user account back to your administrative session that's running the tracing.
 1. After you reproduce the issue, run the following command to end the tracing:
 
@@ -378,9 +424,37 @@ ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
 
 1. Wait for all tracing to stop completely.
 
-#### TimeTravel Traces (TTT)
+#### Time travel traces
 
+1. On the Windows **Start** menu, search for **Command Prompt**, and then select **Run as administrator**.
+1. In the command prompt console, create a temporary directory:
 
+   ```cmd
+   mkdir c:\temp
+   ```
+
+1. Run the following [tasklist](/windows-server/administration/windows-commands/tasklist) command:
+
+   ```cmd
+   tasklist /m lsasrv.dll
+   ```
+
+1. In the `tasklist` command output, find the process identifier (`PID`) of the Local Security Authority Subsystem Service (*lsass.exe*).
+1. Run the following command to begin a time travel tracing session of the *lsass.exe* process:
+
+   ```cmd
+   tttracer.exe -dumpfull -attach <lsass-pid> -out c:\temp
+   ```
+
+1. Lock the device that's signed in under the domain account.
+1. Unlock the device.
+1. Run the following command to end the time travel tracing session:
+
+   ```cmd
+   tttracer.exe -stop all
+   ```
+
+1. Get the latest *lsass##.run* file.
 
 [WS-Trust]: http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html
 [server-errors]: #common-server-error-codes-aadsts-prefix
