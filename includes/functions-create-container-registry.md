@@ -72,13 +72,14 @@ You should be all set.
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder: 
- ::: zone-end  
-
+::: zone-end  
+    
     ::: zone pivot="programming-language-csharp"  
     ```console
     func init --worker-runtime dotnet-isolated --docker
     ```
     ::: zone-end  
+
     ::: zone pivot="programming-language-javascript"  
     ```console
     func init --worker-runtime node --language javascript --docker
@@ -136,14 +137,15 @@ You should be all set.
 1. Type `Y` or press Enter to confirm.
 
     Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
-  ::: zone-end
+    ::: zone-end
 
     <!---
     ::: zone pivot="programming-language-other"  
     ```console
     func init --worker-runtime custom --docker
     ```
-    ::: zone-end -->                                                                                                                                                                                               
+    ::: zone-end --> 
+                                     
     The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
