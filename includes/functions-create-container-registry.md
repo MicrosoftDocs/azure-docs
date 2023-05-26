@@ -73,31 +73,31 @@ You should be all set.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
+    ::: zone pivot="programming-language-csharp"  
     ```console
     func init --worker-runtime dotnet-isolated --docker
     ```
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript"  
     ```console
     func init --worker-runtime node --language javascript --docker
     ```
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-powershell"  
     ```console
     func init --worker-runtime powershell --docker
     ```
-::: zone-end  
-::: zone pivot="programming-language-python"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-python"  
     ```console
     func init --worker-runtime python --docker
     ```
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
     ```console
     func init --worker-runtime node --language typescript --docker
     ```
-::: zone-end
+    ::: zone-end
 ::: zone pivot="programming-language-java"  
 1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
 
@@ -135,13 +135,13 @@ You should be all set.
 
     Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
 ::: zone-end
-<!---
-:: zone pivot="programming-language-other"  
+    <!---
+    :: zone pivot="programming-language-other"  
     ```console
     func init --worker-runtime custom --docker
     ```
-::: zone-end
--->
+    ::: zone-end                                                                                                                                                                                                    
+    -->
     The `--docker` option generates a *Dockerfile* for the project, which defines a suitable container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
@@ -248,27 +248,27 @@ You should be all set.
       "enableForwardingHttpRequest": true
     }
     ```
-::: zone-end
--->
+    ::: zone-end
+    -->
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 3. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 ::: zone-end
-::: zone pivot="programming-language-csharp"  
+    ::: zone pivot="programming-language-csharp"  
     ```console
     func start  
     ```
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
     ```console
     func start  
     ```
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
     ```console
     npm install
     npm start
     ```
-::: zone-end  
+    ::: zone-end  
 ::: zone pivot="programming-language-java"  
 5. To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 
@@ -276,15 +276,15 @@ You should be all set.
     mvn clean package  
     mvn azure-functions:run
     ```
-::: zone-end
-<!---
-::: zone pivot="programming-language-other"
-```console
-R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
-func start
-```
-::: zone-end
--->
+    ::: zone-end
+    <!---
+    ::: zone pivot="programming-language-other"
+    ```console
+    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+    func start
+    ```
+    ::: zone-end
+    -->
 ::: zone pivot="programming-language-csharp"  
 4. After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
 ::: zone-end  
