@@ -96,17 +96,40 @@ The output from a successful image generation API call looks like this. The `"co
 }
 ```
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article. The system will return an operation status of `Failed` and the `error.code` in the message will be set to `ContentFilter`. Here is an example.
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article. The system will return an operation status of `Failed` and the `error.code` in the message will be set to `contentFilter`. Here is an example.
 
 ```json
 {
-    "id": "93e5e7c7-0ef4-4ba2-add3-3ed5751f4a94",
-    "status": "Failed",
-    "error":
-    {
-        "code": "ContentFilter",
-        "message": "Your task failed as a result of our safety system."
-    }
+   "created": 1589478378,
+   "error": {
+       "code": "contentFilter",
+       "message": "Your task failed as a result of our safety system."
+   },
+   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
+   "status": "failed"
+}
+```
+
+It's also possible that the generated image itself is filtered. In this case, the error message is set to `Generated image was filtered as a result of our safety system.`. Here is an example.
+
+```json
+{
+   "created": 1589478378,
+   "expires": 1589478399,
+   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
+   "lastActionDateTime": 1589478378,
+   "data": [
+       {
+           "url": "<URL_TO_IMAGE>"
+       },
+       {
+           "error": {
+               "code": "contentFilter",
+               "message": "Generated image was filtered as a result of our safety system."
+           }
+       }
+   ],
+   "status": "succeeded"
 }
 ```
 
