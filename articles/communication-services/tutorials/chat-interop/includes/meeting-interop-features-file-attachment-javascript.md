@@ -251,7 +251,7 @@ async function renderReceivedMessage(event) {
 
     // filter out inline images from attchments
     const imageAttachments = event.attachments.filter((attachment) =>
-        attachment.attachmentType === 'teamsinlineimage' ||
+        attachment.attachmentType === "teamsInlineImage" ||
         attachment.attachmentType === "teamsImage");
 
     // fetch and render preview images
