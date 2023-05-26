@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 
 
-Scenario: In this scenario you learn how to use custom extensibility, and a logic app, to automatically generate ServiceNow ticket for provisioning for manual provisioning of users who have received assignments and need access to apps.
+Scenario: In this scenario you learn how to use custom extensibility, and a Logic App, to automatically generate ServiceNow ticket for provisioning for manual provisioning of users who have received assignments and need access to apps.
 
 In this tutorial, you learn how to:
 
@@ -61,7 +61,7 @@ Provide the Azure subscription, resource group details, along with the Logic App
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-behavior.png" alt-text="Screenshot of entitlement management custom extension behavior actions tab.":::
 1. Select **Launch and wait** in the **Extension Configuration** which will pause the associated access package action until after the Logic App linked to the extension completes its task, and a resume action is sent by the admin to continue the process. For more information on this process, see:  [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
 
-1. In the **Details** tab, choose No in the "*Create new logic app*" field as the logic app has already been created in the previous steps. However, you need to provide the Azure subscription and resource group details, along with the Logic App name.
+1. In the **Details** tab, choose No in the "*Create new logic App*" field as the Logic App has already been created in the previous steps. However, you need to provide the Azure subscription and resource group details, along with the Logic App name.
     :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-custom-extension-details.png" alt-text="Screenshot of the entitlement management  custom extension details tab.":::
 1. In **Review and Create**, review the summary of your custom extension and make sure the details for your Logic App call-out are correct. Then select **Create**.
 
