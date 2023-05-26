@@ -27,7 +27,7 @@ Claims are present only if a value exists to fill it. An application shouldn't t
 
 The Microsoft identity platform uses some claims to help secure tokens for reuse. The description of `Opaque` marks these claims as not being for public consumption. These claims may or may not appear in a token, and new ones may be added without notice.
 
-### Header claims
+## Header claims
 
 | Claim | Format | Description |
 |-------|--------|-------------|
@@ -36,7 +36,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 | `kid` | String | Specifies the thumbprint for the public key used for validating the signature of the token. Emitted in both v1.0 and v2.0 access tokens. |
 | `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` and is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
-### Payload claims
+## Payload claims
 
 | Claim | Format | Description | Authorization considerations |
 |-------|--------|-------------|------------------------------|
@@ -70,7 +70,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. | |
 | `xms_cc` | JSON array of strings | Indicates whether the client application that acquired the token is capable of handling claims challenges. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The resource server that the token is issued for controls the presence of the claim in it. For example, a service application. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). Resource servers should check this claim in access tokens received from client applications. If this claim is present, resource servers can respond back with a claims challenge. The claims challenge requests more claims in a new access token to authorize access to a protected resource. |
 
-#### Groups overage claim
+### Groups overage claim
 
 Azure AD limits the number of object IDs that it includes in the groups claim to stay within the size limit of the HTTP header. If a user is a member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens, and only 6 if issued by using the implicit flow), then Azure AD doesn't emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the group membership of the user.
 
@@ -91,7 +91,7 @@ Azure AD limits the number of object IDs that it includes in the groups claim to
 
 Use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) folder to help test overage scenarios.
 
-#### v1.0 basic claims
+### v1.0 basic claims
 
 The v1.0 tokens include the following claims if applicable, but not v2.0 tokens by default. To use these claims for v2.0, the application requests them using [optional claims](active-directory-optional-claims.md).
 
@@ -107,7 +107,7 @@ The v1.0 tokens include the following claims if applicable, but not v2.0 tokens 
 | `given_name` | String | Provides the first or given name of the user, as set on the user object. |
 | `upn` | String | The username of the user. May be a phone number, email address, or unformatted string. Only use for display purposes and providing username hints in reauthentication scenarios. |
 
-#### amr claim
+### amr claim
 
 Identities can authenticate in different ways, which may be relevant to the application. The `amr` claim is an array that can contain multiple items, such as `["mfa", "rsa", "pwd"]`, for an authentication that used both a password and the Authenticator app.
 
