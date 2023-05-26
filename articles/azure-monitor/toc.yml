@@ -705,7 +705,7 @@ items:
         - name: JavaScript
           items:
           - name: JavaScript SDK
-            displayName: browser, client-side, snippet
+            displayName: browser, client-side, SDK Loader Script
             href: app/javascript-sdk.md
           - name: JavaScript SDK advanced topics
             href: app/javascript-sdk-advanced.md
