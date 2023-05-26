@@ -634,7 +634,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 ### Create a remote function call (RFC) request-response pattern
 
-For the SAP managed connector and ISE-versioned SAP connector, if you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow, make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
+For the Consumption workflows that use the SAP managed connector and ISE-versioned SAP connector, if you have to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP, you must implement a request and response pattern. To receive IDocs in your workflow when you use the [Request trigger](../connectors/connectors-native-reqres.md), make sure that the workflow's first action is a [Response action](../connectors/connectors-native-reqres.md#add-response) that uses the **200 OK** status code without any content. This recommended step immediately completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC, which leaves the SAP CPIC conversation available again. You can then add more actions to your workflow for processing the received IDoc without blocking later transfers.
 
 > [!NOTE]
 >
@@ -664,7 +664,7 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
 
-1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to include your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to include your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
 
    For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
@@ -692,7 +692,7 @@ You've now created a workflow that can communicate with your SAP server. Now tha
 
 1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To trigger your workflow, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. Make sure to your message content with your request. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
 
    For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
