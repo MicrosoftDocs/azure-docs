@@ -52,7 +52,7 @@ additionalContent:
           - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
             text: Understand block, append, and page blobs  
           - url: ./blobs/index.yml
-            text: More Blob Storage details >
+            text: All Blob Storage documentation >
         # Card
         - title: Storage for big data analytics
           links:
