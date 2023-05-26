@@ -35,14 +35,15 @@ In this article, you'll learn how to create and run [machine learning pipelines]
     ```
 
 >[!Note]
-> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
+> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible. 
 >
->Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces. 
 >
->Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
 >
->This article applies to **custom components**.
+>This article applies to custom components.
 
 ## Register component in your workspace
 
@@ -88,7 +89,7 @@ The example below uses UI to register components, and the [component source file
     > [!Important]
     > Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
-1. In asset library, you can see **Data assets** and **Components** tabs. Switch to **Components** tab, you can see the components registered from previous section.
+1. In asset library, you can see **Data**,**Model** and **Components** tabs. Switch to **Components** tab, you can see the components registered from previous section.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/asset-library.png" alt-text="Screenshot showing registered component in asset library." lightbox ="./media/how-to-create-component-pipelines-ui/asset-library.png":::
 
@@ -107,7 +108,7 @@ The example below uses UI to register components, and the [component source file
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/component-parameter.png" alt-text="Screenshot showing component parameter settings." lightbox ="./media/how-to-create-component-pipelines-ui/component-parameter.png":::
 
 > [!NOTE]
-> Currently registered components and the designer built-in components cannot be used together.
+> Custom components and the designer classic prebuilt components cannot be used together.
 
 ## Submit pipeline
 
@@ -121,6 +122,25 @@ The example below uses UI to register components, and the [component source file
 
     > [!NOTE]
     > The **Submitted jobs** list only contains pipeline jobs submitted during an active session. A page reload will clear out the content.
+
+#### Try the optimized submission wizard(preview)
+
+There is an optimized pipeline submission wizard to streamline your pipeline submission experience. It provides spacious space to edit pipeline inputs and outputs, and the ability to modify runtime settings, such as the default compute, at the time of submission.
+
+To enable this feature:
+1. Navigate to Azure Machine Learning studio UI.
+2. Select Manage preview features (megaphone icon) among the icons on the top right side of the screen.
+3. In Managed preview feature panel, toggle on **Submit pipeline jobs using the optimized submission wizard**
+
+
+:::image type="content" source="./media/how-to-debug-pipeline-failure/enable-submission-wizard.png" alt-text="Screenshot showing how to enable submission wizard." lightbox= "./media/how-to-debug-pipeline-failure/enable-submission-wizard.png":::
+
+After enabling the pipeline submission wizard, select **Configure & Submit** button on the top right to submit the pipeline job.
+
+Then you will see a step-by-step wizard, which allows you to edit pipeline inputs & outputs, and change runtime settings before submitting the pipeline job. Follow the wizard to submit the pipeline job.
+
+:::image type="content" source="./media/how-to-debug-pipeline-failure/submission-wizard.png" alt-text="Screenshot showing the inputs & outputs tab of the submission wizard." lightbox= "./media/how-to-debug-pipeline-failure/submission-wizard.png":::
+
 
 ## Next steps
 
