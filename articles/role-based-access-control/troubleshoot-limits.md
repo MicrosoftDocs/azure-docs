@@ -164,7 +164,7 @@ If you still need to reduce the number of role assignments in the subscription a
 
 #### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
 
-To reduce the number of role assignments in the subscription, replace multiple built-in role assignments with a custom role assignment. Follow these steps to identify where multiple built-in role assignments can potentially be replaced.
+To reduce the number of role assignments in the subscription, replace multiple built-in role assignments with a single custom role assignment. Follow these steps to identify where multiple built-in role assignments can potentially be replaced.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
 
@@ -176,8 +176,8 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     | Column | Description |
     | --- | --- |
-    | PrincipalId | ID of the principal assigned the roles. |
-    | Scope | Scope for role assignments. |
+    | PrincipalId | ID of the principal assigned the built-in roles. |
+    | Scope | Scope for built-in role assignments. |
     | count_ | Number of built-in role assignments with the same principal and same scope. |
     | AllRD | ID and name of built-in roles. |
 
@@ -185,9 +185,15 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Use **AllRD** to see the built-in roles that can potentially be combined into a custom role.
 
-1. Use the Azure portal or documentation to view the actions and data actions for the [built-in roles](./built-in-roles.md).
+1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.md) or [Azure built-in roles](./built-in-roles.md)
 
-1. Create a custom role that includes the all the actions and data actions for the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+1. Create a custom role that includes all the actions and data actions as the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+
+1. Get the principal name from the principal ID.
+  
+    - To use Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
+    - To use PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
+    - To use Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 
