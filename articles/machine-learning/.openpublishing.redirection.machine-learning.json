@@ -3889,6 +3889,11 @@
         "source_path_from_root": "/articles/machine-learning/how-to-run-batch-predictions-designer.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-run-batch-predictions-designer",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-designer-python.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-designer-python",
+        "redirect_document_id": true
     }
 ]
 }

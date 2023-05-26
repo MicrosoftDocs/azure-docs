@@ -31,7 +31,7 @@ This how-to is a prerequisite for the [how to retrain designer models](how-to-re
 
 ## Transform a dataset
 
-In this section, you'll learn how to import the sample dataset, and split the data into US and non-US datasets. See [how to import data](v1/how-to-designer-import-data.md) for more information about how to import your own data into the designer.
+In this section, you'll learn how to import the sample dataset, and split the data into US and non-US datasets. See [how to import data](how-to-designer-import-data.md) for more information about how to import your own data into the designer.
 
 ### Import data
 
@@ -67,7 +67,7 @@ In this section, you'll use the [Split Data component](../algorithm-module-refer
 
 1. Enter the **Regular Expression**: `\"native-country" United-States`.
 
-    The **Regular expression** mode tests a single column for a value. See the related [algorithm component reference page](algorithm-module-reference/split-data.md) for more information on the Split Data component.
+    The **Regular expression** mode tests a single column for a value. See the related [algorithm component reference page](../algorithm-module-reference/split-data.md) for more information on the Split Data component.
 
 Your pipeline should look like this:
 

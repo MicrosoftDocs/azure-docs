@@ -24,7 +24,7 @@ In this how-to, you learn to do the following tasks:
 > * Consume a pipeline endpoint
 > * Manage endpoint versions
 
-To learn how to set up batch scoring services using the SDK, see the accompanying [tutorial on pipeline batch scoring](./tutorial-pipeline-batch-scoring-classification.md).
+To learn how to set up batch scoring services using the SDK, see the accompanying [tutorial on pipeline batch scoring](../tutorial-pipeline-batch-scoring-classification.md).
 
 ## Prerequisites
 
@@ -136,7 +136,7 @@ You can find the REST endpoint of a pipeline endpoint in the job overview panel.
 
 You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and you can find the REST endpoint of it in the **Published pipeline overview** panel to the right of the graph. 
 
-To make a REST call, you'll need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
+To make a REST call, you'll need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](../tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
 ## Versioning endpoints
 

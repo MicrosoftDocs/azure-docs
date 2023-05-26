@@ -33,12 +33,11 @@ Azure Machine Learning designer is a drag-and-drop interface used to train and d
 
 ![Azure Machine Learning designer example](../media/concept-designer/designer-drag-and-drop.gif)
 
-The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
+The designer uses your Azure Machine Learning [workspace](../concept-workspace.md) to organize shared resources such as:
 
 + [Pipelines](#pipeline)
 + [Data](#data)
 + [Compute resources](#compute)
-+ [Registered models](concept-model-management-and-deployment.md#register-and-track-machine-learning-models)
 + [Registered models](concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
@@ -60,7 +59,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 
 ## Pipeline
 
-A [pipeline](concept-ml-pipelines.md) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](../concept-ml-pipelines.md) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -91,7 +90,7 @@ A component is an algorithm that you can perform on your data. The designer has 
 
 A component may have a set of parameters that you can use to configure the component's internal algorithms. When you select a component on the canvas, the component's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual components in the designer. 
 
-:::image type="content" source="./media/concept-designer/properties.png" alt-text="Component properties":::
+:::image type="content" source="../media/concept-designer/properties.png" alt-text="Component properties":::
 
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](../component-reference/component-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
@@ -105,11 +104,11 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure Machine Learning studio](https://ml.azure.com).
+Compute targets are attached to your [Azure Machine Learning workspace](../concept-workspace.md). You manage your compute targets in your workspace in the [Azure Machine Learning studio](https://ml.azure.com).
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as an [online endpoint](concept-endpoints-online.md). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as an [online endpoint](../concept-endpoints-online.md). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
 Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 
