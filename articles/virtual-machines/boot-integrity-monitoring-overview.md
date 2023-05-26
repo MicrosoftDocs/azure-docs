@@ -112,19 +112,17 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the TL virtual machines. Configuration of the virtual machines is customizable by virtual machine owner (az vm create).
+1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of trusted launch virtual machine. Configuration of virtual machines are customizable by virtual machine owner (az vm create).
 
-1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both Secure Boot and vTPM are on (az vm update).
-
+1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure both Secure Boot and vTPM are on (az vm update).
 For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (CLI)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
 
 # [PowerShell](#tab/powershell)
 
 If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the virtual machines. Configuration of the virtual machines is customizable by virtual machine owner.
-
-1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both SecureBoot and vTPM are on(Set-AzVmUefi).
+1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of the trusted launch virtual machine. Configuration of virtual machines are customizable by virtual machine owner.
+1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure both SecureBoot and vTPM are on.
 
 For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (PowerShell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
 
