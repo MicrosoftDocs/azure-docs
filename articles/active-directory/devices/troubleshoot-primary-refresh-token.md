@@ -53,7 +53,7 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
    +----------------------------------------------------------------------+
    ```
 
-1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, there was an error acquiring the PRT from Azure AD.
+1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, there was an error acquiring the PRT status from Azure AD.
 
 1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours <!-- Is there a missing phrase here? -->, there's probably an issue that's preventing the PRT from refreshing. Lock and unlock the device to force PRT refresh, and then check whether the time is updated.
 
@@ -177,7 +177,7 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 
   In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088.
 
-- For a network connectivity issue, get the URL that's being accessed and the sub-error code from the network stack. Event ID 1022 in the Azure AD analytic logs contains the URL that's being accessed. Event ID 1084 in the Azure AD operational logs contains the sub-error code from the network stack.
+- For a network connectivity issue, get the URL that's being accessed and the suberror code from the network stack. Event ID 1022 in the Azure AD analytic logs contains the URL that's being accessed. Event ID 1084 in the Azure AD operational logs contains the suberror code from the network stack.
 
 To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
@@ -322,7 +322,7 @@ Re-register the device based on the device join type. For instructions, see [I d
 </details>
 
 <details>
-<summary>AADSTS50034: The user account &lt;Account&gt; does not exist in the &lt;tenant&nbsp;id&gt; directory</summary>
+<summary>AADSTS50034: The user account &lt;Account&gt; does not exist in the &lt;tenant-id&gt; directory</summary>
 
 ##### Cause
 
