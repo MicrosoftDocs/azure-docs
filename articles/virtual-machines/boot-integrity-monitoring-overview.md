@@ -122,11 +122,11 @@ For more information on creation or updating a virtual machine to include the bo
 
 If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the the virtual machines. Configuration of the virtual machines are customizable by virtual machine owner.
+1. Create a virtual machine with Trusted Launch with Secure Boot + vTPM capabilities through initial deployment of the virtual machines. Configuration of the virtual machines is customizable by virtual machine owner.
 
 1. For existing VMs, you can enable boot integrity monitoring settings. By updating settings to make sure both SecureBoot and vTPM are on(Set-AzVmUefi).
 
-For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (Powershell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
+For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (PowerShell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
 
 ---
 
