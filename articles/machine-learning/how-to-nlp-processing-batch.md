@@ -1,7 +1,7 @@
 ---
-title: "Text processing with batch endpoints"
+title: "Deploy and run language models in batch endpoints"
 titleSuffix: Azure Machine Learning
-description: Learn how to use batch deployments to process text and output results.
+description: Learn how to use batch deployments to process text with large language models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used to deploy expensive models, like language models, over text data. In this tutorial you'll learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
+Batch Endpoints can be used to deploy expensive models, like language models, over text data. In this tutorial you'll learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace. It also shows how to do inference optimization using HuggingFace `optimum` and `accelerate` libraries.
 
 ## About this sample
 
@@ -141,7 +141,7 @@ Let's create the deployment that will host the model:
 
    > [!div class="checklist"]
    > * Indicates an `init` function that detects the hardware configuration (CPU vs GPU) and loads the model accordingly. Both the model and the tokenizer are loaded in global variables. We are not using a `pipeline` object from HuggingFace to account for the limitation in the sequence lenghs of the model we are currently using.
-   > * Notice that we are doing performing model optimizations to improve the performance using `optimum` and accelerate libraries. If the model or hardware doesn't support it, we will run the deployment without such optimizations.
+   > * Notice that we are doing performing **model optimizations** to improve the performance using `optimum` and `accelerate` libraries. If the model or hardware doesn't support it, we will run the deployment without such optimizations.
    > * Indicates a `run` function that is executed for each mini-batch the batch deployment provides.
    > * The `run` function read the entire batch using the `datasets` library. The text we need to summarize is on the column `text`.
    > * The `run` method iterates over each of the rows of the text and run the prediction. Since this is a very expensive model, running the prediction over entire files will result in an out-of-memory exception. Notice that the model is not execute with the `pipeline` object from `transformers`. This is done to account for long sequences of text and the limitation of 1024 tokens in the underlying model we are using.
