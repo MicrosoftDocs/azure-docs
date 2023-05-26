@@ -5,12 +5,12 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/27/2023
+ms.date: 05/26/2023
 ms.author: halkazwini
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
-# Manage Azure Network Watcher
+# Enable or disable Azure Network Watcher
 
 Azure Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
 
