@@ -17,9 +17,9 @@ intuitive and efficient way to update the formatting of any element on the map.
 With on-object interaction, you can interact with the Azure Maps Power BI
 Visual like you interact with other Microsoft products or web applications.
 
-## Use on-object interaction in your Power BI Visual
+## using on-object interaction in your Power BI Visual
 
-On-object interaction can be used to edit chart titles, legends, bubble
+on-object interaction can be used to edit chart titles, legends, bubble
 layers, Map style and Map controls.
 
 ### Formatting objects on the map
