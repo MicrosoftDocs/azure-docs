@@ -38,9 +38,9 @@ SAP high availability in Azure can be separated into three types:
   
   For example, high availability can include compute (VMs), network, or storage and its benefits for increasing the availability of SAP applications.
 
-* **Utilizing Azure infrastructure VM restart to achieve *higher availability* of SAP applications**:
+* **Utilizing Azure infrastructure VM restart to protect SAP applications**:
   
-  If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux, Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+  If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux, Azure VM restart is utilized. It restores functionality in the SAP systems in case of planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 * **SAP application high availability**:
 
@@ -96,9 +96,9 @@ In Azure, Virtual Machine Scale Sets with Flexible orchestration offers a means 
 
 Virtual machine scale set with flexible orchestration offers the flexibility to create the scale set within a region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute the VMs across different zones and the scale set would also [distribute VMs across different fault domains within each zone on a best effort basis](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md). **For SAP workload only flexible scale set with FD=1 is supported.**
 
-The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. Also the limitations and pitfalls associated with utilizing [proximity placement group](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) for ensuring VMs availability across all Azure datacenters or under each network spine, it's advised to deploy SAP workload across availability zones using flexible scale set with FD=1. This deployment strategy ensures that VMs deployed in each zone aren't restricted to a single datacenter or network spine, and all SAP system components, such as databases, ASCS/ERS, and application tier are scoped at zonal level.
+The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To avoid the limitations associated with utilizing [proximity placement group](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) for ensuring VMs availability across all Azure datacenters or under each network spine, it's advised to deploy SAP workload across availability zones using flexible scale set with FD=1. This deployment strategy ensures that VMs deployed in each zone aren't restricted to a single datacenter or network spine, and all SAP system components, such as databases, ASCS/ERS, and application tier are scoped at zonal level.
 
-So, for new SAP workload deployment across availability zones, it's advised to use flexible scale set with FD=1. For more information, see [virtual machine scale set for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md) document.
+So, for new SAP workload deployment across availability zones, we advise to use flexible scale set with FD=1. For more information, see [virtual machine scale set for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md) document.
 
 ### Planned and unplanned maintenance of virtual machines
 
@@ -134,8 +134,10 @@ Here's a quick summary of the various deployment types that are available for SA
 | Deployment behavior | Instances land across 1, 2 or 3 availability zones and distributed across different racks within each zone on best effort basis | Instances land across 1, 2 or 3 availability zones | Instances land within region and distributed across different fault/update domain |
 | Assign VM and managed disks to specific Availability zone | Yes | Yes | No |
 | Fault domain - Max spreading (Azure will maximally spread instances) | Yes | No | Yes, based on the number of fault domains defined during creation. |
-| Compute to storage fault domain alignment | No | No | Yes |
+| [Compute to storage fault domain alignment](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md) | No | No | Yes |
 | Capacity Reservation | Yes (assign capacity reservation at VM level) | Yes | No |
+
+Update domains have been deprecated in Flexible Orchestration mode. For more information, see [Migrate deployments and resources to Virtual Machine Scale Sets in Flexible orchestration](../../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources.md)
 
 ## High availability deployment options for SAP workload
 
@@ -155,9 +157,9 @@ When deploying a high availability SAP workload on Azure, it's important to take
 >
 > It should be noted that the deployment options for Azure regions are only suggestions. The most suitable deployment strategy for your SAP system will depend on your particular requirements and environment.
 
-## Utilizing Azure infrastructure high availability to achieve *higher availability* of SAP applications
+## Utilizing Azure infrastructure high availability to protect SAP applications
 
-If you decide not to use functionalities such as WSFC or Pacemaker on Linux (supported for SUSE Linux Enterprise Server 12 and later, and Red Hat Enterprise Linux 7 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+If you decide not to use functionalities such as WSFC or Pacemaker on Linux (supported for SUSE Linux Enterprise Server 12 and later, and Red Hat Enterprise Linux 7 and later), Azure VM restart is utilized. It restores functionality in the SAP systems in case of planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 For more information about this approach, see [Utilize Azure infrastructure VM restart to achieve higher availability of the SAP system][sap-higher-availability].
 
