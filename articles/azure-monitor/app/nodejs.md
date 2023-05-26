@@ -176,7 +176,7 @@ appInsights.start();
 
 ### Automatic web Instrumentation[Preview]
 
- Automatic web Instrumentation can be enabled for node server via configuration 
+ Automatic web Instrumentation can be enabled for node server via SDK Loader Script injection by configuration.
 
 ```javascript
 let appInsights = require("applicationinsights");
