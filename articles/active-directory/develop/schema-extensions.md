@@ -20,7 +20,7 @@ Directory extension attributes provide a way to store more data on directory obj
 > [!NOTE]
 > Microsoft Graph provides three other extension mechanisms to customize Graph objects. These are the extension attributes 1-15, open extensions, and schema extensions. See the [Microsoft Graph documentation](/graph/extensibility-overview) for details. Data stored on Microsoft Graph objects using open and schema extensions aren't available as sources for claims in tokens.
 
-Directory extension attributes are always associated with an application in the tenant and includes the application's *appId* in its name.
+Directory extension attributes are always associated with an application in the tenant. The name of the directory attribute includes the *appId* of the application in its name.
 
 The identifier for a directory extension attribute is of the form `extension_xxxxxxxxx_AttributeName`.  Where `xxxxxxxxx` is the *appId* of the application the extension was defined for, with only characters 0-9 and A-Z.
 
@@ -33,7 +33,7 @@ Register directory extension attributes in one of the following ways:
 
 ### Emit claims with data from Azure AD Connect
 
-Directory extension attributes created and synced using Azure AD Connect are always associated with the application ID used by Azure AD Connect. These attributes can be used as a source for claims both by configuring them as claims in **Enterprise Applications** configuration in the Portal. After a directory extension attribute is created using AD Connect, it is displayed in the SAML SSO claims configuration.
+Directory extension attributes created and synced using Azure AD Connect are always associated with the application ID used by Azure AD Connect. These attributes can be used as a source for claims both by configuring them as claims in **Enterprise Applications** configuration in the Portal. After a directory extension attribute is created using AD Connect, it's displayed in the SAML SSO claims configuration.
 
 ### Emit claims using Graph or PowerShell
 
