@@ -95,6 +95,8 @@
           href: secure-group-access-control.md
         - name: Tokens and claims
           items:
+            - name: Tokens and claims overview
+              href: security-tokens.md
             - name: Access tokens
               href: access-tokens.md
             - name: Directory extension attributes
