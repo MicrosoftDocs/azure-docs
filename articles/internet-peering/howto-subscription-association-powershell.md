@@ -102,4 +102,4 @@ Deleting a PeerASN isn't currently supported. If you need to delete PeerASN, con
 
 ## Additional resources
 
-For more information, visit [Internet peering FAQs](faqs.md)
+For more information, visit [Internet peering FAQ](faqs.md)
