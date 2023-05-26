@@ -79,7 +79,7 @@ productDirectory:
           text: Configure anomaly alerts
         - url: costs/reservation-utilization-alerts.md?toc=/azure/cost-management-billing/toc.json
           text: Reservation utilization alerts
-        - url: costs/save-share-views.md#subscribe-to-scheduled-alerts?toc=/azure/cost-management-billing/toc.json
+        - url: costs/save-share-views.md#subscribe-to-scheduled-alerts
           text: Subscribe to scheduled alerts
     - title: Optimization
       imageSrc: ./media/optimization.svg
@@ -121,7 +121,6 @@ additionalContent:
               url: manage/view-all-accounts.md?toc=/azure/cost-management-billing/toc.json
             - text: Change credit card
               url: manage/change-credit-card.md?toc=/azure/cost-management-billing/toc.json
-            - text: Cost management for partners
         - title: Manage your subscription
           links:
             - text: Create an additional subscription
