@@ -10,7 +10,7 @@ ms.date: 02/09/2022
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Basic/Standard plan.
 
-[!INCLUDE [deploy-to-azure-spring-apps-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-to-azure-spring-apps-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-basic-standard-plan.md)]
 
 -->
 

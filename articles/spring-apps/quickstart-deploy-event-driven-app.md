@@ -75,23 +75,27 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone-end
 
-[!INCLUDE [quickstart-two-options](includes/quickstart-two-options.md)]
+::: zone pivot="sc-standard"
+
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-tool-introduction.md)]
+
+::: zone-end
 
 ::: zone pivot="sc-consumption-plan"
 
-[!INCLUDE [deploy-to-azure-spring-apps-with-standard-consumption-plan](includes/quickstart-deploy-event-driven-app/deploy-to-azure-spring-apps-with-standard-consumption-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-standard-consumption-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-standard-consumption-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-standard"
 
-[!INCLUDE [deploy-to-azure-spring-apps-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-to-azure-spring-apps-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-basic-standard-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
-[!INCLUDE [deploy-to-azure-spring-apps-with-enterprise-plan](includes/quickstart-deploy-event-driven-app/deploy-to-azure-spring-apps-with-enterprise-plan.md)]
+[!INCLUDE [deploy-event-driven-app-with-enterprise-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-enterprise-plan.md)]
 
 ::: zone-end
 

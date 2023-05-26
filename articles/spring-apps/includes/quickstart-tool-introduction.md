@@ -8,9 +8,9 @@ ms.date: 02/09/2022
 ---
 
 <!-- 
-Use the following line at the end of the first level heading (Quickstart: xxx), with blank lines before and after. Each quickstart should provide two options for developers.
+Use the following line at the end of the heading Prerequisites, with blank lines before and after. Each quickstart should provide two tools for developers.
 
-[!INCLUDE [quickstart-two-options](includes/quickstart-two-options.md)]
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-tool-introduction.md)]
 
 -->
 
