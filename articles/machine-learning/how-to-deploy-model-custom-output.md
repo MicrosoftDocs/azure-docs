@@ -33,11 +33,12 @@ This example shows how you can deploy a model to perform batch inference and cus
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch/deploy-models/custom-outputs-parquet` if you are using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet` if you are using our SDK for Python.
+[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples-with-studio.md)]
+
+The files for this example are in:
 
 ```azurecli
-git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch/deploy-models/custom-outputs-parquet
+cd endpoints/batch/deploy-models/custom-outputs-parquet
 ```
 
 ### Follow along in Jupyter Notebooks
@@ -76,7 +77,7 @@ We need to create a scoring script that can read the input data provided by the 
 
 __code/batch_driver.py__
 
-:::code language="python" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" :::
+:::code language="python" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" highlight="16,31-33" :::
 
 __Remarks:__
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
