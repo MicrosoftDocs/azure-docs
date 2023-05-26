@@ -283,7 +283,7 @@ documents.azure.com:443/;
             @(context.GraphQL.Arguments["id"].ToString()
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["key"].ToString()
+            @(context.GraphQL.Arguments["category"].ToString()
         </partition-key>
     </read-request>
 </cosmosdb-data-source>
@@ -308,7 +308,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
             @(context.GraphQL.Arguments["id"].ToString())
         </id>
         <partition-key>
-            @(context.GraphQL.Arguments["key"].ToString())
+            @(context.GraphQL.Arguments["category"].ToString())
         </partition-key>
     </delete-request>
 </cosmosdb-data-source>
@@ -321,7 +321,7 @@ The following example resolves a GraphQL mutation by an upsert request to a Cosm
 ```xml
 <cosmosdb-data-source>
     <connection-info>
-        <connectionstring use-managed-identity="true">
+        <connection-string use-managed-identity="true">
             AccountEndpoint=https://contoso-cosmosdb.
 documents.azure.com:443/;
         </connection-string>
@@ -330,7 +330,7 @@ documents.azure.com:443/;
     </connection-info>
     <write-request type="upsert" pre-trigger="validateInput">
         <partition-key>
-            @(context.GraphQL.Arguments["key"].ToString())
+            @(context.GraphQL.Arguments["category"].ToString())
         </partition-key>
         <set-body template="liquid">
             {"id" : "{{body.arguments.id}}" ,
