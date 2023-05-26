@@ -54,8 +54,7 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
 
     // Print
     items.iterableByPage().forEach(itemResponse -> {
-        logger.info("Query item diagnostics through iterableByPage : {}",
-                itemResponse.getCosmosDiagnostics());
+        logger.info("diagnostics: {}", itemResponse.getCosmosDiagnostics());
         for (JsonNode item : itemResponse.getResults()) {
             logger.info("Item: {}", item.toString());
         }
@@ -70,7 +69,8 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
     options.setIndexMetricsEnabled(true);
 
     CosmosPagedFlux<JsonNode> items = container.queryItems(querySpec, options, JsonNode.class);
-
+    
+    // Print
     items.byPage(100).flatMap(itemsResponse -> {
         logger.info("diagnostics: {}",itemsResponse.getCosmosDiagnostics());
         for (JsonNode item : itemsResponse.getResults()) {
