@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev, curation-claims
 ms.workload: identity
-ms.topic: concpetual
+ms.topic: conceptual
 ms.date: 05/26/2023
 ms.author: davidmu
 ms.reviewer: ludwignick, rahulnagraj, alamaral
