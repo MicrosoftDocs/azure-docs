@@ -26,7 +26,7 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 ## Troubleshooting checklist
 
-### Step 1: Get the status of the PRT
+### Step 1: Get the status of the primary refresh token
 
 1. Sign in to Windows under the user account in which you experience PRT issues.
 
