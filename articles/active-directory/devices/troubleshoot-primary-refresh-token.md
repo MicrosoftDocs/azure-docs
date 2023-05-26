@@ -59,9 +59,12 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 ### Step 2: Get the error code
 
-The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires Windows Server 2022. The other method is to find the error code in Azure AD analytic and operational logs.
+The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires Windows 10 May 2021 update (version 21H1) or a later version. The other method is to find the error code in Azure AD analytic and operational logs.
 
-#### Method 1: Examine the device registration command output (Windows Server 2022 and later versions only)
+#### Method 1: Examine the device registration command output
+
+> [!NOTE]  
+> This method is available only if you're using Windows 10 May 2021 update (version 21H1) or a later version of Windows.
 
 To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO State` section. Under the `AzureAdPrt` field, the `Attempt Status` field contains the error code. In the following example, the error code is `0xc000006d`. <!-- The Server Error Description gives an error code name (although it differs from the attempt status) and an error description. Shouldn't we mention that, too? -->
 
