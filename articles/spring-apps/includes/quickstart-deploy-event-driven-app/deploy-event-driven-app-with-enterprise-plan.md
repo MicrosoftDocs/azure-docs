@@ -91,19 +91,17 @@ az servicebus queue create \
 
 ### 3.4 Create the Azure Spring Apps instance
 
-An Azure Spring Apps service instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
+Use the following command to create your Azure Spring Apps instance:
 
-1. Use the following command to create your Azure Spring Apps instance:
-
-   ```azurecli
-   az spring create \
-       --name ${AZURE_SPRING_APPS_INSTANCE} \
-       --sku Enterprise
-   ```
+```azurecli
+az spring create \
+    --name ${AZURE_SPRING_APPS_INSTANCE} \
+    --sku Enterprise
+```
 
 ### 3.5 Create an app in your Azure Spring Apps instance
 
-Create an app in the Azure Spring Apps instance by using the following command:
+Use the following command to create an app in the Azure Spring Apps instance:
 
 ```azurecli
 az spring app create \
@@ -116,15 +114,15 @@ az spring app create \
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
 
-1. Get the Service Bus's connection string by using the following command:
+Get the Service Bus's connection string by using the following command:
 
-   ```azurecli
-   SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
-       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-       --name RootManageSharedAccessKey \
-       --query primaryConnectionString \
-       --output tsv)
-   ```
+```azurecli
+SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name RootManageSharedAccessKey \
+    --query primaryConnectionString \
+    --output tsv)
+```
 
 ## 4 Deployment
 

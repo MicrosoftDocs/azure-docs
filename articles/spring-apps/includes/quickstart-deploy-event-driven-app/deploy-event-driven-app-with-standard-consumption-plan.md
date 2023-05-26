@@ -96,11 +96,9 @@ The Azure Container Apps environment creates a secure boundary around a group of
 
 Use the following steps to create the environment:
 
-1. Use the following command to create the environment:
-
-   ```azurecli
-   az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
-   ```
+```azurecli
+az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT} --enable-workload-profiles
+```
 
 ### 3.5 Create the Azure Spring Apps instance
 
@@ -181,15 +179,15 @@ az spring app create \
 
 Now both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app.
 
-1. Get the Service Bus's connection string by using the following command:
+Get the Service Bus's connection string by using the following command:
 
-   ```azurecli
-   SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
-       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-       --name RootManageSharedAccessKey \
-       --query primaryConnectionString \
-       --output tsv)
-   ```
+```azurecli
+SERVICE_BUS_CONNECTION_STRING=$(az servicebus namespace authorization-rule keys list \
+    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+    --name RootManageSharedAccessKey \
+    --query primaryConnectionString \
+    --output tsv)
+```
 
 ## 4 Deployment
 
