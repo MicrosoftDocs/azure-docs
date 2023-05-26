@@ -157,6 +157,15 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
 1. Select **Review + assign**.
 
+Run the following command to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values.
+
+```azurecli-interactive
+export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
+export AKS_NODE_RG=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "nodeResourceGroup" -o tsv)
+
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --resource-group "$AKS_NODE_RG"
+```
+    
 ## Install Azure Container Storage
 
 The initial install uses Azure Arc CLI commands to download a new extension. Replace `<cluster-name>` and `<resource-group>` with your own values. The `<name>` value can be whatever you want; it's just a label for the extension you're installing.

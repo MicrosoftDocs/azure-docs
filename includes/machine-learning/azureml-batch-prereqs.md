@@ -28,6 +28,9 @@ Before following the steps in this article, make sure you have the following pre
     az extension add -n ml
     ```
     
+    > [!NOTE]
+    > Pipeline component deployments for Batch Endpoints were introduced in version 2.7 of the `ml` extension for Azure CLI. Use `az extension update --name ml` to get the last version of it.
+    
     # [Python](#tab/python)
     
     The [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
@@ -35,6 +38,9 @@ Before following the steps in this article, make sure you have the following pre
     ```python
     pip install azure-ai-ml
     ```
+    
+    > [!NOTE]
+    > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK. Use `pip install -U azure-ai-ml` to get the last version of it.
 
 ### Connect to your workspace
 
@@ -60,9 +66,6 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
     from azure.ai.ml.dsl import pipeline
     from azure.identity import DefaultAzureCredential
     ```
-
-    > [!NOTE]
-    > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK.
 
 1. Configure the workspace details and get a handle to the workspace:
 
