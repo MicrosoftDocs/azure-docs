@@ -40,14 +40,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](generation-2.md) and Trusted Launch VMs.
 
 > [!NOTE]
-> &#42; The **CUDA driver** requires [additional steps to install with Secure Boot Enabled](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).
-> <br/>The **GRID driver** installation process does not offer any options to skip kernel module build and installation, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
+> - Installation of the **CUDA & GRID drivers** does not require any additional steps for Secure Boot enabled Windows VMs
+> - Install the **CUDA driver** on Ubuntu VMs enabled with secure boot using [these steps](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled).
+> - The **GRID driver** installation requires secure boot to be disabled for Linux VMs.
 
 ## Operating systems supported
 
 | OS | Version |
 |:--- |:--- |
-| CBL-Mariner |2.0 |
+| CBL-Mariner | 1.0, 2.0 |
+| CentOS | 8.3, 8.4 |
 | Debian |11 |
 | Oracle Linux |8.3, 8.4, 8.5, 8.6, 9.0 LVM |
 | RedHat Enterprise Linux |8.3, 8.4, 8.5, 8.6, 9.0, 9.1 LVM |
@@ -56,7 +58,7 @@ To learn more about virtual machines sizes supported in [generation 1 & 2 VMs](g
 | Windows 10 |Pro, Enterprise, Enterprise Multi-Session &#42; |
 | Windows 11 |Pro, Enterprise, Enterprise Multi-Session &#42; |
 | Windows Server |2016, 2019, 2022 &#42; |
-| Window Server (Azure Edition) | 2016, 2019, 2022 &#42; |
+| Window Server (Azure Edition) | 2022 |
 
 &#42; Variations of this operating system are supported.
 
@@ -71,7 +73,8 @@ No additional cost to existing VM pricing.
 
 ## Unsupported features
 - Azure Site Recovery
-- Ultra disk, PV2
+- Azure Automanage
+- Ultra disk, Premium SSD v2
 - Managed Image
 - Nested Virtualization (most v5 VM sizes supported)
 

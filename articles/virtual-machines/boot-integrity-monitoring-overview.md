@@ -18,9 +18,9 @@ To help Trusted Launch better prevent malicious rootkit attacks on virtual machi
 
 An Active Azure Subscription + Trusted Launch Virtual Machine
 
-### Verify integrity monitoring is enabled
+### Enable integrity monitoring
 
-To verify through Azure portal if your virtual machines have enabled integrity monitoring:
+# [Azure portal](#tab/portal)
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Select the resource (**Virtual Machines**).
@@ -34,11 +34,11 @@ Now, under the virtual machines overview page, security type for integrity monit
 
 This installs the guest attestation extension, which can be referred through settings within the extensions + applications tab.
 
-## Quickstart template
+# [Template](#tab/template)
 
 You can deploy the guest attestation extension for trusted launch VMs using a quickstart template:
 
-# [Windows](#tab/windows)
+### Windows
 
 ```json
  {
@@ -72,8 +72,7 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
     ]
 }       
 ```
-
-# [Linux](#tab/linux)
+### Linux
 
 ```json
  {
@@ -108,6 +107,12 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 }       
 
 ```
+
+# [CLI](#tab/cli)
+
+TBD
+
+# [PowerShell](#tab/powershell)
 
 ---
 

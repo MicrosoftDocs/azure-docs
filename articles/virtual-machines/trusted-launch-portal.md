@@ -19,12 +19,12 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 
 ## Prerequisites
 
-- You need to [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages Defender for Cloud to surface multiple recommendations regarding VM health. 
+- You need to [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages Defender for Cloud to surface multiple recommendations regarding VM health.
 
-- Assign Azure policies initiatives to your subscription. These policy initiatives  need to be assigned  only once per subscription. This will  automatically install all required extensions on all supported VMs. 
-    - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs 
+- Assign Azure policies initiatives to your subscription. These policy initiatives  need to be assigned  only once per subscription. This will  automatically install all required extensions on all supported VMs.
+   - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs
 
-    - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
+   - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
 - Make sure that the firewall policies are allowing access to *.attest.azure.net
 
    > [!NOTE]
@@ -53,8 +53,7 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 15.	At the bottom of the page, select **Review + Create**
 16.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
-    :::image type="content" source="./media/trusted-launch/tvm-complete.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
-
+   :::image type="content" source="./media/trusted-launch/tvm-complete.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
 
 It will take a few minutes for your VM to be deployed.
 
@@ -72,6 +71,7 @@ Create a virtual machine with Trusted Launch.
 
 ```azurecli-interactive
 az group create -n myresourceGroup -l eastus 
+
 az vm create \
    --resource-group myResourceGroup \
    --name myVM \
@@ -80,8 +80,7 @@ az vm create \
    --generate-ssh-keys \
    --security-type TrustedLaunch \
    --enable-secure-boot true \ 
-   --enable-vtpm true \
-   --enable-boot-integrity true 
+   --enable-vtpm true 
 ```
  
 For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
@@ -91,14 +90,12 @@ az vm update \
    --resource-group myResourceGroup \
    --name myVM \
    --enable-secure-boot true \
-   --enable-vtpm true \
-   --enable-boot-integrity true 
+   --enable-vtpm true 
 ```  
 
 ### [PowerShell](#tab/powershell)
 
-
-In order to provision a VM with Trusted Launch, it first needs to be enabled with the `TrustedLaunch` using the `Set-AzVmSecurityProfile` cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the values in this example with your own. 
+In order to provision a VM with Trusted Launch, it first needs to be enabled with the `TrustedLaunch` using the `Set-AzVmSecurityProfile` cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the values in this example with your own.
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -143,8 +140,6 @@ $vm = Set-AzVmUefi -VM $vm `
 
 New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm 
 ```
- 
-
 
 ### [Template](#tab/template)
 
