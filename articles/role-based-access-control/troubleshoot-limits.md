@@ -162,9 +162,38 @@ If you still need to reduce the number of role assignments in the subscription a
 
 1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
-#### Solution 3 - Combine multiple built-in roles with a custom role
+#### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
 
-To reduce the number of role assignments in the subscription, combine multiple built-in roles with a custom role and assigning the custom role instead.
+To reduce the number of role assignments in the subscription, replace multiple built-in role assignments with a custom role assignment. Follow these steps to identify where multiple built-in role assignments can potentially be replaced.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Azure Resource Graph Explorer.
+
+1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
+
+    [!INCLUDE [azure-resource-graph-samples-query-authorization-same-principal-scope](../../includes/resource-graph/samples/query/authorization-same-principal-scope.md)]
+
+    The following shows an example of the results. The **count_** column is the number of different built-in role assignments with the same principal and same scope. The count is sorted in descending order.
+
+    | Column | Description |
+    | --- | --- |
+    | PrincipalId | ID of the principal assigned the roles. |
+    | Scope | Scope for role assignments. |
+    | count_ | Number of built-in role assignments with the same principal and same scope. |
+    | AllRD | ID and name of built-in roles. |
+
+1. In a row, select **See details** to open the **Details** pane.
+
+1. Use **AllRD** to see the built-in roles that can potentially be combined into a custom role.
+
+1. Use the Azure portal or documentation to view the actions and data actions for the [built-in roles](./built-in-roles.md).
+
+1. Create a custom role that includes the all the actions and data actions for the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+
+1. Open the **Access control (IAM)** page at the same scope as the role assignments.
+
+1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+
+1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 #### Solution 4 - Make role assignments eligible
 
