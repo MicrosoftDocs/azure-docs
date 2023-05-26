@@ -1,12 +1,12 @@
 ---
 title: Configure import settings in the FHIR service - Azure Health Data Services
 description: This article describes how to configure import settings in the FHIR service.
-author: RuiyiC
+author: EXPEkesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: chenrui 
+ms.author: kesheth
 ---
 
 # Configure bulk-import settings
@@ -148,8 +148,6 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 | West Europe          | 20.61.98.66       |
 | West US 2            | 40.64.135.77      |
 
-> [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](./convert-data.md#step-6-optional-configure-the-azure-container-registry-firewall-for-secure-access).
 
 #### Option 2.2 : Access storage account provisioned in same Azure region as FHIR service
 
