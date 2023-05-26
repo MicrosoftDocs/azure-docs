@@ -111,7 +111,7 @@ The removal of the **`-Zone`** parameter is the default selection for standard p
 
 # [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`** parameter. Remove the **`-Zone`** parameter to create a non-zonal IP prefix.
+To create a IPv4 public IP prefix with routing preference Internet, create an **IpTag** with an **ipTagType** 'Routing Preference' and **Tag** 'Internet'.
 
 ```azurepowershell-interactive
 $tagproperty = @{
