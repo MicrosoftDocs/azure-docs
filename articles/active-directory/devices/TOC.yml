@@ -64,7 +64,8 @@
     href: device-management-azure-portal.md
   - name: Troubleshooting Windows devices
     href: troubleshoot-device-windows-joined.md
-  - name: Troubleshooting primary refresh tokens
+  - name: Troubleshooting primary refresh tokens on Windows devices
+    displayName: PRT
     href: troubleshoot-primary-refresh-token.md
   - name: Manage stale devices
     href: manage-stale-devices.md
