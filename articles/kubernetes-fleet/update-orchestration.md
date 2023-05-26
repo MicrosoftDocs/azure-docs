@@ -11,13 +11,13 @@ ms.custom: build-2023
 
 # Orchestrate updates across multiple clusters by using Azure Kubernetes Fleet Manager (Preview)
 
-Platform admins who are managing Kubernetes fleets with a large number of clusters often have problems with staging their updates across multiple clusters in a safe and predictable way. To address this pain point, Azure Kubernetes Fleet Manager allows you to orchestrate updates across multiple clusters by using update runs, stages, and groups.
+Platform admins who are managing Kubernetes fleets with a large number of clusters often have problems with staging their updates across clusters in a safe and predictable way. To address this pain point, Azure Kubernetes Fleet Manager allows you to orchestrate updates across multiple clusters by using update runs, stages, and groups.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-* You must have an Azure Kubernetes Fleet Manager resource with one or more member clusters. If not, follow the [quickstart][fleet-quickstart] to create a Azure Kubernetes Fleet Manager resource and join Azure Kubernetes Service (AKS) clusters as members. This walkthrough demonstrates an Azure Kubernetes Fleet Manager resource with five AKS member clusters as an example.
+* You must have an Azure Kubernetes Fleet Manager resource with one or more member clusters. If not, follow the [quickstart][fleet-quickstart] to create an Azure Kubernetes Fleet Manager resource and join Azure Kubernetes Service (AKS) clusters as members. This walkthrough demonstrates an Azure Kubernetes Fleet Manager resource with five AKS member clusters as an example.
 
 * Set the following environment variables:
 
@@ -155,7 +155,7 @@ You can define an update run by using update stages to pool together update grou
     az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-3 --upgrade-type Full --kubernetes-version 1.26.0 --stages example-stages.json
     ```
 
-    Here's an example for input from the stages file (*example-stages.json*):
+    Here's an example of input from the stages file (*example-stages.json*):
 
     ```json
     {
