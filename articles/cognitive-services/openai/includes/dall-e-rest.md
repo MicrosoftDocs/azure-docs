@@ -84,16 +84,19 @@ The output from a successful image generation API call looks like this. The `"ur
 
 ```json
 {
-   "created": 1589478378,
-   "expires": 1589478399,
-   "id": "9484f239-9a05-41ba-997b-78252fec4b34",
-   "lastActionDateTime": 1589478378,
-   "data": [
-       {
-           "url": "<URL_TO_IMAGE>"
-       }
-   ],
-   "status": "succeeded"
+    "created": 1685130482,
+    "expires": 1685216887,
+    "id": "088e4742-89e8-4c38-9833-c294a47059a3",
+    "result":
+    {
+        "data":
+        [
+            {
+                "url": "<URL_TO_IMAGE>"
+            }
+        ]
+    },
+    "status": "succeeded"
 }
 ```
 
