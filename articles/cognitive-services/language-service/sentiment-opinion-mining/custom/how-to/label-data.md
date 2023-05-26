@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1
 
 # Label text data for training your model for Custom sentiment analysis
 
-Before training your model you need to label your documents with the classes you want to categorize them into. Data labeling  is a crucial step in development lifecycle; in this step you can create the classes you want to categorize your data into and label your documents with these classes. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md) it into your project but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md).
+Before training your model you need to label your documents with the classes you want to categorize them into. Data labeling  is a crucial step in development lifecycle; in this step you can create the classes you want to categorize your data into and label your documents with these classes. This data will be used in the next step when training your model so that your model can learn from the labeled data. If you already have labeled data, you can directly [import](create-project.md) it into your project. <!--Be sure that your data follows the [accepted data format](../concepts/data-formats.md).-->
 
 Before creating a custom text classification model, you need to have labeled data first. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio). Labeled data informs the model how to interpret text, and is used for training and evaluation.
 
@@ -26,7 +26,7 @@ Before you can label data, you need:
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
 * Documents containing text data that have [been uploaded](design-schema.md#data-preparation) to your storage account.
 
-See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
+See the [project development lifecycle](../../overview.md#project-development-lifecycle) for more information.
 
 ## Data labeling guidelines
 

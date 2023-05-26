@@ -1005,6 +1005,12 @@ items:
     items:
       - name: Quickstart
         href: sentiment-opinion-mining/custom/quickstart.md
+      - name: Concepts
+        items:
+          - name: Data formats
+            href: sentiment-opinion-mining/custom/concepts/data-formats.md
+          - name: Evaluation metrics
+            href: sentiment-opinion-mining/custom/concepts/evaluation-metrics.md
       - name: How-to guides
         items:
         - name: Create projects
