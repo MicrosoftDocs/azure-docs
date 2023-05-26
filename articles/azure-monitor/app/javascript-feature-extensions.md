@@ -140,7 +140,10 @@ If you declare `parentDataTag` and define the `data-parentid` or `data-*-parenti
 > For examples showing which value is fetched as the `parentId` for different configurations, see [Examples of `parentid` key](#examples-of-parentid-key).
 
 > [!CAUTION]
-> After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it.
+> Once `parentDataTag` is included in *any* HTML element across your application *the SDK begins looking for parents tags across your entire application* and not just the HTML element where you used it.
+
+> [!CAUTION]
+> If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 
 ### `customDataPrefix`
 
