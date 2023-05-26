@@ -136,7 +136,7 @@ You can use the Confusion matrix to identify classes that are too close to each 
 
 All correct predictions are located in the diagonal of the table, so it is easy to visually inspect the table for prediction errors, as they will be represented by values outside the diagonal.
 
-:::image type="content" source="../media/confusion.png" alt-text="A screenshot of an example confusion matrix." lightbox="../media/confusion.png":::
+<!--:::image type="content" source="../media/confusion.png" alt-text="A screenshot of an example confusion matrix." lightbox="../media/confusion.png":::-->
 
 You can calculate the class-level and model-level evaluation metrics from the confusion matrix:
 

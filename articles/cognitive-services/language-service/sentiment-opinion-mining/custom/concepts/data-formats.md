@@ -1,7 +1,7 @@
 ---
-title: Custom text classification data formats
+title: Custom sentiment analysis data formats
 titleSuffix: Azure Cognitive Services
-description: Learn about the data formats accepted by custom text classification.
+description: Learn about the data formats accepted by Custom sentiment analysis.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Accepted data formats
+# Accepted data formats for Custom sentiment analysis
 
-If you're trying to import your data into custom text classification, it has to follow a specific format. If you don't have data to import you can [create your project](../how-to/create-project.md) and use Language Studio to [label your documents](../how-to/label-data.md).
+If you're trying to import your data into Custom sentiment analysis, it has to follow a specific format. If you don't have data to import you can [create your project](../how-to/create-project.md) and use Language Studio to [label your documents](../how-to/label-data.md).
 
 ## Labels file format
 

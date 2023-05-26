@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1
 
 # How to train a Custom sentiment analysis model
 
-Training is the process where the model learns from your [labeled data](label-data.md). After training is completed, you will be able to [view the model's performance](view-model-evaluation.md) to determine if you need to improve your model.
+Training is the process where the model learns from your [labeled data](label-data.md). After training is completed, you'll be able to [view the model's performance](view-model-evaluation.md) to determine if you need to improve your model.
 
 To train a model, start a training job. Only successfully completed jobs create a usable model. Training jobs expire after seven days. After this period, you won't be able to retrieve the job details. If your training job completed successfully and a model was created, it won't be affected by the job expiration. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
@@ -43,7 +43,7 @@ It is recommended to make sure that all your classes are adequately represented 
 
 Custom sentiment analysis supports two methods for data splitting:
 
-* **Automatically splitting the testing set from training data**: The system will split your labeled data between the training and testing sets, according to the percentages you choose. The system will attempt to have a representation of all classes in your training set. The recommended percentage split is 80% for training and 20% for testing. 
+* **Automatically splitting the testing set from training data**: The system will split your labeled data between the training and testing sets, according to the percentages you choose. The system attempts to have a representation of all classes in your training set. The recommended percentage split is 80% for training and 20% for testing. 
 
  > [!NOTE]
  > If you choose the **Automatically splitting the testing set from training data** option, only the data assigned to training set will be split according to the percentages provided.
