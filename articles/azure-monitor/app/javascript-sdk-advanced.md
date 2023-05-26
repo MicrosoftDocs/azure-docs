@@ -18,7 +18,7 @@ The Azure Application Insights JavaScript SDK provides advanced features for tra
 > - [Source map un-minify support](#source-map)
 > - [Tree shaking optimized code](#tree-shaking)
 
-### SDK configuration
+## SDK configuration
 
 These configuration fields are optional and default to false unless otherwise stated. Depending on how you're enabling Application Insights, add these configuration fields as follows: 
 
