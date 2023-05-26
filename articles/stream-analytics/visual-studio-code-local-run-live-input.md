@@ -1,32 +1,30 @@
 ---
-title: Test Azure Stream Analytics queries locally against live stream input by using Visual Studio Code
-description: How to test queries locally against live stream input by using Azure Stream Analytics Tools for Visual Studio Code.
+title: Testing Stream Analytics query locally against live stream input with Visual Studio Code
+description: This article describes how to test query locally against live stream input using the Azure Stream Analytics Tools extension for Visual Studio Code.
 ms.service: stream-analytics
 ms.custom: build-2023
-author: su-jie
-ms.author: sujie
-ms.date: 11/14/2019
+author: alexlzx
+ms.author: zhenxilin
+ms.date: 05/24/2023
 ms.topic: how-to
 ---
-# Test Stream Analytics queries locally against live stream input by using Visual Studio Code
 
-You can use Azure Stream Analytics Tools for Visual Studio Code to test your Stream Analytics jobs locally against live stream input. The input can come from a source like Azure Event Hubs or Azure IoT Hub. The output results are sent as JSON files to a folder in your project called **LocalRunOutputs**.
+# Testing Stream Analytics query locally against live stream input with Visual Studio Code
 
-For more information, see [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md).
+Testing your Stream Analytics query locally against live stream input is a crucial step in ensuring the accuracy and efficiency of your query logic. With the Azure Stream Analytics (ASA) extension for Visual Studio Code (VS Code), you have the necessary tools to perform this testing seamlessly. This article will guide you through the steps of setting up your environment, configuring the live stream input, and executing your query locally for thorough testing.
 
 ## Prerequisites
 
 * Install the [.NET Core SDK](https://dotnet.microsoft.com/download) and restart Visual Studio Code.
-
-* Use [this quickstart](quick-create-visual-studio-code.md) to learn how to create a Stream Analytics job by using Visual Studio Code.
+* Follow [this quickstart](quick-create-visual-studio-code.md) to install and create a Stream Analytics job using Visual Studio Code.
 
 ## Define a live stream input
 
-1. Right-click the **Inputs** folder in your Stream Analytics project. Then select **ASA: Add Input** from the context menu.
+1. Right-click the **Inputs** folder in your Stream Analytics project and select **ASA: Add Input**.
 
    ![Add input from the Inputs folder](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   You can also select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
+   OR press **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
    ![Add Stream Analytics input in Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -65,6 +63,20 @@ The result is shown in the right window and refreshed every 3 seconds. You can s
 The default time for the job to start creating output is set to **Now**. You can customize the time by selecting the **Output start time** button in the result window.
 
 ![View local run result](./media/vscode-local-run-live-input/vscode-livetesting.gif)
+
+
+After you completed testing for your Stream Analytics project, you'll lThe output results are stored as JSON files in your project folder called **LocalRunOutputs**.
+
+
+## Specify input partitions for Event Hubs
+
+....
+
+
+## Submit job to Azure
+
+....
+
 
 ## Next steps
 
