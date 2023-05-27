@@ -18,7 +18,7 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 This article explains how to:
 
-* Use the "regional commissioning" feature to safely migrate an active prefix to Azure
+* Use the regional commissioning feature to safely migrate an active prefix to Azure
 
 * Create public IP prefixes from provisioned custom IP prefixes
 
@@ -80,8 +80,11 @@ When a custom IP prefix transitions to a fully **Commissioned** state, the range
 Use the following steps in the Azure portal to put a custom IP prefix into this state:
 
 1. In the search box at the top of the Azure portal, enter **Custom IP** and select **Custom IP Prefixes**.
+
 2. In **Custom IP Prefixes**, verify your custom IP prefix is listed in a **Provisioned** state. Refresh the status if needed until state is correct.
+
 3. Select your custom IP prefix from the list of resources.
+
 4. In **Overview** for your custom IP prefix, select the **Commission** dropdown menu, and choose **<Resource_Region> only**.
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range is partially advertised while still in the **Commissioning** status.
@@ -111,7 +114,7 @@ To view a custom IP prefix, the following commands can be used in Azure CLI and 
 A custom IP prefix must be decommissioned to turn off advertisements.
 
 > [!NOTE]
-> All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, please see the section below on regional commissioning.
+> All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on regional commissioning.
 > 
 > The estimated time to fully complete the decommissioning process is 3-4 hours.
 
@@ -129,7 +132,7 @@ Alternatively, a custom IP prefix can be decommissioned via the Azure portal usi
 
 ### Use the regional commissioning feature to assist decommission
 
-As mentioned above, a Custom IP Prefix must be complete clear of Public IP Prefixes before it can be put into **Decommissioning* state.  In order to ease a migration, you can use the regional commissioning feature "in reverse".  Specifically - you can put a globally commissioned range back into a regionally commissioned status, which would allow you to ensure the range was no longer being advertised beyond the scope of a single region before removing any Public IP addresses from their respecive resources. 
+A custom IP prefix must be clear of public IP prefixes before it can be put into **Decommissioning** state.  To ease a migration, you can reverse the regional commissioning feature. You can change a globally commissioned range back to a regionally commissioned status. This change allows you to ensure the range is no longer advertised beyond the scope of a single region before removing any public IP addresses from their respective resources.
 
 The command is similar as the one from earlier on this page:
 
@@ -140,7 +143,7 @@ Update-AzCustomIpPrefix
 -NoInternetAdvertise
  ```
 
-The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range will be partially advertised while still in the **InternetDecommissioningInProgress** status.
+The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range is partially advertised while still in the **InternetDecommissioningInProgress** status.
 
 ## Deprovision/Delete a custom IP prefix
 
@@ -192,7 +195,7 @@ Before decommissioning a custom IP prefix, ensure it has no public IP prefixes o
 
 ### I’m unable to delete a custom IP prefix
 
-Before deleting a custom IP prefix, it must be in either Deprovisioned or ValidationFailed state.  If your range is in ProvisionFailed state, it must be Deprovisioned before it can be deleted.  If the range is "stuck" in Provisioning or Deprovisioning state for an extended period of time, please contact Microsoft support.
+To delete a custom IP prefix, it must be in either **Deprovisioned** or in a **ValidationFailed** state.  If your range is in **ProvisionFailed** state, it must be **Deprovisioned** before it can be deleted.  If the range is "stuck" in the **Provisioning** or **Deprovisioning** state for an extended period of time, contact Microsoft support.
 
 ### How can I migrate a range from one region to another
 
@@ -200,11 +203,11 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ### Are there any special considerations when using IPv6
 
-Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  See [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-powershell.md) for more details.
+Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  For more information, see [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-powershell.md).
 
 ### Status messages
 
-When onboarding or removing a custom IP prefix from Azure, the **FailedReason** attribute of the resource will be updated. If the Azure portal is used, the message will be shown as a top-level banner. The following tables list the status messages when onboarding or removing a custom IP prefix.
+When you onboard or remove a custom IP prefix from Azure, the system updates the **FailedReason** attribute of the resource. If the Azure portal is used, the message is shown as a top-level banner. The following tables list the status messages when onboarding or removing a custom IP prefix.
 
 > [!NOTE]
 > If the **FailedReason** is **OperationNotFailed**, the custom IP prefix is in a stable state (e.g. Provisioned, Commissioned) with no apparent issues.
@@ -218,7 +221,7 @@ When onboarding or removing a custom IP prefix from Azure, the **FailedReason** 
 | PrefixRegisteredInAfricaAndSouthAmericaNotAllowedInOtherRegion | IP prefix is registered with AFRINIC or LACNIC. These prefixes can't be used outside Africa/South America. |
 | NotFindRoutingRegistryToGetCertificate | Can't find the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
 | CIDRInAuthorizationMessageNotMatchCustomerIP | The CIDR in the authorization message doesn't match the submitted IP address. |
-| ExpiryDateFormatInvalidOrNotInThefuture | The expiration date provided in the authorization message is in the wrong format or expired. Expected format is yyyymmdd. |
+| ExpiryDateFormatInvalidOrNotInThefuture | The expiration date provided in the authorization message is in the wrong format or expired. Expected format is `yyyymmdd`. |
 | AuthMessageFormatInvalid | Authorization message format isn't valid. Expected format is xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx1.2.3.0/24yyyymmdd. |
 | CannotParseValidCertificateFromRIRPage | Can't parse the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
 | ROANotFound | Unable to find route origin authorization (ROA) for validation. |
@@ -244,8 +247,8 @@ When onboarding or removing a custom IP prefix from Azure, the **FailedReason** 
 
 | Status message | Explanation |
 | -------------- | ----------- |
-| InternetDecommissioningInProgress | The range is currently being decommissioned. The range will no longer be advertised to the internet. |
-| RegionalDecommissioningInProgress | The range is no longer advertised to the internet and is currently being decommissioned. The range will no longer be advertised regionally within Azure. |
+| InternetDecommissioningInProgress | The range is currently being decommissioned. The range is no longer advertised to the internet. |
+| RegionalDecommissioningInProgress | The range is no longer advertised to the internet and is currently being decommissioned. The range is no longer advertised regionally within Azure. |
 
 #### Commission failures
 
