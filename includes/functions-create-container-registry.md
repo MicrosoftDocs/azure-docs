@@ -65,29 +65,29 @@ You should be all set.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:   
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
-    func init --worker-runtime dotnet-isolated --docker
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+  ::: zone pivot="programming-language-csharp"  
+      func init --worker-runtime dotnet-isolated --docker
+  ::: zone-end  
+  ::: zone pivot="programming-language-javascript"  
     ```console
     func init --worker-runtime node --language javascript --docker
     ```
-::: zone-end    
-    ::: zone pivot="programming-language-powershell"   
+  ::: zone-end    
+::: zone pivot="programming-language-powershell"   
     ```console
     func init --worker-runtime powershell --docker
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"   
+::: zone-end  
+::: zone pivot="programming-language-python"   
     ```console
     func init --worker-runtime python --docker
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
     ```console
     func init --worker-runtime node --language typescript --docker
        ```
-    ::: zone-end
+::: zone-end
 
 ::: zone pivot="programming-language-java"  
 1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
