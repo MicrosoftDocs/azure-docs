@@ -63,8 +63,8 @@ You should be all set.
 ## Create and test the local functions project
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:   
-::: zone-end  
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:   ::: zone-end 
+&nbsp; 
     ::: zone pivot="programming-language-csharp"  
     ```console
     func init --worker-runtime dotnet-isolated --docker
