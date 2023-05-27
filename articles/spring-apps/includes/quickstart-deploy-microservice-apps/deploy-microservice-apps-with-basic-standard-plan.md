@@ -2,7 +2,6 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/17/2023
 ---
@@ -36,33 +35,30 @@ Use the following steps to prepare the sample locally.
 
 The main resources you need to run this sample is an Azure Spring Apps instance. Use the following steps to create these resources.
 
-### 3.1 Provision an instance of Azure Spring Apps
+### 3.1 Sign in to the Azure portal
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
+### 3.2 Provision an instance of Azure Spring Apps
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/search-azure-spring-apps-service.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="../../media/quickstart-deploy-microservice-apps/search-azure-spring-apps-service.png":::
+1. Select Create a resource (+) in the upper-left corner of the portal.
 
-1. On the Azure Spring Apps page, select **Create**.
+1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps page with the Create button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-create.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
 
-1. Fill out the **Basics** form on the Azure Spring Apps **Create** page using the following guidelines:
+1. Fill out the **Basics** form with the following information:
 
-    - **Project Details**:
+   :::image type="content" source="../../media/quickstart-deploy-web-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
 
-        - **Subscription**: Select the subscription you want to be billed for this resource.
-        - **Resource group**: Create a new one, such as: `rg-wingtiptoy`.
-
-    - **Service Details**:
-
-        - **Name**: Create the name for the Azure Spring Apps instance.
-        - **Plan**: Select **Basic** for the **Plan** option.
-        - **Region**: Select the region for your service instance.
-        - **Zone Redundant**: Select the zone redundant checkout if you want to create your Azure Spring Apps service in an Azure availability zone.
-
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/basic-plan-creation.png" alt-text="Screenshot of Azure portal showing basic plan for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/basic-plan-creation.png":::
+   | Setting        |Suggested Value|Description|
+   |----------------|---------------|-----------|
+   | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
+   | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
+   | Name           |*myasa*|A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.|
+   | Plan           |*Basic*|Pricing Tier determines the resource and cost associated with your instance.|
+   | Region         |The region closest to your users| The location that is closest to your users.|
+   | Zone Redundant |Unchecked|Wether to create your Azure Spring Apps service in an Azure availability zone, this could only be supported in several regions at the moment.|
 
 1. Navigate to the tab **Diagnostic settings** on the Azure Spring Apps **Create** page, select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, then select **OK** to confirm the creation.
 
@@ -72,7 +68,11 @@ The main resources you need to run this sample is an Azure Spring Apps instance.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of Azure portal showing application insights creation" lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Azure Spring Apps instance.
+1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
+
+1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
+
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/3-asa-notifications.png" alt-text="The Notifications pane for Azure Spring Apps Creation":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 

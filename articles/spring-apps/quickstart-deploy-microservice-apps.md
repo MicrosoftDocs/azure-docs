@@ -42,7 +42,7 @@ Diagram of Spring Pet Clinic apps architecture:
 
 According to the content echoed by the deployment, open the URL exposed by the app `api-gateway`, for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application-screenshot.png" alt-text="Screenshot of PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application-screenshot.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application.png" alt-text="Screenshot of PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/application.png":::
 
 ### 5.2 Query application logs
 
@@ -60,7 +60,7 @@ Open the URL exposed by the app `admin-server`, you can manage the applications 
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server-ui.png" alt-text="Screenshot of Admin Server for PetClinic application running on Azure Spring Apps" lightbox="media/quickstart-deploy-microservice-apps/admin-server-ui.png":::
 
-[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
 
 ## 7 Next steps
 
