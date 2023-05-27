@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from MFA Server on-premises to Azure 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 05/23/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
@@ -17,13 +17,13 @@ Moving your multi-factor-authentication (MFA) solution to Azure Active Directory
 
 To migrate to Azure AD MFA with federation, the Azure AD MFA authentication provider is installed on AD FS. The Azure AD relying party trust and other relying party trusts are configured to use Azure AD MFA for migrated users.
 
-The following diagram shows the process of this migration.
+The following diagram shows the migration process.
 
-![Flow chart showing the steps of the process. These align to the headings in this document in the same order](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/mfa-federation-flow.png)
+   ![Flow chart of the migration process. Process areas and headings in this document are in the same order](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/mfa-federation-flow.png)
 
 ## Create migration groups
 
-To create new conditional access policies, you'll need to assign those policies to groups. You can use existing Azure AD security groups or Microsoft 365 Groups for this purpose. You can also create or sync new ones.
+To create new Conditional Access policies, you'll need to assign those policies to groups. You can use Azure AD security groups or Microsoft 365 Groups for this purpose. You can also create or sync new ones.
 
 You'll also need an Azure AD security group for iteratively migrating users to Azure AD MFA. These groups are used in your claims rules.
 
@@ -39,23 +39,23 @@ In AD FS 2019, you can specify additional authentication methods for a relying p
 
 Now that Azure AD MFA is an additional authentication method, you can assign groups of users to use it. You do so by configuring claims rules, also known as relying party trusts. By using groups, you can control which authentication provider is called globally or by application. For example, you can call Azure AD MFA for users who have registered for combined security information, while calling MFA Server for those who haven't.
 
-> [!NOTE]
-> Claims rules require on-premises security group. Before making changes to claims rules, back them up.
+   > [!NOTE]
+   > Claims rules require on-premises security group. Before making changes to claims rules, back them up.
 
 
-#### Back up existing rules
+#### Back up rules
 
-Before configuring new claims rules, back up your existing rules. You'll need to restore these rules as a part of your cleanup steps. 
+Before configuring new claims rules, back up your rules. You'll need to restore these rules as a part of your clean-up steps. 
 
-Depending on your configuration, you may also need to copy the existing rule and append the new rules being created for the migration.  
+Depending on your configuration, you may also need to copy the rule and append the new rules being created for the migration.  
 
-To view existing global rules, run:  
+To view global rules, run:  
 
 ```powershell
 Get-AdfsAdditionalAuthenticationRule
 ```
 
-To view existing relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
+To view relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
 ```powershell
 (Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules 
@@ -87,7 +87,7 @@ To find the group SID, use the following command, with your group name
 
 `Get-ADGroup "GroupName"`
 
-![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
+   ![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/find-the-sid.png)
 
 #### Setting the claims rules to call Azure AD MFA
 
@@ -95,8 +95,8 @@ The following PowerShell cmdlets invoke Azure AD MFA for users in the group when
 
 Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
 
- > [!IMPORTANT]
-> Backup your existing claims rules
+   > [!IMPORTANT]
+   > Back up your claims rules
 
  
 
@@ -166,7 +166,7 @@ For step-by-step directions on this process, see [Configure the AD FS servers](/
 
 Once you've configured the servers, you can add Azure AD MFA as an additional authentication method. 
 
-![Screen shot showing the Edit authentication methods screen with Azure AD MFA and Azure Mutli-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
+![Screen shot showing the Edit authentication methods screen with Azure AD MFA and Azure Multi-factor authentication Server selected](./media/how-to-migrate-mfa-server-to-mfa-user-authentication/edit-authentication-methods.png)
 
 ## Prepare Azure AD and implement migration
 
@@ -176,10 +176,10 @@ This section covers final steps before migrating user MFA settings.
 
 For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true ).
 
->[!NOTE]
-> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
+   >[!NOTE]
+   > The **federatedIdpMfaBehavior** setting is a new version of the **SupportsMfa** property of the [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration) cmdlet. 
 
-For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
+For domains that set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
 - Switching between **federatedIdpMfaBehavior** and **SupportsMfa** isn't supported.
 - Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
@@ -192,10 +192,10 @@ You can check the status of **federatedIdpMfaBehavior** by using [Get-MgDomainFe
 Get-MgDomainFederationConfiguration –DomainID yourdomain.com
 ```
 
-You can also check the status of your **SupportsMfa** flag with [Get-MsolDomainFederationSettings](/powershell/module/msonline/get-msoldomainfederationsettings):
+You can also check the status of your **SupportsMfa** flag with [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration):
 
 ```powershell
-Get-MsolDomainFederationSettings –DomainName yourdomain.com
+Get-MgDomainFederationConfiguration –DomainName yourdomain.com
 ```
 
 The following example shows how to set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` by using Graph PowerShell. 
@@ -276,8 +276,8 @@ These include templates for email, posters, table tents, and various other asset
 
 We recommend that you [secure the security registration process with Conditional Access](../conditional-access/howto-conditional-access-policy-registration.md) that requires the registration to occur from a trusted device or location. For information on tracking registration statuses, see [Authentication method activity for Azure Active Directory](howto-authentication-methods-activity.md).
 
-> [!NOTE]
-> Users who MUST register their combined security information from a non-trusted location or device can be issued a Temporary Access Pass or alternatively, temporarily excluded from the policy.
+   > [!NOTE]
+   > Users who must register their combined security information from a non-trusted location or device can be issued a Temporary Access Pass or alternatively, temporarily excluded from the policy.
 
 ### Migrate MFA settings from MFA Server
 
@@ -300,7 +300,7 @@ In Usage & insights, select **Authentication methods**.
 
 Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users capable of Azure multi-factor authentication** hyperlink.
 
-![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
+   ![Image of Authentication methods activity screen showing user registrations to MFA](./media/how-to-migrate-mfa-server-to-azure-mfa-with-federation/authentication-methods.png)
 
 ## Cleanup steps
 
