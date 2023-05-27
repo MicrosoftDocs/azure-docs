@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/24/2023
+ms.date: 05/26/2023
 ms.author: danlep
 ---
 
@@ -38,7 +38,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
             SQL statement 
         </sql-statement> 
         <query-parameters> 
-            <parameter name="Query parameter name in @ notation" template="liquid"> 
+            <parameter type="parameter type" name="Query parameter name in @ notation"> 
                 "Value of query parameter"
             </parameter> 
         </query-parameters> 
@@ -114,6 +114,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 
 ### connection-info elements
+
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | [connection-string](#connection-string-attributes) | Connection string for Cosmos DB account. If the `use-managed-identity` attribute is set to `false` (default), the connection string must include an account key.   | Yes    |
@@ -124,8 +125,8 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must have an Azure RBAC [role assignment](../cosmos-db/how-to-setup-rbac.md) or equivalent permissions to perform the request on the Cosmos DB container. | No  | `false`   |
-| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must have an Azure RBAC [role assignment](../cosmos-db/how-to-setup-rbac.md) or equivalent permissions to perform the request on the Cosmos DB container.  | No | N/A |
+| use-managed-identity | Boolean. Specifies whether to use a [managed identity](api-management-howto-use-managed-service-identity.md) assigned to the API Management instance for connection to the Cosmos DB account in place of an account key in the connection string. The identity must have an Azure RBAC [role assignment](#configure-managed-identity-integration-with-cosmos-db) or equivalent permissions to perform the request on the Cosmos DB container. | No  | `false`   |
+| client-id | If `use-managed-identity` is `true` and a user-assigned managed identity is used, the client ID of the identity.<br/><br/>The identity must have an Azure RBAC [role assignment](#configure-managed-identity-integration-with-cosmos-db) or equivalent permissions to perform the request on the Cosmos DB container.  | No | N/A |
 
 ### query-request attributes
 
@@ -147,8 +148,8 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| type | Used to set the expected parameter input type. Currently the only supported value is:<br /><br />- `raw` - the parameter will be input as a raw stream. | No | N/A |
 | name   | String. Name of the parameter in @ notation.    | Yes    | N/A  |
-| template    |  Used to set the templating mode for the query parameter. Currently the only supported value is:<br /><br />- `liquid` - the parameter will use the liquid templating engine   |  No   |  N/A |
 
 #### paging elements
 
@@ -170,6 +171,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 | template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token will use the liquid templating engine   |  No   |  N/A |
 
 ### read-request elements
+
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item to read in the container.      |  Yes          |
@@ -239,6 +241,69 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 ### Usage notes
 
 * This policy is invoked only when resolving a single field in a matching GraphQL query, mutation, or subscription.  
+
+## Configure managed identity integration with Cosmos DB
+
+You can use an API Management managed identity to connect to a Cosmos DB account, instead of configuring an account key in a connection string.
+
+Follow these steps to use the Azure CLI to configure the managed identity.
+
+### Prerequisites
+
+* Enable a system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in your API Management instance. In the portal, note the object (principal) ID of the managed identity.
+
+* [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)] 
+
+
+### Azure CLI script to configure the managed identity
+
+```azurecli
+# Set variables
+
+# Variable for Azure Cosmos DB account name
+cosmosName="<MY-COSMOS-DB_ACCOUNT>"
+
+# Variable for resource group name
+resourceGroupName="<MY-RESOURCE-GROUP>"
+
+# Variable for subscription
+resourceGroupName="<MY-SUBSCRIPTION-NAME>"
+
+# Set principal variable to the value from Azure portal
+principal="<MY-APIM-MANAGED-ID-PRINCIPAL-ID>"
+
+# Get the scope value of Cosmos DB account
+ 
+scope=$(
+    az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $cosmosName \
+        --subscription $subscriptionName \
+        --query id \
+        --output tsv
+)
+
+# List the built-in Cosmos DB roles
+# Currently, the roles aren't visible in the portal
+
+az cosmosdb sql role definition list \
+    --resource-group $resourceGroupName \
+    --account-name $cosmosName \
+    --subscription $subscriptionName \
+
+# Take note of the role you want to assign, such as "Cosmos DB Built-in Data Contributor"
+
+# Assign desired Cosmos DB role to managed identity
+# "Cosmos DB Built-in Data Contributor" is an example
+
+az cosmosdb sql role assignment create \
+    --resource-group $resourceGroupName \
+    --account-name $cosmosName \
+    --subscription $subscriptionName \
+    --role-definition-name "Cosmos DB Built-in Data Contributor" \
+    --principal-id $principal \
+    --scope $scope    
+```
 
 ## Examples
 
@@ -345,6 +410,119 @@ documents.azure.com:443/;
 </cosmosdb-data-source>
 ```
 
+### Construct parameter input for Cosmos DB query
+
+Cosmos DB supports [parameterized queries](../cosmos-db/nosql/query/parameterized-queries.md).
+
+The following examples show ways to construct parameterized queries using policy expressions. 
+
+#### Pass JSON object (JObject) from expression
+
+**Sample policy**
+
+```xml
+[...]
+<query-request>
+    <sql-statement>SELECT * FROM c where c.familyId =@param.id</sql-statement>
+    <parameters>
+        <parameter name="@param">@(context.GraphQL.Arguments["input"])</parameter>
+    </parameters>
+    </query-request>
+[...]
+```
+
+**Sample query**
+
+```json
+{
+    "query": "query { 
+        personsPersonParam(input: { id: \"3\" } { 
+        items { id firstName lastName } 
+        } 
+    }"
+}    
+```
+
+#### 1. Pass .NET input type (string, int, decimal, bool) from expression
+
+**Sample policy**
+
+```xml
+[...]
+<query-request>
+    <sql-statement>SELECT * FROM c where c.familyId =@param</sql-statement>
+    <parameters>
+        <parameter name="@param">@($"start.{context.GraphQL.Arguments["stringInput"]}")</parameter>
+    </parameters>
+</query-request>
+[...]
+```
+
+**Sample query**
+
+```json
+{
+    "query": "query { 
+        personsStringParam(stringInput: \"3\") { 
+        items { id firstName lastName } 
+        } 
+    }"
+}
+```
+
+#### 1. Pass JSON value (JValue) from expression
+
+**Sample policy**
+
+```xml
+[...]
+<query-request>
+    <sql-statement>SELECT * FROM c where c.familyId =@param</sql-statement>
+    <parameters>
+        <parameter name="@param">@(context.GraphQL.Arguments["stringInput"])</parameter>
+    </parameters>
+    </query-request>
+[...]
+```
+
+**Sample query**
+
+```json
+{
+"query": "query { 
+    { personsStringParam(stringInput: \"3\") { 
+        items { id firstName lastName } 
+        } 
+    }"
+}
+```
+
+#### 1. Pass raw stream from expression
+
+**Sample policy**
+
+```xml
+[...]
+<query-request>
+    <sql-statement>SELECT * FROM c where c.familyId =@param</sql-statement>
+    <parameters>
+      <parameter name="@param" type="raw">@("\""+context.GraphQL.Arguments["stringInput"].ToString()+"\"")</parameter>
+    </parameters>
+  </query-request>
+[...]
+```
+
+**Sample query**
+
+```json
+{
+"query": "query { 
+    { personsStringParam(stringInput: \"3\") { 
+        items { id firstName lastName } 
+        } 
+    }"
+}
+```
 
 ## Related policies
 
