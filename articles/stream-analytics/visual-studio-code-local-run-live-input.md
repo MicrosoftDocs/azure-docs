@@ -72,7 +72,7 @@ Once you have completed testing your query locally, you can submit your Stream A
 
 Once the submission process is complete, you can view your cloud job in a new window. From there, you can monitor its performance and manage its configurations as needed. You can also open the job in your browser by clicking on the link provided in the OUTPUT panel.
 
-![cloud-view-job](./media/vscode-local-run-live-input/cloud-view-job.png)
+![Cloud view job](./media/vscode-local-run-live-input/cloud-view-job.png)
 
 ## Next steps
 

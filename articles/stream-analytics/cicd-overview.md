@@ -23,7 +23,7 @@ Follow the steps to create a CI/CD pipeline for your Stream Analytics project:
    
     You can either create a new project or export an existing job to your computer using the ASA Tools extension for Visual Studio Code. Check out these two docs for more information:
     * [Quickstart: Create a Stream Analytics job using VSCode](./quick-create-visual-studio-code.md) 
-    * [Export an existing job](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project)
+    * [Export an existing job](visual-studio-code-explore-jobs.md)
 
 2. Commit your Stream Analytics project to your source control system, like a Git repository.
 
