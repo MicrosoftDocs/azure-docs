@@ -1,16 +1,16 @@
 ---
 author: karlerickson
-ms.author: caiqing
+ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 02/09/2022
+ms.date: 05/26/2022
 ---
 
 <!-- 
 Use the following line at the end of the heading Prerequisites, with blank lines before and after. Each quickstart should provide two tools for developers.
 
-[!INCLUDE [quickstart-tool-introduction](includes/quickstart-tool-introduction.md)]
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-event-driven-app/quickstart-tool-introduction.md)]
 
 -->
 

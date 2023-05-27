@@ -1,15 +1,15 @@
 ---
 author: karlerickson
-ms.author: xiada
+ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 05/26/2022
 ---
 
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
 
-[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-web-app/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-event-driven-app/clean-up-resources.md)]
 
 -->
 

@@ -1,10 +1,10 @@
 ---
 author: karlerickson
-ms.author: caiqing
+ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 02/09/2022
+ms.date: 05/26/2022
 ---
 
 <!-- 
@@ -13,6 +13,10 @@ For clarity of structure, a separate markdown file is used to describe how to de
 [!INCLUDE [deploy-event-driven-app-with-basic-standard-plan](includes/quickstart-deploy-event-driven-app/deploy-event-driven-app-with-basic-standard-plan.md)]
 
 -->
+
+## 2 Prepare Spring Project
+
+### [Azure portal](#tab/Azure-portal)
 
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
 

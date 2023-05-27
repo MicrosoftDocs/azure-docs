@@ -77,7 +77,7 @@ Diagram of Spring event-driven app architecture:
 
 ::: zone pivot="sc-standard"
 
-[!INCLUDE [quickstart-tool-introduction](includes/quickstart-tool-introduction.md)]
+[!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-event-driven-app/quickstart-tool-introduction.md)]
 
 ::: zone-end
 
@@ -107,7 +107,7 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 1. Confirm that there's a new message sent to the `upper-case` queue. For more information, see the [Peek a message](../service-bus-messaging/explorer.md#peek-a-message) section of [Use Service Bus Explorer to run data operations on Service Bus](../service-bus-messaging/explorer.md).
 
-[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-event-driven-app/clean-up-resources.md)]
 
 ## 7 Next steps
 
