@@ -23,15 +23,15 @@ To reuse the Key Vault instance creation steps in other articles, a separate mar
 
 1. Fill out the **Basics** form with the following information:
 
+   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png" alt-text="Screenshot of Azure portal showing Key Vault creation for basic tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png":::
+
    | Setting        |Suggested Value|Description|
-   |----------------|-----------------|----------|
+   |----------------|---------------|-----------|
    | Subscription   |Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.|
    | Resource group |*myresourcegroup*| A new resource group name or an existing one from your subscription.|
    | Key vault name |*mykeyvault*|A unique name that identifies your Key Vault service. |
    | Region         |The region closest to your users| The location that is closest to your users.|
    | Pricing tier   |*Standard*|Pricing Tier determines the resource and cost associated with your instance.|
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png" alt-text="Screenshot of Azure portal showing Key Vault creation for basic tab" lightbox="../../media/quickstart-deploy-event-driven-app/key-vault-creation-basic.png":::
 
 1. Navigate to the tab **Access configuration** on the key vault **Create** page, select `Vault access policy` for **Permission model**.
 
