@@ -45,11 +45,11 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/1-create-azure-spring-apps.png" alt-text="The Azure Spring Apps in menu":::
 
 1. Fill out the **Basics** form with the following information:
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/2-create-basics.png" alt-text="Create an Azure Spring Apps service":::
 
    | Setting        |Suggested Value|Description|
    |----------------|---------------|-----------|
@@ -72,11 +72,11 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/3-asa-notifications.png" alt-text="The Notifications pane for Azure Spring Apps Creation":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/3-asa-notifications.png" alt-text="The Notifications pane for Azure Spring Apps Creation":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
 
-1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* as **URI**, select **Validate**.
+1. Select **Config Server** in the left navigational menu, on the **Config Server** page, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* as **URI** and select **Validate**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of Azure portal showing config server for Azure Spring Apps instance" lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
@@ -110,7 +110,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
 
    > [!NOTE]
-   > Deployment to Azure Spring Apps can take up to 20 minutes.
+   > Deployment to Azure Spring Apps can take up to 25 minutes.
 
    After the command is executed, you can finally see a log similar to the following, indicating that all deployments are successful.
 
