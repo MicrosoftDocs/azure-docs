@@ -17,7 +17,7 @@ The Azure Stream Analytics extension (ASA) for Visual Studio Code gives you a se
 - List jobs and view job entities
 - View and debug job using **Job Diagram** and **Monitor**
 
-## Export a job to a local machine
+## Export job to local machine
 
 1. Open your VS Code and select **Azure** icon on the activity bar. If you haven't installed the ASA extension, follow [this guide](./quick-create-visual-studio-code.md) to install. 
 2. Select **STREAM ANALYTICS** in the explorer to locate the job you want to export. 
