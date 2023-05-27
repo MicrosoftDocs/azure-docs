@@ -207,6 +207,9 @@ Test setup:
 
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. The expected latency would be in the neighborhood of 160 ms, but is actually 189 ms. The difference in latency would seem to indicate a network issue somewhere. But the reality is the fiber line doesn't go to Brazil in a straight line. So you should expect an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
+>[!NOTE]
+>While these numbers should be taken into consideration, they were tested using AzureCT which is based in IPERF in Windows via PowerShell. In this scenario, IPERF does not honor default Windows TCP options for Scaling Factor, and uses a way lower Shift Count for the TCP Window size. The numbers represented here were performed using default IPERF values and are for general reference only. By tuning IPERF commands with "-w" switch and a big TCP Window size, better throughput can be obtained over long distances, showing significantly better throughput figures. Also, to ensure an ExpressRoute is using the full bandwidth, it's ideal to run the IPERF in multi threaded option from multiple machines simultaneously to ensure computing capacity is able to reach maximum link performance and is not limited by processing capacity of a single VM.
+
 ## Next steps
 
 - Download the [Azure Connectivity Toolkit](https://aka.ms/AzCT)
