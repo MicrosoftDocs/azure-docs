@@ -372,7 +372,39 @@ You also need to make sure that Microsoft Azure is in your company's allowlist. 
    - Public: https://www.microsoft.com/download/details.aspx?id=56519
    - US Gov: https://www.microsoft.com/download/details.aspx?id=57063 
    - Germany: https://www.microsoft.com/download/details.aspx?id=57064 
-   - China: https://www.microsoft.com/download/details.aspx?id=57062 
+   - China: https://www.microsoft.com/download/details.aspx?id=57062
+
+### Configure proxy server settings when using a Private Endpoint
+
+If your company's network architure involves the use of Private Endpoints and for some security reasons, and your company's policy does not allow direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL. You will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file which you can repeat for the diawp.exe.config file:
+
+1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config as a backup of the original file.
+1. Open Notepad running as administrator.
+1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
+1. Find the default **system.net** tag as shown in the following code:
+
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+
+    You can then add bypasslist details as shown in the following example:
+
+    ```xml
+    <system.net>
+      <defaultProxy>
+          <bypasslist>
+              <add address = "[adfresourcename].[adfresourcelocation].datafactory.azure.net" />
+          </bypasslist>
+          <proxy 
+          usesystemdefault="True"
+          proxyaddress="http://proxy.domain.org:8888/"
+          bypassonlocal="True"
+          />
+      </defaultProxy>
+  </system.net>
+    ```
 
 ### Possible symptoms for issues related to the firewall and proxy server
 
