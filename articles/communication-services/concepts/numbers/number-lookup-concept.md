@@ -42,7 +42,7 @@ The main benefits the solution will provide to ACS customers can be summarized o
 -  **Estimate the total cost of an SMS campaign before you launch it:** Get the current carrier of the target number and compare that with the list of known carrier surcharges.
 *Contoso, a marketing company, wants to launch a large SMS campaign to promote a product. Contoso checks the current carrier details for the different numbers he is targeting with this campaign to estimate the cost based on what ACS is charging him.*
 
-![Diagram showing call recording architecture using calling client sdk.](../numbers/MVP_Use_Case.png)
+![Diagram showing call recording architecture using calling client sdk.](../numbers/mvp-use-case.png)
 
 ## Next steps
 
