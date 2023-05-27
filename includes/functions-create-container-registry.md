@@ -66,15 +66,17 @@ You should be all set.
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:   
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-        ```console
-        func init --worker-runtime dotnet-isolated --docker
-        ```
+    &nbsp;
+    ```console
+    func init --worker-runtime dotnet-isolated --docker
+    ```  
+    &nbsp;
 ::: zone-end  
-    ::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript"  
     ```console
     func init --worker-runtime node --language javascript --docker
     ```
-    ::: zone-end    
+::: zone-end    
     ::: zone pivot="programming-language-powershell"   
     ```console
     func init --worker-runtime powershell --docker
