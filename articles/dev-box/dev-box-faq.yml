@@ -21,13 +21,21 @@ sections:
       - question: Which repository providers does Dev Box support?
         answer: Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery for Dev Box.  
                 For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)
-         
-          
-      - question: Example question # Question.
+
+      - question: Dev boxes that I create from my custom image take an hour to provision and up to 30 minutes to start. How do I make provisioning and startup faster? # Question.
         answer: |
-          A multiline or formatted answer to the question.
-          Use any markdown formatting you want, if you maintain the indent
-          on the lines after the | characters.
+          When you create a generalized VM to capture to an image, the following issues can impact provisioning and startup times:
+          1. Enable the Read/Write cache on the OS disk. 
+             To verify, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
+          2. Create the image using the following sysprep options: `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`.
+             This prevents a lengthy search for and installation of drivers during the first boot.
+          3. Enable nested virtualization in your base image.
+             - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**. 
+             - Or run the following PowerShell command, Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online 
+          4. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.   
+
+          For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
+      
 
 additionalContent: |
     ## Next steps
