@@ -65,10 +65,10 @@ You should be all set.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:   
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
-   ```console
-   func init --worker-runtime dotnet-isolated --docker
-   ```
+    ::: zone pivot="programming-language-csharp"  
+    ```console
+    func init --worker-runtime dotnet-isolated --docker
+    ```
     ::: zone-end  
     ::: zone pivot="programming-language-javascript"  
     ```console
@@ -88,7 +88,7 @@ You should be all set.
     ::: zone pivot="programming-language-typescript"  
     ```console
     func init --worker-runtime node --language typescript --docker
-    ```
+       ```
     ::: zone-end
 
 ::: zone pivot="programming-language-java"  
