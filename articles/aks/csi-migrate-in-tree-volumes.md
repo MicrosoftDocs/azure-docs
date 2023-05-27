@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 05/16/2023
+ms.date: 05/27/2023
 author: mgoedtel
 
 ---
@@ -39,7 +39,7 @@ The benefits of this approach are:
 * It's simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
-* No extra costs as the result of not having to create more objects such as disk, snapshots, etc.
+* No extra costs as the result of not having to create more Azure objects such as disk, snapshots, etc.
 
 The following are important considerations to evaluate:
 
@@ -361,7 +361,10 @@ Before proceeding, verify the following:
 
 ## Migrate File share volumes
 
-Migration from in-tree to CSI is supported by creating a static volume.
+Migration from in-tree to CSI is supported by creating a static volume:
+* No need to clean up original configuration using in-tree storage class.
+* Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
+* No extra costs as the result of not having to create any Azure objects such as file shares, etc.
 
 ### Migration
 
