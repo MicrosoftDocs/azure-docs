@@ -350,6 +350,8 @@
       href: set-up-cicd-pipeline.md
     - name: Set up a pipeline using GitHub Actions
       href: cicd-github-actions.md
+    - name: Deploy jobs with Bicep
+      href: cicd-deploy-with-bicep.md
     - name: Configure autoscale settings
       href: cicd-autoscale.md
   - name: Visual Studio Code
