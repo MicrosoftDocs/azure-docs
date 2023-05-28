@@ -35,7 +35,7 @@ ms.date: 05/28/2023
 - [Invoke SQL vulnerability assessment scan on user database](#invoke-sql-vulnerability-assessment-scan-on-user-database)
 - [Get SQL vulnerability assessment server setting](#get-sql-vulnerability-assessment-server-setting)
 - [Set SQL vulnerability assessment server setting](#set-sql-vulnerability-assessment-server-setting)
-- Remove SQL vulnerability assessment server setting
+- [Remove SQL vulnerability assessment server setting](#remove-sql-vulnerability-assessment-server-setting)
 
 ### Set SQL vulnerability assessment baseline on system database
 
