@@ -19,8 +19,6 @@ Azure Machine Learning designer is a drag-and-drop UI interface to build pipelin
 
 As shown in below GIF, you can build a pipeline visually by drag and drop your building blocks and connect them.
 
-![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
-
 :::image type="content" source="./media/concept-designer/designer-drag-and-drop.gif" alt-text="GIF of a building a pipeline in the designer." lightbox= "./media/concept-designer/designer-drag-and-drop.gif":::
 
 

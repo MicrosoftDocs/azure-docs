@@ -31,7 +31,7 @@ Azure Machine Learning designer is a drag-and-drop interface used to train and d
  - To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md). 
  - To learn about the components available in the designer, see the [Algorithm and component reference](../algorithm-module-reference/module-reference.md).
 
-![Azure Machine Learning designer example](../media/concept-designer/designer-drag-and-drop.gif)
+:::image type="content" source="../media/concept-designer/designer-drag-and-drop.gif" alt-text="GIF of a building a pipeline in the designer." lightbox= "../media/concept-designer/designer-drag-and-drop.gif":::
 
 The designer uses your Azure Machine Learning [workspace](../concept-workspace.md) to organize shared resources such as:
 
@@ -55,7 +55,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 + [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
-![Workflow diagram for training, batch inference, and real-time inference in the designer](../media/concept-designer/designer-workflow-diagram.png)
+:::image type="content" source="../media/concept-designer/designer-workflow-diagram.png" alt-text="Workflow diagram for training, batch inference, and real-time inference in the designer.":::
 
 ## Pipeline
 
@@ -88,9 +88,9 @@ A machine learning data asset makes it easy to access and work with your data. S
 
 A component is an algorithm that you can perform on your data. The designer has several components ranging from data ingress functions to training, scoring, and validation processes.
 
-A component may have a set of parameters that you can use to configure the component's internal algorithms. When you select a component on the canvas, the component's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual components in the designer. 
+A component may have a set of parameters that you can use to configure the component's internal algorithms. When you select a component on the canvas, the component's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual components in the designer.
 
-:::image type="content" source="../media/concept-designer/properties.png" alt-text="Component properties":::
+:::image type="content" source="../media/concept-designer/properties.png" alt-text="Screenshot showing the component properties.":::
 
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](../component-reference/component-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).

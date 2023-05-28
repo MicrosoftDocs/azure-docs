@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/22/2022
+ms.date: 05/27/2023
 ms.custom: designer, event-tier1-build-2022
 ---
 
@@ -23,9 +23,6 @@ This article introduces how to use the pipeline job page to debug machine learni
 > Items marked (preview) in this article are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-
 
 
 ## Using outline to quickly find a node
@@ -57,8 +54,6 @@ If your pipeline fails or gets stuck on a node, first view the logs.
     ![How to check node logs](media/how-to-debug-pipeline-failure/node-logs.gif)
 
     If you don't see those folders, this is due to the compute run time update isn't released to the compute cluster yet, and you can look at **70_driver_log.txt** under **azureml-logs** folder first.
-
-
 
 ## Compare different pipelines to debug failure or other unexpected issues (preview)
 
@@ -149,8 +144,6 @@ If you only updated node properties and changed nothing in the pipeline, then yo
 To share your comparison results select **Share** and copying the link. For example, you might find out that the dataset difference might of lead to the failure but you aren't a dataset specialist, you can share the comparison result with a data engineer on your team.
 
 :::image type="content" source="./media/how-to-debug-pipeline-failure/share.png" alt-text="Screenshot showing the share button and the link you should copy." lightbox= "./media/how-to-debug-pipeline-failure/share.png":::
-
-
 
 ## Next steps
 

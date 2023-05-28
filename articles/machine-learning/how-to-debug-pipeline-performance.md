@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 05/27/2023
 ms.custom: designer, pipeline UI
 ---
 # View profiling to debug pipeline performance issues (preview)
@@ -32,14 +32,12 @@ To enable this feature:
 1. On the Jobs page, select the job name and enter the job detail page.
 1. In the action bar, select **View profiling**. Profiling only works for root level pipeline. It will take a few minutes to load the next page.
 
-    ![Screenshot showing the pipeline at root level with the view profiling button highlighted.](./media/how-to-debug-pipeline-performance/view-profiling.png)
-
-   
+    :::image type="content" source="./media/how-to-debug-pipeline-performance/view-profiling.png" alt-text="Screenshot showing the pipeline at root level with the view profiling button highlighted." lightbox= "./media/how-to-debug-pipeline-performance/view-profiling.png":::
 
 1. After the profiler loads, you'll see a Gantt chart. By Default the critical path of a pipeline is shown. A critical path is a subsequence of steps that determine a pipeline job's total duration.
 
-    ![Screenshot showing the Gantt chart and the critical path.](./media/how-to-debug-pipeline-performance/critical-path.png)
-  
+    :::image type="content" source="./media/how-to-debug-pipeline-performance/critical-path.png" alt-text="Screenshot showing the Gantt chart and the critical path." lightbox= "./media/how-to-debug-pipeline-performance/critical-path.png":::
+
 1. To find the step that takes the longest, you can either view the Gantt chart or the table below it.
 
     In the Gantt chart, the length of each bar shows how long the step takes, steps with a longer bar length take more time. You can also filter the table below by "total duration". When you select a row in the table, it shows you the node in the Gantt chart too. When you select a bar on the Gantt chart it will also highlight it in the table.
@@ -48,8 +46,7 @@ To enable this feature:
 
     If you select the log icon next the node name it opens the detail page, which shows parameter, code, outputs, logs etc.
 
-    ![Screenshot highlighting the log icon and showing the detail page.](./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png)
-
+    :::image type="content" source="./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page." lightbox= "./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png":::
 
     If you're trying to make the queue time shorter for a node, you can change the compute node number and modify job priority to get more compute resources on this one.
 
@@ -86,7 +83,7 @@ Status and definitions:
 
 To export the table, select **Export CSV**.
 
-![screenshot show export csv in profiling](./media/how-to-debug-pipeline-performance/export-csv.png)
+:::image type="content" source="./media/how-to-debug-pipeline-performance/export-csv.png" alt-text="Screenshot show export csv in profiling." lightbox= "./media/how-to-debug-pipeline-performance/export-csv.png":::
 
 ## Next steps
 
