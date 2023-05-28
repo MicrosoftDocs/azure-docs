@@ -53,17 +53,11 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 
 1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
 
-1. In the **Plans** grid, select one or more subscriptions.
-
-   If you select multiple subscriptions, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.<!--TBD is this correct?-->
+1. In the **Plans** grid, select your subscription.
 
     If you don't see the subscription that you're looking for, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](../../../azure-portal/set-preferences.md).
 
-1. In the toolbar, select **Download on-premises management console activation file**. For example:
-
-   :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Screenshot that shows selecting multiple subscriptions." lightbox="../media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
-
-    The activation file downloads.
+1. In the toolbar, select **Download on-premises management console activation file**. The activation file downloads.
 
     [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
@@ -75,6 +69,12 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 > You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file.<!--IS THIS CORRECT?-->
 >
 > For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
+
+### Activation files for legacy OT plans
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes.
+
+Existing customers can continue to use any legacy OT plan until the end of that plan. If you're working with a legacy OT plan, and you select multiple subscriptions in the **Plans and pricing** page before downloading your activation file, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.<!--TBD is this correct?-->
 
 ## Deploy an SSL/TLS certificate
 
