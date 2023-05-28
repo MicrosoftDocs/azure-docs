@@ -49,7 +49,7 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 
 1. After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. In the message bar, select the **Take action** link.
 
-    An **Activation** dialog shows the number of monitored devices and licensed devices. Since you're just starting the deployment, both of these values should be **0**.<!---->TBD is this correct?
+    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.<!---->TBD is this correct?
 
 1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
 

@@ -38,7 +38,7 @@ For more information, see [Devices monitored by Defender for IoT](architecture.m
 
 ## Purchase a Defender for IoT license
 
-This procedure describes how to purchase Defender for IoT licenses in the Microsoft 365 Admin center.
+This procedure describes how to purchase Defender for IoT licenses in the Microsoft 365 admin center.
 
 **To purchase Defender for IoT licenses**:
 
@@ -52,6 +52,12 @@ This procedure describes how to purchase Defender for IoT licenses in the Micros
 
 1. Select **Buy**.
 
+## Add an OT plan to your Azure subscription
+
+This procedure describes how to add an OT plan for Defender for IoT in the Azure portal, based on the licenses you'd purchased in the [Microsoft 365 admin center](#purchase-a-defender-for-iot-license).
+
+**To add an OT plan in Defender for IoT**:
+
 1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
 
 1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
@@ -59,17 +65,46 @@ This procedure describes how to purchase Defender for IoT licenses in the Micros
    > [!NOTE]
    > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
 
-   The **Price plan** value is updated automatically to reflect your Microsoft 365 license.
+   The **Price plan** value is updated automatically to reflect your Microsoft 365 licenses.
 
-1. Select **Next** and review the details for licensed site, and then select **Save**.
+1. Select **Next** and review the details for any of your licensed sites. The details listed on the **Review and purchase** pane reflect any licenses you've purchased from the Microsoft 365 admin center.
+
+1. Do one or both of the following:
+
+    - Select the terms and conditions.
+    - If you're working with an on-premises management console, select **Download OT activation file (Optional)**.
+
+    When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally.
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. 
 
-## Cancel your license
+## Cancel a Defender for IoT plan
 
-When you choose to cancel a purchase or trial, users with licenses lose access to the product. The user who originally signed up for the purchase or trial subscription receives an email that says the subscription was canceled.
+You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a different subscription, or if you no longer need the service.
 
-For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
+> [!IMPORTANT]
+> Canceling a plan removes all Defender for IoT services from the subscription, including both OT and Enterprise IoT services. If you have an Enterprise IoT plan on your subscription, do this with care.
+>
+> To cancel only an Enterprise IoT plan, do so from Microsoft 365. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
+>
+
+**Prerequisites**: Before canceling your plan, make sure to delete any sensors that are associated with the subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+
+**To cancel a Defender for IoT plan for OT networks**:
+
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
+
+1. On the subscription row, select the options menu (**...**) at the right and select **Cancel plan**.
+
+1. In the cancellation dialog, select **I agree** to cancel the Defender for IoT plan from the subscription.
+
+   Your changes take effect one hour after confirmation.
+
+1. To change your billed licenses, make sure to cancel your Defender for IoT license from the Microsoft 365 admin center.
+
+   When you choose to cancel a purchase or trial, users with licenses lose access to the product. The user who originally signed up for the purchase or trial subscription receives an email that says the subscription was canceled.
+
+   For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
 
 ## Legacy procedures for plan management in the Azure portal
 
@@ -103,30 +138,6 @@ You might need to edit your plan to change your plan commitment or update the nu
 1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 Changes to your plan will take effect one hour after confirming the change. This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
-
-### Cancel a legacy Defender for IoT plan
-
-You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a new payment entity, or if you no longer need the service.
-
-> [!IMPORTANT]
-> Canceling a plan removes all Defender for IoT services from the subscription, including both OT and Enterprise IoT services. If you have an Enterprise IoT plan on your subscription, do this with care.
->
-> To cancel only an Enterprise IoT plan, do so from Microsoft 365. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
->
-
-**Prerequisites**: Before canceling your plan, make sure to delete any sensors that are associated with the subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
-
-**To cancel a Defender for IoT plan for OT networks**:
-
-1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
-
-1. On the subscription row, select the options menu (**...**) at the right and select **Cancel plan**.
-
-1. In the cancellation dialog, select **I agree** to cancel the Defender for IoT plan from the subscription.
-
-Your changes take effect one hour after confirmation. This change will be reflected in your upcoming monthly statement, and you'll only be charged for the time that the subscription was active.
-
-
 
 ## Next steps
 
