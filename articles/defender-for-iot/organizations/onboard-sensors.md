@@ -82,6 +82,18 @@ Until you activate your sensor, the sensor's status will show as **Pending Activ
 >
 > If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and an on-premises management console to manage locally-managed sensors.
 
+### Onboarding a sensor to a legacy OT plan
+
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes.
+
+Existing customers can continue to use any legacy OT plan until the end of that plan. If you're working with a legacy OT plan, the sensor onboarding wizard has the following changes:
+
+- **Sensor version**: This option is displayed only when the **Cloud connected** option is toggled on. Select the software version installed on your sensor. Verify that version **22.X and above** is selected. 
+
+- **Site**: When creating a new site, you're not requested to select a site size.
+
+For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses) and our [TechCommunity blog](https://aka.ms/TransitiontoSite-basedEntitlementSKUs).
+
 ## Next steps
 
 > [!div class="step-by-step"]

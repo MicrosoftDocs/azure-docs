@@ -24,13 +24,13 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### OT plans billed by site-based licenses
 
-Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 Admin center](https://admin.microsoft.com/Adminportal/Home).
+Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home).
 
-Licenses are available for individual sites, based on the sizes of those respective sites. A site is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
+Licenses are available for individual sites, based on the sizes of those respective sites. A trial license is also available for 60 days and covers 1,000 devices.
 
-- A trial license is available for 60 days, using a *Large* license size, which covers 1,000 devices.
+When you onboard a new sensor and assign it to a site and zone, you're now requested to use or create a site that's based on your licensed site sizes. <!--what does this look like for legacy customers?-->
 
-- Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of their plan. However, existing customers cannot add any new plans in the Azure portal.
+Existing customers can continue to use any legacy OT plan they have and edit details in the Azure portal until the end of their plan. However, existing customers cannot add any new plans in the Azure portal. <!--can they continue to onboard new sensors to that plan-->
 
 For more information, see:
 
@@ -38,6 +38,11 @@ For more information, see:
 - [Defender for IoT subscription billing](billing.md)
 - [Start a Microsoft Defender for IoT trial](getting-started.md)
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
+- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+
+> [!TIP]
+> A Defender for IoT *site* is a physical location, such as a facility, campus, office building, hospital, rig, and so on. Each site can contain any number of network sensors, which identify devices across detected network traffic.
+>
 
 ## May 2023
 
