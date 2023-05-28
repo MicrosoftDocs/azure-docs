@@ -4,14 +4,14 @@ description: Learn how to use the Azure CLI to create and Azure Active Directory
 author: TomGeske
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 11/11/2021
+ms.date: 05/28/2023
 ms.author: miwithro
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
 
 > [!WARNING]
-> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on June 1st, 2023.
+> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on June 1st, 2023. At that time, no new clusters can be created with Azure AD Inntegration (legacy). All Azure AD Integration (legacy) AKS clusters will be migrated to AKS-managed Azure AD automatically starting from August 1st, 2023.
 >
 > AKS has a new improved [AKS-managed Azure AD][managed-aad] experience that doesn't require you to manage server or client applications. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
