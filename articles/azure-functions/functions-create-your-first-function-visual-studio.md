@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contpe
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that run on .NET 6 [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions, such as .NET 6. When creating your project, you can choose to instead create a function that runs on .NET 6 in an [isolated worker process](dotnet-isolated-process-guide.md). [Isolated worker process](dotnet-isolated-process-guide.md) supports both LTS and Standard Term Support (STS) versions of .NET. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions) in the .NET Functions isolated worker process guide.
+By default, this article shows you how to create C# functions that run on .NET 6 in an [isolated worker process](dotnet-isolated-process-guide.md). Function apps that run in an isolated worker process are supported on all versions of .NET that are supported by Functions. For more information, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
 In this article, you learn how to:
 
@@ -40,28 +40,16 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. In **Configure your new project**, enter a **Project name** for your project, and then select **Next**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters. 
 
-1. In **Additional information** choose from one of the following options for **Functions worker**:
-
-    | Option | .NET version | Process model | Description |
-    | --- | --- | --- |  --- |
-    | **.NET 6.0 (Long Term Support)** | .NET 6 | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
-    | **.NET 6.0 Isolated (Long Term Support)** | .NET 6 | [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
-    | **.NET 7.0 Isolated** | .NET 7 | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
-    | **.NET Framework Isolated v4** |  .NET Framework 4.8 | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
-    | **.NET Core 3.1 (Long Term Support)** |  .NET Core 3.1 | [In-process](functions-dotnet-class-library.md) | .NET Core 3.1 is no longer a supported version of .NET and isn't supported by Functions version 4.x. Use .NET 6.0 instead.  |
-    | **.NET Framework v1** | .NET Framework | [In-process](functions-dotnet-class-library.md) | Choose this option when your functions need to use libraries only supported on older versions of .NET Framework. Requires version 1.x of the Functions runtime. |
-
-    The two process models use different APIs, and each process model uses a different template when generating the function project code. If you don't see options for .NET 6.0 and later .NET runtime versions, you may need to [update your Azure Functions tools installation](https://developercommunity.visualstudio.com/t/Sometimes-the-Visual-Studio-functions-wo/10224478?).
-
-1. For the remaining **Additional information** settings, use the values in the following table:
+1. For the remaining **Additional information** settings, 
      
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
+    | **Functions worker** | **.NET 6.0 Isolated (Long Term Support)** | Your functions run on .NET 6 in an isolated worker process. | 
     | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
     
-     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Screenshot of Azure Functions project settings.":::
+     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4-isolated.png" alt-text="Screenshot of Azure Functions project settings.":::
     
     Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](./functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint in Azure.
 
@@ -81,15 +69,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 Your function definition should now look like the following code:
 
-# [In-process](#tab/in-process) 
-
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
-
-# [Isolated process](#tab/isolated-process)
-
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
-
---- 
 
 Now that you've renamed the function, you can test it on your local computer.
 
@@ -137,23 +117,10 @@ You created Azure resources to complete this quickstart. You may be billed for t
 
 In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function. 
 
-The next article depends on your chosen process model.
-
-# [In-process](#tab/in-process) 
-
-To learn more about working with C# functions that run in-process with the Functions host, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md). 
-
-Advance to the next article to learn how to add an Azure Storage queue binding to your function:
-> [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=in-process)
-
-# [Isolated process](#tab/isolated-process)
-
 To learn more about working with C# functions that run in an isolated worker process, see the [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md). Check out [.NET supported versions](functions-dotnet-class-library.md#supported-versions) to see other versions of supported .NET versions in an isolated worker process.
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
 > [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=isolated-process)
 
----
 

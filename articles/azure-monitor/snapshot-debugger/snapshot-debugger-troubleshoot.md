@@ -329,3 +329,7 @@ If you still don't see an exception with that snapshot ID, then the exception re
 If your application connects to the Internet via a proxy or a firewall, you may need to update the rules to communicate with the Snapshot Debugger service.
 
 The IPs used by Application Insights Snapshot Debugger are included in the Azure Monitor service tag. For more information, see [Service Tags documentation](../../virtual-network/service-tags-overview.md).
+
+## Are there any billing costs when using snapshots?
+
+There are no charges against your subscription specific to Snapshot Debugger. The snapshot files collected are stored separately from the telemetry collected by the Application Insights SDKs and there are no charges for the snapshot ingestion or storage. 

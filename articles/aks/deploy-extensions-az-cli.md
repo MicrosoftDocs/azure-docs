@@ -45,7 +45,7 @@ Before you begin, read about [cluster extensions](cluster-extensions.md).
 Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. This example command creates an Azure Machine Learning extension instance on your AKS cluster:
 
 ```azurecli
-az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True
+az k8s-extension create --name azureml --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True inferenceRouterServiceType=LoadBalancer
 ```
 
 This example command creates a sample Kubernetes application (published on Marketplace) on your AKS cluster:

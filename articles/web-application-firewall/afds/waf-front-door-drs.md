@@ -1097,3 +1097,4 @@ Bot300600 scans both client IP addresses and IPs in the X-Forwarded-For header.
 ## Next steps
 
 - [Custom rules for Web Application Firewall with Azure Front Door](waf-front-door-custom-rules.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)
