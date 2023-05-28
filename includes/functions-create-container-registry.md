@@ -62,32 +62,45 @@ You should be all set.
 
 ## Create and test the local functions project
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:   
+::: zone pivot="programming-language-csharp"  
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+
+    ```console
+      func init --worker-runtime dotnet-isolated --docker
+    ```  
 
 ::: zone-end  
-  ::: zone pivot="programming-language-csharp"  
-      func init --worker-runtime dotnet-isolated --docker
-  ::: zone-end  
-  ::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript"  
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+
     ```console
     func init --worker-runtime node --language javascript --docker
     ```
-  ::: zone-end    
-::: zone pivot="programming-language-powershell"   
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+
     ```console
     func init --worker-runtime powershell --docker
     ```
+
 ::: zone-end  
-::: zone pivot="programming-language-python"   
+::: zone pivot="programming-language-python" 
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+  
     ```console
     func init --worker-runtime python --docker
     ```
+
 ::: zone-end  
-::: zone pivot="programming-language-typescript"  
+::: zone pivot="programming-language-typescript" 
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+
     ```console
     func init --worker-runtime node --language typescript --docker
        ```
+
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 
