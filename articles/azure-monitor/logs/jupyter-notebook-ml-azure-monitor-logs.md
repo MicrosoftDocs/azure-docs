@@ -95,23 +95,23 @@ import sys
 
     This code sets up `LogsQueryClient` to authenticate using `DefaultAzureCredential`:
     
-        ```python
-        from azure.core.credentials import AzureKeyCredential
-        from azure.core.pipeline.policies import AzureKeyCredentialPolicy
-        from azure.identity import DefaultAzureCredential
-        from azure.monitor.query import LogsQueryClient
+    ```python
+    from azure.core.credentials import AzureKeyCredential
+    from azure.core.pipeline.policies import AzureKeyCredentialPolicy
+    from azure.identity import DefaultAzureCredential
+    from azure.monitor.query import LogsQueryClient
+    
+    if LOGS_WORKSPACE_ID == "DEMO_WORKSPACE":
+        credential = AzureKeyCredential("DEMO_KEY")
+        authentication_policy = AzureKeyCredentialPolicy(name="X-Api-Key", credential=credential)
+    else:
+        credential = DefaultAzureCredential()
+        authentication_policy = None
         
-        if LOGS_WORKSPACE_ID == "DEMO_WORKSPACE":
-            credential = AzureKeyCredential("DEMO_KEY")
-            authentication_policy = AzureKeyCredentialPolicy(name="X-Api-Key", credential=credential)
-        else:
-            credential = DefaultAzureCredential()
-            authentication_policy = None
-            
-        logs_query_client = LogsQueryClient(credential, authentication_policy=authentication_policy)
-        ```
+    logs_query_client = LogsQueryClient(credential, authentication_policy=authentication_policy)
+    ```
 
-    `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to query the [demo workspace](https://learn.microsoft.com/azure/azure-monitor/logs/api/access-api#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
+    `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to [query the demo workspace](../logs/api/access-api.md#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
 
 1. Define helper functions that we'll use throughout the notebook.
 
