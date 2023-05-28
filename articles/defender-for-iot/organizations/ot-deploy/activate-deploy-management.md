@@ -49,13 +49,13 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 
 1. After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. In the message bar, select the **Take action** link.
 
-    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.<!---->TBD is this correct?
+    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.<!--TBD is this correct?-->
 
 1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
 
 1. In the **Plans** grid, select one or more subscriptions.
 
-   If you select multiple subscriptions, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.<!---->TBD is this correct?
+   If you select multiple subscriptions, the activation file is associated with all selected subscriptions and the number of devices licensed defined at the time of download.<!--TBD is this correct?-->
 
     If you don't see the subscription that you're looking for, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](../../../azure-portal/set-preferences.md).
 
@@ -72,7 +72,7 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
     A confirmation message appears to confirm that the file's been uploaded successfully.
 
 > [!NOTE]
-> You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file.<!---->IS THIS CORRECT?
+> You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file.<!--IS THIS CORRECT?-->
 >
 > For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 

@@ -33,7 +33,7 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 1. In the **Microsoft Defender for IoT** box, select **Details** and then select your license size, depending on the number of devices in your site.
 
-1. A trial license is limited to a single license. Keep the default **1** license defined for the number of licenses.
+1. A trial license is limited to a single license. Keep the default **1** license defined for the number of licenses. <!--haven't validated this-->
 
 1. Select **Start free trial**.
 
@@ -47,14 +47,14 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
 
-   > [!NOTE]
+   > [!TIP]
    > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
 
    The **Price plan** value is updated automatically to reflect your Microsoft 365 license.
 
-1. Select **Next** and review the details for your licensed site. The details listed on the **Review and purchase** pane reflect any licenses you've purchased from the Microsoft 365 admin center.
+1. Select **Next** and review the details for your licensed site. The details listed on the **Review and purchase** pane reflect any licenses you've obtained from the Microsoft 365 admin center.
 
-1. Select the terms and conditions, and then select **Save**. 
+1. Select the terms and conditions, and then select **Save**.
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
