@@ -1,5 +1,5 @@
 ---
-title: Express configuration powershell commands reference
+title: Express configuration PowerShell commands reference
 description: In this article, you can review the Express configuration PowerShell commands reference and copy example scripts to use in your environments.
 ms.topic: sample
 author: ElazarK

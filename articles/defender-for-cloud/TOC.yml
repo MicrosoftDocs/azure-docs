@@ -517,10 +517,10 @@
               href: powershell-sample-vulnerability-assessment-azure-sql.md
             - name: Example Azure express configuration powershell commands reference
               href: express-configuration-powershell-commands.md
-            - name: Example Azure Powershell commands library
-              href: express-configuration-azure-powershell-commands.md
           - name: Azure CLI examples
             items:
+            - name: Example express configuration Azure CLI commands
+              href: express-configuration-azure-commands.md
             - name: Example Azure CLI express configuration commands reference
               href: express-configuration-cli-commands.md
         - name: Find and remediate vulnerabilities
