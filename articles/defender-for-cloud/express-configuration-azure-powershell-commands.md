@@ -269,7 +269,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
   }
 ```
 
-## Get SQL vulnerability assessment baseline rule on system database
+### Get SQL vulnerability assessment baseline rule on system database
 
 ```azurecli
 az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview --uri-parameters systemDatabaseName=master
@@ -421,7 +421,7 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-## Remove SQL vulnerability assessment baseline rule on user database
+### Remove SQL vulnerability assessment baseline rule on user database
 
 ```azurecli
 az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/default/baselines/default/rules/$RuleId?api-version=2022-02-01-preview
