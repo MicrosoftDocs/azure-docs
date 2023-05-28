@@ -40,4 +40,5 @@ If you don't see results from your clusters, check the following:
 We suggest that you rerun the cluster to solve this issue.
 
 ## Next Steps
- Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+ - Learn how to [view and remediate vulnerability assessment findings for registry images and running images](view-and-remediate-vulnerability-assessment-findings.md).
+ - Lear how to [create exemption rules](create-exemption-rule.md)for a resource or subscription.
