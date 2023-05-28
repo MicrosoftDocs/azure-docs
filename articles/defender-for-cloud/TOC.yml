@@ -509,7 +509,7 @@
           items:
           - name: Manage findings in your Azure SQL databases
             href: sql-azure-vulnerability-assessment-manage.md
-          - name: Powerhsell examples
+          - name: PowerShell examples
             items:
             - name: Set up baselines for vulnerability assessments on Azure SQL databases
               href: powershell-sample-vulnerability-assessment-baselines.md
